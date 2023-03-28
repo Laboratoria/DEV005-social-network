@@ -1,12 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Delicious+Handrawn&family=Iceland&family=Roboto:ital,wght@1,700&family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>Mascoteando</title>
 </head>
 <body>
+  <section>
+    <div class="contenedorLogo">
+      <img class="imgLogo" src="img/logo.png" alt="logo">
+    </div>
+  </section>
+  <main>
+    <form>
+      <div class="contenedorInput">
+        <input type="text" class="correo" id="correo" placeholder="Correo electrónico">
+        <input type="text" class="clave" id="clave" placeholder="Contraseña">
+        <button class="btnInicio" id="btnInicio">Iniciar sesión</button>
+        <button class="btnGoogle" id="btnGoogle">Continuar con google</button>
+        <button class="btnRegistro" id="btnRegistro">Registro</button>
+      </div>
+    </form>
+  </main>
+  <footer>©️ C o p y r i g h t , 2023 - Proyecto Social Network (Mayra Garcia - Andreyna Navas - Sandra Tabares) DEV005 - Laboratoria</footer>
+  <script type="module" src="configFirebase.js"></script>
   <script type="module" src="main.js"></script>
 </body>
+
 </html>

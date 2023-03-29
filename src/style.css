@@ -27,7 +27,7 @@ section .contenedorLogo {
 }
 
 main {
-    margin-top: 30px;
+    margin-top: 20px;
     display: flex;
     *background-color: #31e331;
     align-items: center;
@@ -35,26 +35,81 @@ main {
 }
 
 form {
+    
     border-radius: 20px;
     margin: o auto;
-    background-color: #E39131;
+    background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 250px;
+    height: 300px;
     width: 350px;
 }
 
+/*Reposo*/
 .contenedorInput {
-    margin-top: 35px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 240px;
-    height: 230px;
+    margin-bottom: 20px;
+    padding-top: 10px;
+   }
+
+span, input {
+    font: 16px/16px 'Kalam';
+    padding: 0;
 }
 
+label {
+    margin-top: 15px;
+    width: 300px;
+    background-color: white;
+    display: block;
+    border: 2px solid silver;
+    padding: 8px 10px;
+    position: relative;
+    box-sizing: border-box;
+    border-radius: 6px;
+    transition: .25s;
+}
+
+label input {
+    
+    display: block;
+    width: 100%;
+    border: none;
+    background: white;
+    outline: none;
+}
+
+label span {
+    color: silver;
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    transition: .25s;
+}
+
+/* focus */
+label.focus {
+    border-color: black;
+
+}
+
+label span.focus {
+    color: black;
+}
+
+/* Top */
+label span.top {
+    left: 2px;
+    top: -10px;
+    font-size: 12px;
+    background:white;
+    border-color: black;
+    border-radius: 5px 5px 0 0;
+    padding: 0 5px;
+}
+
+/*
 .correo, .clave {
     padding-left: 10px;
     font-family: 'Kalam', cursive;
@@ -66,9 +121,9 @@ form {
 .clave {
     margin-bottom: 15px;
 }
-
-.btnInicio, .btnGoogle , .btnRegistro {
-    
+*/
+.btnInicio, .btnGoogle  {
+    margin-bottom: 15px;
     display: flex;
     justify-content: center;
     align-self: center;
@@ -81,12 +136,17 @@ form {
 }
 
 .btnGoogle {
+    margin-bottom: 25px;
     background-color: #e5e1f9;
     color: black;
 }
 
 .btnRegistro {
-    background-color: #02DAFF;
+    border-radius: 8px;
+    margin-left: 10px;
+    padding: 2px 10px;
+    font-family: 'Kalam', cursive;
+    font-weight: bold;
     color: black;
 }
 

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
+
 * {
     padding: 0;
     margin: 0;
@@ -5,12 +7,12 @@
 }
 
 body {
-
-    font-family: 'Delicious Handrawn';
+    font-family: 'Kalam', cursive;
+    background-image: url(img/background2.jpg);
 }
 
 section .contenedorLogo {
-    margin-top: 60px;
+    margin-top: 40px;
     display: flex;
     justify-content: center;
     *background-color: aqua;
@@ -25,7 +27,7 @@ section .contenedorLogo {
 }
 
 main {
-    margin-top: 40px;
+    margin-top: 30px;
     display: flex;
     *background-color: #31e331;
     align-items: center;
@@ -54,10 +56,19 @@ form {
 }
 
 .correo, .clave {
+    padding-left: 10px;
+    font-family: 'Kalam', cursive;
+    border: none;
     border-radius: 5px;
+    height: 25px ;
+}
+
+.clave {
+    margin-bottom: 15px;
 }
 
 .btnInicio, .btnGoogle , .btnRegistro {
+    
     display: flex;
     justify-content: center;
     align-self: center;
@@ -66,6 +77,7 @@ form {
     color: white;
     width: 180px;
     height: 25px;
+    font-family: 'Kalam', cursive;
 }
 
 .btnGoogle {
@@ -82,7 +94,7 @@ form {
 
 footer {
     width: 100%;
-    font-size: 18px;
+    font-size: 12px;
     color: rgb(56, 54, 54);
     background-color: #bcb4e7;
     align-items: flex-end;

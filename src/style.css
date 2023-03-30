@@ -1,0 +1,33 @@
+body {
+    background: rgb(122,91,216);
+    background: linear-gradient(180deg, rgba(122,91,216,1) 1%, rgba(154,131,192,1) 89%);
+    background-repeat:no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+/*Media Query Celular*/
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px){
+    header{
+        display: flex;
+        flex-direction: column;
+       
+    }
+    h1{
+        color: white;
+        font-family: ;
+        display: flex;
+        justify-content: center;
+    
+    }
+
+
+
+
+
+
+
+
+
+
+}

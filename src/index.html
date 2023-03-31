@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation&family=Josefin+Sans&family=Neucha&family=Varela+Round&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation&family=Josefin+Sans&family=Montserrat:wght@500&family=Neucha&family=Varela+Round&display=swap" rel="stylesheet">
+
   <title>Sister Voyage</title>
 </head>
 <body>
@@ -16,12 +23,15 @@
   
   <main>
     <h2>Iniciar sesión</h2>
-    <section>
-      <label for="email">Correo electronico:<input type="email"></label>
-      <label for="password">Contaseña:</label><input type="password"></label>
-      <button id="login">Ingresa</button>
+    <section id="passAndEm">
+      <label for="email" class="cEmail">Correo electronico:
+      <input  type="email" id="email" ></label>
+      <label for="password" class="cPassword">Contaseña:
+      <input type="password" id="password"></label>
+    
     </section>
-    <section>
+    <section id="register">
+      <button id="login">Ingresa</button>
       <p>¿Eres nueva? </p>
       <a href="">Registrate</a>
       <a href=""><img src="./img/2000px-Google_G_Logo.svg_.png" alt="google logo" width="30px"></a>

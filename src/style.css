@@ -51,7 +51,7 @@ body::before {
         padding: 5%;
 
     }
-    #register{
+    #register, #login{
         display: flex;
         flex-direction: column;
     
@@ -60,17 +60,18 @@ body::before {
         margin-bottom: 5%;
         margin-top: 20%;
     }
-    #email, #password{
+
+    #email, #password, #user{
         border-radius: 12px;
         padding: 3%;
         width: 80%;
         margin-left: 10%;  
     }
 
-    .cEmail, .cPassword{
+    .cEmail, .cPassword, .CUser{
     padding: 3%;
     }
-    #login{
+    #btn-login, #btn-register{
         width: 80%;
         background-color: #655DBB;
         border-radius: 20px;
@@ -95,13 +96,5 @@ body::before {
         background-color: aliceblue;
         border-radius: 50%;
     }
-
-
-
-
-
-
-
-
 
 }

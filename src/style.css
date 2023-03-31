@@ -4,6 +4,22 @@ body {
     background-repeat:no-repeat;
     background-attachment: fixed;
     background-size: cover;
+
+}
+
+body::before {
+    margin: 0%;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(img/logosinletras.png);
+    background-size:cover;
+    background-position: center;
+    opacity: 0.10;
+    z-index: -1;
 }
 /*Media Query Celular*/
 
@@ -11,14 +27,13 @@ body {
     header{
         display: flex;
         flex-direction: column;
-       
     }
     h1,h2{
         color: white;
         font-family:'Edu NSW ACT Foundation', cursive; ;
         display: flex;
         justify-content: center;
-    
+
     }
     body{
         color: white;
@@ -28,36 +43,32 @@ body {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        background-color: rgba(7, 1, 1, 0.116);
+        background-color: rgba(7, 1, 1, 0.22);
         border-radius: 10px;
-        margin-left: 10%;
-        margin-right: 10%;
+        margin-left: 6%;
+        margin-right: 6%;
         margin-bottom: 5%;
-        
-       
+        padding: 5%;
 
     }
-     #register{
+    #register{
         display: flex;
-        flex-wrap: wrap;
+        flex-direction: column;
     
         margin-left: 10%;
         margin-right: 10%;
         margin-bottom: 5%;
         margin-top: 20%;
-      
     }
     #email, #password{
-       border-radius: 12px;
-       padding: 3%;
-       width: 80%;
-       margin-left: 10%;  
+        border-radius: 12px;
+        padding: 3%;
+        width: 80%;
+        margin-left: 10%;  
     }
 
     .cEmail, .cPassword{
     padding: 3%;
-
-      
     }
     #login{
         width: 80%;
@@ -65,13 +76,26 @@ body {
         border-radius: 20px;
         color: white;
         padding: 3%;
+        margin: 0 auto;
+        font-size: medium;
+    }
+    p {
+        margin: 0 auto;
+        margin-top: 10%;
+        margin-bottom: 5%;
+    }
+    a {
+        margin: 0 auto;
+        margin-bottom: 5%;
+        color: white;
+    }
+    #google-Logo {
+        width: 40px;
+        padding: 10%;
+        background-color: aliceblue;
+        border-radius: 50%;
+    }
 
-         }
-        
-    
-    
-
-   
 
 
 

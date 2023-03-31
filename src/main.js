@@ -1,5 +1,16 @@
-// Este es el punto de entrada de tu aplicacion
+// Mostrar o esconder labels
+const inputs = document.getElementsByClassName('inp-signin');
 
-import { myFunction } from './lib/index.js';
+Array.from(inputs).forEach((input) => {
+  const label = document.querySelector(`label[for="${input.id}"]`);
 
-myFunction();
+  input.addEventListener('click', () => {
+    label.classList.add('active');
+  });
+
+  input.addEventListener('blur', () => {
+    if (input.value === '') {
+      label.classList.remove('active');
+    }
+  });
+});

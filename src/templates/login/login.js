@@ -1,9 +1,3 @@
-// Este es el punto de entrada de tu aplicacion
-
-// import { initializeApp } from "../node_modules/firebase/app";
-
-// Initialize Firebase
-// const app = initializeApp(firebaseConfig);
 
 // import { myFunction } from './lib/index.js';
 
@@ -33,3 +27,9 @@ const btn = document.getElementById('btnRegistro');
 btn.addEventListener('click', () => {
   window.location.pathname = '/registro';
 });
+
+export const txtCorreo = document.querySelector('#correo');
+export const txtClave = document.querySelector('#clave');
+
+export const btnInicio = document.querySelector('#btnInicio');
+export const btnRegistro = document.querySelector('#btnRegistro');

@@ -10,7 +10,7 @@
 // myFunction();
 
 // Función de efecto input
-const inputs = document.querySelectorAll('input');
+export const inputs = document.querySelectorAll('input');
 inputs.forEach((input) => {
   input.onfocus = () => {
     input.previousElementSibling.classList.add('top');
@@ -19,6 +19,7 @@ inputs.forEach((input) => {
   };
   input.onblur = () => {
     input.value = input.value.trim();
+    // eslint-disable-next-line eqeqeq
     if (input.value.trim().length == 0) {
       input.previousElementSibling.classList.remove('top');
     }
@@ -28,9 +29,7 @@ inputs.forEach((input) => {
   };
 });
 
-const btn = document.getElementById("btnInicio")
+const btn = document.getElementById('btnRegistro');
 btn.addEventListener('click', () => {
-    window.location.pathname = "/home"
-})
-
-
+  window.location.pathname = '/registro';
+});

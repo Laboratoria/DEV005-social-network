@@ -13,15 +13,65 @@ body {
         flex-direction: column;
        
     }
-    h1{
+    h1,h2{
         color: white;
-        font-family: ;
+        font-family:'Edu NSW ACT Foundation', cursive; ;
         display: flex;
         justify-content: center;
     
     }
+    body{
+        color: white;
+        font-family: 'Montserrat', sans-serif;
+    }
+    #passAndEm{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        background-color: rgba(7, 1, 1, 0.116);
+        border-radius: 10px;
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-bottom: 5%;
+        
+       
 
+    }
+     #register{
+        display: flex;
+        flex-wrap: wrap;
+    
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-bottom: 5%;
+        margin-top: 20%;
+      
+    }
+    #email, #password{
+       border-radius: 12px;
+       padding: 3%;
+       width: 80%;
+       margin-left: 10%;  
+    }
 
+    .cEmail, .cPassword{
+    padding: 3%;
+
+      
+    }
+    #login{
+        width: 80%;
+        background-color: #655DBB;
+        border-radius: 20px;
+        color: white;
+        padding: 3%;
+
+         }
+        
+    
+    
+
+   
 
 
 

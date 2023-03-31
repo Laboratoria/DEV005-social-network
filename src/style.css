@@ -5,3 +5,27 @@ body {
     background-attachment: fixed;
     background-size: cover;
 }
+/*Media Query Celular*/
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px){
+    header{
+        display: flex;
+        flex-direction: column;
+    }
+    h1{
+        color: white;
+        display: flex;
+        justify-content: center;
+
+    }
+
+
+
+
+
+
+
+
+
+
+}

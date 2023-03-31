@@ -1,43 +1,18 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Kalam&display=swap" rel="stylesheet">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Mascoteando</title>
-</head>
-<body>
-  <section>
-    <div class="contenedorLogo">
-      <img class="imgLogo" src="img/logo.png" alt="logo">
-    </div>
-  </section>
-  <main>
-    <form action="#" method="post">
-      <div class="contenedorInput">
-        <label>
-          <span>Correo electrónico</span>
-          <input type="email" autocomplete="off" name="correo" class="correo" id="correo">
-        </label>
-        <label>
-          <span>Contraseña</span>
-          <input type="password" class="clave" id="clave">
-        </label>  
-        
-      </div>   
-        <button class="btnInicio" id="btnInicio">Iniciar sesión</button>
-        <button class="btnGoogle" id="btnGoogle"> <img class="logoGoogle" src="./img/logogoogle.png" alt="Logo Google"></img>Continuar con google</button>
-        
-        <p class="textRegistro">Si no tienes cuenta -><button class="btnRegistro" id="btnRegistro">Registrate</button></p>
-        
-      
-    </form>
-  </main>
-  <footer>©️ C o p y r i g h t , 2023 - Proyecto Social Network (Mayra Garcia - Andreyna Navas - Sandra Tabares) DEV005 - Laboratoria</footer>
-  <script type="module" src="configFirebase.js"></script>
-  <script type="module" src="main.js"></script>
-</body>
+   <head>
+      <script type="module" src="router/routeConfig.js"></script>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <link rel="stylesheet" href="style.css" />
+      <link href="https://fonts.googleapis.com/css2?family=Kalam&display=swap" rel="stylesheet">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title></title>
+   </head>
+   <body>
+      <div id="content"></div>
+      <footer>©️ C o p y r i g h t , 2023 - Proyecto Social Network (Mayra Garcia - Andreyna Navas - Sandra Tabares) DEV005 - Laboratoria</footer>
 
+      <script type="module" src="configFirebase.js"></script>
+   </body>
+   
 </html>

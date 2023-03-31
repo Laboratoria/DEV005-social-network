@@ -19,7 +19,6 @@ inputs.forEach((input) => {
   };
   input.onblur = () => {
     input.value = input.value.trim();
-    // eslint-disable-next-line eqeqeq
     if (input.value.trim().length == 0) {
       input.previousElementSibling.classList.remove('top');
     }
@@ -28,3 +27,10 @@ inputs.forEach((input) => {
     input.parentNode.classList.remove('focus');
   };
 });
+
+const btn = document.getElementById("btnInicio")
+btn.addEventListener('click', () => {
+    window.location.pathname = "/home"
+})
+
+

@@ -1,5 +1,6 @@
 export function Login() {
   return `<h2>Iniciar sesion</h2>
+  <section id="container-login">
     <section id="passAndEm">
     <label for="email" class="cEmail">Correo electronico:
     <input  type="email" id="email" ></label>
@@ -12,6 +13,7 @@ export function Login() {
     <p>¿Eres nueva? </p>
     <a href="">Registrate</a>
     <a href=""><img src="./img/2000px-Google_G_Logo.svg_.png" alt="google logo" id="google-Logo" width="30px"></a>
+    </section>
     </section>`;
 }
 

@@ -1,4 +1,6 @@
 body {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
     background: rgb(122,91,216);
     background: linear-gradient(180deg, rgba(122,91,216,1) 1%, rgba(154,131,192,1) 89%);
     background-repeat:no-repeat;
@@ -27,6 +29,7 @@ body::before {
     header{
         display: flex;
         flex-direction: column;
+        padding: 10%;
     }
     h1,h2{
         color: white;
@@ -35,10 +38,7 @@ body::before {
         justify-content: center;
 
     }
-    body{
-        color: white;
-        font-family: 'Montserrat', sans-serif;
-    }
+   
     #passAndEm{
         display: flex;
         flex-direction: column;
@@ -54,7 +54,6 @@ body::before {
     #register, #login{
         display: flex;
         flex-direction: column;
-    
         margin-left: 10%;
         margin-right: 10%;
         margin-bottom: 5%;
@@ -95,6 +94,45 @@ body::before {
         padding: 10%;
         background-color: aliceblue;
         border-radius: 50%;
+    }
+    
+    .container-wall{
+        background-color: white;
+        line-height: 2;
+    }
+
+    .container-login{
+
+    }
+
+    .container-register{
+        
+    }
+
+
+
+    #iPost{
+        padding: 10%;
+        width: 70%;
+        height: 30%;
+        border-radius: 20px;
+        background-color: rgba(172, 167, 167, 0.536);
+        margin-left: 5%;
+    }
+    #btn-post{
+        width: 30%;
+        background-color: #655DBB;
+        border-radius: 20px;
+        color: white;
+        padding: 1%;
+        margin: 0 auto;
+        font-size:small;
+        margin-left: 65%;
+    }
+    #wall{
+        background-color: white;
+        width: 100%;
+
     }
 
 }

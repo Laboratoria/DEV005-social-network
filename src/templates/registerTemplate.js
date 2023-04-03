@@ -1,5 +1,5 @@
-export function Register() {
-  return `<h2>Registrate</h2>
+export const RegisterTemplate = `
+  <h2>Registrate</h2>
   <section id="container-register">
     <section id="passAndEm">
     <label for="email" class="cEmail">Correo electronico:
@@ -16,5 +16,5 @@ export function Register() {
     <a href="">Inicia sesion</a>
     <a href=""><img src="./img/2000px-Google_G_Logo.svg_.png" alt="google logo" id="google-Logo" width="30px"></a>
     </section>
-    </section>`;
-}
+    </section>
+`;

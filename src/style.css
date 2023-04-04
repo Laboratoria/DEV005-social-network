@@ -114,6 +114,12 @@ h1{
     top: -28%;
     color: #3ACBF8;
 }
+
+h2{
+ color:purple;
+}
+
+
 @media (max-width: 858px) {
     .login-container{
         background-image: url('../images/backgroundmobile.png')

@@ -1,16 +1,4 @@
-// Mostrar o esconder labels
-const inputs = document.getElementsByClassName('inp-signin');
+import { login } from './components/login.js';
 
-Array.from(inputs).forEach((input) => {
-  const label = document.querySelector(`label[for="${input.id}"]`);
-
-  input.addEventListener('click', () => {
-    label.classList.add('active');
-  });
-
-  input.addEventListener('blur', () => {
-    if (input.value === '') {
-      label.classList.remove('active');
-    }
-  });
-});
+const root = document.getElementById('root');
+root.append(login());

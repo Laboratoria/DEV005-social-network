@@ -12,7 +12,8 @@ export const LoginTemplate = `
     <section id="login">
     <button id="btn-login">Ingresa</button>
     <p>¿Eres nueva? </p>
-    <a id="linkRegister" href="">Registrate</a>
+    
+    <button id="linkRegister">Registrate</button>
     <a href=""><img src="./img/2000px-Google_G_Logo.svg_.png" alt="google logo" id="google-Logo" width="30px"></a>
     </section>
     </section>

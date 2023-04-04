@@ -1,6 +1,6 @@
 import { LoginTemplate } from '../templates/loginTemplate.js';
 
-export const Login = () => {
+export const Login = (onNavigate) => {
   const div = document.createElement('div');
   /* div.className = 'Login';
   div.id = 'login'; */
@@ -8,9 +8,8 @@ export const Login = () => {
 
   const register = div.querySelector('#linkRegister');
 
-  register.addEventListener('click', (e) => {
-    e.preventDefault();
-    window.location.pathname = '/registrate';
+  register.addEventListener('click', () => {
+    onNavigate('/registrate');
   });
 
   return div;

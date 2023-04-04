@@ -4,9 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>Red Social para emprendores</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+    //<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyC8ACKL8U4ji8bqmmykq8warjqGgCuZTZg",
+      authDomain: "social-network-dev-005.firebaseapp.com",
+      projectId: "social-network-dev-005",
+      storageBucket: "social-network-dev-005.appspot.com",
+      messagingSenderId: "974878862098",
+      appId: "1:974878862098:web:3992591ee2ebb888c6e1cb"
+    };
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+  </script>
   <script type="module" src="main.js"></script>
 </body>
 </html>

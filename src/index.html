@@ -12,38 +12,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">  
   <link rel="icon" type="image/png" href="images/icon1.png" alt="Mando ícono">
   <title>Playverse</title>
-</head>
-<body>
-  <main> 
-    <!-- Pantalla de inicio de sesión -->
-    <section class = "signin-container">
-      <form class = "signin-form">
-        <h1>PLAYVERSE</h1>
-        <div class = "group">
-          <label class = "signin" for="email">Correo:</label>
-          <input type = "email" class = "inp-signin" id="email"  required>
-        </div>
-        <div class = "group">
-          <label class = "signin" for="password">Contraseña:</label>
-          <input type = "password" class = "inp-signin" id = "password" required>
-        </div>
-        <button class = "btn-signin" type = "submit">Iniciar sesión</button>
-        <div class ="content-link">
-          <p class = "link-text">¿No tienes una cuenta?<a href="" class = "links"> Regístrate</a></p>
-        </div>
-      </form>
-
-      <div class ="content-text">
-        <p class = "link-text"> O también puedes</p>
-      </div>     
-      
-      <div class ="google-container">
-        <button class = "google-btn"> <img class = "google-icon" src="images/google.png" alt="Logo Google"> Continuar con Google </button>
-      </div>     
-      
-    </section>
-
-  </main> 
   <script type="module" src="./main.js"></script>
+  <script type="module" src="./components/login.js"></script>
+  <script type="module" src="./lib/index.js"></script>
+</head>
+<body> 
+  <div id = "root"></div>
 </body>
 </html>

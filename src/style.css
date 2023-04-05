@@ -10,7 +10,7 @@
     flex-direction: column;
     position: relative;
 }
-.login-container{
+.login-container, .register-container {
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -20,7 +20,7 @@
     background-size: cover; 
     background-position: center;
 }
-.login-form{  
+.login-form, .register-form{  
     display: grid;
     background-color: rgb(0, 0, 0);
     width: 80%;
@@ -47,11 +47,14 @@ h1{
     text-decoration: none;
     margin-left: 1%;
 }
+.links:hover{
+    color: #008cff;
+}
 .content-link{
     text-align: center;
     margin-top: 10px;
 }
-.btn-login{
+.btn-login, .btn-register{
     background-color: #3ACBF8;
     border-radius: 25px;
     padding: 5px;
@@ -59,21 +62,21 @@ h1{
     box-shadow: 0px 3px 6px  rgb(151, 150, 150);
     cursor: pointer;
 }
-.btn-login:hover{
-    background-color: #14b4ff;
+.btn-login:hover, .btn-register:hover{
+    background-color: #00b5ed;
+    transform: scale(1.01);
+}
+.btn-login:active, .btn-register:active {
+    background-color:  #3ACBF8;
+    box-shadow:  0px 5px 4px rgb(151, 150, 150);
+    transform: translateY(2px);
 }
 .content-text {
     margin-top: 10px;
 }
 .google-icon{
     width: 20px; 
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 54px;
-    left: 54px;  
-}
-.btn-span{
-    margin-left: 22px;
+    margin-right: 10px;
 }
 .google-btn {
     padding: 5px 10px;
@@ -81,9 +84,18 @@ h1{
     width: 100%;
     box-shadow: 0px 3px 6px  rgb(151, 150, 150);
     cursor: pointer;
+    display:flex;
+    align-items: center;
+    justify-content: center;
 }
 .google-btn:hover{
-    background-color: rgb(255, 245, 230);
+    transform: scale(1.01);
+    box-shadow: 0px 6px 6px  rgb(151, 150, 150);
+}
+.google-btn:active {
+    background-color:  #e2f8fe;
+    box-shadow:  0px 5px 4px rgb(151, 150, 150);
+    transform: translateY(2px);
 }
 .google-container{
     position: relative;
@@ -95,14 +107,14 @@ h1{
     margin-top: 10px;
     background-color: black;    
 }
-.inp-login {
+.inp-login, .inp-register {
     padding: 8px;
     font-size: 12px;
     border: none;
     border-radius: 12px;
     margin: 10px;
 }
-.login {
+.login, .register {
     position: absolute;
     top: 22%;
     left: 8%;
@@ -114,14 +126,13 @@ h1{
     top: -28%;
     color: #3ACBF8;
 }
-
-h2{
- color:purple;
-}
-
-
-@media (max-width: 858px) {
-    .login-container{
+@media (max-width: 550px) {
+    .login-container, .register-container{
         background-image: url('../images/backgroundmobile.png')
     }    
+}
+#login-error{
+    color:rgb(185, 40, 40);
+    margin-left: 10px;
+    margin-top: -15px;
 }

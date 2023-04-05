@@ -2,11 +2,9 @@ body {
   color: white;
   font-family: "Montserrat", sans-serif;
   background: rgb(122, 91, 216);
-  background: linear-gradient(
-    180deg,
-    rgba(122, 91, 216, 1) 1%,
-    rgba(154, 131, 192, 1) 89%
-  );
+  background: linear-gradient(180deg,
+      rgba(122, 91, 216, 1) 1%,
+      rgba(154, 131, 192, 1) 89%);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -26,6 +24,7 @@ body::before {
   opacity: 0.1;
   z-index: -1;
 }
+
 /*Media Query Celular*/
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
@@ -34,6 +33,7 @@ body::before {
     flex-direction: column;
     padding: 10%;
   }
+
   h1,
   h2 {
     color: white;
@@ -53,6 +53,7 @@ body::before {
     margin-bottom: -10%;
     padding: 5%;
   }
+
   #register,
   #login {
     display: flex;
@@ -77,6 +78,7 @@ body::before {
   .CUser {
     padding: 3%;
   }
+
   #btn-login,
   #btn-register {
     width: 80%;
@@ -87,16 +89,19 @@ body::before {
     margin: 0 auto;
     font-size: medium;
   }
+
   p {
     margin: 0 auto;
     margin-top: 10%;
     margin-bottom: 5%;
   }
+
   a {
     margin: 0 auto;
     margin-bottom: 5%;
     color: white;
   }
+
   #google-Logo {
     width: 40px;
     padding: 10%;
@@ -109,12 +114,6 @@ body::before {
     line-height: 2;
   }
 
-  .container-login {
-  }
-
-  .container-register {
-  }
-
   #iPost {
     padding: 10%;
     width: 70%;
@@ -123,6 +122,7 @@ body::before {
     background-color: rgba(172, 167, 167, 0.536);
     margin-left: 5%;
   }
+
   #btn-post {
     width: 30%;
     background-color: #655dbb;
@@ -133,6 +133,7 @@ body::before {
     font-size: small;
     margin-left: 65%;
   }
+
   #wall {
     background-color: white;
     width: 100%;
@@ -146,6 +147,7 @@ body::before {
     border-radius: 2px;
     box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
   }
+
   .google-icon-wrapper {
     position: absolute;
     margin-top: 1px;
@@ -155,6 +157,7 @@ body::before {
     border-radius: 2px;
     background-color: white;
   }
+
   .google-icon {
     position: absolute;
     margin-top: 11px;
@@ -162,6 +165,7 @@ body::before {
     width: 18px;
     height: 18px;
   }
+
   .btn-text {
     float: right;
     margin: 11px 11px 0 0;
@@ -170,12 +174,15 @@ body::before {
     letter-spacing: 0.2px;
     font-family: "Roboto";
   }
+
   .google-btn:hover {
     box-shadow: 0 0 6px #4285f4;
   }
+
   .google-btn :active {
     background: #1669f2;
   }
+
   #linkRegister {
     margin: 0 auto;
     border-radius: 30px;

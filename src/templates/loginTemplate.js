@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-cycle
 export const LoginTemplate = `
   <h2>Iniciar sesion</h2>
   <section id="container-login">
@@ -25,19 +24,3 @@ export const LoginTemplate = `
     </section>
     </section>
 `;
-
-/* route: window.location.pathname = '/login'
-
-document.createElement
-content = document.createElement("div")
-content.innerHTML = ....
-return content
-root.replaceChildren(Login())
-content.querySelector(...
-addEventListener
-querySelector
-getElementById
-getElementsByClassName
-elem.append
-elem.remove...
-elem.replaceChildren */

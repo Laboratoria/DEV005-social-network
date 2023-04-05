@@ -1,15 +1,15 @@
-import { error } from './lib/index.js';
+//import { funcion a crear } from './lib/index.js';
 import { init, login } from './Components/app.js';
+import './Firebase/firebase.js';
 
 const root = document.getElementById('root');
 root.append(init());
-
+//rutas SPA
 const routes = [
     { path: '/', component: init },
     { path: '/login', component: login },
     { path: '/error', component: error }
 ];
-
 const defaultRoute = '/';
 
 function navigateTo(hash) {
@@ -26,7 +26,6 @@ function navigateTo(hash) {
         navigateTo('/error');
     }
 }
-
 navigateTo(window.location.pathname || defaultRoute);
 
 

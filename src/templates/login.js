@@ -1,10 +1,11 @@
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 // import labels from "./labels";
 import { auth } from "../lib/index.js";
-import { navegacion } from "../main.js";
+import { navegacion } from '../main.js';
 
 // Agregando la sección para html
 
+// eslint-disable-next-line no-shadow
 export function login(navegacion) {
   const section = document.createElement('section');
   const html = `
@@ -34,7 +35,7 @@ export function login(navegacion) {
 
   section.innerHTML = html;
 
-  //Labels dinámicos
+  // Labels dinámicos
 
   const inputs = section.querySelectorAll('input');
 
@@ -56,7 +57,7 @@ export function login(navegacion) {
     };
   });
 
-  //Evento del botón Registrar
+  // Evento del botón Registrar
 
   const btnRegistrar = section.querySelector('#btnRegistro');
 
@@ -65,5 +66,4 @@ export function login(navegacion) {
   });
 
   return section;
-};
-
+}

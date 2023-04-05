@@ -159,6 +159,10 @@ label span.top {
     color: black;
 }
 
+.errorCorreo, .errorClave {
+    color: red;
+}
+
 footer {
     margin-top: 20px;
     width: 100%;

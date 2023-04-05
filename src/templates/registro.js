@@ -1,9 +1,9 @@
 // eslint-disable-next-line no-unused-vars
 // import labels from "./labels.js";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../lib/index.js";
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../lib/index.js';
 
-export function registro () {
+export function registro() {
   const section = document.createElement('section');
   const htmlRegistro = `<section>
   <div class="contenedorLogo">
@@ -27,21 +27,23 @@ export function registro () {
         <span>Correo electrónico</span>
         <input type="email" autocomplete="off" name="correo" class="correo" id="correoReg">
       </label>
+        <span id="errorCorreo" class="errorCorreo"></span>
       <label>
         <span>Contraseña</span>
         <input type="password" class="clave" id="claveReg">
       </label>  
+        <span id="errorClave" class="errorClave"></span>
       
     </form>   
       <button class="btnCrearCuenta" id="btnCrearCuenta">Registrar</button>
       <span class="textRegistro">Si ya tienes cuenta -> <button class="btnRegistro" id="btnCrearCuenta">Inicia sesión</button></span>
       
   </div>
-  </main>`
+  </main>`;
 
   section.innerHTML = htmlRegistro;
 
-  //Labels dinámicos
+  // Labels dinámicos
 
   const inputs = section.querySelectorAll('input');
 
@@ -63,32 +65,41 @@ export function registro () {
     };
   });
 
-  //Configuración de autenticación firebase
+  // Configuración de autenticación firebase
   const txtCorreo = section.querySelector('#correoReg');
   const txtClave = section.querySelector('#claveReg');
+  const errorCorreo = section.querySelector('#errorCorreo');
+  const errorClave = section.querySelector('#errorClave');
 
   const btnCrearCuenta = section.querySelector('#btnCrearCuenta');
 
-  const btncuenta = section.querySelector("#btnCrearCuenta")
+  const btncuenta = section.querySelector('#btnCrearCuenta');
 
-  btncuenta.addEventListener("click", () => console.log("done"))
+  btncuenta.addEventListener('click', () => ('done'));
 
-  btnCrearCuenta.addEventListener('click',async () => {
+  btnCrearCuenta.addEventListener('click', async () => {
     const correo = txtCorreo.value;
     const clave = txtClave.value;
 
-    console.log(correo,clave);
-
     try {
       const usuario = await createUserWithEmailAndPassword(auth, correo, clave);
-      console.log(usuario);
+      errorClave.innerHTML = 'Registro exitoso';
     } catch (error) {
-      console.log(error);
+      if (error.code === 'auth/email-already-in-use') {
+        errorCorreo.innerHTML = 'Usuario ya registrado';
+      } else if (error.code === 'auth/invalid-email') {
+        errorCorreo.innerHTML = 'Correo invalido';
+      } else if (error.code === 'auth/weak-password') {
+        errorClave.innerHTML = 'Contraseña demasiado debil';
+      } else if (error.code === 'auth/missing-password') {
+        errorClave.innerHTML = 'Contraseña requerida';
+      } else if (error.code) {
+        errorClave.innerHTML = 'Algo salió mal';
+      }
     }
 
+    txtCorreo.addEventListener('click', errorCorreo.innerHTML = "");
   });
 
   return section;
-};
-
-
+}

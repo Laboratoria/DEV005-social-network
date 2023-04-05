@@ -1,4 +1,4 @@
-export function login() {
+export function login(navigateTo) {
   // Contenedor login
   const loginContainer = document.createElement('section');
   loginContainer.classList.add('login-container');
@@ -71,6 +71,9 @@ export function login() {
   links.classList.add('links');
   links.href = '';
   links.textContent = 'Regístrate';
+  links.addEventListener('click', () => {
+    navigateTo('/register');
+  });
   linkText.append(links);
 
   // Añadir elementos del form
@@ -82,7 +85,7 @@ export function login() {
 
   const text = document.createElement('p');
   text.classList.add('link-text');
-  text.textContent = 'O también puedes';
+  text.textContent = 'También puedes';
   textContainer.append(text);
 
   // Contenedor para el botón de continuar con google e ícono
@@ -91,22 +94,16 @@ export function login() {
 
   const btnGoogle = document.createElement('button');
   btnGoogle.classList.add('google-btn');
+  btnGoogle.textContent = 'continuar con Google';
   googleContainer.append(btnGoogle);
-  // Texto del botón
-  const btnText = document.createElement('span');
-  btnText.textContent = 'Continuar con Google';
-  btnText.classList.add('btn-span');
-  btnGoogle.append(btnText);
 
   // Contenedor imagen google
-  const imgContainer = document.createElement('div');
 
   const imgGoogle = document.createElement('img');
   imgGoogle.src = 'images/google.png';
   imgGoogle.classList.add('google-icon');
   imgGoogle.alt = 'Logo Google';
-  imgContainer.appendChild(imgGoogle);
-  googleContainer.append(imgContainer);
+  btnGoogle.prepend(imgGoogle);
 
   // Añadir elementos a la section
   loginContainer.append(loginForm, textContainer, googleContainer);

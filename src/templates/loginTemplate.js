@@ -12,8 +12,16 @@ export const LoginTemplate = `
     <section id="login">
     <button id="btn-login">Ingresa</button>
     <p>¿Eres nueva? </p>
-    <a id="linkRegister" href="">Registrate</a>
-    <a href=""><img src="./img/2000px-Google_G_Logo.svg_.png" alt="google logo" id="google-Logo" width="30px"></a>
+    
+    <button id="linkRegister">Registrate</button>
+
+    <p> o inicia con </p>
+    <div class="google-btn">
+    <div class="google-icon-wrapper">
+      <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+    </div>
+      <p class="btn-text"><b>Acceder con Google</b></p>
+    </div>
     </section>
     </section>
 `;

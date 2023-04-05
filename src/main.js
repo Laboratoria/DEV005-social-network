@@ -1,5 +1,6 @@
+// firebase
+import './components/firebase.js';
 // Este es el punto de entrada de tu aplicacion
-
 import home from './components/login.js';
 import singUp from './components/singUp.js';
 import error from './components/error.js';
@@ -8,7 +9,7 @@ const root = document.getElementById('root');
 
 const routes = [
   { path: '/', component: home },
-  { path: '/singUp', component: singUp },
+  { path: '/singUp', component: singUp.component, postRender: singUp.postRender },
   { path: '/error', component: error },
 ];
 
@@ -27,6 +28,9 @@ function navigateTo(hash) {
       root.remove(root.innerHTML);
     }
     root.innerHTML = route.component(navigateTo);
+    if (route.postRender) {
+      route.postRender();
+    }
   } else {
     navigateTo('/error');
   }
@@ -41,15 +45,4 @@ navigateTo(window.location.pathname || defaultRoute);
 const botton = document.getElementById('singUp');
 botton.addEventListener('click', () => {
   navigateTo('/singUp');
-});
-
-const password = document.getElementById('passwordValue').value;
-const passwordRepeat = document.getElementById('passwordRepeat').value;
-const print = document.getElementById('notMatch');
-const bottonUno = document.getElementById('prueba');
-
-bottonUno.addEventListener('click', () => {
-  if (password !== passwordRepeat) {
-    print.innerHTML = 'La contraseña no coincide. Intentalo de nuevo';
-  }
 });

@@ -1,6 +1,9 @@
-// aqui exportaras las funciones que necesites
+export function error() {
+  const title = document.createElement('h2');
 
-export const myFunction = () => {
-  // aqui tu codigo
-  console.log('Hola mundo!');
+  title.textContent = 'Error 404: página no encontrada.';
+  return title;
 };
+
+export default error;
+

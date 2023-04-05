@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
-import { navigateTo } from '/main.js';
+import { navigateTo } from '../main.js';
 
 const firebaseApp = initializeApp({
   apiKey: 'AIzaSyAH8HZslRIokAuOxqVA1hnrZtki-yblyuw',
@@ -12,25 +12,20 @@ const firebaseApp = initializeApp({
   appId: '1:142278931596:web:aac9932ea28474e45437a9',
   measurementId: 'G-R9K8Y36WJ1',
 });
-// Crear constantes para el uso de firebase
 const auth = getAuth(firebaseApp);
-// Elementos del DOM
+
+const loginErrorMessage = 'Correo o contraseña incorrecta';
 
 const loginEmail = document.getElementById('email');
 const loginPassword = document.getElementById('password');
+const loginError = document.getElementById('login-error');
 
-// Crear una función para llamar a firebase cuando se haga login con Email y Password
-export const loginEmailPassword = async (email, password) => {
+const loginWithEmailPassword = async (email, password) => {
   try {
     await signInWithEmailAndPassword(auth, email, password);
     navigateTo('/wall');
   } catch (error) {
-    const loginError = document.getElementById('login-error');
-    if (loginError.firstChild) {
-      loginError.removeChild(loginError.firstChild);
-    }
-    const errorMessage = document.createTextNode('Correo o contraseña incorrecta');
-    loginError.appendChild(errorMessage);
+    loginError.textContent = loginErrorMessage;
   }
 };
 
@@ -38,5 +33,7 @@ export const handleLoginEmail = async () => {
   const email = loginEmail.value;
   const password = loginPassword.value;
 
-  await loginEmailPassword(email, password);
+  await loginWithEmailPassword(email, password);
+
+  loginPassword.value = '';
 };

@@ -2,8 +2,9 @@
 // import labels from "./labels.js";
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../lib/index.js';
+import { navegacion } from '../main.js';
 
-export function registro() {
+export function registro(navegacion) {
   const section = document.createElement('section');
   const htmlRegistro = `<section>
   <div class="contenedorLogo">
@@ -97,8 +98,6 @@ export function registro() {
         errorClave.innerHTML = 'Algo salió mal';
       }
     }
-
-    txtCorreo.addEventListener('click', errorCorreo.innerHTML = "");
   });
 
   return section;

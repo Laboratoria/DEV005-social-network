@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from './firebase.js';
 
 // pantalla inicial
@@ -34,11 +34,11 @@ function login() {
   initSection.className = 'initSection';
   const textButton = document.createElement('label');
   textButton.className = 'textButton';
-  const card1 = document.createElement('input').value;
+  const card1 = document.createElement('input');
   card1.className = 'card1';
   const textPassword = document.createElement('label');
   textPassword.className = 'textPassword';
-  const card2 = document.createElement('input').value;
+  const card2 = document.createElement('input');
   card2.className = 'card2';
   const getInt = document.createElement('button');
   getInt.className = 'getInt';

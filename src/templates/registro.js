@@ -2,9 +2,8 @@
 // import labels from "./labels.js";
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../lib/index.js';
-import { navegacion } from '../main.js';
 
-export function registro(navegacion) {
+export function registro() {
   const section = document.createElement('section');
   const htmlRegistro = `<section>
   <div class="contenedorLogo">
@@ -77,6 +76,18 @@ export function registro(navegacion) {
   const btncuenta = section.querySelector('#btnCrearCuenta');
 
   btncuenta.addEventListener('click', () => ('done'));
+
+  txtCorreo.addEventListener('click', async () => {
+    txtCorreo.value = '';
+    errorCorreo.innerHTML = '';
+    txtCorreo.innerHTML = '';
+  });
+
+  txtClave.addEventListener('click', async () => {
+    txtClave.value = '';
+    errorClave.innerHTML = '';
+    txtClave.innerHTML = '';
+  });
 
   btnCrearCuenta.addEventListener('click', async () => {
     const correo = txtCorreo.value;

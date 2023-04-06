@@ -4,7 +4,7 @@ import { registro } from './registro.js';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../lib/index.js';
 
-export function registro() {
+export function bienvenida(navegacion) {
   const section = document.createElement('section');
   const htmlBienvenida = `
   <section>
@@ -54,15 +54,6 @@ export function registro() {
       input.parentNode.classList.remove('focus');
     };
   });
-
-  
-    // Evento del botón Registrar
-
-    const btnInicio = section.querySelector('#btnInicio');
-
-    btnInicio.addEventListener('click', () => {
-      navegacion('/registro');
-    });
 
   return section;
 }

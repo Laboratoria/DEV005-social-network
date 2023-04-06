@@ -1,32 +1,32 @@
-import { error } from './lib/index.js';
-import { init, login } from './Components/app.js';
+// import { funcion a crear } from './lib/index.js';
+import {
+  init, login, mistake, create,
+} from './Components/app.js';
+import './Components/firebase.js';
 
 const root = document.getElementById('root');
 root.append(init());
-
+// rutas SPA
 const routes = [
-    { path: '/', component: init },
-    { path: '/login', component: login },
-    { path: '/error', component: error }
-];
+  { path: '/', component: init },
+  { path: '/login', component: login },
+  { path: '/register', component: create },
+  { path: '/error', component: mistake },
 
+];
 const defaultRoute = '/';
 
 function navigateTo(hash) {
-    const route = routes.find((routeFind) => routeFind.path === hash);
-    if (route && route.component) {
-        window.history.pushState(
-            {}, route.path, window.location.origin + route.path);
+  const route = routes.find((routeFind) => routeFind.path === hash);
+  if (route && route.component) {
+    window.history.pushState({}, route.path, window.location.origin + route.path);
 
-        if (root.firstChild) {
-            root.removeChild(root.firstChild)
-        }
-        root.append(route.component(navigateTo));
-    } else {
-        navigateTo('/error');
+    if (root.firstChild) {
+      root.removeChild(root.firstChild);
     }
+    root.append(route.component(navigateTo));
+  } else {
+    navigateTo('/error');
+  }
 }
-
 navigateTo(window.location.pathname || defaultRoute);
-
-

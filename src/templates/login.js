@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 // import labels from "./labels";
 import { auth } from "../lib/index.js";
 import { navegacion } from '../main.js';
@@ -8,6 +8,11 @@ import { navegacion } from '../main.js';
 // eslint-disable-next-line no-shadow
 export function login(navegacion) {
   const section = document.createElement('section');
+  if(sessionStorage.getItem("user")){
+      navegacion("/home")
+      return "<div></div>"
+    }
+
   const html = `
   <section>
   <div class="contenedorLogo">
@@ -19,11 +24,11 @@ export function login(navegacion) {
     <form class="contenedorInput">
       <label>
         <span>Correo electrónico</span>
-        <input type="email" autocomplete="off" name="correo" class="correo" id="correo">
+        <input type="email" autocomplete="off" name="email" class="email" id="email">
       </label>
       <label>
         <span>Contraseña</span>
-        <input type="password" class="clave" id="clave">
+        <input type="password" class="password" id="password">
       </label>  
       
     </form>   
@@ -58,11 +63,32 @@ export function login(navegacion) {
   });
 
   // Evento del botón Registrar
-
   const btnRegistrar = section.querySelector('#btnRegistro');
 
   btnRegistrar.addEventListener('click', () => {
     navegacion('/registro');
+  });
+
+
+  // Evento del botón Iniciar Sesiòn
+
+  const btnInicio = section.querySelector('#btnInicio');
+
+  btnInicio.addEventListener('click', async () => {
+    
+    const password = section.querySelector('#password').value;
+    const email = section.querySelector('#email').value;
+    try {
+      const credentials = await signInWithEmailAndPassword(auth, email, password)
+      
+      if(credentials.user) {
+        sessionStorage.setItem("user", credentials.user.email)
+        navegacion('/home');
+      }
+
+    } catch (e) {
+      console.error(e)
+    }
   });
 
   return section;

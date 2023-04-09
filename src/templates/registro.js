@@ -5,41 +5,42 @@ import { auth } from '../lib/index.js';
 
 export function registro() {
   const section = document.createElement('section');
-  const htmlRegistro = `<section>
-  <div class="contenedorLogo">
-    <img class="imgLogo" src="img/logo.png" alt="logo">
-  </div>
-  </section>
-  <main>
-  <div class="contenedorIngresoRegistro">
-    <span class="registroTitulo">Registro</span>
-    <form class="contenedorInput">
-      
-      <label>
-      <span>Nombre completo</span>
-      <input type="text" name="nombreUsuario" class="nombreUsuario" id="nombreUsuario">
-      </label>
-      <label>
-          <span>Nombre de tu Mascota</span>
-          <input type="text" name="nombreMascota" class="nombreMascota" id="nombreMascota">
+  const htmlRegistro = `
+  <div class='contenedor'>
+    <div class="contenedorLogo">
+      <img class="imgLogo" src="img/logo.png" alt="logo">
+    </div>
+    <main>
+    <div class="contenedorIngresoRegistro">
+      <span class="registroTitulo">Registro</span>
+      <form class="contenedorInput">
+        
+        <label>
+        <span>Nombre completo</span>
+        <input type="text" name="nombreUsuario" class="nombreUsuario" id="nombreUsuario">
         </label>
-      <label>
-        <span>Correo electrónico</span>
-        <input type="email" autocomplete="off" name="correo" class="correo" id="correoReg">
-      </label>
-        <span id="errorCorreo" class="errorCorreo"></span>
-      <label>
-        <span>Contraseña</span>
-        <input type="password" class="clave" id="claveReg">
-      </label>  
-        <span id="errorClave" class="errorClave"></span>
-      
-    </form>   
-      <button class="btnCrearCuenta" id="btnCrearCuenta">Registrar</button>
-      <span class="textRegistro">Si ya tienes cuenta -> <button class="btnRegistro" id="btnCrearCuenta">Inicia sesión</button></span>
-      
-  </div>
-  </main>`;
+        <label>
+            <span>Nombre de tu Mascota</span>
+            <input type="text" name="nombreMascota" class="nombreMascota" id="nombreMascota">
+          </label>
+        <label>
+          <span>Correo electrónico</span>
+          <input type="email" autocomplete="off" name="correo" class="correo" id="correoReg">
+        </label>
+          <span id="errorCorreo" class="errorCorreo"></span>
+        <label>
+          <span>Contraseña</span>
+          <input type="password" class="clave" id="claveReg">
+        </label>  
+          <span id="errorClave" class="errorClave"></span>
+        
+      </form>   
+        <button class="btnCrearCuenta" id="btnCrearCuenta">Registrar</button>
+        <span class="textRegistro">Si ya tienes cuenta -> <button class="btnRegistro" id="btnCrearCuenta">Inicia sesión</button></span>
+        
+    </div>
+    </main>
+  </div>`;
 
   section.innerHTML = htmlRegistro;
 

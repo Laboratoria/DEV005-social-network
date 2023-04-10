@@ -1,5 +1,5 @@
 import { login } from './components/login.js';
-import { register } from './components/register.js';
+import { register } from './components/signup.js';
 import error from './components/error.js';
 import wall from './components/wall.js';
 

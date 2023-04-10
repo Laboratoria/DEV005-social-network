@@ -109,21 +109,23 @@ h1{
 }
 .inp-login, .inp-register {
     padding: 8px;
-    font-size: 12px;
+    font-size: 14px;
     border: none;
     border-radius: 12px;
     margin: 10px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    padding-left: 5%;
 }
 .login, .register {
     position: absolute;
-    top: 22%;
+    top: 15%;
     left: 8%;
     transition: all 0.2s;
     font-size: 14px;
     color: #7f8c8d;
 }  
 .active {
-    top: -28%;
+    top: -32%;
     color: #3ACBF8;
 }
 @media (max-width: 550px) {

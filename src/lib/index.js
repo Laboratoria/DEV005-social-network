@@ -33,7 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
       handleLoginEmail();
     });
   }
-
   // Agregar movimiento de etiqueta a los inputs necesarios
   labelMovement(inputsLogin);
   labelMovement(inputsRegister);

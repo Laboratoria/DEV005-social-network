@@ -18,7 +18,7 @@ export function register(navigateTo) {
 
   const labelUserName = document.createElement('label');
   labelUserName.classList.add('register');
-  labelUserName.textContent = 'Nombre de usuario:';
+  labelUserName.textContent = 'Nombre de usuario';
   labelUserName.setAttribute('for', 'userName');
 
   const inputUserName = document.createElement('input');
@@ -32,12 +32,12 @@ export function register(navigateTo) {
 
   const labelEmail = document.createElement('label');
   labelEmail.classList.add('register');
-  labelEmail.textContent = 'Correo:';
-  labelEmail.setAttribute('for', 'email');
+  labelEmail.textContent = 'Correo';
+  labelEmail.setAttribute('for', 'signup-email');
 
   const inputEmail = document.createElement('input');
   inputEmail.classList.add('inp-register');
-  inputEmail.id = 'email';
+  inputEmail.id = 'signup-email';
   inputEmail.type = 'email';
 
   // Añadir los elementos del  contenedor Email
@@ -49,12 +49,12 @@ export function register(navigateTo) {
 
   const labelPassword = document.createElement('label');
   labelPassword.classList.add('register');
-  labelPassword.textContent = 'Contraseña:';
-  labelPassword.setAttribute('for', 'password');
+  labelPassword.textContent = 'Contraseña';
+  labelPassword.setAttribute('for', 'signup-password');
 
   const inputPassword = document.createElement('input');
   inputPassword.classList.add('inp-register');
-  inputPassword.id = 'password';
+  inputPassword.id = 'signup-password';
   inputPassword.type = 'password';
 
   // Añadir los elementos del  contenedor Constraseña
@@ -70,7 +70,7 @@ export function register(navigateTo) {
   btnregister.classList.add('btn-register');
   btnregister.id = 'btn-register';
   btnregister.type = 'submit';
-  btnregister.textContent = 'Regístrate';
+  btnregister.textContent = 'Registrar';
 
   // ¡No tienes una cuenta?
   const linkContainer = document.createElement('div');

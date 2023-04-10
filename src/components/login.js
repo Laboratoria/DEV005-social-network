@@ -18,7 +18,7 @@ export function login(navigateTo) {
 
   const labelEmail = document.createElement('label');
   labelEmail.classList.add('login');
-  labelEmail.textContent = 'Correo:';
+  labelEmail.textContent = 'Correo';
   labelEmail.setAttribute('for', 'email');
 
   const inputEmail = document.createElement('input');
@@ -35,7 +35,7 @@ export function login(navigateTo) {
 
   const labelPassword = document.createElement('label');
   labelPassword.classList.add('login');
-  labelPassword.textContent = 'Contraseña:';
+  labelPassword.textContent = 'Contraseña';
   labelPassword.setAttribute('for', 'password');
 
   const inputPassword = document.createElement('input');

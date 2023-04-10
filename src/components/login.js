@@ -1,3 +1,5 @@
+import { loginApp } from '../lib/authentication';
+
 export function login(navigateTo) {
   // Contenedor login
   const loginContainer = document.createElement('section');
@@ -50,7 +52,14 @@ export function login(navigateTo) {
   const loginError = document.createElement('div');
   loginError.classList.add('link-text');
   loginError.id = 'login-error';
+  loginError.textContent = '';
 
+  // Envío de formulario Login
+  loginForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    loginApp(inputEmail.value, inputPassword.value, loginError);
+    inputPassword.value = '';
+  });
   // Botón Iniciar Sesión
   const btnLogin = document.createElement('button');
   btnLogin.classList.add('btn-login');

@@ -5,12 +5,12 @@ const btnRegister = document.getElementById('btn-register');
 
 btnRegister.addEventListener('submit', async (event) => {
   event.preventDefault();
-  const singupEmail = document.getElementById('singup-email');
-  const singupPassword = document.getElementById('singup-password');
+  const signupEmail = document.getElementById('signup-email');
+  const signupPassword = document.getElementById('signup-password');
 
-  const email = singupEmail.value;
-  const password = singupPassword.value;
-  console.log(email, password);
+  const email = signupEmail.value;
+  const password = signupPassword.value;
+  console.log(signupEmail, signupPassword);
 
   try {
     const userCredentials = await createUserWithEmailAndPassword(auth, email, password);
@@ -20,4 +20,4 @@ btnRegister.addEventListener('submit', async (event) => {
   }
 });
 
-// const singupError = document.getElementById('singup-error');
+// const signupError = document.getElementById('signup-error');

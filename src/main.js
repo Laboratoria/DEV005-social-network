@@ -1,9 +1,12 @@
+import { onAuthStateChanged } from 'firebase/auth';
 import { login } from './components/login.js';
 import { register } from './components/signup.js';
 import error from './components/error.js';
 import wall from './components/wall.js';
+import { auth } from './lib/firebase.js';
 
 const root = document.getElementById('root');
+
 // root.append(register());
 const routes = [
   { path: '/', component: login },
@@ -36,4 +39,13 @@ window.onpopstate = () => {
   navigateTo(window.location.pathname);
 };
 
-navigateTo(window.location.pathname || defaultRoute);
+function initRouter() {
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      navigateTo('/wall');
+    } else {
+      navigateTo(defaultRoute);
+    }
+  });
+}
+initRouter();

@@ -3,6 +3,9 @@
     background-color: #B2CAEC;
     background-image: url(./img/fondo1.png);
     background-repeat: no-repeat;
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
 }
 
 .logIn {
@@ -62,55 +65,74 @@
     border-radius: 10px;
 }
 
+.formInteraction {
+    margin: 70% 5% 7%;
+    width: 92%;
+    height: 404px;
+    border-radius: 12px;
+    background: #D9D9D9;
+    background-image: none;
+    opacity: 0.9;
+}
+
+.cardLogin {
+    background-image: none;
+    height: 0px
+}
 
 .initSection {
     position: absolute;
     left: 28px;
     top: 254px;
     font-size: 22px;
-    color: #040404;
+    background: none;
 }
 
-.textButton {
+
+
+.labelEmail {
     position: absolute;
     height: 23px;
     left: 49px;
-    top: 316px;
+    top: 330px;
     font-size: 20px;
     background: none;
 }
 
-.card1 {
-
+.inputEmail {
     position: absolute;
     width: 341px;
     height: 45px;
     left: 49px;
-    top: 351px;
+    top: 369px;
     border: none;
     border-radius: 12px;
-    font-size: 20px;
+    font-size: 21px;
+
 }
 
-.textPassword {
+
+
+.labelPassword {
     position: absolute;
+    height: 23px;
     left: 49px;
-    top: 436px;
+    top: 466px;
     font-size: 20px;
+    line-height: 23px;
     background: none;
 }
 
-.card2 {
+.inputPassword {
     position: absolute;
     width: 341px;
     height: 45px;
     left: 49px;
-    top: 478px;
+    top: 508px;
     border: none;
     background: #FFFEFE;
     border-radius: 12px;
-    font-size: 20px;
-    
+    font-size: 30px;
 }
 
 .getInt {
@@ -132,14 +154,8 @@
     height: 25px;
     left: 40px;
     top: 847px;
-
     font-size: 22px;
     background: none;
-    text-decoration: none;
     outline: none;
-}
-
-.interaction{
-    
-    background: #D9D9D9;
+    font-weight: bold;
 }

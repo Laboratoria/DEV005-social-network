@@ -25,40 +25,25 @@ function init(navigateTo) {
   section.append(logIn, register, google, gitHub);
   return section;
 }
+
 // pantalla - inicio de sesión
-function login() {
-  const section = document.createElement('section');
-  const interaction = document.createElement('form');
-  interaction.className = 'interaction';
-  const initSection = document.createElement('h2');
-  initSection.className = 'initSection';
-  const textButton = document.createElement('label');
-  textButton.className = 'textButton';
-  const card1 = document.createElement('input');
-  card1.className = 'card1';
-  const textPassword = document.createElement('label');
-  textPassword.className = 'textPassword';
-  const card2 = document.createElement('input');
-  card2.className = 'card2';
-  const getInt = document.createElement('button');
-  getInt.className = 'getInt';
-  const bottomText = document.createElement('button');
-  bottomText.className = 'bottomText';
+const login = () => {
+  const sectionLogin = document.createElement('div');
+  sectionLogin.innerHTML = `<section class="cardLogin"> 
+  <h2 class="initSection">Inicio de Sesión</h2>
+  <form class="formInteraction">
+  <label class="labelEmail">Correo Electronico</label>
+  <input class="inputEmail" id="inputEmail" placeholder="ejemplo@gmail.com"></input>
+  <label class="labelPassword">Contraseña</label>
+  <input class="inputPassword" id="inputPassword" type="password" placeholder="********"></input>
+  <button class="getInt">Ingresar</button>
+  </form>
+  <botton class="bottomText">¿No tienes una cuenta? Regístrate</botton>
+  </section >
+  `;
+  return sectionLogin;
+};
 
-  initSection.textContent = 'Inicio de Sesión';
-  textButton.textContent = 'Correo Electronico';
-  textButton.appendChild(card1);
-  card1.placeholder = 'ejemplo@gmail.com';
-  textPassword.textContent = 'Contraseña';
-  textPassword.appendChild(card2);
-  card2.placeholder = '********';
-  getInt.textContent = 'Ingresar';
-  bottomText.textContent = '¿No tienes una cuenta? Regístrate';
-
-  interaction.append(textButton, card1, textPassword, card2, getInt);
-  section.append(initSection, interaction, bottomText);
-  return section;
-}
 // pantalla - error
 function mistake() {
   const title = document.createElement('h2');

@@ -13,3 +13,4 @@ function logIn () {
   section.append(title, button);
   return section;
 }
+export default logIn;

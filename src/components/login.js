@@ -48,6 +48,24 @@ export function login(navigateTo) {
   // Añadir los elementos del  contenedor Constraseña
   passwordContainer.append(labelPassword, inputPassword);
 
+  // ¡No tienes una cuenta?
+  const linkContainer = document.createElement('div');
+  linkContainer.classList.add('content-link');
+
+  const linkText = document.createElement('p');
+  linkText.classList.add('link-text');
+  linkText.textContent = '¿No tienes una cuenta?';
+  linkContainer.append(linkText);
+
+  const links = document.createElement('a');
+  links.classList.add('links');
+  links.href = '';
+  links.textContent = 'Regístrate';
+  links.addEventListener('click', (e) => {
+    e.preventDefault();
+    navigateTo('/register?id=100');
+  });
+  linkText.append(links);
   // Mensaje de error
   const loginError = document.createElement('div');
   loginError.classList.add('link-text');
@@ -66,24 +84,6 @@ export function login(navigateTo) {
   btnLogin.id = 'btn-login';
   btnLogin.type = 'submit';
   btnLogin.textContent = 'Iniciar sesión';
-
-  // ¡No tienes una cuenta?
-  const linkContainer = document.createElement('div');
-  linkContainer.classList.add('content-link');
-
-  const linkText = document.createElement('p');
-  linkText.classList.add('link-text');
-  linkText.textContent = '¿No tienes una cuenta?';
-  linkContainer.append(linkText);
-
-  const links = document.createElement('a');
-  links.classList.add('links');
-  links.href = '';
-  links.textContent = 'Regístrate';
-  links.addEventListener('click', () => {
-    navigateTo('/register');
-  });
-  linkText.append(links);
 
   // Añadir elementos del form
   loginForm.append(emailContainer, passwordContainer, loginError, btnLogin, linkContainer);

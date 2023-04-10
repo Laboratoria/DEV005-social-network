@@ -85,8 +85,9 @@ export function register(navigateTo) {
   links.classList.add('links');
   links.href = '';
   links.textContent = 'Inicia sesión';
-  links.addEventListener('click', () => {
-    navigateTo('/');
+  links.addEventListener('click', (event) => {
+    event.preventDefault();
+    navigateTo('/login');
   });
   linkText.append(links);
 

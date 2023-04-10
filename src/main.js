@@ -9,13 +9,13 @@ const root = document.getElementById('root');
 
 // root.append(register());
 const routes = [
-  { path: '/', component: login },
+  { path: '/login', component: login },
   { path: '/register', component: register },
   { path: '/error', component: error },
   { path: '/wall', component: wall },
 ];
 
-const defaultRoute = '/';
+const defaultRoute = '/login';
 
 export function navigateTo(hash) {
   const route = routes.find((routeFind) => routeFind.path === hash);
@@ -41,10 +41,13 @@ window.onpopstate = () => {
 
 function initRouter() {
   onAuthStateChanged(auth, (user) => {
+    const currentRoute = window.location.pathname;
     if (user) {
       navigateTo('/wall');
+    } else if (currentRoute === defaultRoute || currentRoute === '/register') {
+      navigateTo(currentRoute);
     } else {
-      navigateTo(defaultRoute);
+      navigateTo('/error');
     }
   });
 }

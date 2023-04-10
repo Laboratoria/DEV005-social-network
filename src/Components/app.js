@@ -1,6 +1,5 @@
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import { auth } from './firebase.js';
-import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 // pantalla inicial
 
@@ -19,39 +18,38 @@ export function init(navigateTo) {
 
   const logIn = section.querySelector('.logIn');
   logIn.addEventListener('click', () => {
-  navigateTo('/login'); 
-});
+    navigateTo('/login');
+  });
 
   const register = section.querySelector('.register');
   register.addEventListener('click', () => {
-  navigateTo('/register'); 
-});
+    navigateTo('/register');
+  });
 
   const google = section.querySelector('.google');
   google.addEventListener('click', () => {
-
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
-    .then((result) => {
-    // This gives you a Google Access Token. You can use it to access the Google API.
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
-    // The signed-in user info.
-    const user = result.user;
-    // IdP data available using getAdditionalUserInfo(result)
-    // ...
-    navigateTo('/mainScreen');
-    }).catch((error) => {
-    // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // The email of the user's account used.
-    const email = error.customData.email;
-    // The AuthCredential type that was used.
-    const credential = GoogleAuthProvider.credentialFromError(error);
-    // ...
+      .then((result) => {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        // The signed-in user info.
+        const user = result.user;
+        // IdP data available using getAdditionalUserInfo(result)
+        // ...
+        navigateTo('/mainScreen');
+      }).catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.customData.email;
+        // The AuthCredential type that was used.
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        // ...
+      });
   });
-}); 
 
   section.append(logIn, register, google);
 
@@ -132,9 +130,9 @@ function create() {
   return section;
 }
 
-export function mainScreen () {
+export function mainScreen() {
   const section = document.createElement('section');
-  section.innerHTML = `<h1>Welcome to Main Screen!</h1>`;
+  section.innerHTML = '<h1>Welcome to Main Screen!</h1>';
   return section;
 }
 

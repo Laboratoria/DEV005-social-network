@@ -27,6 +27,14 @@ export function login(navigateTo) {
   inputEmail.classList.add('inp-login');
   inputEmail.id = 'email';
   inputEmail.type = 'email';
+  inputEmail.addEventListener('click', () => {
+    labelEmail.classList.add('active');
+  });
+  inputEmail.addEventListener('blur', () => {
+    if (inputEmail.value === '') {
+      labelEmail.classList.remove('active');
+    }
+  });
 
   // Añadir los elementos del  contenedor Email
   emailContainer.append(labelEmail, inputEmail);
@@ -44,6 +52,14 @@ export function login(navigateTo) {
   inputPassword.classList.add('inp-login');
   inputPassword.id = 'password';
   inputPassword.type = 'password';
+  inputPassword.addEventListener('click', () => {
+    labelPassword.classList.add('active');
+  });
+  inputPassword.addEventListener('blur', () => {
+    if (inputPassword.value === '') {
+      labelPassword.classList.remove('active');
+    }
+  });
 
   // Añadir los elementos del  contenedor Constraseña
   passwordContainer.append(labelPassword, inputPassword);
@@ -63,7 +79,7 @@ export function login(navigateTo) {
   links.textContent = 'Regístrate';
   links.addEventListener('click', (e) => {
     e.preventDefault();
-    navigateTo('/register?id=100');
+    navigateTo('/register');
   });
   linkText.append(links);
   // Mensaje de error

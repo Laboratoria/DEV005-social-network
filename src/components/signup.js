@@ -39,6 +39,14 @@ export function register(navigateTo) {
   inputEmail.classList.add('inp-register');
   inputEmail.id = 'signup-email';
   inputEmail.type = 'email';
+  inputEmail.addEventListener('click', () => {
+    labelEmail.classList.add('active');
+  });
+  inputEmail.addEventListener('blur', () => {
+    if (inputEmail.value === '') {
+      labelEmail.classList.remove('active');
+    }
+  });
 
   // Añadir los elementos del  contenedor Email
   emailContainer.append(labelEmail, inputEmail);
@@ -56,6 +64,14 @@ export function register(navigateTo) {
   inputPassword.classList.add('inp-register');
   inputPassword.id = 'signup-password';
   inputPassword.type = 'password';
+  inputPassword.addEventListener('click', () => {
+    labelPassword.classList.add('active');
+  });
+  inputPassword.addEventListener('blur', () => {
+    if (inputPassword.value === '') {
+      labelPassword.classList.remove('active');
+    }
+  });
 
   // Añadir los elementos del  contenedor Constraseña
   passwordContainer.append(labelPassword, inputPassword);

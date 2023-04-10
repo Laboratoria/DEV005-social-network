@@ -1,31 +1,63 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from './firebase.js';
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 // pantalla inicial
-function init(navigateTo) {
+
+export function init(navigateTo) {
   const section = document.createElement('section');
-  const logIn = document.createElement('button');
-  logIn.className = 'logIn';
-  const register = document.createElement('button');
-  register.className = 'register';
-  const google = document.createElement('button');
-  google.className = 'google';
-  const gitHub = document.createElement('button');
-  gitHub.className = 'gitHub';
+  section.innerHTML = `<form class= 'form'>
+  <button class= 'logIn'> Inicia Sesión </button>
+  <button class= 'register'> Regístrate </button>
+  <hr class= 'separator1'> 
+  <span class= 'separatorText'> o </span>
+  <hr class= 'separator2'>
+  <button class= 'google'> 
+  <img src= 'https://www.enriquedans.com/wp-content/uploads/2017/07/Google-G.jpg' class= 'imgGoogle'>
+  Registrate con Google </button>
+  </form>`;
 
-  logIn.textContent = 'Inicia Sesión';
-  register.textContent = 'Registrate';
-  google.textContent = 'Registrate con Google';
-  gitHub.textContent = 'Registrate con GitHub';
-
+  const logIn = section.querySelector('.logIn');
   logIn.addEventListener('click', () => {
-    navigateTo('/login');
-  });
+  navigateTo('/login'); 
+});
 
-  section.append(logIn, register, google, gitHub);
+  const register = section.querySelector('.register');
+  register.addEventListener('click', () => {
+  navigateTo('/register'); 
+});
+
+  const google = section.querySelector('.google');
+  google.addEventListener('click', () => {
+
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider)
+    .then((result) => {
+    // This gives you a Google Access Token. You can use it to access the Google API.
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+    // The signed-in user info.
+    const user = result.user;
+    // IdP data available using getAdditionalUserInfo(result)
+    // ...
+    navigateTo('/mainScreen');
+    }).catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.customData.email;
+    // The AuthCredential type that was used.
+    const credential = GoogleAuthProvider.credentialFromError(error);
+    // ...
+  });
+}); 
+
+  section.append(logIn, register, google);
+
   return section;
-}
-// pantalla - inicio de sesión
+};
+
 function login() {
   const section = document.createElement('section');
   const interaction = document.createElement('form');
@@ -59,6 +91,7 @@ function login() {
   section.append(initSection, interaction, bottomText);
   return section;
 }
+
 // pantalla - error
 function mistake() {
   const title = document.createElement('h2');
@@ -114,8 +147,14 @@ function create() {
 
   return section;
 }
+
+export function mainScreen () {
+  const section = document.createElement('section');
+  section.innerHTML = `<h1>Welcome to Main Screen!</h1>`;
+  return section;
+}
+
 export {
-  init,
   login,
   mistake,
   create,

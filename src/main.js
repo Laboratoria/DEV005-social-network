@@ -1,6 +1,6 @@
 // import { funcion a crear } from './lib/index.js';
 import {
-  init, login, mistake, create,
+  init, login, mistake, create, mainScreen
 } from './Components/app.js';
 import './Components/firebase.js';
 
@@ -12,11 +12,12 @@ const routes = [
   { path: '/login', component: login },
   { path: '/register', component: create },
   { path: '/error', component: mistake },
+  { path: '/mainScreen', component: mainScreen }, 
 
 ];
 const defaultRoute = '/';
 
-function navigateTo(hash) {
+  function navigateTo(hash) {
   const route = routes.find((routeFind) => routeFind.path === hash);
   if (route && route.component) {
     window.history.pushState({}, route.path, window.location.origin + route.path);
@@ -29,4 +30,6 @@ function navigateTo(hash) {
     navigateTo('/error');
   }
 }
+
+
 navigateTo(window.location.pathname || defaultRoute);

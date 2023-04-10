@@ -82,38 +82,20 @@ function mistake() {
   return title;
 }
 
-// pantalla - crear cuenta
-function create() {
-  const section = document.createElement('section');
-  const formCreateAccount = document.createElement('form');
-  formCreateAccount.className = 'formCreateAccount';
-  const createAccount = document.createElement('h2');
-  createAccount.className = 'createAccount';
-  const textButton = document.createElement('label');
-  textButton.className = 'textButtonCreateAccount';
-  const card1 = document.createElement('input');
-  card1.className = 'card1';
-  const textPassword = document.createElement('label');
-  textPassword.className = 'textPasswordCreateAccount';
-  const card2 = document.createElement('input');
-  card2.className = 'card2';
-  const bottomKeep = document.createElement('button');
-  bottomKeep.className = 'bottomKeep';
-  const consider = document.createElement('button');
-  consider.className = 'consider';
-
-  createAccount.textContent = 'Crear Cuenta';
-  textButton.textContent = 'Correo Electronico';
-  textButton.appendChild(card1);
-  card1.placeholder = 'ejemplo@gmail.com';
-  textPassword.textContent = 'Contraseña';
-  textPassword.appendChild(card2);
-  card2.placeholder = '********';
-  bottomKeep.textContent = 'Guardar';
-  consider.textContent = '¿Ya tienes cuenta? Iniciar Sesión';
-
-  formCreateAccount.append(textButton, card1, textPassword, card2, bottomKeep);
-  section.append(createAccount, formCreateAccount, consider);
+const create = () => {
+  const sectionCreate = document.createElement('section');
+  sectionCreate.innerHTML = `<section class="creatSection">
+  <form class = "formCreateAccount">
+  <h2 class = "createAccount">Crear cuenta</h2>
+  <label class="textButtonCreateAccount">Correo Electronico</label>
+  <input class="card1" id="card1" placeholder='ejemplo@gmail.com'></input>
+  <label class="textPasswordCreateAccount">Contraseña</label>
+  <input class="card2" id="card2" placeholder='********'></input>
+  <button class="bottomKeep">Guardar</button>
+  <button class="consider">¿Ya tienes cuenta? Iniciar Sesión'</button>
+  </form>
+  </section>
+  `;
 
   formCreateAccount.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -127,8 +109,9 @@ function create() {
     }
   });
 
-  return section;
-}
+  return sectionCreate;
+};
+
 
 export function mainScreen() {
   const section = document.createElement('section');

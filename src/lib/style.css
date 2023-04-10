@@ -8,6 +8,11 @@
     box-sizing: border-box;
 }
 
+.emprende {
+    position: absolute;
+    width: 100px;
+}
+
 .logIn {
     position: absolute;
     width: 380px;

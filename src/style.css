@@ -1,3 +1,13 @@
+*,*::before{
+  box-sizing: border-box;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+}
+
+
 body {
   color: white;
   font-family: "Montserrat", sans-serif;
@@ -25,33 +35,34 @@ body::before {
   z-index: -1;
 }
 
-/*Media Query Celular*/
-
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
   header {
     display: flex;
     flex-direction: column;
-    padding: 10%;
+    padding: 5%;
   }
-
   h1,
   h2 {
     color: white;
     font-family: "Edu NSW ACT Foundation", cursive;
     display: flex;
     justify-content: center;
+    font-size: 35px;
   }
+  h1{
+    font-size: 50px;
 
+}
   #passAndEm {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     background-color: rgba(7, 1, 1, 0.22);
     border-radius: 10px;
     margin-left: 6%;
     margin-right: 6%;
     margin-bottom: -10%;
     padding: 5%;
+    
   }
 
   #register,
@@ -61,7 +72,7 @@ body::before {
     margin-left: 10%;
     margin-right: 10%;
     margin-bottom: 5%;
-    margin-top: 20%;
+    margin-top: 10%;
   }
 
   #email,
@@ -88,6 +99,8 @@ body::before {
     padding: 3%;
     margin: 0 auto;
     font-size: medium;
+    border-style: none;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
   }
 
   p {
@@ -143,8 +156,8 @@ body::before {
     margin: 10px auto;
     width: 184px;
     height: 42px;
-    background-color: #4285f4;
-    border-radius: 2px;
+    background-color: #fcfdfd;
+    border-radius: 30px;
     box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
   }
 
@@ -155,7 +168,7 @@ body::before {
     width: 40px;
     height: 40px;
     border-radius: 2px;
-    background-color: white;
+
   }
 
   .google-icon {
@@ -169,7 +182,7 @@ body::before {
   .btn-text {
     float: right;
     margin: 11px 11px 0 0;
-    color: white;
+    color: black;
     font-size: 14px;
     letter-spacing: 0.2px;
     font-family: "Roboto";
@@ -187,8 +200,13 @@ body::before {
     margin: 0 auto;
     border-radius: 30px;
     padding: 3%;
-    width: 150px;
+    width: 184px;
+    height: 40px;
+    border-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
   }
 
   @import url(https://fonts.googleapis.com/css?family=Roboto:500);
-}

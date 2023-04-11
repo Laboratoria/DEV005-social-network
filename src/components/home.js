@@ -1,5 +1,5 @@
 function home(navigateTo) {
-  const title = document.createElement('h1');
+  const title = document.createElement('h2');
   const section = document.createElement('section');
   const btnLogIn = document.createElement('button');
   btnLogIn.id = 'log-in';
@@ -16,7 +16,9 @@ function home(navigateTo) {
     navigateTo('/register');
   });
 
-  section.append(btnLogIn, btnRegister);
+  section.append(title,
+    btnLogIn,
+    btnRegister,);
   return section;
 }
 

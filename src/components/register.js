@@ -31,6 +31,12 @@ function register(navigateTo) {
     navigateTo('/');
   });
 
+  btnSend.addEventListener('click', () => {
+    const email = inputEmail.value;
+    const password = inputPass.value;
+    newAccount(email, password);
+  });
+
   sectionReg.append(
     titleReg,
     inputEmail,
@@ -41,7 +47,7 @@ function register(navigateTo) {
     btnSend,
     btnReturnH,
   );
-  newAccount('ejemplo@mail.com', '123456');
+  newAccount('example1@mail.com', '123456');
   return sectionReg;
 }
 

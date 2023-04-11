@@ -1,6 +1,6 @@
 import { onAuthStateChanged } from 'firebase/auth';
 import { login } from './components/login.js';
-import { register } from './components/signup.js';
+import { signup } from './components/signup.js';
 import error from './components/error.js';
 import wall from './components/wall.js';
 import { auth } from './lib/firebase.js';
@@ -10,7 +10,7 @@ const root = document.getElementById('root');
 // root.append(register());
 const routes = [
   { path: '/login', component: login },
-  { path: '/register', component: register },
+  { path: '/register', component: signup },
   { path: '/error', component: error },
   { path: '/wall', component: wall },
 ];

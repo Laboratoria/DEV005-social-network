@@ -1,7 +1,6 @@
-import { labelMovement } from '../lib/index.js';
 import { signupApp } from '../lib/register.js';
 
-export function register(navigateTo) {
+export function signup(navigateTo) {
   const inputsList = [];
   const labelsList = [];
   // Contenedor register
@@ -31,6 +30,15 @@ export function register(navigateTo) {
   inputUserName.classList.add('inp-register');
   inputUserName.id = 'userName';
   inputUserName.type = 'text';
+  inputUserName.addEventListener('click', () => {
+    labelUserName.classList.add('active');
+  });
+  inputUserName.addEventListener('blur', () => {
+    if (inputUserName.value === '') {
+      labelUserName.classList.remove('active');
+    }
+  });
+
   userNameContainer.append(labelUserName, inputUserName);
   inputsList.push(inputUserName);
   // Contenedor del correo
@@ -47,7 +55,14 @@ export function register(navigateTo) {
   inputEmail.classList.add('inp-register');
   inputEmail.id = 'signup-email';
   inputEmail.type = 'email';
-  inputsList.push(inputEmail);
+  inputEmail.addEventListener('click', () => {
+    labelEmail.classList.add('active');
+  });
+  inputEmail.addEventListener('blur', () => {
+    if (inputEmail.value === '') {
+      labelEmail.classList.remove('active');
+    }
+  });
 
   // Añadir los elementos del  contenedor Email
   emailContainer.append(labelEmail, inputEmail);
@@ -66,7 +81,14 @@ export function register(navigateTo) {
   inputPassword.classList.add('inp-register');
   inputPassword.id = 'signup-password';
   inputPassword.type = 'password';
-  inputsList.push(inputPassword);
+  inputPassword.addEventListener('click', () => {
+    labelPassword.classList.add('active');
+  });
+  inputPassword.addEventListener('blur', () => {
+    if (inputPassword.value === '') {
+      labelPassword.classList.remove('active');
+    }
+  });
 
   // Añadir los elementos del  contenedor Constraseña
   passwordContainer.append(labelPassword, inputPassword);
@@ -146,6 +168,5 @@ export function register(navigateTo) {
   // Añadir elementos a la section
   registerContainer.append(registerForm, textContainer, googleContainer);
   // Darle movimiento a los labels
-  labelMovement(inputsList, labelsList);
   return registerContainer;
 }

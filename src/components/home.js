@@ -21,7 +21,6 @@ function home(/* navigateTo */) {
   register.setAttribute('class', 'register-b');
   forgetPass.textContent = 'Olvidé contraseña';
   forgetPass.setAttribute('class', 'forgetPass-b');
-  division.append(register, forgetPass);
   division.setAttribute('class', 'divhome');
   loginGoogle.setAttribute('id', 'loginGoogle-b');
   loginGoogle.textContent = 'Inicia sesión con Google';
@@ -31,8 +30,9 @@ function home(/* navigateTo */) {
   passUser.textContent = 'Contraseña:';
   title.textContent = 'Patitas.com';
 
-  form.append(title, mailUser, mail, passUser, password, division, loginGoogle, login);
   section.append(img, form);
+  form.append(title, mailUser, mail, passUser, password, division, loginGoogle, login);
+  division.append(register, forgetPass);
   return section;
 }
 

@@ -1,0 +1,64 @@
+/* Estilos para la sección de registro */
+section {
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
+  background-color: #00ADC4;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  
+}
+
+#imagen{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  top: 0;
+  position: absolute;
+  left: 45%;
+  padding: 10px;
+
+}
+/* Estilos para el título */
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Estilos para los labels */
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Estilos para los campos de entrada */
+#name,
+#lastname,
+#password,
+#mail,
+#address,
+#birthday {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Estilos para el botón */
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Estilos para el botón cuando el cursor está sobre él */
+button:hover {
+  background-color: #3e8e41;
+}

@@ -18,7 +18,7 @@ function muro(navigateTo) {
   const postcardText = document.createElement('div');
   postcardText.classList.add('postcard__text');
 
-  const postTitle = document.createElement('h1');
+  const postTitle = document.createElement('h2');
   postTitle.classList.add('postcard__title');
 
   const postTitleLink = document.createElement('a');

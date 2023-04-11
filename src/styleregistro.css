@@ -1,5 +1,5 @@
 /* Estilos para la sección de registro */
-section {
+#formulario {
   max-width: 500px;
   margin: auto;
   padding: 20px;
@@ -23,6 +23,7 @@ section {
 h2 {
   font-size: 24px;
   margin-bottom: 20px;
+  font-weight: bold;
 }
 
 /* Estilos para los labels */

@@ -1,6 +1,6 @@
-/* eslint-disable max-len */
 function registro(navigateTo) {
   const section = document.createElement('section');
+  section.id = 'formulario';
   /* Elementos */
   const title = document.createElement('h2');
 
@@ -56,7 +56,23 @@ function registro(navigateTo) {
 
   title.textContent = 'Pet Registro';
 
-  section.append(title, nameLabel, name, lastnameLabel, lastname, passwordLabel, password, mailLabel, mail, addressLabel, address, birthdayLabel, birthday, register, img);
+  section.append(
+    title,
+    nameLabel,
+    name,
+    lastnameLabel,
+    lastname,
+    passwordLabel,
+    password,
+    mailLabel,
+    mail,
+    addressLabel,
+    address,
+    birthdayLabel,
+    birthday,
+    register,
+    img,
+  );
   return section;
 }
 

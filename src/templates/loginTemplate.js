@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-cycle
 export const LoginTemplate = `
   <h2>Iniciar sesion</h2>
   <section id="container-login">
@@ -7,15 +6,15 @@ export const LoginTemplate = `
     <input  type="email" id="email" ></label>
     <label for="password" class="cPassword">Contaseña:
     <input type="password" id="password"></label>
+    <button id="btn-login">Ingresa</button>
     </section>
     
     <section id="login">
-    <button id="btn-login">Ingresa</button>
+    
     <p>¿Eres nueva? </p>
     
     <button id="linkRegister">Registrate</button>
 
-    <p> o inicia con </p>
     <div class="google-btn">
     <div class="google-icon-wrapper">
       <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
@@ -25,19 +24,3 @@ export const LoginTemplate = `
     </section>
     </section>
 `;
-
-/* route: window.location.pathname = '/login'
-
-document.createElement
-content = document.createElement("div")
-content.innerHTML = ....
-return content
-root.replaceChildren(Login())
-content.querySelector(...
-addEventListener
-querySelector
-getElementById
-getElementsByClassName
-elem.append
-elem.remove...
-elem.replaceChildren */

@@ -1,7 +1,12 @@
 import { loginFormSubmit, labelMovement } from '../lib/index.js';
 
 export function login(navigateTo) {
-  const labelsList = [];
+  const navegateToSignup = () => {
+    const preventRefresh = (event) => {
+      event.preventDefault();
+      navigateTo('/signup');
+    }; return preventRefresh;
+  };
   // Contenedor login
   const loginContainer = document.createElement('section');
   loginContainer.classList.add('login-container');
@@ -23,7 +28,6 @@ export function login(navigateTo) {
   labelEmail.classList.add('login');
   labelEmail.textContent = 'Correo';
   labelEmail.setAttribute('for', 'email');
-  labelsList.push(labelEmail);
 
   const inputEmail = document.createElement('input');
   inputEmail.classList.add('inp-login');
@@ -42,7 +46,6 @@ export function login(navigateTo) {
   labelPassword.classList.add('login');
   labelPassword.textContent = 'Contraseña';
   labelPassword.setAttribute('for', 'password');
-  labelsList.push(labelPassword);
 
   const inputPassword = document.createElement('input');
   inputPassword.classList.add('inp-login');
@@ -66,10 +69,7 @@ export function login(navigateTo) {
   links.classList.add('links');
   links.href = '';
   links.textContent = 'Regístrate';
-  links.addEventListener('click', (e) => {
-    e.preventDefault();
-    navigateTo('/signup');
-  });
+  links.addEventListener('click', navegateToSignup());
   linkText.append(links);
   // Mensaje de error
   const loginError = document.createElement('div');

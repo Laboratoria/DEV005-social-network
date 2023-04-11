@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background-color: #D4CDC4;
+  font-family: 'Poppins';
+}
+
+.home_div{
+  position: absolute;
+  top: 10%;
+  left: 30%;
+  width: 350px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+.img_home{
+  position: absolute;
+  background-image: url(../assets/image-food.png);
+  width: 100px;
+  height: 100px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  top: 5%;
+  left: 20%;
+}
+
+.buttons_div{
+  margin: 250px 10px 0px 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.button_email, .button_google,
+.button_twitter, .button_github{
+  border-radius: 10px;
+  padding: 12px;
+  margin: 8px 0px 0px 0px;
+  font-size: 18px;
+  border-style: none;
+  font-family: 'Poppins';
+}
+
+.button_email:hover, .button_google:hover,
+.button_twitter:hover, .button_github:hover{
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.button_email{
+  background-color: #D5A129;
+}
+
+.icon_email{
+  position: absolute;
+  top: 8%;
+  left: 8%;
+  background-image: url(../assets/icon_email.png);
+  width: 30px;
+  height: 30px;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.icon_google{
+  position: absolute;
+  top: 32%;
+  left: 8%;
+  background-image: url(../assets/icon_google.png);
+  width: 28px;
+  height: 28px;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.icon_twitter{
+  position: absolute;
+  top: 58%;
+  left: 8%;
+  background-image: url(../assets/icon_twitter.png);
+  width: 28px;
+  height: 28px;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.icon_github{
+  position: absolute;
+  top: 82%;
+  left: 8%;
+  background-image: url(../assets/icon_github.png);
+  width: 28px;
+  height: 28px;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.mensaje_home{
+  margin: 15px 0px 0px 35px;
+}
+
+@media(max-width: 480px) {
+  .home_div{
+    left: 5%;
+  }
+  .img_home{
+    width: 200px;
+    height: 200px;
+  }
+}
+

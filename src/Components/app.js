@@ -4,16 +4,23 @@ import { auth } from './firebase.js';
 // pantalla inicial
 export function init(navigateTo) {
   const section = document.createElement('section');
-  section.innerHTML = `<form class= 'form'>
-  <button class= 'logIn'> Inicia Sesión </button>
-  <button class= 'register'> Regístrate </button>
-  <hr class= 'separator1'> 
-  <span class= 'separatorText'> o </span>
-  <hr class= 'separator2'>
-  <button class= 'google'> 
-  <img src= 'https://www.enriquedans.com/wp-content/uploads/2017/07/Google-G.jpg' class= 'imgGoogle'>
-  Registrate con Google </button>
-  </form>`;
+  section.innerHTML = `
+  <div class="init"> 
+    <img src='./lib/img/logo.png' class= 'logo'>
+    <form class="formInit">
+      <button class='logIn'>Inicia Sesión</button>
+      <button class='register'>Regístrate</button>
+      <hr class='separator1'> 
+      <span class='separatorText'>o</span>
+      <hr class='separator2'>
+      <button class='google'> 
+        <img src='https://www.enriquedans.com/wp-content/uploads/2017/07/Google-G.jpg' class='imgGoogle'>
+        Registrate con Google
+      </button>
+    </form>
+  </div>
+`;
+  
 
   const logIn = section.querySelector('.logIn');
   logIn.addEventListener('click', () => {
@@ -55,7 +62,7 @@ export function init(navigateTo) {
   return section;
 }
 // pantalla - inicio de sesión
-const login = () => {
+function login(navigateTo) {
   const sectionLogin = document.createElement('div');
   sectionLogin.innerHTML = `<section class="cardLogin"> 
   <h2 class="initSection">Inicio de Sesión</h2>
@@ -69,44 +76,68 @@ const login = () => {
   <botton class="bottomText">¿No tienes una cuenta? Regístrate</botton>
   </section >
   `;
+  const checkIn = sectionLogin.querySelector('.bottomText');
+  checkIn.addEventListener('click', () => {
+    navigateTo('/register');
+  });
+
+  const keep = sectionLogin.querySelector('.getInt');
+  keep.addEventListener('click', () => {
+    navigateTo('/mainScreen');
+  });
+
   return sectionLogin;
-};
+}
 
 // pantalla - error
-function mistake() {
-  const title = document.createElement('h2');
+function mistake(navigateTo) {
+  const bug = document.createElement('div');
+  bug.innerHTML = `<section class="errorSection"><img class="imgBug" src="../lib/img/error404.png">
+  <h2 class="text"> Error 404: página no encontrada.</h2>
+  <botton class="init"> volver al Inicio<botton>
+  </section>`;
 
-  title.textContent = 'Error 404: página no encontrada.';
-  return title;
+  const keep = bug.querySelector('.init');
+  keep.addEventListener('click', () => {
+    navigateTo('/mainScreen');
+  });
+  return bug;
 }
-// pantalla - REGISTRATE: crear Cuenta
-const create = () => {
-  const sectionCreate = document.createElement('section');
+
+function create(navigateTo) {
+  const sectionCreate = document.createElement('div');
   sectionCreate.innerHTML = `<section class="creatSection">
   <form class = "formCreateAccount">
   <h2 class = "createAccount">Crear cuenta</h2>
   <label class="textButtonCreateAccount">Correo Electronico</label>
   <input class="card1" id="card1" placeholder='ejemplo@gmail.com'></input>
   <label class="textPasswordCreateAccount">Contraseña</label>
-  <input class="card2" id="card2" placeholder='********'></input>
-  <button class="bottomKeep" id="btnguardar">Guardar</button>
-  <button class="consider">¿Ya tienes cuenta? Iniciar Sesión'</button>
+  <input class="card2" id="card2" type="password" placeholder='********'></input>
   </form>
+  <button class="bottomKeep">Guardar</button>
+  <button class="bottomText">¿Ya tienes cuenta? Iniciar Sesión</button>
   </section>
   `;
+  const logIn = sectionCreate.querySelector('.bottomText');
+  logIn.addEventListener('click', () => {
+    navigateTo('/login');
+  });
+
+  const form = sectionCreate.querySelector('.bottomKeep');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = sectionCreate.querySelector('.card1').value;
+    const contraseña = sectionCreate.querySelector('.card2').value;
+    try {
+      const userCredentials = await createUserWithEmailAndPassword(auth, email, contraseña);
+      console.log(userCredentials);
+    } catch (error) {
+      console.log(error);
+    }
+  }); */
+
   return sectionCreate;
-};
-  // formCreateAccount.addEventListener('submit', async (e) => {
-  //   e.preventDefault();
-  //   const email = formCreateAccount.card1.value;
-  //   const contraseña = formCreateAccount.card2.value;
-  //   try {
-  //     const userCredentials = await createUserWithEmailAndPassword(auth, email, contraseña);
-  //     console.log(userCredentials);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // });
+}
 
 export function mainScreen() {
   const section = document.createElement('section');

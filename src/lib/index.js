@@ -2,6 +2,7 @@
 // Agrega la clase 'active' al label cuando el input tiene el foco
 // y la quita cuando el input pierde el foco y está vacío
 
+/*
 function labelMovement(inputs) {
   inputs.forEach((input) => {
     const label = document.querySelector(`label[for="${input.id}"]`);
@@ -29,3 +30,4 @@ document.addEventListener('DOMContentLoaded', () => {
   labelMovement(inputsLogin);
   labelMovement(inputsRegister);
 });
+*/

@@ -3,13 +3,11 @@ import { auth } from './firebase';
 
 export const loginApp = (email, password, loginError) => {
   signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
+    .then(() => {
     // Signed in
-      const user = userCredential.user;
-      console.log('entro la persona ', user);
-    // ...
+    // console.log('entro la persona ', user);
     })
-    .catch((error) => {
+    .catch(() => {
       loginError.textContent = 'Correo o contraseña incorrecto';
     });
 };

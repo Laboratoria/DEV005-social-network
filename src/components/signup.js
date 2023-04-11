@@ -1,3 +1,5 @@
+import { signupApp } from '../lib/register.js';
+
 export function register(navigateTo) {
   // Contenedor register
   const registerContainer = document.createElement('section');
@@ -25,6 +27,15 @@ export function register(navigateTo) {
   inputUserName.classList.add('inp-register');
   inputUserName.id = 'userName';
   inputUserName.type = 'text';
+  inputUserName.addEventListener('click', () => {
+    labelUserName.classList.add('active');
+  });
+  inputUserName.addEventListener('blur', () => {
+    if (inputUserName.value === '') {
+      labelUserName.classList.remove('active');
+    }
+  });
+
   userNameContainer.append(labelUserName, inputUserName);
   // Contenedor del correo
   const emailContainer = document.createElement('div');
@@ -116,7 +127,12 @@ export function register(navigateTo) {
     btnregister,
     linkContainer,
   );
-
+  // Se llama a la función de verificación de registro
+  registerForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    signupApp(inputEmail.value, inputPassword.value, registerError);
+    inputPassword.value = '';
+  });
   // O regístrate con
   const textContainer = document.createElement('div');
   textContainer.classList.add('content-text');

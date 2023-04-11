@@ -1,5 +1,6 @@
 export const LoginTemplate = `
   <h2>Iniciar sesion</h2>
+  <form id="signIn">
   <section id="container-login">
     <section id="passAndEm">
     <label for="email" class="cEmail">Correo electronico:
@@ -10,7 +11,7 @@ export const LoginTemplate = `
     </section>
     
     <section id="login">
-    
+    </form>
     <p>¿Eres nueva? </p>
     
     <button id="linkRegister">Registrate</button>

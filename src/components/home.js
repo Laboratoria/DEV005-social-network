@@ -1,19 +1,22 @@
-// HOME
-
 function home(navigateTo) {
-  const section = document.createElement('section');
   const title = document.createElement('h1');
-  const button = document.createElement('button');
+  const section = document.createElement('section');
+  const btnLogIn = document.createElement('button');
+  btnLogIn.id = 'log-in';
+  const btnRegister = document.createElement('button');
+  btnRegister.id = 'register';
 
-  button.textContent = 'Login';
-  console.log(section)
-  button.addEventListener('click', () => {
+  title.textContent = '¡Bienvenida a KittyBook!';
+  btnLogIn.textContent = 'Iniciar sesión';
+  btnRegister.textContent = 'Registrarme';
+  btnLogIn.addEventListener('click', () => {
     navigateTo('/login');
   });
+  btnRegister.addEventListener('click', () => {
+    navigateTo('/register');
+  });
 
-  title.textContent = 'Acceder';
-
-  section.append(title, button);
+  section.append(btnLogIn, btnRegister);
   return section;
 }
 

@@ -11,108 +11,110 @@ body{
   font-family: 'Poppins';
 }
 
-.homediv{
-  position: absolute;
-  top: 10%;
-  left: 30%;
-  width: 350px;
-  height: 500px;
-  display: flex;
-  flex-direction: column;
-}
-
-.imghome{
-  position: absolute;
-  background-image: url(../assets/image-food.png);
-  width: 100px;
-  height: 100px;
-  background-repeat: no-repeat;
-  background-size: cover;
-  top: 5%;
-  left: 20%;
-}
-
-.buttondiv{
-  margin: 250px 10px 0px 10px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
-
-.buttonemail, .buttongoogle,
-.buttontwitter, .buttongithub{
-  border-radius: 10px;
-  padding: 12px;
-  margin: 8px 0px 0px 0px;
-  font-size: 18px;
-  border-style: none;
-  font-family: 'Poppins';
-}
-
-.buttonemail:hover, .buttongoogle:hover,
-.buttontwitter:hover, .buttongithub:hover{
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-}
-
-.buttonemail{
-  background-color: #D5A129;
-}
-
-.iconemail{
-  position: absolute;
-  top: 8%;
-  left: 8%;
-  background-image: url(../assets/icon_email.png);
-  width: 30px;
-  height: 30px;
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-
-.icongoogle{
-  position: absolute;
-  top: 32%;
-  left: 8%;
-  background-image: url(../assets/icon_google.png);
-  width: 28px;
-  height: 28px;
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-
-.icontwitter{
-  position: absolute;
-  top: 58%;
-  left: 8%;
-  background-image: url(../assets/icon_twitter.png);
-  width: 28px;
-  height: 28px;
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-
-.icongithub{
-  position: absolute;
-  top: 82%;
-  left: 8%;
-  background-image: url(../assets/icon_github.png);
-  width: 28px;
-  height: 28px;
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-
-.mensajeregister{
-  margin: 15px 0px 0px 35px;
-}
-
 @media(max-width: 480px) {
   .homediv{
+    position: absolute;
+    top: 10%;
     left: 5%;
+    width: 350px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
   }
+  
   .imghome{
+    position: absolute;
+    background-image: url(../assets/image-food.png);
     width: 200px;
     height: 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    top: 0%;
+    left: 20%;
+  }
+
+  .buttondiv{
+    margin: 250px 10px 0px 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .buttonemail, .buttongoogle,
+  .buttontwitter, .buttongithub{
+    border-radius: 10px;
+    padding: 12px;
+    margin: 8px 0px 0px 0px;
+    font-size: 18px;
+    border-style: none;
+    font-family: 'Poppins';
+  }
+
+  
+  .buttonemail:hover, .buttongoogle:hover,
+  .buttontwitter:hover, .buttongithub:hover{
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .buttonemail{
+  background-color: #F2B872;
+  }
+
+  .iconemail{
+    position: absolute;
+    top: 8%;
+    left: 8%;
+    background-image: url(../assets/icon_email.png);
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  
+  .icongoogle{
+    position: absolute;
+    top: 32%;
+    left: 8%;
+    background-image: url(../assets/icon_google.png);
+    width: 28px;
+    height: 28px;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  
+  .icontwitter{
+    position: absolute;
+    top: 58%;
+    left: 8%;
+    background-image: url(../assets/icon_twitter.png);
+    width: 28px;
+    height: 28px;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  
+  .icongithub{
+    position: absolute;
+    top: 82%;
+    left: 8%;
+    background-image: url(../assets/icon_github.png);
+    width: 28px;
+    height: 28px;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  
+  .messagehome{
+    position: absolute;
+    top: 40%;
+    left: 6%;
+    font-size: 25px;
+  }
+
+  .mensajeregister{
+    width: 200px;
+    margin: 10px auto 10px;
+    text-align:center;
   }
 }
 

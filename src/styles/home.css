@@ -11,7 +11,7 @@ body{
   font-family: 'Poppins';
 }
 
-.home_div{
+.homediv{
   position: absolute;
   top: 10%;
   left: 30%;
@@ -21,7 +21,7 @@ body{
   flex-direction: column;
 }
 
-.img_home{
+.imghome{
   position: absolute;
   background-image: url(../assets/image-food.png);
   width: 100px;
@@ -32,15 +32,15 @@ body{
   left: 20%;
 }
 
-.buttons_div{
+.buttondiv{
   margin: 250px 10px 0px 10px;
   position: relative;
   display: flex;
   flex-direction: column;
 }
 
-.button_email, .button_google,
-.button_twitter, .button_github{
+.buttonemail, .buttongoogle,
+.buttontwitter, .buttongithub{
   border-radius: 10px;
   padding: 12px;
   margin: 8px 0px 0px 0px;
@@ -49,16 +49,16 @@ body{
   font-family: 'Poppins';
 }
 
-.button_email:hover, .button_google:hover,
-.button_twitter:hover, .button_github:hover{
+.buttonemail:hover, .buttongoogle:hover,
+.buttontwitter:hover, .buttongithub:hover{
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
-.button_email{
+.buttonemail{
   background-color: #D5A129;
 }
 
-.icon_email{
+.iconemail{
   position: absolute;
   top: 8%;
   left: 8%;
@@ -69,7 +69,7 @@ body{
   background-size: contain;
 }
 
-.icon_google{
+.icongoogle{
   position: absolute;
   top: 32%;
   left: 8%;
@@ -80,7 +80,7 @@ body{
   background-size: contain;
 }
 
-.icon_twitter{
+.icontwitter{
   position: absolute;
   top: 58%;
   left: 8%;
@@ -91,7 +91,7 @@ body{
   background-size: contain;
 }
 
-.icon_github{
+.icongithub{
   position: absolute;
   top: 82%;
   left: 8%;
@@ -102,15 +102,15 @@ body{
   background-size: contain;
 }
 
-.mensaje_home{
+.mensajeregister{
   margin: 15px 0px 0px 35px;
 }
 
 @media(max-width: 480px) {
-  .home_div{
+  .homediv{
     left: 5%;
   }
-  .img_home{
+  .imghome{
     width: 200px;
     height: 200px;
   }

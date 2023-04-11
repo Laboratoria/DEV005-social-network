@@ -1,49 +1,55 @@
-function home(navigateTo){
-  const home_div = document.createElement('div');
-  home_div.className = 'home_div';
-  const img_home = document.createElement('div');
-  img_home.className = 'img_home';
-  const buttons_div = document.createElement('div');
-  buttons_div.className = 'buttons_div';
-  //? botón de email
-  const button_email = document.createElement('button');
-  button_email.className = 'button_email';
-  const icon_email = document.createElement('div');
-  icon_email.className = 'icon_email';
-  //? botón de google
-  const button_google = document.createElement('button');
-  button_google.className = 'button_google';
-  const icon_google = document.createElement('div');
-  icon_google.className = 'icon_google'
-  //? botón de twitter
-  const button_twitter = document.createElement('button');
-  button_twitter.className = 'button_twitter';
-  const icon_twitter = document.createElement('div');
-  icon_twitter.className = 'icon_twitter'
-  //? botón de github
-  const button_github = document.createElement('button');
-  button_github.className = 'button_github';
-  const icon_github = document.createElement('div');
-  icon_github.className = 'icon_github'
-  //? mensaje
-  const mensaje_home = document.createElement('span');
-  mensaje_home.className = 'mensaje_home'
+function home(navigateTo) {
+  const homediv = document.createElement('div');
+  homediv.className = 'homediv';
+  const imghome = document.createElement('div');
+  imghome.className = 'imghome';
 
+  const messagehome = document.createElement('h1');
+  messagehome.className = 'messagehome';
+  const buttondiv = document.createElement('div');
+  buttondiv.className = 'buttondiv';
+  // ? botón de email
+  const buttonemail = document.createElement('button');
+  buttonemail.className = 'buttonemail';
+  const iconemail = document.createElement('div');
+  iconemail.className = 'iconemail';
+  // ? botón de google
+  const buttongoogle = document.createElement('button');
+  buttongoogle.className = 'buttongoogle';
+  const icongoogle = document.createElement('div');
+  icongoogle.className = 'icongoogle';
+  // ? botón de twitter
+  const buttontwitter = document.createElement('button');
+  buttontwitter.className = 'buttontwitter';
+  const icontwitter = document.createElement('div');
+  icontwitter.className = 'icontwitter';
+  // ? botón de github
+  const buttongithub = document.createElement('button');
+  buttongithub.className = 'buttongithub';
+  const icongithub = document.createElement('div');
+  icongithub.className = 'icongithub';
+  // ? mensaje
+  const mensajeregister = document.createElement('span');
+  mensajeregister.className = 'mensajeregister';
 
-  button_email.textContent = 'Continuar con Email';
-  button_google.textContent = 'Continuar con Google';
-  button_twitter.textContent = 'Continuar con Twitter';
-  button_github.textContent = 'Continuar con Github';
-  mensaje_home.innerHTML =  ` ¿No tienes una cuenta?
-  <strong>Regístrate</strong>`
+  buttonemail.textContent = 'Continuar con Email';
+  buttonemail.addEventListener('click', () => {
+    navigateTo('/login');
+  });
+  buttongoogle.textContent = 'Continuar con Google';
+  buttontwitter.textContent = 'Continuar con Twitter';
+  buttongithub.textContent = 'Continuar con Github';
+  mensajeregister.innerHTML = ` ¿No tienes una cuenta?
+  <strong>Regístrate</strong>`;
+  messagehome.textContent = 'Bienvenido a Food Match';
 
-  home_div.append( img_home, buttons_div, mensaje_home);
-  buttons_div.append(button_email, button_google, button_twitter, button_github)
-  button_email.appendChild(icon_email)
-  button_google.appendChild(icon_google)
-  button_twitter.appendChild(icon_twitter)
-  button_github.appendChild(icon_github)
-  return home_div;
+  homediv.append(imghome, messagehome, buttondiv, mensajeregister);
+  buttondiv.append(buttonemail, buttongoogle, buttontwitter, buttongithub);
+  buttonemail.appendChild(iconemail);
+  buttongoogle.appendChild(icongoogle);
+  buttontwitter.appendChild(icontwitter);
+  buttongithub.appendChild(icongithub);
+  return homediv;
 }
 
 export default home;

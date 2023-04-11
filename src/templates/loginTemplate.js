@@ -1,5 +1,6 @@
 export const LoginTemplate = `
   <h2>Iniciar sesion</h2>
+  <form id="signIn">
   <section id="container-login">
     <section id="passAndEm">
     <label for="email" class="cEmail">Correo electronico:
@@ -10,12 +11,12 @@ export const LoginTemplate = `
     </section>
     
     <section id="login">
-    
+    </form>
     <p>¿Eres nueva? </p>
     
     <button id="linkRegister">Registrate</button>
 
-    <div class="google-btn">
+    <div class="google-btn" id= "btn-google">
     <div class="google-icon-wrapper">
       <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
     </div>

@@ -57,7 +57,7 @@
     left: 33px;
     top: 527px;
     border: 1px solid #000000;
-} 
+}
 
 .separatorText {
     position: absolute;
@@ -73,7 +73,7 @@
     left: 248px;
     top: 527px;
     border: 1px solid #000000;
-} 
+}
 
 .google {
     box-sizing: border-box;
@@ -88,7 +88,7 @@
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
-    
+
 }
 
 .imgGoogle {
@@ -98,6 +98,7 @@
     left: 52px;
 }
 
+/*pantalla iniciar sesión */
 .formInteraction {
     margin: 70% 5% 7%;
     width: 92%;
@@ -120,8 +121,6 @@
     font-size: 22px;
     background: none;
 }
-
-
 
 .labelEmail {
     position: absolute;
@@ -184,7 +183,6 @@
 
 .bottomText {
     position: absolute;
-    height: 25px;
     left: 40px;
     top: 847px;
     font-size: 22px;
@@ -193,16 +191,111 @@
     font-weight: bold;
 }
 
-@media screen and (min-width: 1024px) {
-      .formInit {
-        float: right;
-        width: 50%;
-      }
-      
-      
-      
-      
-      
-      
-      
-  }
+/*pantalla crear cuenta*/
+
+.creatSection {
+    background-image: none;
+    height: 0px
+}
+
+.formCreateAccount {
+    margin: 70% 5% 7%;
+    width: 92%;
+    height: 404px;
+    border-radius: 12px;
+    background: #D9D9D9;
+    background-image: none;
+    opacity: 0.9;
+}
+
+.createAccount {
+    position: absolute;
+    left: 24px;
+    top: 245px;
+    font-size: 22px;
+    background: none;
+}
+
+.textButtonCreateAccount {
+    position: absolute;
+    height: 23px;
+    left: 49px;
+    top: 330px;
+    font-size: 20px;
+    background: none;
+}
+
+.card1 {
+    position: absolute;
+    width: 341px;
+    height: 45px;
+    left: 49px;
+    top: 369px;
+    border: none;
+    border-radius: 12px;
+    font-size: 21px;
+}
+
+.textPasswordCreateAccount {
+    position: absolute;
+    height: 23px;
+    left: 49px;
+    top: 466px;
+    font-size: 20px;
+    line-height: 23px;
+    background: none;
+
+}
+
+.card2 {
+    position: absolute;
+    width: 341px;
+    height: 45px;
+    left: 49px;
+    top: 508px;
+    border: none;
+    background: #FFFEFE;
+    border-radius: 12px;
+    font-size: 30px;
+}
+
+.bottomKeep {
+    position: absolute;
+    width: 341px;
+    height: 45px;
+    left: 49px;
+    top: 616px;
+    font-weight: bold;
+    font-size: 22px;
+    border: none;
+    background: #528FD8;
+    border-radius: 12px;
+    color: #FFFEFE;
+}
+
+/*error*/
+.errorSection {
+    background-image: none;
+    height: 0px
+}
+.imgBug {
+    width: 103%;
+    margin: 169px -2px;
+    background: none;
+}
+.text{
+    position: absolute;
+    left: 30px;
+    top: 446px;
+    font-size: 24px;
+    background: none; 
+}
+
+.init{
+    position: absolute;
+    left: 35%;
+    top: 486px;
+    font-size: 22px;
+    color: blue;
+    background: none;
+}

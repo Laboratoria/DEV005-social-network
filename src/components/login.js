@@ -1,6 +1,9 @@
 import { loginApp } from '../lib/authentication';
+import { labelMovement } from '../lib/index.js';
 
 export function login(navigateTo) {
+  const inputsList = [];
+  const labelsList = [];
   // Contenedor login
   const loginContainer = document.createElement('section');
   loginContainer.classList.add('login-container');
@@ -22,11 +25,13 @@ export function login(navigateTo) {
   labelEmail.classList.add('login');
   labelEmail.textContent = 'Correo';
   labelEmail.setAttribute('for', 'email');
+  labelsList.push(labelEmail);
 
   const inputEmail = document.createElement('input');
   inputEmail.classList.add('inp-login');
   inputEmail.id = 'email';
   inputEmail.type = 'email';
+  inputsList.push(inputEmail);
 
   // Añadir los elementos del  contenedor Email
   emailContainer.append(labelEmail, inputEmail);
@@ -39,11 +44,13 @@ export function login(navigateTo) {
   labelPassword.classList.add('login');
   labelPassword.textContent = 'Contraseña';
   labelPassword.setAttribute('for', 'password');
+  labelsList.push(labelPassword);
 
   const inputPassword = document.createElement('input');
   inputPassword.classList.add('inp-login');
   inputPassword.id = 'password';
   inputPassword.type = 'password';
+  inputsList.push(inputPassword);
 
   // Añadir los elementos del  contenedor Constraseña
   passwordContainer.append(labelPassword, inputPassword);
@@ -79,12 +86,13 @@ export function login(navigateTo) {
   const links = document.createElement('a');
   links.classList.add('links');
   links.href = '';
+  links.id = 'register-link';
   links.textContent = 'Regístrate';
-  links.addEventListener('click', () => {
+  links.addEventListener('click', (event) => {
+    event.preventDefault();
     navigateTo('/register');
   });
   linkText.append(links);
-
   // Añadir elementos del form
   loginForm.append(emailContainer, passwordContainer, loginError, btnLogin, linkContainer);
 
@@ -116,5 +124,7 @@ export function login(navigateTo) {
 
   // Añadir elementos a la section
   loginContainer.append(loginForm, textContainer, googleContainer);
+  // Darle  movimiento a los labels
+  labelMovement(inputsList, labelsList);
   return loginContainer;
 }

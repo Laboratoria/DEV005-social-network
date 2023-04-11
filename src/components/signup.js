@@ -1,4 +1,9 @@
+import { labelMovement } from '../lib/index.js';
+import { signupApp } from '../lib/register.js';
+
 export function register(navigateTo) {
+  const inputsList = [];
+  const labelsList = [];
   // Contenedor register
   const registerContainer = document.createElement('section');
   registerContainer.classList.add('register-container');
@@ -20,12 +25,14 @@ export function register(navigateTo) {
   labelUserName.classList.add('register');
   labelUserName.textContent = 'Nombre de usuario';
   labelUserName.setAttribute('for', 'userName');
+  labelsList.push(labelUserName);
 
   const inputUserName = document.createElement('input');
   inputUserName.classList.add('inp-register');
   inputUserName.id = 'userName';
   inputUserName.type = 'text';
   userNameContainer.append(labelUserName, inputUserName);
+  inputsList.push(inputUserName);
   // Contenedor del correo
   const emailContainer = document.createElement('div');
   emailContainer.classList.add('group');
@@ -34,11 +41,13 @@ export function register(navigateTo) {
   labelEmail.classList.add('register');
   labelEmail.textContent = 'Correo';
   labelEmail.setAttribute('for', 'signup-email');
+  labelsList.push(labelEmail);
 
   const inputEmail = document.createElement('input');
   inputEmail.classList.add('inp-register');
   inputEmail.id = 'signup-email';
   inputEmail.type = 'email';
+  inputsList.push(inputEmail);
 
   // Añadir los elementos del  contenedor Email
   emailContainer.append(labelEmail, inputEmail);
@@ -51,11 +60,13 @@ export function register(navigateTo) {
   labelPassword.classList.add('register');
   labelPassword.textContent = 'Contraseña';
   labelPassword.setAttribute('for', 'signup-password');
+  labelsList.push(labelPassword);
 
   const inputPassword = document.createElement('input');
   inputPassword.classList.add('inp-register');
   inputPassword.id = 'signup-password';
   inputPassword.type = 'password';
+  inputsList.push(inputPassword);
 
   // Añadir los elementos del  contenedor Constraseña
   passwordContainer.append(labelPassword, inputPassword);
@@ -64,6 +75,7 @@ export function register(navigateTo) {
   const registerError = document.createElement('div');
   registerError.classList.add('link-text');
   registerError.id = 'register-error';
+  registerError.textContent = '';
 
   // Botón Iniciar Sesión
   const btnregister = document.createElement('button');
@@ -85,8 +97,9 @@ export function register(navigateTo) {
   links.classList.add('links');
   links.href = '';
   links.textContent = 'Inicia sesión';
-  links.addEventListener('click', () => {
-    navigateTo('/');
+  links.addEventListener('click', (event) => {
+    event.preventDefault();
+    navigateTo('/login');
   });
   linkText.append(links);
 
@@ -99,7 +112,12 @@ export function register(navigateTo) {
     btnregister,
     linkContainer,
   );
-
+  // Se llama a la función de verificación de registro
+  registerForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    signupApp(inputEmail.value, inputPassword.value, registerError);
+    inputPassword.value = '';
+  });
   // O regístrate con
   const textContainer = document.createElement('div');
   textContainer.classList.add('content-text');
@@ -125,8 +143,9 @@ export function register(navigateTo) {
   imgGoogle.classList.add('google-icon');
   imgGoogle.alt = 'Logo Google';
   btnGoogle.prepend(imgGoogle);
-
   // Añadir elementos a la section
   registerContainer.append(registerForm, textContainer, googleContainer);
+  // Darle movimiento a los labels
+  labelMovement(inputsList, labelsList);
   return registerContainer;
 }

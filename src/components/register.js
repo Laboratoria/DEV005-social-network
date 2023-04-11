@@ -3,6 +3,7 @@ import { newAccount } from '../lib/auth';
 function register(navigateTo) {
   const sectionReg = document.createElement('section');
   sectionReg.id = 'reg-account';
+  sectionReg.classList.add('register-background');
   const titleReg = document.createElement('h2');
   const inputEmail = document.createElement('input');
   inputEmail.id = 'email';
@@ -17,6 +18,7 @@ function register(navigateTo) {
   inputPass.id = 'password';
   inputPass.type = 'password';
   inputPass.placeholder = 'Escribe tu contraseña';
+  inputPass.type ="password";
   // const inputConfirmPass = document.createElement('input');
   // inputConfirmPass.id = 'confirmar-contra';
   // inputConfirmPass.placeholder = 'Confirma tu contraseña';

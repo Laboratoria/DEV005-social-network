@@ -41,7 +41,7 @@ function register(navigateTo) {
     btnSend,
     btnReturnH,
   );
-  newAccount('example@mail.com', '12345');
+  newAccount('ejemplo@mail.com', '123456');
   return sectionReg;
 }
 

@@ -1,12 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
-/* Fuentes */
-:root {
-  --font-logo: cursive;
+/* div {
+  background-color: #f9f4ef;
 }
+/* Fuentes */
+/* :root {
+  --font-logo: cursive;
+} */ 
 
 @media only screen and (max-width: 720px) {
 
 h1 {
   font-family: sans-serif;
+}
+
+.grid {
+  background-color: #f9f4ef;
+  border-radius: 25px;
 }
 }

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 function logIn(navigateTo) {
   const section = document.createElement('section');
   const title = document.createElement('h2');

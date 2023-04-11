@@ -14,19 +14,20 @@ function register(navigateTo) {
   // inputUser.id = 'nombre-usuario';
   // inputUser.placeholder = 'Tu usuario';
   const inputPass = document.createElement('input');
-  inputPass.id = 'contraseña';
+  inputPass.id = 'password';
+  inputPass.type = 'password';
   inputPass.placeholder = 'Escribe tu contraseña';
   // const inputConfirmPass = document.createElement('input');
   // inputConfirmPass.id = 'confirmar-contra';
   // inputConfirmPass.placeholder = 'Confirma tu contraseña';
   const btnSend = document.createElement('button');
-  btnSend.id = 'enviar-info';
+  btnSend.id = 'send-info';
 
   titleReg.textContent = '¡Regístrate!';
   btnSend.textContent = 'Registrarme';
 
   const btnReturnH = document.createElement('button');
-  btnReturnH.textContent = 'Return to home';
+  btnReturnH.textContent = 'Volver a inicio';
   btnReturnH.addEventListener('click', () => {
     navigateTo('/');
   });

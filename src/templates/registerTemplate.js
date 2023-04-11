@@ -9,10 +9,11 @@ export const RegisterTemplate = `
     <input  type="text" id="user" ></label>
     <label for="password" class="cPassword">Contaseña:
     <input type="password" id="password"></label>
+    <button type="submit" id="btn-register">Registrate</button>
     </section>
     
     <section id="register">
-    <button type="submit" id="btn-register">Registrate</button>
+    
     <p>¿Ya tienes cuenta? </p>
     <a href="">Inicia sesion</a>
     </section>

@@ -1,12 +1,20 @@
+*,*::before{
+  box-sizing: border-box;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+}
+
+
 body {
   color: white;
   font-family: "Montserrat", sans-serif;
   background: rgb(122, 91, 216);
-  background: linear-gradient(
-    180deg,
-    rgba(122, 91, 216, 1) 1%,
-    rgba(154, 131, 192, 1) 89%
-  );
+  background: linear-gradient(180deg,
+      rgba(122, 91, 216, 1) 1%,
+      rgba(154, 131, 192, 1) 89%);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -26,13 +34,11 @@ body::before {
   opacity: 0.1;
   z-index: -1;
 }
-/*Media Query Celular*/
 
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
   header {
     display: flex;
     flex-direction: column;
-    padding: 10%;
+    padding: 5%;
   }
   h1,
   h2 {
@@ -40,19 +46,25 @@ body::before {
     font-family: "Edu NSW ACT Foundation", cursive;
     display: flex;
     justify-content: center;
+    font-size: 35px;
   }
+  h1{
+    font-size: 50px;
 
+}
   #passAndEm {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     background-color: rgba(7, 1, 1, 0.22);
     border-radius: 10px;
     margin-left: 6%;
     margin-right: 6%;
     margin-bottom: -10%;
     padding: 5%;
+    
   }
+
   #register,
   #login {
     display: flex;
@@ -60,7 +72,7 @@ body::before {
     margin-left: 10%;
     margin-right: 10%;
     margin-bottom: 5%;
-    margin-top: 20%;
+    margin-top: 10%;
   }
 
   #email,
@@ -77,6 +89,7 @@ body::before {
   .CUser {
     padding: 3%;
   }
+
   #btn-login,
   #btn-register {
     width: 80%;
@@ -86,17 +99,22 @@ body::before {
     padding: 3%;
     margin: 0 auto;
     font-size: medium;
+    border-style: none;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
   }
+
   p {
     margin: 0 auto;
     margin-top: 10%;
     margin-bottom: 5%;
   }
+
   a {
     margin: 0 auto;
     margin-bottom: 5%;
     color: white;
   }
+
   #google-Logo {
     width: 40px;
     padding: 10%;
@@ -109,12 +127,6 @@ body::before {
     line-height: 2;
   }
 
-  .container-login {
-  }
-
-  .container-register {
-  }
-
   #iPost {
     padding: 10%;
     width: 70%;
@@ -123,6 +135,7 @@ body::before {
     background-color: rgba(172, 167, 167, 0.536);
     margin-left: 5%;
   }
+
   #btn-post {
     width: 30%;
     background-color: #655dbb;
@@ -133,6 +146,7 @@ body::before {
     font-size: small;
     margin-left: 65%;
   }
+
   #wall {
     background-color: white;
     width: 100%;
@@ -142,10 +156,11 @@ body::before {
     margin: 10px auto;
     width: 184px;
     height: 42px;
-    background-color: #4285f4;
-    border-radius: 2px;
+    background-color: #fcfdfd;
+    border-radius: 30px;
     box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
   }
+
   .google-icon-wrapper {
     position: absolute;
     margin-top: 1px;
@@ -153,8 +168,9 @@ body::before {
     width: 40px;
     height: 40px;
     border-radius: 2px;
-    background-color: white;
+
   }
+
   .google-icon {
     position: absolute;
     margin-top: 11px;
@@ -162,26 +178,35 @@ body::before {
     width: 18px;
     height: 18px;
   }
+
   .btn-text {
     float: right;
     margin: 11px 11px 0 0;
-    color: white;
+    color: black;
     font-size: 14px;
     letter-spacing: 0.2px;
     font-family: "Roboto";
   }
+
   .google-btn:hover {
     box-shadow: 0 0 6px #4285f4;
   }
+
   .google-btn :active {
     background: #1669f2;
   }
+
   #linkRegister {
     margin: 0 auto;
     border-radius: 30px;
     padding: 3%;
-    width: 150px;
+    width: 184px;
+    height: 40px;
+    border-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
   }
 
   @import url(https://fonts.googleapis.com/css?family=Roboto:500);
-}

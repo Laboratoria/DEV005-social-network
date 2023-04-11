@@ -3,6 +3,7 @@ import { newAccount } from '../lib/auth';
 function register(navigateTo) {
   const sectionReg = document.createElement('section');
   sectionReg.id = 'reg-account';
+  sectionReg.classList.add('register-background');
   const titleReg = document.createElement('h2');
   const inputEmail = document.createElement('input');
   inputEmail.id = 'email';

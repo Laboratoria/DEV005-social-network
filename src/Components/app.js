@@ -4,16 +4,23 @@ import { auth } from './firebase.js';
 // pantalla inicial
 export function init(navigateTo) {
   const section = document.createElement('section');
-  section.innerHTML = `<form class= 'form'>
-  <button class= 'logIn'> Inicia Sesión </button>
-  <button class= 'register'> Regístrate </button>
-  <hr class= 'separator1'> 
-  <span class= 'separatorText'> o </span>
-  <hr class= 'separator2'>
-  <button class= 'google'> 
-  <img src= 'https://www.enriquedans.com/wp-content/uploads/2017/07/Google-G.jpg' class= 'imgGoogle'>
-  Registrate con Google </button>
-  </form>`;
+  section.innerHTML = `
+  <div class="init"> 
+    <img src='./lib/img/logo.png' class= 'logo'>
+    <form class="formInit">
+      <button class='logIn'>Inicia Sesión</button>
+      <button class='register'>Regístrate</button>
+      <hr class='separator1'> 
+      <span class='separatorText'>o</span>
+      <hr class='separator2'>
+      <button class='google'> 
+        <img src='https://www.enriquedans.com/wp-content/uploads/2017/07/Google-G.jpg' class='imgGoogle'>
+        Registrate con Google
+      </button>
+    </form>
+  </div>
+`;
+  
 
   const logIn = section.querySelector('.logIn');
   logIn.addEventListener('click', () => {
@@ -128,7 +135,7 @@ function create(navigateTo) {
     } catch (error) {
       console.log(error);
     }
-  });
+  }); */
 
   return sectionCreate;
 }

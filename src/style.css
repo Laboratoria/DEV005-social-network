@@ -1,0 +1,110 @@
+/*titulo patitas.com = #6663E1
+fondo = #5BA0BD
+link registrarse y olvide contraseña = #2F2BEC*/
+
+body{
+    margin-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: 'Inter', sans-serif;
+    width: 100vw;
+    height: 100vh;
+}
+#root{
+    display: flex;
+    background-color: #5BA0BD;
+    margin-top: 0;
+}
+
+section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+.logo{
+    border-radius: 100px;
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    width: 320px;
+    height: 400px;
+    background-color: rgb(255, 255, 255);
+    border-style: solid;
+    border-width: 0.8px;
+    border-radius: 8px;
+}
+h1{
+    text-align: center;
+    color: #6663E1;
+    font-weight: 700;
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+label{
+    font-size: 12px;
+    font-weight: 400;
+    font-size: 13px;
+    margin-bottom: 3px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 250px;
+}
+
+#loginGoogle-b, #login-b, input{
+    border-style: solid;
+    border-color: black;
+    border-radius: 7px;
+    border-width: 0.5px;
+    height: 35px;
+    font-size: 13px;
+    margin-left: auto;
+    margin-right: auto;
+}
+input{
+    min-width: 244px;
+}
+
+#loginGoogle-b{
+    background-color: white;
+    margin-bottom: 15px;
+    margin-top: 25px;
+    min-width: 250px;
+}
+
+#login-b{
+    background-color: #5BA0BD;
+    color: white;
+    margin-bottom: 15px;
+    min-width: 250px;
+}
+
+.divhome{
+    display: inline-flex;
+    min-width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.register-b, .forgetPass-b{
+    background-color: white;
+    border-style: none;
+    color: #2F2BEC;
+    font-size: 11.5px;
+    margin-top: 2px;
+    padding: 0;
+    width: 50%;
+}
+.register-b{
+    text-align: left;
+}
+.forgetPass-b{
+    text-align: right;
+}

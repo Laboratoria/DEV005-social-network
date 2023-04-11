@@ -1,14 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+
+* {
+  background-color: #f9f4ef;
+}
 /* Fuentes */
 :root {
   --font-logo: cursive;
 }
 
-@media only screen and (max-width: 720px) {
-
-h1 {
-  font-family: sans-serif;
+h2 {
+ font-family: 'Satisfy', cursive;
+ font-size: 40px;
 }
+
+input {
+  display: block;
+  border-radius: 5px;
+  background-color: white;
+}
+
+button {
+  display: block;
+  border-radius: 5px;
+  padding: 14px 30px;
+  font-size: medium;
+}
+
+#log-in {
+  background-color: #d35c46;
 }
 
 body {
@@ -20,4 +39,7 @@ body {
   body{
     background-image: url('images/74A43094-23A5-403C-B736-5B587E12F994.png');
   }
-}
+
+#register {
+  background-color: #f48276;
+}}

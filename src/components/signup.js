@@ -1,6 +1,6 @@
 import { signupApp } from '../lib/register.js';
 
-export function register(navigateTo) {
+export function signup(navigateTo) {
   // Contenedor register
   const registerContainer = document.createElement('section');
   registerContainer.classList.add('register-container');
@@ -91,7 +91,6 @@ export function register(navigateTo) {
   const registerError = document.createElement('div');
   registerError.classList.add('link-text');
   registerError.id = 'register-error';
-
   // Botón Iniciar Sesión
   const btnregister = document.createElement('button');
   btnregister.classList.add('btn-register');

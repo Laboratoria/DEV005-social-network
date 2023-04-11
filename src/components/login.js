@@ -79,7 +79,7 @@ export function login(navigateTo) {
   links.textContent = 'Regístrate';
   links.addEventListener('click', (e) => {
     e.preventDefault();
-    navigateTo('/register');
+    navigateTo('/signup');
   });
   linkText.append(links);
   // Mensaje de error

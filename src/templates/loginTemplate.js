@@ -15,7 +15,7 @@ export const LoginTemplate = `
     
     <button id="linkRegister">Registrate</button>
 
-    <div class="google-btn">
+    <div class="google-btn" id= "btn-google">
     <div class="google-icon-wrapper">
       <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
     </div>

@@ -3,20 +3,20 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   signInWithEmailAndPassword,
-} from "firebase/auth";
-import { LoginTemplate } from "../templates/loginTemplate.js";
-import { auth } from "../lib/index.js";
-import { async } from "@firebase/util";
+} from 'firebase/auth';
+import { LoginTemplate } from '../templates/loginTemplate.js';
+import { auth } from '../lib/index.js';
+/* import { async } from '@firebase/util'; */
 
 export const Login = (onNavigate) => {
-  const div = document.createElement("div");
+  const div = document.createElement('div');
   div.innerHTML = LoginTemplate;
-  const register = div.querySelector("#linkRegister");
-  register.addEventListener("click", () => {
-    onNavigate("/registrate");
+  const register = div.querySelector('#linkRegister');
+  register.addEventListener('click', () => {
+    onNavigate('/registrate');
   });
-  const loginGoogle = div.querySelector("#btn-google");
-  loginGoogle.addEventListener("click", async () => {
+  const loginGoogle = div.querySelector('#btn-google');
+  loginGoogle.addEventListener('click', async () => {
     const provider = new GoogleAuthProvider();
     try {
       const credentials = await signInWithPopup(auth, provider);
@@ -25,16 +25,16 @@ export const Login = (onNavigate) => {
       console.log(error);
     }
   });
-  const signIn = div.querySelector("#signIn");
-  signIn.addEventListener("submit", async (e) => {
+  const signIn = div.querySelector('#signIn');
+  signIn.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const email = signIn["email"].value;
-    const password = signIn["password"].value;
+    const email = signIn.email.value;
+    const password = signIn.password.value;
     try {
       const credentialEmail = await signInWithEmailAndPassword(
         auth,
         email,
-        password
+        password,
       );
       console.log(credentialEmail);
     } catch (error) {

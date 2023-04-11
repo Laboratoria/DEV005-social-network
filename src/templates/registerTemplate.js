@@ -4,11 +4,11 @@ export const RegisterTemplate = `
   <form id="signup">
     <section id="passAndEm">
     <label for="email" class="cEmail">Correo electronico:
-    <input  type="email" id="email" ></label>
+    <input  type="email" id="email" required ></label>
     <label for="user" class="cUser">Usuaria:
-    <input  type="text" id="user" ></label>
+    <input  type="text" id="user" required ></label>
     <label for="password" class="cPassword">Contaseña:
-    <input type="password" id="password"></label>
+    <input type="password" id="password" required></label>
     <button type="submit" id="btn-register">Registrate</button>
     </section>
     

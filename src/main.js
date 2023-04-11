@@ -35,8 +35,5 @@ function navigateTo(hash) {
   }
 }
 
-window.onpopstate = () => {
-  navigateTo(window.location.pathname);
-};
+import { myFunction } from './lib/index.js';
 
-navigateTo(window.location.pathname || defaultRoute);

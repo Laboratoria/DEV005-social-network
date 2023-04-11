@@ -1,29 +1,34 @@
-import { LoginTemplate } from '../templates/loginTemplate.js';
 // import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { LoginTemplate } from '../templates/loginTemplate.js';
+import { auth } from '../lib/index.js';
 
-export const Login = (onNavigate) => {
+/* export const Login = (onNavigate) => {
   const div = document.createElement('div');
-  /* div.className = 'Login';
-  div.id = 'login'; */
+
   div.innerHTML = LoginTemplate;
 
   const register = div.querySelector('#linkRegister');
-  /* const auth = getAuth();
-  createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed in
-    const user = userCredential.user;
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // ..
-  }); */
-
+ 
   register.addEventListener('click', () => {
     onNavigate('/registrate');
   });
 
+  return div;
+}; */
+
+export const Login = () => {
+  const div = document.createElement('div');
+  div.innerHTML = LoginTemplate;
+  const loginGoogle = div.querySelector('#btn-google');
+  loginGoogle.addEventListener('click', async () => {
+    const provider = new GoogleAuthProvider();
+    try {
+      const credentials = await signInWithPopup(auth, provider);
+      console.log(credentials);
+    } catch (error) {
+      console.log(error);
+    }
+  });
   return div;
 };

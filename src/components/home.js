@@ -40,7 +40,7 @@ function home(navigateTo) {
   buttontwitter.textContent = 'Continuar con Twitter';
   buttongithub.textContent = 'Continuar con Github';
   mensajeregister.innerHTML = ` ¿No tienes una cuenta?
-  <strong>Regístrate</strong>`;
+  <strong>Regístrate ahora</strong>`;
   messagehome.textContent = 'Bienvenido a Food Match';
 
   homediv.append(imghome, messagehome, buttondiv, mensajeregister);

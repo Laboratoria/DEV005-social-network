@@ -10,7 +10,7 @@ const root = document.getElementById('root');
 // root.append(register());
 const routes = [
   { path: '/login', component: login },
-  { path: '/register', component: signup },
+  { path: '/signup', component: signup },
   { path: '/error', component: error },
   { path: '/wall', component: wall },
 ];
@@ -44,7 +44,7 @@ function initRouter() {
     const currentRoute = window.location.pathname;
     if (user) {
       navigateTo('/wall');
-    } else if (currentRoute === defaultRoute || currentRoute === '/register') {
+    } else if (currentRoute === defaultRoute || currentRoute === '/signup') {
       navigateTo(currentRoute);
     } else {
       navigateTo('/error');

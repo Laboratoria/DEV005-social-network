@@ -1,4 +1,4 @@
-import { loginApp } from '../lib/authentication';
+import { loginFormSubmit, labelMovement } from '../lib/index.js';
 
 export function login(navigateTo) {
   const labelsList = [];
@@ -29,14 +29,7 @@ export function login(navigateTo) {
   inputEmail.classList.add('inp-login');
   inputEmail.id = 'email';
   inputEmail.type = 'email';
-  inputEmail.addEventListener('click', () => {
-    labelEmail.classList.add('active');
-  });
-  inputEmail.addEventListener('blur', () => {
-    if (inputEmail.value === '') {
-      labelEmail.classList.remove('active');
-    }
-  });
+  labelMovement(inputEmail, labelEmail);
 
   // Añadir los elementos del  contenedor Email
   emailContainer.append(labelEmail, inputEmail);
@@ -55,14 +48,7 @@ export function login(navigateTo) {
   inputPassword.classList.add('inp-login');
   inputPassword.id = 'password';
   inputPassword.type = 'password';
-  inputPassword.addEventListener('click', () => {
-    labelPassword.classList.add('active');
-  });
-  inputPassword.addEventListener('blur', () => {
-    if (inputPassword.value === '') {
-      labelPassword.classList.remove('active');
-    }
-  });
+  labelMovement(inputPassword, labelPassword);
 
   // Añadir los elementos del  contenedor Constraseña
   passwordContainer.append(labelPassword, inputPassword);
@@ -91,12 +77,9 @@ export function login(navigateTo) {
   loginError.id = 'login-error';
   loginError.textContent = '';
 
-  // Envío de formulario Login
-  loginForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-    loginApp(inputEmail.value, inputPassword.value, loginError);
-    inputPassword.value = '';
-  });
+  // Agrega el evento de envío de formulario a la función manejadora
+  loginForm.addEventListener('submit', loginFormSubmit(inputEmail, inputPassword, loginError));
+
   // Botón Iniciar Sesión
   const btnLogin = document.createElement('button');
   btnLogin.classList.add('btn-login');

@@ -1,8 +1,7 @@
 import { signupApp } from '../lib/register.js';
+import { labelMovement } from '../lib/index.js';
 
 export function signup(navigateTo) {
-  const inputsList = [];
-  const labelsList = [];
   // Contenedor register
   const registerContainer = document.createElement('section');
   registerContainer.classList.add('register-container');
@@ -24,23 +23,14 @@ export function signup(navigateTo) {
   labelUserName.classList.add('register');
   labelUserName.textContent = 'Nombre de usuario';
   labelUserName.setAttribute('for', 'userName');
-  labelsList.push(labelUserName);
 
   const inputUserName = document.createElement('input');
   inputUserName.classList.add('inp-register');
   inputUserName.id = 'userName';
   inputUserName.type = 'text';
-  inputUserName.addEventListener('click', () => {
-    labelUserName.classList.add('active');
-  });
-  inputUserName.addEventListener('blur', () => {
-    if (inputUserName.value === '') {
-      labelUserName.classList.remove('active');
-    }
-  });
+  labelMovement(inputUserName, labelUserName);
 
   userNameContainer.append(labelUserName, inputUserName);
-  inputsList.push(inputUserName);
   // Contenedor del correo
   const emailContainer = document.createElement('div');
   emailContainer.classList.add('group');
@@ -49,20 +39,12 @@ export function signup(navigateTo) {
   labelEmail.classList.add('register');
   labelEmail.textContent = 'Correo';
   labelEmail.setAttribute('for', 'signup-email');
-  labelsList.push(labelEmail);
 
   const inputEmail = document.createElement('input');
   inputEmail.classList.add('inp-register');
   inputEmail.id = 'signup-email';
   inputEmail.type = 'email';
-  inputEmail.addEventListener('click', () => {
-    labelEmail.classList.add('active');
-  });
-  inputEmail.addEventListener('blur', () => {
-    if (inputEmail.value === '') {
-      labelEmail.classList.remove('active');
-    }
-  });
+  labelMovement(inputEmail, labelEmail);
 
   // Añadir los elementos del  contenedor Email
   emailContainer.append(labelEmail, inputEmail);
@@ -75,20 +57,12 @@ export function signup(navigateTo) {
   labelPassword.classList.add('register');
   labelPassword.textContent = 'Contraseña';
   labelPassword.setAttribute('for', 'signup-password');
-  labelsList.push(labelPassword);
 
   const inputPassword = document.createElement('input');
   inputPassword.classList.add('inp-register');
   inputPassword.id = 'signup-password';
   inputPassword.type = 'password';
-  inputPassword.addEventListener('click', () => {
-    labelPassword.classList.add('active');
-  });
-  inputPassword.addEventListener('blur', () => {
-    if (inputPassword.value === '') {
-      labelPassword.classList.remove('active');
-    }
-  });
+  labelMovement(inputPassword, labelPassword);
 
   // Añadir los elementos del  contenedor Constraseña
   passwordContainer.append(labelPassword, inputPassword);
@@ -97,8 +71,6 @@ export function signup(navigateTo) {
   const registerError = document.createElement('div');
   registerError.classList.add('link-text');
   registerError.id = 'register-error';
-  registerError.textContent = '';
-
   // Botón Iniciar Sesión
   const btnregister = document.createElement('button');
   btnregister.classList.add('btn-register');

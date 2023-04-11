@@ -1,7 +1,4 @@
-// eslint-disable-next-line no-unused-vars
-// import labels from "./labels.js";
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../lib/index.js';
+import { registroUsuario } from '../lib/auth.js';
 
 export function registro(navegacion) {
   const section = document.createElement('section');
@@ -94,29 +91,27 @@ export function registro(navegacion) {
   btnCrearCuenta.addEventListener('click', async () => {
     const correo = txtCorreo.value;
     const clave = txtClave.value;
-    const nombre= txtNombreUsuario.value;
-    
-    try {
-      const usuario = await createUserWithEmailAndPassword(auth, correo, clave);
-      const mensajeBienvenida= section.querySelector('#mensaje-bienvenida');
-      mensajeBienvenida.innerHTML= "Bienvenid@ " + nombre + " a Mascoteando";
-      mensajeBienvenida.setAttribute("style","display:block");
-      setTimeout(() => {
-        navegacion('/');
-      }, "5000");
-    } catch (error) {
-      if (error.code === 'auth/email-already-in-use') {
-        errorCorreo.innerHTML = 'Usuario ya registrado';
-      } else if (error.code === 'auth/invalid-email') {
-        errorCorreo.innerHTML = 'Correo invalido';
-      } else if (error.code === 'auth/weak-password') {
-        errorClave.innerHTML = 'Contraseña demasiado debil';
-      } else if (error.code === 'auth/missing-password') {
-        errorClave.innerHTML = 'Contraseña requerida';
-      } else if (error.code) {
-        errorClave.innerHTML = 'Algo salió mal';
-      }
-    }
+    const nombre = txtNombreUsuario.value;
+
+    registroUsuario(correo, clave);
+    const mensajeBienvenida = section.querySelector('#mensaje-bienvenida');
+    mensajeBienvenida.innerHTML = `Bienvenid@ ${nombre} a Mascoteando`;
+    mensajeBienvenida.setAttribute('style', 'display:block');
+    setTimeout(() => {
+      navegacion('/');
+    }, '5000');
+
+    // if (error.code === 'auth/email-already-in-use') {
+    //   errorCorreo.innerHTML = 'Usuario ya registrado';
+    // } else if (error.code === 'auth/invalid-email') {
+    //   errorCorreo.innerHTML = 'Correo invalido';
+    // } else if (error.code === 'auth/weak-password') {
+    //   errorClave.innerHTML = 'Contraseña demasiado debil';
+    // } else if (error.code === 'auth/missing-password') {
+    //   errorClave.innerHTML = 'Contraseña requerida';
+    // } else if (error.code) {
+    //   errorClave.innerHTML = 'Algo salió mal';
+    // }
   });
 
   return section;

@@ -1,8 +1,7 @@
-import { createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import { auth } from './firebase.js';
 
 // pantalla inicial
-
 export function init(navigateTo) {
   const section = document.createElement('section');
   section.innerHTML = `<form class= 'form'>
@@ -55,7 +54,6 @@ export function init(navigateTo) {
 
   return section;
 }
-
 // pantalla - inicio de sesión
 const login = () => {
   const sectionLogin = document.createElement('div');
@@ -66,7 +64,7 @@ const login = () => {
   <input class="inputEmail" id="inputEmail" placeholder="ejemplo@gmail.com"></input>
   <label class="labelPassword">Contraseña</label>
   <input class="inputPassword" id="inputPassword" type="password" placeholder="********"></input>
-  <button class="getInt">Ingresar</button>
+  <button class="getInt" id="btningresar">Ingresar</button>
   </form>
   <botton class="bottomText">¿No tienes una cuenta? Regístrate</botton>
   </section >
@@ -81,7 +79,7 @@ function mistake() {
   title.textContent = 'Error 404: página no encontrada.';
   return title;
 }
-
+// pantalla - REGISTRATE: crear Cuenta
 const create = () => {
   const sectionCreate = document.createElement('section');
   sectionCreate.innerHTML = `<section class="creatSection">
@@ -91,34 +89,30 @@ const create = () => {
   <input class="card1" id="card1" placeholder='ejemplo@gmail.com'></input>
   <label class="textPasswordCreateAccount">Contraseña</label>
   <input class="card2" id="card2" placeholder='********'></input>
-  <button class="bottomKeep">Guardar</button>
+  <button class="bottomKeep" id="btnguardar">Guardar</button>
   <button class="consider">¿Ya tienes cuenta? Iniciar Sesión'</button>
   </form>
   </section>
   `;
-
-  formCreateAccount.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const email = formCreateAccount.card1.value;
-    const contraseña = formCreateAccount.card2.value;
-    try {
-      const userCredentials = await createUserWithEmailAndPassword(auth, email, contraseña);
-      console.log(userCredentials);
-    } catch (error) {
-      console.log(error);
-    }
-  });
-
   return sectionCreate;
 };
-
+  // formCreateAccount.addEventListener('submit', async (e) => {
+  //   e.preventDefault();
+  //   const email = formCreateAccount.card1.value;
+  //   const contraseña = formCreateAccount.card2.value;
+  //   try {
+  //     const userCredentials = await createUserWithEmailAndPassword(auth, email, contraseña);
+  //     console.log(userCredentials);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // });
 
 export function mainScreen() {
   const section = document.createElement('section');
   section.innerHTML = '<h1>Welcome to Main Screen!</h1>';
   return section;
 }
-
 export {
   login,
   mistake,

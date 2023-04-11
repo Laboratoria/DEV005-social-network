@@ -3,7 +3,7 @@
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../lib/index.js';
 
-export function registro() {
+export function registro(navegacion) {
   const section = document.createElement('section');
   const htmlRegistro = `
   <div class='contenedor'>
@@ -36,8 +36,8 @@ export function registro() {
         
       </form>   
         <button class="btnCrearCuenta" id="btnCrearCuenta">Registrar</button>
-        <span class="textRegistro">Si ya tienes cuenta -> <button class="btnRegistro" id="btnCrearCuenta">Inicia sesión</button></span>
-        
+        <div id="mensaje-bienvenida" name="mensaje-bienvenida" class="mensaje-bienvenida"> </div>
+        <span class="textRegistro">Si ya tienes cuenta -> <button class="btnRegistro" id="btnCrearCuenta">Inicia sesión</button></span>   
     </div>
     </main>
   </div>`;
@@ -69,6 +69,7 @@ export function registro() {
   // Configuración de autenticación firebase
   const txtCorreo = section.querySelector('#correoReg');
   const txtClave = section.querySelector('#claveReg');
+  const txtNombreUsuario = section.querySelector('#nombreUsuario');
   const errorCorreo = section.querySelector('#errorCorreo');
   const errorClave = section.querySelector('#errorClave');
 
@@ -93,10 +94,16 @@ export function registro() {
   btnCrearCuenta.addEventListener('click', async () => {
     const correo = txtCorreo.value;
     const clave = txtClave.value;
-
+    const nombre= txtNombreUsuario.value;
+    
     try {
       const usuario = await createUserWithEmailAndPassword(auth, correo, clave);
-      errorClave.innerHTML = 'Registro exitoso';
+      const mensajeBienvenida= section.querySelector('#mensaje-bienvenida');
+      mensajeBienvenida.innerHTML= "Bienvenid@ " + nombre + " a Mascoteando";
+      mensajeBienvenida.setAttribute("style","display:block");
+      setTimeout(() => {
+        navegacion('/');
+      }, "5000");
     } catch (error) {
       if (error.code === 'auth/email-already-in-use') {
         errorCorreo.innerHTML = 'Usuario ya registrado';

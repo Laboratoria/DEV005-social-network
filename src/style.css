@@ -177,6 +177,11 @@ label span.top {
 .errorCorreo, .errorClave {
     color: red;
 }
+/* Welcome Mensage*/
+
+.mensaje-bienvenida {
+    display:none
+}
 
 footer {
     margin-top: 30px;
@@ -203,8 +208,6 @@ footer {
 }
 
 @media (min-width:1000px) {
-    
-    
     body{
         background-image: url(img/background.jpg);
         background-size: cover;

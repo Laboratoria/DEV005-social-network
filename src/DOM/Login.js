@@ -3,20 +3,21 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   signInWithEmailAndPassword,
-} from "firebase/auth";
-import { LoginTemplate } from "../templates/loginTemplate.js";
-import { auth } from "../lib/index.js";
-import { async } from "@firebase/util";
+} from 'firebase/auth';
+// import { async } from '@firebase/util';
+import { LoginTemplate } from '../templates/loginTemplate.js';
+import { auth } from '../lib/index.js';
 
 export const Login = (onNavigate) => {
-  const div = document.createElement("div");
+  const div = document.createElement('div');
+  const errorMsj = document.createElement('p');
   div.innerHTML = LoginTemplate;
-  const register = div.querySelector("#linkRegister");
-  register.addEventListener("click", () => {
-    onNavigate("/registrate");
+  const register = div.querySelector('#linkRegister');
+  register.addEventListener('click', () => {
+    onNavigate('/registrate');
   });
-  const loginGoogle = div.querySelector("#btn-google");
-  loginGoogle.addEventListener("click", async () => {
+  const loginGoogle = div.querySelector('#btn-google');
+  loginGoogle.addEventListener('click', async () => {
     const provider = new GoogleAuthProvider();
     try {
       const credentials = await signInWithPopup(auth, provider);
@@ -25,22 +26,33 @@ export const Login = (onNavigate) => {
       console.log(error);
     }
   });
-  const signIn = div.querySelector("#signIn");
-  signIn.addEventListener("submit", async (e) => {
+  const signIn = div.querySelector('#signIn');
+  signIn.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const email = signIn["email"].value;
-    const password = signIn["password"].value;
+    errorMsj.textContent = '';
+    const email = signIn.email.value;
+    const password = signIn.password.value;
     try {
       const credentialEmail = await signInWithEmailAndPassword(
         auth,
         email,
-        password
+        password,
       );
-      console.log(credentialEmail);
+
+      errorMsj.textContent = 'Login correcto';
     } catch (error) {
-      console.log(error);
+    /*   console.log(error.code); */
+      if (error.code === 'auth/user-not-found') {
+        errorMsj.textContent = 'Usuario invalido';
+      } else if (error.code === 'auth/missing-password') {
+        errorMsj.textContent = 'Ingrese contraseña';
+      } else if (error.code === 'auth/invalid-email') {
+        errorMsj.textContent = 'Ingrese correo';
+      } else if (error.code) {
+        errorMsj.textContent = 'Ocurrio un error';
+      }
     }
   });
-
+  div.append(errorMsj);
   return div;
 };

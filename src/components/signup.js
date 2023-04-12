@@ -1,5 +1,4 @@
-import { signupApp } from '../lib/register.js';
-import { labelMovement } from '../lib/index.js';
+import { labelMovement, navigateToLogin, signupFormSubmit } from '../lib/index.js';
 
 export function signup(navigateTo) {
   // Contenedor register
@@ -91,10 +90,8 @@ export function signup(navigateTo) {
   links.classList.add('links');
   links.href = '';
   links.textContent = 'Inicia sesión';
-  links.addEventListener('click', (event) => {
-    event.preventDefault();
-    navigateTo('/login');
-  });
+  // Se agrega evento click para navegar a inicio de sesión
+  links.addEventListener('click', navigateToLogin(navigateTo));
   linkText.append(links);
 
   // Añadir elementos del form
@@ -106,12 +103,8 @@ export function signup(navigateTo) {
     btnregister,
     linkContainer,
   );
-  // Se llama a la función de verificación de registro
-  registerForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-    signupApp(inputEmail.value, inputPassword.value, registerError);
-    inputPassword.value = '';
-  });
+  // Agrega el evento de envío de formulario a la función manejadora
+  registerForm.addEventListener('submit', signupFormSubmit(inputEmail, inputPassword, registerError));
   // O regístrate con
   const textContainer = document.createElement('div');
   textContainer.classList.add('content-text');

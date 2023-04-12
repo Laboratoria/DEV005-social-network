@@ -6,6 +6,6 @@ export const signupApp = (email, password, registerError) => {
     .then(() => {
     })
     .catch(() => {
-      registerError.textContent = 'El usuario ya existe';
+      registerError.textContent = 'No se pudo registrar';
     });
 };

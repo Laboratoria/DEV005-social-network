@@ -6,7 +6,7 @@ export const LoginTemplate = `
     <label for="email" class="cEmail">Correo electronico:
     <input  type="email" id="email" ></label>
     <label for="password" class="cPassword">Contaseña:
-    <input type="password" id="password"></label>
+    <input type="password" id="password" ></label>
     <button id="btn-login">Ingresa</button>
     </section>
     

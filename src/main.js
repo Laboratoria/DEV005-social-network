@@ -1,15 +1,22 @@
-import registro from './componentes/registro';
+import home from './components/home.js';
+import login from './components/login.js';
+import error from './components/error.js';
+import muro from './components/muro.js';
 
 const root = document.getElementById('root');
 
 const routes = [
-  { path: '/', component: registro },
+  { path: '/', component: home },
+  { path: '/login', component: login },
+  { path: '/error', component: error },
+  { path: '/muro', component: muro },
 ];
 
 const defaultRoute = '/';
 
 function navigateTo(hash) {
   const route = routes.find((routeFind) => routeFind.path === hash);
+
   if (route && route.component) {
     window.history.pushState(
       {},

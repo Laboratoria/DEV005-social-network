@@ -21,7 +21,7 @@ export const loginFormSubmit = (inputEmail, inputPassword, loginError) => {
   }; return handleLoginFormSubmit;
 };
 
-// Define una función manejadora para el evento de envío de formulario de inicio de sesión
+// Define una función manejadora para el evento de envío de formulario de registro
 export const signupFormSubmit = (inputEmail, inputPassword, registerError) => {
   const handleSignupFormSubmit = (event) => {
     event.preventDefault();

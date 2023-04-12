@@ -3,10 +3,10 @@ export const LoginTemplate = `
   <form id="signIn">
   <section id="container-login">
     <section id="passAndEm">
-    <label for="email" class="cEmail">Correo electronico:
+    <label for="email" class="cEmail">Correo electrónico:
     <input  type="email" id="email" ></label>
     <label for="password" class="cPassword">Contaseña:
-    <input type="password" id="password"></label>
+    <input type="password" id="password" ></label>
     <button id="btn-login">Ingresa</button>
     </section>
     

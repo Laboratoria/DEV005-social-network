@@ -1,4 +1,4 @@
-*,*::before{
+*,*::before,*::after {
   box-sizing: border-box;
 }
 
@@ -215,3 +215,10 @@ body::before {
   }
 
   @import url(https://fonts.googleapis.com/css?family=Roboto:500);
+
+  @media (min-width: 1024px) {
+    header, h1 {
+      padding: 0%;
+      margin-bottom: 1%;
+    }
+  }

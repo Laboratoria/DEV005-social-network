@@ -3,7 +3,7 @@
  */
 
 import { login } from '../src/templates/login.js';
-// especificar el modulo a mockear 
+// especificar el modulo a mockear
 describe('login', () => {
   test('esto es una funcion', () => {
     expect(typeof login).toBe('function');

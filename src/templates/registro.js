@@ -11,7 +11,6 @@ export function registro(navegacion) {
     <div class="contenedorIngresoRegistro">
       <span class="registroTitulo">Registro</span>
       <form class="contenedorInput">
-        
         <label>
         <span>Nombre completo</span>
         <input type="text" name="nombreUsuario" class="nombreUsuario" id="nombreUsuario">
@@ -30,7 +29,6 @@ export function registro(navegacion) {
           <input type="password" class="clave" id="claveReg">
         </label>  
           <span id="errorClave" class="errorClave"></span>
-        
       </form>   
         <button class="btnCrearCuenta" id="btnCrearCuenta">Registrar</button>
         <div id="mensaje-bienvenida" name="mensaje-bienvenida" class="mensaje-bienvenida"> </div>
@@ -94,24 +92,7 @@ export function registro(navegacion) {
     const nombre = txtNombreUsuario.value;
 
     registroUsuario(correo, clave);
-    const mensajeBienvenida = section.querySelector('#mensaje-bienvenida');
-    mensajeBienvenida.innerHTML = `Bienvenid@ ${nombre} a Mascoteando`;
-    mensajeBienvenida.setAttribute('style', 'display:block');
-    setTimeout(() => {
-      navegacion('/');
-    }, '5000');
 
-    // if (error.code === 'auth/email-already-in-use') {
-    //   errorCorreo.innerHTML = 'Usuario ya registrado';
-    // } else if (error.code === 'auth/invalid-email') {
-    //   errorCorreo.innerHTML = 'Correo invalido';
-    // } else if (error.code === 'auth/weak-password') {
-    //   errorClave.innerHTML = 'Contraseña demasiado debil';
-    // } else if (error.code === 'auth/missing-password') {
-    //   errorClave.innerHTML = 'Contraseña requerida';
-    // } else if (error.code) {
-    //   errorClave.innerHTML = 'Algo salió mal';
-    // }
   });
 
   return section;

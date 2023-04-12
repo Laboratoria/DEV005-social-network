@@ -1,5 +1,9 @@
+import { signInWithEmailAndPassword } from 'firebase/auth';
+// import labels from "./labels";
+import { auth } from '../lib/index.js';
+// import { navegacion } from '../main.js';
+
 // Agregando la sección para html
-import { loginEmail } from '../lib/auth.js';
 
 // eslint-disable-next-line no-shadow
 export function login(navegacion) {
@@ -26,7 +30,6 @@ export function login(navegacion) {
             <span>Contraseña</span>
             <input type="password" class="password" id="password">
           </label>  
-          
         </form>   
         <button class="btnInicio" id="btnInicio">Iniciar sesión</button>
         <button class="btnGoogle" id="btnGoogle"> <img class="logoGoogle" src="./img/logogoogle.png" alt="Logo Google"></img>Continuar con google</button>
@@ -34,7 +37,6 @@ export function login(navegacion) {
       </div>
     </main>
   </div>`;
-
   section.innerHTML = html;
 
   // Labels dinámicos
@@ -69,15 +71,31 @@ export function login(navegacion) {
   // Evento del botón Iniciar Sesiòn
 
   const btnInicio = section.querySelector('#btnInicio');
-  //   const errorUsuario = section.querySelector('#errorUsuario');
+
   btnInicio.addEventListener('click', async () => {
     const password = section.querySelector('#password').value;
     const email = section.querySelector('#email').value;
-    loginEmail(email, password);
-    // if (error.code === 'auth/user-not-found') {
-    //   errorUsuario.innerHTML = 'Usuario no está registrado';
+    // try {
+    const credentials = await signInWithEmailAndPassword(auth, email, password);
+    if (credentials.user) {
+      sessionStorage.setItem('user', credentials.user.email);
+      navegacion('/home');
+    }
+    // } catch(e) {
+    // console.error(e)
     // }
   });
 
   return section;
+
+// Evento de botòn Inicar Sesiòn con google
+
+const btnGoogle = section.querySelector('#btnGoogle');
+
+btnGoogle.addEventListener ('click, ')
+console.log(btnGoogle)
+
 }
+
+
+

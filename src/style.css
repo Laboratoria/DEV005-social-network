@@ -1,5 +1,16 @@
-*,*::before{
+*, *::before, *::after {
   box-sizing: border-box;
+}
+
+body {
+  color: white;
+  font-family: "Montserrat", sans-serif; 
+  background: linear-gradient(180deg, #9a6ed5 1%, #320070 89%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  margin: 0;
 }
 
 main {
@@ -7,159 +18,134 @@ main {
   justify-content: center;
 }
 
-
-body {
-  color: white;
-  font-family: "Montserrat", sans-serif;
-  background: rgb(122, 91, 216);
-  background: linear-gradient(180deg,
-      rgba(122, 91, 216, 1) 1%,
-      rgba(154, 131, 192, 1) 89%);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-}
-
 body::before {
-  margin: 0%;
   content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: fixed;
   width: 100%;
   height: 100%;
-  background-image: url(img/logosinletras.png);
-  background-size: cover;
-  background-position: center;
-  opacity: 0.1;
+  background-image: url(/img/logosinletras.png);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: initial;
+  background-position: unset;
+  opacity: 0.16;
   z-index: -1;
 }
 
   header {
     display: flex;
     flex-direction: column;
-    padding: 5%;
   }
-  h1,
-  h2 {
+
+  h1{
     color: white;
-    font-family: "Edu NSW ACT Foundation", cursive;
+    /* font-family: "Edu NSW ACT Foundation", cursive; */
+    font-family: 'Rancho', cursive;
     display: flex;
     justify-content: center;
-    font-size: 35px;
+    font-size: 55px;
   }
-  h1{
-    font-size: 50px;
-
+  h2{
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+  }
+#passAndEm {
+  display: grid;
+  background-color: #f7f7f721;
+  border-radius: 44px;
+  margin-left: 6%;
+  margin-right: 6%;
+  margin-bottom: -10%;
+  padding: 5%;
 }
-  #passAndEm {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: rgba(7, 1, 1, 0.22);
-    border-radius: 10px;
-    margin-left: 6%;
-    margin-right: 6%;
-    margin-bottom: -10%;
-    padding: 5%;
-    
-  }
+button {
+  letter-spacing: 2px;
+}
 
-  #register,
-  #login {
-    display: flex;
-    flex-direction: column;
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-bottom: 5%;
-    margin-top: 10%;
-  }
+#register,
+#login {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  /* margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 5%;
+  margin-top: 20%; */
+}
 
-  #email,
-  #password,
-  #user {
-    border-radius: 12px;
-    padding: 3%;
-    width: 80%;
-    margin-left: 10%;
-  }
+#email,
+#password,
+#user {
+  border-radius: 12px;
+  padding: 3%;
+  width: 100%;
+  background-color: #f1f1f1;
+  border-style: none;
+}
 
-  .cEmail,
-  .cPassword,
-  .CUser {
-    padding: 3%;
-  }
+.cEmail,
+.cPassword,
+.cUser {
+  padding: 3%;
+}
 
-  #btn-login,
-  #btn-register {
-    width: 80%;
-    background-color: #655dbb;
-    border-radius: 20px;
-    color: white;
-    padding: 3%;
-    margin: 0 auto;
-    font-size: medium;
-    border-style: none;
-    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
-  }
+#btn-login,
+#btn-register {
+  width: 80%;
+  background-color: #320070;
+  border-radius: 30px;
+  color: white;
+  padding: 3%;
+  margin: 0 auto;
+  margin-top: 15px;
+  font-size: medium;
+  border-style: none;
+  font-weight: bold;
+  box-shadow: 0 3px 4px 0 rgb(0 0 0 / 42%);
+  font-weight: normal;
+}
 
-  p {
-    margin: 0 auto;
-    margin-top: 10%;
-    margin-bottom: 5%;
-  }
+p {
+  margin: 0 auto;
+  margin-top: 20%;
+  margin-bottom: 10px;
+}
 
-  a {
-    margin: 0 auto;
-    margin-bottom: 5%;
-    color: white;
-  }
+a {
+  margin: 0 auto;
+  margin-bottom: 5%;
+  color: white;
+}
 
-  #google-Logo {
-    width: 40px;
-    padding: 10%;
-    background-color: aliceblue;
-    border-radius: 50%;
-  }
+#google-Logo {
+  width: 40px;
+  padding: 10%;
+  background-color: aliceblue;
+  border-radius: 50%;
+}
 
-  .container-wall {
-    background-color: white;
-    line-height: 2;
-  }
+#iPost {
+  padding: 3%;
+  width: 85%;
+  height: 80%;
+  border-radius: 20px;
+  background-color: rgba(172, 167, 167, 0.536);
+  align-self: center;
+  justify-self: center;
+  border-style: none;
+  resize: none;
+}
 
-  #iPost {
-    padding: 10%;
-    width: 70%;
-    height: 30%;
-    border-radius: 20px;
-    background-color: rgba(172, 167, 167, 0.536);
-    margin-left: 5%;
-  }
-
-  #btn-post {
-    width: 30%;
-    background-color: #655dbb;
-    border-radius: 20px;
-    color: white;
-    padding: 1%;
-    margin: 0 auto;
-    font-size: small;
-    margin-left: 65%;
-  }
-
-  #wall {
-    background-color: white;
-    width: 100%;
-  }
-
-  .google-btn {
-    margin: 10px auto;
-    width: 184px;
-    height: 42px;
-    background-color: #fcfdfd;
-    border-radius: 30px;
-    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
-  }
+.google-btn {
+  margin: 10px auto;
+  width: 215px;
+  height: 42px;
+  background-color: white;
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+}
 
   .google-icon-wrapper {
     position: absolute;
@@ -171,42 +157,51 @@ body::before {
 
   }
 
-  .google-icon {
-    position: absolute;
-    margin-top: 11px;
-    margin-left: 11px;
-    width: 18px;
-    height: 18px;
-  }
+.google-icon {
+  position: absolute;
+  margin-top: 11px;
+  margin-left: 11px;
+  width: 18px;
+  height: 18px;
+}
 
   .btn-text {
     float: right;
     margin: 11px 11px 0 0;
     color: black;
     font-size: 14px;
-    letter-spacing: 0.2px;
-    font-family: "Roboto";
+    letter-spacing: 1px;
+    font-family: "Montserrat", sans-serif;
   }
 
-  .google-btn:hover {
-    box-shadow: 0 0 6px #4285f4;
-  }
+.google-btn:hover {
+  box-shadow: 0 0 6px #4285f4;
+}
 
-  .google-btn :active {
-    background: #1669f2;
-  }
+.google-btn :active {
+  background: #1669f2;
+}
 
-  #linkRegister {
-    margin: 0 auto;
-    border-radius: 30px;
-    padding: 3%;
-    width: 184px;
-    height: 40px;
-    border-style: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
-  }
+#linkRegister {
+  border-radius: 30px;
+  padding: 3%;
+  letter-spacing: 1px;
+  font-family: "Montserrat", sans-serif;
+  color: black;
+  background-color: white;
+  font-weight: bold;
+  border-style: none;
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
+  margin: 10px auto;
+  width: 215px;
+  height: 42px;
+}
 
-  @import url(https://fonts.googleapis.com/css?family=Roboto:500);
+@import url(https://fonts.googleapis.com/css?family=Roboto:500);
+
+@media (min-width: 1024px) {
+    header, h1 {
+      padding: 0%;
+      margin-bottom: 1%;
+    }
+}

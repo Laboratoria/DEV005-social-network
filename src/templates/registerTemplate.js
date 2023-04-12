@@ -1,9 +1,9 @@
 export const RegisterTemplate = `
-  <h2>Registrate</h2>
+  <h2>Crea tu cuenta</h2>
   <section id="container-register">
   <form id="signup">
     <section id="passAndEm">
-    <label for="email" class="cEmail">Correo electronico:
+    <label for="email" class="cEmail">Correo electrónico:
     <input  type="email" id="email" required ></label>
     <label for="user" class="cUser">Usuaria:
     <input  type="text" id="user" required ></label>

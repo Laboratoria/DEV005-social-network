@@ -22,6 +22,7 @@ export const Login = (onNavigate) => {
     try {
       const credentials = await signInWithPopup(auth, provider);
       console.log(credentials);
+      errorMsj.textContent = 'Acceso con Google correcto';
     } catch (error) {
       console.log(error);
     }
@@ -38,14 +39,15 @@ export const Login = (onNavigate) => {
         email,
         password,
       );
-
+      /* onNavigate('/muro'); */
       errorMsj.textContent = 'Login correcto';
     } catch (error) {
-    /*   console.log(error.code); */
       if (error.code === 'auth/user-not-found') {
         errorMsj.textContent = 'Usuario invalido';
       } else if (error.code === 'auth/missing-password') {
         errorMsj.textContent = 'Ingrese contraseña';
+      } else if (error.code === 'auth/wrong-password') {
+        errorMsj.textContent = 'Contraseña incorrecta';
       } else if (error.code === 'auth/invalid-email') {
         errorMsj.textContent = 'Ingrese correo';
       } else if (error.code) {

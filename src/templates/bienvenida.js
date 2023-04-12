@@ -1,10 +1,10 @@
 // eslint-disable-next-line no-unused-vars
 // import labels from "./labels.js";
-import { registro } from './registro.js';
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../lib/index.js';
+// import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+// import { auth } from '../lib/index.js';
+// import { registro } from './registro.js';
 
-export function bienvenida(navegacion) {
+export function bienvenida() {
   const section = document.createElement('section');
   const htmlBienvenida = `
   <section>

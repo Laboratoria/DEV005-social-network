@@ -24,7 +24,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 auto;
+    /* margin: 0 auto; */
     max-width: 500px;
 }
 
@@ -71,7 +71,7 @@ main {
    }
 
 span, input {
-    font: 1.7rem 'Kalam';
+    font-size: 1.7rem;
     padding: 0;
 }
 
@@ -181,7 +181,7 @@ label span.top {
 
 .mensaje-bienvenida {
     display:none
-}
+} 
 
 .errorCorreo, .errorClave {
     color: red;

@@ -4,12 +4,13 @@ import {
   signInWithPopup,
   signInWithEmailAndPassword,
 } from 'firebase/auth';
+// import { async } from '@firebase/util';
 import { LoginTemplate } from '../templates/loginTemplate.js';
 import { auth } from '../lib/index.js';
-/* import { async } from '@firebase/util'; */
 
 export const Login = (onNavigate) => {
   const div = document.createElement('div');
+  const errorMsj = document.createElement('p');
   div.innerHTML = LoginTemplate;
   const register = div.querySelector('#linkRegister');
   register.addEventListener('click', () => {
@@ -28,6 +29,7 @@ export const Login = (onNavigate) => {
   const signIn = div.querySelector('#signIn');
   signIn.addEventListener('submit', async (e) => {
     e.preventDefault();
+    errorMsj.textContent = '';
     const email = signIn.email.value;
     const password = signIn.password.value;
     try {
@@ -36,11 +38,21 @@ export const Login = (onNavigate) => {
         email,
         password,
       );
-      console.log(credentialEmail);
+
+      errorMsj.textContent = 'Login correcto';
     } catch (error) {
-      console.log(error);
+    /*   console.log(error.code); */
+      if (error.code === 'auth/user-not-found') {
+        errorMsj.textContent = 'Usuario invalido';
+      } else if (error.code === 'auth/missing-password') {
+        errorMsj.textContent = 'Ingrese contraseña';
+      } else if (error.code === 'auth/invalid-email') {
+        errorMsj.textContent = 'Ingrese correo';
+      } else if (error.code) {
+        errorMsj.textContent = 'Ocurrio un error';
+      }
     }
   });
-
+  div.append(errorMsj);
   return div;
 };

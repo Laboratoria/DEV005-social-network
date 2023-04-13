@@ -34,8 +34,7 @@ export function login(navigateTo) {
       .then(() => {
         navigateTo('/mainScreen');
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
         sectionLogin.querySelector('.note1').innerHTML = '<h2 class="textNote">La dirección de correo electrónico o la contraseña que has introducido no son correctas</h2>';
       });
   });

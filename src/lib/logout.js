@@ -6,6 +6,5 @@ export const logoutApp = () => {
     .then(() => {
     })
     .catch(() => {
-
     });
 };

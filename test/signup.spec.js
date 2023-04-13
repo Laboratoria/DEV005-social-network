@@ -1,4 +1,5 @@
 import { signup } from '../src/components/signup.js';
+
 // Test suite para la función `register`
 describe('Create signup', () => {
   // Caso de prueba para verificar que 'register' es una función

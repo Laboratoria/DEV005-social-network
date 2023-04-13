@@ -1,5 +1,4 @@
 import { login } from '../src/components/login.js';
-// Importar la función `register` y otras dependencias necesarias
 
 describe('Create login', () => {
 // b.función sea una función

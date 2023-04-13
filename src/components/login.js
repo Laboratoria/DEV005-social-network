@@ -1,12 +1,6 @@
-import { loginFormSubmit, labelMovement } from '../lib/index.js';
+import { loginFormSubmit, labelMovement, navigateToSignup } from '../lib/index.js';
 
 export function login(navigateTo) {
-  const navegateToSignup = () => {
-    const preventRefresh = (event) => {
-      event.preventDefault();
-      navigateTo('/signup');
-    }; return preventRefresh;
-  };
   // Contenedor login
   const loginContainer = document.createElement('section');
   loginContainer.classList.add('login-container');
@@ -69,7 +63,8 @@ export function login(navigateTo) {
   links.classList.add('links');
   links.href = '';
   links.textContent = 'Regístrate';
-  links.addEventListener('click', navegateToSignup());
+  // Se agrega evento click para navegar a registro
+  links.addEventListener('click', navigateToSignup(navigateTo));
   linkText.append(links);
   // Mensaje de error
   const loginError = document.createElement('div');

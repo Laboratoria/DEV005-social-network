@@ -103,7 +103,7 @@ function mistake(navigateTo) {
 }
 /* <label class="textConfirmPassword">Confirmar contraseña </label>
 <input class="card3" id="card3" type="password" placeholder='********'></input> */
-
+// pantalla - crear una cuenta nueva
 function create(navigateTo) {
   const sectionCreate = document.createElement('div');
   sectionCreate.innerHTML = `<section class="creatSection">

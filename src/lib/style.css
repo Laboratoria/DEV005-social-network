@@ -267,7 +267,7 @@
     position: absolute;
     height: 23px;
     left: 49px;
-    top: 441px;
+    top: 466px;
     font-size: 20px;
     line-height: 23px;
     background: none;
@@ -279,11 +279,12 @@
     width: 321px;
     height: 45px;
     left: 49px;
-    top: 471px;
+    top: 508px;
     border: none;
     background: #FFFEFE;
     border-radius: 12px;
     font-size: 30px;
+    padding-left: 5%;
 }
 
 .card3 {
@@ -304,7 +305,7 @@
     width: 341px;
     height: 45px;
     left: 49px;
-    top: 641px;
+    top: 616px;
     font-weight: bold;
     font-size: 22px;
     border: none;
@@ -334,15 +335,6 @@ u {
     top: 446px;
     font-size: 24px;
     background: none;
-}
-
-.init {
-    position: absolute;
-    font-size: 22px;
-    color: blue;
-    background: none;
-    left: 31%;
-    top: 52%;
 }
 
 @media (min-width: 926px) and (max-width: 1920px) {

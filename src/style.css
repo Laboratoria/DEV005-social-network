@@ -73,6 +73,7 @@ main {
 span, input {
     font-size: 1.7rem;
     padding: 0;
+    font-family: 'Kalam', cursive;
 }
 
 label {

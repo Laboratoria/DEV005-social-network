@@ -67,6 +67,7 @@ export function registro(navegacion) {
   const txtNombreUsuario = section.querySelector('#nombreUsuario');
   const errorCorreo = section.querySelector('#errorCorreo');
   const errorClave = section.querySelector('#errorClave');
+  const mensajeBienvenida = section.querySelector('#mensaje-bienvenida');
 
   const btnCrearCuenta = section.querySelector('#btnCrearCuenta');
 
@@ -91,8 +92,25 @@ export function registro(navegacion) {
     const clave = txtClave.value;
     const nombre = txtNombreUsuario.value;
 
-    registroUsuario(correo, clave);
-
+    registroUsuario(correo, clave).then(() => {
+      mensajeBienvenida.innerHTML = `Bienvenida ${nombre} a MASCOTEANDO`;
+      mensajeBienvenida.setAttribute('style', 'display:block');
+      setTimeout(() => {
+        navegacion('/');
+      }, '5000');
+    }).catch((error) => {
+      if (error.code === 'auth/email-already-in-use') {
+        errorCorreo.innerHTML = 'Usuario ya registrado';
+      } else if (error.code === 'auth/invalid-email') {
+        errorCorreo.innerHTML = 'Correo invalido';
+      } else if (error.code === 'auth/weak-password') {
+        errorClave.innerHTML = 'Contraseña demasiado debil';
+      } else if (error.code === 'auth/missing-password') {
+        errorClave.innerHTML = 'Contraseña requerida';
+      } else if (error.code) {
+        errorClave.innerHTML = 'Algo salió mal';
+      }
+    });
   });
 
   return section;

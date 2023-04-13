@@ -7,9 +7,11 @@ import { auth } from '../lib/index.js';
 
 export const Login = (onNavigate) => {
   const div = document.createElement('div');
-  const errorMsj = document.createElement('p');
+  /* const errorMsj = document.createElement('p');
+  errorMsj.id = 'errorMsj';
+  errorMsj.className = 'passAndEm'; */
   div.innerHTML = LoginTemplate;
-
+  const errorMsj = div.querySelector('#errorMsj');
   const register = div.querySelector('#linkRegister');
   register.addEventListener('click', () => {
     onNavigate('/registrate');
@@ -21,7 +23,7 @@ export const Login = (onNavigate) => {
     try {
       const credentials = await signInWithPopup(auth, provider);
       console.log(credentials);
-      errorMsj.textContent = 'Acceso con Google correcto';
+      onNavigate('/muro');
     } catch (error) {
       console.log(error);
     }
@@ -34,10 +36,12 @@ export const Login = (onNavigate) => {
     const email = signIn.email.value;
     const password = signIn.password.value;
     try {
-      const credentialEmail = await signInWithEmailAndPassword(auth, email, password);
-      /* onNavigate('/muro'); */
-      console.log(credentialEmail);
-      errorMsj.textContent = 'Login correcto';
+      const credentialEmail = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password,
+      );
+      onNavigate('/muro');
     } catch (error) {
       if (error.code === 'auth/user-not-found') {
         errorMsj.textContent = 'Usuario invalido';
@@ -52,6 +56,6 @@ export const Login = (onNavigate) => {
       }
     }
   });
-  div.append(errorMsj);
+  // div.append(errorMsj);//
   return div;
 };

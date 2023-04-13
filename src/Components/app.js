@@ -20,8 +20,6 @@ export function init(navigateTo) {
     </form>
   </div>
 `;
-  
-
   const logIn = section.querySelector('.logIn');
   logIn.addEventListener('click', () => {
     navigateTo('/login');
@@ -38,21 +36,21 @@ export function init(navigateTo) {
     signInWithPopup(auth, provider)
       .then((result) => {
         // This gives you a Google Access Token. You can use it to access the Google API.
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
+        GoogleAuthProvider.credentialFromResult(result);
+        /* const token = credential.accessToken;
         // The signed-in user info.
         const user = result.user;
         // IdP data available using getAdditionalUserInfo(result)
-        // ...
+        // ... */
         navigateTo('/mainScreen');
       }).catch((error) => {
-        // Handle Errors here.
+        /*  // Handle Errors here.
         const errorCode = error.code;
         const errorMessage = error.message;
         // The email of the user's account used.
-        const email = error.customData.email;
+        const email = error.customData.email; */
         // The AuthCredential type that was used.
-        const credential = GoogleAuthProvider.credentialFromError(error);
+        GoogleAuthProvider.credentialFromError(error);
         // ...
       });
   });
@@ -63,9 +61,10 @@ export function init(navigateTo) {
 }
 
 // pantalla - inicio de sesión
-function login(navigateTo) {
+/* function login(navigateTo) {
   const sectionLogin = document.createElement('div');
-  sectionLogin.innerHTML = `<section class="cardLogin"> 
+  sectionLogin.innerHTML = `<section class="cardLogin">
+  <img src='./lib/img/logo.png' class= 'logo'>
   <h2 class="initSection">Inicio de Sesión</h2>
   <form class="formInteraction">
   <label class="labelEmail">Correo Electronico</label>
@@ -89,7 +88,7 @@ function login(navigateTo) {
 
   return sectionLogin;
 }
-
+ */
 // pantalla - error
 function mistake(navigateTo) {
   const bug = document.createElement('div');
@@ -135,19 +134,23 @@ function create(navigateTo) {
     } catch (error) {
       console.log(error);
     }
-  }); */
+  });
 
   return sectionCreate;
 }
 
-export function mainScreen() {
-  const section = document.createElement('section');
-  section.innerHTML = '<h1>Welcome to Main Screen!</h1>';
+function mainScreen() {
+  const section = document.createElement('div');
+  section.innerHTML = `<section>
+  <h2>Welcome to Main Screen!</h2>
+  </section>
+  `;
   return section;
 }
 
 export {
-  login,
+// login,
   mistake,
   create,
+  mainScreen,
 };

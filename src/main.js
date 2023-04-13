@@ -1,13 +1,13 @@
 import home from './components/home.js';
-import login from './components/login.js';
 import error from './components/error.js';
 import muro from './components/muro.js';
+import registro from './componentes/registro.js';
 
 const root = document.getElementById('root');
 
 const routes = [
   { path: '/', component: home },
-  { path: '/login', component: login },
+  { path: '/registro', component: registro },
   { path: '/error', component: error },
   { path: '/muro', component: muro },
 ];

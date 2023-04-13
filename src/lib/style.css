@@ -280,6 +280,19 @@
     padding-left: 5%;
 }
 
+.card3 {
+    position: absolute;
+    width: 341px;
+    height: 45px;
+    left: 49px;
+    top: 565px;
+    border: none;
+    background: #FFFEFE;
+    border-radius: 12px;
+    font-size: 30px;
+    padding-left: 5%;
+}
+
 .bottomKeep {
     position: absolute;
     width: 341px;
@@ -315,15 +328,6 @@ u {
     top: 446px;
     font-size: 24px;
     background: none;
-}
-
-.init {
-    position: absolute;
-    font-size: 22px;
-    color: blue;
-    background: none;
-    left: 31%;
-    top: 52%;
 }
 
 @media (min-width: 926px) and (max-width: 1920px) {

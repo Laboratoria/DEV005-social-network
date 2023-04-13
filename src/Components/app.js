@@ -1,4 +1,4 @@
-import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import { auth } from './firebase.js';
 
 // pantalla inicial
@@ -20,8 +20,6 @@ export function init(navigateTo) {
     </form>
   </div>
 `;
-  
-
   const logIn = section.querySelector('.logIn');
   logIn.addEventListener('click', () => {
     navigateTo('/login');
@@ -94,7 +92,7 @@ function mistake(navigateTo) {
   const bug = document.createElement('div');
   bug.innerHTML = `<section class="errorSection"><img class="imgBug" src="../lib/img/error404.png">
   <h2 class="text"> Error 404: página no encontrada.</h2>
-  <botton class="init"> volver al Inicio<botton>
+  <botton class="init"> <u>volver al Inicio</u> <botton>
   </section>`;
 
   const keep = bug.querySelector('.init');
@@ -103,6 +101,8 @@ function mistake(navigateTo) {
   });
   return bug;
 }
+/* <label class="textConfirmPassword">Confirmar contraseña </label>
+<input class="card3" id="card3" type="password" placeholder='********'></input> */
 
 function create(navigateTo) {
   const sectionCreate = document.createElement('div');
@@ -111,11 +111,12 @@ function create(navigateTo) {
   <h2 class = "createAccount">Crear cuenta</h2>
   <label class="textButtonCreateAccount">Correo Electronico</label>
   <input class="card1" id="card1" placeholder='ejemplo@gmail.com'></input>
-  <label class="textPasswordCreateAccount">Contraseña</label>
+  <span class="alerta"></span>
+  <label class="textPasswordCreateAccount">Contraseña nueva</label>
   <input class="card2" id="card2" type="password" placeholder='********'></input>
-  </form>
-  <button class="bottomKeep">Guardar</button>
-  <button class="bottomText">¿Ya tienes cuenta? Iniciar Sesión</button>
+  <button class="bottomKeep" id="btnguardar">Guardar</button>
+   </form>
+   <button class="bottomText">¿Ya tienes cuenta? Iniciar Sesión</button>
   </section>
   `;
   const logIn = sectionCreate.querySelector('.bottomText');
@@ -123,29 +124,33 @@ function create(navigateTo) {
     navigateTo('/login');
   });
 
-  const form = sectionCreate.querySelector('.bottomKeep');
-  form.addEventListener('submit', async (e) => {
+  const form = sectionCreate.querySelector('.formCreateAccount');
+  form.addEventListener('submit', (e) => {
     e.preventDefault();
     const email = sectionCreate.querySelector('.card1').value;
-    const contraseña = sectionCreate.querySelector('.card2').value;
-    try {
-      const userCredentials = await createUserWithEmailAndPassword(auth, email, contraseña);
-      console.log(userCredentials);
-    } catch (error) {
-      console.log(error);
-    }
-  }); */
-
+    const password = sectionCreate.querySelector('.card2').value;
+    createUserWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        navigateTo('/mainScreen');
+      })
+      .catch(() => {
+        sectionCreate.querySelector('.alerta').innerHTML = '<h3 class="alert">Esta cuenta ya esta registrada, intenta con otra</h3>';
+      });
+  });
   return sectionCreate;
 }
 
-export function mainScreen() {
-  const section = document.createElement('section');
-  section.innerHTML = '<h1>Welcome to Main Screen!</h1>';
+function mainScreen() {
+  const section = document.createElement('div');
+  section.innerHTML = `<section>
+  <h2>Welcome to Main Screen!</h2>
+  </section>
+  `;
   return section;
 }
 export {
   login,
   mistake,
   create,
+  mainScreen,
 };

@@ -112,7 +112,6 @@
     height: 0px
     
 }
-
 .initSection {
     position: absolute;
     left: 28px;
@@ -224,6 +223,15 @@
     background: none;
 }
 
+.textConfirmPassword {
+    position: absolute;
+    height: 23px;
+    left: 49px;
+    top: 539px;
+    font-size: 20px;
+    background: none;
+}
+
 .card1 {
     position: absolute;
     width: 341px;
@@ -239,7 +247,7 @@
     position: absolute;
     height: 23px;
     left: 49px;
-    top: 466px;
+    top: 441px;
     font-size: 20px;
     line-height: 23px;
     background: none;
@@ -251,7 +259,19 @@
     width: 341px;
     height: 45px;
     left: 49px;
-    top: 508px;
+    top: 471px;
+    border: none;
+    background: #FFFEFE;
+    border-radius: 12px;
+    font-size: 30px;
+}
+
+.card3 {
+    position: absolute;
+    width: 341px;
+    height: 45px;
+    left: 49px;
+    top: 565px;
     border: none;
     background: #FFFEFE;
     border-radius: 12px;
@@ -263,7 +283,7 @@
     width: 341px;
     height: 45px;
     left: 49px;
-    top: 616px;
+    top: 641px;
     font-weight: bold;
     font-size: 22px;
     border: none;

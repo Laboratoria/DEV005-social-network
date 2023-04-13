@@ -1,4 +1,21 @@
-import { loginFormSubmit, labelMovement, navigateToSignup } from '../lib/index.js';
+import { labelMovement } from '../lib/index.js';
+import { loginApp } from '../lib/authentication.js';
+
+// Define una función manejadora para el evento de envío de formulario de inicio de sesión
+export const loginFormSubmit = (inputEmail, inputPassword, loginError) => {
+  const handleLoginFormSubmit = (event) => {
+    event.preventDefault();
+    loginApp(inputEmail, inputPassword, loginError);
+  }; return handleLoginFormSubmit;
+};
+
+// Navegar hacia registro
+export const navigateToSignup = (navigateTo) => {
+  const preventRefresh = (event) => {
+    event.preventDefault();
+    navigateTo('/signup');
+  }; return preventRefresh;
+};
 
 export function login(navigateTo) {
   // Contenedor login

@@ -35,22 +35,22 @@ export function init(navigateTo) {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
       .then((result) => {
-        // Esto le da un token de acceso de Google. Puede usarlo para acceder a la API de Google.
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-        // La información del usuario registrado.
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        GoogleAuthProvider.credentialFromResult(result);
+        /* const token = credential.accessToken;
+        // The signed-in user info.
         const user = result.user;
-        // Datos de IdP disponibles mediante  getAdditionalUserInfo(result)
-        // ...
+        // IdP data available using getAdditionalUserInfo(result)
+        // ... */
         navigateTo('/mainScreen');
       }).catch((error) => {
-        // Manejar errores aquí.
+        /*  // Handle Errors here.
         const errorCode = error.code;
         const errorMessage = error.message;
-        // El correo electrónico de la cuenta de usuario utilizada.
-        const email = error.customData.email;
-        // El tipo AuthCredential que se utilizó.
-        const credential = GoogleAuthProvider.credentialFromError(error);
+        // The email of the user's account used.
+        const email = error.customData.email; */
+        // The AuthCredential type that was used.
+        GoogleAuthProvider.credentialFromError(error);
         // ...
       });
   });
@@ -87,6 +87,35 @@ function login(navigateTo) {
   return sectionLogin;
 }
 
+// pantalla - inicio de sesión
+/* function login(navigateTo) {
+  const sectionLogin = document.createElement('div');
+  sectionLogin.innerHTML = `<section class="cardLogin">
+  <img src='./lib/img/logo.png' class= 'logo'>
+  <h2 class="initSection">Inicio de Sesión</h2>
+  <form class="formInteraction">
+  <label class="labelEmail">Correo Electronico</label>
+  <input class="inputEmail" id="inputEmail" placeholder="ejemplo@gmail.com"></input>
+  <label class="labelPassword">Contraseña</label>
+  <input class="inputPassword" id="inputPassword" type="password" placeholder="********"></input>
+  <button class="getInt">Ingresar</button>
+  </form>
+  <botton class="bottomText">¿No tienes una cuenta? Regístrate</botton>
+  </section >
+  `;
+  const checkIn = sectionLogin.querySelector('.bottomText');
+  checkIn.addEventListener('click', () => {
+    navigateTo('/register');
+  });
+
+  const keep = sectionLogin.querySelector('.getInt');
+  keep.addEventListener('click', () => {
+    navigateTo('/mainScreen');
+  });
+
+  return sectionLogin;
+}
+ */
 // pantalla - error
 function mistake(navigateTo) {
   const bug = document.createElement('div');

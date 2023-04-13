@@ -4,7 +4,6 @@ import {
 } from './Components/app.js';
 import { login } from './Components/login.js';
 import './Components/firebase.js';
-import { login } from './lib/index.js';
 
 const root = document.getElementById('root');
 root.append(init());

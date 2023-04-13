@@ -1,4 +1,4 @@
-import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import { auth } from './firebase.js';
 
 // pantalla inicial
@@ -107,7 +107,6 @@ function mistake(navigateTo) {
 function create(navigateTo) {
   const sectionCreate = document.createElement('div');
   sectionCreate.innerHTML = `<section class="creatSection">
-  <img src='./lib/img/logo.png' class= 'logo'>
   <form class = "formCreateAccount">
   <h2 class = "createAccount">Crear cuenta</h2>
   <label class="textButtonCreateAccount">Correo Electronico</label>
@@ -124,6 +123,20 @@ function create(navigateTo) {
   logIn.addEventListener('click', () => {
     navigateTo('/login');
   });
+
+  const form = sectionCreate.querySelector('.formCreateAccount');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = sectionCreate.querySelector('.card1').value;
+    const password = sectionCreate.querySelector('.card2').value;
+    createUserWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        navigateTo('/mainScreen');
+      })
+      .catch(() => {
+        sectionCreate.querySelector('.alerta').innerHTML = '<h3 class="alert">Esta cuenta ya esta registrada, intenta con otra</h3>';
+      });
+  });
   return sectionCreate;
 }
 
@@ -136,6 +149,7 @@ function mainScreen() {
   return section;
 }
 export {
+  login,
   mistake,
   create,
   mainScreen,

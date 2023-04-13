@@ -23,6 +23,7 @@
     top: 5%;
     background: none;
 }
+
 .logIn {
     position: absolute;
     width: 380px;
@@ -50,6 +51,7 @@
     color: #FFFFFF;
     background: #528FD8;
     border-radius: 10px;
+
 }
 
 .separator1 {
@@ -113,8 +115,8 @@
 .cardLogin {
     background-image: none;
     height: 0px
-    
 }
+
 .initSection {
     position: absolute;
     left: 28px;
@@ -242,15 +244,6 @@
     background: none;
 }
 
-.textConfirmPassword {
-    position: absolute;
-    height: 23px;
-    left: 49px;
-    top: 539px;
-    font-size: 20px;
-    background: none;
-}
-
 .card1 {
     position: absolute;
     width: 321px;
@@ -267,7 +260,7 @@
     position: absolute;
     height: 23px;
     left: 49px;
-    top: 441px;
+    top: 466px;
     font-size: 20px;
     line-height: 23px;
     background: none;
@@ -279,19 +272,7 @@
     width: 321px;
     height: 45px;
     left: 49px;
-    top: 471px;
-    border: none;
-    background: #FFFEFE;
-    border-radius: 12px;
-    font-size: 30px;
-}
-
-.card3 {
-    position: absolute;
-    width: 341px;
-    height: 45px;
-    left: 49px;
-    top: 565px;
+    top: 508px;
     border: none;
     background: #FFFEFE;
     border-radius: 12px;
@@ -304,7 +285,7 @@
     width: 341px;
     height: 45px;
     left: 49px;
-    top: 641px;
+    top: 616px;
     font-weight: bold;
     font-size: 22px;
     border: none;

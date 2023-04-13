@@ -18,7 +18,7 @@ const routes = [
 ];
 const defaultRoute = '/';
 
-function navigateTo(hash) {
+export function navigateTo(hash) {
   const route = routes.find((routeFind) => routeFind.path === hash);
   if (route && route.component) {
     window.history.pushState({}, route.path, window.location.origin + route.path);
@@ -33,6 +33,6 @@ function navigateTo(hash) {
 }
 
 navigateTo(window.location.pathname || defaultRoute);
-export {
-  navigateTo,
-};
+/* export {
+ navigateTo
+}; */

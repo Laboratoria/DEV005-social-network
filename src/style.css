@@ -51,7 +51,7 @@ body::before {
     justify-content: center;
     font-size: 25px;
   }
-#passAndEm {
+.passAndEm {
   display: grid;
   background-color: #f7f7f721;
   border-radius: 44px;
@@ -198,6 +198,24 @@ a {
 }
 
 
+#errorMsj{
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+#linkLogin{
+  background-color: transparent;
+  border-style: none;
+  color: #f1f1f1;
+  text-decoration: underline;
+}
+#linkLogin:hover{
+  cursor: pointer;
+  color: rgb(197, 176, 148);
+}
+button:active {
+  position: relative;
+  top: 5px;
+}
 @media (min-width: 1024px) {
     header, h1 {
       padding: 0%;

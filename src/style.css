@@ -197,7 +197,6 @@ a {
   height: 42px;
 }
 
-@import url(https://fonts.googleapis.com/css?family=Roboto:500);
 
 @media (min-width: 1024px) {
     header, h1 {

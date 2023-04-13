@@ -1,10 +1,4 @@
-import { signInWithEmailAndPassword } from 'firebase/auth';
-// import labels from "./labels";
-import { auth } from '../lib/index.js';
-// import { navegacion } from '../main.js';
-
-// Agregando la sección para html
-
+import { loginEmail } from '../lib/auth.js';
 // eslint-disable-next-line no-shadow
 export function login(navegacion) {
   const section = document.createElement('section');
@@ -75,15 +69,7 @@ export function login(navegacion) {
   btnInicio.addEventListener('click', async () => {
     const password = section.querySelector('#password').value;
     const email = section.querySelector('#email').value;
-    // try {
-    const credentials = await signInWithEmailAndPassword(auth, email, password);
-    if (credentials.user) {
-      sessionStorage.setItem('user', credentials.user.email);
-      navegacion('/home');
-    }
-    // } catch(e) {
-    // console.error(e)
-    // }
+    loginEmail(email, password);
   });
 
   return section;

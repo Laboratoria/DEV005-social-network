@@ -1,11 +1,12 @@
 // eslint-disable-next-line no-unused-vars
+import { exit } from '../lib/auth.js';
 
-export default function Home(navegacion) {
+export default function Home() {
   const section = document.createElement('section');
-  if (!sessionStorage.getItem('user')) {
+  /* if (!sessionStorage.getItem('user')) {
     navegacion('/');
     return '<></>';
-  }
+  } */
   const htmlBienvenida = `
   <div>
     well don you're login
@@ -16,8 +17,7 @@ export default function Home(navegacion) {
 
   const btnLogOut = section.querySelector('#logOut');
   btnLogOut.addEventListener('click', () => {
-    sessionStorage.clear();
-    navegacion('/');
+    exit();
   });
 
   return section;

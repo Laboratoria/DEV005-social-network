@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import { auth } from './firebase.js';
 
 // pantalla inicial
@@ -20,6 +20,7 @@ export function init(navigateTo) {
     </form>
   </div>
 `;
+
   const logIn = section.querySelector('.logIn');
   logIn.addEventListener('click', () => {
     navigateTo('/login');
@@ -94,7 +95,7 @@ function mistake(navigateTo) {
   const bug = document.createElement('div');
   bug.innerHTML = `<section class="errorSection"><img class="imgBug" src="../lib/img/error404.png">
   <h2 class="text"> Error 404: página no encontrada.</h2>
-  <botton class="init"> volver al Inicio<botton>
+  <botton class="init"> <u>volver al Inicio</u> <botton>
   </section>`;
 
   const keep = bug.querySelector('.init');
@@ -107,6 +108,7 @@ function mistake(navigateTo) {
 function create(navigateTo) {
   const sectionCreate = document.createElement('div');
   sectionCreate.innerHTML = `<section class="creatSection">
+  <img src='./lib/img/logo.png' class= 'logo'>
   <form class = "formCreateAccount">
   <h2 class = "createAccount">Crear cuenta</h2>
   <label class="textButtonCreateAccount">Correo Electronico</label>
@@ -122,20 +124,6 @@ function create(navigateTo) {
   logIn.addEventListener('click', () => {
     navigateTo('/login');
   });
-
-  const form = sectionCreate.querySelector('.bottomKeep');
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const email = sectionCreate.querySelector('.card1').value;
-    const contraseña = sectionCreate.querySelector('.card2').value;
-    try {
-      const userCredentials = await createUserWithEmailAndPassword(auth, email, contraseña);
-      console.log(userCredentials);
-    } catch (error) {
-      console.log(error);
-    }
-  });
-
   return sectionCreate;
 }
 
@@ -149,7 +137,6 @@ function mainScreen() {
 }
 
 export {
-// login,
   mistake,
   create,
   mainScreen,

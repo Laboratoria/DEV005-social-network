@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import { auth } from './firebase.js';
 
 // pantalla inicial
@@ -20,7 +20,6 @@ export function init(navigateTo) {
     </form>
   </div>
 `;
-  
 
   const logIn = section.querySelector('.logIn');
   logIn.addEventListener('click', () => {
@@ -37,21 +36,21 @@ export function init(navigateTo) {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
       .then((result) => {
-        // This gives you a Google Access Token. You can use it to access the Google API.
+        // Esto le da un token de acceso de Google. Puede usarlo para acceder a la API de Google.
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
-        // The signed-in user info.
+        // La información del usuario registrado.
         const user = result.user;
-        // IdP data available using getAdditionalUserInfo(result)
+        // Datos de IdP disponibles mediante  getAdditionalUserInfo(result)
         // ...
         navigateTo('/mainScreen');
       }).catch((error) => {
-        // Handle Errors here.
+        // Manejar errores aquí.
         const errorCode = error.code;
         const errorMessage = error.message;
-        // The email of the user's account used.
+        // El correo electrónico de la cuenta de usuario utilizada.
         const email = error.customData.email;
-        // The AuthCredential type that was used.
+        // El tipo AuthCredential que se utilizó.
         const credential = GoogleAuthProvider.credentialFromError(error);
         // ...
       });
@@ -62,40 +61,12 @@ export function init(navigateTo) {
   return section;
 }
 
-// pantalla - inicio de sesión
-function login(navigateTo) {
-  const sectionLogin = document.createElement('div');
-  sectionLogin.innerHTML = `<section class="cardLogin"> 
-  <h2 class="initSection">Inicio de Sesión</h2>
-  <form class="formInteraction">
-  <label class="labelEmail">Correo Electronico</label>
-  <input class="inputEmail" id="inputEmail" placeholder="ejemplo@gmail.com"></input>
-  <label class="labelPassword">Contraseña</label>
-  <input class="inputPassword" id="inputPassword" type="password" placeholder="********"></input>
-  <button class="getInt">Ingresar</button>
-  </form>
-  <botton class="bottomText">¿No tienes una cuenta? Regístrate</botton>
-  </section >
-  `;
-  const checkIn = sectionLogin.querySelector('.bottomText');
-  checkIn.addEventListener('click', () => {
-    navigateTo('/register');
-  });
-
-  const keep = sectionLogin.querySelector('.getInt');
-  keep.addEventListener('click', () => {
-    navigateTo('/mainScreen');
-  });
-
-  return sectionLogin;
-}
-
 // pantalla - error
 function mistake(navigateTo) {
   const bug = document.createElement('div');
   bug.innerHTML = `<section class="errorSection"><img class="imgBug" src="../lib/img/error404.png">
   <h2 class="text"> Error 404: página no encontrada.</h2>
-  <botton class="init"> volver al Inicio<botton>
+  <botton class="init"> <u>volver al Inicio</u> <botton>
   </section>`;
 
   const keep = bug.querySelector('.init');
@@ -108,6 +79,7 @@ function mistake(navigateTo) {
 function create(navigateTo) {
   const sectionCreate = document.createElement('div');
   sectionCreate.innerHTML = `<section class="creatSection">
+  <img src='./lib/img/logo.png' class= 'logo'>
   <form class = "formCreateAccount">
   <h2 class = "createAccount">Crear cuenta</h2>
   <label class="textButtonCreateAccount">Correo Electronico</label>
@@ -123,31 +95,20 @@ function create(navigateTo) {
   logIn.addEventListener('click', () => {
     navigateTo('/login');
   });
-
-  const form = sectionCreate.querySelector('.bottomKeep');
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const email = sectionCreate.querySelector('.card1').value;
-    const contraseña = sectionCreate.querySelector('.card2').value;
-    try {
-      const userCredentials = await createUserWithEmailAndPassword(auth, email, contraseña);
-      console.log(userCredentials);
-    } catch (error) {
-      console.log(error);
-    }
-  }); */
-
   return sectionCreate;
 }
 
-export function mainScreen() {
-  const section = document.createElement('section');
-  section.innerHTML = '<h1>Welcome to Main Screen!</h1>';
+function mainScreen() {
+  const section = document.createElement('div');
+  section.innerHTML = `<section>
+  <h2>Welcome to Main Screen!</h2>
+  </section>
+  `;
   return section;
 }
 
 export {
-  login,
   mistake,
   create,
+  mainScreen,
 };

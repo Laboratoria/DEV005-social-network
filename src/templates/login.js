@@ -87,15 +87,4 @@ export function login(navegacion) {
   });
 
   return section;
-
-// Evento de botòn Inicar Sesiòn con google
-
-const btnGoogle = section.querySelector('#btnGoogle');
-
-btnGoogle.addEventListener ('click, ')
-console.log(btnGoogle)
-
 }
-
-
-

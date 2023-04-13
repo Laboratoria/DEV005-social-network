@@ -2,11 +2,12 @@ export const LoginTemplate = `
   <h2>Iniciar sesion</h2>
   <form id="signIn">
   <section id="container-login">
-    <section id="passAndEm">
+    <section class="passAndEm">
     <label for="email" class="cEmail">Correo electrónico:
     <input  type="email" id="email" ></label>
     <label for="password" class="cPassword">Contaseña:
     <input type="password" id="password" ></label>
+    <p id='errorMsj'></p>
     <button id="btn-login">Ingresa</button>
     </section>
     

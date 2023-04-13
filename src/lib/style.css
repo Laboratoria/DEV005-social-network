@@ -5,7 +5,7 @@
     background-repeat: no-repeat;
     padding: 0%;
     margin: 0%;
-    
+
 }
 
 .formInit {
@@ -14,11 +14,12 @@
 }
 
 .logo {
-    position: absolute;
-    width: 15.6rem;
-    height: 11.9rem;
-    margin-left: 89px;
-    margin-top: 39px; 
+    position: fixed;
+    width: 58%;
+    height: 21%;
+    left: 21%;
+    top: 5%;
+    background: none;
 }
 .logIn {
     position: absolute;
@@ -30,7 +31,7 @@
     border: none;
     font-size: 22px;
     color: #FFFFFF;
-    background: #ECAF2E;
+    background: #F39C12;
     border-radius: 10px;
     justify-content: center;
 }
@@ -50,7 +51,7 @@
 }
 
 .separator1 {
-    position: absolute;
+    position: fixed;
     width: 153px;
     left: 33px;
     top: 527px;
@@ -58,15 +59,16 @@
 }
 
 .separatorText {
-    position: absolute;
-    left: 208px;
-    top: 523px;
+    position: fixed;
+    left: 212px;
+    top: 514px;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 22px;
+    color: black;
 }
 
 .separator2 {
-    position: absolute;
+    position: fixed;
     width: 153px;
     left: 248px;
     top: 527px;
@@ -79,7 +81,7 @@
     width: 380px;
     height: 48px;
     left: 24px;
-    top: 572px;
+    top: 589px;
     font-size: 22px;
     padding-left: 58px;
     border: none;
@@ -131,13 +133,14 @@
 
 .inputEmail {
     position: absolute;
-    width: 341px;
+    width: 321px;
     height: 45px;
     left: 49px;
     top: 369px;
     border: none;
     border-radius: 12px;
     font-size: 21px;
+    padding-left: 5%;
 
 }
 
@@ -155,7 +158,7 @@
 
 .inputPassword {
     position: absolute;
-    width: 341px;
+    width: 321px;
     height: 45px;
     left: 49px;
     top: 508px;
@@ -163,6 +166,7 @@
     background: #FFFEFE;
     border-radius: 12px;
     font-size: 30px;
+    padding-left: 5%;
 }
 
 .getInt {
@@ -188,7 +192,18 @@
     outline: none;
     font-weight: bold;
 }
+.textNote{
+    background: none;
+    color: red;
+}
 
+.note1{
+    position: absolute;
+    left: 12%;
+    top: 79%;
+    font-size: 12px;
+    background: none;
+}
 /*pantalla crear cuenta*/
 
 .creatSection {
@@ -209,7 +224,7 @@
 .createAccount {
     position: absolute;
     left: 24px;
-    top: 245px;
+    top: 254px;
     font-size: 22px;
     background: none;
 }
@@ -234,13 +249,14 @@
 
 .card1 {
     position: absolute;
-    width: 341px;
+    width: 321px;
     height: 45px;
     left: 49px;
     top: 369px;
     border: none;
     border-radius: 12px;
     font-size: 21px;
+    padding-left: 5%;
 }
 
 .textPasswordCreateAccount {
@@ -256,7 +272,7 @@
 
 .card2 {
     position: absolute;
-    width: 341px;
+    width: 321px;
     height: 45px;
     left: 49px;
     top: 471px;
@@ -276,6 +292,7 @@
     background: #FFFEFE;
     border-radius: 12px;
     font-size: 30px;
+    padding-left: 5%;
 }
 
 .bottomKeep {
@@ -287,34 +304,328 @@
     font-weight: bold;
     font-size: 22px;
     border: none;
-    background: #528FD8;
+    background: #F39C12;
     border-radius: 12px;
     color: #FFFEFE;
 }
 
 /*error*/
+u {
+    background: none;
+}
 .errorSection {
     background-image: none;
     height: 0px
 }
+
 .imgBug {
     width: 103%;
     margin: 169px -2px;
     background: none;
 }
-.text{
+
+.text {
     position: absolute;
     left: 30px;
     top: 446px;
     font-size: 24px;
-    background: none; 
+    background: none;
 }
 
-.init{
+.init {
     position: absolute;
-    left: 35%;
-    top: 486px;
     font-size: 22px;
     color: blue;
     background: none;
+    left: 31%;
+    top: 52%;
+}
+
+@media (min-width: 926px) and (max-width: 1920px) {
+
+    * {
+        background-image: url(./img/fondoDesktops.png);
+        background-repeat: no-repeat;
+        padding: 0%;
+        margin: 0%;
+        background-size: 55%;
+    }
+
+    .logo {
+        position: fixed;
+        width: 28%;
+        height: 35%;
+        left: 96px;
+        top: 23%;
+        background: none;
+    }
+
+    /*pantalla de acceso*/
+    .logIn {
+        position: absolute;
+        width: 380px;
+        height: 46px;
+        left: 61%;
+        top: 278px;
+        font-weight: bold;
+        border: none;
+        font-size: 22px;
+        color: #FFFFFF;
+        background: #F39C12;
+        border-radius: 10px;
+        justify-content: center;
+    }
+
+    .register {
+        position: absolute;
+        width: 380px;
+        height: 46px;
+        left: 61%;
+        top: 365px;
+        border: none;
+        font-weight: bold;
+        font-size: 22px;
+        color: #FFFFFF;
+        background: #528FD8;
+        border-radius: 10px;
+    }
+
+    .google {
+        box-sizing: border-box;
+        position: absolute;
+        width: 380px;
+        height: 48px;
+        left: 61%;
+        top: 572px;
+        font-size: 22px;
+        padding-left: 58px;
+        border: none;
+        background: #FFFFFF;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
+    }
+
+    .separator1 {
+        position: fixed;
+        width: 153px;
+        left: 61%;
+        top: 67%;
+        border: 1px solid #000000;
+    }
+
+    .separatorText {
+        position: fixed;
+        left: 74%;
+        top: 499px;
+        font-weight: 400;
+        font-size: 24px;
+        color: black;
+        background: none;
+    }
+
+    .separator2 {
+        position: fixed;
+        width: 153px;
+        left: 77%;
+        top: 67%;
+        border: 1px solid #000000;
+    }
+
+    /*pantalla de login*/
+
+    .initSection {
+        position: absolute;
+        left: 58%;
+        top: 19%;
+        font-size: 26px;
+        background: none;
+    }
+
+    .formInteraction {
+        margin: 14% 58%;
+        width: 32%;
+        height: 402px;
+        border-radius: 15px;
+        background: #D9D9D9;
+        background-image: none;
+        opacity: 0.9;
+    }
+
+    .labelEmail {
+        position: absolute;
+        height: 23px;
+        left: 61%;
+        top: 30%;
+        font-size: 20px;
+        background: none;
+    }
+
+    .inputEmail {
+        position: absolute;
+        width: 315px;
+        height: 45px;
+        left: 61%;
+        top: 35%;
+        background: white;
+        border: none;
+        border-radius: 12px;
+        font-size: 21px;
+        padding-left: 2%;
+    }
+
+    .labelPassword {
+        position: absolute;
+        height: 23px;
+        left: 61%;
+        top: 48%;
+        font-size: 20px;
+        line-height: 23px;
+        background: none;
+    }
+
+    .inputPassword {
+        position: absolute;
+        width: 315px;
+        height: 45px;
+        left: 61%;
+        top: 53%;
+        border: none;
+        background: white;
+        background: #FFFEFE;
+        border-radius: 12px;
+        font-size: 30px;
+        padding-left: 2%;
+    }
+
+    .getInt {
+        position: absolute;
+        width: 341px;
+        height: 45px;
+        left: 61%;
+        top: 66%;
+        font-weight: bold;
+        font-size: 22px;
+        border: none;
+        background: #528FD8;
+        border-radius: 12px;
+        color: #FFFEFE;
+    }
+
+    .bottomText {
+        position: absolute;
+        left: 60%;
+        top: 84%;
+        font-size: 22px;
+        background: none;
+        outline: none;
+        font-weight: bold;
+    }
+
+    /* pantalla crear cuenta*/
+
+    .formCreateAccount {
+        margin: 14% 58%;
+        width: 32%;
+        height: 402px;
+        border-radius: 15px;
+        background: #D9D9D9;
+        background-image: none;
+        opacity: 0.9;
+    }
+
+    .createAccount {
+        position: absolute;
+        left: 58%;
+        top: 19%;
+        font-size: 26px;
+        background: none;
+    }
+
+    .textButtonCreateAccount {
+        position: absolute;
+        height: 23px;
+        left: 61%;
+        top: 30%;
+        font-size: 20px;
+        background: none;
+    }
+
+    .card1 {
+        position: absolute;
+        width: 315px;
+        height: 45px;
+        left: 61%;
+        top: 35%;
+        background: white;
+        border: none;
+        border-radius: 12px;
+        font-size: 21px;
+        padding-left: 2%;
+    }
+
+    .textPasswordCreateAccount {
+        position: absolute;
+        height: 23px;
+        left: 61%;
+        top: 48%;
+        font-size: 20px;
+        line-height: 23px;
+        background: none;
+    }
+
+    .card2 {
+        position: absolute;
+        width: 315px;
+        height: 45px;
+        left: 61%;
+        top: 53%;
+        border: none;
+        background: white;
+        background: #FFFEFE;
+        border-radius: 12px;
+        font-size: 30px;
+        padding-left: 2%;
+    }
+
+    .bottomKeep {
+        position: absolute;
+        width: 341px;
+        height: 45px;
+        left: 61%;
+        top: 66%;
+        font-weight: bold;
+        font-size: 22px;
+        border: none;
+        background: #F39C12;
+        border-radius: 12px;
+        color: #FFFEFE;
+    }
+
+    /*pantalla de error*/
+    u {
+        background: none;
+    }
+
+    .imgBug {
+        width: 33%;
+        margin: 168px 117px;
+        background: none;
+    }
+
+    .text {
+        position: absolute;
+        left: 55%;
+        top: 40%;
+        font-size: 33px;
+        background: none;
+    }
+
+    .init {
+        position: absolute;
+        font-size: 24px;
+        color: blue;
+        background: none;
+        left: 81%;
+        top: 46%;
+    }
 }

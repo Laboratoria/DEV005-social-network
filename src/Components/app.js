@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import { auth } from './firebase.js';
 
 // pantalla inicial
@@ -35,21 +35,21 @@ export function init(navigateTo) {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
       .then((result) => {
-        // This gives you a Google Access Token. You can use it to access the Google API.
+        // Esto le da un token de acceso de Google. Puede usarlo para acceder a la API de Google.
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
-        // The signed-in user info.
+        // La información del usuario registrado.
         const user = result.user;
-        // IdP data available using getAdditionalUserInfo(result)
+        // Datos de IdP disponibles mediante  getAdditionalUserInfo(result)
         // ...
         navigateTo('/mainScreen');
       }).catch((error) => {
-        // Handle Errors here.
+        // Manejar errores aquí.
         const errorCode = error.code;
         const errorMessage = error.message;
-        // The email of the user's account used.
+        // El correo electrónico de la cuenta de usuario utilizada.
         const email = error.customData.email;
-        // The AuthCredential type that was used.
+        // El tipo AuthCredential que se utilizó.
         const credential = GoogleAuthProvider.credentialFromError(error);
         // ...
       });
@@ -107,6 +107,7 @@ function mistake(navigateTo) {
 function create(navigateTo) {
   const sectionCreate = document.createElement('div');
   sectionCreate.innerHTML = `<section class="creatSection">
+  <img src='./lib/img/logo.png' class= 'logo'>
   <form class = "formCreateAccount">
   <h2 class = "createAccount">Crear cuenta</h2>
   <label class="textButtonCreateAccount">Correo Electronico</label>
@@ -123,20 +124,6 @@ function create(navigateTo) {
   logIn.addEventListener('click', () => {
     navigateTo('/login');
   });
-
-  const form = sectionCreate.querySelector('.formCreateAccount');
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const email = sectionCreate.querySelector('.card1').value;
-    const password = sectionCreate.querySelector('.card2').value;
-    createUserWithEmailAndPassword(auth, email, password)
-      .then(() => {
-        navigateTo('/mainScreen');
-      })
-      .catch(() => {
-        sectionCreate.querySelector('.alerta').innerHTML = '<h3 class="alert">Esta cuenta ya esta registrada, intenta con otra</h3>';
-      });
-  });
   return sectionCreate;
 }
 
@@ -149,7 +136,6 @@ function mainScreen() {
   return section;
 }
 export {
-  login,
   mistake,
   create,
   mainScreen,

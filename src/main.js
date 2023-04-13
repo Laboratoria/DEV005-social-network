@@ -1,7 +1,8 @@
 // import { funcion a crear } from './lib/index.js';
 import {
-  init, login, mistake, create, mainScreen,
+  init, mistake, create, mainScreen,
 } from './Components/app.js';
+import { login } from './Components/login.js';
 import './Components/firebase.js';
 
 const root = document.getElementById('root');

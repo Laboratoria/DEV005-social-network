@@ -1,9 +1,6 @@
+/* eslint-disable no-console */
 // import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import {
-  GoogleAuthProvider,
-  signInWithPopup,
-  signInWithEmailAndPassword,
-} from 'firebase/auth';
+import { GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword } from 'firebase/auth';
 // import { async } from '@firebase/util';
 import { LoginTemplate } from '../templates/loginTemplate.js';
 import { auth } from '../lib/index.js';
@@ -12,10 +9,12 @@ export const Login = (onNavigate) => {
   const div = document.createElement('div');
   const errorMsj = document.createElement('p');
   div.innerHTML = LoginTemplate;
+
   const register = div.querySelector('#linkRegister');
   register.addEventListener('click', () => {
     onNavigate('/registrate');
   });
+
   const loginGoogle = div.querySelector('#btn-google');
   loginGoogle.addEventListener('click', async () => {
     const provider = new GoogleAuthProvider();
@@ -27,6 +26,7 @@ export const Login = (onNavigate) => {
       console.log(error);
     }
   });
+
   const signIn = div.querySelector('#signIn');
   signIn.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -34,12 +34,9 @@ export const Login = (onNavigate) => {
     const email = signIn.email.value;
     const password = signIn.password.value;
     try {
-      const credentialEmail = await signInWithEmailAndPassword(
-        auth,
-        email,
-        password,
-      );
+      const credentialEmail = await signInWithEmailAndPassword(auth, email, password);
       /* onNavigate('/muro'); */
+      console.log(credentialEmail);
       errorMsj.textContent = 'Login correcto';
     } catch (error) {
       if (error.code === 'auth/user-not-found') {

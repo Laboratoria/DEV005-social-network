@@ -1,6 +1,5 @@
-import { createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import { auth } from './firebase.js';
-
 // pantalla inicial
 export function init(navigateTo) {
   const section = document.createElement('section');
@@ -35,87 +34,15 @@ export function init(navigateTo) {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
       .then((result) => {
-        // This gives you a Google Access Token. You can use it to access the Google API.
         GoogleAuthProvider.credentialFromResult(result);
-        /* const token = credential.accessToken;
-        // The signed-in user info.
-        const user = result.user;
-        // IdP data available using getAdditionalUserInfo(result)
-        // ... */
         navigateTo('/mainScreen');
       }).catch((error) => {
-        /*  // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // The email of the user's account used.
-        const email = error.customData.email; */
-        // The AuthCredential type that was used.
         GoogleAuthProvider.credentialFromError(error);
-        // ...
       });
   });
-
   section.append(logIn, register, google);
-
   return section;
 }
-// pantalla - inicio de sesión
-function login(navigateTo) {
-  const sectionLogin = document.createElement('div');
-  sectionLogin.innerHTML = `<section class="cardLogin"> 
-  <h2 class="initSection">Inicio de Sesión</h2>
-  <form class="formInteraction">
-  <label class="labelEmail">Correo Electronico</label>
-  <input class="inputEmail" id="inputEmail" placeholder="ejemplo@gmail.com"></input>
-  <label class="labelPassword">Contraseña</label>
-  <input class="inputPassword" id="inputPassword" type="password" placeholder="********"></input>
-  <button class="getInt" id="btningresar">Ingresar</button>
-  </form>
-  <botton class="bottomText">¿No tienes una cuenta? Regístrate</botton>
-  </section >
-  `;
-  const checkIn = sectionLogin.querySelector('.bottomText');
-  checkIn.addEventListener('click', () => {
-    navigateTo('/register');
-  });
-
-  const keep = sectionLogin.querySelector('.getInt');
-  keep.addEventListener('click', () => {
-    navigateTo('/mainScreen');
-  });
-
-  return sectionLogin;
-}
-
-// pantalla - inicio de sesión
-/* function login(navigateTo) {
-  const sectionLogin = document.createElement('div');
-  sectionLogin.innerHTML = `<section class="cardLogin">
-  <img src='./lib/img/logo.png' class= 'logo'>
-  <h2 class="initSection">Inicio de Sesión</h2>
-  <form class="formInteraction">
-  <label class="labelEmail">Correo Electronico</label>
-  <input class="inputEmail" id="inputEmail" placeholder="ejemplo@gmail.com"></input>
-  <label class="labelPassword">Contraseña</label>
-  <input class="inputPassword" id="inputPassword" type="password" placeholder="********"></input>
-  <button class="getInt">Ingresar</button>
-  </form>
-  <botton class="bottomText">¿No tienes una cuenta? Regístrate</botton>
-  </section >
-  `;
-  const checkIn = sectionLogin.querySelector('.bottomText');
-  checkIn.addEventListener('click', () => {
-    navigateTo('/register');
-  });
-
-  const keep = sectionLogin.querySelector('.getInt');
-  keep.addEventListener('click', () => {
-    navigateTo('/mainScreen');
-  });
-
-  return sectionLogin;
-}
- */
 // pantalla - error
 function mistake(navigateTo) {
   const bug = document.createElement('div');
@@ -130,45 +57,6 @@ function mistake(navigateTo) {
   });
   return bug;
 }
-/* <label class="textConfirmPassword">Confirmar contraseña </label>
-<input class="card3" id="card3" type="password" placeholder='********'></input> */
-// pantalla - crear una cuenta nueva
-function create(navigateTo) {
-  const sectionCreate = document.createElement('div');
-  sectionCreate.innerHTML = `<section class="creatSection">
-  <form class = "formCreateAccount">
-  <h2 class = "createAccount">Crear cuenta</h2>
-  <label class="textButtonCreateAccount">Correo Electronico</label>
-  <input class="card1" id="card1" placeholder='ejemplo@gmail.com'></input>
-  <span class="alerta"></span>
-  <label class="textPasswordCreateAccount">Contraseña nueva</label>
-  <input class="card2" id="card2" type="password" placeholder='********'></input>
-  <button class="bottomKeep" id="btnguardar">Guardar</button>
-   </form>
-   <button class="bottomText">¿Ya tienes cuenta? Iniciar Sesión</button>
-  </section>
-  `;
-  const logIn = sectionCreate.querySelector('.bottomText');
-  logIn.addEventListener('click', () => {
-    navigateTo('/login');
-  });
-
-  const form = sectionCreate.querySelector('.formCreateAccount');
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const email = sectionCreate.querySelector('.card1').value;
-    const password = sectionCreate.querySelector('.card2').value;
-    createUserWithEmailAndPassword(auth, email, password)
-      .then(() => {
-        navigateTo('/mainScreen');
-      })
-      .catch(() => {
-        sectionCreate.querySelector('.alerta').innerHTML = '<h3 class="alert">Esta cuenta ya esta registrada, intenta con otra</h3>';
-      });
-  });
-  return sectionCreate;
-}
-
 function mainScreen() {
   const section = document.createElement('div');
   section.innerHTML = `<section>
@@ -178,8 +66,6 @@ function mainScreen() {
   return section;
 }
 export {
-  login,
   mistake,
-  create,
   mainScreen,
 };

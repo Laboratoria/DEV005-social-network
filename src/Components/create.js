@@ -1,9 +1,9 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from './firebase.js';
 
+// pantalla - crear una cuenta nueva
 /* <label class="textConfirmPassword">Confirmar contraseña </label>
 <input class="card3" id="card3" type="password" placeholder='********'></input> */
-// pantalla - crear una cuenta nueva
 export function create(navigateTo) {
   const sectionCreate = document.createElement('div');
   sectionCreate.innerHTML = `<section class="creatSection">
@@ -15,8 +15,6 @@ export function create(navigateTo) {
     <span class="alerta"></span>
     <label class="textPasswordCreateAccount">Contraseña nueva</label>
     <input class="card2" id="card2" type="password" placeholder='********'></input>
-    <label class="textConfirmPassword">Confirmar contraseña </label>
-    <input class="card3" id="card3" type="password" placeholder='********'></input>
     <button class="bottomKeep" id="btnguardar">Guardar</button>
      </form>
      <button class="bottomText">¿Ya tienes cuenta? Iniciar Sesión</button>

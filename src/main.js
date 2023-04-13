@@ -33,3 +33,6 @@ export function navigateTo(hash) {
 }
 
 navigateTo(window.location.pathname || defaultRoute);
+export {
+  navigateTo,
+};

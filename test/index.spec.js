@@ -22,3 +22,13 @@ describe('login', () => {
     expect(navigateTo).not.toHaveBeenCalledWith();
   });
 });
+
+// Función registrate
+// describe('create', () => {
+//   it('Si el usuario se registro correctamente deberia ir a home', () => {
+//     document.body.innerHTML(create());
+//     document.getElementById(btnguardar).click();
+//     console.log(credential);
+//     expect(typeof myFunction).tobe('function');
+//   });
+// });

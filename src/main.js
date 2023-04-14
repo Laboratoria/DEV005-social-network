@@ -1,7 +1,10 @@
 // importar
+// eslint-disable-next-line import/no-unresolved, import/no-extraneous-dependencies
+import { onAuthStateChanged } from 'firebase/auth';
 import home from './components/home.js';
 import login from './components/login.js';
 import error from './components/error404.js';
+// eslint-disable-next-line import/no-unresolved
 import register from './components/register.js';
 
 const routes = [

@@ -13,7 +13,7 @@ export const signupFormSubmit = (inputEmail, inputPassword, registerError) => {
 export const navigateToLogin = (navigateTo) => {
   const preventRefresh = (event) => {
     event.preventDefault();
-    navigateTo('/login');
+    navigateTo('/');
   }; return preventRefresh;
 };
 

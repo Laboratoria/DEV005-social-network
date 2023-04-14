@@ -9,13 +9,13 @@ const root = document.getElementById('root');
 
 // root.append(register());
 const routes = [
-  { path: '/login', component: login },
+  { path: '/', component: login },
   { path: '/signup', component: signup },
   { path: '/error', component: error },
   { path: '/wall', component: wall },
 ];
 
-const defaultRoute = '/login';
+const defaultRoute = '/';
 
 export function navigateTo(hash) {
   const route = routes.find((routeFind) => routeFind.path === hash);

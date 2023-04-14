@@ -65,7 +65,7 @@ describe('signupFormSubmit', () => {
 });
 
 describe('navigateToSignup', () => {
-  it('Should call preventDefault and navigate to /login', () => {
+  it('Should call preventDefault and navigate to /', () => {
     // Crear mocks de las dependencias
     const navigateToMock = jest.fn();
 
@@ -77,6 +77,6 @@ describe('navigateToSignup', () => {
     expect(eventMock.preventDefault).toHaveBeenCalled();
 
     // Verificar que navigateTo fue llamada con '/login'
-    expect(navigateToMock).toHaveBeenCalledWith('/login');
+    expect(navigateToMock).toHaveBeenCalledWith('/');
   });
 });

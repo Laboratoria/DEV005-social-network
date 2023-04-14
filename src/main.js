@@ -2,11 +2,13 @@
 import home from './components/home.js';
 import error from './components/error404.js';
 import login from './components/login.js';
+import register from './components/register.js';
 
 const routes = [
   { path: '/', component: home },
   { path: '/error', component: error },
   { path: '/login', component: login },
+  { path: '/register', component: register },
 ];
 
 const defaultRoute = '/';

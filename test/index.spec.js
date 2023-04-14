@@ -15,4 +15,9 @@ describe('login', () => {
     login(navigateTo);
     expect(navigateTo).not.toHaveBeenCalledWith();
   });
+  it('Si el usuario desea crear cuenta debería ir a la pantalla crear cuenta', () => {
+    const myHtml = login(navigateTo);
+    myHtml.querySelector('.bottomText').click();
+    expect(navigateTo).toHaveBeenCalledWith('/register');
+  });
 });

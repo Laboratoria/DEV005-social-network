@@ -4,21 +4,20 @@ import { auth } from './firebase.js';
 export function init(navigateTo) {
   const section = document.createElement('section');
   section.innerHTML = `
-  <div class="init"> 
+  <img src='./lib/img/fondoMovil.png' class= 'fondoBlanco'>
+  <form class="formInit">
     <img src='./lib/img/logo.png' class= 'logo'>
-    <form class="formInit">
       <button class='logIn'>Inicia Sesión</button>
       <button class='register'>Regístrate</button>
       <hr class='separator1'> 
       <span class='separatorText'>o</span>
       <hr class='separator2'>
       <button class='google'> 
-        <img src='https://www.enriquedans.com/wp-content/uploads/2017/07/Google-G.jpg' class='imgGoogle'>
-        Registrate con Google
+      <img src='https://www.enriquedans.com/wp-content/uploads/2017/07/Google-G.jpg' class='imgGoogle'>
+      Registrate con Google
       </button>
     </form>
-  </div>
-`;
+  `;
   const logIn = section.querySelector('.logIn');
   logIn.addEventListener('click', () => {
     navigateTo('/login');

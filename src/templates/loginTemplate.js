@@ -24,7 +24,7 @@ export const LoginTemplate = `
     <div class="google-icon-wrapper">
       <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
     </div>
-      <p class="btn-text"><b>Acceder con Google</b></p>
+      <p class="btn-text"><b>Accede con Google</b></p>
     </div>
     </section>
     </section>

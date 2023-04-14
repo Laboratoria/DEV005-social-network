@@ -1,8 +1,8 @@
-*,
+/* *,
 *::before,
 *::after {
   box-sizing: border-box;
-}
+} */
 
 body {
   color: white;
@@ -217,40 +217,51 @@ button:active {
 
 .wall-template {
   display: grid;
-  grid-template-rows: 30px 80px;
-  background: #373737;
+  grid-template-rows: 70px 100px 60px 500px; 
+  background: #ffffff;
   width: 100%;
   height: 100%;
   position: relative;
   background-size: initial;
   background-position: top;
   grid-template-columns: 1fr;
-  grid-template-rows: 200px 75px;
-  /* grid-template-rows: 140px 1fr;
-  height: 100lvh; */
+  background-image: url(/img/LogoMorado.png);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position:bottom;
 }
 
 #wall-tittle {
-  background: linear-gradient(180deg, #9a6ed5 1%, #320070 89%);
-  background-repeat: no-repeat;
-  grid-area: a;
-  width: 80%;
-  height: 30%;
+  background: linear-gradient(180deg, #9a6ed5 10%, #320070 90%);
+  grid-area: 1 ; 
   color: white;
   font-family: "Rancho", cursive;
-  padding-left: 5%;
   font-size: 30px;
+  justify-self: stretch;
 }
 
 #iPost {
+  grid-area: 2 ;
+  align-self: center;
   padding: 3%;
+  margin-left: 3%;
   width: 85%;
-  height: 80%;
+  height: 70%;
   border-radius: 20px;
-  background-color: rgba(172, 167, 167, 0.536);
-  border-style: none;
-  resize: none;
-  grid-area:b;
+  background-color: rgb(194, 192, 192);
+  color: rgb(0, 0, 0);
+}
+#btn-post {
+  grid-area: 3 ; 
+justify-self: end;
+  background-color: #610cd1;
+  color: white;
+  border: none;
+  font-size: 15px;
+  width: 30%;
+  height: 30%;
+  margin-left: 60%;
+  border-radius: 20px;
 }
 @media (min-width: 1024px) {
   header,

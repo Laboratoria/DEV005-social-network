@@ -10,7 +10,7 @@ export const RegisterTemplate = `
     <label for="password" class="cPassword">Contaseña:
     <input type="password" id="password" required></label>
     <p id="errorMsj"></p>
-    <button type="submit" id="btn-register">Registrate</button>
+    <button type="submit" id="btn-register">Regístrate</button>
     </section>
     
     <section id="register">

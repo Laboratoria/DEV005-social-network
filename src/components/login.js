@@ -12,6 +12,7 @@ function login(navigateTo) {
   credencialesdiv.className = 'credencialesdiv';
 
   const loginCorreo = document.createElement('input');
+  loginCorreo.setAttribute('type', 'text');
   loginCorreo.className = 'loginCorreo';
 
   const loginContra = document.createElement('input');
@@ -19,21 +20,27 @@ function login(navigateTo) {
 
   const mensajeregister = document.createElement('span');
   mensajeregister.className = 'mensajeregister';
+  mensajeregister.addEventListener('click', () => {
+    navigateTo('/register');
+  });
 
   const buttonReturn = document.createElement('button');
-
   buttonReturn.addEventListener('click', () => {
-    navigateTo('/');
+    navigateTo('/muro');
   });
+  buttonReturn.className = 'buttonReturn';
 
   messageLogin.textContent = 'Iniciar Sesión';
   loginCorreo.placeholder = 'Correo Electrónico';
   loginContra.placeholder = 'Contraseña';
   mensajeregister.innerHTML = ` ¿No tienes una cuenta?
   <strong>Regístrate</strong>`;
+  buttonReturn.textContent = 'Ingresar';
 
-  loginDiv.append(imgLogin, messageLogin, credencialesdiv);
+  loginDiv.append(imgLogin, messageLogin, credencialesdiv, buttonReturn, mensajeregister);
   credencialesdiv.append(loginCorreo, loginContra);
+
+  return loginDiv;
 }
 
 export default login;

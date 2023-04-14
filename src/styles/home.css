@@ -17,8 +17,7 @@ body{
   .homediv{
     position: absolute;
     top: 10%;
-    left: 5%;
-    width: 350px;
+    width: 100%; /*comentario*/
     height: 500px;
     display: flex;
     flex-direction: column;
@@ -40,6 +39,7 @@ body{
     position: relative;
     display: flex;
     flex-direction: column;
+    justify-content: center; /*comentario*/
   }
   
   .buttonemail, .buttongoogle,
@@ -52,7 +52,6 @@ body{
     font-family: 'Poppins';
   }
 
-  
   .buttonemail:hover, .buttongoogle:hover,
   .buttontwitter:hover, .buttongithub:hover{
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
@@ -282,5 +281,87 @@ body{
     background-repeat: no-repeat;
     background-position: 20px center;
   }
+
+  /* Login*/
+
+  .loginDiv{
+    position: relative;
+    top: 20px;
+    width: 100vw;
+    height: 100vh;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+  }
+
+  .imgLogin {
+    position: absolute;
+    background-image: url(../assets/image-food.png);
+    width: 200px;
+    height: 200px;
+    top: 60px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .messageLogin {
+    position: absolute;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    font-size: 25px;
+    top: 270px;
+  }
+
+  .credencialesdiv {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-size: cover;
+    align-items: center;
+    top: 320px;
+    width: 100%;
+  }
+
+  .loginCorreo, .loginContra {
+    margin: 8px 8px 0px 8px;
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 18px;
+    width: 90%;
+    font-family: 'Poppins';
+    border-style: none;
+
+  }
+
+  .buttonReturn {
+    position: absolute;
+    margin: 8px 8px 0px 8px;
+    border-radius: 10px;
+    font-size: 18px;
+    flex-direction: column;
+    top: 450px;
+    padding: 12px;
+    width: 90%;
+    background: #F2B872;
+    align-items: center;
+    font-family: 'Poppins';
+    border-style: none;
+  }
+  .mensajeregister {
+    position: absolute;
+    flex-direction: column;
+    width: 200px;
+    margin: 10px auto 10px;
+    top:550px;
+  }
+
 }
 

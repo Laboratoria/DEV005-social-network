@@ -1,8 +1,9 @@
 // importar
-// eslint-disable-next-line import/no-unresolved
+// eslint-disable-next-line import/no-unresolved, import/no-extraneous-dependencies
 import { onAuthStateChanged } from 'firebase/auth';
 import home from './components/home.js';
 import error from './components/error404.js';
+// eslint-disable-next-line import/no-unresolved
 import login from './components/login.js';
 
 import './lib/loginConfig.js';

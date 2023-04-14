@@ -1,4 +1,4 @@
-function error(navigateTo) {
+const error = (navigateTo) => {
   const diverror = document.createElement('div');
   diverror.className = 'diverror';
   const imgerror = document.createElement('div');
@@ -24,6 +24,6 @@ function error(navigateTo) {
   diverror.append(imgerror, infoerror);
   infoerror.append(messageerror, othermessage, btnerror);
   return diverror;
-}
+};
 
 export default error;

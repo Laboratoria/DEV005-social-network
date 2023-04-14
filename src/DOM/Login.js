@@ -4,6 +4,7 @@ import { GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword } from 
 // import { async } from '@firebase/util';
 import { LoginTemplate } from '../templates/loginTemplate.js';
 import { auth } from '../lib/index.js';
+import { loginGoogle } from '../lib/auth.js';
 
 export const Login = (onNavigate) => {
   const div = document.createElement('div');
@@ -17,16 +18,31 @@ export const Login = (onNavigate) => {
     onNavigate('/registrate');
   });
 
-  const loginGoogle = div.querySelector('#btn-google');
-  loginGoogle.addEventListener('click', async () => {
+  // VERSION ASYNC - AWAIT
+  const btnloginGoogle = div.querySelector('#btn-google');
+  /*   btnloginGoogle.addEventListener('click', async () => {
     const provider = new GoogleAuthProvider();
     try {
-      const credentials = await signInWithPopup(auth, provider);
+      const credentials = await loginGoogle();
       console.log(credentials);
       onNavigate('/muro');
     } catch (error) {
       console.log(error);
     }
+  });
+ */
+  // VERSION PROMESAS
+  btnloginGoogle.addEventListener('click', () => {
+    loginGoogle()
+      .then((result) => {
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        const user = result.user;
+        console.log(credential, token, user);
+        onNavigate('/muro');
+      }).catch((error) => {
+        console.log(error);
+      });
   });
 
   const signIn = div.querySelector('#signIn');
@@ -36,7 +52,7 @@ export const Login = (onNavigate) => {
     const email = signIn.email.value;
     const password = signIn.password.value;
     try {
-      const credentialEmail = await signInWithEmailAndPassword(
+      await signInWithEmailAndPassword(
         auth,
         email,
         password,

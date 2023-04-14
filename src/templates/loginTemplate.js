@@ -1,5 +1,5 @@
 export const LoginTemplate = `
-  <h2>Iniciar sesion</h2>
+  <h2>Iniciar sesión</h2>
   <form id="signIn">
   <section id="container-login">
     <section class="passAndEm">
@@ -15,7 +15,7 @@ export const LoginTemplate = `
     </form>
     <p>¿Eres nueva? </p>
     
-    <button id="linkRegister">Registrate</button>
+    <button id="linkRegister">Regístrate</button>
 
     <div class="google-btn" id= "btn-google">
     <div class="google-icon-wrapper">

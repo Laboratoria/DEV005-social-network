@@ -1,5 +1,5 @@
-import { loginEmail } from '../lib/auth.js';
-// eslint-disable-next-line no-shadow
+import { loginEmail, loginGoogle } from '../lib/auth.js';
+
 export function login(navegacion) {
   const section = document.createElement('section');
   if (sessionStorage.getItem('user')) {
@@ -62,14 +62,22 @@ export function login(navegacion) {
     navegacion('/registro');
   });
 
-  // Evento del botón Iniciar Sesiòn
+  // Evento del botón Iniciar Sesión
 
   const btnInicio = section.querySelector('#btnInicio');
 
-  btnInicio.addEventListener('click', async () => {
+  btnInicio.addEventListener('click', () => {
     const password = section.querySelector('#password').value;
     const email = section.querySelector('#email').value;
     loginEmail(email, password);
+  });
+
+  // Evento del botón Iniciar Sesión con Google
+
+  const btnGoogle = section.querySelector('#btnGoogle');
+
+  btnGoogle.addEventListener('click', () => {
+    loginGoogle();
   });
 
   return section;

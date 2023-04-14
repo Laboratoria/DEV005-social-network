@@ -1,4 +1,7 @@
 export const LoginTemplate = `
+<header>
+<h1>Sister Voyage</h1>
+</header>
   <h2>Iniciar sesión</h2>
   <form id="signIn">
   <section id="container-login">

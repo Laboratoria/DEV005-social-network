@@ -1,10 +1,12 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
 body {
   color: white;
-  font-family: "Montserrat", sans-serif; 
+  font-family: "Montserrat", sans-serif;
   background: linear-gradient(180deg, #9a6ed5 1%, #320070 89%);
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -14,8 +16,8 @@ body {
 }
 
 main {
-  display: flex;
-  justify-content: center;
+  /* display: flex;
+  justify-content: center; */
 }
 
 body::before {
@@ -32,25 +34,25 @@ body::before {
   z-index: -1;
 }
 
-  header {
-    display: flex;
-    flex-direction: column;
-  }
+header {
+/*   display: flex;
+  flex-direction: column; */
+}
 
-  h1{
-    color: white;
-    /* font-family: "Edu NSW ACT Foundation", cursive; */
-    font-family: 'Rancho', cursive;
-    display: flex;
-    justify-content: center;
-    font-size: 55px;
-  }
-  h2{
-    font-family: "Montserrat", sans-serif;
-    display: flex;
-    justify-content: center;
-    font-size: 25px;
-  }
+h1 {
+  color: white;
+  /* font-family: "Edu NSW ACT Foundation", cursive; */
+  font-family: "Rancho", cursive;
+ /*  display: flex;
+  justify-content: center; */
+  font-size: 55px;
+}
+h2 {
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  justify-content: center;
+  font-size: 25px;
+}
 .passAndEm {
   display: grid;
   background-color: #f7f7f721;
@@ -125,18 +127,6 @@ a {
   border-radius: 50%;
 }
 
-#iPost {
-  padding: 3%;
-  width: 85%;
-  height: 80%;
-  border-radius: 20px;
-  background-color: rgba(172, 167, 167, 0.536);
-  align-self: center;
-  justify-self: center;
-  border-style: none;
-  resize: none;
-}
-
 .google-btn {
   margin: 10px auto;
   width: 215px;
@@ -146,15 +136,14 @@ a {
   border-radius: 30px;
 }
 
-  .google-icon-wrapper {
-    position: absolute;
-    margin-top: 1px;
-    margin-left: 1px;
-    width: 40px;
-    height: 40px;
-    border-radius: 2px;
-
-  }
+.google-icon-wrapper {
+  position: absolute;
+  margin-top: 1px;
+  margin-left: 1px;
+  width: 40px;
+  height: 40px;
+  border-radius: 2px;
+}
 
 .google-icon {
   position: absolute;
@@ -164,14 +153,14 @@ a {
   height: 18px;
 }
 
-  .btn-text {
-    float: right;
-    margin: 11px 11px 0 0;
-    color: black;
-    font-size: 14px;
-    letter-spacing: 1px;
-    font-family: "Montserrat", sans-serif;
-  }
+.btn-text {
+  float: right;
+  margin: 11px 11px 0 0;
+  color: black;
+  font-size: 14px;
+  letter-spacing: 1px;
+  font-family: "Montserrat", sans-serif;
+}
 
 .google-btn:hover {
   box-shadow: 0 0 6px #4285f4;
@@ -196,20 +185,19 @@ a {
   height: 42px;
 }
 
-
-#errorMsj{
+#errorMsj {
   /* margin-top: 2px;
   margin-bottom: 2px; */
   padding: 3%;
   margin: 0%;
 }
-#linkLogin{
+#linkLogin {
   background-color: transparent;
   border-style: none;
   color: #f1f1f1;
   text-decoration: underline;
 }
-#linkLogin:hover{
+#linkLogin:hover {
   cursor: pointer;
   color: rgb(197, 176, 148);
 }
@@ -217,9 +205,57 @@ button:active {
   position: relative;
   top: 5px;
 }
+.publish {
+  color: #ffffff;
+  background-color: #320070;
+  border-radius: 10px;
+  border-style: none;
+  grid-area: foot;
+}
+.publish:active {
+}
+
+.wall-template {
+  display: grid;
+  grid-template-rows: 30px 80px;
+  background: #373737;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-size: initial;
+  background-position: top;
+  grid-template-columns: 1fr;
+  grid-template-rows: 200px 75px;
+  /* grid-template-rows: 140px 1fr;
+  height: 100lvh; */
+}
+
+#wall-tittle {
+  background: linear-gradient(180deg, #9a6ed5 1%, #320070 89%);
+  background-repeat: no-repeat;
+  grid-area: a;
+  width: 80%;
+  height: 30%;
+  color: white;
+  font-family: "Rancho", cursive;
+  padding-left: 5%;
+  font-size: 30px;
+}
+
+#iPost {
+  padding: 3%;
+  width: 85%;
+  height: 80%;
+  border-radius: 20px;
+  background-color: rgba(172, 167, 167, 0.536);
+  border-style: none;
+  resize: none;
+  grid-area:b;
+}
 @media (min-width: 1024px) {
-    header, h1 {
-      padding: 0%;
-      margin-bottom: 1%;
-    }
+  header,
+  h1 {
+    padding: 0%;
+    margin-bottom: 1%;
+  }
 }

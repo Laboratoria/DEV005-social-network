@@ -1,4 +1,7 @@
 export const RegisterTemplate = `
+<header>
+<h1>Sister Voyage</h1>
+</header>
   <h2>Crea tu cuenta</h2>
   <section id="container-register">
   <form id="signup">

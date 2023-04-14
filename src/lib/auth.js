@@ -1,6 +1,11 @@
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from 'firebase/auth';
+import {
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  signOut,
+  signInWithPopup,
+  GoogleAuthProvider,
+} from 'firebase/auth';
 
-// import labels from "./labels";
 import { auth } from './index.js';
 
 export const loginEmail = (email, password) => {
@@ -20,8 +25,20 @@ export const registroUsuario = async (email, password) => {
 
 export const exit = () => {
   signOut(auth).then(() => {
-    // Sign-out successful.
+
   }).catch(() => {
-    // An error happened.
+
   });
+};
+
+export const provider = new GoogleAuthProvider();
+
+export const loginGoogle = () => {
+  signInWithPopup(auth, provider)
+    .then(() => {
+
+    })
+    .catch(() => {
+
+    });
 };

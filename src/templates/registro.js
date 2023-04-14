@@ -32,7 +32,7 @@ export function registro(navegacion) {
       </form>   
         <button class="btnCrearCuenta" id="btnCrearCuenta">Registrar</button>
         <div id="mensaje-bienvenida" name="mensaje-bienvenida" class="mensaje-bienvenida"> </div>
-        <span class="textRegistro">Si ya tienes cuenta -> <button class="btnRegistro" id="btnCrearCuenta">Inicia sesión</button></span>   
+        <span class="textRegistro">Si ya tienes cuenta -> <button class="btnRegistro" id="btnIniciaSesion">Inicia sesión</button></span>   
     </div>
     </main>
   </div>`;
@@ -51,8 +51,8 @@ export function registro(navegacion) {
     };
     input.onblur = () => {
       input.value = input.value.trim();
-      // eslint-disable-next-line eqeqeq
-      if (input.value.trim().length == 0) {
+
+      if (input.value.trim().length === 0) {
         input.previousElementSibling.classList.remove('top');
       }
 
@@ -61,43 +61,34 @@ export function registro(navegacion) {
     };
   });
 
-  // Configuración de autenticación firebase
   const txtCorreo = section.querySelector('#correoReg');
   const txtClave = section.querySelector('#claveReg');
-  const txtNombreUsuario = section.querySelector('#nombreUsuario');
   const errorCorreo = section.querySelector('#errorCorreo');
   const errorClave = section.querySelector('#errorClave');
-  const mensajeBienvenida = section.querySelector('#mensaje-bienvenida');
-
   const btnCrearCuenta = section.querySelector('#btnCrearCuenta');
+  const btnVolverInicio = section.querySelector('#btnIniciaSesion');
 
-  const btncuenta = section.querySelector('#btnCrearCuenta');
+  // Limpiar mensajes de error
 
-  btncuenta.addEventListener('click', () => ('done'));
-
-  txtCorreo.addEventListener('click', async () => {
+  txtCorreo.addEventListener('click', () => {
     txtCorreo.value = '';
     errorCorreo.innerHTML = '';
     txtCorreo.innerHTML = '';
   });
 
-  txtClave.addEventListener('click', async () => {
+  txtClave.addEventListener('click', () => {
     txtClave.value = '';
     errorClave.innerHTML = '';
     txtClave.innerHTML = '';
   });
 
-  btnCrearCuenta.addEventListener('click', async () => {
+  // Crear cuenta para usuarios no registrados
+  btnCrearCuenta.addEventListener('click', () => {
     const correo = txtCorreo.value;
     const clave = txtClave.value;
-    const nombre = txtNombreUsuario.value;
 
     registroUsuario(correo, clave).then(() => {
-      mensajeBienvenida.innerHTML = `Bienvenida ${nombre} a MASCOTEANDO`;
-      mensajeBienvenida.setAttribute('style', 'display:block');
-      setTimeout(() => {
-        navegacion('/');
-      }, '5000');
+
     }).catch((error) => {
       if (error.code === 'auth/email-already-in-use') {
         errorCorreo.innerHTML = 'Usuario ya registrado';
@@ -111,6 +102,11 @@ export function registro(navegacion) {
         errorClave.innerHTML = 'Algo salió mal';
       }
     });
+  });
+
+  // Volver a inicio de sesión si ya estás registrado
+  btnVolverInicio.addEventListener('click', () => {
+    navegacion('/');
   });
 
   return section;

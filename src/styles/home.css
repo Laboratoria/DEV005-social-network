@@ -11,6 +11,8 @@ body{
   font-family: 'Poppins';
 }
 
+/* Estilos para celular */
+
 @media(max-width: 480px) {
   .homediv{
     position: absolute;
@@ -115,8 +117,92 @@ body{
     width: 200px;
     margin: 10px auto 10px;
     text-align:center;
-  }
+  } 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   /*Register*/
+
   .registerDiv{
     position: relative;
     height: 100vh;

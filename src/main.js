@@ -1,7 +1,13 @@
 // importar
+// eslint-disable-next-line import/no-unresolved
+import { onAuthStateChanged } from 'firebase/auth';
 import home from './components/home.js';
 import error from './components/error404.js';
 import login from './components/login.js';
+
+import './lib/loginConfig.js';
+import { auth } from './lib/firebaseConfig.js';
+// Nombre: foodMatch
 
 const routes = [
   { path: '/', component: home },
@@ -32,3 +38,18 @@ window.onpopstate = () => {
 };
 
 navigateTo(window.location.pathname || defaultRoute);
+
+function initializar() {
+  onAuthStateChanged(auth, (user) => {
+    const currentRoute = window.location.pathname;
+    if (user) {
+      navigateTo('/muro');
+    } else if (currentRoute === defaultRoute || currentRoute === '/registro') {
+      navigateTo(currentRoute);
+    } else {
+      navigateTo('/error');
+    }
+  });
+}
+
+initializar();

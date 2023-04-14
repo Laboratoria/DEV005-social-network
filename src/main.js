@@ -5,6 +5,7 @@ import home from './components/home.js';
 import error from './components/error404.js';
 // eslint-disable-next-line import/no-unresolved
 import login from './components/login.js';
+import register from './components/register.js';
 
 import './lib/loginConfig.js';
 import { auth } from './lib/firebaseConfig.js';
@@ -14,6 +15,7 @@ const routes = [
   { path: '/', component: home },
   { path: '/error', component: error },
   { path: '/login', component: login },
+  { path: '/register', component: register },
 ];
 
 const defaultRoute = '/';

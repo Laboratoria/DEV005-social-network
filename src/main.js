@@ -1,7 +1,7 @@
 // importar
 import home from './components/home.js';
-import error from './components/error404.js';
 import login from './components/login.js';
+import error from './components/error404.js';
 
 const routes = [
   { path: '/', component: home },

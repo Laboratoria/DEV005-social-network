@@ -1,5 +1,5 @@
 export const LoginTemplate = `
-  <h2>Iniciar sesion</h2>
+  <h2>Iniciar sesión</h2>
   <form id="signIn">
   <section id="container-login">
     <section class="passAndEm">

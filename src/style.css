@@ -216,6 +216,7 @@ button:active {
 }
 
 .wall-template {
+  grid-template-columns: 1fr;
   display: grid;
   grid-template-rows: 70px 100px 60px 500px; 
   background: #ffffff;
@@ -224,7 +225,6 @@ button:active {
   position: relative;
   background-size: initial;
   background-position: top;
-  grid-template-columns: 1fr;
   background-image: url(/img/LogoMorado.png);
   background-repeat: no-repeat;
   background-attachment: fixed;

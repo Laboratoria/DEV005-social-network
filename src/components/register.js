@@ -4,10 +4,19 @@ function register(navigateTo) {
   const sectionReg = document.createElement('section');
   sectionReg.id = 'reg-account';
   sectionReg.classList.add('register-background');
-  const titleReg = document.createElement('h2');
+
+  const divContainer = document.createElement('div');
+  const titleRegKitty = document.createElement('h1');
+  const titleReg = document.createElement('h3');
   const inputEmail = document.createElement('input');
+  const image = document.createElement('img');
+  const regTrademark = document.createElement('footer');
+  divContainer.id = 'container';
+  image.id = 'imagen';
+  regTrademark.id = 'marca';
   inputEmail.id = 'email';
   inputEmail.placeholder = 'Escribe tu correo';
+
   // const inputName = document.createElement('input');
   // inputName.id = 'full-name';
   // inputName.placeholder = 'Nombre completo';
@@ -24,11 +33,20 @@ function register(navigateTo) {
   const btnSend = document.createElement('button');
   btnSend.id = 'enviar-info';
 
+  function regiserUser() {
+    alert("¡Registro exitoso, muchas gracias!");
+  }
+  btnSend.addEventListener('click', regiserUser);
+
+
+  titleRegKitty.textContent = 'KittyBook';
   titleReg.textContent = '¡Regístrate!';
   btnSend.textContent = 'Registrarme';
+  regTrademark.textContent = 'KittyBook, 2023'
 
   const btnReturnH = document.createElement('button');
-  btnReturnH.textContent = 'Return to home';
+  btnReturnH.id = 'return';
+  btnReturnH.textContent = 'Volver al Inicio';
   btnReturnH.addEventListener('click', () => {
     navigateTo('/');
   });
@@ -39,15 +57,22 @@ function register(navigateTo) {
     newAccount(email, password);
   });
 
-  sectionReg.append(
-    titleReg,
+
+  divContainer.append(
     inputEmail,
-    // inputName,
-    // inputUser,
     inputPass,
-    // inputConfirmPass,
     btnSend,
     btnReturnH,
+    )
+  sectionReg.append(
+    titleRegKitty,
+    titleReg,
+    divContainer,
+    image,
+    // inputName,
+    // inputUser,
+    // inputConfirmPass,
+    regTrademark,
   );
   newAccount('example1@mail.com', '123456');
   return sectionReg;

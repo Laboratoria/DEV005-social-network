@@ -1,5 +1,17 @@
 import { loginEmail, loginGoogle } from '../lib/auth.js';
+// eslint-disable-next-line no-shadow
 
+const loginFirebase = (email, password) => {
+  const loginPrevent = (e) => {
+    e.preventDefault();
+    loginEmail(email, password);
+  };
+  return loginPrevent;
+};
+
+const googleFirebase = () => {
+  loginGoogle();
+};
 export function login(navegacion) {
   const section = document.createElement('section');
   if (sessionStorage.getItem('user')) {
@@ -62,23 +74,18 @@ export function login(navegacion) {
     navegacion('/registro');
   });
 
-  // Evento del botón Iniciar Sesión
+  // Evento del botón Iniciar Sesiòn
 
   const btnInicio = section.querySelector('#btnInicio');
+  const password = section.querySelector('#password');
+  const email = section.querySelector('#email');
 
-  btnInicio.addEventListener('click', () => {
-    const password = section.querySelector('#password').value;
-    const email = section.querySelector('#email').value;
-    loginEmail(email, password);
-  });
+  btnInicio.addEventListener('click', loginFirebase(email, password));
 
-  // Evento del botón Iniciar Sesión con Google
+  // Google inicio
 
   const btnGoogle = section.querySelector('#btnGoogle');
 
-  btnGoogle.addEventListener('click', () => {
-    loginGoogle();
-  });
-
+  btnGoogle.addEventListener('click', googleFirebase);
   return section;
 }

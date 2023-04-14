@@ -9,7 +9,7 @@ import {
 import { auth } from './index.js';
 
 export const loginEmail = (email, password) => {
-  signInWithEmailAndPassword(auth, email, password)
+  signInWithEmailAndPassword(auth, email.value, password.value)
     .then(() => {
 
     })

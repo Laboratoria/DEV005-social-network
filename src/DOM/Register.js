@@ -30,7 +30,7 @@ export const Register = (onNavigate) => {
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email.value, pass.value);
       errorMsj.textContent = 'Registro correcto';
-      /* console.log(userCredential); */
+      console.log(userCredential);
     } catch (error) {
       /* console.log(error.message);
       console.log(error.code); */

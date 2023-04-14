@@ -1,8 +1,12 @@
 function registro(navigateTo) {
   const section = document.createElement('section');
-  section.id = 'formulario';
+  section.class = 'formulario';
   /* Elementos */
+  const form1 = document.createElement('div');
+  form1.classList.add('register');
+
   const title = document.createElement('h2');
+  title.classList.add('petregister');
 
   const img = document.createElement('img');
   img.id = 'imagen';
@@ -51,12 +55,19 @@ function registro(navigateTo) {
   birthday.type = 'date';
   birthday.placeholder = 'Write your birthday';
 
+  const buttonReturn = document.createElement('button');
+  buttonReturn.textContent = 'Regresar';
+  buttonReturn.addEventListener('click', () => {
+    navigateTo('/');
+  });
+
   const register = document.createElement('button');
   register.textContent = 'Registrarse';
 
   title.textContent = 'Pet Registro';
 
-  section.append(
+  section.append(img, form1);
+  form1.append(
     title,
     nameLabel,
     name,
@@ -71,7 +82,7 @@ function registro(navigateTo) {
     birthdayLabel,
     birthday,
     register,
-    img,
+    buttonReturn,
   );
   return section;
 }

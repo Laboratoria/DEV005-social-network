@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { RegisterTemplate } from '../templates/registerTemplate.js';
 import { auth } from '../lib/index.js';
@@ -22,11 +23,6 @@ export const Register = (onNavigate) => {
     errorMsj.textContent = '';
     console.log(user.value);
     console.log(email.value, user.value, pass.value);
-
-    if (user.value === '') {
-      console.log('Empty user name');
-      alert('El nombre de usuario no puede estar vacio');
-    }
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email.value, pass.value);
       errorMsj.textContent = 'Registro correcto';

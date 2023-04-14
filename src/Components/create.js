@@ -35,7 +35,7 @@ export function create(navigateTo) {
         navigateTo('/mainScreen');
       })
       .catch(() => {
-        sectionCreate.querySelector('.alerta').innerHTML = '<h3 class="alert">Esta cuenta ya esta registrada, intenta con otra</h3>';
+        sectionCreate.querySelector('.alerta').innerHTML = '<h3 class="alert">Esta cuenta ya esta registrada, intenta con otra.</h3>';
       });
   });
   return sectionCreate;

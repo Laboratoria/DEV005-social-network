@@ -46,6 +46,8 @@ function initRouter() {
       navigateTo('/wall');
     } else if (currentRoute === defaultRoute || currentRoute === '/signup') {
       navigateTo(currentRoute);
+    } else if (currentRoute === '/wall') {
+      navigateTo('/');
     } else {
       navigateTo('/error');
     }

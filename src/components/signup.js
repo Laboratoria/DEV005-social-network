@@ -31,22 +31,22 @@ export function signup(navigateTo) {
   nameTitle.textContent = 'REGÍSTRATE';
   registerForm.append(nameTitle);
 
-  // Contenedor nombre de usuario
-  const userNameContainer = document.createElement('div');
-  userNameContainer.classList.add('group');
+  // // Contenedor nombre de usuario
+  // const userNameContainer = document.createElement('div');
+  // userNameContainer.classList.add('group');
 
-  const labelUserName = document.createElement('label');
-  labelUserName.classList.add('register');
-  labelUserName.textContent = 'Nombre de usuario';
-  labelUserName.setAttribute('for', 'userName');
+  // const labelUserName = document.createElement('label');
+  // labelUserName.classList.add('register');
+  // labelUserName.textContent = 'Nombre de usuario';
+  // labelUserName.setAttribute('for', 'userName');
 
-  const inputUserName = document.createElement('input');
-  inputUserName.classList.add('inp-register');
-  inputUserName.id = 'userName';
-  inputUserName.type = 'text';
-  labelMovement(inputUserName, labelUserName);
+  // const inputUserName = document.createElement('input');
+  // inputUserName.classList.add('inp-register');
+  // inputUserName.id = 'userName';
+  // inputUserName.type = 'text';
+  // labelMovement(inputUserName, labelUserName);
 
-  userNameContainer.append(labelUserName, inputUserName);
+  // userNameContainer.append(labelUserName, inputUserName);
   // Contenedor del correo
   const emailContainer = document.createElement('div');
   emailContainer.classList.add('group');
@@ -113,7 +113,7 @@ export function signup(navigateTo) {
 
   // Añadir elementos del form
   registerForm.append(
-    userNameContainer,
+    // userNameContainer,
     emailContainer,
     passwordContainer,
     registerError,

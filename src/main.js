@@ -33,7 +33,7 @@ function navigateTo(hash) {
   }
 }
 window.onpopstate = () => {
-  navigateTo(window.location.pathname);
+ navigateTo(window.location.pathname);
 };
+navigateTo(window.location.pathname || defaultMyRoutes);
 
-myFunction();

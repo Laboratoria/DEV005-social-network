@@ -4,49 +4,116 @@
     box-sizing: border-box;
 }
 body{
-    background-color: rgb(150, 150, 195);
+    background-color:rgb(120, 117, 114);
 }
-.sectionInput{
-    background-color: rgb(129, 134, 165);
-    width: 90vw;
-    height: 80vh;
-    margin: auto;
-    margin-top: 10vh;
-    border-radius: 20px 0px 20px 0px;
-    display: flex;
-    flex-flow: row wrap;
-}
-.containerRight, .containerLeft{
-    width: 45vw;
-    height: 80vh;
-    outline: 2px solid red;
-}
-.containerLeft{
-    background-color: white;
-    border-radius: 20px 0px 0px 0px;
-}
-.divContent{
-    width: 80%;
+#root{
+ 
+    width: 1200px;
     height: 80%;
-    outline: 1px solid blue;
     margin: auto;
-    margin-top: 20px;
+    margin-top: 120px;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-}
-.divInput{
-    outline: 1px solid black;
-    display: flex;
-    flex-flow: column wrap;
-    width: 250px;
-    height: 100px;
-}
-input{
-    width:200px;
-    height: 45px;
-    padding:5px;
-    border-radius: 5px;
-    border:1px solid gray;
+    border-radius:20px 0px 20px 0px;
+    box-shadow: 0px 0px 25px 1px rgb(24, 23, 23);
+   
+
 }
 
+.containerLeft, .containerRight{
+    width:600px;
+    height:750px;
+    
+   
+}
+.containerLeft{
+    border-radius:20px 0px 0px 0px;
+    font-family: 'Amatic SC', cursive;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 100px 0px 100px 0px;
+    font-family:'Amatic SC', cursive;
+    position: relative;
+}
+.containerRight{
+    border-radius:0px 0px 20px 0px ;
+    background-color: rgb(242, 218, 173);
+    padding-top: 50px;
+    font-family: 'Assistant', sans-serif;
+    font-weight: 600;
+   
+}
+.divContent{
+    width: 400px;
+    height: 550px;
+ 
+    margin: auto;
+    margin-top: 30px;
+    
+}
+.divInput{
+    width: 380px;
+    height: 90px;
+ 
+    margin:auto;
+    margin-top:10px;
+}
+.divInput input{
+    width: 380px;
+    height: 60px;
+    margin:auto;
+    border-radius: 10px;
+    border:1px transparent  ;
+    box-shadow: 0px 0px 5px 0px rgb(194, 194, 194);
+    padding-left: 20px;
+    background-color: rgba(255, 255, 255, 0.709);
+    margin-top:5px;
+    font-size: 1.3em;
+    color: rgb(91, 88, 88);
+}
+.divInput span{
+    font-size: 1.3em;
+    color: rgb(84, 82, 82);
+}
+.divContent button{
+    width: 380px;
+    height: 55px;
+    background-color:rgb(248, 162, 25);
+    margin: 50px 0px 0px 10px;
+    border-radius:10px ;
+    border:0px transparent;
+    font-size: 1.5em;
+    box-shadow: 0px 0px 10px 1px rgb(112, 91, 38);
+    color: rgb(33, 31, 31);
+}
+.divContent button:hover{
+    background-color: rgb(42, 31, 23);
+    color: rgb(237, 231, 224);
+    box-shadow: 0px 0px 20px 1px rgb(112, 91, 38);
+    transition: 1s;
+}
+.titleRegister{
+    margin-left: 180px;
+    margin-bottom: 100px;
+    font-size: 3em;
+    color: rgb(67, 60, 50);
+ 
+}
+.contentPhrase{
+    font-size: 3em;
+}
+.divTitleLogo{
+    width: 600px;
+    height: 100px;
+ 
+    position: absolute;
+    bottom: 80px;
+    background-color: rgba(246, 210, 101, 0.862);
+
+}
+.divTitleLogo span{
+    font-family: 'Cabin Condensed', sans-serif;
+    font-size: 4em;
+    color: rgb(49, 37, 20);
+}

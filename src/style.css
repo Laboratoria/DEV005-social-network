@@ -4,11 +4,13 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Bungee', cursive;
+    letter-spacing: 2px;
 }
 .group{
     display: flex;
     flex-direction: column;
     position: relative;
+    align-items: center;
 }
 .login-container, .register-container {
     height: 100vh;
@@ -29,18 +31,20 @@
     border-radius: 12px 12px 0px 0px;
     padding:  50px 20px 20px;
     border: 1px solid white;
+    margin: 0 auto;
 }
 h1{
     color: rgb(255, 255, 255); 
     text-align: center;
-    font-size: 40px;
+    font-size: 38px;
     margin-top: -40px;
     margin-bottom: -20px;
+    letter-spacing: 3px;
 }
 .link-text{
     color: white;
     align-items: center;
-    font-size: 12px;
+    font-size: 14px;
  }
 .links{
     color: #3ACBF8;
@@ -54,13 +58,16 @@ h1{
     text-align: center;
     margin-top: 10px;
 }
+
 .btn-login, .btn-register{
+    width: 80%;
     background-color: #3ACBF8;
     border-radius: 25px;
-    padding: 5px;
-    margin: 0px 10px;
+    padding: 2px;
     box-shadow: 0px 3px 6px  rgb(151, 150, 150);
     cursor: pointer;
+    font-size: 16px;
+    margin: 0 auto;
 }
 .btn-login:hover, .btn-register:hover{
     background-color: #00b5ed;
@@ -79,14 +86,17 @@ h1{
     margin-right: 10px;
 }
 .google-btn {
-    padding: 5px 10px;
+    padding: 10px 15px;
     border-radius: 25px;
-    width: 100%;
+    width: 82%;
     box-shadow: 0px 3px 6px  rgb(151, 150, 150);
     cursor: pointer;
     display:flex;
     align-items: center;
     justify-content: center;
+    font-size: 12px;
+    margin: 0 auto;
+    letter-spacing: 1px;
 }
 .google-btn:hover{
     transform: scale(1.01);
@@ -105,36 +115,49 @@ h1{
     width: 80%;
     max-width: 450px;
     margin-top: 10px;
-    background-color: black;    
+    background-color: black; 
+       
 }
 .inp-login, .inp-register {
-    padding: 8px;
-    font-size: 14px;
+    width: 80%;
+    padding: 12px;
+    font-size: 12px;
     border: none;
     border-radius: 12px;
-    margin: 10px;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
-    padding-left: 5%;
+    text-align: center;
+    margin: 8px auto;
+    background-color: #ffffffe6;
 }
 .login, .register {
     position: absolute;
-    top: 15%;
-    left: 8%;
+    top: 18%;
+    
     transition: all 0.2s;
     font-size: 14px;
     color: #7f8c8d;
 }  
 .active {
-    top: -32%;
+    top: -42%;
     color: #3ACBF8;
 }
+
+#login-error, #register-error{
+    color:rgb(185, 40, 40);
+    margin-top: -15px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
 @media (max-width: 550px) {
     .login-container, .register-container{
         background-image: url('../images/backgroundmobile.png')
-    }    
+    }   
 }
-#login-error, #register-error{
-    color:rgb(185, 40, 40);
-    margin-left: 10px;
-    margin-top: -15px;
+
+@media(max-width: 450px){
+    .google-btn{
+        font-size: 8px;
+    }
 }

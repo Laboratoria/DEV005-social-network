@@ -1,3 +1,7 @@
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { async } from 'regenerator-runtime';
+import { auth } from './firebase.js';
+
 function login(navigateTo) {
   const tittle = document.createElement('h1');
   const paragraph = document.createElement('p');
@@ -17,20 +21,22 @@ function login(navigateTo) {
   buttonLogin.textContent = 'Registrate';
   buttonGoBack.textContent = 'Regresar';
 
-  buttonLogin.addEventListener('click', (event) => {
+  buttonLogin.addEventListener('click', async (event) => {
     event.preventDefault();
-    const nameInput = document.getElementById('inputEmail').value;
-    const emailInput = document.getElementById('inputPassword').value;
-    console.log(nameInput);
-    console.log(emailInput);
+    const email = document.getElementById('inputEmail').value;
+    const password = document.getElementById('inputPassword').value;
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      console.log(userCredential);
+    } catch (error) {
+console.log('error')
+    }
   });
   buttonGoBack.addEventListener('click', () => {
     navigateTo('/');
   });
   form.append(tittle, paragraph, inputEmail, inputPassword, buttonLogin, buttonGoBack);
-   return form;
- 
+  return form;
 }
-console.log('Hola');
 
 export default login;

@@ -23,7 +23,7 @@ function login(navigateTo) {
 
   inputPassword.addEventListener('input', () => {
     const password = inputPassword.value;
-    const maskedPassword = '*'.repeat(password.length);
+   const maskedPassword = '*'.repeat(password.length);
     inputPassword.value = maskedPassword;
   });
   buttonLogin.addEventListener('click', async (event) => {

@@ -21,6 +21,11 @@ function login(navigateTo) {
   buttonLogin.textContent = 'Registrate';
   buttonGoBack.textContent = 'Regresar';
 
+  inputPassword.addEventListener('input', () => {
+    const password = inputPassword.value;
+    const maskedPassword = '*'.repeat(password.length);
+    inputPassword.value = maskedPassword;
+  });
   buttonLogin.addEventListener('click', async (event) => {
     event.preventDefault();
     const email = document.getElementById('inputEmail').value;
@@ -29,14 +34,14 @@ function login(navigateTo) {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       console.log(userCredential);
     } catch (error) {
-console.log('error')
+      console.log('error');
     }
   });
   buttonGoBack.addEventListener('click', () => {
     navigateTo('/');
   });
+
   form.append(tittle, paragraph, inputEmail, inputPassword, buttonLogin, buttonGoBack);
   return form;
 }
-
 export default login;

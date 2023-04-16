@@ -34,7 +34,19 @@ function login(navigateTo) {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       console.log(userCredential);
     } catch (error) {
-      console.log('error');
+      console.log(error.message);
+      console.log(error.code);
+      if(error.code==='auth/email-already-in-use'){
+        alert('el correo ya esta en uso')
+      }
+      else if(error.code==='auth/invalid-email'){
+        alert('correo invalido')
+      }else if(error.code==='auth/weak-password'){
+        alert('contraseña debil')
+      }
+      else if(error.code){
+        alert('las cosas no van bien')
+      }
     }
   });
   buttonGoBack.addEventListener('click', () => {

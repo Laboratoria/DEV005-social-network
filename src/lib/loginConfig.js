@@ -8,13 +8,27 @@ import {
 } from 'firebase/auth';
 import { auth } from './firebaseConfig.js';
 
-export const loginConfig = async (email, password) => {
-  try {
-    const user = await signInWithEmailAndPassword(auth, email, password);
-    return user.user;
-  } catch (error) {
-    return error;
-  }
+export const loginConfig = (email, password) => {
+  signInWithEmailAndPassword(auth, email, password)
+    .then((credential) => {
+      signInWithEmailAndPassword(auth, email.value, password.value);
+      return credential;
+    })
+    .catch((error) => {
+      console.log(error.message);
+      console.log(error.code);
+
+      if (error.code === 'auth/email-already-in-user') {
+        alert('correo en uso');
+      } else if (error.code === 'auth/invalid-email') {
+        alert('correo inválido');
+      } else if (error.code === 'auth/weak-password') {
+        alert('contraseña muy corta');
+      } else {
+        alert('otro problema');
+      }
+      return error;
+    });
 };
 
 export const loginWithGoogle = async () => {
@@ -28,7 +42,6 @@ export const loginWithGoogle = async () => {
     console.log(error);
   }
 };
-
 /*
 const userChange = {};
 export const obtenerUsuarioActual = () => {

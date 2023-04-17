@@ -1,7 +1,9 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from './firebaseConfig.js';
 
-const registerConfig = async (email, password) => {
+// TODO: Función de registro de usuario y contraseña.
+// ? se borro el async
+const registerConfig = (email, password) => {
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       createUserWithEmailAndPassword(

@@ -2,16 +2,18 @@
 // import { myFunction } from './lib/index.js';
 // myFunction();
 
+// import logIn from './components/log-in.js';
 import home from './components/home.js';
-import logIn from './components/log-in.js';
 import register from './components/register.js';
 import error from './components/error.js';
+import wall from './components/wall.js';
 
 const routes = [
   { path: '/', component: home },
-  { path: '/login', component: logIn },
+  // { path: '/login', component: logIn },
   { path: '/register', component: register },
   { path: '/error', component: error },
+  { path: '/wall', component: wall },
 ];
 
 const defaultRoute = '/';

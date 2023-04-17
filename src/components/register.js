@@ -18,7 +18,7 @@ function register(navigateTo) {
   inputPass.id = 'password';
   inputPass.type = 'password';
   inputPass.placeholder = 'Escribe tu contraseña';
-  inputPass.type ="password";
+  inputPass.type = 'password';
   // const inputConfirmPass = document.createElement('input');
   // inputConfirmPass.id = 'confirmar-contra';
   // inputConfirmPass.placeholder = 'Confirma tu contraseña';

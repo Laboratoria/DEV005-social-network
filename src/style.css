@@ -1,16 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora&display=swap');
 
-* {
-  background-color: #f9f4ef;
-}
 /* Fuentes */
+* {
+  font-family: 'Sora', sans-serif;
+}
+
 :root {
   --font-logo: cursive;
 }
 
-h2 {
- font-family: 'Satisfy', cursive;
- font-size: 40px;
+h1 {
+  font-family: 'Satisfy', cursive;
+  font-size: 50px;
+  display:flex;
+  justify-content: center;
+}
+
+h3 {
+  font-size: 30px;
+  display:flex;
+  justify-content: center;
+  color: black;
 }
 
 input {
@@ -20,10 +31,11 @@ input {
 }
 
 button {
-  display: block;
+  display: grid;
   border-radius: 5px;
   padding: 14px 30px;
   font-size: medium;
+  place-items: center;
 }
 
 #log-in {
@@ -33,13 +45,64 @@ button {
 body {
   background-repeat: repeat-x;
   background-color: rgb(255, 255, 255);
+  margin:0;
+  top: 0;
+  padding:0;
+}
+
+.error-section {
+  background-color: #D35C46;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  position: absolute;
+  background-image: url('images/blackcat.png');
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.error-title{
+  color:white;
+}
+
+.go-home-error{
+  background-color: #F48276;
+  color: white;
+  border: solid 3px white;
+  align-self: flex-end;
+  margin-right: 80px;
+  width: 20%;
+  height: 30%;
+}
+/*Mobile media query*/
+@media only screen and (min-width: 320px)  {
+  .error-section {
+    background-size: 60%;
+  }
+  .go-home-error{
+    height: 30%;
+    width: 40%;
+  }
+}
+
+/*Tablet media query*/
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .error-section {
+    background-size: 50%; 
+}
+  .go-home-error{
+    height: 40%;
+    width: 210px;
+}
 }
 
 @media only screen and (min-width: 1024px) {
   body{
     background-image: url('images/74A43094-23A5-403C-B736-5B587E12F994.png');
   }
-
-#register {
-  background-color: #f48276;
-}}
+  .error-section {
+    background-size: 20%;}
+}

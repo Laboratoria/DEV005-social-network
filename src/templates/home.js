@@ -4,7 +4,7 @@ import {
 } from '../lib/index.js';
 import { exit } from '../lib/auth.js';
 
-export default function Home() {
+export default function home() {
   const section = document.createElement('section');
   const htmlBienvenida = `
   <main>

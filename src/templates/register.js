@@ -1,8 +1,16 @@
-import { registroUsuario } from '../lib/auth.js';
+import { userRegister } from '../lib/auth.js';
 
-export function registro(navegacion) {
+const registerFirebase = (email, password, errorEmail, errorPassword) => {
+  const registerPrevent = (e) => {
+    e.preventDefault();
+    userRegister(email.value, password.value, errorEmail, errorPassword);
+  };
+  return registerPrevent;
+};
+
+export function register(navigation) {
   const section = document.createElement('section');
-  const htmlRegistro = `
+  const htmlRegister = `
   <div class='contenedor'>
     <div class="contenedorLogo">
       <img class="imgLogo" src="img/logo.png" alt="logo">
@@ -21,14 +29,14 @@ export function registro(navegacion) {
           </label>
         <label>
           <span>Correo electrónico</span>
-          <input type="email" autocomplete="off" name="correo" class="correo" id="correoReg">
+          <input type="email" autocomplete="off" name="email" class="email" id="emailReg">
         </label>
-          <span id="errorCorreo" class="errorCorreo"></span>
+          <span id="errorEmail" class="errorEmail"></span>
         <label>
           <span>Contraseña</span>
-          <input type="password" class="clave" id="claveReg">
+          <input type="password" class="password" id="passwordReg">
         </label>  
-          <span id="errorClave" class="errorClave"></span>
+          <span id="errorPassword" class="errorPassword"></span>
       </form>   
         <button class="btnCrearCuenta" id="btnCrearCuenta">Registrar</button>
         <div id="mensaje-bienvenida" name="mensaje-bienvenida" class="mensaje-bienvenida"> </div>
@@ -37,7 +45,7 @@ export function registro(navegacion) {
     </main>
   </div>`;
 
-  section.innerHTML = htmlRegistro;
+  section.innerHTML = htmlRegister;
 
   // Labels dinámicos
 
@@ -61,52 +69,33 @@ export function registro(navegacion) {
     };
   });
 
-  const txtCorreo = section.querySelector('#correoReg');
-  const txtClave = section.querySelector('#claveReg');
-  const errorCorreo = section.querySelector('#errorCorreo');
-  const errorClave = section.querySelector('#errorClave');
+  const email = section.querySelector('#emailReg');
+  const password = section.querySelector('#passwordReg');
+  const errorEmail = section.querySelector('#errorEmail');
+  const errorPassword = section.querySelector('#errorPassword');
   const btnCrearCuenta = section.querySelector('#btnCrearCuenta');
   const btnVolverInicio = section.querySelector('#btnIniciaSesion');
 
   // Limpiar mensajes de error
 
-  txtCorreo.addEventListener('click', () => {
-    txtCorreo.value = '';
-    errorCorreo.innerHTML = '';
-    txtCorreo.innerHTML = '';
+  email.addEventListener('click', () => {
+    email.value = '';
+    errorEmail.innerHTML = '';
+    email.innerHTML = '';
   });
 
-  txtClave.addEventListener('click', () => {
-    txtClave.value = '';
-    errorClave.innerHTML = '';
-    txtClave.innerHTML = '';
+  password.addEventListener('click', () => {
+    password.value = '';
+    errorPassword.innerHTML = '';
+    password.innerHTML = '';
   });
 
   // Crear cuenta para usuarios no registrados
-  btnCrearCuenta.addEventListener('click', () => {
-    const correo = txtCorreo.value;
-    const clave = txtClave.value;
-
-    registroUsuario(correo, clave).then(() => {
-
-    }).catch((error) => {
-      if (error.code === 'auth/email-already-in-use') {
-        errorCorreo.innerHTML = 'Usuario ya registrado';
-      } else if (error.code === 'auth/invalid-email') {
-        errorCorreo.innerHTML = 'Correo invalido';
-      } else if (error.code === 'auth/weak-password') {
-        errorClave.innerHTML = 'Contraseña demasiado debil';
-      } else if (error.code === 'auth/missing-password') {
-        errorClave.innerHTML = 'Contraseña requerida';
-      } else if (error.code) {
-        errorClave.innerHTML = 'Algo salió mal';
-      }
-    });
-  });
+  btnCrearCuenta.addEventListener('click', registerFirebase(email, password, errorEmail, errorPassword));
 
   // Volver a inicio de sesión si ya estás registrado
   btnVolverInicio.addEventListener('click', () => {
-    navegacion('/');
+    navigation('/');
   });
 
   return section;

@@ -12,7 +12,7 @@ describe('login', () => {
     const html = document.createElement('div');
     html.appendChild(login());
 
-    const boton = html.querySelector('#btnInicio');
+    const boton = html.querySelector('#btnLogin');
 
     expect(boton).not.toBe(null);
   });
@@ -20,7 +20,7 @@ describe('login', () => {
     const html = document.createElement('div');
     html.appendChild(login());
 
-    const boton = html.querySelector('#btnInicio');
+    const boton = html.querySelector('#btnLogin');
     boton.click();
 
     expect(boton).not.toBe(null);

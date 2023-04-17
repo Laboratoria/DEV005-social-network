@@ -205,7 +205,7 @@ label span.top {
     padding: 0 5px;
 }
 
-.btnInicio, .btnGoogle, .btnCrearCuenta {
+.btnLogin, .btnGoogle, .btnCrearCuenta {
     margin-top: 8px;
     display: flex;
     justify-content: center;
@@ -262,7 +262,7 @@ label span.top {
     display:none
 } 
 
-.errorCorreo, .errorClave {
+.errorEmail, .errorPassword {
     color: red;
 }
 

@@ -56,9 +56,9 @@ function home(navigateTo) {
   // btnLogIn.addEventListener('click', () => {
   //   navigateTo('/login');
   // });
-  // btnRegister.addEventListener('click', () => {
-  //   navigateTo('/register');
-  // });
+  btnRegister.addEventListener('click', () => {
+    navigateTo('/register');
+  });
 
   // section.append(
   //   title,

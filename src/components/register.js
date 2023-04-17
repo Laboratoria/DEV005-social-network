@@ -1,4 +1,4 @@
-import { newAccount } from '../lib/auth';
+import { newAccount, registerWithGoogle } from '../lib/auth';
 
 function register(navigateTo) {
   const sectionReg = document.createElement('section');
@@ -23,9 +23,12 @@ function register(navigateTo) {
   // inputConfirmPass.placeholder = 'Confirma tu contraseña';
   const btnSend = document.createElement('button');
   btnSend.id = 'enviar-info';
+  const btnRegWithGoogle = document.createElement('button');
+  btnRegWithGoogle.classList.add('google-reg-btn');
 
   titleReg.textContent = '¡Regístrate!';
   btnSend.textContent = 'Registrarme';
+  btnRegWithGoogle.textContent = 'Regístrate con Google';
 
   const btnReturnH = document.createElement('button');
   btnReturnH.textContent = 'Return to home';
@@ -39,6 +42,8 @@ function register(navigateTo) {
     newAccount(email, password);
   });
 
+  btnRegWithGoogle.addEventListener('click', registerWithGoogle);
+
   sectionReg.append(
     titleReg,
     inputEmail,
@@ -46,6 +51,7 @@ function register(navigateTo) {
     // inputUser,
     inputPass,
     // inputConfirmPass,
+    btnRegWithGoogle,
     btnSend,
     btnReturnH,
   );

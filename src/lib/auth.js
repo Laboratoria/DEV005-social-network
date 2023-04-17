@@ -26,7 +26,7 @@ export const newAccount = (email, password) => {
     });
 };
 
-//Registrar con Google
+// Registrar con Google
 export const registerWithGoogle = () => {
   const provider = new GoogleAuthProvider();
   const auth = getAuth();
@@ -47,4 +47,4 @@ export const registerWithGoogle = () => {
     });
 };
 
-//Inicio de sesión con email y contraseña
+// Inicio de sesión con email y contraseña

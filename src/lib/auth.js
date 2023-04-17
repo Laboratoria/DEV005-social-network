@@ -3,8 +3,9 @@ import {
   createUserWithEmailAndPassword,
   signInWithPopup,
   GoogleAuthProvider,
-} from "firebase/auth";
-import { app } from "./firebase";
+  GithubAuthProvider,
+} from 'firebase/auth';
+import { app } from './firebase';
 
 export const newAccount = (email, password) => {
   const auth = getAuth();
@@ -13,13 +14,13 @@ export const newAccount = (email, password) => {
     .then((userCredential) => {
       // Signed in
       const user = userCredential.user;
-      console.log("creado");
+      console.log('creado');
       // ...
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      console.log("error");
+      console.log('error');
       // ..
     });
 };
@@ -32,7 +33,7 @@ export const registerWithGoogle = () => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
       const user = result.user;
-      console.log("signed up with Google");
+      console.log('signed up with Google');
       // ...
     })
     .catch((error) => {
@@ -40,7 +41,7 @@ export const registerWithGoogle = () => {
       const errorMessage = error.message;
       const email = error.email;
       const credential = GoogleAuthProvider.credentialFromError(error);
-      console.log("error signing up with Google");
+      console.log('error signing up with Google');
       // ...
     });
 };

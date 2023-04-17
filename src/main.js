@@ -8,7 +8,7 @@ import error from './components/error.js';
 const root = document.getElementById('root');
 
 const myRoutes = [
-  { path: '/', component: login },
+  { path: '/login', component: login },
   { path: '/register', component: register },
   { path: '/error', component: error },
 ];

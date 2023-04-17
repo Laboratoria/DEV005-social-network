@@ -2,6 +2,7 @@ const section = document.createElement('section');
 // Elementos
 const img = document.createElement('img');
 const form = document.createElement('form');
+  form.class = 'form1';
 const title = document.createElement('h1');
 const mailUser = document.createElement('label');
 const mail = document.createElement('input');

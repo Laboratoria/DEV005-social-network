@@ -1,11 +1,13 @@
 function home(navigateTo) {
   const sectionHome = document.createElement('section');
   sectionHome.id = 'container-home';
+  sectionHome.className = 'container';
   const titleKB = document.createElement('h1');
   titleKB.id = 'title-KB';
   titleKB.textContent = 'KittyBook';
   const footerH = document.createElement('footer');
   footerH.id = 'footer-home';
+  footerH.className = 'footer';
   footerH.textContent = 'KittyBook, 2023';
   const sectionLogin = document.createElement('section');
   sectionLogin.id = 'cont-login';
@@ -51,23 +53,23 @@ function home(navigateTo) {
   Publica ideas e imágenes para compartir información gatuna.`;
 
   btnLogIn.addEventListener('click', () => {
+    // const email = inputEmail.value;
+    // const password = inputPass.value;
+    // userCredential = (email, password);
     navigateTo('/wall');
   });
-  // btnLogIn.addEventListener('click', () => {
-  //   navigateTo('/login');
-  // });
+
   btnRegister.addEventListener('click', () => {
     navigateTo('/register');
   });
 
-  // section.append(
-  //   title,
-  //   btnLogIn,
-  //   btnRegister,
-  // );
-  // return section;
-
-  sectionHome.append(titleKB, info, sectionLogin, regist, footerH);
+  sectionHome.append(
+    titleKB,
+    info,
+    sectionLogin,
+    regist,
+    footerH,
+  );
   sectionLogin.append(
     email,
     password,

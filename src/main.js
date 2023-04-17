@@ -10,7 +10,6 @@ import wall from './components/wall.js';
 
 const routes = [
   { path: '/', component: home },
-  // { path: '/login', component: logIn },
   { path: '/register', component: register },
   { path: '/error', component: error },
   { path: '/wall', component: wall },
@@ -20,7 +19,6 @@ const defaultRoute = '/';
 const root = document.getElementById('root');
 function navigateTo(hash) {
   const route = routes.find((routeFind) => routeFind.path === hash);
-
   if (route && route.component) {
     window.history.pushState(
       {},

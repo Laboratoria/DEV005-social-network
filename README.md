@@ -2,11 +2,15 @@
 
 ## Prototipo de baja fidelidad
 
-![Prototipo de baja fidelidad](ImagenesReadme/Prototipo baja fidelidad.png).
+![Prototipo de baja fidelidad](ImagenesReadme/Prototipo.png).
 
 ![Prototipo de baja fidelidad](ImagenesReadme/PrototipoBajaFidelidad.png).
 
 ## Diagrama de Flujo
 
-![Diagrama de Flujo][def].
-[def]: ImagenesReadme/social-network.png
+![Diagrama de Flujo]
+(ImagenesReadme/social-network.png) 
+
+## Autenticacion en firebase 
+![Autenticacion en firebase ](ImagenesReadme/autenticationFirebase.png).
+autenticationFirebase

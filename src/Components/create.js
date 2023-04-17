@@ -1,5 +1,5 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from './firebase.js';
+import { auth } from '../lib/firebase.js';
 
 // pantalla - crear una cuenta nueva
 /* <label class="textConfirmPassword">Confirmar contraseña </label>

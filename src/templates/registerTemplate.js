@@ -1,5 +1,5 @@
 export const RegisterTemplate = `
-<header>
+<header >
 <h1>Sister Voyage</h1>
 </header>
   <h2>Crea tu cuenta</h2>

@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 // import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword } from 'firebase/auth';
+import { GoogleAuthProvider, signInWithEmailAndPassword } from 'firebase/auth';
 // import { async } from '@firebase/util';
 import { LoginTemplate } from '../templates/loginTemplate.js';
 import { auth } from '../lib/index.js';

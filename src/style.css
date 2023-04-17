@@ -13,6 +13,7 @@ body {
   background-size: cover;
   background-position: center;
   margin: 0;
+  display: grid;
 }
 
 main {
@@ -35,8 +36,16 @@ body::before {
 }
 
 header {
-/*   display: flex;
-  flex-direction: column; */
+  display: flex;
+  flex-direction: column;
+ align-items: center;
+}
+
+.wall-header{
+  display: grid;
+  grid-area: 1;
+  background: linear-gradient(180deg, #9a6ed5 10%, #320070 90%);
+
 }
 
 h1 {
@@ -156,6 +165,7 @@ a {
 
 .btn-text {
   float: right;
+  margin-left: 5px;
   margin: 11px 11px 0 0;
   color: black;
   font-size: 14px;
@@ -223,10 +233,9 @@ div{
 }
 
 .wall-template {
-  grid-template-columns: 1fr;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(50rem, 1fr));
-  grid-template-rows: 70px 100px 60px 500px; 
+  grid-template-columns: 1fr;
+  grid-template-rows: 70px 100px 60px 800px; 
   background: #ffffff;
   width: 100%;
   height: 100%;
@@ -237,11 +246,11 @@ div{
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position:bottom;
+  grid-template-areas: '1' '2' '3';
 }
 
 #wall-tittle {
   display: grid;
-  background: linear-gradient(180deg, #9a6ed5 10%, #320070 90%);
   grid-area: 1 ; 
   color: white;
   font-family: "Rancho", cursive;
@@ -251,7 +260,7 @@ div{
 
 #iPost {
   display: grid;
-  grid-area: 2 ;
+  grid-area: 2;
   align-content: center;
   padding: 3%;
   margin-left: 3%;
@@ -274,6 +283,19 @@ div{
   margin-left: 60%;
   border-radius: 20px;
 }
+
+#btn-out {
+  display: grid;
+  grid-area: 1;
+  width: fit-content;
+  height: fit-content;
+  border-radius: 10px;
+  color: #320070;
+  background-color: white;
+  margin-left: 30%;
+  margin-right: 0%;
+}
+
 @media (min-width: 1024px) {
   header,
   h1 {

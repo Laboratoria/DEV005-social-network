@@ -1,52 +1,52 @@
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './lib/index.js';
 import { login } from './templates/login.js';
-import { registro } from './templates/registro.js';
+import { register } from './templates/register.js';
 import error from './templates/error.js';
 import home from './templates/home.js';
 
-const contenido = document.getElementById('contenido');
+const root = document.getElementById('root');
 
-const rutas = [
+const routes = [
   { path: '/', component: login },
-  { path: '/registro', component: registro },
+  { path: '/register', component: register },
   { path: '/error', component: error },
   { path: '/home', component: home },
 ];
 
-const rutaPorDefecto = '/';
+const defaultRoute = '/';
 
-export function navegacion(hash) {
+export function navigation(hash) {
   // eslint-disable-next-line no-shadow
-  const ruta = rutas.find((ruta) => ruta.path === hash);
+  const route = routes.find((route) => route.path === hash);
 
-  if (ruta && ruta.component) {
+  if (route && route.component) {
     window.history.pushState(
       {},
-      ruta.path,
-      window.location.origin + ruta.path,
+      route.path,
+      window.location.origin + route.path,
     );
 
-    if (contenido.firstChild) {
-      contenido.removeChild(contenido.firstChild);
+    if (root.firstChild) {
+      root.removeChild(root.firstChild);
     }
 
-    contenido.appendChild(ruta.component(navegacion));
+    root.appendChild(route.component(navigation));
   } else {
-    navegacion('/error');
+    navigation('/error');
   }
 }
 
 window.onpopstate = () => {
-  navegacion(window.location.pathname);
+  navigation(window.location.pathname);
 };
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
-    navegacion('/home');
+    navigation('/home');
   } else if (window.location.pathname !== '/home' && !user) {
-    navegacion(window.location.pathname || rutaPorDefecto);
+    navigation(window.location.pathname || defaultRoute);
   } else {
-    navegacion(rutaPorDefecto);
+    navigation(defaultRoute);
   }
 });

@@ -1,5 +1,4 @@
 import { loginEmail, loginGoogle } from '../lib/auth.js';
-// eslint-disable-next-line no-shadow
 
 const loginFirebase = (email, password) => {
   const loginPrevent = (e) => {
@@ -12,12 +11,9 @@ const loginFirebase = (email, password) => {
 const googleFirebase = () => {
   loginGoogle();
 };
-export function login(navegacion) {
+
+export function login(navigation) {
   const section = document.createElement('section');
-  if (sessionStorage.getItem('user')) {
-    navegacion('/home');
-    return '<div></div>';
-  }
 
   const html = `
   <div class='contenedor'>
@@ -37,7 +33,7 @@ export function login(navegacion) {
             <input type="password" class="password" id="password">
           </label>  
         </form>   
-        <button class="btnInicio" id="btnInicio">Iniciar sesión</button>
+        <button class="btnLogin" id="btnLogin">Iniciar sesión</button>
         <button class="btnGoogle" id="btnGoogle"> <img class="logoGoogle" src="./img/logogoogle.png" alt="Logo Google"></img>Continuar con google</button>
         <span class="textRegistro">Si no tienes cuenta <button class="btnRegistro" id="btnRegistro">Regístrate</button></span>
       </div>
@@ -57,8 +53,8 @@ export function login(navegacion) {
     };
     input.onblur = () => {
       input.value = input.value.trim();
-      // eslint-disable-next-line eqeqeq
-      if (input.value.trim().length == 0) {
+
+      if (input.value.trim().length === 0) {
         input.previousElementSibling.classList.remove('top');
       }
 
@@ -71,16 +67,16 @@ export function login(navegacion) {
   const btnRegistrar = section.querySelector('#btnRegistro');
 
   btnRegistrar.addEventListener('click', () => {
-    navegacion('/registro');
+    navigation('/register');
   });
 
   // Evento del botón Iniciar Sesiòn
 
-  const btnInicio = section.querySelector('#btnInicio');
+  const btnLogin = section.querySelector('#btnLogin');
   const password = section.querySelector('#password');
   const email = section.querySelector('#email');
 
-  btnInicio.addEventListener('click', loginFirebase(email, password));
+  btnLogin.addEventListener('click', loginFirebase(email, password));
 
   // Google inicio
 

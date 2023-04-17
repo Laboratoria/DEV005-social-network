@@ -18,9 +18,24 @@ export const loginEmail = (email, password) => {
     });
 };
 
-export const registroUsuario = async (email, password) => {
-  const response = await createUserWithEmailAndPassword(auth, email, password);
-  return response;
+export const userRegister = (email, password, errorEmail, errorPassword) => {
+  createUserWithEmailAndPassword(auth, email, password)
+    .then(() => {
+
+    })
+    .catch((error) => {
+      if (error.code === 'auth/email-already-in-use') {
+        errorEmail.innerHTML = 'Usuario ya registrado';
+      } else if (error.code === 'auth/invalid-email') {
+        errorEmail.innerHTML = 'Correo invalido';
+      } else if (error.code === 'auth/weak-password') {
+        errorPassword.innerHTML = 'Contraseña demasiado debil';
+      } else if (error.code === 'auth/missing-password') {
+        errorPassword.innerHTML = 'Contraseña requerida';
+      } else if (error.code) {
+        errorPassword.innerHTML = 'Algo salió mal';
+      }
+    });
 };
 
 export const exit = () => {

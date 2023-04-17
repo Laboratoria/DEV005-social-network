@@ -1,4 +1,4 @@
-import { newAccount, registerWithGoogle } from '../lib/auth';
+import { newAccount, registerWithGoogle, registerWithGithub } from '../lib/auth';
 
 function register(navigateTo) {
   const sectionReg = document.createElement('section');
@@ -32,14 +32,21 @@ function register(navigateTo) {
   // inputConfirmPass.placeholder = 'Confirma tu contraseña';
   const btnSend = document.createElement('button');
   btnSend.id = 'enviar-info';
+
   const btnRegWithGoogle = document.createElement('button');
   btnRegWithGoogle.classList.add('google-reg-btn');
+
+  const btnRegWithGithub = document.createElement('button');
+  btnRegWithGithub.classList.add('github-reg-btn');
+
+
 
 
   titleRegKitty.textContent = 'KittyBook';
   titleReg.textContent = '¡Regístrate!';
   btnSend.textContent = 'Registrarme';
   btnRegWithGoogle.textContent = 'Regístrate con Google';
+  btnRegWithGithub.textContent = 'Regístrate con GitHub';
   regTrademark.textContent = 'KittyBook, 2023'
 
   const btnReturnH = document.createElement('button');
@@ -61,14 +68,18 @@ function register(navigateTo) {
   });
 
   btnRegWithGoogle.addEventListener('click', registerWithGoogle);
+  btnRegWithGithub.addEventListener('click', registerWithGithub);
 
 
   divContainer.append(
     inputEmail,
     inputPass,
     btnSend,
+    btnRegWithGoogle,
+    btnRegWithGithub,
     btnReturnH,
     )
+    
   sectionReg.append(
     titleRegKitty,
     titleReg,
@@ -77,7 +88,6 @@ function register(navigateTo) {
     // inputName,
     // inputUser,
     // inputConfirmPass,
-    btnRegWithGoogle,
     regTrademark,
   );
   newAccount('example1@mail.com', '123456');

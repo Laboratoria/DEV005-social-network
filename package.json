@@ -18,7 +18,7 @@
     "test": "jest --coverage",
     "dev": "vite dev src",
     "start": "npm run dev",
-    "build": "vite build && cp -r src/images dist/images",
+    "build": "vite build && cp -r src/img dist/img",
     "preview": "vite preview"
   },
   "devDependencies": {

@@ -1,14 +1,31 @@
 function register() {
-  const section = document.createElement('section');
-  section.classList.add('sectionInput');
-  const containerRight = document.createElement('div');
+  const root = document.getElementById('root');
+  // Creación de containerRight
+  const containerRight = document.createElement('section');
   containerRight.classList.add('containerRight');
-  const containerLeft = document.createElement('div');
-  containerLeft.classList.add('containerLeft');
-  const title = document.createElement('h1');
-  title.classList.add('titleLogo');
-  title.textContent = 'Resgistrarse';
+  const titleRegister = document.createElement('span');
+  titleRegister.classList.add('titleRegister');
+  titleRegister.textContent = 'Registrarse';
+  const divTitleRegister = document.createElement('div');
+  divTitleRegister.classList.add('divTitleRegister');
+  divTitleRegister.append(titleRegister);
+  const buttonRegister = document.createElement('button');
+  buttonRegister.textContent = 'Guardar y crear';
 
+  // Creación de containerLeft
+  const containerLeft = document.createElement('section');
+  containerLeft.classList.add('containerLeft');
+  const divContainerPhrase = document.createElement('div');
+  divContainerPhrase.classList.add('divContainerPhrase');
+  const contentPhrase = document.createElement('span');
+  contentPhrase.classList.add('contentPhrase');
+  contentPhrase.textContent = 'Porque aún hay mucho más por contar y compartir';
+  divContainerPhrase.append(contentPhrase);
+  const divTitleLogo = document.createElement('div');
+  divTitleLogo.classList.add('divTitleLogo');
+  const titleLogo = document.createElement('span');
+  titleLogo.textContent = 'Senior Face';
+  divTitleLogo.append(titleLogo);
   // Creación de contenedor de input
 
   const divContent = document.createElement('div');
@@ -19,7 +36,7 @@ function register() {
   const divInputName = document.createElement('div');
   divInputName.classList.add('divInput');
   const spanInsertName = document.createElement('span');
-  spanInsertName.textContent = 'Ingresar nombre';
+  spanInsertName.textContent = 'INGRESAR NOMBRE';
   const inputInsertName = document.createElement('input');
   divInputName.append(spanInsertName, inputInsertName);
 
@@ -27,7 +44,7 @@ function register() {
   const divInputCorreo = document.createElement('div');
   divInputCorreo.classList.add('divInput');
   const spanInsertCorreo = document.createElement('span');
-  spanInsertCorreo.textContent = 'Ingresar correo';
+  spanInsertCorreo.textContent = 'INGRESAR CORREO';
   const inputInsertCorreo = document.createElement('input');
   divInputCorreo.append(spanInsertCorreo, inputInsertCorreo);
 
@@ -36,7 +53,7 @@ function register() {
   const divInputPassword = document.createElement('div');
   divInputPassword.classList.add('divInput');
   const spanInsertPassword = document.createElement('span');
-  spanInsertPassword.textContent = 'Ingrese su contraseña';
+  spanInsertPassword.textContent = 'INGRESAR CONTRASEÑA';
   const inputInsertPassword = document.createElement('input');
   divInputPassword.append(spanInsertPassword, inputInsertPassword);
 
@@ -44,15 +61,25 @@ function register() {
   const divInputAgainPassword = document.createElement('div');
   divInputAgainPassword.classList.add('divInput');
   const spanInsertAgainPassword = document.createElement('span');
-  spanInsertPassword.textContent = 'Ingrese otra vez su contraseña';
+  spanInsertAgainPassword.textContent = 'INGRESE OTRA VEZ SU CONTRASEÑA';
   const inputInsertAgainPassword = document.createElement('input');
   divInputAgainPassword.append(spanInsertAgainPassword, inputInsertAgainPassword);
 
-  divContent.append(divInputName, divInputCorreo, divInputPassword, divInputAgainPassword);
-  containerRight.append(title, divContent);
-  section.append(containerLeft, containerRight);
+  divContent.append(
+    divInputName,
+    divInputCorreo,
+    divInputPassword,
+    divInputAgainPassword,
+    buttonRegister,
+  );
+  // ContainerRight
+  containerRight.append(divTitleRegister, divContent);
+  // ContainerLeft
+  containerLeft.append(divContainerPhrase, divTitleLogo);
 
-  return section;
+  root.append(containerLeft, containerRight);
+
+  return root;
 }
 
 export default register;

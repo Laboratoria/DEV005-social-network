@@ -8,7 +8,6 @@
 .fondoBlanco{
     background: none;
 }
-
 .formInit {
     display: flex;
     justify-content: center;
@@ -50,7 +49,6 @@
     background: #528FD8;
     border-radius: 10px;
 }
-
 .separator1 {
     width: 153px;
     left: 33px;
@@ -65,14 +63,12 @@
     font-size: 22px;
     color: black;
 }
-
 .separator2 {
     width: 153px;
     left: 248px;
     top: 527px;
     border: 1px solid #000000;
 }
-
 .google {
     box-sizing: border-box;
     width: 380px;
@@ -85,128 +81,127 @@
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
-
 }
 
-.imgGoogle {
+
+/*pantalla de ingreso*/
+
+.sectionLogin{
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+}
+
+.logo2{
     position: absolute;
-    width: 26px;
-    height: 26px;
-    left: 52px;
-    background: none;
+    top: 3%;
 }
-
-/*
-
 .formInteraction {
-    margin: 70% 5% 7%;
-    width: 92%;
-    height: 404px;
-    border-radius: 12px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 46vh;
+    max-height: 500px;
+    width: 88%;
+    max-width: 500px;
+    margin: 260px  auto;
+    border-radius: 19px;
     background: #D9D9D9;
-    background-image: none;
     opacity: 0.9;
 }
 
-.cardLogin {
-    background-image: none;
-    height: 0px
-}
-
 .initSection {
-    position: absolute;
-    left: 28px;
-    top: 254px;
+    display: flex;
+    margin: -34px 14px 0px 0px;
     font-size: 22px;
-    background: none;
 }
 
-
-
-.labelEmail {
-    position: absolute;
-    height: 23px;
-    left: 49px;
-    top: 330px;
+.labelEmail{
+    display: flex;
     font-size: 20px;
     background: none;
+    margin: -13px 170px 6px 0px;
 }
 
 .inputEmail {
-    position: absolute;
-    width: 321px;
+    display: flex;
+    background: white;
+    width: 94%;
+    max-width: 321px;
     height: 45px;
-    left: 49px;
-    top: 369px;
     border: none;
+    margin: -31px 0px 0px -7px;
     border-radius: 12px;
     font-size: 21px;
     padding-left: 5%;
-
+    justify-content: flex-start;
 }
 
-
-
 .labelPassword {
-    position: absolute;
-    height: 23px;
-    left: 49px;
-    top: 466px;
+    display: flex;
     font-size: 20px;
-    line-height: 23px;
     background: none;
+    margin: 0px 234px 6px 0px;
 }
 
 .inputPassword {
-    position: absolute;
-    width: 321px;
+    display: flex;
+    background: white;
+    width: 94%;
+    max-width: 321px;
     height: 45px;
-    left: 49px;
-    top: 508px;
     border: none;
-    background: #FFFEFE;
+    margin: -31px 0px 0px -7px;
     border-radius: 12px;
-    font-size: 30px;
+    font-size: 28px;
     padding-left: 5%;
+    justify-content: flex-start;
 }
 
 .getInt {
-    position: absolute;
-    width: 341px;
+    display: flex;
+    background: #528FD8;
+    width: 99%;
+    max-width: 343px;
     height: 45px;
-    left: 49px;
-    top: 616px;
+    margin: -31px 0px 0px -7px;
+    border-radius: 12px;
+    justify-content: center;
     font-weight: bold;
     font-size: 22px;
     border: none;
-    background: #528FD8;
-    border-radius: 12px;
     color: #FFFEFE;
+    align-items: center;
 }
 
 .bottomText {
-    position: absolute;
-    height: 25px;
-    left: 40px;
-    top: 847px;
+    display: flex;
+    width: 103%;
+    max-width: 368px;
+    height: 45px;
+    justify-content: center;
+    border: none;
+    color: black;
+    align-items: center;
     font-size: 22px;
     background: none;
-    outline: none;
     font-weight: bold;
 }
 
-.textNote {
-    background: none;
+.textNote{
+    display: flex;
     color: red;
+    background: none;
+    border: red solid 1px;
+    font-size: 17px;
+    margin: 0px 76px 18px;
+    border-radius: 8px;
+    padding-left: 3%;
 }
 
-.note1 {
-    position: absolute;
-    left: 12%;
-    top: 79%;
-    font-size: 12px;
-    background: none;
-}*/
 
 /*pantalla crear cuenta
 

@@ -5,8 +5,8 @@ export function init(navigateTo) {
   const section = document.createElement('section');
   section.innerHTML = `
   <img src='./lib/img/fondoMovil.png' class= 'fondoBlanco'>
+  <img src='./lib/img/logo.png' class= 'logo'>
   <form class="formInit">
-    <img src='./lib/img/logo.png' class= 'logo'>
       <button class='logIn'>Inicia Sesión</button>
       <button class='register'>Regístrate</button>
       <hr class='separator1'> 

@@ -37,8 +37,9 @@ export default function home() {
   const postForm = section.querySelector('#post-form');
   const postContainer = section.querySelector('#containerPost');
 
-  window.addEventListener('DOMContentLoaded', async () => {
-    const querySnapshot = await getPosts(); // querySnapshot (datos que existen en el momento)
+  window.addEventListener('DOMContentLoaded', () => {
+    const querySnapshot = getPosts(); // querySnapshot (datos que existen en el momento)
+
     let html = '';
 
     querySnapshot.forEach((doc) => {

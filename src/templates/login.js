@@ -8,7 +8,8 @@ const loginFirebase = (email, password) => {
   return loginPrevent;
 };
 
-const googleFirebase = () => {
+const googleFirebase = (e) => {
+  e.preventDefault();
   loginGoogle();
 };
 

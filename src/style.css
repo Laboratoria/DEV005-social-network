@@ -35,6 +35,39 @@ body {
     width: 80%;
 }
 
+.contenedorLogoHome {
+    display: flex;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 100%;
+    height: 120px; 
+}
+
+.contenedorLogoHome h1 {
+    margin: 30px 30px 0 30px;
+    font-size: 20px;
+    width: 120px ;
+}
+
+.logOut {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 13px;
+    font-family: 'Kalam', cursive;
+    font-weight: bold;
+    padding: auto;
+    height: 30px;
+    margin-right: 5px;
+    background-color: transparent;
+    border:none
+}
+
+.logOut:hover {
+    color: #720006;
+}
+
 main {
     margin-top: 10px;
     display: flex;
@@ -42,6 +75,51 @@ main {
     max-height: 390px;
     max-width: 500px;
 
+}
+
+.containerForm {
+    position: absolute;
+    top: 140px;
+    display: flex;
+    justify-content: center;
+   align-items: center;
+    width: 85%;
+    height: auto;
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #e5e1f9;
+    opacity: .8;
+    border-radius: 20px;
+}
+
+
+.txtMascotiemos{
+    display: flex;
+    justify-content: center;
+    width: 250px;
+    height: 60px;
+    border: 1px solid black;
+    border-radius: 5px 5px 5px 0;
+}
+
+.containerForm button {
+    color: black;
+    background-color: #bcb4e7;
+    align-items: center;
+    font-family: 'Kalam', cursive;
+    font-size: 15px;
+    font-weight: bold;
+    display: flex;
+    width: 55px;
+    height: 25px;
+    border-radius: 0 0 10px 10px;
+}
+
+*.btnPostImg {
+    display: flex;
+    border:none;
+    width: 50px;
+    height: 50px;
 }
 
 .contenedorIngreso, .contenedorIngresoRegistro {
@@ -192,7 +270,7 @@ footer {
     margin-top: 30px;
     width: 100%;
     max-height: 30px;
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: rgb(56, 54, 54);
     background-color: #bcb4e7;
     position: fixed;

@@ -46,6 +46,7 @@ h1 {
  /*  display: flex;
   justify-content: center; */
   font-size: 55px;
+ padding-left: 4%;
 }
 h2 {
   font-family: "Montserrat", sans-serif;
@@ -214,10 +215,17 @@ button:active {
 }
 .publish:active {
 }
+div{
+  display: grid;
+}
+.cPost{
+  display: grid;
+}
 
 .wall-template {
   grid-template-columns: 1fr;
   display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(50rem, 1fr));
   grid-template-rows: 70px 100px 60px 500px; 
   background: #ffffff;
   width: 100%;
@@ -232,6 +240,7 @@ button:active {
 }
 
 #wall-tittle {
+  display: grid;
   background: linear-gradient(180deg, #9a6ed5 10%, #320070 90%);
   grid-area: 1 ; 
   color: white;
@@ -241,25 +250,27 @@ button:active {
 }
 
 #iPost {
+  display: grid;
   grid-area: 2 ;
-  align-self: center;
+  align-content: center;
   padding: 3%;
   margin-left: 3%;
-  width: 85%;
-  height: 70%;
+  width: 20rem;
+  height: 4rem;
   border-radius: 20px;
   background-color: rgb(194, 192, 192);
   color: rgb(0, 0, 0);
 }
 #btn-post {
+  display: grid;
   grid-area: 3 ; 
-justify-self: end;
+  margin-top: 5px;
   background-color: #610cd1;
   color: white;
   border: none;
   font-size: 15px;
-  width: 30%;
-  height: 30%;
+  width: 8rem;
+  height: 1.5rem;
   margin-left: 60%;
   border-radius: 20px;
 }

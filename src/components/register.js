@@ -6,15 +6,21 @@ function register() {
   const titleRegister = document.createElement('span');
   titleRegister.classList.add('titleRegister');
   titleRegister.textContent = 'Registrarse';
+  const divTitleRegister = document.createElement('div');
+  divTitleRegister.classList.add('divTitleRegister');
+  divTitleRegister.append(titleRegister);
   const buttonRegister = document.createElement('button');
   buttonRegister.textContent = 'Guardar y crear';
 
   // Creación de containerLeft
   const containerLeft = document.createElement('section');
   containerLeft.classList.add('containerLeft');
+  const divContainerPhrase = document.createElement('div');
+  divContainerPhrase.classList.add('divContainerPhrase');
   const contentPhrase = document.createElement('span');
   contentPhrase.classList.add('contentPhrase');
   contentPhrase.textContent = 'Porque aún hay mucho más por contar y compartir';
+  divContainerPhrase.append(contentPhrase);
   const divTitleLogo = document.createElement('div');
   divTitleLogo.classList.add('divTitleLogo');
   const titleLogo = document.createElement('span');
@@ -67,9 +73,9 @@ function register() {
     buttonRegister,
   );
   // ContainerRight
-  containerRight.append(titleRegister, divContent);
+  containerRight.append(divTitleRegister, divContent);
   // ContainerLeft
-  containerLeft.append(contentPhrase, divTitleLogo);
+  containerLeft.append(divContainerPhrase, divTitleLogo);
 
   root.append(containerLeft, containerRight);
 

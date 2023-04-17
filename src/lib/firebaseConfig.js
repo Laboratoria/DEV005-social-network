@@ -19,3 +19,4 @@ const firebaseConfig = {
 // Initialize Firebase console.log(app)
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
+// esta aplicación tiene ahora la forma de autenticar un nuevo objeto

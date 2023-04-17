@@ -8,15 +8,12 @@ function login(navigateTo) {
   const messageLogin = document.createElement('h2');
   messageLogin.className = 'messageLogin';
 
-  const credencialesdiv = document.createElement('div');
+  const credencialesdiv = document.createElement('form');
   credencialesdiv.className = 'credencialesdiv';
+  credencialesdiv.setAttribute('id', 'formulario');
 
-  const loginCorreo = document.createElement('input');
-  loginCorreo.setAttribute('type', 'text');
-  loginCorreo.className = 'loginCorreo';
-
-  const loginContra = document.createElement('input');
-  loginContra.className = 'loginContra';
+  credencialesdiv.innerHTML = '';
+  credencialesdiv.innerHTML = '<input type="email" class="loginCorreo" placeholder="Correo Electrónico" required><input type="password" class="loginContra" placeholder="Contraseña" required><button class="buttonReturn" type="submit">Ingresar</button>';
 
   const mensajeregister = document.createElement('span');
   mensajeregister.className = 'mensajeregister';
@@ -24,21 +21,14 @@ function login(navigateTo) {
     navigateTo('/register');
   });
 
-  const buttonReturn = document.createElement('button');
-  buttonReturn.addEventListener('click', () => {
-    navigateTo('/muro');
-  });
-  buttonReturn.className = 'buttonReturn';
-
   messageLogin.textContent = 'Iniciar Sesión';
-  loginCorreo.placeholder = 'Correo Electrónico';
-  loginContra.placeholder = 'Contraseña';
   mensajeregister.innerHTML = ` ¿No tienes una cuenta?
   <strong>Regístrate</strong>`;
-  buttonReturn.textContent = 'Ingresar';
 
-  loginDiv.append(imgLogin, messageLogin, credencialesdiv, buttonReturn, mensajeregister);
-  credencialesdiv.append(loginCorreo, loginContra);
+  loginDiv.append(imgLogin, messageLogin, credencialesdiv, mensajeregister);
+
+  const formulario = document.querySelector('.credencialesdiv');
+  console.log(formulario);
 
   return loginDiv;
 }

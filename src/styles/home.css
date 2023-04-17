@@ -163,10 +163,11 @@ body{
     background-size: cover;
     align-items: center;
     top: 320px;
+    height: auto;
     width: 100%;
   }
 
-  .loginCorreo, .loginContra {
+  .loginCorreo {
     margin: 8px 8px 0px 8px;
     border-radius: 10px;
     padding: 12px;
@@ -174,7 +175,24 @@ body{
     width: 90%;
     font-family: 'Poppins';
     border-style: none;
+    background-image:url(../assets/icon_email.png);
+    background-repeat: no-repeat;
+    background-position: 20px center; 
+    padding: 12px 0px 12px 60px;
+  }
 
+  .loginContra {
+    margin: 8px 8px 0px 8px;
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 18px;
+    width: 90%;
+    font-family: 'Poppins';
+    border-style: none;
+    background-image:url(../assets/icon_password.png);
+    background-repeat: no-repeat;
+    background-position: 20px center;
+    padding: 12px 0px 12px 60px;
   }
 
   .buttonReturn {
@@ -183,7 +201,7 @@ body{
     border-radius: 10px;
     font-size: 18px;
     flex-direction: column;
-    top: 450px;
+    top: 120px;
     padding: 12px;
     width: 90%;
     background: #F2B872;
@@ -226,7 +244,7 @@ body{
     flex-direction: column;
   }
   .menssageRegisterRouter{
-    top: 260px;
+    top: 200px;
     text-align: center;
     font-size: 25px;
     width: 100%;
@@ -239,7 +257,7 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 90%;
+    width: 100%;
     
   }
   
@@ -262,9 +280,9 @@ body{
     font-size: 18px;
     font-family: 'Poppins';   
     border-style: none;
-    top: 490px;
+    top: 180px;
     background-color: #F2B872;
-    width: 82.5%;
+    width: 90%;
   }
   .iconEmail1, .iconPassword {
     position: absolute;
@@ -281,7 +299,6 @@ body{
     background-position: 20px center;
   }
 
-  
 
 }
 

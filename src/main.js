@@ -1,5 +1,4 @@
 // importar
-// eslint-disable-next-line import/no-unresolved
 import { onAuthStateChanged } from 'firebase/auth';
 import home from './components/home.js';
 import login from './components/login.js';
@@ -7,6 +6,7 @@ import error from './components/error404.js';
 import register from './components/register.js';
 
 import './lib/loginConfig.js';
+import './lib/registerConfig.js';
 import { auth } from './lib/firebaseConfig.js';
 // Nombre: foodMatch
 
@@ -22,14 +22,14 @@ const root = document.getElementById('root');
 
 function navigateTo(hash) {
   const route = routes.find((routeFound) => routeFound.path === hash);
-
+  // console.log(route.component());
   if (route && route.component) {
     window.history.pushState({}, route.path, window.location.origin + route.path);
 
     if (root.firstChild) {
       root.removeChild(root.firstChild);
     }
-    root.appendChild(route.component(navigateTo));
+    root.appendChild(route.component());
   } else {
     navigateTo('/error');
   }
@@ -46,7 +46,7 @@ function initializar() {
     const currentRoute = window.location.pathname;
     if (user) {
       navigateTo('/muro');
-    } else if (currentRoute === defaultRoute || currentRoute === '/registro') {
+    } else if (currentRoute === defaultRoute || currentRoute === '/register') {
       navigateTo(currentRoute);
     } else {
       navigateTo('/error');

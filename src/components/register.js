@@ -1,5 +1,4 @@
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../lib/firebaseConfig';
+import registerConfig from '../lib/registerConfig.js';
 
 const register = (navigateTo) => {
   const registerDiv = document.createElement('div');
@@ -33,32 +32,15 @@ const register = (navigateTo) => {
     navigateTo('/login');
   }); */
 
+  // TODO: botón para registrar
   buttonSaveInformation.addEventListener('click', async (e) => {
     e.preventDefault();
-    const email = document.getElementById('emailRegister');
-    const password = document.getElementById('passwordRegister');
-    try {
-      const userCredential = await createUserWithEmailAndPassword(
-        auth,
-        email.value,
-        password.value,
-      );
-      console.log(userCredential);
+    const email = document.getElementById('emailRegister').value;
+    const password = document.getElementById('passwordRegister').value;
+    registerConfig(email, password).then(() => {
+      console.log(email, password);
       navigateTo('/login');
-    } catch (error) {
-      console.log(error.message);
-      console.log(error.code);
-
-      if (error.code === 'auth/email-already-in-user') {
-        alert('correo en uso');
-      } else if (error.code === 'auth/invalid-email') {
-        alert('correo inválido');
-      } else if (error.code === 'auth/weak-password') {
-        alert('contraseña muy corta');
-      } else {
-        alert('otro problema');
-      }
-    }
+    });
   });
 
   const iconEmail = document.createElement('div');

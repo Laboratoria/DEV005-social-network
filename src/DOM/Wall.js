@@ -1,10 +1,9 @@
 import { collection, addDoc } from 'firebase/firestore';
-import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from '../lib/index.js';
+import { signOut } from 'firebase/auth';
+import { auth, db } from '../lib/index.js';
 import { WallTemplate } from '../templates/wallTemplate.js';
-import { db } from '../lib/index.js';
 
-export const Wall = () => {
+export const Wall = (onNavigate) => {
   const div = document.createElement('div');
   div.innerHTML = WallTemplate;
 
@@ -42,6 +41,10 @@ export const Wall = () => {
       crearPost(contenido);
       iPost.value = '';
     }
+  });
+  btnOut.addEventListener('click', async () => {
+    await signOut(auth);
+    onNavigate('/');
   });
   return div;
 };

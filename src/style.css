@@ -1,8 +1,8 @@
-/* *,
+*,
 *::before,
 *::after {
   box-sizing: border-box;
-} */
+}
 
 body {
   color: white;
@@ -95,6 +95,7 @@ button {
   width: 100%;
   background-color: #f1f1f1;
   border-style: none;
+
 }
 
 .cEmail,
@@ -164,13 +165,12 @@ a {
 }
 
 .btn-text {
-  float: right;
-  margin-left: 5px;
   margin: 11px 11px 0 0;
   color: black;
   font-size: 14px;
   letter-spacing: 1px;
   font-family: "Montserrat", sans-serif;
+  margin-left: 38px;
 }
 
 .google-btn:hover {

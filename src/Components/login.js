@@ -1,5 +1,5 @@
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from './firebase.js';
+import { auth } from '../lib/firebase.js';
 
 // pantalla - inicio de sesión
 export function login(navigateTo) {

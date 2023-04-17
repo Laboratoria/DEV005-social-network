@@ -4,20 +4,21 @@ import { auth } from './firebase.js';
 // pantalla - crear una cuenta nueva
 /* <label class="textConfirmPassword">Confirmar contraseña </label>
 <input class="card3" id="card3" type="password" placeholder='********'></input> */
+/* <img src='./lib/img/fondoMovil.png' class= 'fondoBlanco'> */
 export function create(navigateTo) {
   const sectionCreate = document.createElement('div');
-  sectionCreate.innerHTML = `<section class="creatSection">
-   <img src='./lib/img/logo.png' class= 'logo'>
-    <form class = "formCreateAccount">
+  sectionCreate.innerHTML = `
+    <img src='./lib/img/logo.png' class="logo1">
     <h2 class = "createAccount">Crear cuenta</h2>
+    <form class = "formCreateAccount">
     <label class="textButtonCreateAccount">Correo Electronico</label>
     <input class="card1" id="card1" placeholder='ejemplo@gmail.com'></input>
     <span class="alerta"></span>
     <label class="textPasswordCreateAccount">Contraseña nueva</label>
     <input class="card2" id="card2" type="password" placeholder='********'></input>
     <button class="bottomKeep" id="btnguardar">Guardar</button>
-     </form>
-     <button class="bottomText">¿Ya tienes cuenta? Iniciar Sesión</button>
+    </form>
+    <button class="bottomText">¿Ya tienes cuenta? Iniciar Sesión</button>
     </section>
     `;
   const logIn = sectionCreate.querySelector('.bottomText');

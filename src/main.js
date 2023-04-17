@@ -1,10 +1,11 @@
-import home from './components/home.js';
-import login from './components/login.js';
-import error from './components/error.js';
 import muro from './components/muro.js';
+import error from './components/error.js';
+import login from './components/login.js';
+import home from './components/home.js';
+import './components/firebase.js';
+import logMicrosoft from './components/microsoftlogin.js';
 
 const root = document.getElementById('root');
-
 const routes = [
   { path: '/', component: home },
   { path: '/login', component: login },
@@ -37,3 +38,6 @@ window.onpopstate = () => {
 };
 
 navigateTo(window.location.pathname || defaultRoute);
+
+const microsoftButton = document.getElementById('loginMicrosoft');
+microsoftButton.addEventListener('click', logMicrosoft);

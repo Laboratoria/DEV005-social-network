@@ -60,7 +60,7 @@ label{
     min-width: 250px;
 }
 
-#loginGoogle-b, #login-b, input{
+.loginGoogle-b, .login-b, .loginMicrosoft-b, input{
     border-style: solid;
     border-color: black;
     border-radius: 7px;
@@ -74,14 +74,14 @@ input{
     min-width: 244px;
 }
 
-#loginGoogle-b{
+.loginGoogle-b, .loginMicrosoft-b{
     background-color: white;
     margin-bottom: 15px;
     margin-top: 25px;
     min-width: 250px;
 }
 
-#login-b{
+.login-b{
     background-color: #5BA0BD;
     color: white;
     margin-bottom: 15px;

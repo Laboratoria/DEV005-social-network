@@ -1,3 +1,9 @@
+import {
+  GoogleAuthProvider,
+  signInWithPopup,
+} from 'firebase/auth';
+import { auth } from '../lib/firebaseConfig.js';
+
 function home(navigateTo) {
   const homediv = document.createElement('div');
   homediv.className = 'homediv';
@@ -8,6 +14,7 @@ function home(navigateTo) {
   messagehome.className = 'messagehome';
   const buttondiv = document.createElement('div');
   buttondiv.className = 'buttondiv';
+
   // ? botón de email
   const buttonemail = document.createElement('button');
   buttonemail.className = 'buttonemail';
@@ -37,10 +44,24 @@ function home(navigateTo) {
     navigateTo('/login');
   });
   buttongoogle.textContent = 'Continuar con Google';
+  buttongoogle.addEventListener('click', async () => {
+    const provider = new GoogleAuthProvider();
+    try {
+      const credentials = await signInWithPopup(auth, provider);
+      console.log(credentials);
+      console.log('sign in with google');
+      navigateTo('/muro');
+    } catch (error) {
+      console.log(error.message);
+    }
+  });
   buttontwitter.textContent = 'Continuar con Twitter';
   buttongithub.textContent = 'Continuar con Github';
   mensajeregister.innerHTML = ` ¿No tienes una cuenta?
   <strong>Regístrate ahora</strong>`;
+  mensajeregister.addEventListener('click', () => {
+    navigateTo('/register');
+  });
   messagehome.textContent = 'Bienvenido a Food Match';
 
   homediv.append(imghome, messagehome, buttondiv, mensajeregister);

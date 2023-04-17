@@ -38,4 +38,3 @@ window.onpopstate = () => {
   navigateTo(window.location.pathname);
 };
 navigateTo(window.location.pathname || defaultRoute);
-import { myFunction } from './lib/index.js';

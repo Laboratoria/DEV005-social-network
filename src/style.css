@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora&display=swap');
 
 /* Fuentes */
+* {
+  font-family: 'Sora', sans-serif;
+}
+
 :root {
   --font-logo: cursive;
 }
@@ -18,42 +23,19 @@
     flex-direction: row; */
    /* } */
 
-  h1 {
-    font-size: 60px;
-    font-family: 'Satisfy', cursive;
-    margin-left: 100px;
-    margin-top: 70px;
-  }
+h1 {
+  font-family: 'Satisfy', cursive;
+  font-size: 50px;
+  display:flex;
+  justify-content: center;
+}
 
-  h3 {
-    font-size: 25px;
-    font-family: 'Ubuntu', sans-serif;
-    margin-left: 790px;
-   }
-
-  div {
-    height: 250px;
-    width: 260px;
-    margin-left: 700px;
-    border-style: solid;
-    border-radius: 10px;
-    padding: 15px 30px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    background-color: #8C7851;
-    border-style: none;
-  }
-
-  input,
-  button {
-    border-radius: 8px;
-    display: flex;
-    font-size: 15px;
-    font-family: 'Ubuntu', sans-serif;
-    margin: 12px 5px;
-    border-width: 1px;
-  }
+h3 {
+  font-size: 30px;
+  display:flex;
+  justify-content: center;
+  color: black;
+}
 
   input {
     background-color: white;
@@ -179,6 +161,13 @@
     font-family: 'Ubuntu', sans-serif;
   }
 
+  .error-section {
+    background-size: 50%; 
+}
+  .go-home-error{
+    height: 40%;
+    width: 210px;
+}
 }
 
 
@@ -239,16 +228,60 @@
     padding: 10px 25px;
     text-align: center;
     border-color: #FFC1C1;
-  }
+    margin:0;
+  top: 0;
+  padding:0;
+}
 
-  #enviar-info {
-    padding: 10px 77px;
-    background-color: #f48276;
-    font-weight: bold;
-    color: #fdf7f6;
-    border-color: #FFFFFF;
-  }
+.error-section {
+  background-color: #D35C46;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  position: absolute;
+  background-image: url('images/blackcat.png');
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
 
+.error-title{
+  color:white;
+}
+
+.go-home-error{
+  background-color: #F48276;
+  color: white;
+  border: solid 3px white;
+  align-self: flex-end;
+  margin-right: 80px;
+  width: 20%;
+  height: 30%;
+}
+
+.error-section {
+  background-size: 60%;
+}
+.go-home-error{
+  height: 30%;
+  width: 40%;
+}
+}
+
+  body{
+    background-image: url('images/74A43094-23A5-403C-B736-5B587E12F994.png');
+  }
+  .error-section {
+    background-size: 20%;}
+#enviar-info {
+  padding: 10px 77px;
+  background-color: #f48276;
+  font-weight: bold;
+  color: #fdf7f6;
+  border-color: #FFFFFF;
+}
   #return {
     padding: 10px 68px;
     font-weight: bold;
@@ -273,5 +306,3 @@
     font-weight: bold;
     font-family: 'Ubuntu', sans-serif;
   }
-
-}

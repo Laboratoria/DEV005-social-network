@@ -33,11 +33,6 @@ function register(navigateTo) {
   const btnSend = document.createElement('button');
   btnSend.id = 'enviar-info';
 
-  function regiserUser() {
-    alert("¡Registro exitoso, muchas gracias!");
-  }
-  btnSend.addEventListener('click', regiserUser);
-
 
   titleRegKitty.textContent = 'KittyBook';
   titleReg.textContent = '¡Regístrate!';
@@ -54,7 +49,12 @@ function register(navigateTo) {
   btnSend.addEventListener('click', () => {
     const email = inputEmail.value;
     const password = inputPass.value;
+    if (email === '' || password === '') {
+    alert("Ingrese usuario y/o contraseña");
+    }else {
+      alert("¡Registro exitoso, muchas gracias!");
     newAccount(email, password);
+    }
   });
 
 

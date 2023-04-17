@@ -10,7 +10,7 @@
 
 
 /* LAPTOP Y DESKTOP */
-@media (min-width: 1025px) and (max-width: 1280px) {
+@media (min-width: 1025px) and (max-width: 2000px) {
 
   /* h1,
   h3 {
@@ -22,7 +22,7 @@
     font-size: 60px;
     font-family: 'Satisfy', cursive;
     margin-left: 100px;
-    margin-top: 700px;
+    margin-top: 70px;
   }
 
   h3 {

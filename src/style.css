@@ -9,6 +9,19 @@
 :root {
   --font-logo: cursive;
 }
+ * {
+  background-color: #f9f4f0;
+ }
+
+
+/* LAPTOP Y DESKTOP */
+@media (min-width: 1025px) and (max-width: 2000px) {
+
+  /* h1,
+  h3 {
+    margin-top: 30px;
+    flex-direction: row; */
+   /* } */
 
 h1 {
   font-family: 'Satisfy', cursive;
@@ -24,28 +37,198 @@ h3 {
   color: black;
 }
 
-input {
-  display: block;
-  border-radius: 5px;
-  background-color: white;
+  input {
+    background-color: white;
+    padding: 8px 25px;
+    text-align: center;
+    border-color: #FFC1C1;
+  }
+
+  #enviar-info {
+    padding: 8px 77px;
+    background-color: #f48276;
+    font-weight: bold;
+    color: #fdf7f6;
+    border-color: #FFFFFF;
+  }
+
+  #return {
+    padding: 8px 68px;
+    font-weight: bold;
+    background-color: #f48276;
+    color: #fdf7f6;
+    border-color: #FFFFFF;
+  }
+
+  #imagen {
+    background: url("74A43094-23A5-403C-B736-5B587E12F994.png");
+  }
+
+  #marca {
+    display: flex;
+    justify-content: left;
+    margin-top: 80px;
+    font-weight: bold;
+    font-family: 'Ubuntu', sans-serif;
+  }
+
 }
 
-button {
-  display: grid;
-  border-radius: 5px;
-  padding: 14px 30px;
-  font-size: medium;
-  place-items: center;
+
+
+
+
+
+
+/* RESPONSIVE TABLET */
+
+@media (min-width: 481px) and (max-width: 1024px) {
+
+  h1,
+  h3 {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+   }
+
+  h1 {
+    font-size: 45px;
+    font-family: 'Satisfy', cursive;
+  }
+
+  h3 {
+    font-size: 25px;
+    margin-top: -5px;
+    font-family: 'Ubuntu', sans-serif;
+   }
+
+  div {
+    height: 250px;
+    width: 260px;
+    margin-left: 130px;
+    border-style: solid;
+    border-radius: 10px;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #8C7851;
+    border-style: none;
+  }
+
+  input,
+  button {
+    border-radius: 8px;
+    display: flex;
+    font-size: 15px;
+    font-family: 'Ubuntu', sans-serif;
+    margin: 12px 5px;
+    border-width: 1px;
+  }
+
+  input {
+    background-color: white;
+    padding: 8px 25px;
+    text-align: center;
+    border-color: #FFC1C1;
+  }
+
+  #enviar-info {
+    padding: 8px 77px;
+    background-color: #f48276;
+    font-weight: bold;
+    color: #fdf7f6;
+    border-color: #FFFFFF;
+  }
+
+  #return {
+    padding: 8px 68px;
+    font-weight: bold;
+    background-color: #f48276;
+    color: #fdf7f6;
+    border-color: #FFFFFF;
+  }
+
+  #imagen {
+    background: url("74A43094-23A5-403C-B736-5B587E12F994.png");
+  }
+
+  #marca {
+    display: flex;
+    justify-content: left;
+    margin-top: 80px;
+    font-weight: bold;
+    font-family: 'Ubuntu', sans-serif;
+  }
+
+  .error-section {
+    background-size: 50%; 
+}
+  .go-home-error{
+    height: 40%;
+    width: 210px;
+}
 }
 
-#log-in {
-  background-color: #d35c46;
-}
 
-body {
-  background-repeat: repeat-x;
-  background-color: rgb(255, 255, 255);
-  margin:0;
+
+
+
+
+/* RESPONSIVE SMARTPHONE */
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+  h1,
+  h2,
+  h3 {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+   }
+
+  h1 {
+    font-size: 50px;
+    font-family: 'Satisfy', cursive;
+    margin-top: 50px;
+  }
+
+  h3 {
+    font-size: 25px;
+    margin-top: -25px;
+    font-family: 'Ubuntu', sans-serif;
+   }
+
+   div {
+    height: 250px;
+    width: 260px;
+    margin-left: 10px;
+    border-style: solid;
+    border-radius: 10px;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #8C7851;
+    border-style: none;
+  }
+
+  input,
+  button {
+    border-radius: 8px;
+    display: flex;
+    font-size: 15px;
+    font-family: 'Ubuntu', sans-serif;
+    margin: 12px 5px;
+    border-width: 1px;
+  }
+
+  input {
+    background-color: white;
+    padding: 10px 25px;
+    text-align: center;
+    border-color: #FFC1C1;
+    margin:0;
   top: 0;
   padding:0;
 }
@@ -77,32 +260,49 @@ body {
   width: 20%;
   height: 30%;
 }
-/*Mobile media query*/
-@media only screen and (min-width: 320px)  {
-  .error-section {
-    background-size: 60%;
-  }
-  .go-home-error{
-    height: 30%;
-    width: 40%;
-  }
-}
 
-/*Tablet media query*/
-@media only screen and (min-width: 768px) and (max-width: 1023px) {
-  .error-section {
-    background-size: 50%; 
+.error-section {
+  background-size: 60%;
 }
-  .go-home-error{
-    height: 40%;
-    width: 210px;
+.go-home-error{
+  height: 30%;
+  width: 40%;
 }
 }
 
-@media only screen and (min-width: 1024px) {
   body{
     background-image: url('images/74A43094-23A5-403C-B736-5B587E12F994.png');
   }
   .error-section {
     background-size: 20%;}
+#enviar-info {
+  padding: 10px 77px;
+  background-color: #f48276;
+  font-weight: bold;
+  color: #fdf7f6;
+  border-color: #FFFFFF;
 }
+  #return {
+    padding: 10px 68px;
+    font-weight: bold;
+    background-color: #f48276;
+    color: #fdf7f6;
+    border-color: #FFFFFF;
+  }
+
+  #imagen {
+    background-image: url('./images/74A43094-23A5-403C-B736-5B587E12F994.png');
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 3;
+    margin-top: 300px;
+  }
+
+  #marca {
+    display: flex;
+    justify-content: center;
+    margin-top: 70px;
+    font-weight: bold;
+    font-family: 'Ubuntu', sans-serif;
+  }

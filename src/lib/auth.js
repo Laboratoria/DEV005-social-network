@@ -1,5 +1,7 @@
-import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, signInWithRedirect, getRedirectResult, GithubAuthProvider } from 'firebase/auth';
 import { app } from './firebase';
+
+//CORREO Y CONTRASEÑA
 
 export const newAccount = (email, password) => {
   const auth = getAuth();

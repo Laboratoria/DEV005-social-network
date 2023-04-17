@@ -1,0 +1,352 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+   min-height: 100%;
+   font-size: 62.5%;
+}
+
+body {
+    font-family: 'Kalam', cursive;
+    background-image: url(/assets/background2.0a2ed47f.jpg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedorLogo {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin: 0 auto; */
+    max-width: 500px;
+}
+
+.imgLogo {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    width: 80%;
+}
+
+.contenedorLogoHome {
+    display: flex;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 100%;
+    height: 120px; 
+}
+
+.contenedorLogoHome h1 {
+    margin: 30px 30px 0 30px;
+    font-size: 20px;
+    width: 120px ;
+}
+
+.logOut {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 13px;
+    font-family: 'Kalam', cursive;
+    font-weight: bold;
+    padding: auto;
+    height: 30px;
+    margin-right: 5px;
+    background-color: transparent;
+    border:none
+}
+
+.logOut:hover {
+    color: #720006;
+}
+
+main {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    max-height: 390px;
+    max-width: 500px;
+
+}
+
+.containerForm {
+    position: absolute;
+    top: 140px;
+    display: flex;
+    justify-content: center;
+   align-items: center;
+    width: 85%;
+    height: auto;
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #e5e1f9;
+    opacity: .8;
+    border-radius: 20px;
+}
+
+.txtMascotiemos{
+    display: flex;
+    justify-content: center;
+    width: 250px;
+    height: 60px;
+    border: 1px solid black;
+    border-radius: 5px 5px 5px 0;
+}
+
+.containerForm button {
+    color: black;
+    background-color: #bcb4e7;
+    align-items: center;
+    font-family: 'Kalam', cursive;
+    font-size: 15px;
+    font-weight: bold;
+    display: flex;
+    width: 55px;
+    height: 25px;
+    border-radius: 0 0 10px 10px;
+}
+
+*.btnPostImg {
+    display: flex;
+    border:none;
+    width: 50px;
+    height: 50px;
+}
+
+.contenedorIngreso, .contenedorIngresoRegistro {
+    
+    border-radius: 20px;
+    margin: o auto;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90%;
+    width: 90%;
+}
+
+.contenedorIngresoRegistro {
+    height: 100%;
+    padding-bottom: 5px;
+}
+
+/*Reposo*/
+
+.contenedorInput {
+    margin-bottom: 10px;
+    padding-top: 5px;
+    width: 300px;
+    max-width: 100%;
+   }
+
+span, input {
+    font-size: 1.7rem;
+    padding: 0;
+    font-family: 'Kalam', cursive;
+}
+
+label {
+    margin-top: 15px;
+    width: 100%;
+    background-color: white;
+    display: block;
+    border: 2px solid silver;
+    padding: 8px 10px;
+    position: relative;
+    box-sizing: border-box;
+    border-radius: 6px;
+    transition: .25s;
+}
+
+label input {
+    
+    display: block;
+    width: 100%;
+    border: none;
+    background: white;
+    outline: none;
+}
+
+label span {
+    color: silver;
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    transition: .25s;
+}
+
+/* focus */
+
+label.focus {
+    border-color: black;
+
+}
+
+label span.focus {
+    color: black;
+}
+
+/* Top */
+
+label span.top {
+    left: 2px;
+    top: -10px;
+    font-size: 1.4rem;
+    background:white;
+    border-color: black;
+    border-radius: 5px 5px 0 0;
+    padding: 0 5px;
+}
+
+.btnLogin, .btnGoogle, .btnCrearCuenta {
+    margin-top: 8px;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    border-radius: 15px;
+    background-color: #000072;
+    color: white;
+    width: 200px;
+    height: 30px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    font-family: 'Kalam', cursive;
+    padding: 4px;
+}
+
+.btnGoogle {
+    margin-bottom: 25px;
+    background-color: #e5e1f9;
+    color: black;
+}
+
+.registroTitulo {
+    display: flex;
+    justify-content: center;
+    font-size:3rem;
+    font-weight: bold;
+}
+
+.btnCrearCuenta {
+    font-weight: bold;
+    margin-bottom: 10px;
+    background-color: #3ba2f6;
+    color: black;
+}
+
+.logoGoogle{
+    width: 20px;
+    margin-right: 145px;
+    position: absolute;
+}
+
+.btnRegistro {
+    border-radius: 8px;
+    margin-left: 10px;
+    padding: 0px 10px;
+    font-family: 'Kalam', cursive;
+    font-weight: bold;
+    color: black;
+}
+
+/* Mensaje Bienvenida*/
+
+.mensaje-bienvenida {
+    display:none
+}
+
+.errorEmail, .errorPassword {
+    color: red;
+}
+
+footer {
+    margin-top: 30px;
+    width: 100%;
+    max-height: 30px;
+    font-size: 1.2rem;
+    color: rgb(56, 54, 54);
+    background-color: #bcb4e7;
+    position: fixed;
+    text-align: center;
+    bottom: 0;
+}
+
+@media (max-height:780px) {
+
+    .contenedorLogo{
+        margin-top: -60px;
+    }
+
+    .contenedorIngreso{
+        height: 250px;
+        width: 350px;
+    }
+    
+    .contenedorIngresoRegistro{
+        height: 360px;
+        width: 400px;
+    }
+
+    label{
+        height: 40px;
+    }
+}
+
+@media (min-width:1000px) {
+    
+    
+    body{
+        background-image: url(/assets/background.cc022683.jpg);
+        background-size: cover;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .contenedor{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .contenedorLogo{
+        margin-right: 100px;
+    }
+
+    .imgLogo{
+        width: 480px;
+
+    }
+
+    .contenedorIngreso{
+        width: 400px;
+        height: 300px;
+    }
+
+    .contenedorIngresoRegistro{
+        width: 400px;
+        height: 400px;
+
+        
+    }
+}
+
+@media (min-width:1900px){
+    
+    .imgLogo{
+        width: 500px;
+
+    }
+
+}

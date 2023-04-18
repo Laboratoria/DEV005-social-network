@@ -1,5 +1,4 @@
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../lib/firebase.js';
+import { signIn } from '../lib/sign_in.js';
 
 // pantalla - inicio de sesión
 export function login(navigateTo) {
@@ -15,8 +14,8 @@ export function login(navigateTo) {
     <input class="inputPassword" id="inputPassword" type="password" placeholder="********"></input>
     <span class="note1" id"note1"></span>
     <button class="getInt">Ingresar</button>
-    <button class="bottomText">¿No tienes una cuenta? Regístrate</button>
     </form>
+    <button class="bottomText">¿No tienes una cuenta? Regístrate</button>
     </section >
     `;
 
@@ -25,18 +24,18 @@ export function login(navigateTo) {
     navigateTo('/register');
   });
 
-  const keep = sectionLogin.querySelector('.formInteraction');
-  keep.addEventListener('submit', (e) => {
+  const formLogin = sectionLogin.querySelector('.formInteraction');
+  formLogin.addEventListener('submit', (e) => {
     e.preventDefault();
     const email = sectionLogin.querySelector('.inputEmail').value;
     const password = sectionLogin.querySelector('.inputPassword').value;
 
-    signInWithEmailAndPassword(auth, email, password)
-      .then(() => {
-        navigateTo('/mainScreen');
+    signIn(email, password)
+      .then((response) => {
+        console.log(response);
       })
-      .catch(() => {
-        sectionLogin.querySelector('.note1').innerHTML = '<h2 class="textNote">La dirección de correo electrónico o la contraseña que has introducido no son correctas.</h2>';
+      .catch((err) => {
+        sectionLogin.querySelector('.note1').innerHTML = `${err.message}`;
       });
   });
 

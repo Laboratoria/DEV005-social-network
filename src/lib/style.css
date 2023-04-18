@@ -5,7 +5,6 @@
 }
 
 /*pantalla de acceso*/
-
 .init {
     display: flex;
     flex-direction: column;
@@ -55,8 +54,6 @@
     background: #528FD8;
     border-radius: 10px;
     margin-top: 50px;
-    ;
-
 }
 
 .division {
@@ -67,7 +64,6 @@
 }
 
 .google {
-
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -79,11 +75,11 @@
     font-size: 22px;
     padding-left: 58px;
     border: none;
-    background: #ece1e1 url(/lib/img/google-google.png) no-repeat 25px;
+    background: #ECE1E1 url(/lib/img/google-google.png) no-repeat 25px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
+    margin-top: 130px;
 }
-
 
 /*pantalla de ingreso*/
 
@@ -92,6 +88,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-image: url(./img/fondo.png);
+    background-size: cover;
+    height: 100vh;
 }
 
 .logo2 {
@@ -101,23 +100,22 @@
 
 .formInteraction {
     display: flex;
-    flex-wrap: nowrap;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
-    height: 46vh;
-    max-height: 500px;
-    width: 88%;
-    max-width: 500px;
+    height: 44vh;
+    max-height: 440px;
+    width: 89%;
+    max-width: 469px;
     margin: 260px auto;
     border-radius: 19px;
     background: #D9D9D9;
     opacity: 0.9;
+    justify-content: space-around;
 }
 
 .initSection {
     display: flex;
-    margin: -34px 14px 0px 0px;
+    margin: -69px 12px 9px 0px;
     font-size: 22px;
 }
 
@@ -125,7 +123,7 @@
     display: flex;
     font-size: 20px;
     background: none;
-    margin: -13px 170px 6px 0px;
+    margin: -16px 170px -28px 0px;
 }
 
 .inputEmail {
@@ -135,7 +133,6 @@
     max-width: 321px;
     height: 45px;
     border: none;
-    margin: -31px 0px 0px -7px;
     border-radius: 12px;
     font-size: 21px;
     padding-left: 5%;
@@ -146,7 +143,8 @@
     display: flex;
     font-size: 20px;
     background: none;
-    margin: 0px 234px 6px 0px;
+    margin: -14px 234px 39px 0px;
+
 }
 
 .inputPassword {
@@ -156,20 +154,19 @@
     max-width: 321px;
     height: 45px;
     border: none;
-    margin: -31px 0px 0px -7px;
     border-radius: 12px;
     font-size: 28px;
     padding-left: 5%;
+    margin: -66px 0px 0px 0px;
     justify-content: flex-start;
 }
 
 .getInt {
     display: flex;
     background: #528FD8;
-    width: 99%;
+    width: 100%;
     max-width: 343px;
     height: 45px;
-    margin: -31px 0px 0px -7px;
     border-radius: 12px;
     justify-content: center;
     font-weight: bold;
@@ -177,38 +174,34 @@
     border: none;
     color: #FFFEFE;
     align-items: center;
+    margin-bottom: 15px;
 }
 
 .bottomText {
-    display: flex;
+    position: absolute;
+    top: 817px;
     width: 103%;
     max-width: 368px;
-    height: 45px;
-    justify-content: center;
+    height: 44px;
     border: none;
     color: black;
-    align-items: center;
     font-size: 22px;
     background: none;
     font-weight: bold;
 }
 
-.textNote {
-    display: flex;
-    color: red;
-}
 
 .note1 {
-    position: absolute;
-    left: 12%;
-    top: 79%;
-    font-size: 12px;
+    color: red;
+    width: 92%;
+    max-width: 349px;
+    height: 54px;
     background: none;
     border: red solid 1px;
     font-size: 17px;
-    margin: 0px 76px 18px;
+    margin: -21px 0px -23px 4px;
     border-radius: 8px;
-    padding-left: 3%;
+    padding: 2%;
 }
 
 
@@ -347,6 +340,7 @@ u {
     top: 52%;
 }
 
+/*
 @media (min-width: 926px) and (max-width: 1920px) {
 
     * {
@@ -366,7 +360,7 @@ u {
         background: none;
     }
 
-    /*pantalla de acceso*/
+    /*pantalla de acceso
     .logIn {
         position: absolute;
         width: 380px;
@@ -437,7 +431,7 @@ u {
         border: 1px solid #000000;
     }
 
-    /*pantalla de login*/
+    /*pantalla de login
 
     .initSection {
         position: absolute;
@@ -527,7 +521,7 @@ u {
         font-weight: bold;
     }
 
-    /* pantalla crear cuenta*/
+    /* pantalla crear cuenta
 
     .formCreateAccount {
         margin: 14% 58%;
@@ -607,7 +601,7 @@ u {
         color: #FFFEFE;
     }
 
-    /*pantalla de error*/
+    /*pantalla de error
     u {
         background: none;
     }
@@ -634,4 +628,4 @@ u {
         left: 81%;
         top: 46%;
     }
-}
+}*/

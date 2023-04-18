@@ -1,5 +1,5 @@
 import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
-import { auth } from './firebase.js';
+import { auth } from '../lib/firebase.js';
 // pantalla inicial
 export function init(navigateTo) {
   const section = document.createElement('section');
@@ -34,7 +34,7 @@ export function init(navigateTo) {
     signInWithPopup(auth, provider)
       .then((result) => {
         GoogleAuthProvider.credentialFromResult(result);
-        navigateTo('/mainScreen');
+        navigateTo('/emprende');
       }).catch((error) => {
         GoogleAuthProvider.credentialFromError(error);
       });
@@ -52,19 +52,10 @@ function mistake(navigateTo) {
 
   const keep = bug.querySelector('.init');
   keep.addEventListener('click', () => {
-    navigateTo('/mainScreen');
+    navigateTo('/emprende');
   });
   return bug;
 }
-function mainScreen() {
-  const section = document.createElement('div');
-  section.innerHTML = `<section>
-  <h2>Welcome to Main Screen!</h2>
-  </section>
-  `;
-  return section;
-}
 export {
   mistake,
-  mainScreen,
 };

@@ -1,10 +1,10 @@
-// import { funcion a crear } from './lib/index.js';
+import { onAuthStateChanged } from 'firebase/auth';
 import { mistake } from './Components/mistake.js';
-import { mainScreen } from './Components/mainScreen.js';
+import { home } from './Components/home.js';
 import { init } from './Components/init.js';
 import { login } from './Components/login.js';
-import './lib/firebase.js';
-import { create } from './Components/create.js';
+import { create } from './Components/register.js';
+import { auth } from './lib/firebase.js';
 
 const root = document.getElementById('root');
 root.append(init());
@@ -14,7 +14,7 @@ const routes = [
   { path: '/login', component: login },
   { path: '/register', component: create },
   { path: '/error', component: mistake },
-  { path: '/mainScreen', component: mainScreen },
+  { path: '/emprende', component: home },
 
 ];
 const defaultRoute = '/';
@@ -32,8 +32,13 @@ export function navigateTo(hash) {
     navigateTo('/error');
   }
 }
-
-navigateTo(window.location.pathname || defaultRoute);
-/* export {
- navigateTo
-}; */
+// For redirect users to stratus of sessions
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    navigateTo('/emprende');
+  } else if (window.location.pathname === '/emprende' && user === null) {
+    navigateTo(defaultRoute);
+  } else {
+    navigateTo(window.location.pathname || defaultRoute);
+  }
+});

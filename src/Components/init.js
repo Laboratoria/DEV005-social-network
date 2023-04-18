@@ -28,7 +28,7 @@ export function init(navigateTo) {
     signInWithPopup(auth, provider)
       .then((result) => {
         GoogleAuthProvider.credentialFromResult(result);
-        navigateTo('/mainScreen');
+        navigateTo('/emprende');
       }).catch((error) => {
         GoogleAuthProvider.credentialFromError(error);
       });

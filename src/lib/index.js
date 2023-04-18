@@ -7,8 +7,8 @@ import {
   addDoc,
   getDocs,
   query,
+  onSnapshot,
 } from 'firebase/firestore';
-import { doc, onSnapshot } from "firebase/firestore";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -40,11 +40,16 @@ export const getPosts = () => getDocs(collection(db, 'posts'));
 
 // Configuracion post
 
- const evec = collection(db,"posts")
- const q = query(evec)
- export const unsub = onSnapshot(q,(querySnashot) => {
-  console.log("updated")
-  querySnashot.forEach(doc => {
-    console.log(doc.data())
-  })
- })
+const evec = collection(db, 'posts');
+const q = query(evec);
+
+export const createSnapshot = (result) => {
+  const unsub = onSnapshot(q, (s) => {
+    const dataList = [];
+    s.forEach((doc) => {
+      dataList.push(doc.data());
+    });
+    result(dataList);
+    return unsub;
+  });
+};

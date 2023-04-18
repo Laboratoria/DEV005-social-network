@@ -1,11 +1,8 @@
 import {
   savePost,
-  getPosts,
-  unsub,
+  createSnapshot,
 } from '../lib/index.js';
 import { exit } from '../lib/auth.js';
-import { QuerySnapshot } from 'firebase/firestore';
-
 
 export default function home() {
   const section = document.createElement('section');
@@ -21,9 +18,7 @@ export default function home() {
       <form id="post-form" class="post-form">
         <textarea type="text" name="txtMascotiemos" class="txtMascotiemos" id="TxtMascotiemos" rows="3" placeholder="Mascotiemos..."></textarea> 
         <button id="btnPost class="btnPost><!--<img class="btnPostImg" src="./img/btnPublicar.png" alt="ost"></img>--> Publicar </button>
-        
       </form>
-
       <div id ="containerPost" class ="containerPost"></div>
     </section>
    
@@ -39,23 +34,21 @@ export default function home() {
 
   const postForm = section.querySelector('#post-form');
   const postContainer = section.querySelector('#containerPost');
-
-  window.addEventListener('DOMContentLoaded', () => {
-    const querySnapshot = getPosts(); // querySnapshot (datos que existen en el momento)
-
+  const readPost = (data) => {
     let html = '';
 
-    querySnapshot.forEach((doc) => {
-      const publication = doc.data();
+    data.forEach((doc) => {
+      const publication = doc;
       html += `
         <div>
-          <p>${publication.post}</p>
+          <p>${publication.txtMascotiemos}</p>
         </div>
       `;
     });
 
     postContainer.innerHTML = html;
-  });
+  };
+  createSnapshot(readPost);
 
   postForm.addEventListener('submit', (e) => {
     e.preventDefault();

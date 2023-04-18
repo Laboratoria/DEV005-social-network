@@ -3,6 +3,9 @@
  */
 
 import { login } from '../src/templates/login.js';
+// import { register, registerFirebase } from '../src/templates/register.js';
+// import { auth } from '../src/lib/index.js';
+
 // especificar el modulo a mockear
 describe('login', () => {
   test('esto es una funcion', () => {

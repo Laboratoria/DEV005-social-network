@@ -1,5 +1,5 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../lib/firebase.js';
+// import { auth } from '../lib/firebase.js';
 
 // pantalla - crear una cuenta nueva
 /* <label class="textConfirmPassword">Confirmar contraseña </label>
@@ -7,10 +7,11 @@ import { auth } from '../lib/firebase.js';
 /* <img src='./lib/img/fondoMovil.png' class= 'fondoBlanco'> */
 export function create(navigateTo) {
   const sectionCreate = document.createElement('div');
+  sectionCreate.classList.add('creat');
   sectionCreate.innerHTML = `
     <img src='./lib/img/logo.png' class="logo1">
-    <h2 class = "createAccount">Crear cuenta</h2>
     <form class = "formCreateAccount">
+    <h2 class = "createAccount">Crear cuenta</h2>
     <label class="textButtonCreateAccount">Correo Electronico</label>
     <input class="card1" id="card1" placeholder='ejemplo@gmail.com'></input>
     <span class="alerta"></span>

@@ -1,39 +1,28 @@
-* {
+*{
     font-family: Arial, Helvetica, sans-serif;
     padding: 0%;
-    background-color: #B2CAEC;
-    padding: 1%;
     margin: 0%;
 }
-
  /*pantalla de acceso*/
-
 .init {
    display: flex;
    flex-direction: column;
-   align-items: center; 
+   align-items: center;
    background-image: url(./img/fondo.png);
    background-size: cover;
    height: 100vh;
 }
- 
 .logo {
     position: absolute;
     max-width: 233px;
     max-height: 176px;
     top: 54px;
-    position: absolute;
-    width: 58%;
-    height: 21%;
-    left: 21%;
-    top: 5%;
     background: none;
 }
-
 .logIn {
     display: flex;
     flex-direction: column;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
     width: 80%;
     max-width: 380px;
@@ -46,7 +35,6 @@
     border-radius: 10px;
     margin-top: 300px;
 }
-
 .register {
     display: flex;
     flex-direction: column;
@@ -62,18 +50,14 @@
     background: #528FD8;
     border-radius: 10px;
     margin-top: 50px;;
-
 }
-
 .division {
     position: absolute;
     margin-top: 500px;
     width: 80%;
     max-width: 380px;
 }
-
 .google {
-    
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -85,14 +69,13 @@
     font-size: 22px;
     padding-left: 58px;
     border: none;
-    background: #ece1e1 url(/lib/img/google-google.png) no-repeat 25px;
+    background: #ECE1E1 url(/lib/img/google-google.png) no-repeat 25px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     margin-top: 130px;
 }
-
  /*pantalla de login*/
-
+/* 
 .formInteraction {
     margin: 70% 5% 7%;
     width: 92%;
@@ -139,8 +122,6 @@
     padding-left: 5%;
 
 }
-
-
 
 .labelPassword {
     position: absolute;
@@ -200,55 +181,46 @@
     top: 79%;
     font-size: 12px;
     background: none;
-}
+} */
 
 /* pantalla crear cuenta */
-.logo1 {
+.creat{
     display: flex;
-    width: 100%;
-    max-width: 205px;
-    height: 148px;
-    margin-left: 26%;
-    margin-top: 16%;
-
+    flex-direction: column;
+    align-items: center;
+    background-image: url(./img/fondo.png);
+    background-size: cover;
+    height: 100vh;
 }
-.creatSection {
-    background-image: none;
-    height: 0px 
+.logo1 {
+    position: absolute;
+    top: 3%;
 }
-
+.formCreateAccount {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 46vh;
+    max-height: 500px;
+    width: 88%;
+    max-width: 500px;
+    margin: 260px auto;
+    border-radius: 19px;
+    background: #D9D9D9;
+    opacity: 0.9;
+}
 .createAccount {
     display: flex;
-    margin-left: 33px;
-    margin-top: 40px;
-    width: 307px;
-    height: 94px;
+    margin: -34px 14px 0px 0px;
+    font-size: 22px;
 }
-
-.formCreateAccount {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-wrap: nowrap;
-        margin: 60% auto;
-        flex-direction: column;
-        width: 107%;
-        max-width: 385px;
-        height: 40vh;
-        border-radius: 12px;
-        background: #D9D9D9;
-        background-image: none;
-        opacity: 0.9;
-        margin-top: -9%;
-}
-
 .textButtonCreateAccount {
     display: flex;
     height: 37px;
     font-size: 20px;
     background: none;
     width: 307px;
-    margin-top: 14px;
+    margin: 40px;
 }
 .card1 {
     display: flex;
@@ -261,7 +233,7 @@
     background: #FFFEFE;
     border-radius: 12px;
     font-size: 21px;
-    padding-left: 5%;
+    padding-left: 12%;
     margin: 8% auto;
     margin-top: 3%;
 }
@@ -273,6 +245,7 @@
     line-height: 23px;
     background: none;
     width: 307px;
+    margin: 40px;
 }
 
 .card2 {
@@ -286,7 +259,7 @@
     background: #FFFEFE;
     border-radius: 12px;
     font-size: 30px;
-    padding-left: 5%;
+    padding-left: 12%;
     margin: 8% auto;
 }
 .textConfirmPassword {
@@ -323,6 +296,7 @@
     background: #F39C12;
     border-radius: 12px;
     color: #FFFEFE;
+    margin: 13%;
 }
 
 /* Pantalla principal*/
@@ -354,7 +328,7 @@
     background: none;
     outline: none;
     font-weight: bold;
-    margin-top:4% 
+    margin-top:4%;
 }
 /*error
 u {
@@ -409,7 +383,7 @@ u {
     }
 
     /*pantalla de acceso*/
-    .logIn {
+    /* .logIn {
         position: absolute;
         width: 380px;
         height: 46px;
@@ -480,7 +454,7 @@ u {
     }
 
     /*pantalla de login*/
-
+/* 
     .initSection {
         position: absolute;
         left: 58%;
@@ -567,11 +541,11 @@ u {
         background: none;
         outline: none;
         font-weight: bold;
-    }
+    } */
 
     /* pantalla crear cuenta*/
 
-    .formCreateAccount {
+    /* .formCreateAccount {
         margin: 14% 58%;
         width: 32%;
         height: 402px;
@@ -647,10 +621,10 @@ u {
         background: #F39C12;
         border-radius: 12px;
         color: #FFFEFE;
-    }
+    } */
 
     /*pantalla de error*/
-    u {
+    /*u {
         background: none;
     }
 
@@ -675,5 +649,4 @@ u {
         background: none;
         left: 81%;
         top: 46%;
-    }
-}  
+    } */

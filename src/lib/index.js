@@ -6,7 +6,10 @@ import {
   collection,
   addDoc,
   getDocs,
+  query,
 } from 'firebase/firestore';
+import { doc, onSnapshot } from "firebase/firestore";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 // Your web app's Firebase configuration
@@ -34,3 +37,14 @@ export const db = getFirestore();
 export const savePost = (txtMascotiemos) => addDoc(collection(db, 'posts'), { txtMascotiemos });
 
 export const getPosts = () => getDocs(collection(db, 'posts'));
+
+// Configuracion post
+
+ const evec = collection(db,"posts")
+ const q = query(evec)
+ export const unsub = onSnapshot(q,(querySnashot) => {
+  console.log("updated")
+  querySnashot.forEach(doc => {
+    console.log(doc.data())
+  })
+ })

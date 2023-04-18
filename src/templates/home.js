@@ -1,8 +1,11 @@
 import {
   savePost,
   getPosts,
+  unsub,
 } from '../lib/index.js';
 import { exit } from '../lib/auth.js';
+import { QuerySnapshot } from 'firebase/firestore';
+
 
 export default function home() {
   const section = document.createElement('section');

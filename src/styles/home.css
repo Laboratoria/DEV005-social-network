@@ -163,10 +163,11 @@ body{
     background-size: cover;
     align-items: center;
     top: 320px;
+    height: auto;
     width: 100%;
   }
 
-  .loginCorreo, .loginContra {
+  .loginCorreo {
     margin: 8px 8px 0px 8px;
     border-radius: 10px;
     padding: 12px;
@@ -174,7 +175,24 @@ body{
     width: 90%;
     font-family: 'Poppins';
     border-style: none;
+    background-image:url(../assets/icon_email.png);
+    background-repeat: no-repeat;
+    background-position: 20px center; 
+    padding: 12px 0px 12px 60px;
+  }
 
+  .loginContra {
+    margin: 8px 8px 0px 8px;
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 18px;
+    width: 90%;
+    font-family: 'Poppins';
+    border-style: none;
+    background-image:url(../assets/icon_password.png);
+    background-repeat: no-repeat;
+    background-position: 20px center;
+    padding: 12px 0px 12px 60px;
   }
 
   .buttonReturn {
@@ -183,7 +201,7 @@ body{
     border-radius: 10px;
     font-size: 18px;
     flex-direction: column;
-    top: 450px;
+    top: 120px;
     padding: 12px;
     width: 90%;
     background: #F2B872;

@@ -1,6 +1,5 @@
 // importar
-// eslint-disable-next-line import/no-unresolved, import/no-extraneous-dependencies
-// import { onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged } from 'firebase/auth';
 import home from './components/home.js';
 import login from './components/login.js';
 import error from './components/error404.js';
@@ -10,7 +9,7 @@ import muro from './components/muro.js';
 
 import './lib/loginConfig.js';
 import './lib/registerConfig.js';
-// import { auth } from './lib/firebaseConfig.js';
+import { auth } from './lib/firebaseConfig.js';
 // Nombre: foodMatch
 
 const routes = [
@@ -26,14 +25,14 @@ const root = document.getElementById('root');
 
 const navigateTo = (hash) => {
   const route = routes.find((routeFound) => routeFound.path === hash);
-
+  // console.log(route.component());
   if (route && route.component) {
     window.history.pushState({}, route.path, window.location.origin + route.path);
 
     if (root.firstChild) {
       root.removeChild(root.firstChild);
     }
-    root.appendChild(route.component(navigateTo));
+    root.appendChild(route.component());
   } else {
     navigateTo('/error');
   }
@@ -45,4 +44,17 @@ window.onpopstate = () => {
 
 navigateTo(window.location.pathname || defaultRoute);
 
-export default navigateTo;
+function initializar() {
+  onAuthStateChanged(auth, (user) => {
+    const currentRoute = window.location.pathname;
+    if (user) {
+      navigateTo('/muro');
+    } else if (currentRoute === defaultRoute || currentRoute === '/register') {
+      navigateTo(currentRoute);
+    } else {
+      navigateTo('/error');
+    }
+  });
+}
+
+initializar();

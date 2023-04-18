@@ -11,70 +11,27 @@ function login(navigateTo) {
   const messageLogin = document.createElement('h2');
   messageLogin.className = 'messageLogin';
 
-  const credencialesdiv = document.createElement('div');
+  const credencialesdiv = document.createElement('form');
   credencialesdiv.className = 'credencialesdiv';
+  credencialesdiv.setAttribute('id', 'formulario');
 
-  const loginCorreo = document.createElement('input');
-  loginCorreo.setAttribute('type', 'text');
-  loginCorreo.className = 'loginCorreo';
+  credencialesdiv.innerHTML = '';
+  credencialesdiv.innerHTML = '<input type="email" class="loginCorreo" placeholder="Correo Electrónico" required><input type="password" class="loginContra" placeholder="Contraseña" required><button class="buttonReturn" type="submit">Ingresar</button>';
 
-  const loginContra = document.createElement('input');
-  loginContra.className = 'loginContra';
-
-  const mensajelogin = document.createElement('span');
-  mensajelogin.className = 'mensajelogin';
-  mensajelogin.addEventListener('click', () => {
+  const mensajeregister = document.createElement('span');
+  mensajeregister.className = 'mensajeregister';
+  mensajeregister.addEventListener('click', () => {
     navigateTo('/register');
-  });
-
-  const buttonReturn = document.createElement('button');
-  buttonReturn.className = 'buttonReturn';
-  buttonReturn.addEventListener('click', async (e) => {
-    e.preventDefault();
-    const email = document.getElementsByClassName('#loginCorreo');
-    const password = document.getElementsByClassName('#loginContra');
-
-    try {
-      const credentials = await signInWithEmailAndPassword(
-        auth,
-        email.value,
-        password.value,
-      );
-      console.log(credentials);
-      navigateTo('/muro');
-    } catch (error) {
-      console.log(error);
-      console.log(error.code);
-
-      if (error.code === 'auth/user-not-found') {
-        alert('correo en uso');
-      } else if (error.code === 'auth/invalid-email') {
-        alert('correo inválido');
-      } else if (error.code === 'auth/weak-password') {
-        alert('contraseña muy corta');
-      } else {
-        alert('otro problema');
-      }
-    }
   });
   buttonReturn.className = 'buttonReturn';
 
   messageLogin.textContent = 'Iniciar Sesión';
-  loginCorreo.placeholder = 'Correo Electrónico';
-  loginContra.placeholder = 'Contraseña';
-  mensajelogin.innerHTML = ` ¿No tienes una cuenta?
+  mensajeregister.innerHTML = ` ¿No tienes una cuenta?
   <strong>Regístrate</strong>`;
   buttonReturn.textContent = 'Ingresar';
 
-  loginDiv.append(
-    imgLogin,
-    messageLogin,
-    credencialesdiv,
-    buttonReturn,
-    mensajelogin,
-  );
+  loginDiv.append(imgLogin, messageLogin, credencialesdiv);
   credencialesdiv.append(loginCorreo, loginContra);
-  return loginDiv;
 }
 
 export default login;

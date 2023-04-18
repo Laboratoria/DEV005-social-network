@@ -202,6 +202,11 @@ a {
   padding: 3%;
   margin: 0%;
 }
+.wallErrorMsj{
+  padding: 3%;
+  margin: 0%;
+  color: black;
+}
 #linkLogin {
   background-color: transparent;
   border-style: none;
@@ -294,6 +299,10 @@ div{
   background-color: white;
   margin-left: 30%;
   margin-right: 0%;
+}
+.posts{
+  color: black;
+  grid-area: 4;
 }
 
 @media (min-width: 1024px) {

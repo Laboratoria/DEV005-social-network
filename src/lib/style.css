@@ -289,16 +289,20 @@
     color: #FFFEFE;
 }
 
-/* Pantalla principal*/
+/* Home*/
 
-.mainScreen {
+.logoHome {
+    
+}
+
+.home {
     display: flex;
    flex-direction: column;
    align-items: center; 
-   background-image: url(./img/fondoHome.png);
+   background-color: #B2CAEC;
    background-size: cover;
    height: 100vh;
-}
+} 
 
 .postForm {
     display: flex;

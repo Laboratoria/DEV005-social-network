@@ -4,7 +4,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithPopup,
   GoogleAuthProvider,
-  //GithubAuthProvider,
+  GithubAuthProvider,
   signInWithEmailAndPassword,
 } from 'firebase/auth';
 import { app } from './firebase';
@@ -50,7 +50,29 @@ export const accessWithGoogle = (navigateTo) => {
     });
 };
 
-// Inicio de sesión con email y contraseña
+  // GITHUB
+
+  export const accessWithGithub = (navigateTo) => {
+  const provider = new GithubAuthProvider();
+
+  const auth = getAuth();
+  signInWithPopup(auth, provider)
+  .then((result) => {
+    const credential = GithubAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+    const user = result.user;
+    console.log('signed up with Github');
+    navigateTo('/wall');
+  }).catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    const email = error.email;
+    const credential = GithubAuthProvider.credentialFromError(error);
+    console.log('error signing up with Github');
+    // ...
+  });
+};
+
 export const logInWithEmail = (mail, passwrd) => {
   return new Promise((resolve, reject) => {
     const auth = getAuth();

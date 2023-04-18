@@ -1,6 +1,4 @@
-/* eslint-disable no-console */
-/* eslint-disable no-alert */
-import { logInWithEmail, accessWithGoogle } from '../lib/auth';
+import { accessWithGithub, logInWithEmail, accessWithGoogle } from '../lib/auth';
 
 function home(navigateTo) {
   const sectionHome = document.createElement('section');

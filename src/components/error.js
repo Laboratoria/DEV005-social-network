@@ -20,7 +20,7 @@ function error(navigateTo) {
     navigateTo('/');
   });
 
-  section.append(title, button,errorNum, notFound, blackKitty);
+  section.append(title, button, errorNum, notFound, blackKitty);
 
   return section;
 }

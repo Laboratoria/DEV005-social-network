@@ -2,7 +2,7 @@ import { signup, signupFormSubmit, navigateToLogin } from '../src/components/sig
 import { signupApp } from '../src/lib/register.js';
 
 // Test suite para la función `register`
-describe('Create signup', () => {
+describe('signup', () => {
   // Caso de prueba para verificar que 'register' es una función
   it('Is a function', () => {
     expect(typeof signup).toBe('function');

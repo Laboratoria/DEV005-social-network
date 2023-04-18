@@ -17,8 +17,8 @@ export const loginApp = (email, password, loginError) => {
         loginError.textContent = 'Correo inválido';
       } else if (error.code === 'auth/too-many-requests') {
         loginError.textContent = 'Demasiados intentos';
-      } else if (error.code === 'auth/too-missing-password') {
-        loginError.textContent = 'Ingresa la contraseña';
+      } else if (error.code === 'auth/missing-password') {
+        loginError.textContent = 'Ingrese una contraseña';
       } else {
         loginError.textContent = 'Ingresa los datos requeridos';
       }

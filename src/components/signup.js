@@ -1,5 +1,6 @@
 import { labelMovement } from '../lib/index.js';
 import { signupApp } from '../lib/register.js';
+import { loginWithGoogle } from '../lib/loginWithGoogle.js';
 
 // Define una función manejadora para el evento de envío de formulario de registro
 export const signupFormSubmit = (inputEmail, inputPassword, registerError) => {
@@ -139,6 +140,7 @@ export function signup(navigateTo) {
   const btnGoogle = document.createElement('button');
   btnGoogle.classList.add('google-btn');
   btnGoogle.textContent = 'continuar con Google';
+  btnGoogle.addEventListener('click', loginWithGoogle);
   googleContainer.append(btnGoogle);
 
   // Contenedor imagen google

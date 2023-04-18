@@ -1,11 +1,15 @@
-// import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
-// import { auth } from './firebase.js';
+// Importa las dependencias necesarias
+import { signInWithRedirect, GoogleAuthProvider } from 'firebase/auth';
+import { auth } from './firebase.js';
 
-// const provider = new GoogleAuthProvider();
+const provider = new GoogleAuthProvider();
 
-// export const loginGoogle = () => {
-//   signInWithPopup(auth, provider)
-//     .then(() => {
-//     }).catch(() => {
-//     });
-// };
+// Define la función signinGoogle
+export const signInGoogle = () => {
+  // Iniciar el proceso de autenticación con redirección de Google
+  signInWithRedirect(auth, provider)
+    .then(() => {
+    })
+    .catch(() => {
+    });
+};

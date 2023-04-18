@@ -1,4 +1,5 @@
-import { newAccount, accessWithGoogle} from '../lib/auth';
+/* eslint-disable no-alert */
+import { newAccount, registerWithGoogle } from '../lib/auth';
 
 function register(navigateTo) {
   const sectionReg = document.createElement('section');
@@ -55,9 +56,7 @@ function register(navigateTo) {
     }
   });
 
-  btnRegWithGoogle.addEventListener('click', () => {
-    accessWithGoogle(navigateTo);
-  });
+  btnRegWithGoogle.addEventListener('click', registerWithGoogle);
 
   divContainer.append(
     inputEmail,

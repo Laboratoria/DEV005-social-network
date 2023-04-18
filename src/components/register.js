@@ -1,4 +1,4 @@
-import { newAccount, registerWithGoogle, accessWithGithub } from '../lib/auth';
+import { newAccount, accessWithGoogle, accessWithGithub} from '../lib/auth';
 
 function register(navigateTo) {
   const sectionReg = document.createElement('section');
@@ -66,7 +66,9 @@ function register(navigateTo) {
 
   
 
-  btnRegWithGoogle.addEventListener('click', registerWithGoogle);
+  btnRegWithGoogle.addEventListener('click', () => {
+    accessWithGoogle(navigateTo);
+  });
   btnRegWithGithub.addEventListener('click', accessWithGithub);
 
 

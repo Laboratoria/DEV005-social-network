@@ -4,6 +4,7 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   GithubAuthProvider,
+  signInWithEmailAndPassword,
 } from 'firebase/auth';
 import { app } from './firebase';
 
@@ -26,8 +27,8 @@ export const newAccount = (email, password) => {
     });
 };
 
-// Registrar con Google
-export const registerWithGoogle = () => {
+// Registrar/Iniciar sesión con Google
+export const accessWithGoogle = (navigateTo) => {
   const provider = new GoogleAuthProvider();
   const auth = getAuth();
   signInWithPopup(auth, provider)
@@ -36,6 +37,7 @@ export const registerWithGoogle = () => {
       const token = credential.accessToken;
       const user = result.user;
       console.log('signed up with Google');
+      navigateTo('/wall');
       // ...
     }).catch((error) => {
       const errorCode = error.code;
@@ -60,7 +62,6 @@ export const registerWithGoogle = () => {
     const user = result.user;
     console.log('signed up with Github');
     navigateTo('/wall');
-
   }).catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
@@ -68,5 +69,23 @@ export const registerWithGoogle = () => {
     const credential = GithubAuthProvider.credentialFromError(error);
     console.log('error signing up with Github');
     // ...
+  });
+};
+
+export const logInWithEmail = (mail, passwrd) => {
+  return new Promise((resolve, reject) => {
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, mail, passwrd)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log('logged in with email and password');
+        resolve(user);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log('error logging in with email and password');
+        reject(error);
+      });
   });
 };

@@ -1,23 +1,8 @@
-import { initializeApp } from 'firebase/app';
-import { getAnalytics } from 'firebase/analytics';
 import home from './components/home.js';
 import error from './components/error.js';
 import muro from './components/muro.js';
 import registro from './components/registro.js';
-
-const firebaseConfig = {
-  apiKey: 'AIzaSyCMA-XWyMc2_N3RuceKDj37LA6NLOEnAME',
-  authDomain: 'patitas-91318.firebaseapp.com',
-  projectId: 'patitas-91318',
-  storageBucket: 'patitas-91318.appspot.com',
-  messagingSenderId: '921200296229',
-  appId: '1:921200296229:web:df299b6a8def7ea1399acc',
-  measurementId: 'G-114X4TQL1F',
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+import './components/firebase.js';
 
 const root = document.getElementById('root');
 

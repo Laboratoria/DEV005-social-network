@@ -13,6 +13,8 @@ function home(/* navigateTo */) {
   const register = document.createElement('button');
   const forgetPass = document.createElement('button');
   const loginGoogle = document.createElement('button');
+  const loginMicrosoft = document.createElement('button');
+  const loginTwitter = document.createElement('button');
   const login = document.createElement('button');
 
   img.setAttribute('src', '../img/logo.jpg');
@@ -25,6 +27,12 @@ function home(/* navigateTo */) {
   division.setAttribute('class', 'divhome');
   loginGoogle.setAttribute('id', 'loginGoogle-b');
   loginGoogle.textContent = 'Inicia sesión con Google';
+  loginMicrosoft.setAttribute('id', 'loginMicrosoft');
+  loginMicrosoft.setAttribute('class', 'loginMicrosoft-b');
+  loginMicrosoft.textContent = 'Inicia sesión con Microsoft';
+  loginTwitter.setAttribute('id', 'loginTwitter');
+  loginTwitter.setAttribute('class', 'loginTwitter-b');
+  loginTwitter.textContent = 'Inicia sesión con Twitter';
   login.setAttribute('id', 'login-b');
   login.textContent = 'INICIAR SESIÓN';
   mailUser.textContent = 'Correo electrónico:';
@@ -32,7 +40,18 @@ function home(/* navigateTo */) {
   title.textContent = 'Patitas.com';
 
   section.append(img, form);
-  form.append(title, mailUser, mail, passUser, password, division, loginGoogle, login);
+  form.append(
+    title,
+    mailUser,
+    mail,
+    passUser,
+    password,
+    division,
+    loginGoogle,
+    loginMicrosoft,
+    loginTwitter,
+    login,
+  );
   division.append(register, forgetPass);
   return section;
 }

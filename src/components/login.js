@@ -1,5 +1,6 @@
 import { labelMovement } from '../lib/index.js';
 import { loginApp } from '../lib/authentication.js';
+// import { loginGoogle } from '../lib/googleAuth.js';
 
 // Define una función manejadora para el evento de envío de formulario de inicio de sesión
 export const loginFormSubmit = (inputEmail, inputPassword, loginError) => {
@@ -8,6 +9,11 @@ export const loginFormSubmit = (inputEmail, inputPassword, loginError) => {
     loginApp(inputEmail, inputPassword, loginError);
   }; return handleLoginFormSubmit;
 };
+// export
+// const handleloginWithGoogle = (event) => {
+//   event.preventDefault();
+//   loginGoogle();
+// };
 
 // Navegar hacia registro
 export const navigateToSignup = (navigateTo) => {
@@ -118,6 +124,7 @@ export function login(navigateTo) {
   const btnGoogle = document.createElement('button');
   btnGoogle.classList.add('google-btn');
   btnGoogle.textContent = 'continuar con Google';
+  // btnGoogle.addEventListener('click', handleloginWithGoogle);
   googleContainer.append(btnGoogle);
 
   // Contenedor imagen google

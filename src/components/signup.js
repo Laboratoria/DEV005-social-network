@@ -28,6 +28,7 @@ export function signup(navigateTo) {
 
   // Título Playverse
   const nameTitle = document.createElement('h1');
+  nameTitle.classList.add('name-title');
   nameTitle.textContent = 'REGÍSTRATE';
   registerForm.append(nameTitle);
 

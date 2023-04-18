@@ -1,3 +1,5 @@
+import { loginWithGoogle, loginWithTwitter } from '../lib/auth';
+
 function home(/* navigateTo */) {
   const section = document.createElement('section');
   // Elementos
@@ -25,14 +27,28 @@ function home(/* navigateTo */) {
   forgetPass.textContent = 'Olvidé contraseña';
   forgetPass.setAttribute('class', 'forgetPass-b');
   division.setAttribute('class', 'divhome');
+
   loginGoogle.setAttribute('id', 'loginGoogle-b');
   loginGoogle.textContent = 'Inicia sesión con Google';
+  loginGoogle.addEventListener('click', (e) => {
+    e.preventDefault();
+    loginWithGoogle();
+    console.log('si sirvo');
+  });
+
   loginMicrosoft.setAttribute('id', 'loginMicrosoft');
   loginMicrosoft.setAttribute('class', 'loginMicrosoft-b');
   loginMicrosoft.textContent = 'Inicia sesión con Microsoft';
   loginTwitter.setAttribute('id', 'loginTwitter');
+
   loginTwitter.setAttribute('class', 'loginTwitter-b');
   loginTwitter.textContent = 'Inicia sesión con Twitter';
+  loginTwitter.addEventListener('click', (e) => {
+    e.preventDefault();
+    loginWithTwitter();
+    console.log('si sirvo');
+  });
+
   login.setAttribute('id', 'login-b');
   login.textContent = 'INICIAR SESIÓN';
   mailUser.textContent = 'Correo electrónico:';

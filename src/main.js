@@ -2,7 +2,7 @@ import home from './components/home.js';
 import error from './components/error.js';
 import muro from './components/muro.js';
 import registro from './components/registro.js';
-import './components/firebase.js';
+import './lib/firebaseConfig.js';
 
 const root = document.getElementById('root');
 

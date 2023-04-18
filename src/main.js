@@ -2,7 +2,6 @@
 // import { myFunction } from './lib/index.js';
 // myFunction();
 
-// import logIn from './components/log-in.js';
 import home from './components/home.js';
 import register from './components/register.js';
 import error from './components/error.js';

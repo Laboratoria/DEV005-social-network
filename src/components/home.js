@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 function home(navigateTo) {
   const sectionHome = document.createElement('section');
   sectionHome.id = 'container-home';
@@ -53,30 +54,29 @@ function home(navigateTo) {
   Publica ideas e imágenes para compartir información gatuna.`;
 
   btnLogIn.addEventListener('click', () => {
-    // const email = inputEmail.value;
-    // const password = inputPass.value;
-    // userCredential = (email, password);
-    navigateTo('/wall');
+    const mail = email.value;
+    const passwrd = password.value;
+    if (mail === '' || passwrd === '') {
+      alert('Ingrese usuario y/o contraseña');
+    } else {
+      logInWithEmail(mail, passwrd)
+        .then(() => {
+          alert('Sesión iniciada');
+          navigateTo('/wall');
+        })
+        .catch((error) => {
+          alert('Error al iniciar sesión');
+          console.log(error);
+        });
+    }
   });
 
   btnRegister.addEventListener('click', () => {
     navigateTo('/register');
   });
 
-  sectionHome.append(
-    titleKB,
-    info,
-    sectionLogin,
-    regist,
-    footerH,
-  );
-  sectionLogin.append(
-    email,
-    password,
-    btnLogIn,
-    googleLogIn,
-    ghLogIn,
-  );
+  sectionHome.append(titleKB, info, sectionLogin, regist, footerH);
+  sectionLogin.append(email, password, btnLogIn, googleLogIn, ghLogIn);
   googleLogIn.append(iconGoogle);
   ghLogIn.append(iconGH);
   regist.append(btnRegister);
@@ -84,3 +84,4 @@ function home(navigateTo) {
 }
 
 export default home;
+export logInWithEmail;

@@ -1,4 +1,7 @@
+/* eslint-disable no-console */
 /* eslint-disable no-alert */
+import { logInWithEmail, accessWithGoogle } from '../lib/auth';
+
 function home(navigateTo) {
   const sectionHome = document.createElement('section');
   sectionHome.id = 'container-home';
@@ -59,24 +62,38 @@ function home(navigateTo) {
     if (mail === '' || passwrd === '') {
       alert('Ingrese usuario y/o contraseña');
     } else {
-      logInWithEmail(mail, passwrd)
-        .then(() => {
-          alert('Sesión iniciada');
-          navigateTo('/wall');
-        })
-        .catch((error) => {
-          alert('Error al iniciar sesión');
-          console.log(error);
-        });
+      logInWithEmail(mail, passwrd).then(() => {
+        alert('Sesión iniciada');
+        navigateTo('/wall');
+      }).catch((error) => {
+        alert('Error al iniciar sesión');
+        console.log(error);
+      });
     }
+  });
+
+  googleLogIn.addEventListener('click', () => {
+    accessWithGoogle(navigateTo);
   });
 
   btnRegister.addEventListener('click', () => {
     navigateTo('/register');
   });
 
-  sectionHome.append(titleKB, info, sectionLogin, regist, footerH);
-  sectionLogin.append(email, password, btnLogIn, googleLogIn, ghLogIn);
+  sectionHome.append(
+    titleKB,
+    info,
+    sectionLogin,
+    regist,
+    footerH,
+  );
+  sectionLogin.append(
+    email,
+    password,
+    btnLogIn,
+    googleLogIn,
+    ghLogIn,
+  );
   googleLogIn.append(iconGoogle);
   ghLogIn.append(iconGH);
   regist.append(btnRegister);
@@ -84,4 +101,3 @@ function home(navigateTo) {
 }
 
 export default home;
-export logInWithEmail;

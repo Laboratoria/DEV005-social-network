@@ -15,7 +15,7 @@ export const LoginTemplate = `
     </form>
     <p>¿Eres nueva? </p>
     
-    <button id="linkRegister">Registrate</button>
+    <button id="linkRegister">Regístrate</button>
 
     <div class="google-btn" id= "btn-google">
     <div class="google-icon-wrapper">

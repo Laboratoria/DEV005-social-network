@@ -9,6 +9,7 @@ export const loginApp = (email, password, loginError) => {
     .catch((error) => {
       password.value = '';
       // Posibles errores de autenticación
+      console.log(error.code);
       if (error.code === 'auth/wrong-password') {
         loginError.textContent = 'Contraseña incorrecta';
       } else if (error.code === 'auth/user-not-found') {
@@ -17,6 +18,8 @@ export const loginApp = (email, password, loginError) => {
         loginError.textContent = 'Correo inválido';
       } else if (error.code === 'auth/too-many-requests') {
         loginError.textContent = 'Demasiados intentos';
+      } else if (error.code === 'auth/missing-password') {
+        loginError.textContent = 'Ingrese una contraseña';
       } else {
         loginError.textContent = 'Ingresa los datos requeridos';
       }

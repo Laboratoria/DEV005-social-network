@@ -23,7 +23,7 @@ function register(navigateTo) {
   buttonSaveInformation.addEventListener('click', () => {
     navigateTo('/login');
   });
-  //Iconos
+  
   const iconEmail = document.createElement('div');
   iconEmail.className = 'iconEmail1';
   const iconPassword = document.createElement('div');

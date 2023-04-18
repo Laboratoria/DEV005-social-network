@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 // import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword } from 'firebase/auth';
+import { GoogleAuthProvider, signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
 // import { async } from '@firebase/util';
 import { LoginTemplate } from '../templates/loginTemplate.js';
 import { auth } from '../lib/index.js';
@@ -13,6 +13,14 @@ export const Login = (onNavigate) => {
   errorMsj.className = 'passAndEm'; */
   div.innerHTML = LoginTemplate;
   const errorMsj = div.querySelector('#errorMsj');
+  const validate = onAuthStateChanged(auth, async (user) => {
+    if (user) {
+      onNavigate('/muro');
+    } else {
+      console.log('error');
+    }
+  });
+
   const register = div.querySelector('#linkRegister');
   register.addEventListener('click', () => {
     onNavigate('/registrate');
@@ -39,7 +47,7 @@ export const Login = (onNavigate) => {
         const token = credential.accessToken;
         const user = result.user;
         console.log(credential, token, user);
-        onNavigate('/muro');
+        validate();
       }).catch((error) => {
         console.log(error);
       });
@@ -57,7 +65,7 @@ export const Login = (onNavigate) => {
         email,
         password,
       );
-      onNavigate('/muro');
+      validate();
     } catch (error) {
       if (error.code === 'auth/user-not-found') {
         errorMsj.textContent = 'Usuario invalido';

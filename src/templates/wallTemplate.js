@@ -1,9 +1,13 @@
 export const WallTemplate = `
-  <section class="container-wall">
-  <section id="wall">
+
+<div class ="wall-template">
+<header class= "wall-header">
+<h1 id="wall-tittle">Sister Voyage</h1>
+<button id="btn-out" class="singOut">Salir</button>
+</header>
     <label for="text" class="cPost">
-      <textarea id="iPost" name="textarea" rows="10" cols="50" placeholder="Write something here"></textarea>
+      <textarea id="iPost" name="textarea" rows="10" cols="50" placeholder="Cuentanos sobre tu viaje..."></textarea>
     </label>
-    <button id="btn-post">Publicar</button>
-  </section>
-  </section>`;
+    <button id="btn-post" class="publish">Publicar</button>
+    
+</div>`;

@@ -1,52 +1,16 @@
-*{
-    margin: 0px;
-    padding : 0px;
-    box-sizing: border-box;
-}
-body{
-    background-color: rgb(150, 150, 195);
-}
-.sectionInput{
-    background-color: rgb(129, 134, 165);
-    width: 90vw;
-    height: 80vh;
-    margin: auto;
-    margin-top: 10vh;
-    border-radius: 20px 0px 20px 0px;
+.contenedor{     /*papa*/
     display: flex;
-    flex-flow: row wrap;
-}
-.containerRight, .containerLeft{
-    width: 45vw;
-    height: 80vh;
-    outline: 2px solid red;
-}
-.containerLeft{
-    background-color: white;
-    border-radius: 20px 0px 0px 0px;
-}
-.divContent{
-    width: 80%;
-    height: 80%;
-    outline: 1px solid blue;
-    margin: auto;
-    margin-top: 20px;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-}
-.divInput{
-    outline: 1px solid black;
-    display: flex;
-    flex-flow: column wrap;
-    width: 250px;
-    height: 100px;
-}
-input{
-    width:200px;
-    height: 45px;
-    padding:5px;
-    border-radius: 5px;
-    border:1px solid gray;
-}
+    justify-content: center; /* Centra horizontalmente los elementos */
+    align-items: center; /* Centra verticalmente los elementos */
+    height: 100vh; /* Altura del contenedor */
+    }  
 
+.contenedorLr{     /*hijo*/
+    background: blue;
+    }
+    
+@media (max-width:500px) {
+    img.imgLogin {
+    width:100px
+      }
+}

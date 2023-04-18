@@ -8,7 +8,7 @@ import error from './components/error.js';
 const root = document.getElementById('root');
 
 const myRoutes = [
-  { path: '/', component: login },
+  { path: '/login', component: login },
   { path: '/register', component: register },
   { path: '/error', component: error },
 ];
@@ -33,7 +33,6 @@ function navigateTo(hash) {
   }
 }
 window.onpopstate = () => {
- navigateTo(window.location.pathname);
+  navigateTo(window.location.pathname);
 };
 navigateTo(window.location.pathname || defaultMyRoutes);
-

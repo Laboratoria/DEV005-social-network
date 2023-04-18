@@ -6,11 +6,10 @@ function register() {
   const containerLeft = document.createElement('div');
   containerLeft.classList.add('containerLeft');
   const title = document.createElement('h1');
-<<<<<<< HEAD
 
   title.textContent = 'Registrate pe';
   section.append(title);
-=======
+
   title.classList.add('titleLogo');
   title.textContent = 'Resgistrarse';
 
@@ -57,7 +56,6 @@ function register() {
   containerRight.append(title, divContent);
   section.append(containerLeft, containerRight);
 
->>>>>>> origin/main
   return section;
 }
 

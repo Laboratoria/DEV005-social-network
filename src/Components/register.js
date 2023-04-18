@@ -6,8 +6,9 @@ import { auth } from '../lib/firebase.js';
 <input class="card3" id="card3" type="password" placeholder='********'></input> */
 export function create(navigateTo) {
   const sectionCreate = document.createElement('div');
-  sectionCreate.innerHTML = `<section class="creatSection">
-   <img src='./lib/img/logo.png' class= 'logo'>
+  sectionCreate.classList.add('creat');
+  sectionCreate.innerHTML = `
+    <img src='./lib/img/logo.png' class="logo1">
     <form class = "formCreateAccount">
     <h2 class = "createAccount">Crear cuenta</h2>
     <label class="textButtonCreateAccount">Correo Electronico</label>
@@ -16,8 +17,8 @@ export function create(navigateTo) {
     <label class="textPasswordCreateAccount">Contraseña nueva</label>
     <input class="card2" id="card2" type="password" placeholder='********'></input>
     <button class="bottomKeep" id="btnguardar">Guardar</button>
-     </form>
-     <button class="bottomText">¿Ya tienes cuenta? Iniciar Sesión</button>
+    </form>
+    <button class="bottomText">¿Ya tienes cuenta? Iniciar Sesión</button>
     </section>
     `;
   const logIn = sectionCreate.querySelector('.bottomText');

@@ -4,17 +4,16 @@
     margin: 0%;
 }
 
- /*pantalla de acceso*/
-
+/*pantalla de acceso*/
 .init {
-   display: flex;
-   flex-direction: column;
-   align-items: center; 
-   background-image: url(./img/fondo.png);
-   background-size: cover;
-   height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url(./img/fondo.png);
+    background-size: cover;
+    height: 100vh;
 }
- 
+
 .logo {
     position: absolute;
     max-width: 233px;
@@ -26,7 +25,7 @@
 .logIn {
     display: flex;
     flex-direction: column;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
     width: 80%;
     max-width: 380px;
@@ -54,8 +53,7 @@
     color: #FFFFFF;
     background: #528FD8;
     border-radius: 10px;
-    margin-top: 50px;;
-
+    margin-top: 50px;
 }
 
 .division {
@@ -66,7 +64,6 @@
 }
 
 .google {
-    
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -78,122 +75,135 @@
     font-size: 22px;
     padding-left: 58px;
     border: none;
-    background: #ece1e1 url(/lib/img/google-google.png) no-repeat 25px;
+    background: #ECE1E1 url(/lib/img/google-google.png) no-repeat 25px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     margin-top: 130px;
 }
 
- /*pantalla de login*/
+/*pantalla de ingreso*/
 
-.formInteraction {
-    margin: 70% 5% 7%;
-    width: 92%;
-    height: 404px;
-    border-radius: 12px;
-    background: #D9D9D9;
-    background-image: none;
-    opacity: 0.9;
+.sectionLogin {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url(./img/fondo.png);
+    background-size: cover;
+    height: 100vh;
 }
 
-.cardLogin {
-    background-image: none;
-    height: 0px
+.logo2 {
+    position: absolute;
+    top: 3%;
+}
+
+.formInteraction {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 44vh;
+    max-height: 440px;
+    width: 89%;
+    max-width: 469px;
+    margin: 260px auto;
+    border-radius: 19px;
+    background: #D9D9D9;
+    opacity: 0.9;
+    justify-content: space-around;
 }
 
 .initSection {
-    position: absolute;
-    left: 28px;
-    top: 254px;
+    display: flex;
+    margin: -69px 12px 9px 0px;
     font-size: 22px;
-    background: none;
 }
 
-
-
 .labelEmail {
-    position: absolute;
-    height: 23px;
-    left: 49px;
-    top: 330px;
+    display: flex;
     font-size: 20px;
     background: none;
+    margin: -16px 170px -28px 0px;
 }
 
 .inputEmail {
-    position: absolute;
-    width: 321px;
+    display: flex;
+    background: white;
+    width: 94%;
+    max-width: 321px;
     height: 45px;
-    left: 49px;
-    top: 369px;
     border: none;
     border-radius: 12px;
     font-size: 21px;
     padding-left: 5%;
-
+    justify-content: flex-start;
 }
 
-
-
 .labelPassword {
-    position: absolute;
-    height: 23px;
-    left: 49px;
-    top: 466px;
+    display: flex;
     font-size: 20px;
-    line-height: 23px;
     background: none;
+    margin: -14px 234px 39px 0px;
+
 }
 
 .inputPassword {
-    position: absolute;
-    width: 321px;
+    display: flex;
+    background: white;
+    width: 94%;
+    max-width: 321px;
     height: 45px;
-    left: 49px;
-    top: 508px;
     border: none;
-    background: #FFFEFE;
     border-radius: 12px;
-    font-size: 30px;
+    font-size: 28px;
     padding-left: 5%;
+    margin: -66px 0px 0px 0px;
+    justify-content: flex-start;
 }
 
 .getInt {
-    position: absolute;
-    width: 341px;
+    display: flex;
+    background: #528FD8;
+    width: 100%;
+    max-width: 343px;
     height: 45px;
-    left: 49px;
-    top: 616px;
+    border-radius: 12px;
+    justify-content: center;
     font-weight: bold;
     font-size: 22px;
     border: none;
-    background: #528FD8;
-    border-radius: 12px;
     color: #FFFEFE;
+    align-items: center;
+    margin-bottom: 15px;
 }
 
 .bottomText {
     position: absolute;
-    height: 25px;
-    left: 40px;
-    top: 847px;
+    top: 817px;
+    width: 103%;
+    max-width: 368px;
+    height: 44px;
+    border: none;
+    color: black;
     font-size: 22px;
     background: none;
-    outline: none;
     font-weight: bold;
 }
-.textNote{
-    background: none;
+
+
+.note1 {
     color: red;
+    width: 92%;
+    max-width: 349px;
+    height: 54px;
+    background: none;
+    border: red solid 1px;
+    font-size: 17px;
+    margin: -21px 0px -23px 4px;
+    border-radius: 8px;
+    padding: 2%;
 }
 
-.note1{
-    position: absolute;
-    left: 12%;
-    top: 79%;
-    font-size: 12px;
-    background: none;
-}
 
 /*pantalla crear cuenta*/
 
@@ -303,11 +313,11 @@
     background-color: white;
     border: none;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    
+
 }
 
 /*error*/
- u {
+u {
     background: none;
 }
 
@@ -339,6 +349,7 @@
     top: 52%;
 }
 
+/*
 @media (min-width: 926px) and (max-width: 1920px) {
 
     * {
@@ -358,7 +369,7 @@
         background: none;
     }
 
-    /*pantalla de acceso*/
+    /*pantalla de acceso
     .logIn {
         position: absolute;
         width: 380px;
@@ -429,7 +440,7 @@
         border: 1px solid #000000;
     }
 
-    /*pantalla de login*/
+    /*pantalla de login
 
     .initSection {
         position: absolute;
@@ -519,7 +530,7 @@
         font-weight: bold;
     }
 
-    /* pantalla crear cuenta*/
+    /* pantalla crear cuenta
 
     .formCreateAccount {
         margin: 14% 58%;
@@ -599,7 +610,7 @@
         color: #FFFEFE;
     }
 
-    /*pantalla de error*/
+    /*pantalla de error
     u {
         background: none;
     }
@@ -626,4 +637,4 @@
         left: 81%;
         top: 46%;
     }
-}  
+}*/

@@ -1,6 +1,5 @@
-function mainScreen() {
-  const postForm = document.createElement('div');
-  postForm.classList.add('mainScreen');
+function home() {
+  const postForm = document.createElement('form');
   postForm.innerHTML = `
     <form>
     <textarea class="postForm" placeholder= "Comparte tu negocio..."></textarea>
@@ -9,4 +8,4 @@ function mainScreen() {
   return postForm;
 }
 
-export { mainScreen };
+export { home };

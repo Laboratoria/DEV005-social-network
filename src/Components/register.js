@@ -32,7 +32,7 @@ export function create(navigateTo) {
     const password = sectionCreate.querySelector('.card2').value;
     createUserWithEmailAndPassword(auth, email, password)
       .then(() => {
-        navigateTo('/mainScreen');
+        console.log('ya entro');
       })
       .catch(() => {
         sectionCreate.querySelector('.alerta').innerHTML = '<h3 class="alert">Esta cuenta ya esta registrada, intenta con otra.</h3>';

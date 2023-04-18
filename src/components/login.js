@@ -1,5 +1,4 @@
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../lib/firebaseConfig.js';
+import { loginConfig } from '../lib/loginConfig';
 
 function login(navigateTo) {
   const loginDiv = document.createElement('div');
@@ -15,11 +14,12 @@ function login(navigateTo) {
   credencialesdiv.className = 'credencialesdiv';
 
   const loginCorreo = document.createElement('input');
-  loginCorreo.setAttribute('type', 'text');
   loginCorreo.className = 'loginCorreo';
+  loginCorreo.id = 'loginCorreo';
 
   const loginContra = document.createElement('input');
   loginContra.className = 'loginContra';
+  loginContra.id = 'loginContra';
 
   const mensajelogin = document.createElement('span');
   mensajelogin.className = 'mensajelogin';
@@ -31,31 +31,23 @@ function login(navigateTo) {
   buttonReturn.className = 'buttonReturn';
   buttonReturn.addEventListener('click', async (e) => {
     e.preventDefault();
-    const email = document.getElementsByClassName('#loginCorreo');
-    const password = document.getElementsByClassName('#loginContra');
-
-    try {
-      const credentials = await signInWithEmailAndPassword(
-        auth,
-        email.value,
-        password.value,
-      );
-      console.log(credentials);
-      navigateTo('/muro');
-    } catch (error) {
-      console.log(error);
-      console.log(error.code);
-
-      if (error.code === 'auth/user-not-found') {
-        alert('correo en uso');
-      } else if (error.code === 'auth/invalid-email') {
-        alert('correo inválido');
-      } else if (error.code === 'auth/weak-password') {
-        alert('contraseña muy corta');
-      } else {
-        alert('otro problema');
-      }
-    }
+    const email = document.getElementById('loginCorreo').value;
+    const password = document.getElementById('loginContra').value;
+    loginConfig(email, password)
+      .then(() => {
+        console.log(email, password);
+        navigateTo('/muro');
+      })
+      .catch((error) => {
+        if (error.code === 'auth/user-not-found') {
+          alert('no esta registrado');
+        } else if (error.code === 'auth/wrong-password') {
+          alert('contraseña incorrecta');
+        } else {
+          console.log(error.message);
+        }
+        return error;
+      });
   });
 
   messageLogin.textContent = 'Iniciar Sesión';

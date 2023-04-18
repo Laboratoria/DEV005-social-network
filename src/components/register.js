@@ -1,4 +1,4 @@
-import { newAccount, registerWithGoogle } from '../lib/auth';
+import { newAccount, accessWithGoogle} from '../lib/auth';
 
 function register(navigateTo) {
   const sectionReg = document.createElement('section');
@@ -55,7 +55,9 @@ function register(navigateTo) {
     }
   });
 
-  btnRegWithGoogle.addEventListener('click', registerWithGoogle);
+  btnRegWithGoogle.addEventListener('click', () => {
+    accessWithGoogle(navigateTo);
+  });
 
   divContainer.append(
     inputEmail,

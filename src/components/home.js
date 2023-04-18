@@ -1,3 +1,5 @@
+import { logInWithEmail, accessWithGoogle } from '../lib/auth';
+
 function home(navigateTo) {
   const sectionHome = document.createElement('section');
   sectionHome.id = 'container-home';
@@ -53,10 +55,23 @@ function home(navigateTo) {
   Publica ideas e imágenes para compartir información gatuna.`;
 
   btnLogIn.addEventListener('click', () => {
-    // const email = inputEmail.value;
-    // const password = inputPass.value;
-    // userCredential = (email, password);
-    navigateTo('/wall');
+    const mail = email.value;
+    const passwrd = password.value;
+    if (mail === '' || passwrd === '') {
+      alert('Ingrese usuario y/o contraseña');
+    } else {
+      logInWithEmail(mail, passwrd).then(() => {
+        alert('Sesión iniciada');
+        navigateTo('/wall');
+      }).catch((error) => {
+        alert('Error al iniciar sesión');
+        console.log(error);
+      });
+    }
+  });
+
+  googleLogIn.addEventListener('click', () => {
+    accessWithGoogle(navigateTo);
   });
 
   btnRegister.addEventListener('click', () => {

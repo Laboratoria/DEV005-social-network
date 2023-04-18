@@ -1,5 +1,6 @@
 function mainScreen() {
-  const postForm = document.createElement('form');
+  const postForm = document.createElement('div');
+  postForm.classList.add('mainScreen');
   postForm.innerHTML = `
     <form>
     <textarea class="postForm" placeholder= "Comparte tu negocio..."></textarea>

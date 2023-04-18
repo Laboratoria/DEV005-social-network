@@ -6,9 +6,19 @@ export const loginApp = (email, password, loginError) => {
     .then(() => {
       // console.log(userCredential.user);
     })
-    .catch(() => {
-      // console.log(error);
+    .catch((error) => {
       password.value = '';
-      loginError.textContent = 'Correo o contraseña incorrecto';
+      // Posibles errores de autenticación
+      if (error.code === 'auth/wrong-password') {
+        loginError.textContent = 'Contraseña incorrecta';
+      } else if (error.code === 'auth/user-not-found') {
+        loginError.textContent = 'El usuario no existe';
+      } else if (error.code === 'auth/invalid-email') {
+        loginError.textContent = 'Correo inválido';
+      } else if (error.code === 'auth/too-many-requests') {
+        loginError.textContent = 'Demasiados intentos';
+      } else {
+        loginError.textContent = 'Ingresa los datos requeridos';
+      }
     });
 };

@@ -1,4 +1,4 @@
-function mainScreen() {
+function home() {
   const postForm = document.createElement('form');
   postForm.innerHTML = `
     <form>
@@ -8,4 +8,4 @@ function mainScreen() {
   return postForm;
 }
 
-export { mainScreen };
+export { home };

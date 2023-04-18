@@ -32,12 +32,25 @@ function register(navigateTo) {
   const buttonSaveInformation = formularioRegister.querySelector('.buttonSaveInformation');
   buttonSaveInformation.addEventListener('click', (e) => {
     e.preventDefault();
-    const email = document.getElementById('emailRegister');
-    const password = document.getElementById('passwordRegister');
-    registerConfig(email, password).then(() => {
-      console.log(email, password);
-      navigateTo('/login');
-    });
+    const email = document.getElementById('emailRegister').value;
+    const password = document.getElementById('passwordRegister').value;
+    registerConfig(email, password)
+      .then(() => {
+        console.log(email, password);
+        navigateTo('/login');
+      })
+      .catch((error) => {
+        if (error.code === 'auth/email-already-in-user') {
+          alert('correo en uso');
+        } else if (error.code === 'auth/invalid-email') {
+          alert('correo inválido');
+        } else if (error.code === 'auth/weak-password') {
+          alert('contraseña muy corta');
+        } else {
+          alert('otro problema');
+        }
+        return error;
+      });
   });
 
   //(evento click

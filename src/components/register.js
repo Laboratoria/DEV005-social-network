@@ -1,10 +1,10 @@
-// import registroApp  from '..controller.js'
+// eslint-disable-next-line import/no-named-as-default
+import registerConfig from '../lib/registerConfig.js';
 
-function register() {
+function register(navigateTo) {
   const formularioRegister = document.createElement('div');
   formularioRegister.className = 'formularioRegister';
 
-  // formularioRegister.innerHTML = '';
   formularioRegister.innerHTML += `
   <div class="registerDiv"> 
    <div class="imgRegister"> 
@@ -18,13 +18,22 @@ function register() {
     </form>
   </div>`;
 
-  const registrarse = formularioRegister.querySelector('.infoRegister');
-  console.log(registrarse);
+  // TODO: botón para registrar
+  const buttonSaveInformation = formularioRegister.querySelector('.buttonSaveInformation');
+  console.log(buttonSaveInformation);
+  buttonSaveInformation.addEventListener('click', (event) => {
+    event.preventDefault();
+    const email = document.querySelector('.emailRegister').value;
+    console.log(email);
+    const password = document.querySelector('.passwordRegister').value;
+    console.log(password);
+    registerConfig(email, password)
+      .then(() => {
+        console.log(email, password);
+        navigateTo('/login');
+      });
+  });
 
-  //(evento click
-  //registroApp(emailUser, passworUser).then(res=>dkaldkas)
-
-  console.log(formularioRegister);
   return formularioRegister;
 }
 

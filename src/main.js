@@ -1,5 +1,5 @@
 // importar
-import { onAuthStateChanged } from 'firebase/auth';
+// import { onAuthStateChanged } from 'firebase/auth';
 import home from './components/home.js';
 import login from './components/login.js';
 import error from './components/error404.js';
@@ -7,7 +7,7 @@ import register from './components/register.js';
 
 import './lib/loginConfig.js';
 import './lib/registerConfig.js';
-import { auth } from './lib/firebaseConfig.js';
+// import { auth } from './lib/firebaseConfig.js';
 // Nombre: foodMatch
 
 const routes = [
@@ -15,6 +15,7 @@ const routes = [
   { path: '/error', component: error },
   { path: '/login', component: login },
   { path: '/register', component: register },
+  { path: '/muro', component: register },
 ];
 
 const defaultRoute = '/';
@@ -29,7 +30,7 @@ function navigateTo(hash) {
     if (root.firstChild) {
       root.removeChild(root.firstChild);
     }
-    root.appendChild(route.component());
+    root.appendChild(route.component(navigateTo));
   } else {
     navigateTo('/error');
   }
@@ -41,7 +42,7 @@ window.onpopstate = () => {
 
 navigateTo(window.location.pathname || defaultRoute);
 
-function initializar() {
+/* function initializar() {
   onAuthStateChanged(auth, (user) => {
     const currentRoute = window.location.pathname;
     if (user) {
@@ -54,4 +55,4 @@ function initializar() {
   });
 }
 
-initializar();
+initializar(); */

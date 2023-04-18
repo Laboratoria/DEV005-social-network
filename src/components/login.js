@@ -1,6 +1,10 @@
+import { async } from 'regenerator-runtime';
+import { loginConfig } from '../lib/loginConfig';
+
 function login(navigateTo) {
   const loginDiv = document.createElement('div');
   loginDiv.className = 'loginDiv';
+  loginDiv.id = 'loginDiv';
 
   const imgLogin = document.createElement('div');
   imgLogin.className = 'imgLogin';
@@ -8,28 +12,52 @@ function login(navigateTo) {
   const messageLogin = document.createElement('h2');
   messageLogin.className = 'messageLogin';
 
-  const credencialesdiv = document.createElement('form');
+  const credencialesdiv = document.createElement('div');
   credencialesdiv.className = 'credencialesdiv';
-  credencialesdiv.setAttribute('id', 'formulario');
 
-  credencialesdiv.innerHTML = '';
-  credencialesdiv.innerHTML = '<input type="email" class="loginCorreo" placeholder="Correo Electrónico" required><input type="password" class="loginContra" placeholder="Contraseña" required><button class="buttonReturn" type="submit">Ingresar</button>';
+  const loginCorreo = document.createElement('input');
+  loginCorreo.setAttribute('type', 'text');
+  loginCorreo.className = 'loginCorreo';
+  loginCorreo.id = 'loginCorreo';
 
-  const mensajeregister = document.createElement('span');
-  mensajeregister.className = 'mensajeregister';
-  mensajeregister.addEventListener('click', () => {
+  const loginContra = document.createElement('input');
+  loginContra.className = 'loginContra';
+  loginContra.id = 'loginContra';
+
+  const mensajelogin = document.createElement('span');
+  mensajelogin.className = 'mensajelogin';
+  mensajelogin.addEventListener('click', () => {
     navigateTo('/register');
   });
 
+  const buttonReturn = document.createElement('button');
+  buttonReturn.className = 'buttonReturn';
+
+  buttonReturn.addEventListener('click', async (e) => {
+    e.preventDefault();
+    const email = document.getElementsById('loginCorreo').value;
+    const password = document.getElementsById('loginContra').value;
+    loginConfig(email, password).then(() => {
+      console.log(email, password);
+      navigateTo('/muro');
+    });
+  });
+
   messageLogin.textContent = 'Iniciar Sesión';
-  mensajeregister.innerHTML = ` ¿No tienes una cuenta?
+  loginCorreo.placeholder = 'Correo Electrónico';
+  loginContra.placeholder = 'Contraseña';
+  mensajelogin.innerHTML = `¿No tienes una cuenta?
   <strong>Regístrate</strong>`;
+  buttonReturn.textContent = 'Ingresar';
 
-  loginDiv.append(imgLogin, messageLogin, credencialesdiv, mensajeregister);
-
-  const formulario = document.querySelector('.credencialesdiv');
-  console.log(formulario);
-
+  loginDiv.append(
+    imgLogin,
+    messageLogin,
+    credencialesdiv,
+    buttonReturn,
+    mensajelogin,
+  );
+  credencialesdiv.append(loginCorreo, loginContra);
   return loginDiv;
 }
 

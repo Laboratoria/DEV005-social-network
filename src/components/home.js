@@ -29,21 +29,25 @@ function home(navigateTo) {
   const icongithub = document.createElement('div');
   icongithub.className = 'icongithub';
   // ? mensaje
-  const mensajeregister = document.createElement('span');
-  mensajeregister.className = 'mensajeregister';
+  const registrarAhora = document.createElement('span');
+  registrarAhora.className = 'registrarAhora';
 
   buttonemail.textContent = 'Continuar con Email';
   buttonemail.addEventListener('click', () => {
     navigateTo('/login');
   });
+  registrarAhora.addEventListener('click', () => {
+    navigateTo('/register');
+  });
+
   buttongoogle.textContent = 'Continuar con Google';
   buttontwitter.textContent = 'Continuar con Twitter';
   buttongithub.textContent = 'Continuar con Github';
-  mensajeregister.innerHTML = ` ¿No tienes una cuenta?
+  registrarAhora.innerHTML = ` ¿No tienes una cuenta?
   <strong>Regístrate ahora</strong>`;
   messagehome.textContent = 'Bienvenido a Food Match';
 
-  homediv.append(imghome, messagehome, buttondiv, mensajeregister);
+  homediv.append(imghome, messagehome, buttondiv, registrarAhora);
   buttondiv.append(buttonemail, buttongoogle, buttontwitter, buttongithub);
   buttonemail.appendChild(iconemail);
   buttongoogle.appendChild(icongoogle);

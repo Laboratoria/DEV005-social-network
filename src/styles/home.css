@@ -112,7 +112,7 @@ body{
     font-size: 25px;
   }
 
-  .mensajeregister{
+  .registrarAhora{
     width: 200px;
     margin: 10px auto 10px;
     text-align:center;
@@ -201,7 +201,7 @@ body{
     border-radius: 10px;
     font-size: 18px;
     flex-direction: column;
-    top: 120px;
+    top: 450px;
     padding: 12px;
     width: 90%;
     background: #F2B872;
@@ -209,10 +209,12 @@ body{
     font-family: 'Poppins';
     border-style: none;
   }
-  .mensajeregister {
+  .mensajelogin {
     position: absolute;
+    display: flex;
     flex-direction: column;
-    width: 200px;
+    align-items: center;
+    width: 430px;
     margin: 10px auto 10px;
     top:550px;
   }

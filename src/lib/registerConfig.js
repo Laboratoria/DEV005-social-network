@@ -1,23 +1,30 @@
-/* import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from './firebaseConfig';
 
-const registrarse = document.querySelector('.infoRegister');
-console.log(registrarse);
+export const registerConfig = (email, password) => {
+  createUserWithEmailAndPassword(auth, email, password).then((userCredential) => {
+    createUserWithEmailAndPassword(
+      auth,
+      email.value,
+      password.value,
+    );
+    return userCredential;
+  })
+    .catch((error) => {
+      console.log(error.message);
+      console.log(error.code);
 
-registrarse.addEventListener('submit', async (e) => {
-  e.preventDefault();
+      if (error.code === 'auth/email-already-in-user') {
+        alert('correo en uso');
+      } else if (error.code === 'auth/invalid-email') {
+        alert('correo invalido');
+      } else if (error.code === 'auth/weak-password') {
+        alert('contraseña muy corta');
+      } else {
+        alert('otro problema');
+      }
+      return error;
+    });
+};
 
-  const email = registrarse.emailregister.value;
-  const password = registrarse.passwordregister.value;
-  const passwordConf = registrarse.checkPasswordRegister.value;
-  console.log(email, password, passwordConf);
-
-  // para considerar los errores lo colocaremos dentro de un try catch
-
-  try {
-    const result = await createUserWithEmailAndPassword(auth, email, password);
-    console.log(result);
-  } catch (error) {
-    console.log(error);
-  }
-}); */
+export default registerConfig;

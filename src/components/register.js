@@ -1,6 +1,6 @@
 import registerConfig from '../lib/registerConfig.js';
 
-function register(navigateTo) {
+const register = (navigateTo) => {
   const formularioRegister = document.createElement('div');
   formularioRegister.className = 'formularioRegister';
 
@@ -17,23 +17,16 @@ function register(navigateTo) {
             <button class="buttonSaveInformation" type="submit">Guardar</button>
     </form>
   </div>`;
-
-  const registrarse = formularioRegister.querySelector('.infoRegister');
-  //console.log(registrarse);
-  const iconEmail = document.createElement('div');
-  iconEmail.className = 'iconEmail1';
-  const iconPassword = document.createElement('div');
-  iconPassword.className = 'iconPassword';
-
-  /* ButtonSaveInformation.addEventListener('click', () => {
+  /* uttonSaveInformation.addEventListener('click', () => {
     navigateTo('/login');
   }); */
-  //TODO: botón para registrar
+
+  // TODO: botón para registrar
   const buttonSaveInformation = formularioRegister.querySelector('.buttonSaveInformation');
-  buttonSaveInformation.addEventListener('click', (e) => {
+  buttonSaveInformation.addEventListener('click', async (e) => {
     e.preventDefault();
-    const email = document.getElementById('emailRegister').value;
-    const password = document.getElementById('passwordRegister').value;
+    const email = formularioRegister.getElementById('emailRegister').value;
+    const password = formularioRegister.getElementById('passwordRegister').value;
     registerConfig(email, password)
       .then(() => {
         console.log(email, password);
@@ -52,11 +45,7 @@ function register(navigateTo) {
         return error;
       });
   });
-
-  //(evento click
-  //registroApp(emailUser, passworUser).then(res=>dkaldkas)
-
-  //console.log(formularioRegister);
   return formularioRegister;
-}
-export default register
+};
+
+export default register;

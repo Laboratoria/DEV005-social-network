@@ -1,5 +1,5 @@
 import {
-  GoogleAuthProvider, GithubAuthProvider,
+  GoogleAuthProvider,
   signInWithPopup,
 } from 'firebase/auth';
 import { auth, provider } from '../lib/firebaseConfig.js';
@@ -38,12 +38,12 @@ function home(navigateTo) {
     e.preventDefault();
     githubConfig(e).then(() => {
       console.log(githubConfig);
-      //navigateTo('/login');
+      // navigateTo('/login');
+    });
   });
-})
   const icongithub = document.createElement('div');
   icongithub.className = 'icongithub';
-    // ?  
+  // ?
   const registrarAhora = document.createElement('span');
   registrarAhora.className = 'registrarAhora';
 
@@ -58,7 +58,7 @@ function home(navigateTo) {
       const credentials = await signInWithPopup(auth, provider);
       console.log(credentials);
       console.log('sign in with google');
-      //navigateTo('/muro');
+      // navigateTo('/muro');
     } catch (error) {
       console.log(error.message);
     }
@@ -73,7 +73,7 @@ function home(navigateTo) {
   messagehome.textContent = 'Bienvenido a Food Match';
 
   homediv.append(imghome, messagehome, buttondiv, registrarAhora);
-  buttondiv.append(buttonemail, buttongoogle, buttontwitter, buttongithub);//, buttongithub
+  buttondiv.append(buttonemail, buttongoogle, buttontwitter, buttongithub);// , buttongithub
   buttonemail.appendChild(iconemail);
   buttongoogle.appendChild(icongoogle);
   buttontwitter.appendChild(icontwitter);

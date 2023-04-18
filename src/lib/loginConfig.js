@@ -1,7 +1,6 @@
 // Acceso de usuarios existentes
 // https://firebase.google.com/docs/auth/web/start?hl=es-419#web-version-9_1
-
-/*import {
+import {
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
@@ -21,12 +20,10 @@ export const loginConfig = (email, password) => new Promise((resolve, reject) =>
       reject(errorCode);
     });
 });
-
 export const loginWithGoogle = async () => {
   const provider = new GoogleAuthProvider();
   try {
     const credentials = await signInWithPopup(auth, provider);
-
     console.log(credentials);
     console.log('sign in with google');
   } catch (error) {
@@ -45,5 +42,4 @@ export const obtenerUsuarioActual = () => {
   });
 };
 */
-
 // salir de sesión

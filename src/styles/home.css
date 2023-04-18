@@ -167,7 +167,7 @@ body{
     align-items: center;
     width: 100%;
     font-size: 25px;
-    top: 270px;
+    top: 210px;
   }
 
   .credencialesdiv {
@@ -229,9 +229,11 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 200px;
+    text-align: center;
+    width: 100%;
     margin: 10px auto 10px;
     top: 530px;
+
   }
 
 /*Register*/
@@ -278,41 +280,45 @@ body{
     
   }
   
-  .emailRegister, .passwordRegister, .checkPasswordRegister {
-    position: relative;
-    margin: 8px 0px 0px 8px;
-    border-radius: 10px;
-    padding: 12px 0px 12px 60px;
-    font-size: 18px;
-    font-family: 'Poppins';
-    border-style: none;
-    width: 90%;
-    
-  }
-  .buttonSaveInformation{
-    position: absolute;
-    margin: 7px 0px 0px 8px;
+  .emailRegister {
+    margin: 8px 8px 0px 8px;
     border-radius: 10px;
     padding: 12px;
     font-size: 18px;
-    font-family: 'Poppins';   
-    border-style: none;
-    top: 180px;
-    background-color: #F2B872;
     width: 90%;
-  }
-  .iconEmail1, .iconPassword {
-    position: absolute;
-    display: flex;  
-  }
-  .emailRegister{
+    font-family: 'Poppins';
+    border-style: none;
     background-image:url(../assets/icon_email.png);
     background-repeat: no-repeat;
-    background-position: 20px center;    
+    background-position: 20px center; 
+    padding: 12px 0px 12px 60px;
+    
   }
-  .passwordRegister,.checkPasswordRegister{
+  .passwordRegister, .checkPasswordRegister{
+    margin: 8px 8px 0px 8px;
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 18px;
+    width: 90%;
+    font-family: 'Poppins';
+    border-style: none;
     background-image:url(../assets/icon_password.png);
     background-repeat: no-repeat;
     background-position: 20px center;
+    padding: 12px 0px 12px 60px;
+  }
+  .buttonSaveInformation{
+    position: absolute;
+    margin: 8px 8px 0px 8px;
+    border-radius: 10px;
+    font-size: 18px;
+    flex-direction: column;
+    top: 178px;
+    padding: 12px;
+    width: 90%;
+    background: #F2B872;
+    align-items: center;
+    font-family: 'Poppins';
+    border-style: none;
   }
 }

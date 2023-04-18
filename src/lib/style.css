@@ -289,7 +289,20 @@
     color: #FFFEFE;
 }
 
-/* Pantalla principal*/
+/* Home*/
+
+.logoHome {
+    
+}
+
+.home {
+    display: flex;
+   flex-direction: column;
+   align-items: center; 
+   background-color: #B2CAEC;
+   background-size: cover;
+   height: 100vh;
+} 
 
 .postForm {
     display: flex;

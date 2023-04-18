@@ -14,32 +14,50 @@ body{
 /* Estilos para celular */
 
 @media(max-width: 480px) {
-  .homediv{
-    position: absolute;
-    top: 10%;
-    width: 100%; /*comentario*/
-    height: 500px;
+  .homediv, .loginDiv, .registerDiv{
+    position: relative;
+    top: 20px;
+    width: 100vw;
+    height: 100vh;
+    bottom: 20px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
   }
   
-  .imghome{
+  .imghome, .imgLogin, .imgRegister{
     position: absolute;
     background-image: url(../assets/image-food.png);
     width: 200px;
     height: 200px;
+    top: 60px;
     background-repeat: no-repeat;
     background-size: cover;
-    top: 0%;
-    left: 20%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+  .messagehome, .messageLogin{
+    position: absolute;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    font-size: 25px;
+    top: 270px;
   }
 
   .buttondiv{
-    margin: 250px 10px 0px 10px;
-    position: relative;
+    position: absolute;
     display: flex;
     flex-direction: column;
-    justify-content: center; /*comentario*/
+    justify-content: center;
+    background-size: cover;
+    align-items: center;
+    top: 320px;
+    height: auto;
+    width: 90%;
   }
   
   .buttonemail, .buttongoogle,
@@ -50,6 +68,7 @@ body{
     font-size: 18px;
     border-style: none;
     font-family: 'Poppins';
+    width: 90%;
   }
 
   .buttonemail:hover, .buttongoogle:hover,
@@ -64,7 +83,7 @@ body{
   .iconemail{
     position: absolute;
     top: 8%;
-    left: 8%;
+    left: 9%;
     background-image: url(../assets/icon_email.png);
     width: 30px;
     height: 30px;
@@ -104,18 +123,14 @@ body{
     background-repeat: no-repeat;
     background-size: contain;
   }
-  
-  .messagehome{
+  .registrarAhora{
     position: absolute;
-    top: 40%;
-    left: 6%;
-    font-size: 25px;
-  }
-
-  .mensajeregister{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 200px;
     margin: 10px auto 10px;
-    text-align:center;
+    top: 570px;
   } 
   
   /* Login*/
@@ -209,12 +224,14 @@ body{
     font-family: 'Poppins';
     border-style: none;
   }
-  .mensajeregister {
+  .mensajelogin {
     position: absolute;
+    display: flex;
     flex-direction: column;
+    align-items: center;
     width: 200px;
     margin: 10px auto 10px;
-    top:550px;
+    top: 530px;
   }
 
 /*Register*/
@@ -244,7 +261,7 @@ body{
     flex-direction: column;
   }
   .menssageRegisterRouter{
-    top: 260px;
+    top: 200px;
     text-align: center;
     font-size: 25px;
     width: 100%;
@@ -280,9 +297,9 @@ body{
     font-size: 18px;
     font-family: 'Poppins';   
     border-style: none;
-    top: 490px;
+    top: 180px;
     background-color: #F2B872;
-    width: 82.5%;
+    width: 90%;
   }
   .iconEmail1, .iconPassword {
     position: absolute;

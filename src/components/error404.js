@@ -8,12 +8,18 @@ const error = (navigateTo) => {
   const infoerror = document.createElement('div');
   infoerror.className = 'infoerror';
 
-  img.innerHTML = `
-  <img src="https://ouch-cdn2.icons8.com/fw27uy16PJ2XpAN2TXRuFg1uSS6nK5O0HDAzTNwEjbE/rs:fit:256:256/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvNDI5/L2VjYTRiOTVlLWNm/MWUtNDIwMS1iYTAy/LWNlNGNhYTY0MGIz/Yy5wbmc.png">
-  alt="error404" ` 
+  const messageerror = document.createElement('h2');
+  messageerror.className = 'messageerror';
 
-  section.appendChild(img)
-  return section;
+  const othermessage = document.createElement('p');
+  othermessage.className = 'othermessage';
+
+  messageerror.textContent = 'Error 404';
+  othermessage.textContent = 'Página no encontrada';
+  btnerror.textContent = 'Ir a home';
+  btnerror.addEventListener('click', () => {
+    navigateTo('/');
+  });
 
   diverror.append(imgerror, infoerror);
   infoerror.append(messageerror, othermessage, btnerror);

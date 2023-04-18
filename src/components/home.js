@@ -1,8 +1,9 @@
 import {
-  GoogleAuthProvider,
+  GoogleAuthProvider, GithubAuthProvider,
   signInWithPopup,
 } from 'firebase/auth';
-import { auth } from '../lib/firebaseConfig.js';
+import { auth, provider } from '../lib/firebaseConfig.js';
+import { githubConfig } from '../lib/githubConfig.js';
 
 function home(navigateTo) {
   const homediv = document.createElement('div');
@@ -33,11 +34,18 @@ function home(navigateTo) {
   // ? botón de github
   const buttongithub = document.createElement('button');
   buttongithub.className = 'buttongithub';
+  buttongithub.addEventListener('click', (e) => {
+    e.preventDefault();
+    githubConfig(e).then(() => {
+      console.log(githubConfig);
+      //navigateTo('/login');
+  });
+})
   const icongithub = document.createElement('div');
   icongithub.className = 'icongithub';
-  // ? mensaje
-  const mensajeregister = document.createElement('span');
-  mensajeregister.className = 'mensajeregister';
+    // ?  
+  const registrarAhora = document.createElement('span');
+  registrarAhora.className = 'registrarAhora';
 
   buttonemail.textContent = 'Continuar con Email';
   buttonemail.addEventListener('click', () => {
@@ -50,26 +58,26 @@ function home(navigateTo) {
       const credentials = await signInWithPopup(auth, provider);
       console.log(credentials);
       console.log('sign in with google');
-      navigateTo('/muro');
+      //navigateTo('/muro');
     } catch (error) {
       console.log(error.message);
     }
   });
   buttontwitter.textContent = 'Continuar con Twitter';
   buttongithub.textContent = 'Continuar con Github';
-  mensajeregister.innerHTML = ` ¿No tienes una cuenta?
+  registrarAhora.innerHTML = ` ¿No tienes una cuenta?
   <strong>Regístrate ahora</strong>`;
-  mensajeregister.addEventListener('click', () => {
+  registrarAhora.addEventListener('click', () => {
     navigateTo('/register');
   });
   messagehome.textContent = 'Bienvenido a Food Match';
 
-  homediv.append(imghome, messagehome, buttondiv, mensajeregister);
-  buttondiv.append(buttonemail, buttongoogle, buttontwitter, buttongithub);
+  homediv.append(imghome, messagehome, buttondiv, registrarAhora);
+  buttondiv.append(buttonemail, buttongoogle, buttontwitter, buttongithub);//, buttongithub
   buttonemail.appendChild(iconemail);
   buttongoogle.appendChild(icongoogle);
   buttontwitter.appendChild(icontwitter);
-  buttongithub.appendChild(icongithub);
+  buttongithub.append(icongithub);
   return homediv;
 }
 

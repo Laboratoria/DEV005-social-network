@@ -18,20 +18,47 @@ function login(navigateTo) {
   credencialesdiv.innerHTML = '';
   credencialesdiv.innerHTML = '<input type="email" class="loginCorreo" placeholder="Correo Electrónico" required><input type="password" class="loginContra" placeholder="Contraseña" required><button class="buttonReturn" type="submit">Ingresar</button>';
 
-  const mensajeregister = document.createElement('span');
-  mensajeregister.className = 'mensajeregister';
-  mensajeregister.addEventListener('click', () => {
+  const mensajelogin = document.createElement('span');
+  mensajelogin.className = 'mensajelogin';
+  mensajelogin.addEventListener('click', () => {
     navigateTo('/register');
   });
-  buttonReturn.className = 'buttonReturn';
+  /*const buttonReturn = credencialesdiv.getElementsByClassName('buttonReturn');
+  buttonReturn.addEventListener('click', async (e) => {
+    e.preventDefault();
+    const email = document.getElementsByClassName('#loginCorreo');
+    const password = document.getElementsByClassName('#loginContra');
+
+    try {
+      const credentials = await signInWithEmailAndPassword(
+        auth,
+        email.value,
+        password.value,
+      );
+      console.log(credentials);
+      navigateTo('/muro');
+    } catch (error) {
+      console.log(error);
+      console.log(error.code);
+
+      if (error.code === 'auth/user-not-found') {
+        alert('correo en uso');
+      } else if (error.code === 'auth/invalid-email') {
+        alert('correo inválido');
+      } else if (error.code === 'auth/weak-password') {
+        alert('contraseña muy corta');
+      } else {
+        alert('otro problema');
+      }
+    }
+  });*/
 
   messageLogin.textContent = 'Iniciar Sesión';
-  mensajeregister.innerHTML = ` ¿No tienes una cuenta?
-  <strong>Regístrate</strong>`;
-  buttonReturn.textContent = 'Ingresar';
+  mensajelogin.innerHTML = ` ¿No tienes una cuenta?
+  <strong>Regístrate ahora</strong>`;
 
-  loginDiv.append(imgLogin, messageLogin, credencialesdiv);
-  credencialesdiv.append(loginCorreo, loginContra);
+  loginDiv.append(imgLogin, messageLogin, credencialesdiv, mensajelogin);
+  //credencialesdiv.append(loginCorreo, loginContra);
+  return loginDiv;
 }
-
 export default login;

@@ -3,12 +3,12 @@ import { onAuthStateChanged } from 'firebase/auth';
 import home from './components/home.js';
 import login from './components/login.js';
 import error from './components/error404.js';
-import login from './components/login.js';
 import register from './components/register.js';
 import muro from './components/muro.js';
 
 import './lib/loginConfig.js';
 import './lib/registerConfig.js';
+import './lib/githubConfig.js';
 import { auth } from './lib/firebaseConfig.js';
 // Nombre: foodMatch
 
@@ -32,7 +32,7 @@ const navigateTo = (hash) => {
     if (root.firstChild) {
       root.removeChild(root.firstChild);
     }
-    root.appendChild(route.component());
+    root.appendChild(route.component(navigateTo));
   } else {
     navigateTo('/error');
   }

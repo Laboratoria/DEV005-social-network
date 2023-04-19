@@ -1,6 +1,9 @@
+/*import { signUpForm } from '../lib/auth';*/
+
 function registro(navigateTo) {
   const section = document.createElement('section');
   section.class = 'formulario';
+
   /* Elementos */
   const form1 = document.createElement('div');
   form1.classList.add('register');
@@ -62,7 +65,13 @@ function registro(navigateTo) {
   });
 
   const register = document.createElement('button');
+  register.id = 'regist';
   register.textContent = 'Registrarse';
+  /*register.addEventListener('click', () => {
+    // Agregar un manejador de eventos para el botón de registro
+    signUpForm(); // Llamar la función registrationForm
+    console.log('si sirvo');
+  });*/
 
   title.textContent = 'Pet Registro';
 

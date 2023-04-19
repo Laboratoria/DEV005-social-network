@@ -1,10 +1,10 @@
 import registerConfig from '../lib/registerConfig.js';
 
 const register = (navigateTo) => {
-  const formularioRegister = document.createElement('div');
-  formularioRegister.className = 'formularioRegister';
+  const formularioRegister = document.createElement("div");
+  formularioRegister.className = "formularioRegister";
 
-  formularioRegister.innerHTML = '';
+  formularioRegister.innerHTML = "";
   formularioRegister.innerHTML += `
   <div class="registerDiv"> 
    <div class="imgRegister"> 
@@ -22,25 +22,27 @@ const register = (navigateTo) => {
   }); */
 
   // TODO: botón para registrar
-  const buttonSaveInformation = formularioRegister.querySelector('.buttonSaveInformation');
-  buttonSaveInformation.addEventListener('click', async (e) => {
+  const buttonSaveInformation = formularioRegister.querySelector(
+    ".buttonSaveInformation"
+  );
+  buttonSaveInformation.addEventListener("click", async (e) => {
     e.preventDefault();
-    const email = formularioRegister.getElementById('emailRegister').value;
-    const password = formularioRegister.getElementById('passwordRegister').value;
+    const email = document.getElementById("emailregister").value;
+    const password = document.getElementById("passwordregister").value;
     registerConfig(email, password)
       .then(() => {
         console.log(email, password);
-        navigateTo('/login');
+        navigateTo("/login");
       })
       .catch((error) => {
-        if (error.code === 'auth/email-already-in-user') {
-          alert('correo en uso');
-        } else if (error.code === 'auth/invalid-email') {
-          alert('correo inválido');
-        } else if (error.code === 'auth/weak-password') {
-          alert('contraseña muy corta');
+        if (error.code === "auth/email-already-in-user") {
+          alert("correo en uso");
+        } else if (error.code === "auth/invalid-email") {
+          alert("correo inválido");
+        } else if (error.code === "auth/weak-password") {
+          alert("contraseña muy corta");
         } else {
-          alert('otro problema');
+          alert("otro problema");
         }
         return error;
       });

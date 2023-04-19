@@ -3,6 +3,7 @@
 import {
   signInWithEmailAndPassword,
   GoogleAuthProvider,
+  GithubAuthProvider,
   signInWithPopup,
 } from 'firebase/auth';
 import { auth } from './firebaseConfig.js';
@@ -30,6 +31,16 @@ export const loginWithGoogle = async () => {
     console.log(error);
   }
 };
+export const loginWithGithub = () => {
+  const providerGithub = new GithubAuthProvider();
+  signInWithPopup(auth, providerGithub)
+    .then((credentials) => {
+      const userGithub = credentials.user;
+      console.log(userGithub);
+      console.log('sign in with Github');
+    });
+};
+
 /*
 const userChange = {};
 export const obtenerUsuarioActual = () => {

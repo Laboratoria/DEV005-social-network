@@ -3,7 +3,7 @@ import {
   signInWithPopup,
 } from 'firebase/auth';
 import { auth, provider } from '../lib/firebaseConfig.js';
-import { githubConfig } from '../lib/githubConfig.js';
+import { loginWithGithub } from '../lib/loginConfig.js';
 
 function home(navigateTo) {
   const homediv = document.createElement('div');
@@ -34,12 +34,13 @@ function home(navigateTo) {
   // ? botón de github
   const buttongithub = document.createElement('button');
   buttongithub.className = 'buttongithub';
-  buttongithub.addEventListener('click', (e) => {
-    e.preventDefault();
-    githubConfig(e).then(() => {
-      console.log(githubConfig);
-      // navigateTo('/login');
-    });
+  buttongithub.addEventListener('click', async () => {
+    try {
+      loginWithGithub();
+      navigateTo('/muro');
+    } catch (error) {
+      console.log(error);
+    }
   });
   const icongithub = document.createElement('div');
   icongithub.className = 'icongithub';
@@ -58,7 +59,7 @@ function home(navigateTo) {
       const credentials = await signInWithPopup(auth, provider);
       console.log(credentials);
       console.log('sign in with google');
-      // navigateTo('/muro');
+      navigateTo('/muro');
     } catch (error) {
       console.log(error.message);
     }

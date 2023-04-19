@@ -25,8 +25,8 @@ function login(navigateTo) {
   const buttonReturn = formularioLogin.querySelector('.buttonReturn');
   buttonReturn.addEventListener('click', async (e) => {
     e.preventDefault();
-    const email = document.getElementById('loginCorreo').value;
-    const password = document.getElementById('loginContra').value;
+    const email = document.getElementsByClassName('loginCorreo').value;
+    const password = document.getElementsByClassName('loginContra').value;    
     loginConfig(email, password)
       .then(() => {
         console.log(email, password);

@@ -13,7 +13,7 @@ export const Wall = (onNavigate) => {
       let html = '';
       data.forEach((doc) => {
         const post = doc.data();
-        const li = `<li>${post.Post}</li>`;
+        const li = `<li class='liPost' >${post.Post}</li>`;
         html += li;
       });
       divPost.innerHTML = html;

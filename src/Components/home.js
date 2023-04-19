@@ -1,4 +1,4 @@
-function home() {
+function home(navigateTo) {
   const postForm = document.createElement('section');
   postForm.classList.add('home');
   postForm.innerHTML = `
@@ -8,6 +8,12 @@ function home() {
     <button type= "submit" class= "post" > Publicar </button>
     </form>
     <button type= "submit" class= "goOut" > Salir </button>`;
+
+  const salir = postForm.querySelector('.goOut');
+  salir.addEventListener('click', () => {
+    navigateTo('/');
+  });
+
   return postForm;
 }
 

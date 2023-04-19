@@ -75,8 +75,8 @@
     font-size: 22px;
     padding-left: 58px;
     border: none;
-    background: #ECE1E1 url(/lib/img/google-google.png) no-repeat 25px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background: white url(/lib/img/google-google.png) no-repeat 25px;
+    box-shadow: 0px 11px 27px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     margin-top: 130px;
 }
@@ -106,7 +106,6 @@
     max-height: 440px;
     width: 89%;
     max-width: 469px;
-    margin: 260px auto;
     border-radius: 19px;
     background: #D9D9D9;
     opacity: 0.9;
@@ -177,7 +176,7 @@
     margin-bottom: 15px;
 }
 
-.bottomText {
+.bottomTextLogin {
     position: absolute;
     top: 817px;
     width: 103%;
@@ -227,7 +226,6 @@
     max-height: 440px;
     width: 89%;
     max-width: 469px;
-    margin: 260px auto;
     border-radius: 19px;
     background: #D9D9D9;
     opacity: 0.9;
@@ -395,22 +393,17 @@
 }
 .goOut{
     position: absolute;
-    flex-direction: column;
-    align-items: center;
-    width: 17%;
-    max-width: 372px;
+    width: 13%;
+    max-width: 375px;
     box-sizing: border-box;
-    height: 68px;
-    font-size: 20px;
-    padding: -18px;
+    height: 57px;
+    font-size: 19px;
     border: none;
-    background: white url(/lib/img/salir.png) no-repeat 28px 8px;
+    background: white url(/lib/img/salir.png) no-repeat 14px 2px;
     border-radius: 15px;
-    margin: -847px 0px 0px 334px;
-    justify-content: flex-end;
-    padding: 4px;
-}
-
+    margin: -848px 0px 4px 358px;
+    padding: 28px 0px 0px 0px;
+    }
 
 /*error*/
 u {
@@ -423,8 +416,9 @@ u {
 }
 
 .imgBug {
-    width: 103%;
-    margin: 169px -2px;
+    width: 94%;
+    margin: 184px 0px 0px 10px;
+    height: 25vh;
     background: none;
 }
 

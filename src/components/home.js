@@ -1,4 +1,4 @@
-import { loginWithGoogle } from '../lib/auth';
+import { loginWithGoogle, loginWithTwitter } from '../lib/auth';
 
 function home(navigateTo) {
   const section = document.createElement('section');
@@ -23,6 +23,9 @@ function home(navigateTo) {
   });
 
   const forgetPass = document.createElement('button');
+
+  const loginMicrosoft = document.createElement('button');
+  const loginTwitter = document.createElement('button');
   const login = document.createElement('button');
 
   img.setAttribute('src', '../img/logo.jpg');
@@ -46,6 +49,18 @@ function home(navigateTo) {
   });
 
   // Iniciar sesión
+  loginMicrosoft.setAttribute('id', 'loginMicrosoft');
+  loginMicrosoft.setAttribute('class', 'loginMicrosoft-b');
+  loginMicrosoft.textContent = 'Inicia sesión con Microsoft';
+  loginTwitter.setAttribute('id', 'loginTwitter');
+
+  loginTwitter.setAttribute('class', 'loginTwitter-b');
+  loginTwitter.addEventListener('click', (e) => {
+    loginTwitter.textContent = 'Inicia sesión con Twitter';
+    e.preventDefault();
+    loginWithTwitter();
+    console.log('si sirvo');
+  });
   login.setAttribute('id', 'login-b');
   login.textContent = 'INICIAR SESIÓN';
   mailUser.textContent = 'Correo electrónico:';
@@ -57,7 +72,18 @@ function home(navigateTo) {
   });
 
   section.append(img, form);
-  form.append(title, mailUser, mail, passUser, password, division, loginGoogle, login);
+  form.append(
+    title,
+    mailUser,
+    mail,
+    passUser,
+    password,
+    division,
+    loginGoogle,
+    loginMicrosoft,
+    loginTwitter,
+    login,
+  );
   division.append(register, forgetPass);
   return section;
 }

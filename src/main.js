@@ -4,6 +4,7 @@ import home from './components/home.js';
 import login from './components/login.js';
 import error from './components/error404.js';
 import register from './components/register.js';
+import muro from './components/muro.js';
 
 import './lib/loginConfig.js';
 import './lib/registerConfig.js';
@@ -15,7 +16,7 @@ const routes = [
   { path: '/error', component: error },
   { path: '/login', component: login },
   { path: '/register', component: register },
-  { path: '/muro', component: register },
+  { path: '/muro', component: muro },
 ];
 
 const defaultRoute = '/';

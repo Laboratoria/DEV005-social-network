@@ -1,29 +1,24 @@
 // https://firebase.google.com/docs/auth/web/start?hl=es-419#web-version-9_1
 
-import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import {
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from 'firebase/auth';
+
 import { auth } from './firebaseConfig.js';
 
-export const loginConfig = (email, password) => {
-  signInWithEmailAndPassword(auth, email, password).then((credential) => {
-    signInWithEmailAndPassword(auth, email.value, password.value);
-    return credential;
+export const loginConfig = (email, password) => new Promise((resolve, reject) => {
+  signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
+    const user = userCredential.user;
+    resolve({ email: user, password: user.password });
+    console.log(userCredential);
   })
     .catch((error) => {
-      console.log(error.message);
-      console.log(error.code);
-
-      if (error.code === 'auth/email-already-in-user') {
-        alert('correo en uso');
-      } else if (error.code === 'auth/invalid-email') {
-        alert('correo invalido');
-      } else if (error.code === 'auth/weak-password') {
-        alert('contraseña muy corta');
-      } else {
-        alert('otro problema');
-      }
-      return error;
+      const errorCode = error.code;
+      reject(errorCode);
     });
-};
+});
 
 export const loginWithGoogle = async () => {
   const provider = new GoogleAuthProvider();

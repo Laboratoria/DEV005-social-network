@@ -53,6 +53,7 @@ function home(navigateTo) {
   buttongoogle.appendChild(icongoogle);
   buttontwitter.appendChild(icontwitter);
   buttongithub.appendChild(icongithub);
+
   return homediv;
 }
 

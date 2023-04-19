@@ -1,30 +1,15 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from './firebaseConfig';
 
-export const registerConfig = (email, password) => {
+export const registerConfig = (email, password) => new Promise((resolve, reject) => {
   createUserWithEmailAndPassword(auth, email, password).then((userCredential) => {
-    createUserWithEmailAndPassword(
-      auth,
-      email.value,
-      password.value,
-    );
-    return userCredential;
+    const user = userCredential.user;
+    resolve({ email: user.email });
   })
     .catch((error) => {
-      console.log(error.message);
-      console.log(error.code);
-
-      if (error.code === 'auth/email-already-in-user') {
-        alert('correo en uso');
-      } else if (error.code === 'auth/invalid-email') {
-        alert('correo invalido');
-      } else if (error.code === 'auth/weak-password') {
-        alert('contraseña muy corta');
-      } else {
-        alert('otro problema');
-      }
-      return error;
+      const errorMessage = error.message;
+      reject(errorMessage);
     });
-};
+});
 
 export default registerConfig;

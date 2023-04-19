@@ -7,7 +7,6 @@ import muro from './components/muro.js';
 
 import './lib/loginConfig.js';
 import './lib/registerConfig.js';
-import { auth } from './lib/firebaseConfig.js';
 // Nombre: foodMatch
 
 const routes = [

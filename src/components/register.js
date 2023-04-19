@@ -1,48 +1,43 @@
 import registerConfig from '../lib/registerConfig.js';
 
 const register = (navigateTo) => {
-  const formularioRegister = document.createElement("div");
-  formularioRegister.className = "formularioRegister";
+  const formularioRegister = document.createElement('div');
+  formularioRegister.className = 'formularioRegister';
 
-  formularioRegister.innerHTML = "";
+  formularioRegister.innerHTML = '';
   formularioRegister.innerHTML += `
-  <div class="registerDiv"> 
-   <div class="imgRegister"> 
-    <h2 class="menssageRegisterRouter">Regístrate</h2>
+  <div class='registerDiv'> 
+   <div class='imgRegister'> 
+    <h2 class='menssageRegisterRouter'>Regístrate</h2>
    </div>
-    <form class="infoRegister" id="formulario">
-      <input type="email" class="emailRegister" id="emailregister" placeholder="Iniciar sesión" required> 
-        <input type="password" class="passwordRegister" id="passwordregister" placeholder="Contraseña" required>
-          <input type="password" class="checkPasswordRegister" id= "checkPasswordRegister" placeholder="Repetir contraseña" required>
-            <button class="buttonSaveInformation" type="submit">Guardar</button>
+    <form class='infoRegister' id='formulario'>
+      <input type='email' class='emailRegister' id='emailregister' placeholder='Iniciar sesión' required> 
+        <input type='password' class='passwordRegister' id='passwordregister' placeholder='Contraseña' required>
+          <input type='password' class='checkPasswordRegister' id= 'checkPasswordRegister' placeholder='Repetir contraseña' required>
+            <button class='buttonSaveInformation' type='submit'>Guardar</button>
     </form>
   </div>`;
-  /* uttonSaveInformation.addEventListener('click', () => {
-    navigateTo('/login');
-  }); */
 
   // TODO: botón para registrar
-  const buttonSaveInformation = formularioRegister.querySelector(
-    ".buttonSaveInformation"
-  );
-  buttonSaveInformation.addEventListener("click", async (e) => {
+  const buttonSaveInformation = formularioRegister.querySelector('.buttonSaveInformation');
+  buttonSaveInformation.addEventListener('click', async (e) => {
     e.preventDefault();
-    const email = document.getElementById("emailregister").value;
-    const password = document.getElementById("passwordregister").value;
+    const email = document.getElementById('emailregister').value;
+    const password = document.getElementById('passwordregister').value;
     registerConfig(email, password)
       .then(() => {
         console.log(email, password);
-        navigateTo("/login");
+        navigateTo('/login');
       })
       .catch((error) => {
-        if (error.code === "auth/email-already-in-user") {
-          alert("correo en uso");
-        } else if (error.code === "auth/invalid-email") {
-          alert("correo inválido");
-        } else if (error.code === "auth/weak-password") {
-          alert("contraseña muy corta");
+        if (error.code === 'auth/email-already-in-user') {
+          alert('correo en uso');
+        } else if (error.code === 'auth/invalid-email') {
+          alert('correo inválido');
+        } else if (error.code === 'auth/weak-password') {
+          alert('contraseña muy corta');
         } else {
-          alert("otro problema");
+          alert('otro problema');
         }
         return error;
       });

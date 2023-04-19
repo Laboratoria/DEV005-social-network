@@ -15,16 +15,11 @@ export function login(navigateTo) {
     <span class="note1" id"note1"></span>
     <button class="getInt">Ingresar</button>
     </form>
-    <button class="bottomText">¿No tienes una cuenta? Regístrate</button>
+    <button class="bottomTextLogin">¿No tienes una cuenta? Regístrate</button>
     </section >
     `;
 
-  /* const sigIn = sectionLogin.querySelector('.getInt');
-  sigIn.addEventListener('click', () => {
-    navigateTo('/emprende');
-  }); */
-
-  const checkIn = sectionLogin.querySelector('.bottomText');
+  const checkIn = sectionLogin.querySelector('.bottomTextLogin');
   checkIn.addEventListener('click', () => {
     navigateTo('/register');
   });
@@ -36,8 +31,8 @@ export function login(navigateTo) {
     const password = sectionLogin.querySelector('.inputPassword').value;
 
     signIn(email, password)
-      .then((response) => {
-        console.log(response);
+      .then(() => {
+        navigateTo('/emprende');
       })
       .catch((err) => {
         sectionLogin.querySelector('.note1').innerHTML = `${err.message}`;

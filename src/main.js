@@ -1,6 +1,4 @@
 // importar
-// eslint-disable-next-line import/no-unresolved, import/no-extraneous-dependencies
-// import { onAuthStateChanged } from 'firebase/auth';
 import home from './components/home.js';
 import error from './components/error404.js';
 import login from './components/login.js';
@@ -9,7 +7,7 @@ import muro from './components/muro.js';
 
 import './lib/loginConfig.js';
 import './lib/registerConfig.js';
-// import { auth } from './lib/firebaseConfig.js';
+import { auth } from './lib/firebaseConfig.js';
 // Nombre: foodMatch
 
 const routes = [
@@ -25,7 +23,7 @@ const root = document.getElementById('root');
 
 const navigateTo = (hash) => {
   const route = routes.find((routeFound) => routeFound.path === hash);
-
+  // console.log(route.component());
   if (route && route.component) {
     window.history.pushState({}, route.path, window.location.origin + route.path);
 
@@ -43,5 +41,3 @@ window.onpopstate = () => {
 };
 
 navigateTo(window.location.pathname || defaultRoute);
-
-export default navigateTo;

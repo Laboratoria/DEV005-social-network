@@ -19,6 +19,11 @@ export function login(navigateTo) {
     </section >
     `;
 
+  /* const sigIn = sectionLogin.querySelector('.getInt');
+  sigIn.addEventListener('click', () => {
+    navigateTo('/emprende');
+  }); */
+
   const checkIn = sectionLogin.querySelector('.bottomText');
   checkIn.addEventListener('click', () => {
     navigateTo('/register');

@@ -289,12 +289,6 @@
     color: #FFFEFE;
 }
 
-/* Home*/
-
-.logoHome {
-    
-}
-
 .home {
     display: flex;
    flex-direction: column;

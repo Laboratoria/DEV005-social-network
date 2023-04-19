@@ -11,33 +11,53 @@ body{
   font-family: 'Poppins';
 }
 
+/* Estilos para celular */
+
 @media(max-width: 480px) {
-  .homediv{
-    position: absolute;
-    top: 10%;
-    left: 5%;
-    width: 350px;
-    height: 500px;
+  .homediv, .loginDiv, .registerDiv{
+    position: relative;
+    top: 20px;
+    width: 100vw;
+    height: 100vh;
+    bottom: 20px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
   }
   
-  .imghome{
+  .imghome, .imgLogin, .imgRegister{
     position: absolute;
     background-image: url(../assets/image-food.png);
     width: 200px;
     height: 200px;
+    top: 60px;
     background-repeat: no-repeat;
     background-size: cover;
-    top: 0%;
-    left: 20%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+  .messagehome, .messageLogin{
+    position: absolute;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    font-size: 25px;
+    top: 270px;
   }
 
   .buttondiv{
-    margin: 250px 10px 0px 10px;
-    position: relative;
+    position: absolute;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    background-size: cover;
+    align-items: center;
+    top: 320px;
+    height: auto;
+    width: 90%;
   }
   
   .buttonemail, .buttongoogle,
@@ -48,9 +68,9 @@ body{
     font-size: 18px;
     border-style: none;
     font-family: 'Poppins';
+    width: 90%;
   }
 
-  
   .buttonemail:hover, .buttongoogle:hover,
   .buttontwitter:hover, .buttongithub:hover{
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
@@ -63,7 +83,7 @@ body{
   .iconemail{
     position: absolute;
     top: 8%;
-    left: 8%;
+    left: 9%;
     background-image: url(../assets/icon_email.png);
     width: 30px;
     height: 30px;
@@ -103,19 +123,15 @@ body{
     background-repeat: no-repeat;
     background-size: contain;
   }
-  
-  .messagehome{
+  .registrarAhora{
     position: absolute;
-    top: 40%;
-    left: 6%;
-    font-size: 25px;
-  }
-
-  .mensajeregister{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 200px;
     margin: 10px auto 10px;
-    text-align:center;
-  }
+    top: 570px;
+  } 
   
   /* Login*/
 
@@ -151,7 +167,7 @@ body{
     align-items: center;
     width: 100%;
     font-size: 25px;
-    top: 270px;
+    top: 210px;
   }
 
   .credencialesdiv {
@@ -162,10 +178,11 @@ body{
     background-size: cover;
     align-items: center;
     top: 320px;
+    height: auto;
     width: 100%;
   }
 
-  .loginCorreo, .loginContra {
+  .loginCorreo {
     margin: 8px 8px 0px 8px;
     border-radius: 10px;
     padding: 12px;
@@ -173,7 +190,24 @@ body{
     width: 90%;
     font-family: 'Poppins';
     border-style: none;
+    background-image:url(../assets/icon_email.png);
+    background-repeat: no-repeat;
+    background-position: 20px center; 
+    padding: 12px 0px 12px 60px;
+  }
 
+  .loginContra {
+    margin: 8px 8px 0px 8px;
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 18px;
+    width: 90%;
+    font-family: 'Poppins';
+    border-style: none;
+    background-image:url(../assets/icon_password.png);
+    background-repeat: no-repeat;
+    background-position: 20px center;
+    padding: 12px 0px 12px 60px;
   }
 
   .buttonReturn {
@@ -182,7 +216,7 @@ body{
     border-radius: 10px;
     font-size: 18px;
     flex-direction: column;
-    top: 450px;
+    top: 120px;
     padding: 12px;
     width: 90%;
     background: #F2B872;
@@ -190,16 +224,19 @@ body{
     font-family: 'Poppins';
     border-style: none;
   }
-  
   .mensajelogin {
     position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    width: 200px;
+    width: 100%;
     margin: 10px auto 10px;
-    top:525px;
+    top: 530px;
+
   }
 
-  /*Register*/
+/*Register*/
 
   .registerDiv{
     position: relative;
@@ -226,7 +263,7 @@ body{
     flex-direction: column;
   }
   .menssageRegisterRouter{
-    top: 260px;
+    top: 200px;
     text-align: center;
     font-size: 25px;
     width: 100%;
@@ -243,42 +280,45 @@ body{
     
   }
   
-  .emailRegister, .passwordRegister, .checkPasswordRegister {
-    position: relative;
-    margin: 8px 0px 0px 8px;
-    border-radius: 10px;
-    padding: 12px 0px 12px 60px;
-    font-size: 18px;
-    font-family: 'Poppins';
-    border-style: none;
-    width: 90%;
-    
-  }
-  .buttonSaveInformation{
-    position: absolute;
-    margin: 7px 0px 0px 8px;
+  .emailRegister {
+    margin: 8px 8px 0px 8px;
     border-radius: 10px;
     padding: 12px;
     font-size: 18px;
-    font-family: 'Poppins';   
+    width: 90%;
+    font-family: 'Poppins';
     border-style: none;
-    top: 490px;
-    background-color: #F2B872;
-    width: 82.5%;
-  }
-  .iconEmail1, .iconPassword {
-    position: absolute;
-    display: flex;  
-  }
-  .emailRegister{
     background-image:url(../assets/icon_email.png);
     background-repeat: no-repeat;
-    background-position: 20px center;    
+    background-position: 20px center; 
+    padding: 12px 0px 12px 60px;
+    
   }
-  .passwordRegister,.checkPasswordRegister{
+  .passwordRegister, .checkPasswordRegister{
+    margin: 8px 8px 0px 8px;
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 18px;
+    width: 90%;
+    font-family: 'Poppins';
+    border-style: none;
     background-image:url(../assets/icon_password.png);
     background-repeat: no-repeat;
     background-position: 20px center;
+    padding: 12px 0px 12px 60px;
+  }
+  .buttonSaveInformation{
+    position: absolute;
+    margin: 8px 8px 0px 8px;
+    border-radius: 10px;
+    font-size: 18px;
+    flex-direction: column;
+    top: 178px;
+    padding: 12px;
+    width: 90%;
+    background: #F2B872;
+    align-items: center;
+    font-family: 'Poppins';
+    border-style: none;
   }
 }
-

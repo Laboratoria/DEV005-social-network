@@ -1,38 +1,32 @@
-import { loginConfig } from '../lib/loginConfig';
+import { loginConfig } from '../lib/loginConfig.js';
 
 function login(navigateTo) {
-  const loginDiv = document.createElement('div');
-  loginDiv.className = 'loginDiv';
+  const formularioLogin = document.createElement('div');
+  formularioLogin.className = 'formularioLogin';
 
-  const imgLogin = document.createElement('div');
-  imgLogin.className = 'imgLogin';
-
-  const messageLogin = document.createElement('h2');
-  messageLogin.className = 'messageLogin';
-
-  const credencialesdiv = document.createElement('div');
-  credencialesdiv.className = 'credencialesdiv';
-
-  const loginCorreo = document.createElement('input');
-  loginCorreo.className = 'loginCorreo';
-  loginCorreo.id = 'loginCorreo';
-
-  const loginContra = document.createElement('input');
-  loginContra.className = 'loginContra';
-  loginContra.id = 'loginContra';
-
-  const mensajelogin = document.createElement('span');
-  mensajelogin.className = 'mensajelogin';
+  formularioLogin.innerHTML = '';
+  formularioLogin.innerHTML += `
+  <div class="loginDiv"> 
+  <div class="imgLogin"> 
+   <h2 class="messageLogin">Iniciar Sesión</h2>
+   </div>
+   <form class="credencialesdiv" id="formulario">
+    <input type="email" class="loginCorreo" placeholder="Correo Electrónico" required>
+     <input type="password" class="loginContra" placeholder="Contraseña" required>
+      <button class="buttonReturn" type="submit">Ingresar</button> 
+   </form>
+   <span class="mensajelogin"> ¿No tienes una cuenta?
+   <strong>Regístrate ahora</strong></span>
+  </div>`;
+  const mensajelogin = formularioLogin.querySelector('.mensajelogin');
   mensajelogin.addEventListener('click', () => {
     navigateTo('/register');
   });
-
-  const buttonReturn = document.createElement('button');
-  buttonReturn.className = 'buttonReturn';
+  const buttonReturn = formularioLogin.querySelector('.buttonReturn');
   buttonReturn.addEventListener('click', async (e) => {
     e.preventDefault();
-    const email = document.getElementById('loginCorreo').value;
-    const password = document.getElementById('loginContra').value;
+    const email = document.getElementsByClassName('loginCorreo').value;
+    const password = document.getElementsByClassName('loginContra').value;    
     loginConfig(email, password)
       .then(() => {
         console.log(email, password);
@@ -49,23 +43,7 @@ function login(navigateTo) {
         return error;
       });
   });
-
-  messageLogin.textContent = 'Iniciar Sesión';
-  loginCorreo.placeholder = 'Correo Electrónico';
-  loginContra.placeholder = 'Contraseña';
-  mensajelogin.innerHTML = ` ¿No tienes una cuenta?
-  <strong>Regístrate</strong>`;
-  buttonReturn.textContent = 'Ingresar';
-
-  loginDiv.append(
-    imgLogin,
-    messageLogin,
-    credencialesdiv,
-    buttonReturn,
-    mensajelogin,
-  );
-  credencialesdiv.append(loginCorreo, loginContra);
-  return loginDiv;
+  formularioLogin.appendChild(mensajelogin);
+  return formularioLogin;
 }
-
 export default login;

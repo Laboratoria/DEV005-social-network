@@ -1,4 +1,5 @@
-import { newAccount, accessWithGoogle, accessWithGithub} from '../lib/auth';
+/* eslint-disable no-alert */
+import { newAccount, accessWithGoogle, accessWithGithub } from '../lib/auth';
 
 function register(navigateTo) {
   const sectionReg = document.createElement('section');
@@ -35,15 +36,12 @@ function register(navigateTo) {
   const btnRegWithGithub = document.createElement('button');
   btnRegWithGithub.classList.add('github-reg-btn');
 
-
-
-
   titleRegKitty.textContent = 'KittyBook';
   titleReg.textContent = '¡Regístrate!';
   btnSend.textContent = 'Registrarme';
   btnRegWithGoogle.textContent = 'Regístrate con Google';
   btnRegWithGithub.textContent = 'Regístrate con GitHub';
-  regTrademark.textContent = 'KittyBook, 2023'
+  regTrademark.textContent = 'KittyBook, 2023';
 
   const btnReturnH = document.createElement('button');
   btnReturnH.id = 'return';
@@ -62,15 +60,10 @@ function register(navigateTo) {
     }
   });
 
-
-
-  
-
   btnRegWithGoogle.addEventListener('click', () => {
     accessWithGoogle(navigateTo);
   });
   btnRegWithGithub.addEventListener('click', accessWithGithub);
-
 
   divContainer.append(
     inputEmail,
@@ -79,8 +72,8 @@ function register(navigateTo) {
     btnRegWithGoogle,
     btnRegWithGithub,
     btnReturnH,
-    )
-    
+  );
+
   sectionReg.append(
     titleRegKitty,
     titleReg,
@@ -91,7 +84,6 @@ function register(navigateTo) {
     btnReturnH,
     regTrademark,
   );
-  logInWithEmail('example1@mail.com', '123456');
   return sectionReg;
 }
 export default register;

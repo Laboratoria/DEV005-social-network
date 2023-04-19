@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+/* eslint-disable no-alert */
 import { accessWithGithub, logInWithEmail, accessWithGoogle } from '../lib/auth';
 
 function home(navigateTo) {
@@ -73,7 +75,9 @@ function home(navigateTo) {
   googleLogIn.addEventListener('click', () => {
     accessWithGoogle(navigateTo);
   });
-
+  ghLogIn.addEventListener('click', () => {
+    accessWithGithub(navigateTo);
+  });
   btnRegister.addEventListener('click', () => {
     navigateTo('/register');
   });

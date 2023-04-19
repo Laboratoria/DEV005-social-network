@@ -39,6 +39,7 @@
     "node": ">=16.x"
   },
   "dependencies": {
-    "firebase": "^9.19.1"
+    "firebase": "^9.19.1",
+    "firebaseui": "^6.0.2"
   }
 }

@@ -30,3 +30,15 @@ export const loginWithTwitter = () => {
       // ...
     });
 };
+
+/* Ingreso con email
+export const signUpForm = document.querySelector('.register');
+signUpForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const email = signUpForm.querySelector('#email').value;
+  const password = signUpForm.querySelector('#password').value;
+
+  const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+  console.log(userCredential);
+  signUpForm.reset();
+});*/

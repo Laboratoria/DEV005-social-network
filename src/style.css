@@ -82,14 +82,15 @@ main {
     top: 140px;
     display: flex;
     justify-content: center;
-   align-items: center;
+    align-items: center;
+    flex-wrap: wrap;
     width: 85%;
     height: auto;
     padding: 20px;
+    gap: 50px;
     margin-top: 20px;
     background-color: #e5e1f9;
     opacity: .8;
-    border-radius: 20px;
 }
 
 
@@ -100,6 +101,14 @@ main {
     height: 60px;
     border: 1px solid black;
     border-radius: 5px 5px 5px 0;
+}
+
+.containerPost{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 200px;
+    background-color: white;
 }
 
 .containerForm button {

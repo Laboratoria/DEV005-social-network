@@ -10,7 +10,7 @@ export function init(navigateTo) {
     <button class='logIn'>Inicia Sesión</button>
     <button class='register'>Regístrate</button>
     <img src='./lib/img/division.png' class= 'division'>
-    <button class='google'>Regístrate con google</button>
+    <button class='google'>Regístrate con Google</button>
   `;
   const logIn = section.querySelector('.logIn');
   logIn.addEventListener('click', () => {

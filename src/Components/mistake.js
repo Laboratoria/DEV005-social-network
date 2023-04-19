@@ -8,7 +8,7 @@ function mistake(navigateTo) {
 
   const keep = bug.querySelector('.initButton');
   keep.addEventListener('click', () => {
-    navigateTo('/mainScreen');
+    navigateTo('/');
   });
   return bug;
 }

@@ -1,6 +1,7 @@
 // Este es el punto de entrada de tu aplicacion
 
 // import { myFunction } from './lib/index.js';
+
 import login from './components/login.js';
 import register from './components/register.js';
 import error from './components/error.js';
@@ -8,7 +9,7 @@ import error from './components/error.js';
 const root = document.getElementById('root');
 
 const myRoutes = [
-  { path: '/', component: login },
+  { path: '/login', component: login },
   { path: '/register', component: register },
   { path: '/error', component: error },
 ];

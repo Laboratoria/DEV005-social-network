@@ -44,7 +44,7 @@ window.onpopstate = () => {
 
 navigateTo(window.location.pathname || defaultRoute);
 
-const auth = getAuth();
+/* const auth = getAuth();
 function initializar() {
   onAuthStateChanged(auth, (user) => {
     const currentRoute = window.location.pathname;
@@ -58,4 +58,4 @@ function initializar() {
   });
 }
 
-initializar();
+initializar(); */

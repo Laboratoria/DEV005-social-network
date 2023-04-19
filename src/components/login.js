@@ -44,7 +44,7 @@ function login(navigateTo) {
         } else if (error.code === 'auth/wrong-password') {
           alert('contraseña incorrecta');
         } else {
-          console.log(error.message);
+          alert('credenciales incorrectas');
         }
         return error;
       });

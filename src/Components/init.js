@@ -1,5 +1,4 @@
-import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
-import { auth } from '../lib/firebase.js';
+import { loginWithGoogle } from '../lib/auth';
 
 // pantalla inicial
 export function init(navigateTo) {
@@ -24,13 +23,10 @@ export function init(navigateTo) {
 
   const google = section.querySelector('.google');
   google.addEventListener('click', () => {
-    const provider = new GoogleAuthProvider();
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        GoogleAuthProvider.credentialFromResult(result);
+    loginWithGoogle()
+      .then(() => {
         navigateTo('/emprende');
-      }).catch((error) => {
-        GoogleAuthProvider.credentialFromError(error);
+      }).catch(() => {
       });
   });
   return section;

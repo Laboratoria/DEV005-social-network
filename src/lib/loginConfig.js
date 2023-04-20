@@ -45,22 +45,53 @@ export const loginWithGoogle = () => new Promise((resolve, reject) => {
 });
 
 // TODO: Función de logeo con Github
-export const loginWithGithub = () => {
+/* export const loginWithGithub = () => {
   const providerGithub = new GithubAuthProvider();
   signInWithPopup(auth, providerGithub).then((credentials) => {
     const userGithub = credentials.user;
     console.log(userGithub);
     console.log('sign in with Github');
   });
-};
+}; */
 
+export const loginWithGithub = () => {
+  const githubProvider = new GithubAuthProvider();
+  signInWithPopup(auth, githubProvider)
+    .then((result) => {
+      const credential = GithubAuthProvider.credentialFromResult(result);
+      const githubUser = result.user;
+      console.log(githubUser);
+      console.log(credential);
+      console.log('sign in with Github');
+    }).catch((error) => {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // The email of the user's account used.
+      const email = error.email;
+      // The AuthCredential type that was used.
+      const credentialError = GithubAuthProvider.credentialFromError(error);
+      // ...
+      console.log(errorCode);
+      console.log(errorMessage);
+      console.log(email);
+      console.log(credentialError);
+    });
+};
 // TODO: Función de logeo con Twitter
 
-export const loginWithTwitter = () => {
+export const loginWithTwitter = () => new Promise((resolve, reject) => {
   const provider = new TwitterAuthProvider();
-  signInWithPopup(auth, provider).then((credentials) => {
-    const userTwitter = credentials.user;
-    console.log(userTwitter);
-    console.log('sign in with Twitter');
-  });
-};
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      const credential = TwitterAuthProvider.credentialFromResult(result);
+      console.log(credential);
+      console.log('Sign in with twitter');
+      const user = result.user;
+      resolve({ user });
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      reject(errorCode);
+    });
+});

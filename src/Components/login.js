@@ -1,4 +1,4 @@
-import { signIn } from '../lib/sign_in.js';
+import { signIn } from '../lib/auth.js';
 
 // pantalla - inicio de sesión
 export function login(navigateTo) {
@@ -29,7 +29,6 @@ export function login(navigateTo) {
     e.preventDefault();
     const email = sectionLogin.querySelector('.inputEmail').value;
     const password = sectionLogin.querySelector('.inputPassword').value;
-
     signIn(email, password)
       .then(() => {
         navigateTo('/emprende');

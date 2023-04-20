@@ -1,5 +1,4 @@
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../lib/firebase.js';
+import { createUser } from '../lib/auth';
 
 // pantalla - crear una cuenta nueva
 /* <label class="textConfirmPassword">Confirmar contraseña </label>
@@ -31,9 +30,9 @@ export function create(navigateTo) {
     e.preventDefault();
     const email = sectionCreate.querySelector('.card1').value;
     const password = sectionCreate.querySelector('.card2').value;
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((response) => {
-        console.log(response);
+    createUser(email, password)
+      .then(() => {
+        navigateTo('/emprende');
       })
       .catch((err) => {
         sectionCreate.querySelector('.alerta').innerHTML = `${err.message}`;

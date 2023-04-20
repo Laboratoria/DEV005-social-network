@@ -1,4 +1,9 @@
-function home() {
+import {
+  loginWithGoogle,
+  signIn,
+} from '../lib/firebase';
+
+export const home = (navigateTo) => {
   const postForm = document.createElement('section');
   postForm.classList.add('home');
   postForm.innerHTML = `

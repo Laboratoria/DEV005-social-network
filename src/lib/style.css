@@ -387,12 +387,10 @@
     box-sizing: border-box;
     height: 68px;
     font-size: 20px;
-    padding: -18px;
     border: none;
-    background: white url(/lib/img/salir.png) no-repeat 28px 8px;
+    background: white url(/lib/img/salir.png) no-repeat 24px 24px;
     border-radius: 15px;
-    margin: -847px 0px 0px 334px;
-    justify-content: flex-end;
+    margin: -840px 0px 4px 353px;
     padding: 4px;
 }
 

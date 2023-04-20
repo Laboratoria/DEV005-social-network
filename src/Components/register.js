@@ -1,5 +1,5 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-// import { auth } from '../lib/firebase.js';
+import { auth } from '../lib/firebase.js';
 
 // pantalla - crear una cuenta nueva
 /* <label class="textConfirmPassword">Confirmar contraseña </label>
@@ -34,7 +34,6 @@ export function create(navigateTo) {
     const password = sectionCreate.querySelector('.card2').value;
     createUserWithEmailAndPassword(auth, email, password)
       .then(() => {
-        console.log('ya entro');
       })
       .catch(() => {
         sectionCreate.querySelector('.alerta').innerHTML = '<h3 class="alert">Esta cuenta ya esta registrada, intenta con otra.</h3>';

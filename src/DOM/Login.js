@@ -1,12 +1,14 @@
 /* eslint-disable no-console */
 // import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { GoogleAuthProvider, signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
 // import { async } from '@firebase/util';
+import { GoogleAuthProvider, signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
 import { LoginTemplate } from '../templates/loginTemplate.js';
 import { auth } from '../lib/index.js';
 import { loginGoogle } from '../lib/auth.js';
 
 export const Login = (onNavigate) => {
+  const body = document.querySelector('body');
+  body.className = '';
   const div = document.createElement('div');
   /* const errorMsj = document.createElement('p');
   errorMsj.id = 'errorMsj';
@@ -26,8 +28,8 @@ export const Login = (onNavigate) => {
     onNavigate('/registrate');
   });
 
-  // VERSION ASYNC - AWAIT
   const btnloginGoogle = div.querySelector('#btn-google');
+  // VERSION ASYNC - AWAIT
   /*   btnloginGoogle.addEventListener('click', async () => {
     const provider = new GoogleAuthProvider();
     try {

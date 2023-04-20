@@ -4,10 +4,13 @@ import { auth, db } from '../lib/index.js';
 import { WallTemplate } from '../templates/wallTemplate.js';
 
 export const Wall = (onNavigate) => {
+  const body = document.querySelector('body');
+  body.className = 'wallBody';
   const div = document.createElement('div');
   div.innerHTML = WallTemplate;
   const errorMsj = div.querySelector('#errorMsj');
   const divPost = div.querySelector('.posts');
+
   const showPost = (data) => {
     if (data.length) {
       let html = '';
@@ -21,6 +24,7 @@ export const Wall = (onNavigate) => {
       errorMsj.innerHTML = 'No hay posts';
     }
   };
+
   onAuthStateChanged(auth, async (user) => {
     if (user) {
       const getPost = await getDocs(collection(db, 'posts'));
@@ -29,6 +33,7 @@ export const Wall = (onNavigate) => {
       console.log('error post');
     }
   });
+
   const crearPost = async (contenido) => {
     try {
       const docRef = await addDoc(collection(db, 'posts'), {
@@ -41,32 +46,21 @@ export const Wall = (onNavigate) => {
     }
   };
 
-  // esto estaba
-  /*  try {
-     const nuevoPost = await db.collection('posts').add({
-       contenido,
-       fecha: firebase.firestore.FieldValue.serverTimestamp(),
-     });
-     console.log(`Post creado con ID: ${nuevoPost.id}`);
-   } catch (error) {
-     console.error('Error al crear el post:', error);
-   }
- }; */
-
   const btnPost = div.querySelector('#btn-post');
   const iPost = div.querySelector('#iPost');
   const btnOut = div.querySelector('#btn-out');
   btnPost.addEventListener('click', () => {
     const contenido = iPost.value.trim();
-
     if (contenido !== '') {
       crearPost(contenido);
       iPost.value = '';
     }
   });
+
   btnOut.addEventListener('click', async () => {
     await signOut(auth);
     onNavigate('/');
   });
+
   return div;
 };

@@ -197,8 +197,16 @@
     padding: 2%;
 }
 
-
 /*pantalla crear cuenta*/
+.creat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url(./img/fondo.png);
+    background-size: cover;
+    height: 100vh;
+}
 
 .logo1 {
     position: absolute;
@@ -218,17 +226,20 @@
     opacity: 0.9;
     justify-content: space-around;
 }
+
 .createAccount {
     display: flex;
     margin: -69px 0px 9px -208px;
     font-size: 26px;
 }
+
 .textButtonCreateAccount {
     display: flex;
     font-size: 20px;
     background: none;
     margin: -16px 170px -28px 0px;
 }
+
 .card1 {
     display: flex;
     background: white;
@@ -236,7 +247,6 @@
     max-width: 321px;
     height: 45px;
     border: none;
-    background: #FFFEFE;
     border-radius: 12px;
     font-size: 21px;
     padding-left: 5%;
@@ -328,7 +338,6 @@
 }
 
 
-
 /* Home*/
 
 
@@ -383,15 +392,11 @@
     box-sizing: border-box;
     height: 57px;
     font-size: 19px;
-    height: 68px;
-    font-size: 20px;
     border: none;
     background: white url(/lib/img/salir.png) no-repeat 14px 2px;
-    background: white url(/lib/img/salir.png) no-repeat 24px 24px;
     border-radius: 15px;
-    margin: -847px 0px 0px 334px;
-    justify-content: flex-end;
-    padding: 4px;
+    margin: -848px 0px 4px 358px;
+    padding: 28px 0px 0px 0px;
 }
 
 /*error*/

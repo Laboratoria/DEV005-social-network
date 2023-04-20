@@ -1,3 +1,17 @@
+import { initializeApp } from 'firebase/app';
+import { getAuth } from 'firebase/auth';
+import {
+  getFirestore,
+  addDoc,
+  getDocs,
+  doc,
+  collection,
+  deleteDoc,
+  updateDoc,
+  arrayRemove,
+  arrayUnion,
+  getDoc,
+} from 'firebase/firestore';
 import {
   signInWithEmailAndPassword, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup,
 } from 'firebase/auth';
@@ -17,4 +31,20 @@ export {
   loginWithGoogle,
   createUser,
   signIn,
+};
+
+/* EXPOSTS */
+export const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
+export const db = getFirestore(app);
+export default {
+  addDoc,
+  getDocs,
+  doc,
+  collection,
+  deleteDoc,
+  updateDoc,
+  arrayRemove,
+  arrayUnion,
+  getDoc,
 };

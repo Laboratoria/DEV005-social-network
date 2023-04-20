@@ -1,9 +1,5 @@
 import { createUser } from '../lib/auth';
 
-// pantalla - crear una cuenta nueva
-/* <label class="textConfirmPassword">Confirmar contraseña </label>
-<input class="card3" id="card3" type="password" placeholder='********'></input> */
-/* <img src='./lib/img/fondoMovil.png' class= 'fondoBlanco'> */
 export function create(navigateTo) {
   const sectionCreate = document.createElement('div');
   sectionCreate.classList.add('creat');

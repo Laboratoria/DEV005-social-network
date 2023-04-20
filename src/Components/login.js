@@ -13,7 +13,7 @@ export function login(navigateTo) {
     <label class="labelPassword">Contraseña</label>
     <input class="inputPassword" id="inputPassword" type="password" placeholder="********"></input>
     <span class="note1" id"note1"></span>
-    <button class="getInt">Ingresar</button>
+    <button type="submit" class="getInt">Ingresar</button>
     </form>
     <button class="bottomTextLogin">¿No tienes una cuenta? Regístrate</button>
     </section >

@@ -1,6 +1,6 @@
 import { loginConfig } from '../lib/loginConfig.js';
 
-function login(navigateTo) {
+const login = (navigateTo) => {
   const formularioLogin = document.createElement('div');
   formularioLogin.className = 'formularioLogin';
 
@@ -11,8 +11,8 @@ function login(navigateTo) {
    <h2 class="messageLogin">Iniciar Sesión</h2>
    </div>
    <form class="credencialesdiv" id="formulario">
-    <input type="email" class="loginCorreo" placeholder="Correo Electrónico" required>
-     <input type="password" class="loginContra" placeholder="Contraseña" required>
+    <input type="email" class="loginCorreo" id="loginCorreo" placeholder="Correo Electrónico" required>
+     <input type="password" class="loginContra" id="loginContra" placeholder="Contraseña" required>
       <button class="buttonReturn" type="submit">Ingresar</button> 
    </form>
    <span class="mensajelogin"> ¿No tienes una cuenta?
@@ -25,8 +25,8 @@ function login(navigateTo) {
   const buttonReturn = formularioLogin.querySelector('.buttonReturn');
   buttonReturn.addEventListener('click', async (e) => {
     e.preventDefault();
-    const email = document.getElementsByClassName('loginCorreo').value;
-    const password = document.getElementsByClassName('loginContra').value;    
+    const email = document.getElementById('loginCorreo').value;
+    const password = document.getElementById('loginContra').value;
     loginConfig(email, password)
       .then(() => {
         console.log(email, password);
@@ -35,15 +35,15 @@ function login(navigateTo) {
       .catch((error) => {
         if (error.code === 'auth/user-not-found') {
           alert('no esta registrado');
-        } else if (error.code === 'auth/wrong-password') {
+        }
+
+        if (error.code === 'auth/wrong-password') {
           alert('contraseña incorrecta');
-        } else {
-          console.log(error.message);
         }
         return error;
       });
   });
   formularioLogin.appendChild(mensajelogin);
   return formularioLogin;
-}
+};
 export default login;

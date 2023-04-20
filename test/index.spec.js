@@ -12,13 +12,8 @@ describe('login', () => {
   });
   it('Si el usuario le da click a getIn, debe cambiar de ruta', () => {
     const myHtml = login(navigateTo);
-<<<<<<< HEAD
-    myHtml.querySelector('.getInt').click();
-    expect(navigateTo).toHaveBeenCalledWith('/emprend');
-=======
     myHtml.querySelector('.formInteraction').submit();
     expect(navigateTo).toHaveBeenCalledWith('/emprende');
->>>>>>> 4837291d77dd693449602fcb49af65d8469fc02f
   });
   /* it('Si el usuario ingresa correctamente su gmail y su contraseña debería ir a home', () => {
     const myHtml = login(navigateTo);

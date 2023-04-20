@@ -13,6 +13,15 @@ export const home = (navigateTo) => {
     <button type= "submit" class= "post" > Publicar </button>
     </form>
     <button type= "submit" class= "goOut" > Salir </button>`;
+  // preguntar//
+  const salir = postForm.querySelector('.goOut');
+  salir.addEventListener('click', () => {
+    signOut(auth).then(() => {
+      navigateTo('/');
+    }).catch(() => {
+    });
+  });
+
   return postForm;
 }
 

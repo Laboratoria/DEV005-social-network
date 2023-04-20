@@ -1,4 +1,4 @@
-import { signIn } from '../lib/sign_in.js';
+import { signIn } from '../lib/auth.js';
 
 // pantalla - inicio de sesión
 export function login(navigateTo) {
@@ -15,11 +15,11 @@ export function login(navigateTo) {
     <span class="note1" id"note1"></span>
     <button class="getInt">Ingresar</button>
     </form>
-    <button class="bottomText">¿No tienes una cuenta? Regístrate</button>
+    <button class="bottomTextLogin">¿No tienes una cuenta? Regístrate</button>
     </section >
     `;
 
-  const checkIn = sectionLogin.querySelector('.bottomText');
+  const checkIn = sectionLogin.querySelector('.bottomTextLogin');
   checkIn.addEventListener('click', () => {
     navigateTo('/register');
   });
@@ -29,10 +29,9 @@ export function login(navigateTo) {
     e.preventDefault();
     const email = sectionLogin.querySelector('.inputEmail').value;
     const password = sectionLogin.querySelector('.inputPassword').value;
-
     signIn(email, password)
-      .then((response) => {
-        console.log(response);
+      .then(() => {
+        navigateTo('/emprende');
       })
       .catch((err) => {
         sectionLogin.querySelector('.note1').innerHTML = `${err.message}`;

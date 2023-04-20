@@ -1,5 +1,5 @@
 import { onAuthStateChanged } from 'firebase/auth';
-import { loginWithGithub, loginWithGoogle } from '../lib/loginConfig.js';
+import { loginWithGithub, loginWithGoogle, loginWithTwitter } from '../lib/loginConfig.js';
 import { auth } from '../lib/firebaseConfig.js';
 
 const home = (navigateTo) => {
@@ -27,11 +27,28 @@ const home = (navigateTo) => {
   const buttontwitter = document.createElement('button');
   buttontwitter.className = 'buttontwitter';
   buttontwitter.addEventListener('click', () => {
-    alert('Estamos trabajando en ello');
+    loginWithTwitter();
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        navigateTo('/muro');
+      }
+    });
   });
+
   const icontwitter = document.createElement('div');
   icontwitter.className = 'icontwitter';
   // ? botón de github
+  /* const buttongithub = document.createElement('button');
+  buttongithub.className = 'buttongithub';
+  buttongithub.addEventListener('click', async () => {
+    try {
+      loginWithGithub();
+      navigateTo('/muro');
+    } catch (error) {
+      console.log(error);
+    }
+  }); */
+
   const buttongithub = document.createElement('button');
   buttongithub.className = 'buttongithub';
   buttongithub.addEventListener('click', () => {

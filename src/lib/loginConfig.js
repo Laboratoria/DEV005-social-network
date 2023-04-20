@@ -4,20 +4,19 @@ import {
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   GithubAuthProvider,
+  TwitterAuthProvider,
   signInWithPopup,
 } from 'firebase/auth';
-import { auth } from './firebaseConfig.js';
+import { auth } from './firebaseConfig';
 
 // TODO: Función del logueo previamente registrado
 export const loginConfig = (email, password) => new Promise((resolve, reject) => {
-  signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      const user = userCredential.user;
-      resolve({ email: user.email, password: user.password });
-      console.log(userCredential);
-    })
+  signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
+    const user = userCredential.user;
+    resolve({ email: user, password: user.password });
+    console.log(userCredential);
+  })
     .catch((error) => {
-      // const errorMessage = error.message;
       const errorCode = error.code;
       reject(errorCode);
     });
@@ -44,7 +43,17 @@ export const loginWithGoogle = () => new Promise((resolve, reject) => {
       reject(errorCode);
     });
 });
-// TODO: Función loginWithGithub para poder ingresar a la plataforma con cuenta de Github
+
+// TODO: Función de logeo con Github
+/* export const loginWithGithub = () => {
+  const providerGithub = new GithubAuthProvider();
+  signInWithPopup(auth, providerGithub).then((credentials) => {
+    const userGithub = credentials.user;
+    console.log(userGithub);
+    console.log('sign in with Github');
+  });
+}; */
+
 export const loginWithGithub = () => {
   const githubProvider = new GithubAuthProvider();
   signInWithPopup(auth, githubProvider)
@@ -69,24 +78,20 @@ export const loginWithGithub = () => {
       console.log(credentialError);
     });
 };
+// TODO: Función de logeo con Twitter
 
-/*
-   onAuthStateChanged(auth, (user) => {
-      if (user) {
-        const uid = user.uid;
-        console.log(uid);
-      }else{}
+export const loginWithTwitter = () => new Promise((resolve, reject) => {
+  const provider = new TwitterAuthProvider();
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      const credential = TwitterAuthProvider.credentialFromResult(result);
+      console.log(credential);
+      console.log('Sign in with twitter');
+      const user = result.user;
+      resolve({ user });
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      reject(errorCode);
     });
-  });
-  ________
-const userChange = {};
-export const obtenerUsuarioActual = () => {
-  onAuthStateChanged(firebaseAuth, (user) => {
-    if (user) {
-      userChange.email = user.email;
-      userChange.uid = user.uid;
-      userChange.displayName = user.displayName;
-    }
-  });
-};
-*/
+});

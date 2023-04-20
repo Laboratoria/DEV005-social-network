@@ -20,21 +20,43 @@ body{
     width: 100vw;
     height: 100vh;
     bottom: 20px;
+  .homediv, .loginDiv, .registerDiv{
+    position: relative;
+    top: 20px;
+    width: 100vw;
+    height: 100vh;
+    bottom: 20px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
     justify-content: center;
     align-items: center;
     padding: 0px;
   }
   
   .imghome, .imgLogin, .imgRegister{
+  .imghome, .imgLogin, .imgRegister{
     position: absolute;
     background-image: url(../assets/image-food.png);
     width: 200px;
     height: 200px;
     top: 60px;
+    top: 60px;
     background-repeat: no-repeat;
     background-size: cover;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+  .messagehome, .messageLogin{
+    position: absolute;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    font-size: 25px;
+    top: 270px;
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -50,8 +72,15 @@ body{
 
   .buttondiv{
     position: absolute;
+    position: absolute;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    background-size: cover;
+    align-items: center;
+    top: 320px;
+    height: auto;
+    width: 90%;
     justify-content: center;
     background-size: cover;
     align-items: center;
@@ -69,6 +98,7 @@ body{
     border-style: none;
     font-family: 'Poppins';
     width: 90%;
+    width: 90%;
   }
 
   .buttonemail:hover, .buttongoogle:hover,
@@ -83,6 +113,7 @@ body{
   .iconemail{
     position: absolute;
     top: 8%;
+    left: 9%;
     left: 9%;
     background-image: url(../assets/icon_email.png);
     width: 30px;
@@ -124,12 +155,17 @@ body{
     background-size: contain;
   }
   .registrarAhora{
+  .registrarAhora{
     position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 200px;
     margin: 10px auto 10px;
+    top: 570px;
     top: 570px;
   } 
   
@@ -167,6 +203,7 @@ body{
     align-items: center;
     width: 100%;
     font-size: 25px;
+    top: 210px;
     top: 210px;
   }
 
@@ -225,17 +262,25 @@ body{
     border-style: none;
   }
   .mensajelogin {
+  .mensajelogin {
     position: absolute;
     display: flex;
+    display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
     align-items: center;
     text-align: center;
     width: 100%;
     margin: 10px auto 10px;
     top: 530px;
 
+    top: 530px;
+
   }
 
+/*Register*/
 /*Register*/
 
   .registerDiv{
@@ -277,17 +322,26 @@ body{
     justify-content: center;
     align-items: center;
     width: 90%;
+    width: 90%;
     
   }
   
   .emailRegister {
     margin: 8px 8px 0px 8px;
+  .emailRegister {
+    margin: 8px 8px 0px 8px;
     border-radius: 10px;
+    padding: 12px;
     padding: 12px;
     font-size: 18px;
     width: 90%;
+    width: 90%;
     font-family: 'Poppins';
     border-style: none;
+    background-image:url(../assets/icon_email.png);
+    background-repeat: no-repeat;
+    background-position: 20px center; 
+    padding: 12px 0px 12px 60px;
     background-image:url(../assets/icon_email.png);
     background-repeat: no-repeat;
     background-position: 20px center; 
@@ -296,15 +350,34 @@ body{
   }
   .passwordRegister, .checkPasswordRegister{
     margin: 8px 8px 0px 8px;
+  .passwordRegister, .checkPasswordRegister{
+    margin: 8px 8px 0px 8px;
     border-radius: 10px;
     padding: 12px;
     font-size: 18px;
+    width: 90%;
+    font-family: 'Poppins';
     width: 90%;
     font-family: 'Poppins';
     border-style: none;
     background-image:url(../assets/icon_password.png);
     background-repeat: no-repeat;
     background-position: 20px center;
+    padding: 12px 0px 12px 60px;
+  }
+  .buttonSaveInformation{
+    position: absolute;
+    margin: 8px 8px 0px 8px;
+    border-radius: 10px;
+    font-size: 18px;
+    flex-direction: column;
+    top: 178px;
+    padding: 12px;
+    width: 90%;
+    background: #F2B872;
+    align-items: center;
+    font-family: 'Poppins';
+    border-style: none;
     padding: 12px 0px 12px 60px;
   }
   .buttonSaveInformation{

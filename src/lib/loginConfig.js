@@ -44,13 +44,30 @@ export const loginWithGoogle = () => new Promise((resolve, reject) => {
       reject(errorCode);
     });
 });
+
 export const loginWithGithub = () => {
-  const providerGithub = new GithubAuthProvider();
-  signInWithPopup(auth, providerGithub).then((credentials) => {
-    const userGithub = credentials.user;
-    console.log(userGithub);
-    console.log('sign in with Github');
-  });
+  const githubProvider = new GithubAuthProvider();
+  signInWithPopup(auth, githubProvider)
+    .then((result) => {
+      const credential = GithubAuthProvider.credentialFromResult(result);
+      const githubUser = result.user;
+      console.log(githubUser);
+      console.log(credential);
+      console.log('sign in with Github');
+    }).catch((error) => {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // The email of the user's account used.
+      const email = error.email;
+      // The AuthCredential type that was used.
+      const credentialError = GithubAuthProvider.credentialFromError(error);
+      // ...
+      console.log(errorCode);
+      console.log(errorMessage);
+      console.log(email);
+      console.log(credentialError);
+    });
 };
 
 /*

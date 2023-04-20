@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap');
+
+body{
+  background-color: #D4CDC4;
+  font-family: 'Poppins';
+}
+
+/* Estilos para celular */
+
+@media(max-width: 480px) {
+
+  header{
+    background-color: #F2B872;
+    display: flex;
+    justify-content: center;
+    height: 80px;
+  }
+  .icon_exit{
+    position: absolute;
+    background-image: url(../assets/exit-regular-60.png);
+    cursor: pointer;
+    top: 20px;
+    right: 0;
+    margin-right: 20px;
+    width: 35px;
+    height: 35px;
+    background-size: cover;
+  }
+
+  .img_food{
+    position: absolute;
+    background-image: url(../assets/match_icon.png);
+    width: 80px;
+    height: 80px;
+    background-size: contain;
+    left: 0;
+  }
+
+  .create-post{
+    display: flex;
+    position: relative;
+    align-items: center;
+    background-color: white;
+    margin: 20px;
+    width: 350px;
+    height: 80px;
+    border-radius: 10px;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .open-popup{
+    text-align: center;
+    border: 0;
+    padding: 10px;
+    background: none;
+    width: 300px;
+    height: 50px;
+    font-family: 'Poppins';
+  }
+}

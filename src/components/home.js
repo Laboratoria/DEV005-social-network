@@ -1,3 +1,5 @@
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../lib/firebaseConfig.js';
 import { loginWithGithub, loginWithGoogle } from '../lib/loginConfig.js';
 
 const home = (navigateTo) => {
@@ -32,13 +34,13 @@ const home = (navigateTo) => {
   // ? botón de github
   const buttongithub = document.createElement('button');
   buttongithub.className = 'buttongithub';
-  buttongithub.addEventListener('click', async () => {
-    try {
-      loginWithGithub();
-      navigateTo('/muro');
-    } catch (error) {
-      console.log(error);
-    }
+  buttongithub.addEventListener('click', () => {
+    loginWithGithub();
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        navigateTo('/muro');
+      }
+    });
   });
   const icongithub = document.createElement('div');
   icongithub.className = 'icongithub';

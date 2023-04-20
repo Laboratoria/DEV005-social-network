@@ -13,6 +13,14 @@ const createUser = (email, password) => createUserWithEmailAndPassword(auth, ema
 /* Ingreso con email y password */
 const signIn = (email, password) => signInWithEmailAndPassword(auth, email, password);
 
+export const currentUserNow = () => {
+  const user = auth.currentUser;
+  if (user) {
+    return user;
+  }
+  return null;
+};
+
 export {
   loginWithGoogle,
   createUser,

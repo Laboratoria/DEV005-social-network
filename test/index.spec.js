@@ -9,7 +9,7 @@ describe('login', () => {
   it('Si el usuario ingresa correctamente su gmail y su contraseña debería ir a home', () => {
     const myHtml = login(navigateTo);
     myHtml.querySelector('.getInt').click();
-    expect(navigateTo).toHaveBeenCalledWith('/emprende');
+    expect(navigateTo).toHaveBeenCalledWith('/emprend');
   });
   it('Si el usuario no le da click a getIn, no debe cambiar de ruta', () => {
     login(navigateTo);

@@ -1,3 +1,6 @@
+/* eslint-disable no-unused-expressions */
+import { currentUserNow } from '../lib/auth.js';
+
 // pantalla - error
 function mistake(navigateTo) {
   const bug = document.createElement('div');
@@ -8,7 +11,9 @@ function mistake(navigateTo) {
 
   const keep = bug.querySelector('.initButton');
   keep.addEventListener('click', () => {
-    navigateTo('/');
+    const user = currentUserNow();
+    console.log(user);
+    user ? navigateTo('/emprende') : navigateTo('/');
   });
   return bug;
 }

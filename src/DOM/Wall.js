@@ -1,4 +1,6 @@
-import { collection, addDoc, getDocs } from 'firebase/firestore';
+import {
+  collection, addDoc, getDocs, deleteDoc, doc,
+} from 'firebase/firestore';
 import { signOut, onAuthStateChanged } from 'firebase/auth';
 import { auth, db } from '../lib/index.js';
 import { WallTemplate } from '../templates/wallTemplate.js';
@@ -11,19 +13,35 @@ export const Wall = (onNavigate) => {
   const errorMsj = div.querySelector('#errorMsj');
   const divPost = div.querySelector('.posts');
 
-  const showPost = (data) => {
+  // eslint-disable-next-line arrow-parens
+  const deletePosts = id => deleteDoc(doc(db, 'posts', id));
+  const deleting = (conte) => {
+    const deletePost = conte.querySelectorAll('.btn-delete');
+    deletePost.forEach((btn) => {
+      btn.addEventListener('submit', ({ target: { dataset } }) => {
+        deletePosts(dataset.id);
+      });
+    });
+  };
+
+  function showPost(data) {
     if (data.length) {
       let html = '';
+      // eslint-disable-next-line no-shadow
       data.forEach((doc) => {
         const post = doc.data();
-        const li = `<li class='liPost' >${post.Post}</li>`;
+        const li = `
+        <li id='liPost' >${post.Post}
+        <button class='btn-delete' data-id="${doc.id}">Eliminar</button>
+        </li>`;
         html += li;
       });
       divPost.innerHTML = html;
     } else {
       errorMsj.innerHTML = 'No hay posts';
     }
-  };
+    deleting(div);
+  }
 
   onAuthStateChanged(auth, async (user) => {
     if (user) {
@@ -49,9 +67,10 @@ export const Wall = (onNavigate) => {
   const btnPost = div.querySelector('#btn-post');
   const iPost = div.querySelector('#iPost');
   const btnOut = div.querySelector('#btn-out');
+  const currentUser = auth.currentUser;
   btnPost.addEventListener('click', () => {
     const contenido = iPost.value.trim();
-    if (contenido !== '') {
+    if (contenido !== '' && currentUser) {
       crearPost(contenido);
       iPost.value = '';
     }

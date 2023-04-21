@@ -74,6 +74,10 @@ function home(navigateTo) {
     accessWithGoogle(navigateTo);
   });
 
+  ghLogIn.addEventListener('click', () => {
+    accessWithGithub(navigateTo);
+  });
+
   btnRegister.addEventListener('click', () => {
     navigateTo('/register');
   });

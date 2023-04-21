@@ -1,21 +1,10 @@
-import { initializeApp } from 'firebase/app';
-import { getAuth } from 'firebase/auth';
-import {
-  getFirestore,
-  addDoc,
-  getDocs,
-  doc,
-  collection,
-  deleteDoc,
-  updateDoc,
-  arrayRemove,
-  arrayUnion,
-  getDoc,
-} from 'firebase/firestore';
 import {
   signInWithEmailAndPassword, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup,
 } from 'firebase/auth';
-import { auth } from './firebase.js';
+import {
+  collection, doc, setDoc, addDoc,
+} from 'firebase/firestore';
+import { auth, db } from './firebase.js';
 
 /* Ingresar con Google */
 const provider = new GoogleAuthProvider();
@@ -27,24 +16,21 @@ const createUser = (email, password) => createUserWithEmailAndPassword(auth, ema
 /* Ingreso con email y password */
 const signIn = (email, password) => signInWithEmailAndPassword(auth, email, password);
 
+// Leer post
+const colPost = collection(db, 'posts');
+
+// guardar post
+const post = (postText) => {
+  addDoc(colPost, {
+    text: postText,
+    userEmail: auth.currentUser.email,
+  });
+};
+
 export {
   loginWithGoogle,
   createUser,
   signIn,
-};
-
-/* EXPOSTS */
-export const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
-export const db = getFirestore(app);
-export default {
-  addDoc,
-  getDocs,
-  doc,
-  collection,
-  deleteDoc,
-  updateDoc,
-  arrayRemove,
-  arrayUnion,
-  getDoc,
+  colPost,
+  post,
 };

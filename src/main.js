@@ -17,7 +17,6 @@ const routes = [
   { path: '/emprende', component: home },
 
 ];
-const defaultRoute = '/';
 
 export function navigateTo(hash) {
   const route = routes.find((routeFind) => routeFind.path === hash);
@@ -37,8 +36,8 @@ onAuthStateChanged(auth, (user) => {
   if (user) {
     navigateTo('/emprende');
   } else if (window.location.pathname === '/emprende' && user === null) {
-    navigateTo(defaultRoute);
+    navigateTo();
   } else {
-    navigateTo(window.location.pathname || defaultRoute);
+    navigateTo(window.location.pathname);
   }
 });

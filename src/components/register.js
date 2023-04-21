@@ -39,6 +39,10 @@ function register(navigateTo) {
   const btnRegWithGithub = document.createElement('button');
   btnRegWithGithub.classList.add('github-reg-btn');
 
+  const errorElement = document.createElement('h3');
+  errorElement.classList.add('error-element');
+  errorElement.textContent = '';
+
   titleRegKitty.textContent = 'KittyBook';
   titleReg.textContent = '¡Regístrate!';
   btnSend.textContent = 'Registrarme';
@@ -56,16 +60,7 @@ function register(navigateTo) {
   btnSend.addEventListener('click', () => {
     const email = inputEmail.value;
     const password = inputPass.value;
-    const validEmailRegex = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
-
-    if (email === '' || password === '') {
-      alert('Revisa tus datos');
-    } else if ((inputEmail.value.match(validEmailRegex))) {
-      alert('¡Registro exitoso!');
-      newAccount(email, password);
-    } else {
-      alert('Revisa tus datos');
-    }
+    newAccount(email, password, errorElement);
   });
   btnRegWithGoogle.addEventListener('click', () => {
     accessWithGoogle(navigateTo);
@@ -82,6 +77,7 @@ function register(navigateTo) {
     btnRegWithGoogle,
     btnRegWithGithub,
     btnReturnH,
+    errorElement,
   );
   sectionReg.append(
     titleRegKitty,

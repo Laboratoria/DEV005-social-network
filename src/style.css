@@ -167,6 +167,11 @@ main {
     background-position: center 115%;
   }
 
+  #construction {
+    height: 100%;
+    width: 100%;
+  }
+
   #title-KB {
     margin-top: .3em;
     margin-bottom: -.2em;
@@ -194,6 +199,11 @@ main {
     background-repeat: no-repeat;
     background-size: 70%;
     background-position: right 145%;
+  }
+
+  #construction {
+    height: 80%;
+    width: 80%;
   }
 
   #title-KB {

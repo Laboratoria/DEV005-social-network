@@ -1,18 +1,16 @@
+/* eslint-disable no-console */
 import {
-  getAuth,
   createUserWithEmailAndPassword,
   signInWithPopup,
   GoogleAuthProvider,
   GithubAuthProvider,
   signInWithEmailAndPassword,
-  onAuthStateChanged,
 } from 'firebase/auth';
-import { app, auth } from './firebase';
+import { auth } from './firebase';
 
 // CORREO Y CONTRASEÑA
 
 export const newAccount = (email, password) => {
-  // const auth = getAuth(app);
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed in
@@ -31,7 +29,6 @@ export const newAccount = (email, password) => {
 // Registrar/Iniciar sesión con Google
 export const accessWithGoogle = (navigateTo) => {
   const provider = new GoogleAuthProvider();
-  // const auth = getAuth(app);
   signInWithPopup(auth, provider)
     .then((result) => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
@@ -55,8 +52,6 @@ export const accessWithGoogle = (navigateTo) => {
 
 export const accessWithGithub = (navigateTo) => {
   const provider = new GithubAuthProvider();
-
-  // const auth = getAuth(app);
   signInWithPopup(auth, provider)
     .then((result) => {
       const credential = GithubAuthProvider.credentialFromResult(result);
@@ -91,16 +86,3 @@ export const logInWithEmail = (mail, passwrd) => new Promise((resolve, reject) =
       reject(error);
     });
 });
-
-// Ver si el usuario ha iniciado sesión
-// const auth = getAuth(app);
-
-const user = auth.currentUser;
-if (user) {
-  console.log(user);
-  // User is signed in, see docs for a list of available properties
-  // https://firebase.google.com/docs/reference/js/firebase.User
-  // ...
-} else {
-  // No user is signed in.
-}

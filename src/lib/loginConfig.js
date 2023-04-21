@@ -31,9 +31,9 @@ export const loginWithGoogle = () => new Promise((resolve, reject) => {
     .then((result) => {
       // This gives you a Google Access Token. You can use it to access the Google API.
       const credential = GoogleAuthProvider.credentialFromResult(result);
-      const token = credential.accessToken;
+      // const token = credential.accessToken;
       const user = result.user;
-      console.log(credential, token, user);
+      console.log(credential, user);
       console.log('sign in with google');
       // const token = credential.accessToken;
       // The signed-in user info.
@@ -43,7 +43,8 @@ export const loginWithGoogle = () => new Promise((resolve, reject) => {
     })
     .catch((error) => {
       const errorCode = error.code;
-      reject(errorCode);
+      const errorMessage = error.message;
+      reject(errorCode, errorMessage);
     });
 });
 
@@ -57,7 +58,8 @@ export const loginWithGithub = () => {
       console.log(githubUser);
       console.log(credential);
       console.log('sign in with Github');
-    }).catch((error) => {
+    })
+    .catch((error) => {
       // Handle Errors here.
       const errorCode = error.code;
       const errorMessage = error.message;
@@ -78,13 +80,21 @@ export const loginWithTwitter = () => new Promise((resolve, reject) => {
   signInWithPopup(auth, provider)
     .then((result) => {
       const credential = TwitterAuthProvider.credentialFromResult(result);
-      console.log(credential);
-      console.log('Sign in with twitter');
       const user = result.user;
+      console.log(credential, user);
+      console.log('Sign in with twitter');
       resolve({ user });
     })
     .catch((error) => {
-      const errorCode = error.code;
-      reject(errorCode);
+      console.log('error lors de lauthentification firebase : ', error);
+      console.log('codeError : ', error.code);
+      // error.email is undefined
+      console.log('emailError : ', error.email);
+      console.log('errorMessage : ', error.message);
+      const codeError = error.code;
+      if (codeError === 'auth/account-exists-with-different-credential') {
+        console.log(codeError);
+      }
+      reject(error.code);
     });
 });

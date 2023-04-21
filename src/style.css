@@ -183,13 +183,13 @@ button:active {
   top: 5px;
 }
 
-.publish {
+/* .publish {
   color: #ffffff;
   background-color: #320070;
   border-radius: 10px;
   border-style: none;
   grid-area: foot;
-}
+} */
 
 .cPost {
   display: grid;
@@ -241,7 +241,7 @@ button:active {
   justify-self: center;
 }
 
-#btn-post {
+.btn-class {
   display: grid;
   grid-area: 3;
   /* margin-top: 3%; */
@@ -251,11 +251,24 @@ button:active {
   font-size: 15px;
   width: 8rem;
   height: 2rem;
+  align-items: center;
+  border-radius: 20px;
+}
+
+#btn-post {
   /* margin-left: 60%; */
   justify-self: end;
   margin-right: 10%;
-  align-items: center;
-  border-radius: 20px;
+  
+}
+
+#btn-edit {
+  display: flex;
+  justify-content: center;
+  width: 4rem;
+  background-color: rgb(140, 0, 255);
+  align-self: center;
+  grid-area: 4;
 }
 
 #btn-out {

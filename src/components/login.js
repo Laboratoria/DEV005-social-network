@@ -1,19 +1,5 @@
 import { loginConfig } from '../lib/loginConfig.js';
 
-  formularioLogin.innerHTML += '';
-  formularioLogin.innerHTML += `
-  <div class="loginDiv">
-  <div class="imgLogin">
-  <h2 class="messageLogin" id="imgLogin">Iniciar Sesión</h2>
-  </div>
-  <form class="credencialesdiv" id="formulario">
-  <input type="email" class="loginCorreo" placeholder="Correo Electrónico" required>
-  <input type="password" class="loginContra" placeholder="Contraseña" required>
-  <button class="buttonReturn" type="submit">Ingresar</button>
-  </form>
-  <span class="mensajelogin">¿No tienes una cuenta?
-  <strong>Regístrate</strong></span>
-  </div>`;
 const login = (navigateTo) => {
   const formularioLogin = document.createElement('div');
   formularioLogin.className = 'formularioLogin';

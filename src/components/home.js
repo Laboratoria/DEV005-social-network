@@ -38,17 +38,6 @@ const home = (navigateTo) => {
   const icontwitter = document.createElement('div');
   icontwitter.className = 'icontwitter';
   // ? botón de github
-  /* const buttongithub = document.createElement('button');
-  buttongithub.className = 'buttongithub';
-  buttongithub.addEventListener('click', async () => {
-    try {
-      loginWithGithub();
-      navigateTo('/muro');
-    } catch (error) {
-      console.log(error);
-    }
-  }); */
-
   const buttongithub = document.createElement('button');
   buttongithub.className = 'buttongithub';
   buttongithub.addEventListener('click', () => {

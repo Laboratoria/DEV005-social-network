@@ -45,15 +45,6 @@ export const loginWithGoogle = () => new Promise((resolve, reject) => {
 });
 
 // TODO: Función de logeo con Github
-/* export const loginWithGithub = () => {
-  const providerGithub = new GithubAuthProvider();
-  signInWithPopup(auth, providerGithub).then((credentials) => {
-    const userGithub = credentials.user;
-    console.log(userGithub);
-    console.log('sign in with Github');
-  });
-}; */
-
 export const loginWithGithub = () => {
   const githubProvider = new GithubAuthProvider();
   signInWithPopup(auth, githubProvider)

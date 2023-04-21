@@ -1,7 +1,7 @@
-/* eslint-disable no-console */
 import {
-  collection, addDoc, getDocs, doc, getDoc, updateDoc,
+  collection, addDoc, getDocs, doc, getDoc, updateDoc, deleteDoc,
 } from 'firebase/firestore';
+
 import { signOut, onAuthStateChanged } from 'firebase/auth';
 import { auth, db } from '../lib/index.js';
 import { WallTemplate } from '../templates/wallTemplate.js';
@@ -20,6 +20,7 @@ export const Wall = (onNavigate) => {
   const getDocument = () => getDocs(collection(db, 'posts'));
   const getPost = (id) => getDoc(doc(db, 'posts', id));
   const updatePost = (id, newField) => updateDoc(doc(db, 'posts', id), newField);
+  const deletePosts = (id) => deleteDoc(doc(db, 'posts', id));
 
   const checkUser = (data) => {
     const user = data.data().Author;
@@ -30,12 +31,19 @@ export const Wall = (onNavigate) => {
     return false;
   };
 
+  const deleting = (content) => {
+    const deletePost = content.querySelectorAll('#btn-delete');
+    deletePost.forEach((btn) => {
+      btn.addEventListener('click', ({ target: { dataset } }) => {
+        deletePosts(dataset.id);
+      });
+    });
+  };
+
   const editPost = (content) => {
     const btnEdit = content.querySelectorAll('#btn-edit');
     btnEdit.forEach((element) => element.addEventListener('click', async (e) => {
       const docu = await getPost(e.target.dataset.id);
-      /* const user = docu.data().Author;
-      const userEmail = auth.currentUser.email; */
       if (checkUser(docu)) {
         console.log('El user ES autor del post');
         iPost.value = docu.data().Post;
@@ -60,6 +68,7 @@ export const Wall = (onNavigate) => {
           <li class='liPost' >
             ${post.Post}
             <buttom class="btn-class" id="btn-edit" data-id="${docu.id}">Editar</buttom>
+            <button class="btn-class" id='btn-delete' data-id="${docu.id}">Eliminar</button>
           </li>
           `;
         } else {
@@ -76,6 +85,7 @@ export const Wall = (onNavigate) => {
       errorMsj.innerHTML = 'No hay posts';
     }
     editPost(div);
+    deleting(div);
   };
 
   onAuthStateChanged(auth, async (user) => {
@@ -118,5 +128,6 @@ export const Wall = (onNavigate) => {
     await signOut(auth);
     onNavigate('/');
   });
+
   return div;
 };

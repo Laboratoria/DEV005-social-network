@@ -1,15 +1,17 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
+
 import {
   createUserWithEmailAndPassword,
   signInWithPopup,
   GoogleAuthProvider,
   GithubAuthProvider,
   signInWithEmailAndPassword,
+  onAuthStateChanged,
 } from 'firebase/auth';
 import { auth } from './firebase';
 
 // CORREO Y CONTRASEÑA
-
 export const newAccount = (email, password) => {
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
@@ -25,7 +27,6 @@ export const newAccount = (email, password) => {
       // ..
     });
 };
-
 // Registrar/Iniciar sesión con Google
 export const accessWithGoogle = (navigateTo) => {
   const provider = new GoogleAuthProvider();

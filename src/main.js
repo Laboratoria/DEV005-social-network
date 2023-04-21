@@ -13,7 +13,6 @@ const routes = [
   { path: '/error', component: error },
   { path: '/wall', component: wall },
 ];
-
 const defaultRoute = '/';
 const root = document.getElementById('root');
 function navigateTo(hash) {

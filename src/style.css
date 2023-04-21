@@ -113,6 +113,12 @@ main {
     background-size: 90%;
   }
 
+  #text-posts {
+    height: 100px;
+    width: 200px;
+    background-color: powderblue;
+
+  }
   #to-regist {
     display: flex;
     flex-direction: column;

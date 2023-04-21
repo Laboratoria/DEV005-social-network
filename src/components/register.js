@@ -1,4 +1,7 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-console */
 /* eslint-disable no-alert */
+
 import { newAccount, accessWithGoogle, accessWithGithub } from '../lib/auth';
 
 function register(navigateTo) {
@@ -49,21 +52,28 @@ function register(navigateTo) {
   btnReturnH.addEventListener('click', () => {
     navigateTo('/');
   });
+
   btnSend.addEventListener('click', () => {
     const email = inputEmail.value;
     const password = inputPass.value;
+    const validEmailRegex = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+
     if (email === '' || password === '') {
-      alert('Ingrese usuario y/o contraseña');
-    } else {
-      alert('¡Registro exitoso, muchas gracias!');
+      alert('Revisa tus datos');
+    } else if ((inputEmail.value.match(validEmailRegex))) {
+      alert('¡Registro exitoso!');
       newAccount(email, password);
+    } else {
+      alert('Revisa tus datos');
     }
   });
-
   btnRegWithGoogle.addEventListener('click', () => {
     accessWithGoogle(navigateTo);
   });
-  btnRegWithGithub.addEventListener('click', accessWithGithub);
+
+  btnRegWithGithub.addEventListener('click', () => {
+    accessWithGithub(navigateTo);
+  });
 
   divContainer.append(
     inputEmail,
@@ -73,7 +83,6 @@ function register(navigateTo) {
     btnRegWithGithub,
     btnReturnH,
   );
-
   sectionReg.append(
     titleRegKitty,
     titleReg,

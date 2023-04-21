@@ -48,6 +48,9 @@ function home(navigateTo) {
   const btnRegister = document.createElement('button');
   btnRegister.id = 'h-register';
   btnRegister.textContent = 'Registrarme';
+  const errorELogin = document.createElement('h3');
+  errorELogin.classList.add('error-element');
+  errorELogin.textContent = '';
   // Sección para tablets y dekstop
   const info = document.createElement('section');
   info.id = 'info-text';
@@ -57,21 +60,22 @@ function home(navigateTo) {
   btnLogIn.addEventListener('click', () => {
     const mail = email.value;
     const passwrd = password.value;
-    if (mail === '' || passwrd === '') {
-      alert('Ingrese usuario y/o contraseña');
-    } else {
-      logInWithEmail(mail, passwrd).then(() => {
-        alert('Sesión iniciada');
+
+    logInWithEmail(mail, passwrd, errorELogin)
+      .then(() => {
         navigateTo('/wall');
-      }).catch((error) => {
-        alert('Error al iniciar sesión');
+      })
+      .catch((error) => {
         console.log(error);
       });
-    }
   });
 
   googleLogIn.addEventListener('click', () => {
     accessWithGoogle(navigateTo);
+  });
+
+  ghLogIn.addEventListener('click', () => {
+    accessWithGithub(navigateTo);
   });
 
   btnRegister.addEventListener('click', () => {
@@ -91,6 +95,7 @@ function home(navigateTo) {
     btnLogIn,
     googleLogIn,
     ghLogIn,
+    errorELogin,
   );
   googleLogIn.append(iconGoogle);
   ghLogIn.append(iconGH);

@@ -1,4 +1,4 @@
-import { newAccount, accessWithGoogle, accessWithGithub} from '../lib/auth';
+import { newAccount, accessWithGoogle, accessWithGithub } from '../lib/auth';
 
 function register(navigateTo) {
   const sectionReg = document.createElement('section');
@@ -35,15 +35,16 @@ function register(navigateTo) {
   const btnRegWithGithub = document.createElement('button');
   btnRegWithGithub.classList.add('github-reg-btn');
 
-
-
+  const errorElement = document.createElement('h3');
+  errorElement.classList.add('error-element');
+  errorElement.textContent = '';
 
   titleRegKitty.textContent = 'KittyBook';
   titleReg.textContent = '¡Regístrate!';
   btnSend.textContent = 'Registrarme';
   btnRegWithGoogle.textContent = 'Regístrate con Google';
   btnRegWithGithub.textContent = 'Regístrate con GitHub';
-  regTrademark.textContent = 'KittyBook, 2023'
+  regTrademark.textContent = 'KittyBook, 2023';
 
   const btnReturnH = document.createElement('button');
   btnReturnH.id = 'return';
@@ -54,23 +55,16 @@ function register(navigateTo) {
   btnSend.addEventListener('click', () => {
     const email = inputEmail.value;
     const password = inputPass.value;
-    if (email === '' || password === '') {
-      alert('Ingrese usuario y/o contraseña');
-    } else {
-      alert('¡Registro exitoso, muchas gracias!');
-      newAccount(email, password);
-    }
+    newAccount(email, password, errorElement);
   });
-
-
-
-  
 
   btnRegWithGoogle.addEventListener('click', () => {
     accessWithGoogle(navigateTo);
   });
-  btnRegWithGithub.addEventListener('click', accessWithGithub);
 
+  btnRegWithGithub.addEventListener('click', () => {
+    accessWithGithub(navigateTo);
+  });
 
   divContainer.append(
     inputEmail,
@@ -79,8 +73,9 @@ function register(navigateTo) {
     btnRegWithGoogle,
     btnRegWithGithub,
     btnReturnH,
-    )
-    
+    errorElement,
+  );
+
   sectionReg.append(
     titleRegKitty,
     titleReg,
@@ -91,7 +86,6 @@ function register(navigateTo) {
     btnReturnH,
     regTrademark,
   );
-  logInWithEmail('example1@mail.com', '123456');
   return sectionReg;
 }
 export default register;

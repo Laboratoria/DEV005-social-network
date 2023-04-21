@@ -1,7 +1,10 @@
 import {
   signInWithEmailAndPassword, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup,
 } from 'firebase/auth';
-import { auth } from './firebase.js';
+import {
+  collection, doc, setDoc, addDoc,
+} from 'firebase/firestore';
+import { auth, db } from './firebase.js';
 
 /* Ingresar con Google */
 const provider = new GoogleAuthProvider();
@@ -13,16 +16,21 @@ const createUser = (email, password) => createUserWithEmailAndPassword(auth, ema
 /* Ingreso con email y password */
 const signIn = (email, password) => signInWithEmailAndPassword(auth, email, password);
 
-export const currentUserNow = () => {
-  const user = auth.currentUser;
-  if (user) {
-    return user;
-  }
-  return null;
+// Leer post
+const colPost = collection(db, 'posts');
+
+// guardar post
+const post = (postText) => {
+  addDoc(colPost, {
+    text: postText,
+    userEmail: auth.currentUser.email,
+  });
 };
 
 export {
   loginWithGoogle,
   createUser,
   signIn,
+  colPost,
+  post,
 };

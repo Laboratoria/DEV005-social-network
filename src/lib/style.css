@@ -1,4 +1,4 @@
-* {
+*{
     font-family: Arial, Helvetica, sans-serif;
     padding: 0%;
     margin: 0%;
@@ -21,7 +21,6 @@
     top: 54px;
     background: none;
 }
-
 .logIn {
     display: flex;
     flex-direction: column;
@@ -38,7 +37,6 @@
     border-radius: 10px;
     margin-top: 300px;
 }
-
 .register {
     display: flex;
     flex-direction: column;
@@ -55,14 +53,12 @@
     border-radius: 10px;
     margin-top: 50px;
 }
-
 .division {
     position: absolute;
     margin-top: 500px;
     width: 80%;
     max-width: 380px;
 }
-
 .google {
     display: flex;
     flex-direction: column;
@@ -200,7 +196,6 @@
     border-radius: 8px;
     padding: 2%;
 }
-
 
 /*pantalla crear cuenta*/
 .creat {
@@ -342,6 +337,7 @@
     font-weight: bold;
 }
 
+
 /* Home*/
 .home{
     display: flex;
@@ -399,7 +395,7 @@
     border-radius: 15px;
     margin: -848px 0px 4px 358px;
     padding: 28px 0px 0px 0px;
-    }
+}
 
 /*error*/
 u {
@@ -614,11 +610,11 @@ u {
         background: none;
         outline: none;
         font-weight: bold;
-    }
+    } */
 
     /* pantalla crear cuenta
 
-    .formCreateAccount {
+    /* .formCreateAccount {
         margin: 14% 58%;
         width: 32%;
         height: 402px;
@@ -694,7 +690,7 @@ u {
         background: #F39C12;
         border-radius: 12px;
         color: #FFFEFE;
-    }
+    } */
 
     /*pantalla de error
     u {

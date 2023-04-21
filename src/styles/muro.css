@@ -200,4 +200,30 @@ body{
     border-radius: 7px;
     background: #e2e5e9;
   }
+  
+  /* task container*/
+  /*
+  .tasks-container{
+    display: flex;
+    position: relative;
+    align-items: center;
+    background-color: white;
+    margin: 20px;
+    width: 350px;
+    height: 80px;
+    border-radius: 10px;
+    text-align: center;
+    justify-content: center;
+    border: 1px solid black;
+    z-index: -3;
+  }
+  */
+
+  .publicaciones{
+    background-color: white;
+    margin: 20px;
+    border-radius: 7px;
+    padding-left: 10px;
+    z-index: -3;
+  }
 }

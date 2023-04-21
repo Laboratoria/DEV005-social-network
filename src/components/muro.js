@@ -1,5 +1,8 @@
 import { getAuth, signOut } from 'firebase/auth';
-import { saveTask, getTask } from '../lib/firebaseConfig.js';
+import {
+  saveTask,
+  onGetTasks,
+} from '../lib/firebaseConfig.js';
 
 const muro = (navigateTo) => {
   const muroDiv = document.createElement('div');
@@ -16,33 +19,35 @@ const muro = (navigateTo) => {
   </header>
 
   <main>
+  
   <div class='create-post'> 
   <button class='open-popup'>¿Qué receta quieres compartir hoy?</button>
   </div>
 
   <div class='pop-up' id='pop-up'>
-  <div class="wrapper">
-  <section class="post">
-  
-  <form action="#" class="form-post" id="form-post">
-  <button class="cerrar-post"><i class='bx bx-x'></i></button>
+  <div class='wrapper'>
+  <section class='post'>
+  <form action='#' class='form-post' id='form-post'>
+  <button class='cerrar-post'><i class='bx bx-x'></i></button>
   <h2>Crear Post</h2>
-  <div class="content-post">
-  <div class="detail-post">
+  <div class='content-post'>
+  <div class='detail-post'>
   <p>Food Match</p>
-  <div class="privacy">
+  <div class='privacy'>
   <i class='bx bx-user-pin' ></i>
   <span>amigos</span>
   <i class='bx bx-caret-down'></i>
   </div>
   </div>
   </div>
-  <textarea id="textarea-post" placeholder="Descripción del post :D"> </textarea>
-  <button class="publicar-post" type="submit" >Post</button>
+  <textarea id='textarea-post' placeholder='Descripción del post :D'> </textarea>
+  <button class='publicar-post' type='submit' >Post</button>
   </form>
   </section>
   </div>
   </div>
+
+  <div id='tasks-container' class='tasks-container'></div>
   </main>
   `;
 
@@ -77,16 +82,30 @@ const muro = (navigateTo) => {
     });
   });
 
+  const tasksContainer = muroDiv.querySelector('.tasks-container');
   window.addEventListener('DOMContentLoaded', async () => {
     // consulta asíncrona
     // querySnapshot -> los datos que existen en este momento
     // ejecutar con promesa o callback
-    const querySnapshot = await getTask();
-    console.log(querySnapshot);
-    // por cada documento quiero ver por consola el documento
-    querySnapshot.forEach(doc => {
-      console.log(doc.data());
-});
+
+    // cuando ocurra un cambio en la base de datos de post
+    // voy a recibir los datos nuevos voy a crear el html  y recorrer los datos
+    // para verlo y luego pintamos el html y luego lo ponemos dentro del task container
+    onGetTasks((querySnapshot) => {
+      let html = '';
+      // por cada documento quiero ver por consola el documento
+      querySnapshot.forEach((doc) => {
+        const task = doc.data();
+        html += `
+              <div class="publicaciones">
+                  <p>${task.description}</p>
+                  <button>Delete</button>
+              </div>
+          `;
+      });
+
+      tasksContainer.innerHTML = html;
+    });
   });
 
   const formPost = muroDiv.querySelector('.form-post');

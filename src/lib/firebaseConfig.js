@@ -6,6 +6,7 @@ import {
   collection,
   addDoc,
   getDocs,
+  onSnapshot,
 } from 'firebase/firestore';
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -25,10 +26,13 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 // Conexión a la base de datos
-export const db = getFirestore(app);
+const db = getFirestore(app);
 
 export const saveTask = (description) => {
   addDoc(collection(db, 'post'), { description });
 };
 
 export const getTask = () => getDocs(collection(db, 'post'));
+
+// onSnapshot -> para que escuche los cambios y se vea en tiempo real
+export const onGetTasks = (callback) => onSnapshot(collection(db, 'post'), callback);

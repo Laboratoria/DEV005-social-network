@@ -22,6 +22,7 @@ export const Wall = (onNavigate) => {
   const updatePost = (id, newField) => updateDoc(doc(db, 'posts', id), newField);
   const deletePosts = (id) => deleteDoc(doc(db, 'posts', id));
 
+  // valida si el usuario es igual que el correo
   const checkUser = (data) => {
     const user = data.data().Author;
     const userEmail = auth.currentUser.email;
@@ -31,6 +32,7 @@ export const Wall = (onNavigate) => {
     return false;
   };
 
+  // borra posts
   const deleting = (content) => {
     const deletePost = content.querySelectorAll('#btn-delete');
     deletePost.forEach((btn) => {
@@ -40,6 +42,7 @@ export const Wall = (onNavigate) => {
     });
   };
 
+  // edita posts
   const editPost = (content) => {
     const btnEdit = content.querySelectorAll('#btn-edit');
     btnEdit.forEach((element) => element.addEventListener('click', async (e) => {
@@ -57,6 +60,7 @@ export const Wall = (onNavigate) => {
     }));
   };
 
+  // muestra posts
   const showPost = (data) => {
     if (data.length) {
       let html = '';
@@ -88,6 +92,7 @@ export const Wall = (onNavigate) => {
     deleting(div);
   };
 
+  // valida que el usuario inicie sesion
   onAuthStateChanged(auth, async (user) => {
     if (user) {
       const getAllPosts = await getDocument();
@@ -97,6 +102,7 @@ export const Wall = (onNavigate) => {
     }
   });
 
+  // Crea posts
   const crearPost = async (contenido) => {
     try {
       const docRef = await addDoc(collection(db, 'posts'), {
@@ -109,6 +115,7 @@ export const Wall = (onNavigate) => {
     }
   };
 
+  // Crea el post en la base de datos
   const btnPost = div.querySelector('#btn-post');
   const btnOut = div.querySelector('#btn-out');
   // const currentUser = auth.currentUser;
@@ -124,6 +131,7 @@ export const Wall = (onNavigate) => {
     iPost.value = '';
   });
 
+  // salir de sesion
   btnOut.addEventListener('click', async () => {
     await signOut(auth);
     onNavigate('/');

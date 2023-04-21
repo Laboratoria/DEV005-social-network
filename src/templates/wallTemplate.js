@@ -11,4 +11,5 @@ export const WallTemplate = `
     <button id="btn-post" class="publish">Publicar</button>
     <p id='errorMsj' class='wallErrorMsj'></p>
     <div class="posts"></div>
+    <div class="pointsSelec" <FontAwesomeIcon icon="fa-solid fa-ellipsis-stroke-vertical"/>></div>
 </div>`;

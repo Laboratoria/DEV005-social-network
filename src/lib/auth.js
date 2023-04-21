@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+/* eslint-disable no-console */
 import {
   createUserWithEmailAndPassword,
   signInWithPopup,
@@ -6,7 +7,8 @@ import {
   GithubAuthProvider,
   signInWithEmailAndPassword,
 } from 'firebase/auth';
-import { app, auth } from './firebase';
+import { auth } from './firebase';
+
 // CORREO Y CONTRASEÑA
 export const newAccount = (email, password, errorElement) => {
   if (email === '' && password === '') {
@@ -41,7 +43,6 @@ export const newAccount = (email, password, errorElement) => {
 // Registrar/Iniciar sesión con Google
 export const accessWithGoogle = (navigateTo) => {
   const provider = new GoogleAuthProvider();
-  // const auth = getAuth(app);
   signInWithPopup(auth, provider)
     .then((result) => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
@@ -60,10 +61,11 @@ export const accessWithGoogle = (navigateTo) => {
       // ...
     });
 };
+
 // GITHUB
+
 export const accessWithGithub = (navigateTo) => {
   const provider = new GithubAuthProvider();
-  // const auth = getAuth(app);
   signInWithPopup(auth, provider)
     .then((result) => {
       const credential = GithubAuthProvider.credentialFromResult(result);

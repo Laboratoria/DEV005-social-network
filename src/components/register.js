@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import { newAccount, accessWithGoogle, accessWithGithub } from '../lib/auth';
 
 function register(navigateTo) {

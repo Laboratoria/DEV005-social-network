@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './lib/firebase.js';
 
@@ -33,13 +34,16 @@ function navigateTo(hash) {
   }
 }
 window.onpopstate = () => {
-  navigateTo(window.location.pathname);
+  navigateTo(window.location.pathname || defaultRoute);
 };
 
 onAuthStateChanged(auth, (user) => {
+  console.log(user);
   if (user) {
     navigateTo('/wall');
+    // const user = auth.currentUser;
+    // if (user != )
   } else {
-    navigateTo(window.location.pathname || defaultRoute);
+    navigateTo('/');
   }
 });

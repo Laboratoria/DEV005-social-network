@@ -1,4 +1,5 @@
 import { getAuth, signOut } from 'firebase/auth';
+import { saveTask, getTask } from '../lib/firebaseConfig.js';
 
 const muro = (navigateTo) => {
   const muroDiv = document.createElement('div');
@@ -23,7 +24,7 @@ const muro = (navigateTo) => {
   <div class="wrapper">
   <section class="post">
   
-  <form action="#" class="form-post">
+  <form action="#" class="form-post" id="form-post">
   <button class="cerrar-post"><i class='bx bx-x'></i></button>
   <h2>Crear Post</h2>
   <div class="content-post">
@@ -36,7 +37,7 @@ const muro = (navigateTo) => {
   </div>
   </div>
   </div>
-  <textarea  placeholder="Descripción del post :D"> </textarea>
+  <textarea id="textarea-post" placeholder="Descripción del post :D"> </textarea>
   <button class="publicar-post" type="submit" >Post</button>
   </form>
   </section>
@@ -74,6 +75,28 @@ const muro = (navigateTo) => {
         popUp.style.display = 'none';
       }
     });
+  });
+
+  window.addEventListener('DOMContentLoaded', async () => {
+    // consulta asíncrona
+    // querySnapshot -> los datos que existen en este momento
+    // ejecutar con promesa o callback
+    const querySnapshot = await getTask();
+    console.log(querySnapshot);
+    // por cada documento quiero ver por consola el documento
+    querySnapshot.forEach(doc => {
+      console.log(doc.data());
+});
+  });
+
+  const formPost = muroDiv.querySelector('.form-post');
+  formPost.addEventListener('submit', (e) => {
+    e.preventDefault();
+    console.log('enviado');
+    const description = formPost['textarea-post'].value;
+    // console.log(description);
+    saveTask(description);
+    formPost.reset();
   });
   return muroDiv;
 };

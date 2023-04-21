@@ -56,11 +56,11 @@ function wall(navigateTo) {
   });
 
   navBar.append(btnReturnH, btnLogOut);
-  sectionWall.append(navBar, welcomeMsg, 
-    // msg, 
+  sectionWall.append(navBar, welcomeMsg,
+    // msg,
     // kittyImage
-    );
-
+  // eslint-disable-next-line function-paren-newline
+  );
   return sectionWall;
 }
 

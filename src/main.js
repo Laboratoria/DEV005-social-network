@@ -1,8 +1,7 @@
-// Este es el punto de entrada de tu aplicacion
-// import { myFunction } from './lib/index.js';
-// myFunction();
+/* eslint-disable no-console */
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from './lib/firebase.js';
 
-// import logIn from './components/log-in.js';
 import home from './components/home.js';
 import register from './components/register.js';
 import error from './components/error.js';
@@ -35,6 +34,16 @@ function navigateTo(hash) {
   }
 }
 window.onpopstate = () => {
-  navigateTo(window.location.pathname);
+  navigateTo(window.location.pathname || defaultRoute);
 };
-navigateTo(window.location.pathname || defaultRoute);
+
+onAuthStateChanged(auth, (user) => {
+  console.log(user);
+  if (user) {
+    navigateTo('/wall');
+    // const user = auth.currentUser;
+    // if (user != )
+  } else {
+    navigateTo('/');
+  }
+});

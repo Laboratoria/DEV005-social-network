@@ -1,11 +1,14 @@
 /* eslint-disable no-unused-vars */
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
+
 import {
   createUserWithEmailAndPassword,
   signInWithPopup,
   GoogleAuthProvider,
   GithubAuthProvider,
   signInWithEmailAndPassword,
+  onAuthStateChanged,
 } from 'firebase/auth';
 import { auth } from './firebase';
 

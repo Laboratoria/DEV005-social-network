@@ -1,3 +1,7 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-console */
+/* eslint-disable no-alert */
+
 import { newAccount, accessWithGoogle, accessWithGithub } from '../lib/auth';
 
 function register(navigateTo) {
@@ -52,12 +56,12 @@ function register(navigateTo) {
   btnReturnH.addEventListener('click', () => {
     navigateTo('/');
   });
+
   btnSend.addEventListener('click', () => {
     const email = inputEmail.value;
     const password = inputPass.value;
     newAccount(email, password, errorElement);
   });
-
   btnRegWithGoogle.addEventListener('click', () => {
     accessWithGoogle(navigateTo);
   });
@@ -75,7 +79,6 @@ function register(navigateTo) {
     btnReturnH,
     errorElement,
   );
-
   sectionReg.append(
     titleRegKitty,
     titleReg,

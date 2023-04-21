@@ -4,6 +4,7 @@ import {
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   GithubAuthProvider,
+  TwitterAuthProvider,
   signInWithPopup,
 } from 'firebase/auth';
 import { auth } from './firebaseConfig.js';
@@ -30,11 +31,12 @@ export const loginWithGoogle = () => new Promise((resolve, reject) => {
     .then((result) => {
       // This gives you a Google Access Token. You can use it to access the Google API.
       const credential = GoogleAuthProvider.credentialFromResult(result);
-      console.log(credential);
+      const token = credential.accessToken;
+      const user = result.user;
+      console.log(credential, token, user);
       console.log('sign in with google');
       // const token = credential.accessToken;
       // The signed-in user info.
-      const user = result.user;
       resolve({ user });
       // IdP data available using getAdditionalUserInfo(result)
       // ...
@@ -45,6 +47,7 @@ export const loginWithGoogle = () => new Promise((resolve, reject) => {
     });
 });
 
+// TODO: Función de logeo con Github
 export const loginWithGithub = () => {
   const githubProvider = new GithubAuthProvider();
   signInWithPopup(auth, githubProvider)
@@ -70,15 +73,18 @@ export const loginWithGithub = () => {
     });
 };
 
-/*
-const userChange = {};
-export const obtenerUsuarioActual = () => {
-  onAuthStateChanged(firebaseAuth, (user) => {
-    if (user) {
-      userChange.email = user.email;
-      userChange.uid = user.uid;
-      userChange.displayName = user.displayName;
-    }
-  });
-};
-*/
+export const loginWithTwitter = () => new Promise((resolve, reject) => {
+  const provider = new TwitterAuthProvider();
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      const credential = TwitterAuthProvider.credentialFromResult(result);
+      console.log(credential);
+      console.log('Sign in with twitter');
+      const user = result.user;
+      resolve({ user });
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      reject(errorCode);
+    });
+});

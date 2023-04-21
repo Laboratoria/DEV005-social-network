@@ -1,6 +1,6 @@
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../lib/firebaseConfig.js';
-import { loginWithGithub, loginWithGoogle } from '../lib/loginConfig.js';
+import { loginWithGithub, loginWithGoogle, loginWithTwitter } from '../lib/loginConfig.js';
 
 const home = (navigateTo) => {
   const homediv = document.createElement('div');
@@ -26,14 +26,21 @@ const home = (navigateTo) => {
   // ? botón de twitter
   const buttontwitter = document.createElement('button');
   buttontwitter.className = 'buttontwitter';
+  // ! Logueo con twitter
   buttontwitter.addEventListener('click', () => {
-    alert('Estamos trabajando en ello');
+    loginWithTwitter();
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        navigateTo('/muro');
+      }
+    });
   });
   const icontwitter = document.createElement('div');
   icontwitter.className = 'icontwitter';
   // ? botón de github
   const buttongithub = document.createElement('button');
   buttongithub.className = 'buttongithub';
+  // ! Logueo con github
   buttongithub.addEventListener('click', () => {
     loginWithGithub();
     onAuthStateChanged(auth, (user) => {
@@ -53,9 +60,14 @@ const home = (navigateTo) => {
     navigateTo('/login');
   });
   buttongoogle.textContent = 'Continuar con Google';
+  // ! Logueo con google
   buttongoogle.addEventListener('click', () => {
     loginWithGoogle();
-    navigateTo('/muro');
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        navigateTo('/muro');
+      }
+    });
   });
   buttontwitter.textContent = 'Continuar con Twitter';
   buttongithub.textContent = 'Continuar con Github';

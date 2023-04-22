@@ -1,5 +1,5 @@
 import {
-  collection, addDoc, getDocs, doc, getDoc, updateDoc, deleteDoc,
+  collection, addDoc, getDocs, doc, getDoc, updateDoc, deleteDoc, arrayUnion,
 } from 'firebase/firestore';
 
 import { signOut, onAuthStateChanged } from 'firebase/auth';
@@ -59,7 +59,31 @@ export const Wall = (onNavigate) => {
       }
     }));
   };
-
+  // dar like a post
+  const LikeAndCount = (content) => {
+    content.addEventListener('click', async (event) => {
+      if (event.target.matches('#btn-like')) {
+        const postRef = doc(db, 'posts', event.target.dataset.id);
+        const postSnap = await getDoc(postRef);
+        const post = postSnap.data();
+        const newCount = (post.heartCount || 0) + 1;
+        // Verificar si la usuaria  actual ya dio "me gusta" a esta publicación
+        const likedBy = post.likedBy || [];
+        const currentUser = auth.currentUser;
+        if (likedBy.includes(currentUser.email)) {
+          console.log('La usuaria ya dio me gusta a esta publicación');
+        } else {
+          // Agrega el identificador de la usuaria a likedBy
+          await updateDoc(postRef, {
+            heartCount: newCount,
+            likedBy: arrayUnion(currentUser.email),
+          });
+          console.log('contador de likes:', newCount);
+          event.target.classList.toggle('liked');
+        }
+      }
+    });
+  };
   // muestra posts
   const showPost = (data) => {
     if (data.length) {
@@ -69,7 +93,7 @@ export const Wall = (onNavigate) => {
         let li = '';
         if (checkUser(docu)) {
           li = `
-          <li class='liPost' >
+          <li class='liPost' > ${post.Email} 
             ${post.Post}
             <buttom class="btn-class" id="btn-edit" data-id="${docu.id}">Editar</buttom>
             <button class="btn-class" id='btn-delete' data-id="${docu.id}">Eliminar</button>
@@ -77,8 +101,10 @@ export const Wall = (onNavigate) => {
           `;
         } else {
           li = `
-          <li class='liPost' >
+          <li class='liPost' > ${post.Email} 
             ${post.Post}
+            <button class="btn-class" id='btn-like' data-id="${docu.id}">♥</button>
+            <span class="post-likes">${post.heartCount || 0} Me gusta</span>
           </li>
           `;
         }
@@ -90,6 +116,7 @@ export const Wall = (onNavigate) => {
     }
     editPost(div);
     deleting(div);
+    LikeAndCount(div, doc.id);
   };
 
   // valida que el usuario inicie sesion
@@ -108,6 +135,7 @@ export const Wall = (onNavigate) => {
       const docRef = await addDoc(collection(db, 'posts'), {
         Post: contenido,
         Author: auth.currentUser.email,
+        likedBy: [],
       });
       console.log('Document written with ID: ', docRef.id);
     } catch (e) {

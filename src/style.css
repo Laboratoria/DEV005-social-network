@@ -21,7 +21,7 @@ body {
 }
 
 main {
-  display: grid;
+  /* display: grid; */
   justify-content: center;
 }
 
@@ -69,14 +69,21 @@ h2 {
   font-size: 25px;
 }
 
+#container-login, #container-register {
+  display: grid;
+  justify-content: center;
+  gap: 2rem;
+}
+
 .passAndEm {
   display: grid;
   background-color: #f7f7f721;
   border-radius: 44px;
-  margin-left: 6%;
-  margin-right: 6%;
+  /* margin-left: 6%;
+  margin-right: 6%; */
   margin-bottom: -10%;
   padding: 5%;
+  width: 18rem;
 }
 
 button {
@@ -232,7 +239,7 @@ button:active {
   display: grid;
   /* grid-area: 2; */
   align-content: center;
-  padding: 3%;
+  padding: 4%;
   width: 80%;
   height: 8rem;
   border-radius: 20px;
@@ -320,7 +327,7 @@ button:active {
   border-style: solid;
   width: 80%;
   height: fit-content;
-  padding: 2%;
+  padding: 5%;
   justify-self: center;
   list-style: none;
 

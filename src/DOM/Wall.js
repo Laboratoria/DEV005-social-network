@@ -93,7 +93,8 @@ export const Wall = (onNavigate) => {
         let li = '';
         if (checkUser(docu)) {
           li = `
-          <li class='liPost' > ${post.Email} 
+          <li class='liPost' > 
+            ${post.Author}: <br>
             ${post.Post}
             <buttom class="btn-class" id="btn-edit" data-id="${docu.id}">Editar</buttom>
             <button class="btn-class" id='btn-delete' data-id="${docu.id}">Eliminar</button>
@@ -101,7 +102,8 @@ export const Wall = (onNavigate) => {
           `;
         } else {
           li = `
-          <li class='liPost' > ${post.Email} 
+          <li class='liPost' > 
+            ${post.Author}: <br>
             ${post.Post}
             <button class="btn-class" id='btn-like' data-id="${docu.id}">♥</button>
             <span class="post-likes">${post.heartCount || 0} Me gusta</span>

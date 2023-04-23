@@ -1,5 +1,4 @@
 /* eslint-disable no-unused-vars */
-/* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
 
 import {
@@ -8,7 +7,6 @@ import {
   GoogleAuthProvider,
   GithubAuthProvider,
   signInWithEmailAndPassword,
-  onAuthStateChanged,
 } from 'firebase/auth';
 import { auth } from './firebase';
 
@@ -32,7 +30,6 @@ export const newAccount = (email, password, errorElement) => {
       .catch((error) => {
         const errorCode = error.code;
         // const errorMessage = error.message;
-
         if (errorCode === 'auth/email-already-in-use') {
           errorElement.textContent = 'El correo ya está en uso.';
         } else if (errorCode === 'auth/invalid-password') {
@@ -87,6 +84,7 @@ export const accessWithGithub = (navigateTo) => {
       // ...
     });
 };
+
 export const logInWithEmail = (email, password, errorELogin) => new Promise((resolve, reject) => {
   if (email === '' && password === '') {
     errorELogin.textContent = 'Ingrese correo electrónico y contraseña';
@@ -100,7 +98,6 @@ export const logInWithEmail = (email, password, errorELogin) => new Promise((res
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-
         if (errorCode === 'auth/user-not-found') {
           errorELogin.textContent = 'El correo no está registrado.';
         } else if (errorCode === 'auth/wrong-password') {

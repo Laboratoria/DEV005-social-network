@@ -51,6 +51,7 @@ function home(navigateTo) {
   btnRegister.id = 'h-register';
   btnRegister.textContent = 'Registrarme';
   const errorELogin = document.createElement('h3');
+  errorELogin.id = 'error-login';
   errorELogin.classList.add('error-element');
   errorELogin.textContent = '';
   // Sección para tablets y dekstop

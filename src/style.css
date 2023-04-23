@@ -27,6 +27,7 @@ main {
 
 /* MOBILE FIRST */
 @media only screen and (min-width: 320px) and (max-width: 480px) {
+  /*------ HOME/LOGIN ------*/
   .container {
     display: flex;
     flex-direction: column;
@@ -68,57 +69,53 @@ main {
     border-radius: 18px;
     box-shadow: 4px 4px 4px #6e6e6e42;
   }
-
-  input {
-    height: 10%;
-    width: 80%;
-    border-radius: 6px;
-    border: solid 1px #ffc1c1;
-    font-family: var(--font-text);
-    font-size: 13px;
-    font-weight: 400;
-    text-align: center;
-  }
-
-  button {
-    height: 14%;
-    width: 80%;
-    font-family: var(--font-text);
-    font-size: 16px;
-    font-weight: 500;
-    color: #ffffff;
-    background-color: #d35c46;
-    border: 1px solid white;
-    border-radius: 6px;
-  }
-
-  .provider {
-    display: flex;
-    flex-direction: row-reverse;
-    padding: 2.5%;
-    font-size: 13px;
-    font-weight: 400;
-    line-height: 13px;
-    align-items: center;
-    border: solid 1px #ffc1c1;
-    background-color: #ffffff;
-    color: #000000;
-  }
-
-  .provider img {
-    height: 25px;
-    width: 25px;
-    margin-right: 2.5%;
-    padding-left: 15px;
-    background-size: 90%;
-  }
-
-  #text-posts {
-    height: 100px;
-    width: 200px;
-    background-color: powderblue;
-
-  }
+    input {
+      height: 10%;
+      width: 80%;
+      border-radius: 6px;
+      border: solid 1px #ffc1c1;
+      font-family: var(--font-text);
+      font-size: 1.3em;
+      font-weight: 400;
+      text-align: center;
+    }
+    #user-email {
+      margin-top: 5px;
+    }
+    button {
+      height: 14%;
+      width: 80%;
+      font-family: var(--font-text);
+      font-size: 1.2em;
+      font-weight: 500;
+      color: #ffffff;
+      background-color: #d35c46;
+      border: 1px solid white;
+      border-radius: 6px;
+    }
+    #login {
+      font-size: 1.5em;
+    }
+    .provider {
+      display: flex;
+      flex-direction: row-reverse;
+      padding: 2.5%;
+      font-size: 1.3em;
+      font-weight: 400;
+      line-height: 13px;
+      align-items: center;
+      border: solid 1px #ffc1c1;
+      background-color: #ffffff;
+      color: #000000;
+    }
+    .provider img {
+      height: 25px;
+      width: 25px;
+      margin-right: 2.5%;
+      padding-left: 2.5%;
+      background-size: 90%;
+    }
+    
   #to-regist {
     display: flex;
     flex-direction: column;
@@ -127,23 +124,22 @@ main {
     margin-top: 0;
     margin-bottom: auto;
     font-family: var(--font-text);
-    font-size: 13px;
+    font-size: 1.3em;
     align-items: center;
   }
-
-  #h-register {
-    height: 50%;
-    margin-top: 5%;
-    font-weight: 600;
-    color: #000000;
-    background-color: #f25042b3;
-    box-shadow: 1px 1px 4px #6e6e6e42;
-    border: none;
-  }
-
+    #h-register {
+      height: 50%;
+      margin-top: 5%;
+      font-weight: 600;
+      color: #000000;
+      background-color: #f25042b3;
+      box-shadow: 1px 1px 4px #6e6e6e42;
+      border: none;
+      }
+  
   #footer-home {
     display: flex;
-    font-size: 12px;
+    font-size: 1.2em;
     height: 4%;
     width: 100vw;
     margin-bottom: 0;
@@ -154,6 +150,26 @@ main {
     color: #4a4747;
   }
 
+
+  /*------ REGISTER ACCOUNT ------*/
+
+
+
+
+  /*------ WALL ------*/
+  #construction {
+    height: 30vh;
+    width: auto;
+  }
+
+  #text-posts {
+    height: 100px;
+    width: 200px;
+    background-color: powderblue;
+
+  }
+  
+
   .error-section {
     background-size: 60%;
   }
@@ -162,20 +178,14 @@ main {
     height: 30%;
     width: 40%;
   }
-
 }
-
-@media only screen and (min-height: 600px) and (max-height: 667px) {
+@media only screen and (min-height: 600px) and (max-height: 851px) {
+  /*------ HOME/LOGIN ------*/
   .container {
     display: flex;
     flex-direction: column;
     background-size: 100%;
     background-position: center 115%;
-  }
-
-  #construction {
-    height: 100%;
-    width: 100%;
   }
 
   #title-KB {
@@ -187,14 +197,36 @@ main {
     text-align: center;
   }
 
+  #error-login {
+    margin: 0 20px 5px;
+    font-size: 1.2em;
+    font-weight: 100;
+    text-align: center;
+    color: #fbff16;
+  }
+
   footer {
     background-color: #EADDCF;
     align-items: center;
   }
+
+  /*------ REGISTER ------*/
+
+
+
+  /*------ WALL ------*/
+  #construction {
+    height: 30vh;
+    width: auto;
+  }
+
+
 }
 
 /* TABLET */
+
 @media (min-width: 768px) and (max-width: 1024px) {
+  /*------ HOME/LOGIN ------*/
   .container {
     display: flex;
     flex-direction: column;
@@ -207,11 +239,6 @@ main {
     background-position: right 145%;
   }
 
-  #construction {
-    height: 80%;
-    width: 80%;
-  }
-
   #title-KB {
     margin-top: .3em;
     margin-bottom: .1em;
@@ -221,12 +248,12 @@ main {
     color: #4a4747;
     text-align: center;
   }
-
+  
   #info-text {
     display: flex;
     height: 15%;
     width: 45%;
-    margin-bottom: .4em;
+    margin-bottom: 4px;
     padding: 15px;
     font-family: var(--font-text);
     font-size: 2.5em;
@@ -236,7 +263,7 @@ main {
     background-color: #f250424d;
     border-radius: 20px;
   }
-
+  
   #cont-login {
     display: flex;
     flex-direction: column;
@@ -252,51 +279,53 @@ main {
     border-radius: 18px;
     box-shadow: 4px 4px 4px #6e6e6e42;
   }
+    input {
+      height: 10%;
+      width: 85%;
+      border-radius: 6px;
+      border: solid 1px #ffc1c1;
+      font-family: var(--font-text);
+      font-size: 2em;
+      font-weight: 400;
+      text-align: center;
+    }
+      #user-email {
+        margin-top: 10px;
+      }
+    button {
+      height: 13%;
+      width: 85%;
+      font-family: var(--font-text);
+      font-size: 1.15em;
+      font-weight: 500;
+      color: #ffffff;
+      background-color: #d35c46;
+      border-radius: 8px;
+      border: 1px solid white;
+    }
+    #login {
+      font-size: 2.3em;
+    }
+    .provider {
+      display: flex;
+      flex-direction: row-reverse;
+      padding: 2.5%;
+      font-size: 2.05em;
+      font-weight: 400;
+      line-height: 13px;
+      justify-content: center;
+      align-items: center;
+      border: solid 1px #ffc1c1;
+      background-color: #ffffff;
+      color: #000000;
+    }
+    .provider img {
+      height: 30px;
+      width: 30px;
+      margin-right: 4%;
+    }
 
-  input {
-    height: 10%;
-    width: 80%;
-    border-radius: 6px;
-    border: solid 1px #ffc1c1;
-    font-family: var(--font-text);
-    font-size: 18px;
-    font-weight: 400;
-    text-align: center;
-  }
-
-  button {
-    height: 13%;
-    width: 85%;
-    font-family: var(--font-text);
-    font-size: 20px;
-    font-weight: 500;
-    color: #ffffff;
-    background-color: #d35c46;
-    border-radius: 8px;
-    border: 1px solid white;
-  }
-
-  .provider {
-    display: flex;
-    flex-direction: row-reverse;
-    padding: 2.5%;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 13px;
-    justify-content: center;
-    align-items: center;
-    border: solid 1px #ffc1c1;
-    background-color: #ffffff;
-    color: #000000;
-  }
-
-  .provider img {
-    height: 30px;
-    width: 30px;
-    margin-right: 5%;
-  }
-
-  #to-regist {
+    #to-regist {
     display: flex;
     flex-direction: column;
     height: 10%;
@@ -304,19 +333,26 @@ main {
     margin-top: 0;
     margin-bottom: auto;
     font-family: var(--font-text);
-    font-size: 18px;
+    font-size: 1.8em;
     align-items: center;
   }
-
-  #h-register {
-    height: 45%;
-    margin-top: 3%;
-    font-weight: 600;
-    color: #000000;
-    background-color: #f25042b3;
-    box-shadow: 1px 1px 4px #6e6e6e42;
-    border: none;
-  }
+    #h-register {
+      height: 45%;
+      margin-top: 3%;
+      font-size: 1.3em;
+      font-weight: 600;
+      color: #000000;
+      background-color: #f25042b3;
+      box-shadow: 1px 1px 4px #6e6e6e42;
+      border: none;
+    }
+    #error-login {
+      margin: 0 20px 5px;
+      font-size: 2em;
+      font-weight: 100;
+      text-align: center;
+      color: #fbff16;
+    }
 
   footer {
     display: flex;
@@ -329,8 +365,15 @@ main {
     align-items: center;
     align-self: self-start;
   }
+  
+  /*------ REGISTER ------*/
 
 
+    /*------ WALL ------*/
+  #construction {
+    height: 30vh;
+    width: auto;
+  }
   .error-section {
     background-size: 50%;
   }
@@ -341,6 +384,7 @@ main {
   }
 }
 @media only screen and (min-height: 1025px) and (max-height: 1180px) {
+  /*------ HOME/LOGIN ------*/
   .container {
     display: flex;
     flex-direction: column;
@@ -348,6 +392,47 @@ main {
     background-size: 75%;
     background-position: right 130%;
   }
+
+    input {
+      height: 10%;
+      width: 85%;
+      border-radius: 6px;
+      border: solid 1px #ffc1c1;
+      font-family: var(--font-text);
+      font-size: 2.3em;
+      font-weight: 400;
+      text-align: center;
+    }
+    #login {
+      font-size: 2.5em;
+    }.provider {
+      font-size: 2.2em;
+      line-height: 2em;
+      text-align: center;
+    }
+    .provider img {
+      height: 32px;
+      width: 32px;
+      margin-right: 5%;
+    }
+
+    #error-login {
+      margin: 0 20px 5px;
+      font-size: 2.2em;
+      font-weight: 100;
+      text-align: center;
+      color: #fbff16;
+      
+    }
+    #to-regist {
+      font-size: 2em;
+    }
+
+
+  /*------ REGISTER ------*/
+
+
+  /*------ WALL ------*/
 }
 
 

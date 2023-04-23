@@ -377,6 +377,26 @@ button:active {
   background: #1669f2;
 }
 
+#btn-like {
+  display: flex;
+  justify-content: center;
+  content: '♥︎';
+  color: #ffffff;
+  font-size: 1rem;
+  background-color: #610cd1;
+  width: 2rem;
+  align-self: center;
+  grid-area: 4;
+}
+
+#btn-like.liked {
+  color: #610cd1;
+  font-size: 2rem;
+  background-color: #ffffff;
+}
+
+
+
 @media (min-width: 1024px) {
 
   header,

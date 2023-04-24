@@ -1,7 +1,6 @@
 import {
   savePost,
   createSnapshot,
-  getPosts,
 } from '../lib/index.js';
 import { exit } from '../lib/auth.js';
 
@@ -35,15 +34,14 @@ export default function home() {
 
   const postForm = section.querySelector('#post-form');
   const postContainer = section.querySelector('#containerPost');
-  const readPost = (data) => {
+  const readPost = (posts) => {
     let html = '';
-
-    data.forEach((doc, docId) => {
-      const publication = doc;
+    posts.forEach((doc) => {
+      const publication = doc.data;
       html += `
         <div>
           <p id="textPost" class="textPost">${publication.txtMascotiemos}</p>
-          <button id="btnDelete" class="btnDelete" data-id="${docId}"><img class="btnDltImg" src="./img/delete.png" alt="delete"></img></button>
+          <button id="btnDelete" class="btnDelete" data-id="${docId}" data-id="${doc.id}"><img class="btnDltImg" src="./img/delete.png" alt="delete"></img></button>
         </div>
       `;
     });
@@ -51,10 +49,9 @@ export default function home() {
     postContainer.innerHTML = html;
 
     const btnsDelete = postContainer.querySelectorAll('.btnDelete');
-
     btnsDelete.forEach((btn) => {
-      btn.addEventListener('click', () => {
-        console.log('Eliminando..');
+      btn.addEventListener('click', (event) => {
+        console.log(event);
       });
     });
   };

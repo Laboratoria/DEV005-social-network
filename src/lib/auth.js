@@ -2,7 +2,7 @@ import {
   signInWithEmailAndPassword, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup,
 } from 'firebase/auth';
 import {
-  collection, doc, setDoc, addDoc,
+  collection, addDoc,
 } from 'firebase/firestore';
 import { auth, db } from './firebase.js';
 

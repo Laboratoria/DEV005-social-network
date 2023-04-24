@@ -1,6 +1,9 @@
+import { onSnapshot } from 'firebase/firestore';
 import { signOut } from 'firebase/auth';
 import { auth } from '../lib/firebase.js';
 import { post } from '../lib/auth.js';
+import { ref } from '../lib/post.js';
+import { printPost } from './PrintPost.js';
 
 function home(navigateTo) {
   const postForm = document.createElement('section');
@@ -34,7 +37,18 @@ function home(navigateTo) {
     // .catch((err) => console.error(err));
     textarea.value = '';
   });
+  onSnapshot(ref(), (querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+      const nodoP = printPost(doc.data());
+      postForm.append(nodoP);
+    });
+  });
   return postForm;
 }
+
+/* const postSection = document.createElement('section');
+postSection.classList.add('postSection');
+postSection.innerHTML = showCapture;
+console.log(postSection); */
 
 export { home };

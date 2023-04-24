@@ -241,6 +241,21 @@ button:active {
   justify-self: center;
 }
 
+.btn-class {
+  display: grid;
+  grid-area: 3;
+  /* margin-top: 3%; */
+  background-color: #610cd1;
+  color: white;
+  border: none;
+  font-size: 15px;
+  width: 8rem;
+  height: 2rem;
+  align-items: center;
+  border-radius: 20px;
+}
+
+
 #btn-post {
   display: grid;
   grid-area: 3;
@@ -257,6 +272,25 @@ button:active {
   align-items: center;
   border-radius: 20px;
 }
+
+#btn-edit {
+  display: flex;
+  justify-content: center;
+  width: 4rem;
+  background-color: #610cd1;
+  align-self: center;
+  grid-area: 4;
+}
+
+#btn-delete {
+  display: flex;
+  justify-content: center;
+  width: 6rem;
+  background-color: #610cd1;
+  align-self: center;
+  grid-area: 4;
+}
+
 
 #btn-out {
   display: grid;
@@ -279,7 +313,7 @@ button:active {
   gap: 1%;
 }
 
-#liPost {
+.liPost {
   background-color: white;
   box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
   border-color: #c3bfbf;
@@ -342,6 +376,25 @@ button:active {
 .google-btn :active {
   background: #1669f2;
 }
+
+#btn-like {
+  display: flex;
+  justify-content: center;
+  content: '♥︎';
+  color: #ffffff;
+  font-size: 1rem;
+  background-color: #610cd1;
+  width: 2rem;
+  align-self: center;
+  grid-area: 4;
+}
+
+#btn-like.liked {
+  color: #610cd1;
+  font-size: 2rem;
+  background-color: #ffffff;
+}
+
 
 
 @media (min-width: 1024px) {

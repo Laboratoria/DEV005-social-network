@@ -1,28 +1,13 @@
-import { initializeApp } from 'firebase/app';
-import { getAnalytics } from 'firebase/analytics';
 import muro from './components/muro.js';
 import error from './components/error.js';
 import home from './components/home.js';
+import registro from './components/registro.js';
 import './components/firebase.js';
 import logMicrosoft from './components/microsoftlogin.js';
-import registro from './components/registro.js';
-
-const firebaseConfig = {
-  apiKey: 'AIzaSyCMA-XWyMc2_N3RuceKDj37LA6NLOEnAME',
-  authDomain: 'patitas-91318.firebaseapp.com',
-  projectId: 'patitas-91318',
-  storageBucket: 'patitas-91318.appspot.com',
-  messagingSenderId: '921200296229',
-  appId: '1:921200296229:web:df299b6a8def7ea1399acc',
-  measurementId: 'G-114X4TQL1F',
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+import registerUsers from './components/registerUsers.js';
+import loginEmailAndPass from './components/emailandpass.js';
 
 const root = document.getElementById('root');
-
 // Rutas
 const routes = [
   { path: '/', component: home },
@@ -59,3 +44,18 @@ navigateTo(window.location.pathname || defaultRoute);
 
 const microsoftButton = document.getElementById('loginMicrosoft');
 microsoftButton.addEventListener('click', logMicrosoft);
+
+const registerButton = document.getElementById('register');
+registerButton.addEventListener('click', () => {
+  navigateTo('/registro');
+});
+
+const registerUsersButton = document.getElementById('register-b');
+registerUsersButton.addEventListener('click', () => {
+  registerUsers
+});
+
+const loginPatitas = document.getElementById('login')
+loginPatitas.addEventListener('click', () => {
+  loginEmailAndPass
+});

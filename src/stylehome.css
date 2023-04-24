@@ -2,7 +2,7 @@
 fondo = #5BA0BD
 link registrarse y olvide contraseña = #2F2BEC*/
 
-body{
+/* body{
     margin-left: 0;
     margin-top: 0;
     margin-bottom: 0;
@@ -31,7 +31,7 @@ section{
     margin-bottom: 20px;
     margin-top: 40px;
 }
-form{
+.form1{
     display: flex;
     flex-direction: column;
     width: 320px;
@@ -108,4 +108,4 @@ input{
 }
 .forgetPass-b{
     text-align: right;
-}
+} */

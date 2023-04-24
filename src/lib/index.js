@@ -47,7 +47,10 @@ export const createSnapshot = (result) => {
   const onGetPost = onSnapshot(q, (s) => {
     const dataList = [];
     s.forEach((doc) => {
-      dataList.push(doc.data());
+      dataList.push({
+        data: doc.data(),
+        id: doc.id,
+      });
     });
     result(dataList);
   });

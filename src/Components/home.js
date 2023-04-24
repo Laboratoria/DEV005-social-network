@@ -37,10 +37,18 @@ function home(navigateTo) {
     // .catch((err) => console.error(err));
     textarea.value = '';
   });
+
   onSnapshot(ref(), (querySnapshot) => {
     querySnapshot.forEach((doc) => {
-      const nodoP = printPost(doc.data());
-      postForm.append(nodoP);
+      const postInfo = doc.data();
+      // Verificar si el post ya ha sido agregado previamente
+      const postExists = postForm.querySelector(`[data-id="${doc.id}"]`);
+      if (!postExists) {
+        const nodoP = printPost(postInfo);
+        nodoP.textContent = postInfo.text;
+        nodoP.setAttribute('data-id', doc.id);
+        postForm.append(nodoP);
+      }
     });
   });
   return postForm;

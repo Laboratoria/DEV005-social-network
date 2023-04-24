@@ -94,20 +94,18 @@ const muro = (navigateTo) => {
       querySnapshot.forEach((doc) => {
         const task = doc.data();
         html += `
-        <!--<div class="publicaciones">
-              <button class='btn-menu'><i class='bx bx-dots-horizontal-rounded'></i></button>
-              <div class='container-options'>
-              <button class='btn-delete' data-id="${doc.id}">Eliminar</button>
-              <button class='btn-edit'>Editar</button>
-              </div>
+              <div class="publicaciones">
+                <div class='dropdown'>
+                  <button class='btn-menu'><i class='bx bx-dots-horizontal-rounded'></i></button>
+                  <div class='container-options'>
+                    <button class='btn-delete' data-id="${doc.id}"> Eliminar </button>
+                    <button class='btn-edit'> Editar </button>
+                  </div>
+                </div>
                   <p>${task.description}</p>
-              </div>-->
-              <button class='btn-delete' data-id="${doc.id}">Eliminar</button>
-              <button class='btn-edit'>Editar</button>
-              <p>${task.description}</p>
+              </div>
           `;
       });
-      // en el parametro event se puede resumir debido a todos los elementos son objetos, esto de la isguiente forma ({target: {dataset}})
       tasksContainer.innerHTML = html;
       const btnDelete = tasksContainer.querySelectorAll('.btn-delete');
       btnDelete.forEach((btn) => {

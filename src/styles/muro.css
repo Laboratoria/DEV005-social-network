@@ -97,6 +97,7 @@ body{
     height: 350px;
     background-color: white;
     border-radius: 7px;
+    z-index: +3;
   }
 
   .post .form-post :where(.content-post, .detail-post .privacy){
@@ -225,27 +226,55 @@ body{
     border-radius: 7px;
     padding-left: 10px;
     z-index: -3;
-    height: 60px;
+    height: 100px;
   }
 
   .btn-menu{
     border: none;
     background-color: white;
-    position: relative;
-    float: right;
+    top: 0px;
     margin-right: 12px;
-    top: 3px;
+    margin-left: 290px;
     padding: 2px 2px 0px;
+    border-color: white;
+    position: absolute;
     }
   .btn-menu i{
     font-size: 20px;
-    padding: 3px;
   }
   .container-options{
     display: none;
+    position: absolute;
+    width: 75px;
+    height: 60px;
+    top: 20px;
+    margin-left: 250px;
+    background-color: white;
+    border-radius: 10px;
+}
+.container-options button{
+  background-color: #add4d9;
+  border: none;
+  border-radius: 7px;
+  padding: 3px;
+  margin: 2px;
+  width: 70px;
+  display: flex;
+  justify-content: center;
+  font-family: 'Poppins';
+}
+.btn-delete .btn-edit{
+  position: absolute;
+  align-items: center;
+  border: none;
+}
+  .dropdown{
+    display: inline-block;
+    position: relative;
   }
-  .btn-menu:hover{
-    background-color: rgba(0, 0, 0, 0.2);
-    border-radius: 80px; 
+  .dropdown:hover .container-options{
+    display: block;
   }
+  
+  
 }

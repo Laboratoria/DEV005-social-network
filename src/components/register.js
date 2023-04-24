@@ -20,20 +20,16 @@ const register = (navigateTo) => {
 
   // TODO: botón para registrar
   const buttonSaveInformation = formularioRegister.querySelector('.buttonSaveInformation');
-  console.log(buttonSaveInformation);
   buttonSaveInformation.addEventListener('click', async (e) => {
     e.preventDefault();
-    const email = document.querySelector('.emailRegister').value;
-    const password = document.querySelector('.passwordRegister').value;
-    console.log(email, password);
+    const email = document.getElementById('emailregister').value;
+    const password = document.getElementById('passwordregister').value;
     registerConfig(email, password)
       .then(() => {
+        console.log(email, password);
         navigateTo('/login');
       })
       .catch((error) => {
-        console.log(error.message);
-        console.log(error.code);
-
         if (error.code === 'auth/email-already-in-user') {
           alert('correo en uso');
         } else if (error.code === 'auth/invalid-email') {
@@ -46,7 +42,6 @@ const register = (navigateTo) => {
         return error;
       });
   });
-
   return formularioRegister;
 };
 

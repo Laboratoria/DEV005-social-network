@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body{
+  background-color: #D4CDC4;
+  font-family: 'Poppins';
+}
+
+/* Estilos para celular */
+
+@media(max-width: 480px) {
+
+  header{
+    background-color: #F2B872;
+    display: flex;
+    justify-content: center;
+    height: 80px;
+  }
+  .icon_exit{
+    position: absolute;
+    background-image: url(../assets/exit-regular-60.png);
+    cursor: pointer;
+    top: 20px;
+    right: 0;
+    margin-right: 20px;
+    width: 35px;
+    height: 35px;
+    background-size: cover;
+  }
+
+  .img_food{
+    position: absolute;
+    background-image: url(../assets/match_icon.png);
+    width: 80px;
+    height: 80px;
+    background-size: contain;
+    left: 0;
+  }
+
+  .create-post{
+    display: flex;
+    position: relative;
+    align-items: center;
+    background-color: white;
+    margin: 20px;
+    width: 350px;
+    height: 80px;
+    border-radius: 10px;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .open-popup{
+    text-align: center;
+    border: 0;
+    padding: 10px;
+    background: none;
+    width: 300px;
+    height: 50px;
+    font-family: 'Poppins';
+    background-color: white;
+  }
+
+  .pop-up{
+    position: absolute;
+    top: 0;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0, 0.5);
+    box-shadow: 0 12px 28px rgb(0, 0, 0, 0.12);
+  }
+
+  .post h2{
+    position: relative;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    padding: 5px 0;
+    border-bottom: 1px solid black;
+  }
+
+  .post .form-post{
+    position: relative;
+    align-items: center;
+    margin: 40px 30px;
+    justify-content: center;
+    height: 350px;
+    background-color: white;
+    border-radius: 7px;
+  }
+
+  .post .form-post :where(.content-post, .detail-post .privacy){
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    
+  }
+
+  .post .form-post .content-post img{
+    position: relative;
+    max-width: 52px;
+  }
+
+  .post .form-post .content-post .detail-post{
+    position: relative;
+    margin: -3px 0 0 12px;
+  }
+
+  .form-post .content-post .detail-post p{
+    position: relative;
+    font-size: 17px;
+    font-weight: 500;
+  }
+
+  .form-post .content-post .detail-post .privacy{
+    position: relative;
+    max-width: 120px;
+    cursor: pointer;
+    font-size: 11px;
+    margin-top: 3px;
+    padding: 0 10px;
+    border-radius: 5px;
+    background: #e4e6eb;
+    justify-content: space-between; /* buscar otra .form-posta de separar*/
+  }
+
+  .detail-post .privacy span{
+    position: relative;
+    font-size: 13px;
+    margin-top: 1px;
+    font-weight: 500;
+  }
+
+  .detail-post .privacy i:last-child{
+    position: relative;
+    font-size: 13px;
+    margin-left: 1px;
+  }
+
+  
+
+  .post .form-post textarea{
+    position: relative;
+    resize: none;
+    width: 100%;
+    outline: none;
+    font-size: 18px;
+    margin-top: 10px;
+    min-height: 150px;
+  }
+
+  
+
+  .form-post textarea:valid ~ button{
+    position: relative;
+    color: white;
+    cursor: pointer;
+    background: #ADD4D9;
+  }
+
+  
+
+  .pop-up{
+    display: none;
+  }
+
+  .cerrar-post{
+    right: 0;
+    width: 10%;
+    border: none;
+    margin-left: 8px;
+    margin-top: 8px;
+  }
+  .container{
+    height: 100%;
+    width: 100%;
+    background-color: rgb(0, 0, 0, 0.12);
+  }
+
+  .form-post .publicar-post{
+    position: relative;
+    border: none;
+    width: 100%;
+    height: 40px;
+    cursor: no-drop;
+    font-size: 16px;
+    font-weight: 500;
+    color: #bcc0c4;
+    border-radius: 7px;
+    background: #e2e5e9;
+  }
+  
+  /* task container*/
+  /*
+  .tasks-container{
+    display: flex;
+    position: relative;
+    align-items: center;
+    background-color: white;
+    margin: 20px;
+    width: 350px;
+    height: 80px;
+    border-radius: 10px;
+    text-align: center;
+    justify-content: center;
+    border: 1px solid black;
+    z-index: -3;
+  }
+  */
+
+  .publicaciones{
+    background-color: white;
+    margin: 20px;
+    border-radius: 7px;
+    padding-left: 10px;
+    z-index: -3;
+    height: 60px;
+  }
+
+  .btn-menu{
+    border: none;
+    background-color: white;
+    position: relative;
+    float: right;
+    margin-right: 12px;
+    top: 3px;
+    padding: 2px 2px 0px;
+    }
+  .btn-menu i{
+    font-size: 20px;
+    padding: 3px;
+  }
+  .container-options{
+    display: none;
+  }
+  .btn-menu:hover{
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 80px; 
+  }
+}

@@ -7,20 +7,27 @@ const home = (navigateTo) => {
   homediv.className = 'homediv';
   const imghome = document.createElement('div');
   imghome.className = 'imghome';
-
   const messagehome = document.createElement('h1');
   messagehome.className = 'messagehome';
   const buttondiv = document.createElement('div');
   buttondiv.className = 'buttondiv';
-
   // ? botón de email
   const buttonemail = document.createElement('button');
   buttonemail.className = 'buttonemail';
+  buttonemail.textContent = 'Continuar con Email';
+  buttonemail.addEventListener('click', () => {
+    navigateTo('/login');
+  });
   const iconemail = document.createElement('div');
   iconemail.className = 'iconemail';
   // ? botón de google
   const buttongoogle = document.createElement('button');
   buttongoogle.className = 'buttongoogle';
+  buttongoogle.textContent = 'Continuar con Google';
+  buttongoogle.addEventListener('click', () => {
+    loginWithGoogle();
+    navigateTo('/muro');
+  });
   const icongoogle = document.createElement('div');
   icongoogle.className = 'icongoogle';
   // ? botón de twitter
@@ -34,7 +41,6 @@ const home = (navigateTo) => {
       }
     });
   });
-
   const icontwitter = document.createElement('div');
   icontwitter.className = 'icontwitter';
   // ? botón de github
@@ -53,16 +59,7 @@ const home = (navigateTo) => {
   // ?
   const registrarAhora = document.createElement('span');
   registrarAhora.className = 'registrarAhora';
-
-  buttonemail.textContent = 'Continuar con Email';
-  buttonemail.addEventListener('click', () => {
-    navigateTo('/login');
-  });
-  buttongoogle.textContent = 'Continuar con Google';
-  buttongoogle.addEventListener('click', () => {
-    loginWithGoogle();
-    navigateTo('/muro');
-  });
+  // texto botones
   buttontwitter.textContent = 'Continuar con Twitter';
   buttongithub.textContent = 'Continuar con Github';
   registrarAhora.innerHTML = ` ¿No tienes una cuenta?

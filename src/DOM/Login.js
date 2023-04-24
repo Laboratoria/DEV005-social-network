@@ -1,10 +1,10 @@
 /* eslint-disable no-console */
 // import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { GoogleAuthProvider, signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
+import { GoogleAuthProvider, onAuthStateChanged } from 'firebase/auth';
 // import { async } from '@firebase/util';
 import { LoginTemplate } from '../templates/loginTemplate.js';
 import { auth } from '../lib/index.js';
-import { loginGoogle } from '../lib/auth.js';
+import { addUserToSocialNetwork, loginGoogle } from '../lib/auth.js';
 
 export const Login = (onNavigate) => {
   const body = document.querySelector('body');
@@ -61,6 +61,13 @@ export const Login = (onNavigate) => {
     errorMsj.textContent = '';
     const email = signIn.email.value;
     const password = signIn.password.value;
+    console.log(email);
+    addUserToSocialNetwork(email, password).then((ok) => {
+      console.log('user add successfull', ok);
+    }).catch((err) => {
+      console.log('Failll', err);
+    });
+    /*
     try {
       await signInWithEmailAndPassword(
         auth,
@@ -80,7 +87,7 @@ export const Login = (onNavigate) => {
       } else if (error.code) {
         errorMsj.textContent = 'Ocurrio un error';
       }
-    }
+    } */
   });
   // div.append(errorMsj);//
   return div;

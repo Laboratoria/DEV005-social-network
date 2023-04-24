@@ -94,8 +94,9 @@ export const Wall = (onNavigate) => {
         if (checkUser(docu)) {
           li = `
           <li class='liPost' > 
-            ${post.Author}: <br>
+            <b>${post.Author}:</b> <br>
             ${post.Post}
+            <span class="post-likes">${post.heartCount || 0} Me gusta</span>
             <buttom class="btn-class" id="btn-edit" data-id="${docu.id}">Editar</buttom>
             <button class="btn-class" id='btn-delete' data-id="${docu.id}">Eliminar</button>
           </li>
@@ -103,7 +104,7 @@ export const Wall = (onNavigate) => {
         } else {
           li = `
           <li class='liPost' > 
-            ${post.Author}: <br>
+          <b>${post.Author}:</b> <br>
             ${post.Post}
             <button class="btn-class" id='btn-like' data-id="${docu.id}">♥</button>
             <span class="post-likes">${post.heartCount || 0} Me gusta</span>
@@ -127,7 +128,8 @@ export const Wall = (onNavigate) => {
       const getAllPosts = await getDocument();
       showPost(getAllPosts.docs);
     } else {
-      console.log('error post');
+      console.log('No se ha iniciado sesion');
+      onNavigate('/');
     }
   });
 

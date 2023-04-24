@@ -17,11 +17,11 @@ body {
 }
 
 .wallBody {
-  background: white;
+  background: #EDF0F5;
 }
 
 main {
-  /* display: grid; */
+  /* display: grid; cbc6dc   d7d2e7*/
   justify-content: center;
 }
 
@@ -49,6 +49,8 @@ header {
   display: grid;
   grid-area: 1;
   background: linear-gradient(180deg, #9a6ed5 10%, #320070 90%);
+  box-shadow: 0 3px 4px 0 rgb(0 0 0 / 40%);
+  /* background: #621cb9; */
 
 }
 
@@ -69,7 +71,8 @@ h2 {
   font-size: 25px;
 }
 
-#container-login, #container-register {
+#container-login,
+#container-register {
   display: grid;
   justify-content: center;
   gap: 2rem;
@@ -161,10 +164,9 @@ a {
 }
 
 #errorMsj {
-  /* margin-top: 2px;
-  margin-bottom: 2px; */
-  padding: 3%;
+  padding: 1%;
   margin: 0%;
+  margin-left: 3%;
 }
 
 .wallErrorMsj {
@@ -207,14 +209,13 @@ button:active {
 .wall-template {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1%;
+  gap: 2%;
   /* grid-template-rows: 70px 100px 60px 800px; */
   /* background: #ffffff; */
   /* width: 100%; */
   /* height: 100%; */
   /* position: relative; */
   background-size: initial;
-  background-position: top;
   background-image: url(/img/LogoMorado.png);
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -237,15 +238,19 @@ button:active {
 
 #iPost {
   display: grid;
-  /* grid-area: 2; */
+  grid-area: 2;
   align-content: center;
   padding: 4%;
   width: 80%;
   height: 8rem;
   border-radius: 20px;
-  background-color: rgb(194, 192, 192);
+  border-style: none;
+  /* background-color: rgb(194, 192, 192); */
+  background-color: white;
   color: rgb(0, 0, 0);
   justify-self: center;
+  box-shadow: 0 3px 4px 0 rgb(0 0 0 / 40%);
+  font-family: "Montserrat", sans-serif;
 }
 
 .btn-class {
@@ -278,6 +283,7 @@ button:active {
   margin-right: 10%;
   align-items: center;
   border-radius: 20px;
+  box-shadow: 0 3px 4px 0 rgb(0 0 0 / 40%);
 }
 
 #btn-edit {
@@ -286,7 +292,9 @@ button:active {
   width: 4rem;
   background-color: #610cd1;
   align-self: center;
-  grid-area: 4;
+  grid-area: buttom;
+  justify-self: flex-end;
+  margin-right: 6.5rem;
 }
 
 #btn-delete {
@@ -295,7 +303,8 @@ button:active {
   width: 6rem;
   background-color: #610cd1;
   align-self: center;
-  grid-area: 4;
+  grid-area: buttom;
+  justify-self: end;
 }
 
 
@@ -317,20 +326,32 @@ button:active {
   display: grid;
   color: black;
   grid-area: 4;
-  gap: 1%;
+  gap: 2%;
+}
+
+.post-likes {
+  grid-area: buttom;
+  justify-self: start;
+  align-self: center;
 }
 
 .liPost {
   background-color: white;
-  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
-  border-color: #c3bfbf;
-  border-style: solid;
+  box-shadow: 0 3px 4px 0 rgb(0 0 0 / 40%);
+  border-radius: 20px;
+  /* border-color: #c3bfbf5c;
+  border-style: outset; */
   width: 80%;
   height: fit-content;
   padding: 5%;
   justify-self: center;
   list-style: none;
-
+  display: grid;
+  grid-template-areas:
+      'top'
+      'center'
+      'buttom';
+  gap: 4px;
 }
 
 /* Logo de GOOGLE */
@@ -373,7 +394,7 @@ button:active {
   font-size: 14px;
   letter-spacing: 1px;
   font-family: "Montserrat", sans-serif;
-  margin-left: 38px;
+  margin-left: 45px;
 }
 
 .google-btn:hover {
@@ -415,6 +436,13 @@ button:active {
   #wall-tittle {
     padding-left: 4%;
     margin-bottom: 3%;
+  }
+
+}
+
+@media (max-width: 540px) {
+  .liPost {
+    width: 18rem;
   }
 
 }

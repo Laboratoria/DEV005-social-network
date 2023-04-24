@@ -46,10 +46,18 @@ const q = query(evec);
 export const createSnapshot = (result) => {
   const onGetPost = onSnapshot(q, (s) => {
     const dataList = [];
+    let docId = '';
     s.forEach((doc) => {
       dataList.push(doc.data());
+      docId = doc.id;
     });
-    result(dataList);
+    result(dataList, docId);
   });
   return onGetPost;
 };
+
+// export const idPost = (doc) => {
+//   const docId = doc.id;
+//   console.log(docId);
+//   return docId;
+// };

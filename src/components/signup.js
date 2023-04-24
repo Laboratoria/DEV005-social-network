@@ -49,6 +49,7 @@ export function signup(navigateTo) {
   // labelMovement(inputUserName, labelUserName);
 
   // userNameContainer.append(labelUserName, inputUserName);
+
   // Contenedor del correo
   const emailContainer = document.createElement('div');
   emailContainer.classList.add('group');
@@ -96,7 +97,7 @@ export function signup(navigateTo) {
   btnregister.type = 'submit';
   btnregister.textContent = 'Registrar';
 
-  // ¡No tienes una cuenta?
+  // ¿No tienes una cuenta?
   const linkContainer = document.createElement('div');
   linkContainer.classList.add('content-link');
 

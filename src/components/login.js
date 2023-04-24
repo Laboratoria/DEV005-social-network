@@ -67,6 +67,13 @@ export function login(navigateTo) {
   // Añadir los elementos del  contenedor Constraseña
   passwordContainer.append(labelPassword, inputPassword);
 
+  // Botón Iniciar Sesión
+  const btnLogin = document.createElement('button');
+  btnLogin.classList.add('btn-login');
+  btnLogin.id = 'btn-login';
+  btnLogin.type = 'submit';
+  btnLogin.textContent = 'Iniciar sesión';
+
   // ¡No tienes una cuenta?
   const linkContainer = document.createElement('div');
   linkContainer.classList.add('content-link');
@@ -92,17 +99,10 @@ export function login(navigateTo) {
   // Agrega el evento de envío de formulario a la función manejadora
   loginForm.addEventListener('submit', loginFormSubmit(inputEmail, inputPassword, loginError));
 
-  // Botón Iniciar Sesión
-  const btnLogin = document.createElement('button');
-  btnLogin.classList.add('btn-login');
-  btnLogin.id = 'btn-login';
-  btnLogin.type = 'submit';
-  btnLogin.textContent = 'Iniciar sesión';
-
   // Añadir elementos del form
   loginForm.append(emailContainer, passwordContainer, loginError, btnLogin, linkContainer);
 
-  // O regístrate con
+  // También puedes
   const textContainer = document.createElement('div');
   textContainer.classList.add('content-text');
 

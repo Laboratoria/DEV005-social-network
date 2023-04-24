@@ -35,6 +35,21 @@ body {
     width: 80%;
 }
 
+.contenedorLogoHome {
+    display: flex;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 100%;
+    height: 120px; 
+}
+
+.contenedorLogoHome h1 {
+    margin: 30px 30px 0 30px;
+    font-size: 20px;
+    width: 120px ;
+}
+
 .logOut {
     position: absolute;
     top: 5px;
@@ -62,14 +77,77 @@ main {
 
 }
 
-.registroTitulo {
+.containerForm {
+    position: absolute;
+    top: 140px;
     display: flex;
     justify-content: center;
-    font-size:3rem;
-    font-weight: bold;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 85%;
+    height: auto;
+    padding: 20px;
+    gap: 50px;
+    margin-top: 20px;
+    background-color: #e5e1f9;
+    opacity: .8;
 }
 
+
+.txtMascotiemos{
+    display: flex;
+    justify-content: center;
+    width: 280px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 5px 5px 5px 0;
+}
+.post-form{
+    display: flex;
+}
+.btnPost{
+    border: none;
+}
+
+.btnPostImg {
+    width: 30px;
+    height: 30px;
+    position: absolute; 
+}
+
+.containerPost{
+    display: flex;
+    width: 300px;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    gap: 10px;
+}
+
+.textPost{
+    width: 200px;
+    background-color: white;
+    border: 0.1px solid black;
+    border-radius: 5px;
+}
+
+.btnDelete{
+    border: none;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btnDltImg{
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    transform: translate(-50%, -150%);
+    border: 0.1px solid black;
+    border-radius: 1px;
+}
 .contenedorIngreso, .contenedorIngresoRegistro {
+    
     border-radius: 20px;
     margin: o auto;
     background-color: white;
@@ -88,6 +166,8 @@ main {
 
 /*Reposo*/
 .contenedorInput {
+    margin-bottom: 10px;
+    padding-top: 5px;
     width: 300px;
     max-width: 100%;
    }
@@ -171,6 +251,13 @@ label span.top {
     color: black;
 }
 
+.registroTitulo {
+    display: flex;
+    justify-content: center;
+    font-size:3rem;
+    font-weight: bold;
+}
+
 .btnCrearCuenta {
     font-weight: bold;
     margin-bottom: 10px;
@@ -199,87 +286,18 @@ label span.top {
     display:none
 } 
 
-.contenedorLogoHome {
-    display: flex;
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    width: 100%;
-    height: 120px; 
-}
-
-.contenedorLogoHome h1 {
-    margin: 30px 30px 0 30px;
-    font-size: 20px;
-    width: 120px ;
-}
-
-.containerForm {
-    position: absolute;
-    top: 140px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 85%;
-    height: auto;
-    padding: 20px;
-    gap: 50px;
-    margin-top: 20px;
-    background-color: #e5e1f9;
-    opacity: .8;
-}
-
-
-.txtMascotiemos{
-    display: flex;
-    justify-content: center;
-    width: 250px;
-    height: 60px;
-    border: 1px solid black;
-    border-radius: 5px 5px 5px 0;
-}
-
-.containerPost{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 200px;
-    background-color: white;
-}
-
-.containerForm button {
-    color: black;
-    background-color: #bcb4e7;
-    align-items: center;
-    font-family: 'Kalam', cursive;
-    font-size: 15px;
-    font-weight: bold;
-    display: flex;
-    width: 55px;
-    height: 25px;
-    border-radius: 0 0 10px 10px;
-}
-
-*.btnPostImg {
-    display: flex;
-    border:none;
-    width: 50px;
-    height: 50px;
-}
-
 .errorEmail, .errorPassword {
     color: red;
 }
 
-footer {
-    display:none;
+footer{
+    display: none;
 }
 
 @media (max-height:780px) {
 
     .contenedorLogo{
-        margin-top: -30px;
+        margin-top: -60px;
     }
 
     .contenedorIngreso{
@@ -288,9 +306,8 @@ footer {
     }
     
     .contenedorIngresoRegistro{
-        margin-top:-20px;
-        height: 380px;
-        width: 350px;
+        height: 360px;
+        width: 400px;
     }
 
     label{
@@ -336,6 +353,10 @@ footer {
         height: 400px;
 
         
+    }
+
+    .containerForm{
+        width: 600px;
     }
 
     footer {

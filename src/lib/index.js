@@ -44,12 +44,12 @@ const evec = collection(db, 'posts');
 const q = query(evec);
 
 export const createSnapshot = (result) => {
-  const unsub = onSnapshot(q, (s) => {
+  const onGetPost = onSnapshot(q, (s) => {
     const dataList = [];
     s.forEach((doc) => {
       dataList.push(doc.data());
     });
     result(dataList);
-    return unsub;
   });
+  return onGetPost;
 };

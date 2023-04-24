@@ -4,7 +4,6 @@ import { auth } from './firebase';
 export const loginApp = (email, password, loginError) => {
   signInWithEmailAndPassword(auth, email.value, password.value)
     .then(() => {
-      // console.log(userCredential.user);
     })
     .catch((error) => {
       password.value = '';

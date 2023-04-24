@@ -10,7 +10,7 @@ function home(navigateTo) {
   postForm.classList.add('home');
   postForm.innerHTML = `
     <img src='./lib/img/logoHome.png' class= 'logoHome'>
-    <form>
+    <form class="formHome">
     <textarea class="postForm" placeholder= "Comparte tu negocio..."></textarea>
     <button class= "post" > Publicar </button>
     </form>

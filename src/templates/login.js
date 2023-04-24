@@ -1,4 +1,5 @@
 import { loginEmail, loginGoogle } from '../lib/auth.js';
+import { dinamicLabels } from '../lib/labels.js';
 
 const loginFirebase = (email, password) => {
   const loginPrevent = (e) => {
@@ -43,26 +44,7 @@ export function login(navigation) {
   section.innerHTML = html;
 
   // Labels dinámicos
-
-  const inputs = section.querySelectorAll('input');
-
-  inputs.forEach((input) => {
-    input.onfocus = () => {
-      input.previousElementSibling.classList.add('top');
-      input.previousElementSibling.classList.add('focus');
-      input.parentNode.classList.add('focus');
-    };
-    input.onblur = () => {
-      input.value = input.value.trim();
-
-      if (input.value.trim().length === 0) {
-        input.previousElementSibling.classList.remove('top');
-      }
-
-      input.previousElementSibling.classList.remove('focus');
-      input.parentNode.classList.remove('focus');
-    };
-  });
+  dinamicLabels(section);
 
   // Evento del botón Registrar
   const btnRegistrar = section.querySelector('#btnRegistro');

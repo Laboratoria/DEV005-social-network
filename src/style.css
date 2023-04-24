@@ -97,38 +97,54 @@ main {
 .txtMascotiemos{
     display: flex;
     justify-content: center;
-    width: 250px;
-    height: 60px;
+    width: 280px;
+    height: 30px;
     border: 1px solid black;
     border-radius: 5px 5px 5px 0;
+}
+.post-form{
+    display: flex;
+}
+.btnPost{
+    border: none;
+}
+
+.btnPostImg {
+    width: 30px;
+    height: 30px;
+    position: absolute; 
 }
 
 .containerPost{
     display: flex;
+    width: 300px;
     justify-content: center;
     flex-wrap: wrap;
+    position: relative;
+    gap: 10px;
+}
+
+.textPost{
     width: 200px;
     background-color: white;
+    border: 0.1px solid black;
+    border-radius: 5px;
 }
 
-.containerForm button {
-    color: black;
-    background-color: #bcb4e7;
-    align-items: center;
-    font-family: 'Kalam', cursive;
-    font-size: 15px;
-    font-weight: bold;
+.btnDelete{
+    border: none;
+    width: 100%;
     display: flex;
-    width: 55px;
-    height: 25px;
-    border-radius: 0 0 10px 10px;
+    justify-content: flex-end;
 }
 
-*.btnPostImg {
-    display: flex;
-    border:none;
-    width: 50px;
-    height: 50px;
+.btnDltImg{
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    transform: translate(-50%, -150%);
+    border: 0.1px solid black;
+    border-radius: 1px;
 }
 
 .contenedorIngreso, .contenedorIngresoRegistro {
@@ -346,6 +362,10 @@ footer {
         height: 400px;
 
         
+    }
+
+    .containerForm{
+        width: 600px;
     }
 }
 

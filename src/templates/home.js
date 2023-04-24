@@ -17,7 +17,7 @@ export default function home() {
     <section class="containerForm">
       <form id="post-form" class="post-form">
         <textarea type="text" name="txtMascotiemos" class="txtMascotiemos" id="TxtMascotiemos" rows="3" placeholder="Mascotiemos..."></textarea> 
-        <button id="btnPost class="btnPost><!--<img class="btnPostImg" src="./img/btnPublicar.png" alt="ost"></img>--> Publicar </button>
+        <button id="btnPost" class="btnPost"><img class="btnPostImg" src="./img/btnPublicar.png" alt="post"></img></button>
       </form>
       <div id ="containerPost" class ="containerPost"></div>
     </section>
@@ -41,7 +41,8 @@ export default function home() {
       const publication = doc;
       html += `
         <div>
-          <p>${publication.txtMascotiemos}</p>
+          <p id="textPost" class="textPost">${publication.txtMascotiemos}</p>
+          <button id="btnDelete" class="btnDelete"><img class="btnDltImg" src="./img/delete.png" alt="delete"></img></button>
         </div>
       `;
     });

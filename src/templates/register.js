@@ -1,4 +1,5 @@
 import { userRegister } from '../lib/auth.js';
+import { dinamicLabels } from '../lib/labels.js';
 
 const registerFirebase = (email, password, errorEmail, errorPassword) => {
   const registerPrevent = (e) => {
@@ -48,35 +49,15 @@ export function register(navigation) {
   section.innerHTML = htmlRegister;
 
   // Labels dinámicos
+  dinamicLabels(section);
 
-  const inputs = section.querySelectorAll('input');
-
-  inputs.forEach((input) => {
-    input.onfocus = () => {
-      input.previousElementSibling.classList.add('top');
-      input.previousElementSibling.classList.add('focus');
-      input.parentNode.classList.add('focus');
-    };
-    input.onblur = () => {
-      input.value = input.value.trim();
-
-      if (input.value.trim().length === 0) {
-        input.previousElementSibling.classList.remove('top');
-      }
-
-      input.previousElementSibling.classList.remove('focus');
-      input.parentNode.classList.remove('focus');
-    };
-  });
-
+  // Limpiar mensajes de error
   const email = section.querySelector('#emailReg');
   const password = section.querySelector('#passwordReg');
   const errorEmail = section.querySelector('#errorEmail');
   const errorPassword = section.querySelector('#errorPassword');
   const btnCrearCuenta = section.querySelector('#btnCrearCuenta');
   const btnVolverInicio = section.querySelector('#btnIniciaSesion');
-
-  // Limpiar mensajes de error
 
   email.addEventListener('click', () => {
     email.value = '';

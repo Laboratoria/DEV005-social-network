@@ -58,7 +58,7 @@ const editAPost = (postId) => {
 const likeAPost = (postId, numLikes) => {
   const handleLikeAPost = async (event) => {
     event.preventDefault();
-    await getOnePost(postId).then((doc) => {
+    await getOnePost(postId).then(async (doc) => {
       const getLikes = doc.data();
       const countLikes = getLikes.likes;
       const currentUserEmail = auth.currentUser.email;
@@ -67,8 +67,10 @@ const likeAPost = (postId, numLikes) => {
       } else {
         updateLike(postId, currentUserEmail);
       }
-      const countLikesFinal = getLikes.likes;
-      numLikes.textContent = countLikesFinal.length;
+      const updatedPost = await getOnePost(postId); // Obtener el post actualizado del servidor
+      const updatedLikes = updatedPost.data().likes; // Obtener el nuevo número de likes
+      numLikes.textContent = updatedLikes.length;
+      // Actualiza el elemento de interfaz de usuario con el nuevo número de likes
     });
   };
   return handleLikeAPost;

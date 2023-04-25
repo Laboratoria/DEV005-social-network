@@ -38,7 +38,7 @@ export const getOnePost = (id) => getDoc(doc(db, 'posts', id));
 // Editar una publciación
 export const editPost = (id, newFields) => updateDoc(doc(db, 'posts', id), newFields);
 
-// likes
+// Likes
 export const updateLike = (id, uid) => updateDoc(doc(db, 'posts', id), {
   likes: arrayUnion(uid),
 });

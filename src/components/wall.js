@@ -56,10 +56,9 @@ function wall(navigateTo) {
   });
 
   navBar.append(btnReturnH, btnLogOut);
-  sectionWall.append(navBar, welcomeMsg, 
-    // msg, 
-    // kittyImage
-    );
+  sectionWall.append(navBar, welcomeMsg);
+  // msg,
+  // kittyImage);
 
   return sectionWall;
 }

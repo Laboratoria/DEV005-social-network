@@ -169,11 +169,11 @@ main {
     width: auto;
   }
 
-  #text-posts {
+  #textPosts {
     height: 100px;
     width: 200px;
     background-color: powderblue;
-
+    resize: none;
   }
   
   .error-section {

@@ -152,7 +152,6 @@ h1{
 }
 /* --------------------- wall----------------  */
 .container-post{
-    height: 100vh;
     border: 2px solid rgb(110, 13, 140);
     background-size: cover;
 }
@@ -217,14 +216,17 @@ textarea{
     font-size:x-small;
 }
 .container-each-post{
-    border: 1px solid yellow;
+    border: 1px solid rgb(81, 0, 255);
     width: 90%;
     display: flex;
     flex-direction: column;
     max-width: 500px;
-    margin: 0 auto;
+    margin: 13px auto;
     /* min-height: 150px; */
-}
+}  
+.liked { 
+    color: red;
+  }
 @media (min-width: 850px) {
     .login-container, .register-container{
         background-image: url('../images/background.jpg');

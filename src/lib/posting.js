@@ -29,7 +29,7 @@ export const getPost = () => getDocs(collection(db, 'posts'));
 // Escuchar los cambios en tiempo real
 export const onGetPost = (callback) => onSnapshot(collection(db, 'posts'), callback);
 
-// Eliminar una piblicación
+// Eliminar una publicación
 export const deletePost = (id) => deleteDoc(doc(db, 'posts', id));
 
 // Obtener una publicación

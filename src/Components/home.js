@@ -2,8 +2,7 @@ import { onSnapshot } from 'firebase/firestore';
 import { signOut } from 'firebase/auth';
 import { auth } from '../lib/firebase.js';
 import { post } from '../lib/auth.js';
-import { ref } from '../lib/post.js';
-import { printPost } from './PrintPost.js';
+import { ref, editar } from '../lib/post.js';
 
 function home(navigateTo) {
   const postForm = document.createElement('section');
@@ -23,6 +22,7 @@ function home(navigateTo) {
     }).catch(() => {
     });
   });
+
   const buttonPost = postForm.querySelector('.post');
   buttonPost.addEventListener('click', (e) => {
     e.preventDefault();
@@ -38,25 +38,51 @@ function home(navigateTo) {
     textarea.value = '';
   });
 
+  const printPost = (info, doc) => {
+    const textarea = document.createElement('textarea');
+    textarea.classList.add('showPost');
+    textarea.value = info.text;
+    textarea.setAttribute('data-id', doc.id);
+    textarea.setAttribute('readonly', true);
+    postForm.appendChild(textarea);
+
+    const editButton = document.createElement('button');
+    editButton.classList.add('edit');
+    editButton.textContent = 'Editar';
+    editButton.addEventListener('click', () => {
+      editar(doc.id, textarea.value);
+    });
+
+    console.log('correo en sesión: ', auth.currentUser.email);
+    console.log('emial: ', info.userEmail);
+    if (auth.currentUser.email === info.userEmail) {
+      postForm.appendChild(editButton);
+    }
+
+    return textarea;
+  };
+
   onSnapshot(ref(), (querySnapshot) => {
     querySnapshot.forEach((doc) => {
       const postInfo = doc.data();
-      // Verificar si el post ya ha sido agregado previamente
+      // Buscar el post existente por el id del documento
       const postExists = postForm.querySelector(`[data-id="${doc.id}"]`);
-      if (!postExists) {
-        const nodoP = printPost(postInfo);
-        nodoP.textContent = postInfo.text;
+      if (postExists) {
+        const textarea = postExists.querySelector('textarea');
+        textarea.removeAttribute('readonly');
+        textarea.setAttribute('contenteditable', true);
+      } else {
+        const nodoP = printPost(postInfo, doc);
         nodoP.setAttribute('data-id', doc.id);
+        nodoP.setAttribute('contenteditable', true);
         postForm.append(nodoP);
       }
     });
   });
+
+  const idInitSecion = localStorage.getItem('userId');
+  console.log(idInitSecion);
   return postForm;
 }
-
-/* const postSection = document.createElement('section');
-postSection.classList.add('postSection');
-postSection.innerHTML = showCapture;
-console.log(postSection); */
 
 export { home };

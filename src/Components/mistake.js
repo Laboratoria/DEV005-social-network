@@ -1,6 +1,5 @@
-/* eslint-disable import/named */
-
-import { currentUserNow } from '../lib/auth.js';
+/* eslint-disable import/named
+import { currentUserNow } from '../lib/auth.js'; */
 
 // pantalla - error
 function mistake(navigateTo) {
@@ -12,10 +11,10 @@ function mistake(navigateTo) {
 
   const keep = bug.querySelector('.initButton');
   keep.addEventListener('click', () => {
-    const user = currentUserNow();
-    console.log(user);
-    // eslint-disable-next-line no-unused-expressions
-    user ? navigateTo('/emprende') : navigateTo('/');
+    // const user = currentUserNow();
+    // console.log(user);
+    // // eslint-disable-next-line no-unused-expressions
+    // user ? navigateTo('/emprende') : navigateTo('/');
   });
   return bug;
 }

@@ -357,7 +357,6 @@
     background-size: cover;
     height: 100vh;
 }
-
 .formHome {
     width: 92%;
     max-width: 483px;
@@ -369,9 +368,7 @@
     background: none;
     border: none;
     font-size: 19px;
-
 }
-
 .postForm {
     display: flex;
     background: white;
@@ -387,7 +384,6 @@
     max-height: 71px;
     box-shadow: 3px 2px 10px rgba(0, 0, 0, 0.25) inset;
 }
-
 .post {
     background: #F39C12;
     width: 35%;
@@ -398,10 +394,40 @@
     font-size: 20px;
     border: none;
     color: #FFFEFE;
-    position: absolute;
-    margin: -205px 0px 0px 62px;
+    margin-left: 61%;
+    margin-top: 3%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-
+/* .showPost {
+    display: flex;
+    align-items: center;
+    background: white;
+    width: 82%;
+    max-width: 409px;
+    height: 11vh;
+    border-radius: 10px;
+    border: none;
+    padding-top: 15px;
+    padding-left: 3%;
+    font-size: 19px;
+    margin: 13px 0% 0%;
+    max-height: 61px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+} */
+.edit{
+    background: #EAEAEA;
+    width: 21%;
+    max-width: 113px;
+    height: 32px;
+    border-radius: 9px;
+    font-weight: bold;
+    font-size: 20px;
+    border: none;
+    color: black;
+    margin-left: 64%;
+    margin-top: 2%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
 /*button salir*/
 .goOut {
     position: absolute;

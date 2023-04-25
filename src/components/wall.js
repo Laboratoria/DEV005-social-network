@@ -13,14 +13,15 @@ function wall(navigateTo) {
   btnLogOut.textContent = 'Cerrar Sesión';
   const welcomeMsg = document.createElement('h2');
   welcomeMsg.textContent = '¡Bienvenida a KittyBook!';
+  const msg = document.createElement('p');
+  msg.textContent = 'Este sitio está en construcción. Esperamos verte pronto';
   const post = document.createElement('textarea');
-  post.id = 'text-posts';
+  post.id = 'textPosts';
   const btnPost = document.createElement('button');
   btnPost.id = 'btn-posts';
   btnPost.type = 'submit';
   btnPost.textContent = 'Publicar';
-
-  // btnPost.setAttribute('disabled', true);
+  btnPost.disabled = true;
 
   btnPost.addEventListener('click', () => {
     const postText = post.value;
@@ -52,19 +53,17 @@ function wall(navigateTo) {
 
   btnLogOut.addEventListener('click', () => {
     signOut(auth);
-    console.log('Sesión cerrada');
+    console.log('Clickaste cerrar sesión');
   });
 
-  navBar.append(btnReturnH, btnLogOut);
+  navBar.append(btnLogOut);
   sectionWall.append(
     navBar,
     welcomeMsg,
     post,
     btnPost,
-    // msg,
-    // kittyImage
-  // eslint-disable-next-line function-paren-newline
   );
+
   return sectionWall;
 }
 

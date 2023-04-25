@@ -1,5 +1,4 @@
 /* eslint-disable no-unused-vars */
-/* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
 
 import {
@@ -8,7 +7,6 @@ import {
   GoogleAuthProvider,
   GithubAuthProvider,
   signInWithEmailAndPassword,
-  onAuthStateChanged,
 } from 'firebase/auth';
 
 import {
@@ -42,7 +40,6 @@ export const newAccount = (email, password, errorElement) => {
       .catch((error) => {
         const errorCode = error.code;
         // const errorMessage = error.message;
-
         if (errorCode === 'auth/email-already-in-use') {
           errorElement.textContent = 'El correo ya está en uso.';
         } else if (errorCode === 'auth/invalid-password') {

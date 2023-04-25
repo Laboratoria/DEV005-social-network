@@ -1,18 +1,18 @@
 import {
-  getFirestore, addDoc, collection, getDocs, getDoc, onSnapshot, deleteDoc, updateDoc, doc,
+  getFirestore,
+  addDoc, collection,
+  getDocs,
+  getDoc,
+  onSnapshot,
+  deleteDoc,
+  updateDoc,
+  doc,
+  arrayRemove,
+  arrayUnion,
 } from 'firebase/firestore';
 import { auth } from './firebase.js';
 
-const db = getFirestore();
-// Obtener el id del usuario actual
-// export const getUser = async () => new Promise((resolve) => {
-//   onAuthStateChanged(auth, (user) => {
-//     if (user) {
-//       const userId = user.uid;
-//       resolve(userId);
-//     }
-//   });
-// });
+export const db = getFirestore();
 
 export const savePost = (textPost) => {
   const text = textPost.value;
@@ -37,3 +37,12 @@ export const getOnePost = (id) => getDoc(doc(db, 'posts', id));
 
 // Editar una publciación
 export const editPost = (id, newFields) => updateDoc(doc(db, 'posts', id), newFields);
+
+// likes
+export const updateLike = (id, uid) => updateDoc(doc(db, 'posts', id), {
+  likes: arrayUnion(uid),
+});
+
+export const removeLike = (id, uid) => updateDoc(doc(db, 'posts', id), {
+  likes: arrayRemove(uid),
+});

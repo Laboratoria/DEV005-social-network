@@ -10,9 +10,19 @@ import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
 } from 'firebase/auth';
-import { auth } from './firebase';
 
-// CORREO Y CONTRASEÑA
+import {
+  getFirestore,
+  collection,
+  addDoc,
+} from 'firebase/firestore';
+
+import {
+  db,
+  auth,
+} from './firebase';
+
+// REGISTRO CORREO Y CONTRASEÑA
 export const newAccount = (email, password, errorElement) => {
   if (email === '' && password === '') {
     errorElement.textContent = 'Ingrese correo electrónico y contraseña';
@@ -43,50 +53,9 @@ export const newAccount = (email, password, errorElement) => {
       });
   }
 };
-// Registrar/Iniciar sesión con Google
-export const accessWithGoogle = (navigateTo) => {
-  const provider = new GoogleAuthProvider();
-  signInWithPopup(auth, provider)
-    .then((result) => {
-      const credential = GoogleAuthProvider.credentialFromResult(result);
-      const token = credential.accessToken;
-      const user = result.user;
-      console.log('signed up with Google');
-      navigateTo('/wall');
-      // ...
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      const email = error.email;
-      const credential = GoogleAuthProvider.credentialFromError(error);
-      console.log('error signing up with Google');
-      // ...
-    });
-};
 
-// GITHUB
-
-export const accessWithGithub = (navigateTo) => {
-  const provider = new GithubAuthProvider();
-  signInWithPopup(auth, provider)
-    .then((result) => {
-      const credential = GithubAuthProvider.credentialFromResult(result);
-      const token = credential.accessToken;
-      const user = result.user;
-      console.log('signed up with Github');
-      console.log(result);
-      navigateTo('/wall');
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      const email = error.email;
-      const credential = GithubAuthProvider.credentialFromError(error);
-      console.log('error signing up with Github');
-      // ...
-    });
-};
+// eslint-disable-next-line max-len
+//  LOGIN CORREO Y CONTRASEÑA
 export const logInWithEmail = (email, password, errorELogin) => new Promise((resolve, reject) => {
   if (email === '' && password === '') {
     errorELogin.textContent = 'Ingrese correo electrónico y contraseña';
@@ -114,3 +83,47 @@ export const logInWithEmail = (email, password, errorELogin) => new Promise((res
       });
   }
 });
+
+//  REGISTRO Y LOGIN GOOGLE
+export const accessWithGoogle = (navigateTo) => {
+  const provider = new GoogleAuthProvider();
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      const user = result.user;
+      console.log('signed up with Google');
+      navigateTo('/wall');
+      // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      const email = error.email;
+      const credential = GoogleAuthProvider.credentialFromError(error);
+      console.log('error signing up with Google');
+      // ...
+    });
+};
+
+// REGISTRO Y LOGIN GITHUB
+export const accessWithGithub = (navigateTo) => {
+  const provider = new GithubAuthProvider();
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      const credential = GithubAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      const user = result.user;
+      console.log('signed up with Github');
+      console.log(result);
+      navigateTo('/wall');
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      const email = error.email;
+      const credential = GithubAuthProvider.credentialFromError(error);
+      console.log('error signing up with Github');
+      // ...
+    });
+};

@@ -7,9 +7,11 @@ import {
   addDoc,
   getDocs,
   deleteDoc,
+  getDoc,
   query,
   doc,
   onSnapshot,
+  updateDoc,
 } from 'firebase/firestore';
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -59,4 +61,13 @@ export const createSnapshot = (result) => {
   return onGetPost;
 };
 
+// Borrar post
 export const deletePost = (id) => deleteDoc(doc(db, 'posts', id));
+
+// Editar post
+
+export const getPost = (id) => getDoc(doc(db, 'posts', id));
+
+// Actualizar edición post
+
+export const updatePost = (id, newFields) => updateDoc(doc(db, 'posts', id), newFields);

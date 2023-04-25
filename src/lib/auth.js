@@ -1,8 +1,6 @@
 import {
   createUserWithEmailAndPassword,
-  signInWithPopup,
-  GoogleAuthProvider,
-  TwitterAuthProvider,
+  signInWithEmailAndPassword
 } from 'firebase/auth';
 
 import {
@@ -11,6 +9,47 @@ import {
 
 import { db, auth } from './firebaseConfig.js';
 
+/* ---------------------------- Ingreso ---------------------------------------------*/
+
+export const revision = (email, password) => new Promise((resolve, reject) => {
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Signed in
+      resolve(userCredential);
+    })
+    .catch((error) => {
+      if (error.code === 'auth/invalid-email') {
+        alert('Correo electrónico inválido');
+      } if (error.code === 'auth/wrong-password') {
+        // La contraseña es incorrecta
+        alert('La contraseña es incorrecta. Por favor, intenta de nuevo.');
+      }
+      reject(error.code);
+    });
+});
+
+/* ---------------------------- Registro---------------------------------------------*/
+
+export const autenticacion = (email, password) => new Promise((resolve, reject) => {
+  createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      resolve(userCredential);
+    })
+    .catch((error) => {
+      let mensaje = 'Ha ocurrido un error';
+      if (error.code === 'auth/email-already-in-use') {
+        mensaje = 'Usuario existente';
+      } else if (error.code === 'auth/invalid-email') {
+        mensaje = 'Correo electrónico inválido';
+      } else if (error.code === 'auth/weak-password') {
+        mensaje = 'La contraseña debe tener al menos 6 caracteres';
+      }
+
+      reject(mensaje);
+    });
+});
+
+// Aqui empieza lo de los post
 const saveTask = async (taskTitle, taskDescription) => {
   try {
     const docRef = await addDoc(collection(db, 'tasks'), {
@@ -109,49 +148,4 @@ export const submitForm = async () => {
 
   await getTasks();
   taskTitle.focus();
-};
-
-export const loginPatitas = () => {
-  const email = document.getElementById('mail').value;
-  const password = document.getElementById('password').value;
-
-  createUserWithEmailAndPassword(auth, email, password)
-    .then((res) => {
-      console.log(res.user);
-    })
-    .catch((err) => {
-      alert(err.message);
-      console.log(err.code);
-      console.log(err.message);
-    });
-};
-
-export const loginWithGoogle = () => {
-  const provider = new GoogleAuthProvider();
-  signInWithPopup(auth, provider)
-    .then((result) => {
-      const user = result.user;
-      console.log('Comentario', user);
-      // ...
-    }).catch((error) => {
-      // Handle Errors here.
-      const errorMessage = error.message;
-      console.log('erorrrrrr', errorMessage);
-      // ...
-    });
-};
-
-export const loginWithTwitter = () => {
-  const provider = new TwitterAuthProvider();
-  signInWithPopup(auth, provider)
-    .then((result) => {
-      const user = result.user;
-      console.log(user);
-      // ..
-    }).catch((error) => {
-      // Handle Errors here.
-      const errorMessage = error.message;
-      console.log('erorrrrrr', errorMessage);
-      // ...
-    });
 };

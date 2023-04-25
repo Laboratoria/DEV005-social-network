@@ -9,7 +9,7 @@
         background-color: white;
     }
 
-    #root {
+    .containerSection {
         width: 100%;
         height: 100%;
     }
@@ -20,7 +20,7 @@
 
     .containerRight {
         height: 100%;
-        font-family:'Roboto Flex', sans-serif;
+        font-family: 'Roboto Flex', sans-serif;
         padding: 50px;
     }
 
@@ -31,13 +31,15 @@
         text-align: center;
         padding: 60px;
         font-size: 2em;
-        font-family:'Roboto Flex', sans-serif;
+        font-family: 'Roboto Flex', sans-serif;
         font-size: 2.8em;
         font-weight: 700;
-        color: rgb(39, 37, 33);  
-        box-shadow: 10px 0px 20px 0px rgb(196, 195, 194);  
+        color: rgb(39, 37, 33);
+        box-shadow: 10px 0px 20px 0px rgb(196, 195, 194);
+       
     }
-    .divLogoRegister{
+
+    .divLogoRegister {
         width: 100px;
         height: 100px;
         background-color: rgb(27, 24, 19);
@@ -45,51 +47,57 @@
         border: 5px solid rgb(243, 238, 238);
         margin: auto;
         margin-top: 15px;
-         
     }
-    .divLogoRegister img{
+
+    .divLogoRegister img {
         width: 80px;
         height: 80px;
         filter: invert(.6);
     }
 
 
-    .divContent {
-       
+    .formRegister {
+
         margin: auto;
         margin-top: 40px;
     }
-    .divInput{
+
+    .listInput {
         width: 280px;
-        margin:auto;
+        margin: auto;
         margin-top: 20px;
-        
- 
+        list-style: none;
+
     }
 
-    .divInput input {
+    .listInput input {
         width: 280px;
         height: 60px;
         border-radius: 10px;
-        border:.5px solid rgb(227, 226, 226);
+        border: .5px solid rgb(227, 226, 226);
         box-shadow: 0px 0px 10px 0px rgb(231, 230, 230);
         color: rgb(93, 92, 92);
         font-size: 1.2em;
-        padding: 20px;
+        padding: 0px 20px 0px 20px;
+        ;
         margin-top: 5px;
+
     }
-    .divInput span{
-        font-weight: 500;
-        color: rgb(136, 135, 135);
+
+    .listInput label {
+        font-weight: 700;
+        color: rgb(80, 79, 79);
     }
-    .divTitleRegister{
+
+    .divTitleRegister {
         margin-top: 25px;
         text-align: center;
         font-size: 2.2em;
         font-weight: 500;
         color: rgb(101, 101, 100);
     }
-    .divContent button{
+
+    .formRegister button {
         width: 280px;
         height: 60px;
         border-radius: 10px;
@@ -103,7 +111,8 @@
         color: rgb(33, 31, 31);
         cursor: pointer;
     }
-    .divContent button:hover {
+
+    .formRegister button:hover {
         background-color: rgb(42, 31, 23);
         color: rgb(237, 231, 224);
         box-shadow: 0px 0px 20px 1px rgb(39, 39, 37);
@@ -118,31 +127,25 @@
 @media (min-width:500px) {
     body {
         background-image: linear-gradient(rgba(68, 59, 20, 0.75), rgba(245, 244, 240, 0.664)), url("./img/fondo0.jpg");
-    background-size: 2000px 1000px;
-    padding: 50px;
+        background-size: 2000px 1000px;
+        padding: 50px;
     }
 
-    #root {
-
+    .containerSection {
         width: 1200px;
-        height:750px;
+        height: 750px;
         margin: auto;
-       
-        
         display: flex;
         flex-flow: row wrap;
         justify-content: center;
         border-radius: 20px 0px 20px 0px;
         box-shadow: 0px 0px 25px 1px rgb(24, 23, 23);
-
     }
 
     .containerLeft,
     .containerRight {
         width: 600px;
         height: 750px;
-
-
     }
 
     .containerLeft {
@@ -154,9 +157,8 @@
         font-family: 'Amatic SC', cursive;
         position: relative;
     }
-    .divLogoRegister{
-        display: none;
-    }
+
+    
 
     .containerRight {
         border-radius: 0px 0px 20px 0px;
@@ -167,48 +169,68 @@
 
     }
 
-    .divContent {
+    .formRegister {
         width: 400px;
         height: 550px;
-
         margin: auto;
         margin-top: 50px;
+        list-style: none;
 
     }
 
-    .divInput {
+    .listInput {
         width: 380px;
         height: 90px;
-
         margin: auto;
-        margin-top: 10px;
+        margin-top: 40px;
     }
 
-    .divInput input {
+    .listInput input {
         width: 380px;
         height: 60px;
         margin: auto;
         border-radius: 10px;
         border: 1px solid rgb(248, 248, 248);
         box-shadow: 0px 0px 5px 0px rgb(194, 194, 194);
-        padding-left: 20px;
+        padding: 0px 20px 0px 20px;
         background-color: rgba(255, 255, 255, 0.709);
-        margin-top: 5px;
+        margin-top: 10px;
         font-size: 1.3em;
         color: rgb(91, 88, 88);
     }
 
-    .divInput span {
-        font-size: 1.3em;
-        color: rgb(84, 82, 82);
-        font-weight: 500;
+    .listInput input:focus {
+        border: 3px solid #e39f216f;
+        outline: none;
+        box-shadow: 3px 0px 30px rgba(163, 163, 163, 0.4);
     }
 
-    .divContent button {
+    .listInput.error input {
+        border: 3px solid rgba(188, 52, 52, 0.856);
+        box-shadow: 0px 0px 10px rgba(210, 118, 118, 0.4);
+    }
+    .listInput.error2 input {
+        border: 3px solid rgba(188, 52, 52, 0.856);
+        box-shadow: 0px 0px 10px rgba(210, 118, 118, 0.4);
+    }
+
+    .listInput.success input {
+        border: 2px solid rgb(115, 215, 27);
+        box-shadow: 0px 0px 10px rgba(160, 228, 58, 0.4);
+        
+    }
+
+    .listInput label {
+        font-size: 1.3em;
+        font-weight: 700;
+        color: rgb(80, 79, 79);
+    }
+
+    .buttonRegister {
         width: 380px;
-        height: 55px;
+        height: 65px;
         background-color: rgb(250, 188, 89);
-        margin: 50px 0px 0px 10px;
+        margin: 50px 0px 0px 9px;
         border-radius: 10px;
         border: 0px transparent;
         font-size: 1.5em;
@@ -217,8 +239,21 @@
         position: absolute;
         z-index: 20;
     }
+    .buttonRegisterGoogle {
+        width: 380px;
+        height: 65px;
+        background: rgb(255, 255, 255);
+        margin: 10px 0px 0px 9px;
+        box-shadow: 0px 0px 5px 1px rgb(229, 229, 229);
+        font-size: 1.5em;
+        border: 3px solid rgb(230, 200, 130);
+        color: rgb(33, 31, 31);
+        position: absolute;
+        z-index: 20;
+        border-radius: 10px;
+    }
 
-    .divContent button:hover {
+    .formRegister button:hover {
         background-color: rgb(42, 31, 23);
         color: rgb(237, 231, 224);
         box-shadow: 0px 0px 20px 1px rgb(112, 91, 38);
@@ -235,7 +270,6 @@
 
     .divContainerPhrase {
         margin: auto;
-
         width: 500px;
         height: 200px;
 
@@ -250,7 +284,6 @@
     .divTitleLogo {
         width: 600px;
         height: 180px;
-
         position: absolute;
         bottom: 0px;
         background-color: rgba(246, 210, 101, 0.862);
@@ -265,53 +298,80 @@
         font-family: 'Cabin Condensed', sans-serif;
         font-size: 5em;
         color: rgb(82, 68, 46);
-        text-shadow: 0px 3px 5px  rgba(63, 63, 63, 0.953);
-         
+        text-shadow: 0px 3px 5px rgba(63, 63, 63, 0.953);
+
     }
+
+    .buttonRegisterGoogle {
+        position: absolute;
+        top: 600px;
+    }
+
+    .divLogoRegister {
+        width: 100px;
+        height: 100px;
+        background-color: rgb(27, 24, 19);
+        border-radius: 50px;
+        border: 5px solid rgb(243, 238, 238);
+        margin: auto;
+        margin-top: -600px;
+      
+    }
+
+    .divLogoRegister img {
+        width: 80px;
+        height: 80px;
+        filter: invert(.6);
+    }
+
+
+
 }
 
 /*maria*/
 /*papa*/
-.contenedor{     
+.contenedor {
     display: flex;
-    justify-content: center; /* Centra horizontalmente los elementos */
-    align-items: center; /* Centra verticalmente los elementos */
-     /* Altura del contenedor */
-    
-    }  
+    justify-content: center;
+    /* Centra horizontalmente los elementos */
+    align-items: center;
+    /* Centra verticalmente los elementos */
+    /* Altura del contenedor */
+
+}
 
 
 /*hijo*/
-.contenedorLr{     
+.contenedorLr {
     display: flex;
     justify-content: center;
-    align-items: center;   
+    align-items: center;
     width: 1200px;
     height: 750px;
     border-radius: 30px;
     background-color: black;
     box-shadow: 0px 0px 25px 1px rgb(24, 23, 23);
-    font-family:'Assistant', sans-serif;
-  }
+    font-family: 'Assistant', sans-serif;
+}
 
-.divRaight{
-  background-color: #eddbc8;
-  border-top-left-radius: 0px;
-  border-bottom-right-radius: 30px;
-  float: right;
-  width: 600px;
-  height: 750px;
+.divRaight {
+    background-color: #eddbc8;
+    border-top-left-radius: 0px;
+    border-bottom-right-radius: 30px;
+    float: right;
+    width: 600px;
+    height: 750px;
 
 }
 
-.divLeft{
-  float: left;
-  background-color: #7d7e48;
-  width: 600px;
-  height: 750px;
-  border-top-left-radius: 30px;
-  border-bottom-right-radius: 0px;
-  position: relative;
+.divLeft {
+    float: left;
+    background-color: #7d7e48;
+    width: 600px;
+    height: 750px;
+    border-top-left-radius: 30px;
+    border-bottom-right-radius: 0px;
+    position: relative;
 
 }
 
@@ -340,7 +400,7 @@
     color: white;
 }
 
-.buttonClassLogin{
+.buttonClassLogin {
     width: 360px;
     height: 50px;
     background-color: rgb(248, 162, 25);
@@ -355,90 +415,94 @@
     border: 0px transparent;
     box-shadow: 0px 0px 10px 1px rgb(112, 91, 38);
 }
-.buttonClassLogin:hover{
+
+.buttonClassLogin:hover {
     background-color: rgb(42, 31, 23);
     color: rgb(237, 231, 224);
     box-shadow: 0px 0px 20px 1px rgb(112, 91, 38);
-    transition: .5s;  
+    transition: .5s;
 }
 
-.loginDiv{
+.loginDiv {
     margin: 20px;
     padding: 20px;
 }
 
 .loginTitle {
- 
+
     font-size: 3em;
     margin-left: 150px;
     margin-top: 50px;
     font-size: 3em;
     color: rgb(67, 60, 50);
-  
+
 }
 
 
-.loginDiv{
+.loginDiv {
     width: 400px;
     height: 120px;
-    margin:auto;
+    margin: auto;
     margin-bottom: 20px;
-  
-  
+
+
 }
 
-.inputClassLogin{
+.inputClassLogin {
     width: 360px;
     height: 70px;
-    margin:auto;
+    margin: auto;
     border-radius: 10px;
-    border:1px transparent  ;
+    border: 1px transparent;
     box-shadow: 0px 0px 5px 0px rgb(194, 194, 194);
     padding: 15px;
     background-color: rgba(255, 255, 255, 0.709);
-    margin-top:5px;
+    margin-top: 5px;
     font-size: 1.3em;
     color: rgb(91, 88, 88);
 
 }
 
-.containerDiv{
+.containerDiv {
     width: 400px;
     height: 550px;
     font-size: 1.3em;
     margin: auto;
     margin-top: 20px;
-  
+
 }
 
-.buttonClass{
+.buttonClass {
     margin: auto;
     margin-top: 10px;
 
 }
-.divAsk{
+
+.divAsk {
     height: 50px;
     text-align: center;
 }
-.divAsk span{
-    font-size:.8em;
+
+.divAsk span {
+    font-size: .8em;
     font-weight: 600;
- }
- .divLogo{
+}
+
+.divLogo {
     width: 100px;
     height: 100px;
     background-color: black;
     border-radius: 50px;
     margin: auto;
- }
+}
 
- .divLogo img{
+.divLogo img {
     width: 90px;
     height: 90px;
     text-align: center;
     filter: invert(10);
     margin-left: 7px;
- }
+}
 
 /*@media (max-width:500px) {
     img.imgLogin {

@@ -1,10 +1,8 @@
 // Este es el punto de entrada de tu aplicacion
 
-// import { myFunction } from './lib/index.js';
-
 import login from './components/login.js';
-import register from './components/register.js';
-import error from './components/error.js';
+import { register } from './components/register.js';
+import { error } from './components/error.js';
 import seniorFace from './components/seniorFace.js';
 
 const root = document.getElementById('root');
@@ -15,8 +13,7 @@ const myRoutes = [
   { path: '/error', component: error },
   { path: '/seniorFace', component: seniorFace },
 ];
-const defaultMyRoutes = '/';
-
+const defaultMyRoutes = '/login';
 function navigateTo(hash) {
   const myRouterFind = myRoutes.find((itemRouter) => itemRouter.path === hash);
   console.log('prueba1', myRouterFind);

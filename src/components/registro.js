@@ -62,6 +62,7 @@ function registro(navigateTo) {
   });
 
   const register = document.createElement('button');
+  register.addEventListener('click', register);
   register.textContent = 'Registrarse';
 
   title.textContent = 'Pet Registro';

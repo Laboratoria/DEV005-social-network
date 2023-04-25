@@ -1,3 +1,5 @@
+import { submitForm } from '../lib/auth';
+
 function muro(navigateTo) {
   const section = document.createElement('section');
   const title = document.createElement('h1');
@@ -50,6 +52,58 @@ function muro(navigateTo) {
   container.append(title, article, buttonReturn);
 
   section.appendChild(container);
+
+  // prueba post
+  const taskContainer = document.createElement('div');
+  taskContainer.id = 'task-container';
+
+  // Crea el formulario
+  const form = document.createElement('form');
+  form.id = 'formPost';
+
+  // Crea el campo de título
+  const titleLabel = document.createElement('label');
+  titleLabel.textContent = 'Título:';
+  const titleInput = document.createElement('input');
+  titleInput.classList.add('task-title');
+  titleInput.type = 'text';
+  titleInput.name = 'title';
+  titleLabel.appendChild(titleInput);
+
+  // Crea el campo de descripción
+  const descriptionLabel = document.createElement('label');
+  descriptionLabel.textContent = 'Descripción:';
+  const descriptionInput = document.createElement('textarea');
+  descriptionInput.classList.add('task-description');
+  descriptionInput.name = 'description';
+  descriptionLabel.appendChild(descriptionInput);
+
+  // Crea el botón de envío
+  const submitBtn = document.createElement('button');
+  submitBtn.type = 'submit';
+  submitBtn.textContent = 'Enviar';
+  submitBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    submitForm(e);
+  });
+
+  // Agrega los elementos al formulario
+  form.appendChild(titleLabel);
+  form.appendChild(descriptionLabel);
+  form.appendChild(submitBtn);
+
+  // Crea la sección de tareas
+  const taskList = document.createElement('ul');
+  taskList.id = 'task-list';
+
+  // Agrega el formulario y la sección de tareas al contenedor de tareas
+  taskContainer.appendChild(form);
+  taskContainer.appendChild(taskList);
+
+  // Agrega el contenedor de tareas a la página
+  document.body.appendChild(taskContainer);
+
+  // Agrega un EventListener para el envío del formulario
 
   return section;
 }

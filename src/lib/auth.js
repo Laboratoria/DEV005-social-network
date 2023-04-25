@@ -8,9 +8,19 @@ import {
   GithubAuthProvider,
   signInWithEmailAndPassword,
 } from 'firebase/auth';
-import { auth } from './firebase';
 
-// CORREO Y CONTRASEÑA
+import {
+  getFirestore,
+  collection,
+  addDoc,
+} from 'firebase/firestore';
+
+import {
+  db,
+  auth,
+} from './firebase';
+
+// REGISTRO CORREO Y CONTRASEÑA
 export const newAccount = (email, password, errorElement) => {
   if (email === '' && password === '') {
     errorElement.textContent = 'Ingrese correo electrónico y contraseña';
@@ -40,7 +50,38 @@ export const newAccount = (email, password, errorElement) => {
       });
   }
 };
-// Registrar/Iniciar sesión con Google
+
+// eslint-disable-next-line max-len
+//  LOGIN CORREO Y CONTRASEÑA
+export const logInWithEmail = (email, password, errorELogin) => new Promise((resolve, reject) => {
+  if (email === '' && password === '') {
+    errorELogin.textContent = 'Ingrese correo electrónico y contraseña';
+    reject(new Error('Invalid input'));
+  } else {
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        resolve(user);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+
+        if (errorCode === 'auth/user-not-found') {
+          errorELogin.textContent = 'El correo no está registrado.';
+        } else if (errorCode === 'auth/wrong-password') {
+          errorELogin.textContent = 'Contraseña incorrecta.';
+        } else if (errorCode === 'auth/invalid-email') {
+          errorELogin.textContent = 'Ingrese un correo electrónico válido.';
+        } else {
+          errorELogin.textContent = 'Ocurrió un error al intentar iniciar sesión.';
+        }
+        reject(new Error(errorMessage));
+      });
+  }
+});
+
+//  REGISTRO Y LOGIN GOOGLE
 export const accessWithGoogle = (navigateTo) => {
   const provider = new GoogleAuthProvider();
   signInWithPopup(auth, provider)
@@ -62,8 +103,7 @@ export const accessWithGoogle = (navigateTo) => {
     });
 };
 
-// GITHUB
-
+// REGISTRO Y LOGIN GITHUB
 export const accessWithGithub = (navigateTo) => {
   const provider = new GithubAuthProvider();
   signInWithPopup(auth, provider)
@@ -84,30 +124,3 @@ export const accessWithGithub = (navigateTo) => {
       // ...
     });
 };
-
-export const logInWithEmail = (email, password, errorELogin) => new Promise((resolve, reject) => {
-  if (email === '' && password === '') {
-    errorELogin.textContent = 'Ingrese correo electrónico y contraseña';
-    reject(new Error('Invalid input'));
-  } else {
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        resolve(user);
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        if (errorCode === 'auth/user-not-found') {
-          errorELogin.textContent = 'El correo no está registrado.';
-        } else if (errorCode === 'auth/wrong-password') {
-          errorELogin.textContent = 'Contraseña incorrecta.';
-        } else if (errorCode === 'auth/invalid-email') {
-          errorELogin.textContent = 'Ingrese un correo electrónico válido.';
-        } else {
-          errorELogin.textContent = 'Ocurrió un error al intentar iniciar sesión.';
-        }
-        reject(new Error(errorMessage));
-      });
-  }
-});

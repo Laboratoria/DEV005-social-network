@@ -1,5 +1,4 @@
-// Este es el punto de entrada de tu aplicacion
+import { registrarseYiniciarSesion } from "./pages/inicioYregistro.js";
 
-import { myFunction } from './lib/index.js';
+registrarseYiniciarSesion();
 
-myFunction();

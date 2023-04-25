@@ -50,7 +50,10 @@ function home(navigateTo) {
     editButton.classList.add('edit');
     editButton.textContent = 'Editar';
     editButton.addEventListener('click', () => {
-      editar(doc.id, textarea.value);
+      editar(doc.id, textarea.value, (id, newText) => {
+        const editedTextarea = postForm.querySelector(`[data-id="${id}"]`);
+        editedTextarea.value = newText;
+      });
     });
 
     console.log('correo en sesión: ', auth.currentUser.email);
@@ -59,7 +62,7 @@ function home(navigateTo) {
       postForm.appendChild(editButton);
     }
 
-    return textarea;
+    return postForm;
   };
 
   onSnapshot(ref(), (querySnapshot) => {
@@ -75,7 +78,7 @@ function home(navigateTo) {
         const nodoP = printPost(postInfo, doc);
         nodoP.setAttribute('data-id', doc.id);
         nodoP.setAttribute('contenteditable', true);
-        postForm.append(nodoP);
+        /* postForm.append(nodoP); */
       }
     });
   });

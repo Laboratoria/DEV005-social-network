@@ -403,10 +403,25 @@
     background: white;
     width: 82%;
     max-width: 409px;
+    /* min-height: 50px; */
+    height: auto;
+    max-height: 61px;
+    border: none;
+    padding-left: 3%;
+    font-size: 19px;
+    margin: 13px 0% 0%;
+  
+
+}
+
+.cardPost {
+    display: flex;
+    align-items: center;
+    background: white;
+    width: 82%;
+    max-width: 409px;
     height: 11vh;
     border-radius: 10px;
-    padding-top: 15px;
-    padding-left: 3%;
     font-size: 19px;
     margin: 13px 0% 0%;
     max-height: 61px;

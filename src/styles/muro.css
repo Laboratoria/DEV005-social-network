@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap');
-
+:root {
+  --color-rosa:#F2B3CA;
+  --color-azul:#ADD4D9;
+  --color-marron:#A6796F;
+  --color-negro:#0D0D0D;
+  --color-naranja:#F2B872;
+}
 *{
   margin: 0;
   padding: 0;
@@ -41,6 +47,7 @@ body{
     height: 80px;
     background-size: contain;
     left: 0;
+    mix-blend-mode:color-burn;
   }
 
   .create-post{
@@ -49,11 +56,11 @@ body{
     align-items: center;
     background-color: white;
     margin: 20px;
-    width: 350px;
     height: 80px;
-    border-radius: 10px;
+    border-radius: 7px;
     text-align: center;
     justify-content: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
   }
 
   .open-popup{
@@ -79,23 +86,19 @@ body{
     background-color: rgba(0,0,0, 0.5);
     box-shadow: 0 12px 28px rgb(0, 0, 0, 0.12);
   }
-
   .post h2{
     position: relative;
     font-size: 20px;
     font-weight: 600;
     text-align: center;
     padding: 5px 0;
-    border-bottom: 1px solid black;
   }
-
   .post .form-post{
     position: relative;
-    align-items: center;
     margin: 40px 30px;
-    justify-content: center;
     height: 350px;
-    background-color: white;
+    top: 100px;
+    background-color: var(--color-azul);
     border-radius: 7px;
     z-index: +3;
   }
@@ -156,32 +159,38 @@ body{
     resize: none;
     width: 100%;
     outline: none;
-    font-size: 18px;
+    font-size: 14px;
     margin-top: 10px;
-    min-height: 150px;
+    min-height: 176px;
+    padding: 8px 10px;
+    text-align:justify;
   }
-
-  
-
   .form-post textarea:valid ~ button{
     position: relative;
-    color: white;
+    color: black;
     cursor: pointer;
-    background: #ADD4D9;
+    background: var(--color-azul);
+    font-weight: bold;
   }
 
   
 
   .pop-up{
     display: none;
+    z-index: 999;
   }
 
   .cerrar-post{
-    right: 0;
+    position: absolute;
+    top: 141px;
+    right: 30px;
     width: 10%;
     border: none;
-    margin-left: 8px;
-    margin-top: 8px;
+    z-index: 999;
+    border-radius: 7px;
+    background-color: var(--color-azul);
+    font-size: 22px;
+    cursor: pointer;
   }
   .container{
     height: 100%;
@@ -190,16 +199,12 @@ body{
   }
 
   .form-post .publicar-post{
-    position: relative;
+    top: -6px;
     border: none;
     width: 100%;
-    height: 40px;
-    cursor: no-drop;
+    height: 50px;
     font-size: 16px;
-    font-weight: 500;
-    color: #bcc0c4;
     border-radius: 7px;
-    background: #e2e5e9;
   }
   
   /* task container*/
@@ -227,17 +232,18 @@ body{
     padding-left: 10px;
     z-index: -3;
     height: 100px;
+    padding-top: 20px;
   }
-
   .btn-menu{
     border: none;
     background-color: white;
-    top: 0px;
+    top: -30px;
     margin-right: 12px;
     margin-left: 290px;
     padding: 2px 2px 0px;
     border-color: white;
     position: absolute;
+    z-index: 4;
     }
   .btn-menu i{
     font-size: 20px;
@@ -253,7 +259,7 @@ body{
     border-radius: 10px;
 }
 .container-options button{
-  background-color: #add4d9;
+  background-color: var(--color-azul);
   border: none;
   border-radius: 7px;
   padding: 3px;

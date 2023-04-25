@@ -39,7 +39,7 @@ const muro = (navigateTo) => {
               </div>
             </div>
           <textarea id='textarea-post' placeholder='Descripción del post :D'> </textarea>
-          <button class='publicar-post' type='submit' >Post</button>
+          <button class='publicar-post' type='submit' >Publicar</button>
         </form>
       </section>
     </div>

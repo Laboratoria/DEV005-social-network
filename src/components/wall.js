@@ -245,8 +245,7 @@ const showPublics = async (containerPublic) => {
         // Actualizar los cambios
       } else if (change.type === 'modified') {
         const elementToUpdate = document.getElementById(postId);
-
-        elementToUpdate.firstChild.textContent = postData.text;
+        elementToUpdate.children[1].textContent = postData.text;
       }
     });
   });

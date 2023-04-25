@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 import { signOut } from 'firebase/auth';
 import { auth } from '../lib/firebase';
+import { addPostToFirestore } from '../lib/post';
 
 function wall(navigateTo) {
   const sectionWall = document.createElement('section');
@@ -13,23 +14,27 @@ function wall(navigateTo) {
   const welcomeMsg = document.createElement('h2');
   welcomeMsg.textContent = '¡Bienvenida a KittyBook!';
   const post = document.createElement('textarea');
-  post.id = 'textPosts';
+  post.id = 'text-posts';
   const btnPost = document.createElement('button');
   btnPost.id = 'btn-posts';
   btnPost.type = 'submit';
   btnPost.textContent = 'Publicar';
-  btnPost.disabled = true;
 
-  btnPost.addEventListener('onkeypress', () => {
+  // btnPost.setAttribute('disabled', true);
+
+  btnPost.addEventListener('click', () => {
     const postText = post.value;
-
+    console.log('algopost');
+    addPostToFirestore(postText);
+    /*
     if (postText === '') {
-      btnPost.disabled = true;
+      btnPost.setAttribute('disabled', true); // Set disabled attribute
     } else {
-      btnPost.disabled = false;
+      btnPost.removeAttribute('disabled'); // Remove disabled attribute
     }
+    */
   });
-  // const msg = document.createElement('p');
+  // // const msg = document.createElement('p');
   // msg.textContent = 'Este sitio está en construcción. Esperamos verte pronto';
 
   // const kittyImage = document.createElement('img');
@@ -37,11 +42,6 @@ function wall(navigateTo) {
   // kittyImage.alt = 'Working kitty';
   // kittyImage.width = 350;
   // kittyImage.height = 270;
-
-  // const docRef = await addDoc(collection(db, "cities"), {
-  //   name: "Tokyo",
-  //   country: "Japan"
-  // });
 
   const btnReturnH = document.createElement('button');
   btnReturnH.className = 'return';
@@ -56,7 +56,11 @@ function wall(navigateTo) {
   });
 
   navBar.append(btnReturnH, btnLogOut);
-  sectionWall.append(navBar, welcomeMsg,
+  sectionWall.append(
+    navBar,
+    welcomeMsg,
+    post,
+    btnPost,
     // msg,
     // kittyImage
   // eslint-disable-next-line function-paren-newline

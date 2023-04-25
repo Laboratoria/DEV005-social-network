@@ -9,6 +9,8 @@ import {
   onSnapshot, // escucha y trae los cambios de los datos
   deleteDoc,
   doc,
+  getDoc,
+  updateDoc,
 } from 'firebase/firestore';
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -40,3 +42,7 @@ export const getTask = () => getDocs(collection(db, 'post'));
 export const onGetTasks = (callback) => onSnapshot(collection(db, 'post'), callback);
 
 export const deleteTask = (id) => deleteDoc(doc(db, 'post', id));
+
+export const editTasks = (id) => getDoc(doc(db, 'post', id));
+
+export const updateTask = (id, newDates) => updateDoc(doc(db, 'post', id), newDates);

@@ -3,7 +3,12 @@ import {
   saveTask,
   onGetTasks,
   deleteTask,
+  editTasks,
+  updateTask,
 } from '../lib/firebaseConfig.js';
+
+let editStatus = false;
+let id = '';
 
 const muro = (navigateTo) => {
   const muroDiv = document.createElement('div');
@@ -39,7 +44,7 @@ const muro = (navigateTo) => {
               </div>
             </div>
           <textarea id='textarea-post' placeholder='Descripción del post :D'> </textarea>
-          <button class='publicar-post' type='submit' >Publicar</button>
+          <button class='publicar-post' type='submit' >Guardar</button>
         </form>
       </section>
     </div>
@@ -60,24 +65,26 @@ const muro = (navigateTo) => {
         console.log(error);
       });
   });
-
-  const openPopup = muroDiv.querySelector('.open-popup');
-  openPopup.addEventListener('click', () => {
-    const popUp = muroDiv.querySelector('.pop-up');
-    const button = muroDiv.querySelector('.open-popup');
-    const cerrarPost = muroDiv.querySelector('.cerrar-post');
-    button.addEventListener('click', () => {
-      popUp.style.display = 'block';
-    });
-    cerrarPost.addEventListener('click', () => {
-      popUp.style.display = 'none';
-    });
-    window.addEventListener('click', (e) => { // windoow??
-      if (e.target === popUp) {
+  const interacionPopUp = () => {
+    const openPopup = muroDiv.querySelector('.open-popup');
+    openPopup.addEventListener('click', () => {
+      const popUp = muroDiv.querySelector('.pop-up');
+      const button = muroDiv.querySelector('.open-popup');
+      const cerrarPost = muroDiv.querySelector('.cerrar-post');
+      button.addEventListener('click', () => {
+        popUp.style.display = 'block';
+      });
+      cerrarPost.addEventListener('click', () => {
         popUp.style.display = 'none';
-      }
+      });
+      window.addEventListener('click', (e) => { // windoow??
+        if (e.target === popUp) {
+          popUp.style.display = 'none';
+        }
+      });
     });
-  });
+  };
+  interacionPopUp();
   // contenedor publicaciones (mostrar datos)
   const tasksContainer = muroDiv.querySelector('.tasks-container');
   window.addEventListener('DOMContentLoaded', async () => {
@@ -99,8 +106,8 @@ const muro = (navigateTo) => {
                   <button class='btn-menu'><i class='bx bx-dots-horizontal-rounded'></i></button>
                   <div class='container-options'>
                     <button class='btn-delete' data-id="${doc.id}"> Eliminar </button>
-                    <button class='btn-edit'> Editar </button>
-                  </div>
+                    <button class='btn-edit'data-id="${doc.id}"> Editar </button>
+                  </div> 
                 </div>
                   <p>${task.description}</p>
               </div>
@@ -113,16 +120,43 @@ const muro = (navigateTo) => {
           deleteTask(event.target.dataset.id);
         });
       });
+      const btnEdit = tasksContainer.querySelectorAll('.btn-edit');
+      btnEdit.forEach((btn) => {
+        btn.addEventListener('click', async (event) => {
+          const cerrarPost = muroDiv.querySelector('.cerrar-post');
+          const popUp = muroDiv.querySelector('.pop-up');
+          popUp.style.display = 'block';
+          cerrarPost.addEventListener('click', () => {
+            popUp.style.display = 'none';
+          });
+          window.addEventListener('click', (e) => { // windoow??
+            if (e.target === popUp) {
+              popUp.style.display = 'none';
+            }
+          });
+          const docEdit = await editTasks(event.target.dataset.id);
+          console.log(docEdit);
+          const taskEdit = docEdit.data();
+          const formPost = muroDiv.querySelector('.form-post');
+          formPost['textarea-post'].value = taskEdit.description;
+          editStatus = true;
+          id = event.target.dataset.id;
+        });
+      });
     });
   });
 
   const formPost = muroDiv.querySelector('.form-post');
   formPost.addEventListener('submit', (e) => {
     e.preventDefault();
-    console.log('enviado');
     const description = formPost['textarea-post'].value;
     // console.log(description);
-    saveTask(description);
+    if (!editStatus) {
+      saveTask(description);
+    } else {
+      updateTask(id, { description });
+      editStatus = false;
+    }
     formPost.reset();
   });
   return muroDiv;

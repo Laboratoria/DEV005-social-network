@@ -233,6 +233,7 @@ body{
     z-index: -3;
     height: 100px;
     padding-top: 20px;
+    font-size: 14px;
   }
   .btn-menu{
     border: none;

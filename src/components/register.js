@@ -64,6 +64,7 @@ function register(navigateTo) {
     const password = inputPass.value;
     newAccount(email, password, errorElement);
   });
+
   btnRegWithGoogle.addEventListener('click', () => {
     accessWithGoogle(navigateTo);
   });

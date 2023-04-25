@@ -1,12 +1,10 @@
-import muro from './components/muro.js';
-import error from './components/error.js';
 import home from './components/home.js';
+import error from './components/error.js';
+import muro from './components/muro.js';
 import registro from './components/registro.js';
-import './components/firebase.js';
-import logMicrosoft from './components/microsoftlogin.js';
-import registerUsers from './components/registerUsers.js';
-import loginEmailAndPass from './components/emailandpass.js';
+import './lib/firebaseConfig.js';
 
+// Root
 const root = document.getElementById('root');
 // Rutas
 const routes = [
@@ -41,21 +39,3 @@ window.onpopstate = () => {
 };
 
 navigateTo(window.location.pathname || defaultRoute);
-
-const microsoftButton = document.getElementById('loginMicrosoft');
-microsoftButton.addEventListener('click', logMicrosoft);
-
-const registerButton = document.getElementById('register');
-registerButton.addEventListener('click', () => {
-  navigateTo('/registro');
-});
-
-const registerUsersButton = document.getElementById('register-b');
-registerUsersButton.addEventListener('click', () => {
-  registerUsers
-});
-
-const loginPatitas = document.getElementById('login')
-loginPatitas.addEventListener('click', () => {
-  loginEmailAndPass
-});

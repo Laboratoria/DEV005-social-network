@@ -16,6 +16,8 @@ const saveAPost = (textPost) => {
     } else {
       editPost(id, { text: textPost.value });
       editStatus = false;
+      const btnUpdate = document.querySelector('.btn-post');
+      btnUpdate.textContent = 'Publicar';
     }
     const formPost = document.querySelector('.form-post');
     formPost.reset();

@@ -55,9 +55,11 @@ function home(navigateTo) {
   errorELogin.classList.add('error-element');
   errorELogin.textContent = '';
   // Sección para tablets y dekstop
-  const info = document.createElement('section');
-  info.id = 'info-text';
-  info.textContent = `¿Tienes un gatito? ¡En KittyBook puedes presumirlo!
+  const infoCont = document.createElement('section');
+  infoCont.id = 'info-cont';
+  const infoTxt = document.createElement('p');
+  infoTxt.id = 'info-text';
+  infoTxt.textContent = `¿Tienes un gatito? ¡En KittyBook puedes presumirlo!
   Publica ideas e imágenes para compartir información gatuna.`;
 
   btnLogIn.addEventListener('click', () => {
@@ -87,7 +89,7 @@ function home(navigateTo) {
 
   sectionHome.append(
     titleKB,
-    info,
+    infoCont,
     sectionLogin,
     regist,
     footerH,
@@ -100,6 +102,7 @@ function home(navigateTo) {
     ghLogIn,
     errorELogin,
   );
+  infoCont.append(infoTxt)
   googleLogIn.append(iconGoogle);
   ghLogIn.append(iconGH);
   regist.append(btnRegister);

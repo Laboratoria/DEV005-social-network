@@ -32,7 +32,7 @@ function wall(navigateTo) {
     console.log('Clickaste cerrar sesión');
   });
 
-  navBar.append(btnReturnH, btnLogOut);
+  navBar.append(btnLogOut);
   sectionWall.append(navBar, welcomeMsg, msg, kittyImage);
 
   return sectionWall;

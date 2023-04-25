@@ -1,5 +1,6 @@
 import {
-  collection, addDoc, getDocs, doc, getDoc, updateDoc, deleteDoc, arrayUnion,
+  // eslint-disable-next-line max-len
+  collection, addDoc, getDocs, doc, getDoc, updateDoc, deleteDoc, arrayUnion, onSnapshot, orderBy, query,
 } from 'firebase/firestore';
 
 import { signOut, onAuthStateChanged } from 'firebase/auth';
@@ -21,7 +22,7 @@ export const Wall = (onNavigate) => {
   const getPost = (id) => getDoc(doc(db, 'posts', id));
   const updatePost = (id, newField) => updateDoc(doc(db, 'posts', id), newField);
   const deletePosts = (id) => deleteDoc(doc(db, 'posts', id));
-
+  const realTime = (callback) => onSnapshot(query(collection(db, 'posts'), orderBy('date', 'desc')), callback);
   // valida si el usuario es igual que el correo
   const checkUser = (data) => {
     const user = data.data().Author;
@@ -47,6 +48,7 @@ export const Wall = (onNavigate) => {
     const btnEdit = content.querySelectorAll('#btn-edit');
     btnEdit.forEach((element) => element.addEventListener('click', async (e) => {
       const docu = await getPost(e.target.dataset.id);
+      console.log(docu);
       if (checkUser(docu)) {
         console.log('El user ES autor del post');
         iPost.value = docu.data().Post;
@@ -66,7 +68,6 @@ export const Wall = (onNavigate) => {
         const postRef = doc(db, 'posts', event.target.dataset.id);
         const postSnap = await getDoc(postRef);
         const post = postSnap.data();
-        const newCount = (post.heartCount || 0) + 1;
         // Verificar si la usuaria  actual ya dio "me gusta" a esta publicación
         const likedBy = post.likedBy || [];
         const currentUser = auth.currentUser;
@@ -75,17 +76,17 @@ export const Wall = (onNavigate) => {
         } else {
           // Agrega el identificador de la usuaria a likedBy
           await updateDoc(postRef, {
-            heartCount: newCount,
             likedBy: arrayUnion(currentUser.email),
           });
+          const newCount = likedBy.length;
           console.log('contador de likes:', newCount);
           event.target.classList.toggle('liked');
         }
       }
     });
   };
-  // muestra posts
-  const showPost = (data) => {
+
+  /* const showPost = (data) => {
     if (data.length) {
       let html = '';
       data.forEach((docu) => {
@@ -93,22 +94,26 @@ export const Wall = (onNavigate) => {
         let li = '';
         if (checkUser(docu)) {
           li = `
-          <li class='liPost' > 
-            <b>${post.Author}:</b> <br>
-            ${post.Post}
-            <span class="post-likes">${post.heartCount || 0} Me gusta</span>
-            <buttom class="btn-class" id="btn-edit" data-id="${docu.id}">Editar</buttom>
-            <button class="btn-class" id='btn-delete' data-id="${docu.id}">Eliminar</button>
-          </li>
+          <div class="container-liPost">
+            <li class='liPost'>
+              <p class="author"><b>${post.Author}:</b></p>
+              ${post.Post}
+              <span class="post-likes">${post.heartCount || 0} Me gusta</span>
+              <buttom class="btn-class" id="btn-edit" data-id="${docu.id}">Editar</buttom>
+              <button class="btn-class" id='btn-delete' data-id="${docu.id}">Eliminar</button>
+            </li>
+          </div>
           `;
         } else {
           li = `
-          <li class='liPost' > 
-          <b>${post.Author}:</b> <br>
-            ${post.Post}
-            <button class="btn-class" id='btn-like' data-id="${docu.id}">♥</button>
-            <span class="post-likes">${post.heartCount || 0} Me gusta</span>
-          </li>
+          <div class="container-liPost">
+            <li class='liPost'>
+              <p class="author"><b>${post.Author}:</b></p>
+              ${post.Post}
+              <button class="btn-class" id='btn-like' data-id="${docu.id}">♥</button>
+              <span class="post-likes">${post.heartCount || 0} Me gusta</span>
+            </li>
+          </div>
           `;
         }
         html += li;
@@ -120,13 +125,48 @@ export const Wall = (onNavigate) => {
     editPost(div);
     deleting(div);
     LikeAndCount(div, doc.id);
-  };
+  }; */
 
   // valida que el usuario inicie sesion
   onAuthStateChanged(auth, async (user) => {
     if (user) {
-      const getAllPosts = await getDocument();
-      showPost(getAllPosts.docs);
+      /* const getAllPosts = await getDocument(); */
+      realTime((data) => {
+        let html = '';
+        data.forEach((docu) => {
+          const post = docu.data();
+          let li = '';
+          if (checkUser(docu)) {
+            li = `
+            <div class="container-liPost">
+              <li class='liPost'> 
+                <p class="author"><b>${post.Author}:</b></p>
+                ${post.Post}
+                <span class="post-likes">${post.likedBy.length} Me gusta</span>
+                <buttom class="btn-class" id="btn-edit" data-id="${docu.id}">Editar</buttom>
+                <button class="btn-class" id='btn-delete' data-id="${docu.id}">Eliminar</button>
+              </li>
+            </div>
+            `;
+          } else {
+            li = `
+            <div class="container-liPost">
+              <li class='liPost'> 
+                <p class="author"><b>${post.Author}:</b></p>
+                ${post.Post}
+                <button class="btn-class" id='btn-like' data-id="${docu.id}">♥</button>
+                <span class="post-likes">${post.likedBy.length} Me gusta</span>
+              </li>
+            </div>
+            `;
+          }
+          html += li;
+        });
+        divPost.innerHTML = html;
+        editPost(div);
+        deleting(div);
+        LikeAndCount(div, doc.id);
+      });
     } else {
       console.log('No se ha iniciado sesion');
       onNavigate('/');
@@ -140,6 +180,7 @@ export const Wall = (onNavigate) => {
         Post: contenido,
         Author: auth.currentUser.email,
         likedBy: [],
+        date: Date.now(),
       });
       console.log('Document written with ID: ', docRef.id);
     } catch (e) {
@@ -154,7 +195,7 @@ export const Wall = (onNavigate) => {
   btnPost.addEventListener('click', () => {
     const contenido = iPost.value.trim();
     if (editStatus) {
-      console.log('editando');
+      console.log('post editado');
       updatePost(idPost, { Post: iPost.value, Author: auth.currentUser.email });
       editStatus = false;
     } else if (contenido !== '') {

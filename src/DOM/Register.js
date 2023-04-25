@@ -1,7 +1,8 @@
 /* eslint-disable no-console */
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+/* import { createUserWithEmailAndPassword } from 'firebase/auth'; */
 import { RegisterTemplate } from '../templates/registerTemplate.js';
-import { auth } from '../lib/index.js';
+/* import { auth } from '../lib/index.js'; */
+import { singup } from '../lib/auth.js';
 
 export const Register = (onNavigate) => {
   const div = document.createElement('div');
@@ -13,6 +14,7 @@ export const Register = (onNavigate) => {
   const user = div.querySelector('#user');
   const pass = div.querySelector('#password');
   const register = div.querySelector('#linkLogin');
+  // const btnRegister = div.querySelector('#btn-register');
   // eslint-disable-next-line no-shadow
   register.addEventListener('click', (e) => {
     e.preventDefault();
@@ -24,7 +26,7 @@ export const Register = (onNavigate) => {
     console.log(user.value);
     console.log(email.value, user.value, pass.value);
     try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email.value, pass.value);
+      const userCredential = await singup(email.value, pass.value);
       errorMsj.textContent = 'Registro correcto';
       console.log(userCredential);
     } catch (error) {

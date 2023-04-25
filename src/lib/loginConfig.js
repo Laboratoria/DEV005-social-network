@@ -6,6 +6,7 @@ import {
   GithubAuthProvider,
   TwitterAuthProvider,
   signInWithPopup,
+  signOut,
 } from 'firebase/auth';
 import { auth } from './firebaseConfig.js';
 
@@ -50,8 +51,8 @@ export const loginWithGoogle = () => new Promise((resolve, reject) => {
 
 // TODO: Función de logeo con Github
 export const loginWithGithub = () => {
-  const githubProvider = new GithubAuthProvider();
-  signInWithPopup(auth, githubProvider)
+  const provider = new GithubAuthProvider();
+  signInWithPopup(auth, provider)
     .then((result) => {
       const credential = GithubAuthProvider.credentialFromResult(result);
       const githubUser = result.user;
@@ -98,3 +99,13 @@ export const loginWithTwitter = () => new Promise((resolve, reject) => {
       reject(error.code);
     });
 });
+
+// TODO: Cerrar sesión
+export const signOutSession = () => {
+  signOut(auth).then(() => {
+    alert('Cerrando sesión');
+  }).catch((error) => {
+    const errores = error.code;
+    alert(errores);
+  });
+};

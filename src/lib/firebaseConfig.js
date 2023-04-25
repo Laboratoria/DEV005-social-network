@@ -2,11 +2,13 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 import {
-  getFirestore,
-  collection,
-  addDoc,
-  getDocs,
+  getFirestore, // conexión
+  collection, // crear una tabla con los datos
+  addDoc, // añadir documentos
+  getDocs, // escucha y traer los cambios de los datos
   onSnapshot,
+  deleteDoc,
+  doc,
 } from 'firebase/firestore';
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -27,12 +29,16 @@ export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 // Conexión a la base de datos
 const db = getFirestore(app);
-
+// Guardar publicación en firestore
 export const saveTask = (description) => {
   addDoc(collection(db, 'post'), { description });
+  // nombre de la colección "post",
+  // donde se van a guardar los datos
 };
-
+// traer los post guardados en firestore
 export const getTask = () => getDocs(collection(db, 'post'));
 
 // onSnapshot -> para que escuche los cambios y se vea en tiempo real
 export const onGetTasks = (callback) => onSnapshot(collection(db, 'post'), callback);
+
+export const deleteTask = (id) => deleteDoc(doc(db, 'post', id));

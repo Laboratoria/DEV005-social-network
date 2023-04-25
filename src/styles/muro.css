@@ -91,12 +91,12 @@ body{
 
   .post .form-post{
     position: relative;
-    align-items: center;
+    top: 100px;
     margin: 40px 30px;
-    justify-content: center;
     height: 350px;
     background-color: white;
     border-radius: 7px;
+    z-index: 3;
   }
 
   .post .form-post :where(.content-post, .detail-post .privacy){
@@ -173,6 +173,7 @@ body{
 
   .pop-up{
     display: none;
+    z-index: 999;
   }
 
   .cerrar-post{
@@ -225,5 +226,57 @@ body{
     border-radius: 7px;
     padding-left: 10px;
     z-index: -3;
+    height: 100px;
+  }
+
+  .btn-menu{
+    border: none;
+    background-color: white;
+    top: 0;
+    margin-right: 12px;
+    margin-left: 290px;
+    padding: 2px 2px 0px;
+    border-color: white;
+    position: absolute;
+    float: right;    
+  }
+
+  .btn-menu i{
+    font-size: 20px;
+  }
+  .container-options{
+    display: none;
+    position: absolute;
+    width: 75px;
+    height: 60px;
+    top: 20px;
+    margin-left: 250px;
+    background-color: white;
+    border-radius: 10px;
+  }
+
+  .container-options button{
+    background-color: #add4d9;
+    border: none;
+    border-radius: 7px;
+    padding: 3px;
+    margin: 2px;
+    width: 70px;
+    display: flex;
+    justify-content: center;
+    font-family: 'Poppins';
+  }
+
+  .btn-delete .btn-edit{
+    position: absolute;
+    align-items: center;
+    border: none;
+  }
+  .dropdown{
+    display: inline-block;
+    position: relative;
+  }
+  .dropdown:hover .container-options{
+    display: block;
   }
 }

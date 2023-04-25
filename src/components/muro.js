@@ -2,6 +2,7 @@ import { getAuth, signOut } from 'firebase/auth';
 import {
   saveTask,
   onGetTasks,
+  deleteTask,
 } from '../lib/firebaseConfig.js';
 
 const muro = (navigateTo) => {
@@ -13,8 +14,7 @@ const muro = (navigateTo) => {
   <header>
   <nav class='navbar'>
   <img class='img_food'>
-  <div class='icon_exit'>
-  </div>
+  <div class='icon_exit'></div>
   </nav>
   </header>
 
@@ -27,8 +27,9 @@ const muro = (navigateTo) => {
   <div class='pop-up' id='pop-up'>
   <div class='wrapper'>
   <section class='post'>
-  <form action='#' class='form-post' id='form-post'>
   <button class='cerrar-post'><i class='bx bx-x'></i></button>
+
+  <form action='#' class='form-post' id='form-post'>
   <h2>Crear Post</h2>
   <div class='content-post'>
   <div class='detail-post'>
@@ -43,6 +44,7 @@ const muro = (navigateTo) => {
   <textarea id='textarea-post' placeholder='Descripción del post :D'> </textarea>
   <button class='publicar-post' type='submit' >Post</button>
   </form>
+
   </section>
   </div>
   </div>
@@ -51,6 +53,7 @@ const muro = (navigateTo) => {
   </main>
   `;
 
+  // botón salida
   const iconExit = muroDiv.querySelector('.icon_exit');
   iconExit.addEventListener('click', () => {
     const auth = getAuth();
@@ -97,14 +100,31 @@ const muro = (navigateTo) => {
       querySnapshot.forEach((doc) => {
         const task = doc.data();
         html += `
-              <div class="publicaciones">
-                  <p>${task.description}</p>
-                  <button>Delete</button>
-              </div>
+        <div class="publicaciones">
+
+        <div class="dropdown">
+        <button class='btn-menu'><i class='bx bx-dots-horizontal-rounded'></i></button>
+        <div class='container-options'>
+        <button class='btn-delete' data-id="${doc.id}">Eliminar</button>
+        <button class='btn-edit'>Editar</button>
+
+        </div>
+        </div>
+            <p>${task.description}</p>
+        </div>
           `;
       });
 
+      // en el parametro event se puede resumir debido a q todos
+      // los elementos son objetos, esto es de la siguiente manera:
+      // ({target: {dataset}})
       tasksContainer.innerHTML = html;
+      const btnDelete = tasksContainer.querySelectorAll('.btn-delete');
+      btnDelete.forEach((btn) => {
+        btn.addEventListener('click', (event) => {
+          deleteTask(event.target.dataset.id);
+        });
+      });
     });
   });
 

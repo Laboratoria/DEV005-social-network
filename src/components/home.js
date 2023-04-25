@@ -102,7 +102,7 @@ function home(navigateTo) {
     ghLogIn,
     errorELogin,
   );
-  infoCont.append(infoTxt)
+  infoCont.append(infoTxt);
   googleLogIn.append(iconGoogle);
   ghLogIn.append(iconGH);
   regist.append(btnRegister);

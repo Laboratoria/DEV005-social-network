@@ -35,9 +35,11 @@ function register(navigateTo) {
   btnSend.type = 'submit';
   const btnRegWithGoogle = document.createElement('button');
   btnRegWithGoogle.classList.add('google-reg-btn');
+  btnRegWithGoogle.id = 'google-reg';
 
   const btnRegWithGithub = document.createElement('button');
   btnRegWithGithub.classList.add('github-reg-btn');
+  btnRegWithGithub.id = 'github-reg';
 
   const errorElement = document.createElement('h3');
   errorElement.classList.add('error-element');
@@ -62,6 +64,7 @@ function register(navigateTo) {
     const password = inputPass.value;
     newAccount(email, password, errorElement);
   });
+
   btnRegWithGoogle.addEventListener('click', () => {
     accessWithGoogle(navigateTo);
   });

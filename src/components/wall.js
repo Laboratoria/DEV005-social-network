@@ -39,6 +39,7 @@ const deleteAPost = (postId, modalContainer) => {
 // Editar una publicación
 const editAPost = (postId, btnDelete) => {
   const handleEditAPost = async (event) => {
+    window.scrollTo(0, 0);
     event.preventDefault();
     // Obtener el contenido de la publicación seleccionada
     const doc = await getOnePost(postId);
@@ -274,16 +275,13 @@ function wall(navigateTo) {
   nameTitle.textContent = 'PLAYVERSE';
   divContent.append(divGroupHeader);
   // Botón para cerrar sesión
-  // // Ícono ajustes
-  // const logoutIcon = document.createElement('i');
-  // logoutIcon.className = 'fas fa-gears';
-  // logoutIcon.id = 'logout-icon';
+  // Ícono ajustes
+  const logoutIcon = document.createElement('i');
+  logoutIcon.className = 'fas fa-right-from-bracket';
+  logoutIcon.id = 'logout-icon';
+  logoutIcon.addEventListener('click', navigateToLoginAfterLogout(navigateTo));
 
-  const btnLogout = document.createElement('button');
-  btnLogout.classList.add('btn-logout');
-  btnLogout.textContent = 'Cerrar sesión';
-  btnLogout.addEventListener('click', navigateToLoginAfterLogout(navigateTo));
-  divGroupHeader.append(nameTitle, btnLogout);
+  divGroupHeader.append(nameTitle, logoutIcon);
   // Formulario de crear publicación
   const formPost = document.createElement('form');
   formPost.classList.add('form-post');

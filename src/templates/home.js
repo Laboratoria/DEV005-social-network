@@ -1,6 +1,7 @@
 import {
   savePost,
   createSnapshot,
+  deletePost,
 } from '../lib/index.js';
 import { exit } from '../lib/auth.js';
 
@@ -36,12 +37,12 @@ export default function home() {
   const postContainer = section.querySelector('#containerPost');
   const readPost = (posts) => {
     let html = '';
-    posts.forEach((doc) => {
-      const publication = doc.data;
+    posts.forEach((docs) => {
+      const publication = docs.data;
       html += `
         <div>
           <p id="textPost" class="textPost">${publication.txtMascotiemos}</p>
-          <button id="btnDelete" class="btnDelete" data-id="${doc.id}"><img class="btnDltImg" src="./img/delete.png" alt="delete"></img></button>
+          <button id="btnDelete" class="btnDelete" data-id="${docs.id}">Borrar</button><img class="btnDltImg" src="./img/delete.png" alt="delete"></img>
         </div>
       `;
     });
@@ -51,7 +52,7 @@ export default function home() {
     const btnsDelete = postContainer.querySelectorAll('.btnDelete');
     btnsDelete.forEach((btn) => {
       btn.addEventListener('click', (event) => {
-        console.log(event);
+        deletePost(event.target.dataset.id);
       });
     });
   };

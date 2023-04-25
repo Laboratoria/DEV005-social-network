@@ -6,7 +6,9 @@ import {
   collection,
   addDoc,
   getDocs,
+  deleteDoc,
   query,
+  doc,
   onSnapshot,
 } from 'firebase/firestore';
 
@@ -46,13 +48,15 @@ const q = query(evec);
 export const createSnapshot = (result) => {
   const onGetPost = onSnapshot(q, (s) => {
     const dataList = [];
-    s.forEach((doc) => {
+    s.forEach((docs) => {
       dataList.push({
-        data: doc.data(),
-        id: doc.id,
+        data: docs.data(),
+        id: docs.id,
       });
     });
     result(dataList);
   });
   return onGetPost;
 };
+
+export const deletePost = (id) => deleteDoc(doc(db, 'posts', id));

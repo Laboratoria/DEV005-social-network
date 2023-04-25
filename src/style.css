@@ -222,11 +222,37 @@ textarea{
     flex-direction: column;
     max-width: 500px;
     margin: 13px auto;
-    /* min-height: 150px; */
 }  
+.container-info{
+    border: 2px solid #3ACBF8;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+.container-likes{
+    border: 2px solid pink;
+    display: flex;
+    align-items: baseline;
+}
+.buttons-container{
+    border: 2px solid blue;
+}
+.user-name-container{
+    border: 2px solid red;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+.hide{
+    display:none;
+}
 .liked { 
-    color: red;
-  }
+    color: red;  
+ }
+ .liked, #settings-icon {
+
+    cursor: pointer;    
+ }
 @media (min-width: 850px) {
     .login-container, .register-container{
         background-image: url('../images/background.jpg');

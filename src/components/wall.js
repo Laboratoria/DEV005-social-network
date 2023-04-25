@@ -61,7 +61,7 @@ const editAPost = (postId, btnDelete) => {
 };
 
 // Dar like a publicación
-const likeAPost = (postId, numLikes, btnLike) => {
+const likeAPost = (postId, numLikes, heartLike) => {
   const handleLikeAPost = async (event) => {
     event.preventDefault();
     // Obtener la publicación por su id
@@ -76,10 +76,10 @@ const likeAPost = (postId, numLikes, btnLike) => {
         // Si lo contiene remueve el me gusta, si no lo tiene, lo añade
         if (countLikes.includes(currentUserEmail)) {
           removeLike(postId, currentUserEmail);
-          btnLike.classList.remove('liked');
+          heartLike.classList.remove('liked');
         } else {
           updateLike(postId, currentUserEmail);
-          btnLike.classList.add('liked');
+          heartLike.classList.add('liked');
         }
         // Obtener el post actualizado del servidor
         const updatedPost = await getOnePost(postId);
@@ -156,10 +156,34 @@ const showPublics = async (containerPublic) => {
         containerEachPost.classList.add('container-each-post');
         containerEachPost.setAttribute('id', postId);
 
+        // Contenedor nombre de usuario y configuraciones
+        const userNameContainer = document.createElement('div');
+        userNameContainer.classList.add('user-name-container');
+
+        const userName = document.createElement('span');
+        userName.classList.add('user-name');
+        const userEmail = change.doc.data().author.split('@');
+        userName.textContent = userEmail[0];
+
+        // Ícono ajustes
+        const settingsIcon = document.createElement('i');
+        settingsIcon.className = 'fas fa-gears';
+        settingsIcon.id = 'settings-icon';
+
+        userNameContainer.append(userName);
+
         // Inserta el texto
         const textEachPost = document.createElement('p');
         textEachPost.classList.add('text-each-post');
         textEachPost.textContent = postData.text;
+
+        // Contenedor para corazón de likes y número de likes
+        const containerInfo = document.createElement('div');
+        containerInfo.classList.add('container-info');
+
+        // Contenedor para corazón de likes y número de likes
+        const containerLikes = document.createElement('div');
+        containerLikes.classList.add('container-likes');
 
         // Número de likes
         const numLikes = document.createElement('p');
@@ -169,18 +193,20 @@ const showPublics = async (containerPublic) => {
         const countLikes = postData.likes.length;
         numLikes.textContent = countLikes;
 
-        // Botón para dar like
-        const btnLike = document.createElement('button');
-        btnLike.classList.add('btn-like');
-        btnLike.textContent = 'Me gusta';
-        btnLike.addEventListener('click', likeAPost(postId, numLikes, btnLike));
+        const heartLike = document.createElement('i');
+        heartLike.className = 'fas fa-heart';
+        heartLike.id = 'heart-like';
+        heartLike.addEventListener('click', likeAPost(postId, numLikes, heartLike));
 
         // Verificar si el usuario actual ya dio like a la publicación y agregar la clase .liked
         const currentUserEmail = auth.currentUser.email;
         if (postData.likes.includes(currentUserEmail)) {
-          btnLike.classList.add('liked'); // Agregar clase .liked si el usuario ya dio like
+          heartLike.classList.add('liked'); // Agregar clase .liked si el usuario ya dio like
         }
 
+        // Contenedor para botones eliminar y editar
+        const buttonsContainer = document.createElement('div');
+        buttonsContainer.classList.add('buttons-container');
         // Botón para eliminar publicación
         const btnDelete = document.createElement('button');
         btnDelete.classList.add('btn-delete');
@@ -190,13 +216,28 @@ const showPublics = async (containerPublic) => {
         const btnEdit = document.createElement('button');
         btnEdit.classList.add('btn-edit');
         btnEdit.textContent = 'Editar';
+        // añadir eventos a los botones de eliminar y editar
         btnEdit.addEventListener('click', editAPost(postId, btnDelete));
         btnDelete.addEventListener('click', createModal(postId, containerEachPost, btnEdit));
+
+        btnDelete.classList.add('hide');
+        btnEdit.classList.add('hide');
+        settingsIcon.addEventListener('click', () => {
+          btnDelete.classList.toggle('hide');
+          btnEdit.classList.toggle('hide');
+        });
+
+        containerLikes.append(heartLike, numLikes);
+        containerInfo.append(containerLikes);
+        buttonsContainer.append(btnEdit, btnDelete);
+
         // Revisar si el usuario es dueño de la publicación
         if (userCheck(change.doc)) {
-          containerEachPost.append(textEachPost, btnLike, numLikes, btnDelete, btnEdit);
+          containerInfo.append(buttonsContainer);
+          userNameContainer.append(userName, settingsIcon);
+          containerEachPost.append(userNameContainer, textEachPost, containerInfo);
         } else {
-          containerEachPost.append(textEachPost, btnLike, numLikes);
+          containerEachPost.append(userNameContainer, textEachPost, containerInfo);
         }
         // Inserta en el contenedor de todos los posts
         containerPublic.append(containerEachPost);
@@ -204,6 +245,7 @@ const showPublics = async (containerPublic) => {
         // Actualizar los cambios
       } else if (change.type === 'modified') {
         const elementToUpdate = document.getElementById(postId);
+
         elementToUpdate.firstChild.textContent = postData.text;
       }
     });
@@ -222,7 +264,7 @@ const navigateToLoginAfterLogout = (navigateTo) => {
 function wall(navigateTo) {
   const containerPost = document.createElement('section');
   containerPost.classList.add('container-post');
-  // contenerdor de titulo y btn cerrar seción
+  // contenerdor de titulo y btn cerrar sesión
   const divContent = document.createElement('div');
   divContent.classList.add('div-content');
   const divGroupHeader = document.createElement('div');
@@ -233,6 +275,11 @@ function wall(navigateTo) {
   nameTitle.textContent = 'PLAYVERSE';
   divContent.append(divGroupHeader);
   // Botón para cerrar sesión
+  // // Ícono ajustes
+  // const logoutIcon = document.createElement('i');
+  // logoutIcon.className = 'fas fa-gears';
+  // logoutIcon.id = 'logout-icon';
+
   const btnLogout = document.createElement('button');
   btnLogout.classList.add('btn-logout');
   btnLogout.textContent = 'Cerrar sesión';

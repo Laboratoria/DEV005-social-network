@@ -294,13 +294,13 @@ button:active {
   align-self: center;
   grid-area: buttom;
   justify-self: flex-end;
-  margin-right: 6.5rem;
+  margin-right: 5.3rem;
 }
 
 #btn-delete {
   display: flex;
   justify-content: center;
-  width: 6rem;
+  width: 5rem;
   background-color: #610cd1;
   align-self: center;
   grid-area: buttom;
@@ -336,22 +336,32 @@ button:active {
 }
 
 .liPost {
+  display: grid;
+  grid-template-areas:
+      'top'
+      'center'
+      'buttom';
+  gap: 0.5rem;
+}
+
+.author {
+  grid-area: top;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.container-liPost {
   background-color: white;
   box-shadow: 0 3px 4px 0 rgb(0 0 0 / 40%);
   border-radius: 20px;
   /* border-color: #c3bfbf5c;
   border-style: outset; */
   width: 80%;
-  height: fit-content;
+  /* height: fit-content; */
   padding: 5%;
   justify-self: center;
   list-style: none;
   display: grid;
-  grid-template-areas:
-      'top'
-      'center'
-      'buttom';
-  gap: 4px;
 }
 
 /* Logo de GOOGLE */
@@ -443,7 +453,7 @@ button:active {
 }
 
 @media (max-width: 540px) {
-  .liPost {
+  .container-liPost  {
     width: 18rem;
   }
 

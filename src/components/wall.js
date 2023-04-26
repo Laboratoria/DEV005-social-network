@@ -64,7 +64,7 @@ const editAPost = (postId, btnDelete) => {
 };
 
 // Dar like a publicación
-const likeAPost = (postId, numLikes, heartLike) => {
+export const likeAPost = (postId, numLikes, heartLike) => {
   const handleLikeAPost = async (event) => {
     event.preventDefault();
     // Obtener la publicación por su id

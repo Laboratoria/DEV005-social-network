@@ -9,6 +9,7 @@ import {
   doc,
   arrayRemove,
   arrayUnion,
+  Timestamp,
 } from 'firebase/firestore';
 import { auth } from './firebase.js';
 
@@ -20,9 +21,9 @@ export const savePost = (textPost) => {
     text,
     author: auth.currentUser.email,
     likes: [],
+    date: Timestamp.now(),
   });
 };
-
 // Obtener las publicaciones existentes en firebase
 export const getPost = () => getDocs(collection(db, 'posts'));
 

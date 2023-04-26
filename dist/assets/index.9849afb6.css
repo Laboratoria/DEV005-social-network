@@ -208,7 +208,7 @@ textarea{
     border: 1px solid #515151;
     cursor: pointer;
     font-size: 12px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 4px, rgba(0, 0, 0, 0.22) 0px 5px 6px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 4px, rgba(0, 0, 0, 0.22) 0px 5px 6px;;
 }
 .btn-post:hover{
     background-color: #9796ff;

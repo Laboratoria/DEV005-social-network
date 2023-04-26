@@ -10,7 +10,7 @@ function home(navigateTo) {
   postForm.innerHTML = `
     <img src='./lib/img/logoHome.png' class= 'logoHome'>
     <form class="formHome">
-    <textarea class="postForm" placeholder= "Comparte tu negocio..."></textarea>
+    <textarea class="areaPost" placeholder= "Comparte tu negocio..."></textarea>
     <button class= "post" > Publicar </button>
     </form>
     <button type= "submit" class= "goOut" > Salir </button>`;
@@ -26,7 +26,7 @@ function home(navigateTo) {
   const buttonPost = postForm.querySelector('.post');
   buttonPost.addEventListener('click', (e) => {
     e.preventDefault();
-    const textarea = postForm.querySelector('.postForm');
+    const textarea = postForm.querySelector('.areaPost');
     const postText = textarea.value;
     if (postText.trim() === '') {
       alert('Ingrese post');
@@ -50,16 +50,19 @@ function home(navigateTo) {
     editButton.classList.add('edit');
     editButton.textContent = 'Editar';
     editButton.addEventListener('click', () => {
-      editar(doc.id, textarea.value);
+      editar(doc.id, textarea.value, (id, newText) => {
+        const editedTextarea = postForm.querySelector(`[data-id="${id}"]`);
+        editedTextarea.value = newText;
+      });
     });
 
-    console.log('correo en sesión: ', auth.currentUser.email);
-    console.log('emial: ', info.userEmail);
+    // console.log('correo en sesión: ', auth.currentUser.email);
+    // console.log('emial: ', info.userEmail);
     if (auth.currentUser.email === info.userEmail) {
       postForm.appendChild(editButton);
     }
 
-    return textarea;
+    return postForm;
   };
 
   onSnapshot(ref(), (querySnapshot) => {
@@ -75,7 +78,6 @@ function home(navigateTo) {
         const nodoP = printPost(postInfo, doc);
         nodoP.setAttribute('data-id', doc.id);
         nodoP.setAttribute('contenteditable', true);
-        postForm.append(nodoP);
       }
     });
   });

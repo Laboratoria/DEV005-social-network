@@ -24,6 +24,7 @@ const post = (postText) => {
   addDoc(colPost, {
     text: postText,
     userEmail: auth.currentUser.email,
+    date: Date.now(),
   });
 };
 

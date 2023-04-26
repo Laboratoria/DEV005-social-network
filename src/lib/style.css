@@ -343,12 +343,12 @@
     font-weight: bold;
 }
 
-
 /* Home*/
 .logoHome {
     position: absolute;
     top: 1%;
 }
+
 .home {
     display: flex;
     flex-direction: column;
@@ -357,6 +357,7 @@
     background-size: cover;
     height: 100vh;
 }
+
 .formHome {
     width: 92%;
     max-width: 483px;
@@ -368,8 +369,10 @@
     background: none;
     border: none;
     font-size: 19px;
+
 }
-.postForm {
+
+.areaPost {
     display: flex;
     background: white;
     width: 88%;
@@ -383,7 +386,9 @@
     justify-content: center;
     max-height: 71px;
     box-shadow: 3px 2px 10px rgba(0, 0, 0, 0.25) inset;
+    resize: none;
 }
+
 .post {
     background: #F39C12;
     width: 35%;
@@ -398,7 +403,23 @@
     margin-top: 3%;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-/* .showPost {
+
+.showPost {
+    background: white;
+    width: 81%;
+    max-width: 409px;
+    height: 10%;
+    max-height: 207px;
+    border-radius: 13px;
+    border: none;
+    padding-top: 1%;
+    padding-left: 3%;
+    font-size: 19px;
+    margin: 21px 0% 0%;
+    resize: none;
+}
+
+.cardPost {
     display: flex;
     align-items: center;
     background: white;
@@ -406,28 +427,26 @@
     max-width: 409px;
     height: 11vh;
     border-radius: 10px;
-    border: none;
-    padding-top: 15px;
-    padding-left: 3%;
     font-size: 19px;
     margin: 13px 0% 0%;
     max-height: 61px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-} */
-.edit{
-    background: #EAEAEA;
+}
+
+.edit {
+
     width: 21%;
-    max-width: 113px;
-    height: 32px;
-    border-radius: 9px;
+    max-width: 134px;
+    height: 29px;
+    border-radius: 10px;
     font-weight: bold;
     font-size: 20px;
     border: none;
     color: black;
-    margin-left: 64%;
-    margin-top: 2%;
+    margin: -38px 0px 0px 237px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
+
 /*button salir*/
 .goOut {
     position: absolute;
@@ -490,6 +509,7 @@ u {
         background-size: cover;
         height: 100vh;
     }
+
     .creat {
         background-image: url(./img/fondoDesktop.png);
         background-size: cover;
@@ -500,5 +520,11 @@ u {
         background-image: url(/lib/img/fondoHomeDesktop.png);
         background-size: cover;
         height: 100vh;
+    }
+    .logo2, .logo1 {
+        position: absolute;
+        top: 2%;
+        height: 20vh;
+        width: 14%;
     }
 }

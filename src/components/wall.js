@@ -17,7 +17,7 @@ const saveAPost = (textPost) => {
       editPost(id, { text: textPost.value });
       editStatus = false;
       const btnUpdate = document.querySelector('.btn-post');
-      btnUpdate.textContent = 'Publicar';
+      btnUpdate.textContent = 'Compartir';
     }
     const formPost = document.querySelector('.form-post');
     formPost.reset();
@@ -159,13 +159,17 @@ const showPublics = async (containerPublic) => {
         containerEachPost.classList.add('container-each-post');
         containerEachPost.setAttribute('id', postId);
 
+        // content texto post
+        const texPost2 = document.createElement('div');
+        texPost2.classList.add('tex-post2');
+
         // Contenedor nombre de usuario y configuraciones
         const userNameContainer = document.createElement('div');
         userNameContainer.classList.add('user-name-container');
 
         const userName = document.createElement('span');
         userName.classList.add('user-name');
-        const userEmail = change.doc.data().author.split('@');
+        const userEmail = postData.author.split('@');
         userName.textContent = userEmail[0];
 
         // Ícono ajustes
@@ -180,6 +184,7 @@ const showPublics = async (containerPublic) => {
         textEachPost.classList.add('text-each-post');
         textEachPost.textContent = postData.text;
 
+        texPost2.appendChild(textEachPost);
         // Contenedor para corazón de likes y número de likes
         const containerInfo = document.createElement('div');
         containerInfo.classList.add('container-info');
@@ -293,10 +298,10 @@ function wall(navigateTo) {
   textPost.id = 'text-post';
   textPost.placeholder = '¿Qué quieres compartir?';
 
-  // Botón para publicar
+  // Botón para Compartir
   const btnPost = document.createElement('button');
   btnPost.classList.add('btn-post');
-  btnPost.textContent = 'Publicar';
+  btnPost.textContent = 'Compartir';
   btnPost.type = 'submit';
 
   formPost.addEventListener('submit', saveAPost(textPost));

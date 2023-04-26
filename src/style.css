@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
 
 * {
     padding: 0;
@@ -12,7 +12,8 @@ html {
 }
 
 body {
-    font-family: 'Kalam', cursive;
+    font-family: 'Ubuntu', sans-serif;
+    font-size:medium;
     background-image: url(img/background2.jpg);
     display: flex;
     justify-content: center;
@@ -55,7 +56,7 @@ body {
     top: 5px;
     right: 5px;
     font-size: 13px;
-    font-family: 'Kalam', cursive;
+    font-family: 'Ubuntu', sans-serif;
     font-weight: bold;
     padding: auto;
     height: 30px;
@@ -93,7 +94,6 @@ main {
     opacity: .8;
 }
 
-
 .txtMascotiemos{
     display: flex;
     justify-content: center;
@@ -107,12 +107,13 @@ main {
 }
 .btnPost{
     border: none;
+    background-color: transparent;
 }
 
 .btnPostImg {
     width: 30px;
     height: 30px;
-    position: absolute; 
+    margin-left: 10px;
 }
 
 .containerPost{
@@ -122,6 +123,7 @@ main {
     flex-wrap: wrap;
     position: relative;
     gap: 10px;
+    font-size: 13px;
 }
 
 .textPost{
@@ -129,23 +131,28 @@ main {
     background-color: white;
     border: 0.1px solid black;
     border-radius: 5px;
+    padding: 8px;
 }
 
-.btnDelete{
-    border: none;
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
+.containerButtons{
+    width: 50%;
+    display: flex; 
+    justify-content:flex-end;
+    margin-left: 90px;
+    gap: 10%;
+}
+.btnDelete:hover{
+color: red;
 }
 
-.btnDltImg{
+/*.btnDltImg{
     width: 10px;
     height: 10px;
     position: absolute;
     transform: translate(-50%, -150%);
     border: 0.1px solid black;
     border-radius: 1px;
-}
+}*/
 .contenedorIngreso, .contenedorIngresoRegistro {
     
     border-radius: 20px;
@@ -175,7 +182,7 @@ main {
 span, input {
     font-size: 1.7rem;
     padding: 0;
-    font-family: 'Kalam', cursive;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 label {
@@ -211,7 +218,6 @@ label span {
 /* focus */
 label.focus {
     border-color: black;
-
 }
 
 label span.focus {
@@ -241,7 +247,7 @@ label span.top {
     height: 30px;
     font-size: 1.4rem;
     font-weight: bold;
-    font-family: 'Kalam', cursive;
+    font-family: 'Ubuntu', sans-serif;
     padding: 4px;
 }
 
@@ -267,7 +273,7 @@ label span.top {
 
 .logoGoogle{
     width: 20px;
-    margin-right: 145px;
+    margin-right: 160px;
     position: absolute;
 }
 
@@ -275,7 +281,7 @@ label span.top {
     border-radius: 8px;
     margin-left: 10px;
     padding: 0px 10px;
-    font-family: 'Kalam', cursive;
+    font-family: 'Ubuntu', sans-serif;
     font-weight: bold;
     color: black;
 }
@@ -317,7 +323,6 @@ footer{
 
 @media (min-width:1000px) {
     
-    
     body{
         background-image: url(img/background.jpg);
         background-size: cover;
@@ -331,7 +336,6 @@ footer{
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
-
     }
 
     .contenedorLogo{
@@ -340,7 +344,6 @@ footer{
 
     .imgLogo{
         width: 480px;
-
     }
 
     .contenedorIngreso{
@@ -350,9 +353,7 @@ footer{
 
     .contenedorIngresoRegistro{
         width: 400px;
-        height: 400px;
-
-        
+        height: 400px;  
     }
 
     .containerForm{
@@ -377,7 +378,5 @@ footer{
     
     .imgLogo{
         width: 500px;
-
     }
-
 }

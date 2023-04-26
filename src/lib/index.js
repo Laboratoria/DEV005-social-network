@@ -6,12 +6,8 @@ import {
   collection,
   addDoc,
   getDocs,
-  deleteDoc,
-  getDoc,
   query,
-  doc,
   onSnapshot,
-  updateDoc,
 } from 'firebase/firestore';
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -50,10 +46,10 @@ const q = query(evec);
 export const createSnapshot = (result) => {
   const onGetPost = onSnapshot(q, (s) => {
     const dataList = [];
-    s.forEach((docs) => {
+    s.forEach((doc) => {
       dataList.push({
-        data: docs.data(),
-        id: docs.id,
+        data: doc.data(),
+        id: doc.id,
       });
     });
     result(dataList);
@@ -61,13 +57,8 @@ export const createSnapshot = (result) => {
   return onGetPost;
 };
 
-// Borrar post
-export const deletePost = (id) => deleteDoc(doc(db, 'posts', id));
-
-// Editar post
-
-export const getPost = (id) => getDoc(doc(db, 'posts', id));
-
-// Actualizar edición post
-
-export const updatePost = (id, newFields) => updateDoc(doc(db, 'posts', id), newFields);
+// export const idPost = (doc) => {
+//   const docId = doc.id;
+//   console.log(docId);
+//   return docId;
+// };

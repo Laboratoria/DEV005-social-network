@@ -48,6 +48,7 @@ export default function home() {
           <p id="textPost" class="textPost">${publication.txtMascotiemos}</p>
           <button id="btnDelete" class="btnDelete" data-id="${docs.id}">Eliminar</button>
           <button id="btnEdit" class="btnEdit" data-id="${docs.id}">Editar</button>
+          <button id="btnLike" class="btnLike" data-id="${docs.id}">Me gusta</button>
         </div>
       `;
     });
@@ -71,6 +72,11 @@ export default function home() {
         editStatus = true;
         id = event.target.dataset.id;
       });
+    });
+
+    const btnsLike = postContainer.querySelector('.btnLike');
+    btnsLike.forEach((btn) => {
+      btn.
     });
   };
   createSnapshot(readPost);

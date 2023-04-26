@@ -8,28 +8,54 @@ export const ref = () => query(collection(db, 'posts'));
 // Editar post
 
 export function editar(id, postText, onSave) {
-  const p = document.querySelector(`[data-id="${id}"]`);
-  p.removeAttribute('readonly');
-  p.value = postText;
+  const textarea = document.querySelector(`[data-id="${id}"]`);
+  textarea.removeAttribute('readonly');
+  textarea.value = postText;
+  console.log(textarea);
 
-  const bEdit = document.querySelector('.edit');
+  // Asignar ID y atributo personalizado a cada botón de editar
+  const editButtons = document.querySelectorAll('.edit');
+  editButtons.forEach((button) => {
+    const postId = button.dataset.postId;
+    button.addEventListener('click', () => {
+    // Obtener el contenido correspondiente al post
+      const postContent = document.querySelector(`#post-${postId}-content`);
+      // Actualizar el contenido
+      postContent.contentEditable = true;
+      // Mostrar el botón de guardar correspondiente
+      const saveButton = document.querySelector(`#post-${postId}-guardar`);
+      saveButton.style.display = 'block';
+    });
+  });
+
+  // Asignar ID y atributo personalizado a cada botón de guardar
+  const saveButtons = document.querySelectorAll('.edit');
+  saveButtons.forEach((button) => {
+    const postId = button.dataset.postId;
+    button.addEventListener('click', () => {
+      // Obtener el contenido correspondiente al post
+      const postContent = document.querySelector(`#post-${postId}-content`);
+      // Desactivar la edición del contenido
+      postContent.contentEditable = false;
+      // Ocultar el botón de guardar correspondiente
+      button.style.display = 'none';
+    });
+  });
+
+  /* const bEdit = document.querySelector('.edit');
+  bEdit.classList.add('edit');
   bEdit.textContent = 'Guardar';
-  bEdit.onclick = () => {
-    const postRef = doc(db, 'posts', id);
+  bEdit.onclick = () => { */
+  const postRef = doc(db, 'posts', id);
 
-    // Set the "capital" field of the city 'DC'
-    updateDoc(postRef, {
+  updateDoc(postRef, {
 
-      text: p.value,
-      userEmail: auth.currentUser.email,
-    })
-      .then(() => {
-        onSave(id, p.value);
-        bEdit.textContent = 'Editar';
-        bEdit.onclick = () => editar(id, p.value, onSave);
-      })
-      .catch((error) => {
-        console.error('Error updating post: ', error);
-      });
-  };
+    text: textarea.value,
+    userEmail: auth.currentUser.email,
+  })
+    .then(() => {
+      onSave(id, textarea.value);
+      editButtons.textContent = 'Editar';
+      editButtons.onclick = () => editar(id, textarea.value, onSave);
+    });
 }

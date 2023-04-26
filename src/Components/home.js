@@ -11,9 +11,10 @@ function home(navigateTo) {
     <img src='./lib/img/logoHome.png' class= 'logoHome'>
     <form class="formHome">
     <textarea class="areaPost" placeholder= "Comparte tu negocio..."></textarea>
+    <textarea class="areaPost" placeholder= "Comparte tu negocio..."></textarea>
     <button class= "post" > Publicar </button>
     </form>
-    <button type= "submit" class= "goOut" > Salir </button>`;
+    <button class= "goOut" > Salir </button>`;
 
   const salir = postForm.querySelector('.goOut');
   salir.addEventListener('click', () => {
@@ -27,40 +28,43 @@ function home(navigateTo) {
   buttonPost.addEventListener('click', (e) => {
     e.preventDefault();
     const textarea = postForm.querySelector('.areaPost');
+    const textarea = postForm.querySelector('.areaPost');
     const postText = textarea.value;
-    if (postText.trim() === '') {
+    if (postText.trim() !== '') {
+      post(postText);
+    } else {
+      // eslint-disable-next-line no-alert
       alert('Ingrese post');
-      // return false;
     }
-    post(postText);
-    // .then((res) => console.log('res: ', res))
-    // .catch((err) => console.error(err));
     textarea.value = '';
   });
 
   const printPost = (info, doc) => {
+    const postContainer = document.createElement('div');
+
     const textarea = document.createElement('textarea');
     textarea.classList.add('showPost');
     textarea.value = info.text;
     textarea.setAttribute('data-id', doc.id);
     textarea.setAttribute('readonly', true);
-    postForm.appendChild(textarea);
+    postContainer.appendChild(textarea);
 
     const editButton = document.createElement('button');
     editButton.classList.add('edit');
     editButton.textContent = 'Editar';
     editButton.addEventListener('click', () => {
+      editButton.textContent = 'Guardar';
       editar(doc.id, textarea.value, (id, newText) => {
         const editedTextarea = postForm.querySelector(`[data-id="${id}"]`);
         editedTextarea.value = newText;
       });
     });
-
-    // console.log('correo en sesión: ', auth.currentUser.email);
-    // console.log('emial: ', info.userEmail);
     if (auth.currentUser.email === info.userEmail) {
-      postForm.appendChild(editButton);
+      const editContainer = document.createElement('div');
+      editContainer.appendChild(editButton);
+      postContainer.appendChild(editContainer);
     }
+    postForm.appendChild(postContainer);
 
     return postForm;
   };
@@ -71,19 +75,17 @@ function home(navigateTo) {
       // Buscar el post existente por el id del documento
       const postExists = postForm.querySelector(`[data-id="${doc.id}"]`);
       if (postExists) {
-        const textarea = postExists.querySelector('textarea');
+        const textarea = document.querySelector('.showPost');
         textarea.removeAttribute('readonly');
         textarea.setAttribute('contenteditable', true);
       } else {
         const nodoP = printPost(postInfo, doc);
         nodoP.setAttribute('data-id', doc.id);
-        nodoP.setAttribute('contenteditable', true);
       }
     });
   });
 
-  const idInitSecion = localStorage.getItem('userId');
-  console.log(idInitSecion);
+  localStorage.getItem('userId');
   return postForm;
 }
 

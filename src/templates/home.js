@@ -46,11 +46,9 @@ export default function home() {
       html += `
         <div>
           <p id="textPost" class="textPost">${publication.txtMascotiemos}</p>
-          <section class="containerButtons">
           <button id="btnDelete" class="btnDelete" data-id="${docs.id}">Eliminar</button>
           <button id="btnEdit" class="btnEdit" data-id="${docs.id}">Editar</button>
-          </section>
-          </div>
+        </div>
       `;
     });
 

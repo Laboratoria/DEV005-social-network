@@ -80,6 +80,7 @@ function muro(navigateTo) {
 
   // Crea el botón de envío
   const submitBtn = document.createElement('button');
+  submitBtn.id = 'btnSend';
   submitBtn.type = 'submit';
   submitBtn.textContent = 'Enviar';
   submitBtn.addEventListener('click', (e) => {

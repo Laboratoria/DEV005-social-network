@@ -6,10 +6,20 @@ import {
 } from 'firebase/auth';
 
 import {
-  collection, addDoc, getDocs, onSnapshot, doc as firestoreDoc, deleteDoc, getDoc,
+  collection,
+  addDoc,
+  getDocs,
+  onSnapshot,
+  doc as firestoreDoc,
+  deleteDoc,
+  getDoc,
+  updateDoc,
 } from 'firebase/firestore';
 
 import { db, auth } from './firebaseConfig.js';
+
+let editStatus = false;
+let id = '';
 
 const saveTask = async (taskTitle, taskDescription) => {
   try {
@@ -28,20 +38,6 @@ const getTasks = async () => {
   return querySnapshot;
 };
 
-const onGetTasks = (callback) => {
-  const unsub = onSnapshot(collection(db, 'tasks'), callback);
-  return unsub;
-};
-
-const deleteTask = async (id) => {
-  try {
-    await deleteDoc(firestoreDoc(db, 'tasks', id));
-    console.log('Document with ID:', id, 'successfully deleted.');
-  } catch (e) {
-    console.error('Error deleting document:', e);
-  }
-};
-
 const getTask = async (id) => {
   try {
     const docRef = firestoreDoc(db, 'tasks', id);
@@ -57,9 +53,37 @@ const getTask = async (id) => {
   }
 };
 
+const onGetTasks = (callback) => {
+  const unsub = onSnapshot(collection(db, 'tasks'), callback);
+  return unsub;
+};
+
+const deleteTask = async (id) => {
+  console.log(id);
+  try {
+    await deleteDoc(firestoreDoc(db, 'tasks', id));
+    console.log('Document with ID:', id, 'successfully deleted.');
+  } catch (e) {
+    console.error('Error deleting document:', e);
+  }
+};
+
+const updateTask = async (id, updateTask) => {
+  try {
+    const taskRef = firestoreDoc(db, 'tasks', id);
+    await updateDoc(taskRef, updateTask);
+    console.log('Document with ID:', id, 'successfully updated.');
+  } catch (e) {
+    console.error('Error updating document:', e);
+  }
+};
+
+let btnTaskForm;
+
 window.addEventListener('DOMContentLoaded', async () => {
   const taskList = document.querySelector('#task-list');
   const form = document.querySelector('#formPost');
+  btnTaskForm = document.querySelector('#btnSend');
 
   onGetTasks((querySnapshot) => {
     taskList.innerHTML = '';
@@ -76,32 +100,52 @@ window.addEventListener('DOMContentLoaded', async () => {
       taskList.appendChild(taskItem);
 
       const btnsDelete = document.querySelectorAll('.delete-button');
-      btnsDelete.forEach((btn) => {
-        btn.addEventListener('click', async () => {
-          const taskId = btn.dataset.id;
+      btnsDelete.forEach((btnDelete) => {
+        btnDelete.addEventListener('click', async (e) => {
+          const taskId = e.target.dataset.id;
           await deleteTask(taskId);
         });
       });
 
       const btnsEdit = document.querySelectorAll('.edit-button');
-      btnsEdit.forEach((btn) => {
-        btn.addEventListener('click', async (e) => {
-          const newDoc = await getTask(e.target.dataset.id);
+      btnsEdit.forEach((btnEdit) => {
+        btnEdit.addEventListener('click', async (e) => {
+          const taskId = e.target.dataset.id;
+          const newDoc = await getTask(taskId);
           const newTask = newDoc;
+
+          editStatus = true;
+          id = taskId;
 
           form.title.value = newTask.taskTitle;
           form.description.value = newTask.taskDescription;
+
+          // Mover esta línea aquí
+          btnTaskForm.innerText = 'Actualizar';
         });
       });
     });
   });
+
+  // Mover esta línea aquí
+  btnTaskForm.innerText = 'Enviar';
 });
 
 export const submitForm = async () => {
   const taskTitle = document.querySelector('.task-title');
   const taskDescription = document.querySelector('.task-description');
 
-  await saveTask(taskTitle.value, taskDescription.value);
+  if (!editStatus) {
+    await saveTask(taskTitle.value, taskDescription.value);
+  } else {
+    await updateTask(id, {
+      taskTitle: taskTitle.value,
+      taskDescription: taskDescription.value,
+    });
+
+    editStatus = false;
+    btnTaskForm.innerText = 'Enviar';
+  }
 
   // Limpiar los campos del formulario
   taskTitle.value = '';

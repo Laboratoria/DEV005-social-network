@@ -14,6 +14,7 @@ export const Wall = (onNavigate) => {
   // const errorMsj = div.querySelector('#errorMsj');
   const divPost = div.querySelector('.posts');
   const iPost = div.querySelector('#iPost');
+  const btnPost = div.querySelector('#btn-post');
   let editStatus = false;
   let idPost = '';
 
@@ -46,6 +47,7 @@ export const Wall = (onNavigate) => {
   const editPost = (content) => {
     const btnEdit = content.querySelectorAll('#btn-edit');
     btnEdit.forEach((element) => element.addEventListener('click', async (e) => {
+      btnPost.textContent = 'Guardar';
       const docu = await getPost(e.target.dataset.id);
       console.log(docu);
       if (checkUser(docu)) {
@@ -60,6 +62,7 @@ export const Wall = (onNavigate) => {
       }
     }));
   };
+
   const LikeAndCount = (content) => {
     content.addEventListener('click', async (event) => {
       if (event.target.matches('#btn-like')) {
@@ -148,12 +151,12 @@ export const Wall = (onNavigate) => {
   };
 
   // Crea el post en la base de datos
-  const btnPost = div.querySelector('#btn-post');
   const btnOut = div.querySelector('#btn-out');
   // const currentUser = auth.currentUser;
   btnPost.addEventListener('click', () => {
     const contenido = iPost.value.trim();
     if (editStatus) {
+      btnPost.textContent = 'Publicar';
       console.log('post editado');
       updatePost(idPost, { Post: iPost.value, Author: auth.currentUser.email });
       editStatus = false;

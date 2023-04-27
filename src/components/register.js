@@ -10,7 +10,9 @@ function register(navigateTo) {
   sectionReg.classList.add('register-background');
   const divContainer = document.createElement('div');
   const titleRegKitty = document.createElement('h1');
+  titleRegKitty.id = 'title';
   const titleReg = document.createElement('h3');
+  titleReg.id = 'register-title';
   const inputEmail = document.createElement('input');
   const regTrademark = document.createElement('footer');
   divContainer.id = 'container';
@@ -79,7 +81,6 @@ function register(navigateTo) {
     btnSend,
     btnRegWithGoogle,
     btnRegWithGithub,
-    btnReturnH,
     errorElement,
   );
   sectionReg.append(

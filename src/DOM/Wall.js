@@ -1,6 +1,5 @@
 import {
-  // eslint-disable-next-line max-len
-  collection, addDoc, /* getDocs */ doc, getDoc, updateDoc, deleteDoc, arrayUnion, onSnapshot, orderBy, query,
+  collection, addDoc, doc, getDoc, updateDoc, deleteDoc, arrayUnion, onSnapshot, orderBy, query,
 } from 'firebase/firestore';
 
 import { signOut, onAuthStateChanged } from 'firebase/auth';
@@ -12,13 +11,13 @@ export const Wall = (onNavigate) => {
   body.className = 'wallBody';
   const div = document.createElement('div');
   div.innerHTML = WallTemplate;
-  /* const errorMsj = div.querySelector('#errorMsj'); */
+  // const errorMsj = div.querySelector('#errorMsj');
   const divPost = div.querySelector('.posts');
   const iPost = div.querySelector('#iPost');
   let editStatus = false;
   let idPost = '';
 
-  /* const getDocument = () => getDocs(collection(db, 'posts')); */
+  // const getDocument = () => getDocs(collection(db, 'posts'));
   const getPost = (id) => getDoc(doc(db, 'posts', id));
   const updatePost = (id, newField) => updateDoc(doc(db, 'posts', id), newField);
   const deletePosts = (id) => deleteDoc(doc(db, 'posts', id));
@@ -61,73 +60,31 @@ export const Wall = (onNavigate) => {
       }
     }));
   };
-  // dar like a post
   const LikeAndCount = (content) => {
     content.addEventListener('click', async (event) => {
       if (event.target.matches('#btn-like')) {
+        // Agrega la clase "liked" al elemento contenedor
+        event.currentTarget.classList.toggle('liked');
+        // Se obtiene la referencia del documento del post y la información de "me gusta" actual
         const postRef = doc(db, 'posts', event.target.dataset.id);
         const postSnap = await getDoc(postRef);
         const post = postSnap.data();
-        // Verificar si la usuaria  actual ya dio "me gusta" a esta publicación
         const likedBy = post.likedBy || [];
+        // Verifica si el usuario actual ya ha dado "me gusta" a esta publicación
         const currentUser = auth.currentUser;
         if (likedBy.includes(currentUser.email)) {
-          console.log('La usuaria ya dio me gusta a esta publicación');
+          console.log('a la usuaria ya le gusta esta publicación');
         } else {
-          // Agrega el identificador de la usuaria a likedBy
+          // Agrega el identificador de la usuaria a la lista de "me gusta"
           await updateDoc(postRef, {
             likedBy: arrayUnion(currentUser.email),
           });
-          const newCount = likedBy.length;
+          const newCount = likedBy.length + 1;
           console.log('contador de likes:', newCount);
-          console.log(event.target);
-          event.target.classList.add('liked');
         }
       }
     });
   };
-
-  /* const showPost = (data) => {
-    if (data.length) {
-      let html = '';
-      data.forEach((docu) => {
-        const post = docu.data();
-        let li = '';
-        if (checkUser(docu)) {
-          li = `
-          <div class="container-liPost">
-            <li class='liPost'>
-              <p class="author"><b>${post.Author}:</b></p>
-              ${post.Post}
-              <span class="post-likes">${post.heartCount || 0} Me gusta</span>
-              <buttom class="btn-class" id="btn-edit" data-id="${docu.id}">Editar</buttom>
-              <button class="btn-class" id='btn-delete' data-id="${docu.id}">Eliminar</button>
-            </li>
-          </div>
-          `;
-        } else {
-          li = `
-          <div class="container-liPost">
-            <li class='liPost'>
-              <p class="author"><b>${post.Author}:</b></p>
-              ${post.Post}
-              <button class="btn-class" id='btn-like' data-id="${docu.id}">♥</button>
-              <span class="post-likes">${post.heartCount || 0} Me gusta</span>
-            </li>
-          </div>
-          `;
-        }
-        html += li;
-      });
-      divPost.innerHTML = html;
-    } else {
-      errorMsj.innerHTML = 'No hay posts';
-    }
-    editPost(div);
-    deleting(div);
-    LikeAndCount(div, doc.id);
-  }; */
-
   // valida que el usuario inicie sesion
   onAuthStateChanged(auth, async (user) => {
     if (user) {
@@ -137,11 +94,12 @@ export const Wall = (onNavigate) => {
         data.forEach((docu) => {
           const post = docu.data();
           let li = '';
+          const author = post.Author.split('@')[0];
           if (checkUser(docu)) {
             li = `
             <div class="container-liPost">
               <li class='liPost'> 
-                <p class="author"><b>${post.Author}:</b></p>
+                <p class="author"><b>${author}</b></p>
                 ${post.Post}
                 <span class="post-likes">${post.likedBy.length} Me gusta</span>
                 <buttom class="btn-class" id="btn-edit" data-id="${docu.id}">Editar</buttom>
@@ -153,7 +111,7 @@ export const Wall = (onNavigate) => {
             li = `
             <div class="container-liPost">
               <li class='liPost'> 
-                <p class="author"><b>${post.Author}:</b></p>
+                <p class="author"><b>${author}</b></p>
                 ${post.Post}
                 <button class="btn-class" id='btn-like' data-id="${docu.id}">♥</button>
                 <span class="post-likes">${post.likedBy.length} Me gusta</span>

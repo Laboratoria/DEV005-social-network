@@ -1,13 +1,14 @@
 /* eslint-disable no-unused-vars */
-import { collection, addDoc, doc, onSnapshot } from 'firebase/firestore';
+/* eslint-disable no-console */
+import { collection, addDoc, doc } from 'firebase/firestore';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { auth, db, app } from './firebase.js';
 
 // Add a new document with a generated id.
 export const addPostToFirestore = async (texto, user) => {
   console.log('se añade');
-try{
-   const docRef = await addDoc(collection(db, 'posts'), {
+  try {
+    const docRef = await addDoc(collection(db, 'posts'), {
       texto,
       user: 'usuario@usuario.com',
     });

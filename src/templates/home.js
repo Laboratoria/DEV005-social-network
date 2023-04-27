@@ -5,11 +5,42 @@ import {
   getPost,
   updatePost,
   auth,
+  like,
+  dislike,
 } from '../lib/index.js';
 import { exit } from '../lib/auth.js';
 
 let editStatus = false;
 let id = '';
+// Like en post
+
+const likePost = (postId, numLikes) => {
+  const addLikePost = async (/* event */) => {
+    /* event.preventDefault(); */
+
+    await getPost(postId) // Trae la publicaciòn por el id
+      .then(async (doc) => {
+        const getLikes = doc.data();
+
+        const counterLikes = getLikes.likes;
+
+        const currentUserEmail = auth.currentUser.email;
+
+        if (counterLikes.includes(currentUserEmail)) {
+          dislike(postId, currentUserEmail);
+          // footprint.classList.remove('liked');
+        } else {
+          like(postId, currentUserEmail);
+          // footprint.classList.add('liked');
+        }
+        const updatingPost = await getPost(postId);
+        const updatingLike = updatingPost.data().likes;
+        numLikes.textContent = updatingLike.length;
+      });
+  };
+  addLikePost();
+  //return addLikePost;
+};
 
 export default function home() {
   const section = document.createElement('section');
@@ -50,12 +81,14 @@ export default function home() {
       const currentUser = auth.currentUser;
       if (ownerId === currentUser.uid) {
         html += `
-          <div>
-            <p id="textPost" class="textPost">${publication.txtMascotiemos}</p>
-            <section class="containerButtons">
-              <button class="btnDelete" id="btnDelete" data-id="${docs.id}" data-owner-id="${ownerId}">Eliminar</button>
-              <button class="btnEdit" data-id="${docs.id}" data-owner-id="${ownerId}">Editar</button>
-            </section>
+        <div>
+          <p id="textPost" class="textPost">${publication.txtMascotiemos}</p>
+          <section class="containerButtons">
+          <button id="btnDelete" class="btnDelete" data-id="${docs.id}">Eliminar</button>
+          <button id="btnEdit" class="btnEdit" data-id="${docs.id}">Editar</button>
+          <button id="btnLike" class="btnLike" data-id="${docs.id}">Me Gusta</button>
+          <p id="numLikes" class="numLikes" data-id="${docs.id}"></p>
+          </section>
           </div>
         `;
       } else {
@@ -86,6 +119,18 @@ export default function home() {
         id = event.target.dataset.id;
       });
     });
+
+    // Boton Like
+
+    const btnsLike = postContainer.querySelectorAll('.btnLike');
+    btnsLike.forEach((btn) => {
+      btn.addEventListener('click', async (event) => {
+        const postId = event.target.dataset.id;
+        const numLikes = postContainer.querySelectorAll('.numLikes');
+        likePost(postId, numLikes)
+        console.log(btn);
+      });
+    });
   };
 
   createSnapshot(readPost);
@@ -103,7 +148,10 @@ export default function home() {
       editStatus = false;
       id = '';
     }
-    postForm.reset();
+    postForm.reset(); // Limpia el textarea
+
   });
   return section;
 }
+
+

@@ -11,6 +11,8 @@ import {
   doc,
   onSnapshot,
   updateDoc,
+  arrayUnion,
+  arrayRemove,
 } from 'firebase/firestore';
 
 const firebaseConfig = {
@@ -71,3 +73,13 @@ export const getPost = (id) => getDoc(doc(db, 'posts', id));
 // Actualizar edición post
 
 export const updatePost = (id, newFields) => updateDoc(doc(db, 'posts', id), newFields);
+
+// Like
+
+export const like = (id, userId) => updateDoc (doc (db, 'posts', id), {
+  likes: arrayUnion(userId),
+});
+
+export const dislike = (id, userId) => updateDoc (doc (db, 'posts', id), {
+  likes: arrayRemove(userId),
+});

@@ -333,6 +333,26 @@ a:hover {
     }
 }
 
+/* Modal */
+.modal {
+    position: fixed; /* posición fija para cubrir toda la pantalla */
+    z-index: 1; /* z-index para estar por encima de todo */
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto; /* para habilitar el desplazamiento */
+    background-color: rgba(0,0,0,0.5); /* color de fondo semi-transparente */
+  }
+  
+  .modal-content {
+    background-color: #fefefe; /* color de fondo blanco */
+    margin: 15% auto; /* margen superior e inferior y centrado horizontalmente */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* ancho del contenido del modal */
+  }
+
 /* COLORS */
 
 .blue .postcard__title:hover {

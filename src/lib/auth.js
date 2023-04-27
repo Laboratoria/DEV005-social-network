@@ -79,7 +79,6 @@ const updateTask = async (id, updateTask) => {
 };
 
 let btnTaskForm;
-
 window.addEventListener('DOMContentLoaded', async () => {
   const taskList = document.querySelector('#task-list');
   const form = document.querySelector('#formPost');
@@ -92,11 +91,12 @@ window.addEventListener('DOMContentLoaded', async () => {
       task.id = doc.id;
       const taskTitle = task.taskTitle;
       const taskDescription = task.taskDescription;
-      const taskItem = document.createElement('li');
+      const taskItem = document.createElement('div');
       taskItem.innerHTML = `<h2>${taskTitle}</h2>
                       <p>${taskDescription}</p>
                       <button class="delete-button" data-id="${task.id}">Eliminar</button>
-                      <button class="edit-button" data-id="${task.id}">Editar</button>`;
+                      <button class="edit-button" data-id="${task.id}">Editar</button>
+                      <button>Me gusta</button>`;
       taskList.appendChild(taskItem);
 
       const btnsDelete = document.querySelectorAll('.delete-button');

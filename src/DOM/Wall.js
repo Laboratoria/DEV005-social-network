@@ -1,6 +1,6 @@
 import {
   // eslint-disable-next-line max-len
-  collection, addDoc, getDocs, doc, getDoc, updateDoc, deleteDoc, arrayUnion, onSnapshot, orderBy, query,
+  collection, addDoc, /* getDocs */ doc, getDoc, updateDoc, deleteDoc, arrayUnion, onSnapshot, orderBy, query,
 } from 'firebase/firestore';
 
 import { signOut, onAuthStateChanged } from 'firebase/auth';
@@ -12,13 +12,13 @@ export const Wall = (onNavigate) => {
   body.className = 'wallBody';
   const div = document.createElement('div');
   div.innerHTML = WallTemplate;
-  const errorMsj = div.querySelector('#errorMsj');
+  /* const errorMsj = div.querySelector('#errorMsj'); */
   const divPost = div.querySelector('.posts');
   const iPost = div.querySelector('#iPost');
   let editStatus = false;
   let idPost = '';
 
-  const getDocument = () => getDocs(collection(db, 'posts'));
+  /* const getDocument = () => getDocs(collection(db, 'posts')); */
   const getPost = (id) => getDoc(doc(db, 'posts', id));
   const updatePost = (id, newField) => updateDoc(doc(db, 'posts', id), newField);
   const deletePosts = (id) => deleteDoc(doc(db, 'posts', id));
@@ -80,7 +80,8 @@ export const Wall = (onNavigate) => {
           });
           const newCount = likedBy.length;
           console.log('contador de likes:', newCount);
-          event.target.classList.toggle('liked');
+          console.log(event.target);
+          event.target.classList.add('liked');
         }
       }
     });

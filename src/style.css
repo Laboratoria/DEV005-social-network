@@ -209,7 +209,7 @@ button:active {
 .wall-template {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2%;
+  gap: 1%;
   /* grid-template-rows: 70px 100px 60px 800px; */
   /* background: #ffffff; */
   /* width: 100%; */
@@ -326,7 +326,7 @@ button:active {
   display: grid;
   color: black;
   grid-area: 4;
-  gap: 2%;
+  gap: 1%;
 }
 
 .post-likes {
@@ -429,12 +429,9 @@ button:active {
 }
 
 #btn-like.liked  {
-  
   color: #ffffff;
   font-size: 1rem;
-  background-color: #610cd1;
-  
-  
+  background-color: #610cd1;  
 }
 
 @media (min-width: 1024px) {

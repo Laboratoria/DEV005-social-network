@@ -36,8 +36,8 @@ export function login(navigation) {
           </label>  
         </form>   
         <button class="btnLogin" id="btnLogin">Iniciar sesión</button>
-        <button class="btnGoogle" id="btnGoogle"> <img class="logoGoogle" src="./img/logogoogle.png" alt="Logo Google"></img>Continuar con google</button>
-        <span class="textRegistro">Si no tienes cuenta <button class="btnRegistro" id="btnRegistro">Regístrate</button></span>
+        <button class="btnGoogle" id="btnGoogle"> <img class="logoGoogle" src="./img/logogoogle.png" alt="Logo Google"></img>Continuar con Google</button>
+        <span class="textRegistro">Si no tienes cuenta  -> <a class="linkRegister" id="linkRegister">Regístrate</a></span>
       </div>
     </main>
   </div>`;
@@ -47,7 +47,7 @@ export function login(navigation) {
   dinamicLabels(section);
 
   // Evento del botón Registrar
-  const btnRegistrar = section.querySelector('#btnRegistro');
+  const btnRegistrar = section.querySelector('#linkRegister');
 
   btnRegistrar.addEventListener('click', () => {
     navigation('/register');

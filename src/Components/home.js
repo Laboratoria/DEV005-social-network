@@ -2,7 +2,7 @@ import { onSnapshot } from 'firebase/firestore';
 import { signOut } from 'firebase/auth';
 import { auth } from '../lib/firebase.js';
 import { post } from '../lib/auth.js';
-import { ref, editar } from '../lib/post.js';
+import { editPost, ref } from '../lib/post.js';
 
 function home(navigateTo) {
   const postForm = document.createElement('section');
@@ -51,12 +51,17 @@ function home(navigateTo) {
     editButton.classList.add('edit');
     editButton.textContent = 'Editar';
     editButton.addEventListener('click', () => {
-      editButton.textContent = 'Guardar';
-      editar(doc.id, textarea.value, (id, newText) => {
-        const editedTextarea = postForm.querySelector(`[data-id="${id}"]`);
-        editedTextarea.value = newText;
-      });
+      if (editButton.textContent === 'Editar') {
+        editButton.textContent = 'Guardar';
+        textarea.removeAttribute('readonly');
+      } else if (editButton.textContent === 'Guardar') {
+        const editedTextarea = postForm.querySelector(`[data-id="${doc.id}"]`).value;
+        editPost(doc.id, editedTextarea);
+        editButton.textContent = 'Editar';
+        textarea.setAttribute('readonly', true);
+      }
     });
+    // Se visuliza botón editar solo en el usuario logueado
     if (auth.currentUser.email === info.userEmail) {
       const editContainer = document.createElement('div');
       editContainer.appendChild(editButton);

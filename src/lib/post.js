@@ -1,9 +1,6 @@
 import {
   collection, query, doc, updateDoc,
 } from 'firebase/firestore';
-import {
-  collection, query, doc, updateDoc,
-} from 'firebase/firestore';
 import { db, auth } from './firebase.js';
 
 export const ref = () => query(collection(db, 'posts'));

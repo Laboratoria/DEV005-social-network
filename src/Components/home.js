@@ -11,7 +11,6 @@ function home(navigateTo) {
     <img src='./lib/img/logoHome.png' class= 'logoHome'>
     <form class="formHome">
     <textarea class="areaPost" placeholder= "Comparte tu negocio..."></textarea>
-    <textarea class="areaPost" placeholder= "Comparte tu negocio..."></textarea>
     <button class= "post" > Publicar </button>
     </form>
     <button class= "goOut" > Salir </button>`;
@@ -27,7 +26,6 @@ function home(navigateTo) {
   const buttonPost = postForm.querySelector('.post');
   buttonPost.addEventListener('click', (e) => {
     e.preventDefault();
-    const textarea = postForm.querySelector('.areaPost');
     const textarea = postForm.querySelector('.areaPost');
     const postText = textarea.value;
     if (postText.trim() !== '') {

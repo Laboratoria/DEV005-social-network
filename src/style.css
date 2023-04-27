@@ -416,25 +416,20 @@ button:active {
 }
 
 #btn-like{
-
   color: #610cd1;
   font-size: 2rem;
   background-color: #ffffff;
   display: flex;
   justify-content: center;
-  content: '♥︎';
   align-self: center;
   grid-area: 4;
   width: 2rem;
 }
 
 #btn-like.liked  {
-  
   color: #ffffff;
   font-size: 1rem;
   background-color: #610cd1;
-  
-  
 }
 
 @media (min-width: 1024px) {

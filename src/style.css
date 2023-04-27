@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Satisfy&family=Sora&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@600&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -333,7 +333,89 @@ main {
   }
   
   /*------ REGISTER ------*/
-
+  .title-reg-kitty{
+    margin-top: 1.21em;
+    margin-bottom: .1em;
+    font-family: var(--font-logo);
+    font-size: 7.3em;
+    font-weight: 400;
+    color: #4a4747;
+    text-align: center;
+  }
+  .title-registrate {
+    margin-top: .3em;
+    margin-bottom: .1em;
+    font-family: var(--font-text);
+    font-size: 3.6em;
+    font-weight: 600;
+    color: #000000;
+    text-align: center;
+  }
+  .signup-container {
+    background-color: #8C7851;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 481px;
+    height: 481px;
+    border-radius: 15px;
+    flex-wrap: nowrap;
+  }
+  .signup-container input {
+    height: 42px;
+    width: 352px;
+    border-radius: 12px;
+    border: solid 1px #ffc1c1;
+    font-family: var(--font-text);
+    font-size: 2em;
+    font-weight: 400;
+  }
+  .signup-container button {
+    height: 13%;
+    width: 85%;
+    font-family: var(--font-text);
+    font-size: 1.15em;
+    font-weight: 500;
+    color: #ffffff;
+    background-color: #d35c46;
+    border-radius: 12px;
+    border: 1px solid white;
+  }
+  .signup-container #signup {
+    font-size: 2.35em;
+  }
+  .signup-container #error-reg {
+    margin: 0 20px 5px;
+    font-size: 2em;
+    font-weight: 100;
+    text-align: center;
+    color: #fbff16;
+  }
+  .signup-container #error-reg2 {
+    margin: 0 20px 5px;
+    font-size: 2em;
+    font-weight: 100;
+    text-align: center;
+    color: #fbff16;
+  }
+  .signup-container #error-reg3 {
+    margin: 0 20px 5px;
+    font-size: 2em;
+    font-weight: 100;
+    text-align: center;
+    color: #fbff16;
+  }
+  .signup-container #error-reg4 {
+    margin: 0 20px 5px;
+    font-size: 2em;
+    font-weight: 100;
+    text-align: center;
+    color: #fbff16;
+  }
+  .signup-container #error-reg5 {
+    margin: 0 20px 5px
+}
 
     /*------ WALL ------*/
     #textPosts {

@@ -8,7 +8,7 @@ let id = '';
 let editStatus = false;
 
 // Guardar
-const saveAPost = (textPost) => {
+export const saveAPost = (textPost) => {
   const handleSavePost = (event) => {
     event.preventDefault();
     if (!editStatus) {
@@ -25,7 +25,7 @@ const saveAPost = (textPost) => {
 };
 
 // Eliminar publicación
-const deleteAPost = (postId, modalContainer) => {
+export const deleteAPost = (postId, modalContainer) => {
   const handleDeleateAPost = async (event) => {
     event.preventDefault();
     await deletePost(postId);
@@ -39,7 +39,7 @@ const deleteAPost = (postId, modalContainer) => {
 };
 
 // Editar una publicación
-const editAPost = (postId, btnDelete) => {
+export const editAPost = (postId, btnDelete) => {
   const handleEditAPost = async (event) => {
     window.scrollTo(0, 0);
     event.preventDefault();
@@ -96,7 +96,7 @@ export const likeAPost = (postId, numLikes, heartLike) => {
 };
 
 // Crear modal
-const createModal = (postId, containerEachPost, btnEdit) => {
+export const createModal = (postId, containerEachPost, btnEdit) => {
   const handleCreateModal = (event) => {
     btnEdit.disabled = true;
     // Verificar si el modal ya existe en el DOM
@@ -133,7 +133,7 @@ const createModal = (postId, containerEachPost, btnEdit) => {
 };
 
 // Ver si el usuario actual es dueño de una publicación o no
-const userCheck = (doc) => {
+export const userCheck = (doc) => {
   const ownerUser = doc.data().author;
   const currentUserEmail = auth.currentUser.email;
   if (ownerUser === currentUserEmail) {
@@ -142,7 +142,7 @@ const userCheck = (doc) => {
   return false;
 };
 // Mostrar publicaciones
-const showPublics = async (containerPublic) => {
+export const showPublics = async (containerPublic) => {
   // Evitar que el contenido se repita
   if (containerPublic.firstChild) {
     containerPublic.firstChild.remove();
@@ -260,7 +260,7 @@ const showPublics = async (containerPublic) => {
 };
 
 // Cerrar sesión
-const navigateToLoginAfterLogout = (navigateTo) => {
+export const navigateToLoginAfterLogout = (navigateTo) => {
   const callLogoutApp = (event) => {
     event.preventDefault();
     logoutApp(navigateTo);

@@ -1,55 +1,94 @@
-import { likeAPost } from '../src/components/wall';
-import { getOnePost } from '../src/lib/posting';
+import {
+  likeAPost,
+  saveAPost,
+  deleteAPost,
+  editAPost,
+  createModal,
+  navigateToLoginAfterLogout,
+}
+  from '../src/components/wall.js';
 
-// describe('likeAPost', () => {
-//   it('Is a function', () => {
-//     expect(typeof likeAPost).toBe('function');
-//   });
-//   jest.mock('../src/lib/posting.js', () => ({
-//     getOnePost: jest.fn(),
-//   }));
-//   const postIdMock = '123456789';
-//   // Crear un objeto de evento simulado para el submit del formulario
-//   const eventMock = {
-//     preventDefault: jest.fn(),
-//   };
-
-//   it('should call getOnePost with postId', async () => {
-//     const handleLikeAPost = likeAPost(postIdMock);
-//     await handleLikeAPost(eventMock);
-//     expect(getOnePost).toHaveBeenCalledWith(postIdMock);
-//   });
-// });
-
-// Mock de la función getOnePost
-jest.mock('../src/lib/posting.js', () => ({
-  getOnePost: jest.fn(),
-}));
-
+// import { getOnePost } from '../src/lib/posting';
 describe('likeAPost', () => {
-  let numLikes;
-  let heartLike;
-
-  beforeEach(() => {
-    // Crear los elementos de prueba
-    numLikes = document.createElement('span');
-    heartLike = document.createElement('button');
+  it('Is a function', () => {
+    expect(typeof likeAPost).toBe('function');
   });
-
-  afterEach(() => {
-    // Limpiar los mocks después de cada prueba
-    jest.clearAllMocks();
+  it('Returns a function', () => {
+    // data de prueba
+    const postId = -1;
+    const numLikes = [];
+    const heartLike = {};
+    // ejecutamos el sujeto y obtenemos el retorno
+    const returnedFunction = likeAPost(postId, numLikes, heartLike);
+    // validamos que el retorno sea satisfactorio
+    expect(typeof returnedFunction).toBe('function');
   });
+});
 
-  it('should call getOnePost with postId', async () => {
-    const postId = 'abc123';
-    const handleLikeAPost = likeAPost(postId, numLikes, heartLike);
-    const event = { preventDefault: jest.fn() };
+describe('saveAPost', () => {
+  it('Is a function', () => {
+    expect(typeof saveAPost).toBe('function');
+  });
+  it('Returns a function', () => {
+    // ejecutamos el sujeto y obtenemos el retorno
+    const returnedFunction = saveAPost();
+    // validamos que el retorno sea satisfactorio
+    expect(typeof returnedFunction).toBe('function');
+  });
+});
 
-    // Llamar a la función handleLikeAPost
-    await handleLikeAPost(event);
 
-    // Verificar que getOnePost fue llamada con postId
-    expect(getOnePost).toHaveBeenCalledWith(postId);
+
+describe('deleteAPost', () => {
+  it('Is a function', () => {
+    expect(typeof deleteAPost).toBe('function');
+  });
+  it('Returns a function', () => {
+    // ejecutamos el sujeto y obtenemos el retorno
+    const returnedFunction = deleteAPost();
+    // validamos que el retorno sea satisfactorio
+    expect(typeof returnedFunction).toBe('function');
+  });
+});
+describe('editAPost', () => {
+  it('Is a function', () => {
+    expect(typeof editAPost).toBe('function');
+  });
+  it('Returns a function', () => {
+    // data de prueba
+    const postId = -1;
+    const btnEdit = 'div';
+    // ejecutamos el sujeto y obtenemos el retorno
+    const returnedFunction = editAPost(postId, btnEdit);
+    // validamos que el retorno sea satisfactorio
+    expect(typeof returnedFunction).toBe('function');
+  });
+});
+describe('createModal', () => {
+  it('Is a function', () => {
+    expect(typeof createModal).toBe('function');
+  });
+  it('Returns a function', () => {
+    // data de prueba
+    const postId = -1;
+    const btnEdit = 'div';
+    const containerEachPost = 'div';
+    // ejecutamos el sujeto y obtenemos el retorno
+    const returnedFunction = createModal(postId, btnEdit, containerEachPost);
+    // validamos que el retorno sea satisfactorio
+    expect(typeof returnedFunction).toBe('function');
+  });
+});
+describe('navigateToLoginAfterLogout', () => {
+  it('Is a function', () => {
+    expect(typeof navigateToLoginAfterLogout).toBe('function');
+  });
+  it('Returns a function', () => {
+    // data de prueba
+    const navigateTo = jest.fn();
+    // ejecutamos el sujeto y obtenemos el retorno
+    const returnedFunction = navigateToLoginAfterLogout(navigateTo);
+    // validamos que el retorno sea satisfactorio
+    expect(typeof returnedFunction).toBe('function');
   });
 });

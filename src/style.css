@@ -13,7 +13,8 @@
 }
 
 html {
-  font-size: 62.5%; /*62.5% = 10px*/
+  font-size: 62.5%;
+  /*62.5% = 10px*/
 }
 
 body {
@@ -29,6 +30,7 @@ main {
 
 /* MOBILE FIRST */
 @media only screen and (min-width: 320px) and (max-width: 480px) {
+
   /*------ HOME/LOGIN ------*/
   .container {
     display: flex;
@@ -71,59 +73,66 @@ main {
     border-radius: 18px;
     box-shadow: 4px 4px 4px #6e6e6e42;
   }
-    input {
-      height: 10%;
-      width: 80%;
-      border-radius: 8px;
-      border: solid 1px #ffc1c1;
-      font-family: var(--font-text);
-      font-size: 1.5rem;
-      font-weight: 400;
-      text-align: center;
-    }
-    #user-email {
-      margin-top: 5px;
-    }
-    button {
-      height: 14%;
-      width: 80%;
-      font-family: var(--font-text);
-      font-size: 1.8rem;
-      font-weight: 500;
-      color: #ffffff;
-      background-color: #d35c46;
-      border: 1px solid white;
-      border-radius: 8px;
-    }
-    #login {
-      font-size: 1.6rem;
-    }
-    .provider {
-      display: flex;
-      flex-direction: row-reverse;
-      padding: 2.5%;
-      font-size: 1.4em;
-      font-weight: 400;
-      line-height: 1.1em;
-      align-items: center;
-      border: solid 1px #ffc1c1;
-      background-color: #ffffff;
-      color: #000000;
-    }
-    .provider img {
-      height: 2.7rem;
-      width: 2.7rem;
-      margin: 0 1.5rem;
-      background-size: 90%;
-    }
-    #error-login {
-      margin: 0 20px 5px;
-      font-size: 1.3em;
-      font-weight: 100;
-      text-align: center;
-      color: #fbff16;
-    }
-    
+
+  input {
+    height: 10%;
+    width: 80%;
+    border-radius: 8px;
+    border: solid 1px #ffc1c1;
+    font-family: var(--font-text);
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-align: center;
+  }
+
+  #user-email {
+    margin-top: 5px;
+  }
+
+  button {
+    height: 14%;
+    width: 80%;
+    font-family: var(--font-text);
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #ffffff;
+    background-color: #d35c46;
+    border: 1px solid white;
+    border-radius: 8px;
+  }
+
+  #login {
+    font-size: 1.6rem;
+  }
+
+  .provider {
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 2.5%;
+    font-size: 1.4em;
+    font-weight: 400;
+    line-height: 1.1em;
+    align-items: center;
+    border: solid 1px #ffc1c1;
+    background-color: #ffffff;
+    color: #000000;
+  }
+
+  .provider img {
+    height: 2.7rem;
+    width: 2.7rem;
+    margin: 0 1.5rem;
+    background-size: 90%;
+  }
+
+  #error-login {
+    margin: 0 20px 5px;
+    font-size: 1.3em;
+    font-weight: 100;
+    text-align: center;
+    color: #fbff16;
+  }
+
   #to-regist {
     display: grid;
     grid-template-rows: auto 100%;
@@ -135,17 +144,18 @@ main {
     align-content: stretch;
     justify-items: center;
   }
-    #h-register {
-      height: 50%;
-      font-size: 1.6rem;
-      margin-top: 0.7rem;
-      font-weight: 600;
-      color: #000000;
-      background-color: #f25042b3;
-      box-shadow: 1px 1px 4px #6e6e6e42;
-      border: none;
-    }
-  
+
+  #h-register {
+    height: 50%;
+    font-size: 1.6rem;
+    margin-top: 0.7rem;
+    font-weight: 600;
+    color: #000000;
+    background-color: #f25042b3;
+    box-shadow: 1px 1px 4px #6e6e6e42;
+    border: none;
+  }
+
   footer {
     display: flex;
     font-size: 1.2em;
@@ -162,6 +172,125 @@ main {
 
   /*------ REGISTER ACCOUNT ------*/
 
+  input {
+    height: 3.1rem;
+    width: 18.5rem;
+    border-radius: 8px;
+    border: solid 1px #ffc1c1;
+    font-family: var(--font-text);
+    font-size: 1.3rem;
+    font-weight: 400;
+    text-align: center;
+  }
+
+  .register-background{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    align-items: center;
+    background-image: url('images/74A43094-23A5-403C-B736-5B587E12F994.png');
+    background-repeat: no-repeat;
+    background-size: auto 73%;
+    background-position: center 117%;
+  }
+
+  #title {
+    font-family: 'Satisfy', cursive;
+    font-size: 50px;
+    color: #4A4747;
+    font-weight: lighter;
+    margin-top: 2.8rem;
+  }
+
+  #register-title {
+    font-family: 'Sora', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    color: #000000;
+    margin-top: 1.8rem;
+  }
+
+  #send-info {
+    height: 10%;
+    width: 80%;
+    font-family: var(--font-text);
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #ffffff;
+    background-color: #d35c46;
+    border: 1px solid white;
+    border-radius: 5px;
+  }
+
+  #google-reg {
+    height: 12%;
+    width: 80%;
+    font-family: var(--font-text);
+    font-size: 1.1rem;
+    font-weight: 550;
+    color: #000000;
+    background-color: #ffffff;
+    border: 1px solid #FFC1C1;
+    border-radius: 5px;
+    background-image: url('./images/icon-google.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    flex-direction: row-reverse;
+    padding: 1.5rem;
+  }
+
+  #github-reg{
+    height: 12%;
+    width: 80%;
+    font-family: var(--font-text);
+    font-size: 1.1rem;
+    font-weight: 550;
+    color: #000000;
+    background-color: #ffffff;
+    border: 1px solid #FFC1C1;
+    border-radius: 5px;
+    background-image: url('./images/icon-github.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    flex-direction: row-reverse;
+    padding: 1.5rem;
+  }
+
+  #container {
+    display: flex;
+    flex-direction: column;
+    height: 290px;
+    width: 230px;
+    margin-top: 1.3rem;
+    margin-bottom: 1rem;
+    font-family: var(--font-text);
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #8c7851;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px #6e6e6e42;
+    padding-top: 1rem;
+  }
+
+  #return {
+    height: 3.5rem;
+    width: 15rem;
+    font-family: var(--font-text);
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #ffffff;
+    background-color: #d35c46;
+    border: 1px solid white;
+    border-radius: 5px;
+  }
 
   /*------ WALL ------*/
   #construction {
@@ -175,7 +304,7 @@ main {
     background-color: powderblue;
     resize: none;
   }
-  
+
   .error-section {
     background-size: 60%;
   }
@@ -190,6 +319,7 @@ main {
 
 /* TABLET */
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
+
   /*------ HOME/LOGIN ------*/
   .container {
     display: flex;
@@ -212,7 +342,7 @@ main {
     color: #4a4747;
     text-align: center;
   }
-  
+
   #info-cont {
     display: flex;
     height: 16%;
@@ -223,12 +353,13 @@ main {
     border-radius: 20px;
     align-items: center;
   }
-    #info-text {      
-      font-family: var(--font-text);
-      font-size: 2.5em;
-      text-align: center;
-    }
-  
+
+  #info-text {
+    font-family: var(--font-text);
+    font-size: 2.5em;
+    text-align: center;
+  }
+
   #cont-login {
     display: flex;
     flex-direction: column;
@@ -243,51 +374,57 @@ main {
     border-radius: 18px;
     box-shadow: 4px 4px 4px #6e6e6e42;
   }
-    input {
-      height: 10%;
-      width: 85%;
-      border-radius: 12px;
-      border: solid 1px #ffc1c1;
-      font-family: var(--font-text);
-      font-size: 2em;
-      font-weight: 400;
-      text-align: center;
-    }
-      #user-email {
-        margin-top: 10px;
-      }
-    button {
-      height: 13%;
-      width: 85%;
-      font-family: var(--font-text);
-      font-size: 1.15em;
-      font-weight: 500;
-      color: #ffffff;
-      background-color: #d35c46;
-      border-radius: 12px;
-      border: 1px solid white;
-    }
-    #login {
-      font-size: 2.35em;
-    }
-    .provider {
-      display: flex;
-      flex-direction: row-reverse;
-      padding: 2.5%;
-      font-size: 1.95em;
-      font-weight: 400;
-      line-height: 1.15em;
-      justify-content: center;
-      align-items: center;
-      border: solid 1px #ffc1c1;
-      background-color: #ffffff;
-      color: #000000;
-    }
-    .provider img {
-      height: 3.2rem;
-      width: 3.2rem;
-      margin: 0 2rem;
-    }
+
+  input {
+    height: 10%;
+    width: 85%;
+    border-radius: 12px;
+    border: solid 1px #ffc1c1;
+    font-family: var(--font-text);
+    font-size: 2em;
+    font-weight: 400;
+    text-align: center;
+  }
+
+  #user-email {
+    margin-top: 10px;
+  }
+
+  button {
+    height: 13%;
+    width: 85%;
+    font-family: var(--font-text);
+    font-size: 1.15em;
+    font-weight: 500;
+    color: #ffffff;
+    background-color: #d35c46;
+    border-radius: 12px;
+    border: 1px solid white;
+  }
+
+  #login {
+    font-size: 2.35em;
+  }
+
+  .provider {
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 2.5%;
+    font-size: 1.95em;
+    font-weight: 400;
+    line-height: 1.15em;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px #ffc1c1;
+    background-color: #ffffff;
+    color: #000000;
+  }
+
+  .provider img {
+    height: 3.2rem;
+    width: 3.2rem;
+    margin: 0 2rem;
+  }
 
   #to-regist {
     display: grid;
@@ -300,23 +437,25 @@ main {
     align-content: stretch;
     justify-items: center;
   }
-    #h-register {
-      height: 50%;
-      margin-top: 3%;
-      font-size: 2.5rem;
-      font-weight: 600;
-      color: #000000;
-      background-color: #f25042b3;
-      box-shadow: 1px 1px 4px #6e6e6e42;
-      border: none;
-    }
-    #error-login {
-      margin: 0 20px 5px;
-      font-size: 2em;
-      font-weight: 100;
-      text-align: center;
-      color: #fbff16;
-    }
+
+  #h-register {
+    height: 50%;
+    margin-top: 3%;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #000000;
+    background-color: #f25042b3;
+    box-shadow: 1px 1px 4px #6e6e6e42;
+    border: none;
+  }
+
+  #error-login {
+    margin: 0 20px 5px;
+    font-size: 2em;
+    font-weight: 100;
+    text-align: center;
+    color: #fbff16;
+  }
 
   footer {
     display: flex;
@@ -331,10 +470,24 @@ main {
     align-self: self-start;
     position: fixed;
   }
-  
+
   /*------ REGISTER ------*/
 
 
+  /*------ WALL ------*/
+  #construction {
+    height: 30vh;
+    width: auto;
+  }
+
+  .error-section {
+    background-size: 50%;
+  }
+
+  .return-home {
+    height: 40%;
+    width: 210px;
+  }
     /*------ WALL ------*/
     #textPosts {
       height: 100px;
@@ -348,7 +501,8 @@ main {
 
 
 /* DESKTOP and LAPTOPS */
-@media only screen and (min-width: 1024px) and (max-width: 1728px) { 
+@media only screen and (min-width: 1024px) and (max-width: 1728px) {
+
   /*------ HOME/LOGIN ------*/
   #container-home {
     display: grid;
@@ -416,52 +570,59 @@ main {
     justify-content: center;
     justify-items: center;
   }
-    input {
-      height: 3.2rem;
-      width: 20.75rem;
-      margin: 0;
-      border-radius: 12px;
-      border: solid 1px #ffc1c1;
-      font-family: var(--font-text);
-      font-size: 1.5em;
-      font-weight: 400;
-      text-align: center;
-    }
-    #user-email {
-      bottom: 0;
-    }
-  button {
-    height: 4rem;
+
+  input {
+    height: 3.2rem;
     width: 20.75rem;
+    border-radius: 12px;
+    border: solid 1px #ffc1c1;
     font-family: var(--font-text);
+    font-size: 1.3em;
+    font-weight: 400;
+    text-align: center;
+  }
+
+  #user-email {
+    margin-top: 5px;
+  }
+
+  button {
+    height: 14%;
+    width: 80%;
+    font-family: var(--font-text);
+    font-size: 1.2em;
     font-weight: 500;
     color: #ffffff;
     background-color: #d35c46;
     border: 1px solid white;
     border-radius: 12px;
-  }  
-    #login {
-      font-size: 1.8em;
-    }
-    .provider {
-      display: flex;
-      flex-direction: row-reverse;
-      padding: 0.4rem;
-      font-size: 1.5em;
-      font-weight: 400;
-      line-height: 1.7rem;
-      align-items: center;
-      border: solid 1px #ffc1c1;
-      background-color: #ffffff;
-      color: #000000;
-    }
-    .provider img {
-      height: 1.62em;
-      width: 1.62em;
-      margin-right: auto;
-      margin-left: 1.4rem;
-    }
-    
+  }
+
+  #login {
+    font-size: 1.5em;
+  }
+
+  .provider {
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 2.5%;
+    font-size: 1.3em;
+    font-weight: 400;
+    line-height: 13px;
+    align-items: center;
+    border: solid 1px #ffc1c1;
+    background-color: #ffffff;
+    color: #000000;
+  }
+
+  .provider img {
+    height: 25px;
+    width: 25px;
+    margin-right: 2.5%;
+    padding-left: 2.5%;
+    background-size: 90%;
+  }
+
   #to-regist {
     display: flex;
     flex-direction: column;
@@ -518,7 +679,8 @@ main {
     resize: none;
   }
 }
-  /* .container {
+
+/* .container {
     display: grid;
     grid-template-columns: auto auto;
     grid-template-rows: 2fr 2fr;

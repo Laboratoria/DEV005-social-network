@@ -12,6 +12,8 @@ import {
   doc,
   onSnapshot,
   updateDoc,
+  arrayUnion,
+  arrayRemove,
 } from 'firebase/firestore';
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -38,7 +40,12 @@ export const auth = getAuth(app);
 // Configurando Base de datos firestore
 export const db = getFirestore();
 
-export const savePost = (txtMascotiemos) => addDoc(collection(db, 'posts'), { txtMascotiemos });
+export const savePost = (txtMascotiemos) => addDoc(collection(db, 'posts'), {
+  txtMascotiemos,
+  auth: auth.currentUser.email,
+  userId: auth.currentUser.uid,
+  likes: [],
+});
 
 export const getPosts = () => getDocs(collection(db, 'posts'));
 
@@ -71,3 +78,13 @@ export const getPost = (id) => getDoc(doc(db, 'posts', id));
 // Actualizar edición post
 
 export const updatePost = (id, newFields) => updateDoc(doc(db, 'posts', id), newFields);
+
+// Like
+
+export const like = (id, userId) => updateDoc (doc (db, 'posts', id), {
+  likes: arrayUnion(userId),
+});
+
+export const dislike = (id, userId) => updateDoc (doc (db, 'posts', id), {
+  likes: arrayRemove(userId),
+});

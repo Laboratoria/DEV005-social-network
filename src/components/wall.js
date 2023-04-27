@@ -21,7 +21,7 @@ function wall(navigateTo) {
   btnPost.id = 'btn-posts';
   btnPost.type = 'submit';
   btnPost.textContent = 'Publicar';
-  btnPost.disabled = true;
+  // btnPost.disabled = true;
 
   btnPost.addEventListener('click', () => {
     const postText = post.value;

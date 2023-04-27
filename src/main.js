@@ -41,7 +41,7 @@ window.onpopstate = () => {
   navigation(window.location.pathname);
 };
 
-onAuthStateChanged(auth, (user) => {
+export const authUser = onAuthStateChanged(auth, (user) => {
   if (user) {
     navigation('/home');
   } else if (window.location.pathname !== '/home' && !user) {

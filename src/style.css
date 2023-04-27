@@ -164,11 +164,7 @@ color: red;
     justify-content: center;
     height: 90%;
     width: 90%;
-}
-
-.contenedorIngresoRegistro {
-    height: 100%;
-    padding-bottom: 5px;
+    padding-bottom: 15px;
 }
 
 /*Reposo*/
@@ -235,12 +231,21 @@ label span.top {
     padding: 0 5px;
 }
 
+.registroTitulo {
+    display: flex;
+    justify-content: center;
+    font-size:3rem;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
 .btnLogin, .btnGoogle, .btnCrearCuenta {
     margin-top: 8px;
     display: flex;
     justify-content: center;
-    align-self: center;
+    align-items: center;
     border-radius: 15px;
+    border-style: none;
     background-color: #000072;
     color: white;
     width: 200px;
@@ -249,6 +254,7 @@ label span.top {
     font-weight: bold;
     font-family: 'Ubuntu', sans-serif;
     padding: 4px;
+    cursor: pointer;
 }
 
 .btnGoogle {
@@ -257,18 +263,16 @@ label span.top {
     color: black;
 }
 
-.registroTitulo {
-    display: flex;
-    justify-content: center;
-    font-size:3rem;
-    font-weight: bold;
-}
-
 .btnCrearCuenta {
     font-weight: bold;
     margin-bottom: 10px;
-    background-color: #3ba2f6;
-    color: black;
+    background-color: #000072;
+    color: white;
+    border-style: none;
+}
+
+.btnLogin:hover, .btnGoogle:hover, .btnCrearCuenta:hover{
+    background-color:grey;
 }
 
 .logoGoogle{
@@ -277,13 +281,16 @@ label span.top {
     position: absolute;
 }
 
-.btnRegistro {
+.linkRegister {
     border-radius: 8px;
-    margin-left: 10px;
-    padding: 0px 10px;
+    cursor: pointer;
     font-family: 'Ubuntu', sans-serif;
     font-weight: bold;
     color: black;
+}
+
+.linkRegister:hover{
+    color: grey;
 }
 
 /* Mensaje Bienvenida*/

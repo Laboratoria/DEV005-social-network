@@ -1,4 +1,3 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 import {
@@ -16,10 +15,6 @@ import {
   arrayRemove,
 } from 'firebase/firestore';
 
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: 'AIzaSyDtRQY-ggHLO4343_IXaN6dDpsYA9nQhhA',
   authDomain: 'mascoteando-fcfad.firebaseapp.com',
@@ -71,7 +66,7 @@ export const createSnapshot = (result) => {
 // Borrar post
 export const deletePost = (id) => deleteDoc(doc(db, 'posts', id));
 
-// Editar post
+// Obtener post
 
 export const getPost = (id) => getDoc(doc(db, 'posts', id));
 

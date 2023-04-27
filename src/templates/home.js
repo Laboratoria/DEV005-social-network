@@ -10,6 +10,8 @@ import {
 } from '../lib/index.js';
 import { exit } from '../lib/auth.js';
 
+let editStatus = false;
+let id = '';
 // Like en post
 
 const likePost = (postId, numLikes) => {
@@ -70,13 +72,15 @@ export default function home() {
 
   const postForm = section.querySelector('#post-form');
   const postContainer = section.querySelector('#containerPost');
-  let editStatus = false;
-  let id = '';
+
   const readPost = (posts) => {
     let html = '';
     posts.forEach((docs) => {
       const publication = docs.data;
-      html += `
+      const ownerId = publication.userId;
+      const currentUser = auth.currentUser;
+      if (ownerId === currentUser.uid) {
+        html += `
         <div>
           <p id="textPost" class="textPost">${publication.txtMascotiemos}</p>
           <section class="containerButtons">
@@ -86,25 +90,31 @@ export default function home() {
           <p id="numLikes" class="numLikes" data-id="${docs.id}"></p>
           </section>
           </div>
-      `;
+        `;
+      } else {
+        html += `
+          <div>
+            <p id="textPost" class="textPost">${publication.txtMascotiemos}</p>
+          </div>
+        `;
+      }
     });
-
     postContainer.innerHTML = html;
 
-    const btnsDelete = postContainer.querySelectorAll('.btnDelete');
+    const btnsDelete = postContainer.querySelectorAll('#btnDelete');
     btnsDelete.forEach((btn) => {
-      btn.addEventListener('click', (event) => {
-        deletePost(event.target.dataset.id);
+      btn.addEventListener('click', ({ target: { dataset } }) => {
+        const postId = dataset.id;
+        deletePost(postId);
       });
     });
 
     const btnsEdit = postContainer.querySelectorAll('.btnEdit');
     btnsEdit.forEach((btn) => {
       btn.addEventListener('click', async (event) => {
-        const docu = await getPost(event.target.dataset.id);
-        const post = docu.data();
-
-        postForm.txtMascotiemos.value = post.txtMascotiemos;
+        const commentUser = await getPost(event.target.dataset.id);
+        const post = commentUser.data().txtMascotiemos;
+        postForm.txtMascotiemos.value = post;
         editStatus = true;
         id = event.target.dataset.id;
       });
@@ -128,18 +138,19 @@ export default function home() {
   postForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    const post = postForm.txtMascotiemos;
+    const txtMascotiemos = postForm.txtMascotiemos.value.trim();
     if (!editStatus) {
-      savePost(post.value);
+      savePost(txtMascotiemos);
     } else {
       updatePost(id, {
-        txtMascotiemos: post.value,
+        txtMascotiemos,
       });
       editStatus = false;
+      id = '';
     }
     postForm.reset(); // Limpia el textarea
-  });
 
+  });
   return section;
 }
 

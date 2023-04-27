@@ -76,10 +76,10 @@ export const updatePost = (id, newFields) => updateDoc(doc(db, 'posts', id), new
 
 // Like
 
-export const like = (id, userId) => updateDoc (doc (db, 'posts', id), {
+export const like = (id, userId) => updateDoc(doc(db, 'posts', id), {
   likes: arrayUnion(userId),
 });
 
-export const dislike = (id, userId) => updateDoc (doc (db, 'posts', id), {
+export const dislike = (id, userId) => updateDoc(doc(db, 'posts', id), {
   likes: arrayRemove(userId),
 });

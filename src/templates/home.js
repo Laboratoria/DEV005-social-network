@@ -14,7 +14,7 @@ let editStatus = false;
 let id = '';
 // Like en post
 
-const likePost = (postId, numLikes) => {
+const likePost = (postId) => {
   const addLikePost = async (/* event */) => {
     /* event.preventDefault(); */
 
@@ -33,13 +33,13 @@ const likePost = (postId, numLikes) => {
           like(postId, currentUserEmail);
           // footprint.classList.add('liked');
         }
-        const updatingPost = await getPost(postId);
-        const updatingLike = updatingPost.data().likes;
-        numLikes.textContent = updatingLike.length;
+        // const updatingPost = await getPost(postId);
+        // const updatingLike = updatingPost.data().likes;
+        // numLikes.textContent = updatingLike.length + 1;
       });
   };
   addLikePost();
-  //return addLikePost;
+  // return addLikePost;
 };
 
 export default function home() {
@@ -84,18 +84,22 @@ export default function home() {
         <div>
           <p id="textPost" class="textPost">${publication.txtMascotiemos}</p>
           <section class="containerButtons">
+            <button id="btnLike" class="btnLike" data-id="${docs.id}">Me gusta</button>
+            <p class="count">${publication.likes.length}</p>
           <button id="btnDelete" class="btnDelete" data-id="${docs.id}">Eliminar</button>
           <button id="btnEdit" class="btnEdit" data-id="${docs.id}">Editar</button>
-          <button id="btnLike" class="btnLike" data-id="${docs.id}">Me Gusta</button>
-          <p id="numLikes" class="numLikes" data-id="${docs.id}"></p>
           </section>
-          </div>
+        </div>
         `;
       } else {
         html += `
-          <div>
-            <p id="textPost" class="textPost">${publication.txtMascotiemos}</p>
-          </div>
+        <div>
+          <p id="textPost" class="textPost">${publication.txtMascotiemos}</p>
+          <section class="containerButtons">
+            <button id="btnLike" class="btnLike" data-id="${docs.id}">Me gusta</button>
+            <p class="count">${publication.likes.length}</p>
+          </section>
+        </div>
         `;
       }
     });
@@ -126,9 +130,7 @@ export default function home() {
     btnsLike.forEach((btn) => {
       btn.addEventListener('click', async (event) => {
         const postId = event.target.dataset.id;
-        const numLikes = postContainer.querySelectorAll('.numLikes');
-        likePost(postId, numLikes)
-        console.log(btn);
+        likePost(postId);
       });
     });
   };
@@ -149,9 +151,6 @@ export default function home() {
       id = '';
     }
     postForm.reset(); // Limpia el textarea
-
   });
   return section;
 }
-
-

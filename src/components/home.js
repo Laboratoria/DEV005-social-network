@@ -1,74 +1,125 @@
-import { loginPatitas, loginWithGoogle, loginWithTwitter } from '../lib/auth';
+import {
+  GoogleAuthProvider, signInWithPopup, getAuth,
+} from 'firebase/auth';
+import {
+  revision,
+} from '../lib/auth';
 
-function home(/* navigateTo */) {
+function home(navigateTo) {
   const section = document.createElement('section');
   // Elementos
   const img = document.createElement('img');
   const form = document.createElement('form');
-  form.className = 'form1';
+  form.class = 'form1';
   const title = document.createElement('h1');
-  const mailUser = document.createElement('label');
-  const mail = document.createElement('input');
-  mail.id = 'mail';
-  const password = document.createElement('input');
-  password.id = 'password';
-  password.maxLength = 10;
-  password.type = 'password';
-  const passUser = document.createElement('label');
   const division = document.createElement('div');
-  const register = document.createElement('button');
   const forgetPass = document.createElement('button');
-  const loginGoogle = document.createElement('button');
-  const loginMicrosoft = document.createElement('button');
-  const loginTwitter = document.createElement('button');
-  const login = document.createElement('button');
-
-  img.setAttribute('src', '../img/logo.jpg');
-  img.setAttribute('alt', 'logo de Patitas.com');
-  img.setAttribute('class', 'logo');
-  register.textContent = 'Registrarse';
-  register.setAttribute('class', 'register-b');
   forgetPass.textContent = 'Olvidé contraseña';
   forgetPass.setAttribute('class', 'forgetPass-b');
   division.setAttribute('class', 'divhome');
 
-  loginGoogle.setAttribute('id', 'loginGoogle-b');
-  loginGoogle.textContent = 'Inicia sesión con Google';
-  loginGoogle.addEventListener('click', (e) => {
-    e.preventDefault();
-    loginWithGoogle();
-    console.log('si sirvo');
+  /* ----------------Imagenes -------------------------*/
+  img.setAttribute('src', '../img/logo.jpg');
+  img.setAttribute('alt', 'logo de Patitas.com');
+  img.setAttribute('class', 'logo');
+
+  /* ----------------Registrarse-------------------------*/
+  const register = document.createElement('button');
+  register.textContent = 'Registrarse';
+  register.setAttribute('class', 'register-b');
+  register.addEventListener('click', () => {
+    navigateTo('/registro');
   });
 
-  loginMicrosoft.setAttribute('id', 'loginMicrosoft');
-  loginMicrosoft.setAttribute('class', 'loginMicrosoft-b');
-  loginMicrosoft.textContent = 'Inicia sesión con Microsoft';
-
-  loginTwitter.setAttribute('id', 'loginTwitter');
-  loginTwitter.setAttribute('class', 'btn twitter');
-  loginTwitter.textContent = 'Inicia sesión con Twitter';
-  loginTwitter.addEventListener('click', (e) => {
-    e.preventDefault();
-    loginWithTwitter();
-    console.log('si sirvo');
+  /* ------------------ Correo ---------------------*/
+  const mailUser = document.createElement('label');
+  const mail = document.createElement('input');
+  mail.id = 'mailUser';
+  mail.placeholder = 'usuario@dominio.com';
+  mail.addEventListener('blur', () => {
+    const email = mail.value;
+    if (!email.endsWith('@gmail.com') && !email.endsWith('@hotmail.com')) {
+      // eslint-disable-next-line no-alert
+      alert('Introduzca una dirección de correo electrónico válida');
+      mail.value = '';
+    }
   });
+  document.body.appendChild(mailUser);
+  document.body.appendChild(mail);
 
-  const socialBtns = document.createElement('div');
-  socialBtns.setAttribute('class', 'social-btns');
-  socialBtns.appendChild(loginTwitter);
+  /* ------------------ Contraseña ---------------------*/
+  const passUser = document.createElement('label');
+  const password = document.createElement('input');
+  password.id = 'password1';
+  password.minLength = 6;
+  password.maxLength = 10;
+  password.type = 'password';
+  password.placeholder = 'Enter a password';
 
+  /* ---------------- Iniciar sesión-------------------------*/
+  const login = document.createElement('button');
   login.setAttribute('id', 'login-b');
+  login.setAttribute('class', 'loginb');
   login.textContent = 'INICIAR SESIÓN';
-  login.addEventListener('click', (e) => {
-    e.preventDefault();
-    loginPatitas();
-    console.log('si sirvo');
-  });
-
   mailUser.textContent = 'Correo electrónico:';
   passUser.textContent = 'Contraseña:';
-
   title.textContent = 'Patitas.com';
+  login.addEventListener('click', (e) => {
+    e.preventDefault();
+    revision(mail.value, password.value)
+      .then((user) => {
+        navigateTo('/muro');
+        // eslint-disable-next-line no-console
+        console.log(user);
+      }).catch((error) => {
+        // eslint-disable-next-line no-console
+        console.error('Tienes un error', error);
+        mail.value = '';
+        password.value = '';
+      });
+  });
+
+  /* ----------------Iniciar con google-------------------------*/
+  const loginGoogle = document.createElement('button');
+  loginGoogle.textContent = 'Inicia sesión con Google';
+  loginGoogle.setAttribute('id', 'loginGoogle-b');
+
+  loginGoogle.addEventListener('click', async (e) => {
+    e.preventDefault();
+    const provider = new GoogleAuthProvider();
+    const auth = getAuth();
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        // eslint-disable-next-line no-console
+        console.log(token);
+
+        const user = result.user;
+        console.log(user);
+
+        console.log(credential);
+        navigateTo('/muro');
+        // ...
+      }).catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        if (errorCode === 'auth/user-not-found') {
+          errorMessage('El usuario no está registrado.');
+        } else if (errorCode === 'auth/wrong-password') {
+          errorMessage('La contraseña no es correcta.');
+        } else if (errorCode === 'auth/invalid-email') {
+          errorMessage('El correo electrónico no tiene el formato correcto.');
+        } else if (errorCode === 'auth/credential-already-in-use') {
+          errorMessage('Las credenciales ya están siendo utilizadas.');
+        } else if (errorCode === 'auth/network-request-failed') {
+          errorMessage('Ha ocurrido un error de red.');
+        } else {
+          console.log(errorMessage);
+        }
+      });
+  });
 
   section.append(img, form);
   form.append(
@@ -79,8 +130,6 @@ function home(/* navigateTo */) {
     password,
     division,
     loginGoogle,
-    loginMicrosoft,
-    socialBtns,
     login,
   );
   division.append(register, forgetPass);

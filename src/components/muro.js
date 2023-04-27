@@ -1,4 +1,6 @@
-import { submitForm } from '../lib/auth';
+import {
+  submitForm, deleteTask, onGetTasks, getTask,
+} from '../lib/posts';
 
 function muro(navigateTo) {
   const section = document.createElement('section');
@@ -117,7 +119,9 @@ function muro(navigateTo) {
       section.append(modal);
       showModal();
     } else {
-      submitForm(e);
+      const editStatus = submitBtn.textContent !== 'Enviar';
+      const editPostId = submitBtn.getAttribute('data-editpostid');
+      submitForm(editStatus, editPostId);
     }
   });
 
@@ -137,7 +141,45 @@ function muro(navigateTo) {
   // Agrega el contenedor de tareas a la página
   document.body.appendChild(taskContainer);
 
-  // Agrega un EventListener para el envío del formulario
+  onGetTasks((querySnapshot) => {
+    taskList.innerHTML = '';
+    querySnapshot.forEach((doc) => {
+      const task = doc.data();
+      task.id = doc.id;
+      const taskTitle = task.taskTitle;
+      const taskDescription = task.taskDescription;
+      const taskItem = document.createElement('div');
+      taskItem.innerHTML = `<h2>${taskTitle}</h2>
+                        <p>${taskDescription}</p>
+                        <button class="delete-button" data-id="${task.id}">Eliminar</button>
+                        <button class="edit-button" data-id="${task.id}">Editar</button>
+                        <button>Me gusta</button>`;
+      taskList.appendChild(taskItem);
+
+      const btnsDelete = document.querySelectorAll('.delete-button');
+      btnsDelete.forEach((btnDelete) => {
+        btnDelete.addEventListener('click', async (e) => {
+          const taskId = e.target.dataset.id;
+          await deleteTask(taskId);
+        });
+      });
+
+      const btnsEdit = document.querySelectorAll('.edit-button');
+      btnsEdit.forEach((btnEdit) => {
+        btnEdit.addEventListener('click', async (e) => {
+          const taskId = e.target.dataset.id;
+          const newDoc = await getTask(taskId);
+          const newTask = newDoc;
+
+          submitBtn.setAttribute('data-editpostid', taskId);
+          form.title.value = newTask.taskTitle;
+          form.description.value = newTask.taskDescription;
+          const btnTaskForm = document.querySelector('#btnSend');
+          btnTaskForm.innerText = 'Actualizar';
+        });
+      });
+    });
+  });
 
   return section;
 }

@@ -1,8 +1,9 @@
 import { onSnapshot } from 'firebase/firestore';
 import { signOut } from 'firebase/auth';
 import { auth } from '../lib/firebase.js';
-import { post } from '../lib/auth.js';
-import { editPost, ref } from '../lib/post.js';
+import {
+  editPost, ref, deleteDocData, post,
+} from '../lib/post.js';
 
 function home(navigateTo) {
   const postForm = document.createElement('section');
@@ -69,6 +70,22 @@ function home(navigateTo) {
     }
     postForm.appendChild(postContainer);
 
+    const deleteButton = document.createElement('button');
+    deleteButton.classList.add('delete-btn');
+    deleteButton.textContent = 'Eliminar';
+    deleteButton.addEventListener('click', () => {
+      // eslint-disable-next-line no-restricted-globals, no-alert
+      const confirmDelete = confirm('¿Estás seguro que deseas eliminar este post?');
+      if (confirmDelete) {
+        deleteDocData(doc.id);
+        deleteButton.value = doc.id;
+        deleteButton.parentElement.remove();
+      }
+    });
+    if (auth.currentUser.email === info.userEmail) {
+      postContainer.appendChild(deleteButton);
+    }
+
     return postForm;
   };
 
@@ -80,7 +97,6 @@ function home(navigateTo) {
       if (postExists) {
         const textarea = document.querySelector('.showPost');
         textarea.removeAttribute('readonly');
-        textarea.setAttribute('contenteditable', true);
       } else {
         const nodoP = printPost(postInfo, doc);
         nodoP.setAttribute('data-id', doc.id);

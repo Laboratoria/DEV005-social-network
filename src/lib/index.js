@@ -1,7 +1,7 @@
 // aqui exportaras las funciones que necesites
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js';
 import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.20.0/firebase-auth.js';
-
+import { signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.20.0/firebase-auth.js';
 // import register from '../components/register';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -17,10 +17,10 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
 console.log('probandoString', app);
 
-const auth = getAuth();
+export const auth = getAuth();
 
 // Función de promesa para crear cuenta
 export const registerUser = (email, password) => {
@@ -32,20 +32,23 @@ export const registerUser = (email, password) => {
 export const googleProvider = new GoogleAuthProvider();
 export const signInWithPopupGoogle = (provider) => signInWithPopup(auth, provider);
 
+// Función para iniciar Sesión
 
-/*
- registerUser(email, password)
-  .then((res) => {
-    console.log(res);
-  })
-  .catch((err) => {
-    console.error(err);
-  }); */
+export function validateUserAndPasswordFireBase(navigateTo, user, password) {
+  signInWithEmailAndPassword(auth, user, password)
+    .then(() => {
+    // Signed in
+      navigateTo('/seniorFace');
+    })
+    .catch((error) => {
+      console.log(error);
+      const errorCode = error.code;
+      if (errorCode === 'auth/user-not-found' || errorCode === 'auth/wrong-password') {
+        alert('Usuario no encontrado verificar la informacion ingresada');
+      } else {
+        navigateTo('/error');
+      }
+    });
+}
 
-// Función de promesa para Iniciar Sesión
-
-/** export const loginUser = (email, password) => {
-  console.log('datos 2: ', email, password);
-  return signInWithEmailAndPassword(auth, email, password);
-}; */
 console.log('hola');

@@ -39,7 +39,7 @@ export function register(navigateTo) {
   labelPassword.textContent = 'INSERTAR CONTRASEÑA';
   const inputInsertPassword = document.createElement('input');
   inputInsertPassword.name = 'password';
-  inputInsertPassword.placeholder = 'mínimo 9 dígitos';
+  inputInsertPassword.placeholder = 'mínimo 6 dígitos';
   const errorMessagePassword = document.createElement('small');
   errorMessagePassword.textContent = '';
   listInputPassword.append(labelPassword, inputInsertPassword, errorMessagePassword);
@@ -52,12 +52,26 @@ export function register(navigateTo) {
   buttonRegister.type = 'submit';
   listButtonRegister.append(buttonRegister);
 
-  // Boton de "Registrar y guardar"
+  // Boton de "Registrar con Google"
   const listButtonRegisterGoogle = document.createElement('li');
+  listButtonRegisterGoogle.classList.add('listButtonRegisterGoogle');
   const buttonRegisterGoogle = document.createElement('button');
   buttonRegisterGoogle.classList.add('buttonRegisterGoogle');
   buttonRegisterGoogle.textContent = 'Regístrate con Google';
   listButtonRegisterGoogle.append(buttonRegisterGoogle);
+  const logoGoogle = document.createElement('img');
+  logoGoogle.src = './img/logoGoogle.png';
+  buttonRegisterGoogle.append(logoGoogle);
+
+  // Input de linea separadora
+  const containerLineDivide = document.createElement('div');
+  containerLineDivide.classList.add('containerLineDivide');
+  const lineDivide = document.createElement('div');
+  lineDivide.classList.add('lineDivide');
+  const circle = document.createElement('div');
+  circle.classList.add('circle');
+  lineDivide.append(circle);
+  containerLineDivide.append(lineDivide);
 
   // Insertar listas en formulario "formRegister"
 
@@ -65,6 +79,7 @@ export function register(navigateTo) {
     listInputCorreo,
     listInputPassword,
     listButtonRegister,
+    containerLineDivide,
     listButtonRegisterGoogle,
   );
 
@@ -142,7 +157,7 @@ export function register(navigateTo) {
     if (e.target.name === 'password') {
       const validPassword = /^.{6,12}$/;
       if (inputInsertPassword.value === '') {
-        errorInput(inputInsertPassword, 'El campo debe contener mas de 6 dígitos');
+        errorInput(inputInsertPassword, 'El campo debe contener al menos 6 dígitos');
       } else if (validPassword.test(inputInsertPassword.value) === true) {
         succesInput(inputInsertPassword);
       }
@@ -172,16 +187,22 @@ export function register(navigateTo) {
       registerUser(valueCorreo, valuePassword)
         .then((result) => {
           console.log('prueba create', result);
-        // navigateTo('/seniorFace');
+          navigateTo('/seniorFace');
         })
         .catch((err) => {
           console.error(err);
-          alert('el correo esta en uso');
+          const emailInvalid = document.createElement('div');
+          emailInvalid.classList.add('emailInvalid');
+          const messageInvalid = document.createElement('span');
+          messageInvalid.textContent = 'El correo ingresado ya se encuentra en uso, intente con otro';
+          emailInvalid.append(messageInvalid);
+          formRegister.append(emailInvalid);
+          setTimeout(() => { formRegister.removeChild(emailInvalid); }, 4000);
         });
-      formRegister.reset();
-      cleanInputs(inputInsertCorreo);
-      cleanInputs(inputInsertPassword);
     }
+    formRegister.reset();
+    cleanInputs(inputInsertCorreo);
+    cleanInputs(inputInsertPassword);
   });
 
   // Evento listener para registrarse con Google;

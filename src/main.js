@@ -4,6 +4,7 @@ import login from './components/login.js';
 import { register } from './components/register.js';
 import { error } from './components/error.js';
 import seniorFace from './components/seniorFace.js';
+import { home } from './components/home.js';
 
 const root = document.getElementById('root');
 
@@ -12,6 +13,7 @@ const myRoutes = [
   { path: '/register', component: register },
   { path: '/error', component: error },
   { path: '/seniorFace', component: seniorFace },
+  { path: '/home', component: home },
 ];
 const defaultMyRoutes = '/login';
 function navigateTo(hash) {

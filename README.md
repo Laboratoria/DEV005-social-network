@@ -13,4 +13,11 @@ Por esta razón, decidimos desarrollar una red social para gamers que permita a 
 ![Prototipo de baja fidelidad](https://github.com/MarianaAgudeloO/DEV005-social-network/blob/0a30e3d4159be734fca52ea8bb2e0036f74624e7/protos/IMG_5184.jpg)
 * Luego, definimos dos prototipos de alta fidelidad uno para móvil y otro para escritorio, definimos colores y estilos según las necesidades de los usuario. 
 ![Prototipo alta fidelidad mobile](https://github.com/MarianaAgudeloO/DEV005-social-network/blob/6d90753c771bf7a61f0457458a777d5a3c7eff19/protos/alta%20fidelidad.png)
-*  ![Prototipo alta fidelidad desktop](https://github.com/MarianaAgudeloO/DEV005-social-network/blob/6d90753c771bf7a61f0457458a777d5a3c7eff19/protos/desktop%20alta%20fidelidad.png)
+![Prototipo alta fidelidad desktop](https://github.com/MarianaAgudeloO/DEV005-social-network/blob/6d90753c771bf7a61f0457458a777d5a3c7eff19/protos/desktop%20alta%20fidelidad.png)
+
+### Usabilidad
+Realizamos test de usabilidad con un grupo de 6 personas, 3 mujeres y 3 hombres con una rango de edades entre 22 y 35 años de edad, todos jugadores de diferentes plataformas de video juegos.
+
+Iteramos en variadas ocasiones, primero los diseños en figma, y luego al finalizar las [Historias de Usuario](https://trello.com/b/K2QyQpYq/playverse) 1, 2 y 3.
+
+Finalmente el último test de usabilidad, se realizó cuando ya se habían completado todas los requerimientos de los usuarios.

@@ -27,9 +27,9 @@ export const userRegister = (email, password, errorEmail, errorPassword) => {
       if (error.code === 'auth/email-already-in-use') {
         errorEmail.innerHTML = 'Usuario ya registrado';
       } else if (error.code === 'auth/invalid-email') {
-        errorEmail.innerHTML = 'Correo invalido';
+        errorEmail.innerHTML = 'Correo inválido';
       } else if (error.code === 'auth/weak-password') {
-        errorPassword.innerHTML = 'Contraseña demasiado debil';
+        errorPassword.innerHTML = 'Contraseña demasiado débil';
       } else if (error.code === 'auth/missing-password') {
         errorPassword.innerHTML = 'Contraseña requerida';
       } else if (error.code) {

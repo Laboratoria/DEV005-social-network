@@ -1,4 +1,3 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 import {
@@ -14,10 +13,6 @@ import {
   updateDoc,
 } from 'firebase/firestore';
 
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: 'AIzaSyDtRQY-ggHLO4343_IXaN6dDpsYA9nQhhA',
   authDomain: 'mascoteando-fcfad.firebaseapp.com',
@@ -38,7 +33,12 @@ export const auth = getAuth(app);
 // Configurando Base de datos firestore
 export const db = getFirestore();
 
-export const savePost = (txtMascotiemos) => addDoc(collection(db, 'posts'), { txtMascotiemos });
+export const savePost = (txtMascotiemos) => addDoc(collection(db, 'posts'), {
+  txtMascotiemos,
+  auth: auth.currentUser.email,
+  userId: auth.currentUser.uid,
+  likes: [],
+});
 
 export const getPosts = () => getDocs(collection(db, 'posts'));
 
@@ -64,7 +64,7 @@ export const createSnapshot = (result) => {
 // Borrar post
 export const deletePost = (id) => deleteDoc(doc(db, 'posts', id));
 
-// Editar post
+// Obtener post
 
 export const getPost = (id) => getDoc(doc(db, 'posts', id));
 

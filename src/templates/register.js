@@ -21,14 +21,6 @@ export function register(navigation) {
       <span class="registroTitulo">Registro</span>
       <form class="contenedorInput">
         <label>
-        <span>Nombre completo</span>
-        <input type="text" name="nombreUsuario" class="nombreUsuario" id="nombreUsuario">
-        </label>
-        <label>
-            <span>Nombre de tu Mascota</span>
-            <input type="text" name="nombreMascota" class="nombreMascota" id="nombreMascota">
-          </label>
-        <label>
           <span>Correo electrónico</span>
           <input type="email" autocomplete="off" name="email" class="email" id="emailReg">
         </label>
@@ -41,7 +33,7 @@ export function register(navigation) {
       </form>   
         <button class="btnCrearCuenta" id="btnCrearCuenta">Registrar</button>
         <div id="mensaje-bienvenida" name="mensaje-bienvenida" class="mensaje-bienvenida"> </div>
-        <span class="textRegistro">Si ya tienes cuenta -> <button class="btnRegistro" id="btnIniciaSesion">Inicia sesión</button></span>   
+        <span class="textRegister">Si ya tienes cuenta  -> <a class="linkRegister" id="linkLogin">Inicia sesión</a></span>   
     </div>
     </main>
   </div>`;
@@ -57,7 +49,7 @@ export function register(navigation) {
   const errorEmail = section.querySelector('#errorEmail');
   const errorPassword = section.querySelector('#errorPassword');
   const btnCrearCuenta = section.querySelector('#btnCrearCuenta');
-  const btnVolverInicio = section.querySelector('#btnIniciaSesion');
+  const btnVolverInicio = section.querySelector('#linkLogin');
 
   email.addEventListener('click', () => {
     email.value = '';

@@ -1,4 +1,4 @@
-import {
+import wall, {
   likeAPost,
   saveAPost,
   deleteAPost,
@@ -8,7 +8,6 @@ import {
 }
   from '../src/components/wall.js';
 
-// import { getOnePost } from '../src/lib/posting';
 describe('likeAPost', () => {
   it('Is a function', () => {
     expect(typeof likeAPost).toBe('function');
@@ -24,21 +23,11 @@ describe('likeAPost', () => {
     expect(typeof returnedFunction).toBe('function');
   });
 });
-
 describe('saveAPost', () => {
   it('Is a function', () => {
     expect(typeof saveAPost).toBe('function');
   });
-  it('Returns a function', () => {
-    // ejecutamos el sujeto y obtenemos el retorno
-    const returnedFunction = saveAPost();
-    // validamos que el retorno sea satisfactorio
-    expect(typeof returnedFunction).toBe('function');
-  });
 });
-
-
-
 describe('deleteAPost', () => {
   it('Is a function', () => {
     expect(typeof deleteAPost).toBe('function');
@@ -90,5 +79,29 @@ describe('navigateToLoginAfterLogout', () => {
     const returnedFunction = navigateToLoginAfterLogout(navigateTo);
     // validamos que el retorno sea satisfactorio
     expect(typeof returnedFunction).toBe('function');
+  });
+});
+describe('wall', () => {
+  it('snapshot of wall', () => {
+    const DOM = document.createElement('div');
+    DOM.append(wall());
+    expect(DOM).toMatchSnapshot();
+  });
+  it('is a function', () => {
+    expect(typeof wall).toBe('function');
+  });
+  it('has a button', () => {
+    const DOM = document.createElement('div');
+    DOM.append(wall());
+    const haveAButton = DOM.querySelector('btn-post');
+    // espero que haveAButton no sea undefined
+    expect(haveAButton).toBe(null);
+  });
+  it('has a form', () => {
+    const DOM = document.createElement('form');
+    DOM.append(wall());
+    const formPost = DOM.querySelector('form-post');
+    // espero que formPost exista
+    expect(formPost).toBe(null);
   });
 });

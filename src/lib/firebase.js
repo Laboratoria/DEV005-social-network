@@ -1,7 +1,7 @@
 import { initializeApp } from 'firebase/app';
-import { getAuth } from 'firebase/auth';
+// import { getAuth } from 'firebase/auth';
 
-const firebaseApp = initializeApp({
+export const firebaseApp = initializeApp({
   apiKey: 'AIzaSyAH8HZslRIokAuOxqVA1hnrZtki-yblyuw',
   authDomain: 'social-network-8a6da.firebaseapp.com',
   databaseURL: 'https://social-network-8a6da-default-rtdb.firebaseio.com',
@@ -12,4 +12,4 @@ const firebaseApp = initializeApp({
   measurementId: 'G-R9K8Y36WJ1',
 });
 
-export const auth = getAuth(firebaseApp);
+// export const auth = getAuth(firebaseApp);

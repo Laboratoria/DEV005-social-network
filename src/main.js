@@ -1,9 +1,12 @@
-import { onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged, getAuth } from 'firebase/auth';
 import { login } from './components/login.js';
 import { signup } from './components/signup.js';
 import error from './components/error.js';
 import wall from './components/wall.js';
-import { auth } from './lib/firebase.js';
+
+import { firebaseApp } from './lib/firebase.js';
+
+const auth = getAuth(firebaseApp);
 
 const root = document.getElementById('root');
 

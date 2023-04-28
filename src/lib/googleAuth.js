@@ -1,6 +1,8 @@
 // Importa las dependencias necesarias
-import { signInWithRedirect, GoogleAuthProvider } from 'firebase/auth';
-import { auth } from './firebase.js';
+import { signInWithRedirect, GoogleAuthProvider, getAuth } from 'firebase/auth';
+import { firebaseApp } from './firebase.js';
+
+const auth = getAuth(firebaseApp);
 
 const provider = new GoogleAuthProvider();
 

@@ -14,6 +14,7 @@ export const Wall = (onNavigate) => {
   // const errorMsj = div.querySelector('#errorMsj');
   const divPost = div.querySelector('.posts');
   const iPost = div.querySelector('#iPost');
+  const btnPost = div.querySelector('#btn-post');
   let editStatus = false;
   let idPost = '';
 
@@ -46,6 +47,7 @@ export const Wall = (onNavigate) => {
   const editPost = (content) => {
     const btnEdit = content.querySelectorAll('#btn-edit');
     btnEdit.forEach((element) => element.addEventListener('click', async (e) => {
+      btnPost.textContent = 'Guardar';
       const docu = await getPost(e.target.dataset.id);
       console.log(docu);
       if (checkUser(docu)) {
@@ -60,29 +62,33 @@ export const Wall = (onNavigate) => {
       }
     }));
   };
+
   const LikeAndCount = (content) => {
-    content.addEventListener('click', async (event) => {
-      if (event.target.matches('#btn-like')) {
-        // Agrega la clase "liked" al elemento contenedor
-        event.currentTarget.classList.toggle('liked');
-        // Se obtiene la referencia del documento del post y la información de "me gusta" actual
-        const postRef = doc(db, 'posts', event.target.dataset.id);
-        const postSnap = await getDoc(postRef);
-        const post = postSnap.data();
-        const likedBy = post.likedBy || [];
-        // Verifica si el usuario actual ya ha dado "me gusta" a esta publicación
-        const currentUser = auth.currentUser;
-        if (likedBy.includes(currentUser.email)) {
-          console.log('a la usuaria ya le gusta esta publicación');
-        } else {
-          // Agrega el identificador de la usuaria a la lista de "me gusta"
-          await updateDoc(postRef, {
-            likedBy: arrayUnion(currentUser.email),
-          });
-          const newCount = likedBy.length + 1;
-          console.log('contador de likes:', newCount);
+    const btnLike = content.querySelectorAll('#btn-like');
+    btnLike.forEach((like) => {
+      like.addEventListener('click', async (event) => {
+        if (event.target.matches('#btn-like')) {
+          // Agrega la clase "liked" al elemento contenedor
+          like.classList.toggle('liked');
+          // Se obtiene la referencia post y la información de me gusta actual
+          const postRef = doc(db, 'posts', event.target.dataset.id);
+          const postSnap = await getDoc(postRef);
+          const post = postSnap.data();
+          const likedBy = post.likedBy || [];
+          // Verifica si el usuario actual ya ha dado me gusta a esta publicación
+          const currentUser = auth.currentUser;
+          if (likedBy.includes(currentUser.email)) {
+            console.log('a la usuaria ya le gusta esta publicación');
+          } else {
+            // Agrega el identificador de la usuaria a la lista de me gusta
+            await updateDoc(postRef, {
+              likedBy: arrayUnion(currentUser.email),
+            });
+            const newCount = likedBy.length + 1;
+            console.log('contador de likes:', newCount);
+          }
         }
-      }
+      });
     });
   };
   // valida que el usuario inicie sesion
@@ -124,7 +130,7 @@ export const Wall = (onNavigate) => {
         divPost.innerHTML = html;
         editPost(div);
         deleting(div);
-        LikeAndCount(div, doc.id);
+        LikeAndCount(div);
       });
     } else {
       console.log('No se ha iniciado sesion');
@@ -148,12 +154,12 @@ export const Wall = (onNavigate) => {
   };
 
   // Crea el post en la base de datos
-  const btnPost = div.querySelector('#btn-post');
   const btnOut = div.querySelector('#btn-out');
   // const currentUser = auth.currentUser;
   btnPost.addEventListener('click', () => {
     const contenido = iPost.value.trim();
     if (editStatus) {
+      btnPost.textContent = 'Publicar';
       console.log('post editado');
       updatePost(idPost, { Post: iPost.value, Author: auth.currentUser.email });
       editStatus = false;

@@ -1,7 +1,13 @@
 // aqui exportaras las funciones que necesites
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js';
-import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.20.0/firebase-auth.js';
-import { signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.20.0/firebase-auth.js';
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from 'https://www.gstatic.com/firebasejs/9.20.0/firebase-auth.js';
+
 // import register from '../components/register';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -34,11 +40,16 @@ export const signInWithPopupGoogle = (provider) => signInWithPopup(auth, provide
 
 // Función para iniciar Sesión
 
-export function validateUserAndPasswordFireBase(navigateTo, user, password) {
+export function validateUserAndPasswordFireBase(user, password) {
+  return signInWithEmailAndPassword(auth, user, password);
+}
+console.log('promesa', signInWithEmailAndPassword);
+
+/* export function validateUserAndPasswordFireBase(navigateTo, user, password) {
   signInWithEmailAndPassword(auth, user, password)
     .then(() => {
     // Signed in
-      navigateTo('/seniorFace');
+      navigateTo('/home');
     })
     .catch((error) => {
       console.log(error);
@@ -49,6 +60,6 @@ export function validateUserAndPasswordFireBase(navigateTo, user, password) {
         navigateTo('/error');
       }
     });
-}
+} */
 
 console.log('hola');

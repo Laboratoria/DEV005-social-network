@@ -32,13 +32,21 @@ export const Wall = (onNavigate) => {
     }
     return false;
   };
-
-  // borra posts
-  const deleting = (content) => {
-    const deletePost = content.querySelectorAll('#btn-delete');
-    deletePost.forEach((btn) => {
+  const modalContent = div.querySelector('.modal-content');
+  const deleteModal = (content) => {
+    const deleteBtn = content.querySelectorAll('#btn-delete');
+    deleteBtn.forEach((btn) => {
       btn.addEventListener('click', ({ target: { dataset } }) => {
-        deletePosts(dataset.id);
+        modalContent.style.display = 'flex';
+        console.log(dataset.id);
+        const deletePost = content.querySelector('#btn-ok');
+        deletePost.addEventListener('click', () => {
+          deletePosts(dataset.id);
+        });
+        const cancelBtn = content.querySelector('#btn-cancel');
+        cancelBtn.addEventListener('click', () => {
+          modalContent.style.display = 'none';
+        });
       });
     });
   };
@@ -129,7 +137,7 @@ export const Wall = (onNavigate) => {
         });
         divPost.innerHTML = html;
         editPost(div);
-        deleting(div);
+        deleteModal(div);
         LikeAndCount(div);
       });
     } else {

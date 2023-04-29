@@ -32,13 +32,21 @@ export const Wall = (onNavigate) => {
     }
     return false;
   };
-
-  // borra posts
-  const deleting = (content) => {
-    const deletePost = content.querySelectorAll('#btn-delete');
-    deletePost.forEach((btn) => {
+  const modalContent = div.querySelector('.modal-content');
+  const deleteModal = (content) => {
+    const deleteBtn = content.querySelectorAll('#btn-delete');
+    deleteBtn.forEach((btn) => {
       btn.addEventListener('click', ({ target: { dataset } }) => {
-        deletePosts(dataset.id);
+        modalContent.style.display = 'flex';
+        console.log(dataset.id);
+        const deletePost = content.querySelector('#btn-ok');
+        deletePost.addEventListener('click', () => {
+          deletePosts(dataset.id);
+        });
+        const cancelBtn = content.querySelector('#btn-cancel');
+        cancelBtn.addEventListener('click', () => {
+          modalContent.style.display = 'none';
+        });
       });
     });
   };
@@ -64,28 +72,31 @@ export const Wall = (onNavigate) => {
   };
 
   const LikeAndCount = (content) => {
-    content.addEventListener('click', async (event) => {
-      if (event.target.matches('#btn-like')) {
-        // Agrega la clase "liked" al elemento contenedor
-        event.currentTarget.classList.toggle('liked');
-        // Se obtiene la referencia del documento del post y la información de "me gusta" actual
-        const postRef = doc(db, 'posts', event.target.dataset.id);
-        const postSnap = await getDoc(postRef);
-        const post = postSnap.data();
-        const likedBy = post.likedBy || [];
-        // Verifica si el usuario actual ya ha dado "me gusta" a esta publicación
-        const currentUser = auth.currentUser;
-        if (likedBy.includes(currentUser.email)) {
-          console.log('a la usuaria ya le gusta esta publicación');
-        } else {
-          // Agrega el identificador de la usuaria a la lista de "me gusta"
-          await updateDoc(postRef, {
-            likedBy: arrayUnion(currentUser.email),
-          });
-          const newCount = likedBy.length + 1;
-          console.log('contador de likes:', newCount);
+    const btnLike = content.querySelectorAll('#btn-like');
+    btnLike.forEach((like) => {
+      like.addEventListener('click', async (event) => {
+        if (event.target.matches('#btn-like')) {
+          // Agrega la clase "liked" al elemento contenedor
+          like.classList.toggle('liked');
+          // Se obtiene la referencia post y la información de me gusta actual
+          const postRef = doc(db, 'posts', event.target.dataset.id);
+          const postSnap = await getDoc(postRef);
+          const post = postSnap.data();
+          const likedBy = post.likedBy || [];
+          // Verifica si el usuario actual ya ha dado me gusta a esta publicación
+          const currentUser = auth.currentUser;
+          if (likedBy.includes(currentUser.email)) {
+            console.log('a la usuaria ya le gusta esta publicación');
+          } else {
+            // Agrega el identificador de la usuaria a la lista de me gusta
+            await updateDoc(postRef, {
+              likedBy: arrayUnion(currentUser.email),
+            });
+            const newCount = likedBy.length + 1;
+            console.log('contador de likes:', newCount);
+          }
         }
-      }
+      });
     });
   };
   // valida que el usuario inicie sesion
@@ -126,8 +137,8 @@ export const Wall = (onNavigate) => {
         });
         divPost.innerHTML = html;
         editPost(div);
-        deleting(div);
-        LikeAndCount(div, doc.id);
+        deleteModal(div);
+        LikeAndCount(div);
       });
     } else {
       console.log('No se ha iniciado sesion');

@@ -17,11 +17,10 @@ body {
 }
 
 .wallBody {
-  background: #EDF0F5;
+  background: #edf0f5;
 }
 
 main {
-  /* display: grid; cbc6dc   d7d2e7*/
   justify-content: center;
 }
 
@@ -50,16 +49,11 @@ header {
   grid-area: 1;
   background: linear-gradient(180deg, #9a6ed5 10%, #320070 90%);
   box-shadow: 0 3px 4px 0 rgb(0 0 0 / 40%);
-  /* background: #621cb9; */
-
 }
 
 h1 {
   color: white;
-  /* font-family: "Edu NSW ACT Foundation", cursive; */
   font-family: "Rancho", cursive;
-  /*  display: flex;
-  justify-content: center; */
   font-size: 55px;
   padding-left: 4%;
 }
@@ -70,6 +64,7 @@ h2 {
   justify-content: center;
   font-size: 25px;
 }
+/* LOGIN Y REGISTER*/
 
 #container-login,
 #container-register {
@@ -82,8 +77,6 @@ h2 {
   display: grid;
   background-color: #f7f7f721;
   border-radius: 44px;
-  /* margin-left: 6%;
-  margin-right: 6%; */
   margin-bottom: -10%;
   padding: 5%;
   width: 18rem;
@@ -92,16 +85,16 @@ h2 {
 button {
   letter-spacing: 2px;
 }
+button:active {
+  position: relative;
+  top: 5px;
+}
 
 #register,
 #login {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  /* margin-left: 10%;
-  margin-right: 10%;
-  margin-bottom: 5%;
-  margin-top: 20%; */
 }
 
 #email,
@@ -112,7 +105,6 @@ button {
   width: 100%;
   background-color: #f1f1f1;
   border-style: none;
-
 }
 
 .cEmail,
@@ -151,7 +143,7 @@ a {
 #linkRegister {
   border-radius: 30px;
   padding: 3%;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   font-family: "Montserrat", sans-serif;
   color: black;
   background-color: white;
@@ -186,184 +178,6 @@ a {
   cursor: pointer;
   color: rgb(197, 176, 148);
 }
-
-button:active {
-  position: relative;
-  top: 5px;
-}
-
-.publish {
-  color: #ffffff;
-  background-color: #320070;
-  border-radius: 10px;
-  border-style: none;
-  grid-area: foot;
-}
-
-.cPost {
-  display: grid;
-  grid-area: 2;
-  /* margin-top: 5%;*/
-}
-
-.wall-template {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1%;
-  /* grid-template-rows: 70px 100px 60px 800px; */
-  /* background: #ffffff; */
-  /* width: 100%; */
-  /* height: 100%; */
-  /* position: relative; */
-  background-size: initial;
-  background-image: url(/img/LogoMorado.png);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: bottom;
-  grid-template-areas:
-    '1'
-    '2'
-    '3'
-    '4'
-}
-
-#wall-tittle {
-  display: grid;
-  grid-area: 1;
-  color: white;
-  font-family: "Rancho", cursive;
-  font-size: 30px;
-  margin-left: 6%;
-}
-
-#iPost {
-  display: grid;
-  grid-area: 2;
-  align-content: center;
-  padding: 4%;
-  width: 80%;
-  height: 8rem;
-  border-radius: 20px;
-  border-style: none;
-  /* background-color: rgb(194, 192, 192); */
-  background-color: white;
-  color: rgb(0, 0, 0);
-  justify-self: center;
-  box-shadow: 0 3px 4px 0 rgb(0 0 0 / 40%);
-  font-family: "Montserrat", sans-serif;
-}
-
-.btn-class {
-  display: grid;
-  grid-area: 3;
-  /* margin-top: 3%; */
-  background-color: #610cd1;
-  color: white;
-  border: none;
-  font-size: 15px;
-  width: 8rem;
-  height: 2rem;
-  align-items: center;
-  border-radius: 20px;
-}
-
-
-#btn-post {
-  display: grid;
-  grid-area: 3;
-  /* margin-top: 3%; */
-  background-color: #610cd1;
-  color: white;
-  border: none;
-  font-size: 15px;
-  width: 8rem;
-  height: 2rem;
-  /* margin-left: 60%; */
-  justify-self: end;
-  margin-right: 10%;
-  align-items: center;
-  border-radius: 20px;
-  box-shadow: 0 3px 4px 0 rgb(0 0 0 / 40%);
-}
-
-#btn-edit {
-  display: flex;
-  justify-content: center;
-  width: 4rem;
-  background-color: #610cd1;
-  align-self: center;
-  grid-area: buttom;
-  justify-self: flex-end;
-  margin-right: 5.3rem;
-}
-
-#btn-delete {
-  display: flex;
-  justify-content: center;
-  width: 5rem;
-  background-color: #610cd1;
-  align-self: center;
-  grid-area: buttom;
-  justify-self: end;
-}
-
-
-#btn-out {
-  display: grid;
-  grid-area: 1;
-  width: fit-content;
-  /* height: fit-content; */
-  border-radius: 10px;
-  color: #320070;
-  background-color: white;
-  /* margin-left: 30%; */
-  /* margin-right: 0%; */
-  justify-self: self-end;
-  margin-right: 22%;
-}
-
-.posts {
-  display: grid;
-  color: black;
-  grid-area: 4;
-  gap: 1%;
-}
-
-.post-likes {
-  grid-area: buttom;
-  justify-self: start;
-  align-self: center;
-}
-
-.liPost {
-  display: grid;
-  grid-template-areas:
-      'top'
-      'center'
-      'buttom';
-  gap: 0.5rem;
-}
-
-.author {
-  grid-area: top;
-  margin: 0;
-  overflow-wrap: anywhere;
-}
-
-.container-liPost {
-  background-color: white;
-  box-shadow: 0 3px 4px 0 rgb(0 0 0 / 40%);
-  border-radius: 20px;
-  /* border-color: #c3bfbf5c;
-  border-style: outset; */
-  width: 80%;
-  /* height: fit-content; */
-  padding: 5%;
-  justify-self: center;
-  list-style: none;
-  display: grid;
-}
-
 /* Logo de GOOGLE */
 #google-Logo {
   width: 40px;
@@ -398,6 +212,153 @@ button:active {
   height: 18px;
 }
 
+/* MURO */
+.cPost {
+  display: grid;
+  grid-area: 2;
+}
+
+.wall-template {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1%;
+  background-size: initial;
+  background-image: url(/img/LogoMorado.png);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: bottom;
+  grid-template-areas:
+    "1"
+    "2"
+    "3"
+    "4";
+}
+
+#wall-tittle {
+  display: grid;
+  grid-area: 1;
+  color: white;
+  font-family: "Rancho", cursive;
+  font-size: 30px;
+  margin-left: 6%;
+}
+
+#iPost {
+  display: grid;
+  grid-area: 2;
+  align-content: center;
+  padding: 4%;
+  width: 80%;
+  height: 8rem;
+  border-radius: 20px;
+  border-style: none;
+  background-color: white;
+  color: rgb(0, 0, 0);
+  justify-self: center;
+  box-shadow: 0 3px 4px 0 rgb(0 0 0 / 40%);
+  font-family: "Montserrat", sans-serif;
+}
+
+.btn-class {
+  display: grid;
+  grid-area: 3;
+  background-color: #610cd1;
+  color: white;
+  border: none;
+  font-size: 15px;
+  width: 8rem;
+  height: 2rem;
+  align-items: center;
+  border-radius: 20px;
+}
+
+#btn-post {
+  display: grid;
+  grid-area: 3;
+  background-color: #610cd1;
+  color: white;
+  border: none;
+  font-size: 15px;
+  width: 8rem;
+  height: 2rem;
+  justify-self: end;
+  margin-right: 10%;
+  align-items: center;
+  border-radius: 20px;
+  box-shadow: 0 3px 4px 0 rgb(0 0 0 / 40%);
+}
+
+#btn-edit {
+  display: flex;
+  justify-content: center;
+  width: 4rem;
+  background-color: #610cd1;
+  align-self: center;
+  grid-area: buttom;
+  justify-self: flex-end;
+  margin-right: 5.3rem;
+}
+
+#btn-delete {
+  display: flex;
+  justify-content: center;
+  width: 5rem;
+  background-color: #610cd1;
+  align-self: center;
+  grid-area: buttom;
+  justify-self: end;
+}
+
+#btn-out {
+  display: grid;
+  grid-area: 1;
+  width: fit-content;
+  border-radius: 10px;
+  color: #320070;
+  background-color: white;
+  justify-self: self-end;
+  margin-right: 22%;
+}
+
+.posts {
+  display: grid;
+  color: black;
+  grid-area: 4;
+  gap: 1%;
+}
+
+.post-likes {
+  grid-area: buttom;
+  justify-self: start;
+  align-self: center;
+}
+
+.liPost {
+  display: grid;
+  grid-template-areas:
+    "top"
+    "center"
+    "buttom";
+  gap: 0.5rem;
+}
+
+.author {
+  grid-area: top;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.container-liPost {
+  background-color: white;
+  box-shadow: 0 3px 4px 0 rgb(0 0 0 / 40%);
+  border-radius: 20px;
+  width: 80%;
+  padding: 5%;
+  justify-self: center;
+  list-style: none;
+  display: grid;
+}
+
 .btn-text {
   margin: 11px 11px 0 0;
   color: black;
@@ -407,15 +368,7 @@ button:active {
   margin-left: 45px;
 }
 
-.google-btn:hover {
-  box-shadow: 0 0 6px #4285f4;
-}
-
-.google-btn :active {
-  background: #1669f2;
-}
-
-#btn-like{
+#btn-like {
   color: #610cd1;
   font-size: 2rem;
   background-color: #ffffff;
@@ -425,9 +378,9 @@ button:active {
   grid-area: 4;
   width: 2rem;
 }
-.modal-content{
+.modal-content {
   background-color: #fefefe;
-  padding: 40px;
+  padding: 20px;
   border: 1px solid #888;
   display: none;
   position: fixed;
@@ -439,38 +392,34 @@ button:active {
   flex-wrap: wrap;
   gap: 10%;
   justify-content: center;
+  text-align: center;
 }
-#answer{
- color: black;
- display: flex;
-display: grid;
-justify-self: center;
+#answer {
+  color: black;
+/*   display: flex; */
+  display: grid;
+  justify-self: center;
+  margin-top: 0px;
 }
-
-#btn-like.liked{
-  color: #ffffff;
-  font-size: 1rem;
-  background-color: #610cd1;
+#btn-cancel{
+  background-color: #fefefe;
+  border: 2px #610cd1;
+  color: #610cd1;
+  margin-top: 5px;
 }
-
 @media (min-width: 1024px) {
-
   header,
   h1 {
     padding: 0%;
     margin-bottom: 1%;
   }
-
   #wall-tittle {
     padding-left: 4%;
     margin-bottom: 3%;
   }
-
 }
-
 @media (max-width: 540px) {
-  .container-liPost  {
+  .container-liPost {
     width: 18rem;
   }
-
 }

@@ -1,5 +1,6 @@
 import {
-  collection, addDoc, doc, getDoc, updateDoc, deleteDoc, arrayUnion, onSnapshot, orderBy, query,
+  // eslint-disable-next-line max-len
+  collection, addDoc, doc, getDoc, updateDoc, deleteDoc, arrayUnion, arrayRemove, onSnapshot, orderBy, query,
 } from 'firebase/firestore';
 
 import { signOut, onAuthStateChanged } from 'firebase/auth';
@@ -70,31 +71,29 @@ export const Wall = (onNavigate) => {
       }
     }));
   };
-
   const LikeAndCount = (content) => {
     const btnLike = content.querySelectorAll('#btn-like');
     btnLike.forEach((like) => {
       like.addEventListener('click', async (event) => {
         if (event.target.matches('#btn-like')) {
-          // Agrega la clase "liked" al elemento contenedor
-          like.classList.toggle('liked');
-          // Se obtiene la referencia post y la información de me gusta actual
           const postRef = doc(db, 'posts', event.target.dataset.id);
           const postSnap = await getDoc(postRef);
           const post = postSnap.data();
           const likedBy = post.likedBy || [];
-          // Verifica si el usuario actual ya ha dado me gusta a esta publicación
           const currentUser = auth.currentUser;
+          let newCount;
           if (likedBy.includes(currentUser.email)) {
-            console.log('a la usuaria ya le gusta esta publicación');
+            await updateDoc(postRef, {
+              likedBy: arrayRemove(currentUser.email),
+            });
+            newCount = likedBy.length - 1;
           } else {
-            // Agrega el identificador de la usuaria a la lista de me gusta
             await updateDoc(postRef, {
               likedBy: arrayUnion(currentUser.email),
             });
-            const newCount = likedBy.length + 1;
-            console.log('contador de likes:', newCount);
+            newCount = likedBy.length + 1;
           }
+          console.log('contador de likes:', newCount);
         }
       });
     });

@@ -425,6 +425,27 @@ button:active {
   grid-area: 4;
   width: 2rem;
 }
+.modal-content{
+  background-color: #fefefe;
+  padding: 40px;
+  border: 1px solid #888;
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 30%;
+  top: 30%;
+  width: 50%;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  gap: 10%;
+  justify-content: center;
+}
+#answer{
+ color: black;
+ display: flex;
+display: grid;
+justify-self: center;
+}
 
 #btn-like.liked{
   color: #ffffff;

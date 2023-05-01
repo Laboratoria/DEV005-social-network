@@ -12,7 +12,7 @@ export const WallTemplate = `
     <p id='errorMsj' class='wallErrorMsj'></p>
     <div class="posts"></div>
     <div class="modal-content">
-    <p id="answer">¿Seguro que quieres eliminar esta publicación?</p>
+    <p id="answer">¿Segura que quieres eliminar esta publicación?</p>
     <button id="btn-ok" class="publish btn-class">Confirmar</button>
     <button id="btn-cancel" class="publish btn-class">Cancelar</button>
     </div>

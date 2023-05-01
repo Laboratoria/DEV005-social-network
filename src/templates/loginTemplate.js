@@ -20,12 +20,11 @@ export const LoginTemplate = `
     
     <button id="linkRegister">Regístrate</button>
 
-    <buttom class="google-btn" id= "btn-google">
+    <button class="google-btn" id= "btn-google">Accede con Google
     <div class="google-icon-wrapper">
       <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
     </div>
-      <p class="btn-text"><b>Accede con Google</b></p>
-    </buttom>
+    </button>
     </section>
     </section>
 `;

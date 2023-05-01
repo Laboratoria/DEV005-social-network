@@ -238,6 +238,7 @@ button:active {
 
 #iPost {
   display: grid;
+  resize: none;
   grid-area: 2;
   align-content: center;
   padding: 4%;
@@ -338,9 +339,9 @@ button:active {
 .liPost {
   display: grid;
   grid-template-areas:
-      'top'
-      'center'
-      'buttom';
+    'top'
+    'center'
+    'buttom';
   gap: 0.5rem;
 }
 
@@ -373,12 +374,18 @@ button:active {
 }
 
 .google-btn {
-  margin: 10px auto;
   width: 215px;
   height: 42px;
   background-color: white;
   box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
+  border-style: none;
   border-radius: 30px;
+  letter-spacing: 0.5px;
+  font-family: "Montserrat", sans-serif;
+  color: black;
+  font-weight: bold;
+  text-align: end;
+  padding-right: 12%;
 }
 
 .google-icon-wrapper {
@@ -391,11 +398,12 @@ button:active {
 }
 
 .google-icon {
-  position: absolute;
+  position: relative;
   margin-top: 11px;
-  margin-left: 11px;
   width: 18px;
-  height: 18px;
+  bottom: 29px;
+  margin-right: 16px;
+  margin-left: 5%;
 }
 
 .btn-text {
@@ -415,7 +423,7 @@ button:active {
   background: #1669f2;
 }
 
-#btn-like{
+#btn-like {
   color: #610cd1;
   font-size: 2rem;
   background-color: #ffffff;
@@ -425,7 +433,8 @@ button:active {
   grid-area: 4;
   width: 2rem;
 }
-.modal-content{
+
+.modal-content {
   background-color: #fefefe;
   padding: 40px;
   border: 1px solid #888;
@@ -440,14 +449,15 @@ button:active {
   gap: 10%;
   justify-content: center;
 }
-#answer{
- color: black;
- display: flex;
-display: grid;
-justify-self: center;
+
+#answer {
+  color: black;
+  display: flex;
+  display: grid;
+  justify-self: center;
 }
 
-#btn-like.liked{
+#btn-like.liked {
   color: #ffffff;
   font-size: 1rem;
   background-color: #610cd1;
@@ -469,7 +479,7 @@ justify-self: center;
 }
 
 @media (max-width: 540px) {
-  .container-liPost  {
+  .container-liPost {
     width: 18rem;
   }
 

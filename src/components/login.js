@@ -23,27 +23,28 @@ const login = (navigateTo) => {
     navigateTo('/register');
   });
   const buttonReturn = formularioLogin.querySelector('.buttonReturn');
-  buttonReturn.addEventListener('click', async (e) => {
+  buttonReturn.addEventListener('click', (e) => {
     e.preventDefault();
-    const email = document.getElementById('loginCorreo').value;
-    const password = document.getElementById('loginContra').value;
-    loginConfig(email, password)
+    const email = document.getElementById('loginCorreo'); // .value
+    const password = document.getElementById('loginContra'); // .value;
+    loginConfig(email.value, password.value)
       .then(() => {
-        console.log(email, password);
         navigateTo('/muro');
       })
       .catch((error) => {
-        if (error.code === 'auth/user-not-found') {
-          alert('no esta registrado');
+        if (error === 'auth/user-not-found') {
+          console.log('No estas registrado, crea una cuenta');
         }
-
-        if (error.code === 'auth/wrong-password') {
-          alert('contraseña incorrecta');
+        if (error === 'auth/invalid-email') {
+          console.log('Verifica el correo electronico ingresado');
         }
-        return error;
+        if (error === 'auth/wrong-password') {
+          console.log('Verifica la contraseña ingresada');
+        } else {
+          console.log('Verifica los datos ingresados');
+        }
       });
   });
-  formularioLogin.appendChild(mensajelogin);
   return formularioLogin;
 };
 export default login;

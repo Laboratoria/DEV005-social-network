@@ -6,7 +6,6 @@ import {
   GithubAuthProvider,
   TwitterAuthProvider,
   signInWithPopup,
-  signOut,
 } from 'firebase/auth';
 import { auth } from './firebaseConfig';
 
@@ -16,7 +15,6 @@ export const loginConfig = (email, password) => new Promise((resolve, reject) =>
     .then((userCredential) => {
       const user = userCredential.user;
       resolve({ email: user, password: user.password });
-      console.log(userCredential);
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -47,20 +45,20 @@ export const loginWithGoogle = () => new Promise((resolve, reject) => {
 });
 
 // TODO: Función de logeo con Github
-export const loginWithGithub = () => {
+export const loginWithGithub = () => new Promise((resolve, reject) => {
   const provider = new GithubAuthProvider();
   signInWithPopup(auth, provider)
     .then((result) => {
       const credential = GithubAuthProvider.credentialFromResult(result);
       const githubUser = result.user;
-      console.log(githubUser);
-      console.log(credential);
-      console.log('sign in with Github');
+      console.log('sign in with Github', githubUser, credential);
+      resolve(githubUser, credential);
     }).catch((error) => {
       const errorCode = error.code;
       console.log(errorCode);
+      reject(errorCode);
     });
-};
+});
 // TODO: Función de logeo con Twitter
 
 export const loginWithTwitter = () => new Promise((resolve, reject) => {
@@ -81,11 +79,3 @@ export const loginWithTwitter = () => new Promise((resolve, reject) => {
       reject(error.code);
     });
 });
-export const signOutSession = () => {
-  signOut(auth).then(() => {
-    alert('OK Cerrar Sesión');
-  }).catch((error) => {
-    const errores = error.code;
-    alert(errores);
-  });
-};

@@ -6,7 +6,7 @@
 }
 body{
   background-color: #D4CDC4;
-  font-family: 'Poppins';
+  font-family: 'Poppins', sans-serif;
 }
 @media(max-width: 600px) {
   .diverror{
@@ -31,10 +31,10 @@ body{
   .btnerror{
     border-radius: 10px;
     padding: 12px;
-    margin: auto 15px;
+    margin: 15px 15px;
     font-size: 18px;
     border-style: none;
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
     background-color: #F2B872;
   }
   .infoerror{
@@ -46,8 +46,5 @@ body{
   .messageerror{
     font-size: 36px;
     color: #80A6A2;
-  }
-  .btnerror{
-    margin-top: 15px;
   }
 }

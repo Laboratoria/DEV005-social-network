@@ -5,7 +5,7 @@ import {
   getFirestore, // conexion
   collection, // crear una tabla con los datos
   addDoc, // añadir documentos
-  getDocs, // obtener documentos
+  // getDocs, // obtener documentos
   onSnapshot, // escucha y trae los cambios de los datos
   deleteDoc,
   doc,
@@ -32,11 +32,9 @@ export const auth = getAuth(app);
 // Conexión a la base de datos
 const db = getFirestore(app);
 // Guardar Publicacion en firestore
-export const saveTask = (description) => {
-  addDoc(collection(db, 'post'), { description }); // nombre de la coleccion "post", donde se va a guardar los datos
-};
+export const saveTask = (description) => addDoc(collection(db, 'post'), { description }); // nombre de la coleccion "post", donde se va a guardar los datos
 // traer los post guardados en el firestore
-export const getTask = () => getDocs(collection(db, 'post'));
+// export const getTask = () => getDocs(collection(db, 'post'));
 
 // onSnapshot -> para que escuche los cambios y se vea en tiempo real
 export const onGetTasks = (callback) => onSnapshot(collection(db, 'post'), callback);

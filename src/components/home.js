@@ -2,7 +2,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { loginWithGithub, loginWithGoogle, loginWithTwitter } from '../lib/loginConfig.js';
 import { auth } from '../lib/firebaseConfig.js';
 
-const home = (navigateTo) => {
+function home(navigateTo) {
   const homediv = document.createElement('div');
   homediv.className = 'homediv';
   const imghome = document.createElement('div');
@@ -26,7 +26,11 @@ const home = (navigateTo) => {
   buttongoogle.textContent = 'Continuar con Google';
   buttongoogle.addEventListener('click', () => {
     loginWithGoogle();
-    navigateTo('/muro');
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        navigateTo('/muro');
+      }
+    });
   });
   const icongoogle = document.createElement('div');
   icongoogle.className = 'icongoogle';
@@ -45,12 +49,15 @@ const home = (navigateTo) => {
   icontwitter.className = 'icontwitter';
   // ? botón de github
   const buttongithub = document.createElement('button');
+  buttongithub.type = 'button';
   buttongithub.className = 'buttongithub';
   buttongithub.addEventListener('click', () => {
     loginWithGithub();
     onAuthStateChanged(auth, (user) => {
       if (user) {
         navigateTo('/muro');
+      } else {
+        navigateTo('/');
       }
     });
   });
@@ -76,6 +83,6 @@ const home = (navigateTo) => {
   buttontwitter.appendChild(icontwitter);
   buttongithub.append(icongithub);
   return homediv;
-};
+}
 
 export default home;

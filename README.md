@@ -5,13 +5,14 @@
 Nuestro proyecto busca crear un espacio seguro y acogedor para que mujeres viajeras compartan sus experiencias, se apoyen mutuamente y se sientan empoderadas para explorar el mundo. Creemos que el intercambio de información y la conexión entre mujeres viajeras pueden ser una fuerza positiva para cambiar la forma en que las mujeres se sienten acerca de viajar y para impulsar el turismo responsable y sostenible en todo el mundo.
 
 **Historias de usuario**
-![Historias de Usuario](src/img/HU.png)
+(src/img/HU.png)
 
-**Prototipos de baja y alta fidelidad**
+**Prototipo alta fidelidad**
 [Has Click aqui para ver el prototipo en Figma] (https://www.figma.com/file/Lz5IbAXuENEgHiUkAAcrUc/prototype?node-id=0-1&t=jhdHyot0Y82iCAur-0)
 
 **Comentarios de los test de usubilidad**
-Los comentarios que recibimos por parte de las usuarias que probaron nuestra red social fueron en gran parte positivos, ya que nos comentaron que es facil de usar y muy intuitivo,  solo se encontraron problemas de diseño en el boton para acceder con Google en usuarias de Iphone
+
+Recibimos comentarios mayoritariamente positivos por parte de las usuarias que probaron nuestra red social, quienes indicaron que es fácil de usar e intuitiva. Sin embargo, se detectaron algunos problemas en el diseño del botón para acceder con Google en usuarias de iPhone.
 
 **Objetivos de aprendisaje**
 

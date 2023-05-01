@@ -1,3 +1,5 @@
+import { createCollection, getPost, onGetPost } from '../lib/index';
+
 export function home() {
 // Creación del body
   const bodyHome = document.createElement('body');
@@ -23,20 +25,58 @@ export function home() {
   buttonSendPost.textContent = 'Enviar';
   articleUser.append(labelUser, inputlUserPost, buttonSendPost);
   sectionUser.append(articleUser);
-
   // Creación de sección para post
+  const sectionToPost = document.createElement('section');
+  const formToPost = document.createElement('form');
+  const labelToPost = document.createElement('label');
+  labelToPost.textContent = 'CREAR PUBLICACION';
+  const inputToPost = document.createElement('input');
+  inputToPost.placeholder = 'QUE DESEAS COMPARTIR HOY';
+  const buttonToPost = document.createElement('button');
+  buttonToPost.textContent = 'PUBLICAR';
+  formToPost.append(labelToPost, inputToPost, buttonToPost);
+
+  // Ingresandoelementos a sectionToPost
+  sectionToPost.append(formToPost);
   const sectionPost = document.createElement('section');
-  const articlePost = document.createElement('article');
-  sectionPost.append(articlePost);
 
   // Ingreso de elementos en mainHome
 
-  mainHome.append(sectionUser, sectionPost);
+  mainHome.append(sectionToPost, sectionPost);
 
   // Ingreso de elementos en bodyHome
   bodyHome.append(
     navHome,
     mainHome,
   );
+  // --------------------------------------------------------------
+  // ---------------------------------------------------------------
+
+  // Pintar post al refrescar pantalla
+  window.addEventListener('DOMContentLoaded', async () => {
+    //----------------------------------
+
+    onGetPost((querySnapshot) => {
+      let html = '';
+      querySnapshot.forEach((doc) => {
+        const post = doc.data();
+        html += ` <article>
+      <p>${post.newPost}</p>
+    </article>`;
+      });
+      sectionPost.innerHTML = html;
+    });
+  });
+
+  // crecion de eventos
+  formToPost.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const newPost = {
+      content: inputToPost.value,
+    };
+    createCollection(newPost.content);
+  });
+
   return bodyHome;
 }

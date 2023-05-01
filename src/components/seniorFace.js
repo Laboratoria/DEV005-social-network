@@ -1,4 +1,4 @@
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.19.0/firebase-app.js';
+/* import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.19.0/firebase-app.js';
 import { getAuth, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.19.0/firebase-auth.js';
 import {
   getFirestore, collection, query, onSnapshot, where, addDoc,
@@ -24,7 +24,7 @@ function getHtmlPost(querySnapshot) {
   querySnapshot.forEach((doc) => {
     const postData = doc.data();
     const postHtml = `<article class="post-item">
-    <p> ${postData.description} </p> 
+    <p> ${postData.description} </p>
     </article>`;
     html += postHtml;
   });
@@ -127,4 +127,4 @@ function seniorFace(navigateTo) {
 
   return root;
 }
-export default seniorFace;
+export default seniorFace; */

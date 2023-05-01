@@ -8,6 +8,9 @@ import {
   signInWithPopup,
 } from 'https://www.gstatic.com/firebasejs/9.20.0/firebase-auth.js';
 
+import {
+  getFirestore, collection, getDocs, query, onSnapshot, where, addDoc,
+} from 'https://www.gstatic.com/firebasejs/9.20.0/firebase-firestore.js';
 // import register from '../components/register';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -45,21 +48,14 @@ export function validateUserAndPasswordFireBase(user, password) {
 }
 console.log('promesa', signInWithEmailAndPassword);
 
-/* export function validateUserAndPasswordFireBase(navigateTo, user, password) {
-  signInWithEmailAndPassword(auth, user, password)
-    .then(() => {
-    // Signed in
-      navigateTo('/home');
-    })
-    .catch((error) => {
-      console.log(error);
-      const errorCode = error.code;
-      if (errorCode === 'auth/user-not-found' || errorCode === 'auth/wrong-password') {
-        alert('Usuario no encontrado verificar la informacion ingresada');
-      } else {
-        navigateTo('/error');
-      }
-    });
-} */
+// funciones para publicar
 
-console.log('hola');
+const db = getFirestore();
+
+export const createCollection = (newPost) => {
+  addDoc(collection(db, 'post'), { newPost });
+};
+
+export const getPost = getDocs(collection(db, 'post'));
+
+export const onGetPost = (callback) => onSnapshot(collection(db, 'post'), callback);

@@ -245,6 +245,7 @@ a {
 
 #iPost {
   display: grid;
+  resize: none;
   grid-area: 2;
   align-content: center;
   padding: 4%;
@@ -336,9 +337,9 @@ a {
 .liPost {
   display: grid;
   grid-template-areas:
-    "top"
-    "center"
-    "buttom";
+    'top'
+    'center'
+    'buttom';
   gap: 0.5rem;
 }
 
@@ -359,6 +360,47 @@ a {
   display: grid;
 }
 
+/* Logo de GOOGLE */
+#google-Logo {
+  width: 40px;
+  padding: 10%;
+  background-color: aliceblue;
+  border-radius: 50%;
+}
+
+.google-btn {
+  width: 215px;
+  height: 42px;
+  background-color: white;
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
+  border-style: none;
+  border-radius: 30px;
+  letter-spacing: 0.5px;
+  font-family: "Montserrat", sans-serif;
+  color: black;
+  font-weight: bold;
+  text-align: end;
+  padding-right: 12%;
+}
+
+.google-icon-wrapper {
+  position: absolute;
+  margin-top: 1px;
+  margin-left: 1px;
+  width: 40px;
+  height: 40px;
+  border-radius: 2px;
+}
+
+.google-icon {
+  position: relative;
+  margin-top: 11px;
+  width: 18px;
+  bottom: 29px;
+  margin-right: 16px;
+  margin-left: 5%;
+}
+
 .btn-text {
   margin: 11px 11px 0 0;
   color: black;
@@ -366,6 +408,14 @@ a {
   letter-spacing: 1px;
   font-family: "Montserrat", sans-serif;
   margin-left: 45px;
+}
+
+.google-btn:hover {
+  box-shadow: 0 0 6px #4285f4;
+}
+
+.google-btn :active {
+  background: #1669f2;
 }
 
 #btn-like {
@@ -378,6 +428,7 @@ a {
   grid-area: 4;
   width: 2rem;
 }
+
 .modal-content {
   background-color: #fefefe;
   padding: 20px;
@@ -394,9 +445,15 @@ a {
   justify-content: center;
   text-align: center;
 }
+
+#btn-like.liked {
+  color: #ffffff;
+  font-size: 1rem;
+  background-color: #610cd1;
+}
+
 #answer {
   color: black;
-/*   display: flex; */
   display: grid;
   justify-self: center;
   margin-top: 0px;

@@ -18,6 +18,7 @@ export const Wall = (onNavigate) => {
   const btnPost = div.querySelector('#btn-post');
   let editStatus = false;
   let idPost = '';
+  let savePostTarget = '';
 
   // const getDocument = () => getDocs(collection(db, 'posts'));
   const getPost = (id) => getDoc(doc(db, 'posts', id));
@@ -43,6 +44,7 @@ export const Wall = (onNavigate) => {
         const deletePost = content.querySelector('#btn-ok');
         deletePost.addEventListener('click', () => {
           deletePosts(dataset.id);
+          modalContent.style.display = 'none';
         });
         const cancelBtn = content.querySelector('#btn-cancel');
         cancelBtn.addEventListener('click', () => {
@@ -57,13 +59,15 @@ export const Wall = (onNavigate) => {
     const btnEdit = content.querySelectorAll('#btn-edit');
     btnEdit.forEach((element) => element.addEventListener('click', async (e) => {
       btnPost.textContent = 'Guardar';
+      console.log(element);
       const docu = await getPost(e.target.dataset.id);
-      console.log(docu);
       if (checkUser(docu)) {
         console.log('El user ES autor del post');
+        iPost.focus();
         iPost.value = docu.data().Post;
         idPost = docu.id;
         editStatus = true;
+        savePostTarget = e.target.dataset.id;
       } else {
         console.log('el user No es el autor del post');
         iPost.value = '';
@@ -115,7 +119,7 @@ export const Wall = (onNavigate) => {
                 <p class="author"><b>${author}</b></p>
                 ${post.Post}
                 <span class="post-likes">${post.likedBy.length} Me gusta</span>
-                <buttom class="btn-class" id="btn-edit" data-id="${docu.id}">Editar</buttom>
+                <button class="btn-class" id='btn-edit' data-id="${docu.id}">Editar</button>
                 <button class="btn-class" id='btn-delete' data-id="${docu.id}">Eliminar</button>
               </li>
             </div>
@@ -168,6 +172,7 @@ export const Wall = (onNavigate) => {
     if (editStatus) {
       btnPost.textContent = 'Publicar';
       console.log('post editado');
+      div.querySelector(`[data-id='${savePostTarget}']`).focus();
       updatePost(idPost, { Post: iPost.value, Author: auth.currentUser.email });
       editStatus = false;
     } else if (contenido !== '') {

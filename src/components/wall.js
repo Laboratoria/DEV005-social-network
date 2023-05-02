@@ -14,7 +14,9 @@ export const saveAPost = (textPost) => {
   const handleSavePost = (event) => {
     event.preventDefault();
     if (!editStatus) {
-      savePost(textPost);
+      if (textPost.value !== '') {
+        savePost(textPost);
+      }
     } else {
       editPost(id, { text: textPost.value });
       editStatus = false;

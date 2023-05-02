@@ -50,8 +50,8 @@ function home(navigateTo) {
     postContainer.appendChild(textarea);
 
     const buttonsContainer = document.createElement('div');
-    buttonsContainer.classList.add('buttonsContainer');
-    postContainer.appendChild(buttonsContainer);
+    buttonsContainer.classList.add('buttonsPost');
+
     const editButton = document.createElement('button');
     editButton.classList.add('edit');
     editButton.textContent = 'Editar';
@@ -70,7 +70,6 @@ function home(navigateTo) {
     if (auth.currentUser.email === info.userEmail) {
       buttonsContainer.appendChild(editButton);
     }
-    postForm.appendChild(postContainer);
 
     const deleteButton = document.createElement('button');
     deleteButton.classList.add('delete-btn');
@@ -81,7 +80,7 @@ function home(navigateTo) {
       if (confirmDelete) {
         deleteDocData(doc.id);
         deleteButton.value = doc.id;
-        deleteButton.parentElement.remove();
+        deleteButton.closest('.divPost').remove();
       }
     });
     if (auth.currentUser.email === info.userEmail) {
@@ -104,6 +103,8 @@ function home(navigateTo) {
       }
     });
     buttonsContainer.appendChild(likeButton);
+    postContainer.appendChild(buttonsContainer);
+    postForm.appendChild(postContainer);
 
     return postForm;
   };

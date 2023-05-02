@@ -49,9 +49,8 @@ function home(navigateTo) {
     textarea.setAttribute('readonly', true);
     postContainer.appendChild(textarea);
 
-    // Contenedor para botones
     const buttonsContainer = document.createElement('div');
-    buttonsContainer.classList.add('buttonsContainer');
+    buttonsContainer.classList.add('buttonsPost');
 
     const editButton = document.createElement('button');
     editButton.classList.add('edit');
@@ -81,7 +80,7 @@ function home(navigateTo) {
       if (confirmDelete) {
         deleteDocData(doc.id);
         deleteButton.value = doc.id;
-        deleteButton.parentElement.remove();
+        deleteButton.closest('.divPost').remove();
       }
     });
     if (auth.currentUser.email === info.userEmail) {
@@ -104,10 +103,9 @@ function home(navigateTo) {
       }
     });
     buttonsContainer.appendChild(likeButton);
-    const postGlobal = document.createElement('div');
-    postGlobal.appendChild(postContainer);
-    postGlobal.appendChild(buttonsContainer);
-    postForm.appendChild(postGlobal);
+    postContainer.appendChild(buttonsContainer);
+    postForm.appendChild(postContainer);
+
     return postForm;
   };
 

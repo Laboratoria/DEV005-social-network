@@ -1,23 +1,50 @@
-import { labelMovement } from '../src/lib';
+import { labelMovement } from '../src/lib/index.js';
 
 describe('labelMovement', () => {
-  const input = document.createElement('input');
-  const label = document.createElement('label');
-  label.classList.add('label');
-  document.body.appendChild(input);
-  document.body.appendChild(label);
-  labelMovement(input, label);
-  it('click adds active class', () => {
-    // Ejecuta el evento click en el input
-    input.click();
-    // Verifica que la clase 'active' se haya añadido del label
-    expect(label.classList.contains('active')).toBe(true);
+  let input;
+  let label;
+  let addEventListenerMock;
+
+  beforeEach(() => {
+    // Crear elementos ficticios
+    input = {
+      value: '',
+      addEventListener: jest.fn(),
+    };
+
+    label = {
+      classList: {
+        add: jest.fn(),
+        remove: jest.fn(),
+      },
+    };
+
+    // Función mock para addEventListener
+    addEventListenerMock = input.addEventListener.mock;
+
+    // Llamar a la función labelMovement con los elementos ficticios
+    labelMovement(input, label);
   });
-  it('blur adds remove class', () => {
-    // Ejecuta el evento blur en el input
-    // Debemos simular el evento blur porque no es detectado
-    input.dispatchEvent(new Event('blur'));
-    // Verifica que la clase 'active' se haya eliminado del label
-    expect(label.classList.contains('active')).toBe(false);
+
+  it('Agrega la clase "active" al label cuando el input es clickeado', () => {
+    const clickCallback = addEventListenerMock.calls.find(([event]) => event === 'click')[1];
+    clickCallback();
+
+    expect(label.classList.add).toHaveBeenCalledWith('active');
+  });
+
+  it('Remueve la clase "active" del label cuando el input pierde el foco y está vacío', () => {
+    const blurCallback = addEventListenerMock.calls.find(([event]) => event === 'blur')[1];
+    blurCallback();
+
+    expect(label.classList.remove).toHaveBeenCalledWith('active');
+  });
+
+  it('Mantiene la clase "active" en el label cuando el input pierde el foco y tiene contenido', () => {
+    input.value = 'contenido';
+    const blurCallback = addEventListenerMock.calls.find(([event]) => event === 'blur')[1];
+    blurCallback();
+
+    expect(label.classList.remove).not.toHaveBeenCalled();
   });
 });

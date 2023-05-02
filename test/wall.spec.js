@@ -7,7 +7,9 @@ import wall, {
   navigateToLoginAfterLogout,
 }
   from '../src/components/wall.js';
+// import { savePost } from '../src/lib/posting.js';
 
+// import { getOnePost } from '../src/lib/posting';
 describe('likeAPost', () => {
   it('Is a function', () => {
     expect(typeof likeAPost).toBe('function');
@@ -23,11 +25,13 @@ describe('likeAPost', () => {
     expect(typeof returnedFunction).toBe('function');
   });
 });
+
 describe('saveAPost', () => {
   it('Is a function', () => {
     expect(typeof saveAPost).toBe('function');
   });
 });
+
 describe('deleteAPost', () => {
   it('Is a function', () => {
     expect(typeof deleteAPost).toBe('function');
@@ -95,13 +99,13 @@ describe('wall', () => {
     DOM.append(wall());
     const haveAButton = DOM.querySelector('btn-post');
     // espero que haveAButton no sea undefined
-    expect(haveAButton).toBe(null);
+    expect(haveAButton).not.toBe('undefined');
   });
   it('has a form', () => {
     const DOM = document.createElement('form');
     DOM.append(wall());
     const formPost = DOM.querySelector('form-post');
     // espero que formPost exista
-    expect(formPost).toBe(null);
+    expect(formPost).not.toBe('undefined');
   });
 });

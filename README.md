@@ -10,7 +10,7 @@ Por esta razón, decidimos desarrollar una red social para gamers que permita a 
 
 ### Prototipos
 * Realizamos un prototipo de baja fidelidad, a través de un brainstorming pensando en las necesidades que tiene cada usuario al participar comentando en una red social.
-![Prototipo de baja fidelidad](https://github.com/MarianaAgudeloO/DEV005-social-network/blob/0a30e3d4159be734fca52ea8bb2e0036f74624e7/protos/IMG_5184.jpg)
+![Prototipo de baja fidelidad](https://github.com/MarianaAgudeloO/DEV005-social-network/blob/8bc38c84fe242f271a85806a33452998992092be/protos/IMG_5184.jpg)
 * Luego, definimos dos prototipos de alta fidelidad uno para móvil y otro para escritorio, definimos colores y estilos según las necesidades de los usuario. 
 ![Prototipo alta fidelidad mobile](https://github.com/MarianaAgudeloO/DEV005-social-network/blob/6d90753c771bf7a61f0457458a777d5a3c7eff19/protos/alta%20fidelidad.png)
 ![Prototipo alta fidelidad desktop](https://github.com/MarianaAgudeloO/DEV005-social-network/blob/6d90753c771bf7a61f0457458a777d5a3c7eff19/protos/desktop%20alta%20fidelidad.png)

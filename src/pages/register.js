@@ -7,16 +7,16 @@ const register = (findRouteAndNavigate) => {
     // Define una cadena de código HTML con marcadores de posición para datos dinámicos y guárdalo en la variable "viewRegister"
     const viewRegister = ` 
     <div>
-    <img src="./img/logo.png" alt="logo SportX" class="logoThree"/>
+    <img src="./img/logo.png" alt="logo SportX" class="logoThree"/>   
     </div>
     <div class="registrationForm">
     <div>
     <label>Nombre</label>
-    <input id="userName" type="text" placeholder="ejemplo">
+    <input id="userName" type="text" placeholder="Nombre  apellido">
     </div>
     <div>
     <label>Usuario</label>
-    <input id="userId" type="text" placeholder="@ejemplo">
+    <input id="userId" type="text" placeholder="Nombre de usuario">
     </div>
     <div>
     <label>Correo electrónico</label>
@@ -27,10 +27,6 @@ const register = (findRouteAndNavigate) => {
     <input id="userPassword " type="password" placeholder="***********">
     </div>
     <div>
-    <label>Confirma tu contraseña</label>
-    <input id="confirmationPassword" type="password" placeholder="***********">
-    </div>
-    
     </div>
     <div class="botonesRegistro">
         <div class="registerMailBtn">
@@ -50,14 +46,13 @@ const register = (findRouteAndNavigate) => {
       `;
     // Rellena el elemento "container" con el código HTML almacenado en "viewRegister"
     container.innerHTML = viewRegister;
-    // Encuentra el elemento con el ID "loginBtn" dentro del elemento "container" y guárdalo en la variable "loginBtn"
-    const loginBtn = container.querySelector("#loginBtn");
+    // Encuentra el elemento con el ID "register" dentro del elemento "container" y guárdalo en la variable "registerB"
+    const registerBtn = container.querySelector("#registerMailBtn");
     // Agrega un event listener de clic al elemento "loginBtn", que ejecuta una función cuando se hace clic
-    loginBtn.addEventListener("click", () => {
-        // La función llama a la función "findRouteAndNavigate" con el argumento "/login"
-        findRouteAndNavigate("/login");
+    registerBtn.addEventListener("click", () => {
+        // La función llama a la función "findRouteAndNavigate" con el argumento "/register"
+        findRouteAndNavigate("/register");
     });
-
     // Devuelve el elemento "container"
     return container;
 };

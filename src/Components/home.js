@@ -2,7 +2,7 @@ import { onSnapshot } from 'firebase/firestore';
 import { signOut } from 'firebase/auth';
 import { auth } from '../lib/firebase.js';
 import {
-  editPost, ref, deleteDocData, post,
+  editPost, ref, deleteDocData, post, like, disLike,
 } from '../lib/post.js';
 
 function home(navigateTo) {
@@ -40,6 +40,7 @@ function home(navigateTo) {
 
   const printPost = (info, doc) => {
     const postContainer = document.createElement('div');
+    postContainer.classList.add('divPost');
 
     const textarea = document.createElement('textarea');
     textarea.classList.add('showPost');
@@ -64,9 +65,7 @@ function home(navigateTo) {
     });
     // Se visuliza botón editar solo en el usuario logueado
     if (auth.currentUser.email === info.userEmail) {
-      const editContainer = document.createElement('div');
-      editContainer.appendChild(editButton);
-      postContainer.appendChild(editContainer);
+      postContainer.appendChild(editButton);
     }
     postForm.appendChild(postContainer);
 
@@ -85,6 +84,23 @@ function home(navigateTo) {
     if (auth.currentUser.email === info.userEmail) {
       postContainer.appendChild(deleteButton);
     }
+    // Dar like y dislike
+    const likeButton = document.createElement('button');
+    likeButton.classList.add('like-btn');
+    likeButton.textContent = 'Like';
+    // const disLikeButton = document.createElement('button');
+    // disLikeButton.classList.add('disLike-btn');
+    // disLikeButton.textContent = 'DisLike';
+
+    likeButton.addEventListener('click', () => {
+      if (doc.data().likes.includes(auth.currentUser.email)) {
+        disLike(doc.id, auth.currentUser.email);
+      } else {
+        console.log('like', doc.id, auth.currentUser.email);
+        like(doc.id, auth.currentUser.email);
+      }
+    });
+    postContainer.appendChild(likeButton);
 
     return postForm;
   };
@@ -97,7 +113,9 @@ function home(navigateTo) {
       if (postExists) {
         const textarea = document.querySelector('.showPost');
         textarea.removeAttribute('readonly');
+        console.log('actualizando publicacion');
       } else {
+        console.log('agregando nueva');
         const nodoP = printPost(postInfo, doc);
         nodoP.setAttribute('data-id', doc.id);
       }

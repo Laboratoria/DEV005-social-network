@@ -49,6 +49,9 @@ function home(navigateTo) {
     textarea.setAttribute('readonly', true);
     postContainer.appendChild(textarea);
 
+    const buttonsContainer = document.createElement('div');
+    buttonsContainer.classList.add('buttonsPost');
+
     const editButton = document.createElement('button');
     editButton.classList.add('edit');
     editButton.textContent = 'Editar';
@@ -65,9 +68,8 @@ function home(navigateTo) {
     });
     // Se visuliza botón editar solo en el usuario logueado
     if (auth.currentUser.email === info.userEmail) {
-      postContainer.appendChild(editButton);
+      buttonsContainer.appendChild(editButton);
     }
-    postForm.appendChild(postContainer);
 
     const deleteButton = document.createElement('button');
     deleteButton.classList.add('delete-btn');
@@ -78,11 +80,11 @@ function home(navigateTo) {
       if (confirmDelete) {
         deleteDocData(doc.id);
         deleteButton.value = doc.id;
-        deleteButton.parentElement.remove();
+        deleteButton.closest('.divPost').remove();
       }
     });
     if (auth.currentUser.email === info.userEmail) {
-      postContainer.appendChild(deleteButton);
+      buttonsContainer.appendChild(deleteButton);
     }
     // Dar like y dislike
     const likeButton = document.createElement('button');
@@ -100,7 +102,9 @@ function home(navigateTo) {
         like(doc.id, auth.currentUser.email);
       }
     });
-    postContainer.appendChild(likeButton);
+    buttonsContainer.appendChild(likeButton);
+    postContainer.appendChild(buttonsContainer);
+    postForm.appendChild(postContainer);
 
     return postForm;
   };

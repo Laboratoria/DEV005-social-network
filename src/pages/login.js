@@ -13,11 +13,11 @@ const login = (findRouteAndNavigate) => {
   </div>
   <div class="loginForm">
    <div>
-     <label>Correo</label>
+     <label>Correo: </label>
      <input id="mailUserLogin" type="text" placeholder="example@gmail.com" />
    </div>
    <div>
-     <label>Contraseña</label>
+     <label>Contraseña: </label>
      <input id="passwordUserLogin" type="password" placeholder="***********" />
    </div>
  </div>

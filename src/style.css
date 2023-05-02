@@ -3,6 +3,7 @@ body {
     width: 100%;
     height: 100%;
     margin: 0;
+    font-family: roboto;
 }
 .content {
     background: linear-gradient(360deg, #4ea8de 1.37%, rgba(104, 213, 228, 0.995555) 48.76%, rgba(128, 204, 234, 0.991472) 99.99%, rgba(78, 168, 222, 0) 100%);
@@ -37,9 +38,15 @@ span {
     margin: 0 20px;
     color: #000000;
 }
-.imgGoogle {
-    width: 30px;
-    height: 30px;
+
+input#mailUserLogin {
+    border-style: none;
+    border-bottom: 1px solid #E05D6F;
+}
+
+input#passwordUserLogin {
+    border-style: none;
+    border-bottom: 1px solid #E05D6F;
 }
 
 button#loginGmailBtn{

@@ -44,3 +44,4 @@ export const deleteTask = (id) => deleteDoc(doc(db, 'post', id));
 export const editTasks = (id) => getDoc(doc(db, 'post', id));
 
 export const updateTask = (id, newDates) => updateDoc(doc(db, 'post', id), newDates);
+export const updateTask = (id, newDates) => updateDoc(doc(db, 'post', id), newDates);

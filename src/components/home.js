@@ -37,7 +37,14 @@ function home(navigateTo) {
   // ? botón de twitter
   const buttontwitter = document.createElement('button');
   buttontwitter.className = 'buttontwitter';
+  // ! Logueo con twitter
   buttontwitter.addEventListener('click', () => {
+    loginWithTwitter();
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        navigateTo('/muro');
+      }
+    });
     loginWithTwitter();
     onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -51,6 +58,7 @@ function home(navigateTo) {
   const buttongithub = document.createElement('button');
   buttongithub.type = 'button';
   buttongithub.className = 'buttongithub';
+  // ! Logueo con github
   buttongithub.addEventListener('click', () => {
     loginWithGithub();
     onAuthStateChanged(auth, (user) => {

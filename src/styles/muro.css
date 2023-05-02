@@ -28,6 +28,7 @@ body{
     justify-content: center;
     height: 80px;
   }
+
   .icon_exit{
     position: absolute;
     background-image: url(../assets/exit-regular-60.png);
@@ -42,9 +43,9 @@ body{
 
   .img_food{
     position: absolute;
-    background-image: url(../assets/match_icon.png);
-    width: 80px;
-    height: 80px;
+    background-image: url(../assets/icon/natural_icon.png);
+    width: 60px;
+    height: 60px;
     background-size: contain;
     left: 0;
     mix-blend-mode:color-burn;
@@ -77,16 +78,16 @@ body{
   .pop-up{
     position: absolute;
     top: 0;
+    display: none;
     align-items: center;
     justify-content: center;
     height: 100%;
     width: 100%;
     background-color: rgba(0,0,0, 0.5);
     box-shadow: 0 12px 28px rgb(0, 0, 0, 0.12);
-    display: none;
     z-index: 999;
-    
   }
+
   .post h2{
     position: relative;
     font-size: 20px;
@@ -94,14 +95,15 @@ body{
     text-align: center;
     padding: 5px 0;
   }
+
   .post .form-post{
     position: relative;
+    top: 100px;
     margin: 40px 30px;
     height: 350px;
-    top: 100px;
     background-color: var(--color-azul);
     border-radius: 7px;
-    z-index: +3;
+    z-index: 3;
   }
 
   .post .form-post :where(.content-post, .detail-post .privacy){
@@ -119,7 +121,7 @@ body{
 
   .post .form-post .content-post .detail-post{
     position: relative;
-    margin: -3px 0 0 12px;
+    margin: 3px 0 0 12px;
   }
 
   .form-post .content-post .detail-post p{
@@ -146,16 +148,16 @@ body{
     margin-top: 1px;
     font-weight: 500;
   }
+
   .btn-menu i{
     font-size: 20px;
   }
+
   .detail-post .privacy i:last-child{
     position: relative;
     font-size: 13px;
     margin-left: 1px;
   }
-
-  
 
   .post .form-post textarea{
     position: relative;
@@ -164,10 +166,11 @@ body{
     outline: none;
     font-size: 14px;
     margin-top: 10px;
-    min-height: 176px;
+    min-height: 175px;
     padding: 8px 10px;
-    text-align:justify;
+    text-align: justify;
   }
+
   .container-options button{
     background-color: var(--color-azul);
     border: none;
@@ -179,6 +182,7 @@ body{
     justify-content: center;
     font-family: 'Poppins', sans-serif;
   }
+
   .form-post textarea:valid ~ button{
     position: relative;
     color: black;
@@ -186,6 +190,7 @@ body{
     background: var(--color-azul);
     font-weight: bold;
   }
+
   .cerrar-post{
     position: absolute;
     top: 141px;
@@ -241,6 +246,7 @@ body{
     font-size: 14px;
     max-height: max-content;
   }
+
   .btn-menu{
     border: none;
     background-color: white;
@@ -250,8 +256,11 @@ body{
     padding: 2px 2px 0px;
     border-color: white;
     position: absolute;
-    z-index: 4;
-    }
+    z-index: 4    
+  }
+
+  
+
   .container-options{
     display: none;
     position: absolute;
@@ -261,16 +270,19 @@ body{
     margin-left: 250px;
     background-color: white;
     border-radius: 10px;
-}
-.btn-delete .btn-edit{
-  position: absolute;
-  align-items: center;
-  border: none;
-}
+  }
+
+  .btn-delete .btn-edit{
+    position: absolute;
+    align-items: center;
+    border: none;
+  }
+
   .dropdown{
     display: inline-block;
     position: relative;
   }
+  
   .dropdown:hover .container-options{
     display: block;
   }

@@ -1,4 +1,4 @@
-import registerConfig from '../lib/registerConfig.js';
+import { registerUser } from '../lib/registerConfig.js';
 
 const register = (navigateTo) => {
   const formularioRegister = document.createElement('div');
@@ -20,24 +20,28 @@ const register = (navigateTo) => {
 
   // TODO: botón para registrar
   const buttonSaveInformation = formularioRegister.querySelector('.buttonSaveInformation');
+  // quite el ('click', async (e)
   buttonSaveInformation.addEventListener('click', async (e) => {
     e.preventDefault();
-    const email = document.getElementById('emailregister').value;
-    const password = document.getElementById('passwordregister').value;
-    registerConfig(email, password)
+    /* const email = document.getElementsByClassName('emailregister').value;
+    const password = document.getElementsByClassName('passwordregister').value; */
+    const email = formularioRegister.querySelector('#emailregister').value;
+    const password = formularioRegister.querySelector('#passwordregister').value;
+    registerUser(email, password)
       .then(() => {
         console.log(email, password);
         navigateTo('/login');
       })
       .catch((error) => {
+        //! CAMBIAR LOS IF A LA FUNCION
         if (error.code === 'auth/email-already-in-user') {
-          alert('correo en uso');
+          console.error('correo en uso');
         } else if (error.code === 'auth/invalid-email') {
           alert('correo invalido');
         } else if (error.code === 'auth/weak-password') {
-          alert('contraseña muy corta');
+          console.error('contraseña muy corta');
         } else {
-          alert('otro problema');
+          console.error('otro problema', error.code, error.message);
         }
         return error;
       });

@@ -17,42 +17,48 @@ const muro = (navigateTo) => {
   muroDiv.innerHTML = '';
   muroDiv.innerHTML += `
   <header>
-    <nav class='navbar'>
-      <img class='img_food'>
-      <div class='icon_exit'></div>
-    </nav>
+  <nav class='navbar'>
+  <div class='img_food' ></div>
+  <h2>Food Match</h2>
+  <div class='icon_exit'></div>
+  </nav>
   </header>
   <main>
   
   <div class='create-post'> 
-    <button class='open-popup'>¿Qué receta quieres compartir hoy?</button>
+  <button class='open-popup'>¿Qué receta quieres compartir hoy?</button>
   </div>
+
   <div class='pop-up' id='pop-up'>
-    <div class='wrapper'>
-      <section class='post'>
-        <button class='cerrar-post'><i class='bx bx-x'></i></button>
-        <form action='#' class='form-post' id='form-post'>
-          <h2>Crear Post</h2>
-            <div class='content-post'>
-              <div class='detail-post'>
-                <p>Food Match</p>
-                  <div class='privacy'>
-                    <i class='bx bx-user-pin' ></i>
-                    <span>amigos</span>
-                    <i class='bx bx-caret-down'></i>
-                  </div>
-              </div>
-            </div>
-          <textarea id='textarea-post' placeholder='Descripción del post :D'> </textarea>
-          <button class='publicar-post' type='submit' >Guardar</button>
-        </form>
-      </section>
-    </div>
+  <div class='wrapper'>
+  <section class='post'>
+  <button class='cerrar-post'><i class='bx bx-x'></i></button>
+
+  <form action='#' class='form-post' id='form-post'>
+  <h2>Crear Post</h2>
+  <div class='content-post'>
+  <div class='detail-post'>
+  <p>Food Match</p>
+  <div class='privacy'>
+  <i class='bx bx-user-pin' ></i>
+  <span>amigos</span>
+  <i class='bx bx-caret-down'></i>
   </div>
+  </div>
+  </div>
+  <textarea id='textarea-post' placeholder='Descripción del post :D'> </textarea>
+  <button class='publicar-post' type='submit' >Guardar</button>
+  </form>
+
+  </section>
+  </div>
+  </div>
+
   <div id='tasks-container' class='tasks-container'></div>
   </main>
   `;
-  // boton salida
+
+  // botón salida
   const iconExit = muroDiv.querySelector('.icon_exit');
   iconExit.addEventListener('click', () => {
     const auth = getAuth();
@@ -65,6 +71,7 @@ const muro = (navigateTo) => {
         console.log(error);
       });
   });
+
   const interacionPopUp = () => {
     const openPopup = muroDiv.querySelector('.open-popup');
     openPopup.addEventListener('click', () => {
@@ -77,14 +84,16 @@ const muro = (navigateTo) => {
       cerrarPost.addEventListener('click', () => {
         popUp.style.display = 'none';
       });
-      window.addEventListener('click', (e) => { // windoow??
+      window.addEventListener('click', (e) => {
         if (e.target === popUp) {
           popUp.style.display = 'none';
         }
       });
     });
   };
+
   interacionPopUp();
+
   // contenedor publicaciones (mostrar datos)
   const tasksContainer = muroDiv.querySelector('.tasks-container');
   window.addEventListener('DOMContentLoaded', async () => {
@@ -101,18 +110,26 @@ const muro = (navigateTo) => {
       querySnapshot.forEach((doc) => {
         const task = doc.data();
         html += `
-              <div class="publicaciones">
-                <div class='dropdown'>
-                  <button class='btn-menu'><i class='bx bx-dots-horizontal-rounded'></i></button>
-                  <div class='container-options'>
-                    <button class='btn-delete' data-id="${doc.id}"> Eliminar </button>
-                    <button class='btn-edit'data-id="${doc.id}"> Editar </button>
-                  </div> 
-                </div>
-                  <p>${task.description}</p>
-              </div>
+        <div class='publicaciones'>
+
+        <div class='dropdown'>
+        <button class='btn-menu'><i class='bx bx-dots-horizontal-rounded'></i></button>
+        <div class='container-options'>
+        <button class='btn-delete' data-id='${doc.id}'>Eliminar</button>
+        <button class='btn-edit' data-id='${doc.id}'>Editar</button>
+
+        </div>
+        </div>
+            <p>${task.description}</p>
+            <i class='bx bx-heart'></i> <span> 1.7K</span>
+            <i class='bx bx-message-square-dots'></i> <span> 1.7K</span>
+        </div>
           `;
       });
+
+      // en el parametro event se puede resumir debido a q todos
+      // los elementos son objetos, esto es de la siguiente manera:
+      // ({target: {dataset}})
       tasksContainer.innerHTML = html;
       const btnDelete = tasksContainer.querySelectorAll('.btn-delete');
       btnDelete.forEach((btn) => {
@@ -120,6 +137,7 @@ const muro = (navigateTo) => {
           deleteTask(event.target.dataset.id);
         });
       });
+
       const btnEdit = tasksContainer.querySelectorAll('.btn-edit');
       btnEdit.forEach((btn) => {
         btn.addEventListener('click', async (event) => {
@@ -157,7 +175,6 @@ const muro = (navigateTo) => {
       updateTask(id, { description });
       editStatus = false;
     }
-    formPost.reset();
   });
   return muroDiv;
 };

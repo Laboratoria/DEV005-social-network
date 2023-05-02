@@ -59,6 +59,10 @@ body{
     height: auto;
     width: 90%;
   }
+
+  .buttonemail{
+    background-color: #F2B872;
+    }
   
   .buttonemail, .buttongoogle,
   .buttontwitter, .buttongithub{
@@ -78,6 +82,7 @@ body{
   .buttontwitter:hover, .buttongithub:hover{
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   }
+
   .iconemail{
     position: absolute;
     top: 8%;

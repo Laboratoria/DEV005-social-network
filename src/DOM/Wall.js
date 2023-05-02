@@ -44,6 +44,7 @@ export const Wall = (onNavigate) => {
         const deletePost = content.querySelector('#btn-ok');
         deletePost.addEventListener('click', () => {
           deletePosts(dataset.id);
+          modalContent.style.display = 'none';
         });
         const cancelBtn = content.querySelector('#btn-cancel');
         cancelBtn.addEventListener('click', () => {

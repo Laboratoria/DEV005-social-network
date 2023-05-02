@@ -24,7 +24,7 @@ const butonRegister = document.getElementById("registerMailBtn");
 console.log(butonRegister);
 //eventos de elementos del DOM//
 butonRegister.addEventListener("click",()=> {
-    console.log("se hizo click");
+    
 })
 
 
@@ -33,15 +33,15 @@ butonRegister.addEventListener("click",()=> {
 //crear funcion flecha de guardado de datos para enviar registro de usuario//
 const register = (container) => {
     const userName = container.querySelector(#userName)
-    const userId = container.querySelector(#userId) 
+    const userId = container.querySelector(#userId)
     const userMail = container.querySelector(#userMail)
-    const userPassword = container.querySelector(#userPassword) 
+    const userPassword = container.querySelector(#userPassword)
     const butonRegister = document.getElementById("registerMailBtn");
-    console.log(butonRegister);
+    
 //ingresar funciones boleanas , validacion de email con @
     //utilizar la funcion de firebase dentro de esta funcion register 
 }
-
+register().then((container) => console.log(container));
 
 
 

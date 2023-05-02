@@ -43,11 +43,11 @@ const login = (findRouteAndNavigate) => {
     // Inserta el contenido HTML de "viewLogin" dentro del elemento <section> creado antes
     container.innerHTML = viewLogin;
     // Busca el elemento con el ID "registerBtn" dentro del elemento <section> creado antes y lo guarda en una constante llamada "registerBtn"
-    const registerBtn = container.querySelector("#registerBtn");
+    const loginBtn = container.querySelector("#loginBtn");
     // Añade un evento de click al botón de registro para redirigir al usuario a la página de registro
-    registerBtn.addEventListener("click", () => {
-        // Ejecuta la función "findRouteAndNavigate" con el parámetro "/register" para redirigir al usuario a la página de registro
-        findRouteAndNavigate("/register");
+    loginBtn.addEventListener("click", () => {
+        // Ejecuta la función "findRouteAndNavigate" con el parámetro "/login" para redirigir al usuario a la página de registro
+        findRouteAndNavigate("/login");
     });
 
     // Retorna el elemento <section> con el formulario de inicio de sesión y el botón de registro

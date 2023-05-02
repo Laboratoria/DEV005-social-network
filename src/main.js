@@ -44,14 +44,3 @@ window.onpopstate = () => {
 
 // Navegar a la ruta actual (o la ruta predeterminada si no se especifica ninguna ruta)
 findRouteAndNavigate(window.location.pathname || defaultRoute);
-
-//creando boton registrarse//
-const butonRegister = document.getElementById("registerMailBtn");
-
-if (butonRegister) {
-    //eventos de elementos del DOM//
-    butonRegister.addEventListener("click", () => {
-        console.log(butonRegister);
-        //agregar funcion de register//
-    })
-}

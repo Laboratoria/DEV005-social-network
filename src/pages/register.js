@@ -7,7 +7,7 @@ const register = (findRouteAndNavigate) => {
     // Define una cadena de código HTML con marcadores de posición para datos dinámicos y guárdalo en la variable "viewRegister"
     const viewRegister = ` 
     <div>
-    <img src="./img/logo.png" alt="logo SportX" class="logoThree"/>
+    <img src="./img/logo.svg" alt="logo SportX" class="logoThree"/>
     </div>
     <div class="registrationForm">
     <div>
@@ -38,7 +38,7 @@ const register = (findRouteAndNavigate) => {
         </div>
         <div class="registerMailGoogleBtn">
             <button id="registerMailGoogleBtn">
-            <img src="./img/google.png" alt="google" class="imgGoogle"/>
+            <img src="./img/google.svg" alt="google" class="imgGoogle"/>
                 Registrarse con Google
             </button>
         </div>

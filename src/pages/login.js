@@ -1,3 +1,4 @@
+import { callingGoogle } from "../firebase/configuracion";
 // Declara una constante llamada "login" que es igual a una función flecha con un parámetro llamado "findRouteAndNavigate"
 const login = (findRouteAndNavigate) => {
     // Crea un elemento HTML <section> y lo guarda en una constante llamada "container"
@@ -8,7 +9,7 @@ const login = (findRouteAndNavigate) => {
     const viewLogin = `
 <div class="bannerOne">
   <div class="loginLogo">
-   <img src="./img/logo.png" alt="logo SportX" class="logoTwo"/>
+   <img src="./img/logo.svg" alt="logo SportX" class="logoTwo"/>
   </div>
   <div class="loginForm">
    <div>
@@ -26,7 +27,7 @@ const login = (findRouteAndNavigate) => {
    </div>
    <div class="loginGmailBtn">
      <button id="loginGmailBtn">
-         <img src="./img/google.png" alt="google" class="imgGoogle"/>
+         <img src="./img/google.svg" value="iniciarGoogle"alt="google" class="imgGoogle"/>
          Iniciar con Google
      </button>
    </div>
@@ -48,6 +49,11 @@ const login = (findRouteAndNavigate) => {
     registerBtn.addEventListener("click", () => {
         // Ejecuta la función "findRouteAndNavigate" con el parámetro "/register" para redirigir al usuario a la página de registro
         findRouteAndNavigate("/register");
+    });
+
+    const googleBtn = container.querySelector("#loginGmailBtn");
+    googleBtn.addEventListener("click", (e) => {
+        callingGoogle();
     });
 
     // Retorna el elemento <section> con el formulario de inicio de sesión y el botón de registro

@@ -1,7 +1,7 @@
 // Importando las funciones necesarias de los SDK de Firebase que queremos utilizar en nuestro proyecto.
 import { initializeApp } from "firebase/app";
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
+// import { getFirestore } from "firebase/firestore";
+import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 
 // Configurando los datos necesarios de nuestro proyecto de Firebase.
 const firebaseConfig = {
@@ -11,30 +11,36 @@ const firebaseConfig = {
     storageBucket: "social-network-424d1.appspot.com",
     messagingSenderId: "1033573715706",
     appId: "1:1033573715706:web:0995720ee00b8e31f1c343",
+    databaseURL: "https://DATABASE_NAME.firebaseio.com",
 };
 
 // Inicializando la aplicación de Firebase
 const app = initializeApp(firebaseConfig);
-// Inicializando la autenticación
-const auth = getAuth(app);
-signInWithPopup(auth, provider)
-    .then((result) => {
-    // Accediendo al google API
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-        // La información del usuario registrado
-        const user = result.user;
-    })
-    // Manejar los errores aquí
-    .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // El correo del usuario
-        const email = error.customData.email;
-        // El tipo de autentificación que usó el usuario
-        const credential = GoogleAuthProvider.credentialFromError(error);
-    });
-// Obteniendo la instancia de Firestore para comenzar a utilizar la base de datos en nuestra aplicación web
-const database = getFirestore();
-// Obteniendo la instancia para autenticación google
-const provider = new GoogleAuthProvider(app);
+// const dataBase = getFirestore();
+
+const provider = new GoogleAuthProvider();
+
+const auth = getAuth();
+const callingGoogle = () => {
+    signInWithPopup(auth, provider)
+        .then((result) => {
+            // This gives you a Google Access Token. You can use it to access the Google API.
+            const credential = GoogleAuthProvider.credentialFromResult(result);
+            const token = credential.accessToken;
+            // The signed-in user info.
+            const user = result.user;
+            // IdP data available using getAdditionalUserInfo(result)
+            // ...
+        }).catch((error) => {
+            // Handle Errors here.
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            // The email of the user's account used.
+            const email = error.customData.email;
+            // The AuthCredential type that was used.
+            const credential = GoogleAuthProvider.credentialFromError(error);
+            // ...
+        });
+};
+
+export { callingGoogle };

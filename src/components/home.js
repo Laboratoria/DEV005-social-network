@@ -21,7 +21,6 @@ function home(navigateTo) {
       title.textContent = 'ESTAS LOGGEADO';
     }
   });
-  
   return sectionHome;
 }
 

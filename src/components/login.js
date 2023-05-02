@@ -1,37 +1,17 @@
+// Elementos importados
 import {
   googleLogin, loginWithUserEmail,
 } from '../lib/auth';
 import { validarRutaLogin } from '../utilitaries/ruteo';
+import { loginTemplate } from '../template/login-template.js';
 
+// funcionalidad
 function login(navigateTo) {
   const sectionLogin = document.createElement('section');
   sectionLogin.className = 'section-reguistro';
   sectionLogin.innerHTML = '';
-  sectionLogin.innerHTML += `
-          <div class="title-login">
-             <div class="img-login">
-              <img src="https://us.123rf.com/450wm/jemastock/jemastock1705/jemastock170509947/78496592-imagen-en-color-de-dibujos-animados-de-plantas-con-hojas-en-la-ilustraci%C3%B3n-de-vector-de-crecimiento.jpg">
-             </div>
-             <div>
-              <h2>App Book<h2>
-             </div>
-          </div>
-          <div class="form-login">
-            <form>
-              <label for="username">Username</label>
-              <input type="email" name="username" id="username" placeholder="username">
-              <label for="password">Password</label>
-              <input type="password" name="password" id="password" placeholder="password">
-              <button class="buuton-log">Log in</button>
-            </form>
-            <div>
-              <figure><button ><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/250px-Octicons-mark-github.svg.png"></button></figure>
-              <figure><button class="login-google-btn" id="loginGogleBtn"><img src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png"></button></figure>
-            </div>
-          </div>
-            <div class="create-account-login" id="create-accoun"><button>create new account</button></div>
-          </form>
-  `;
+  sectionLogin.innerHTML = loginTemplate;
+  // funcionalidad del boton gogle
   const gogleBtn = sectionLogin.querySelector('#loginGogleBtn');
   gogleBtn.addEventListener('click', async () => {
     try {
@@ -54,6 +34,60 @@ function login(navigateTo) {
       console.warn('Login.js - loginGoogleBtn - click - Error: ', error);
     }
   });
+
+  // // funcionalidad del email y password devueltos
+  // /**
+  // * Agrega evento click al botón de ingresar con email y password
+  // */
+  // const loginBtn = sectionLogin.querySelector('#buuton-log');
+  // loginBtn.addEventListener('click', async () => {
+  //   // Lee los datos ingresados por el usuario en el campo email y password
+  //   const email = sectionLogin.querySelector('#username').value;
+  //   const password = sectionLogin.querySelector('#password').value;
+
+  //   // Instancia el label de error del login (donde se mostrarán los errores)
+  //   const statusLogin = sectionLogin.querySelector('#statusLogin');
+
+  //   // Valida que el usuario haya ingresado ambos datos
+  //   if (email === '' || password === '') {
+  //     statusLogin.innerText = 'Debe ingresar su email y password antes de continuar.';
+  //     return null;
+  //   }
+
+  //   try {
+  //     // Invoca función loginWithUserEmail del archivo lib/auth.js y recibe datos retornados
+  //     const accessData = await loginWithUserEmail(email, password);
+  //     if (accessData.loginOk) {
+  //       navigateTo('/home'); // Si el ingreso del usuario es correcto lo redirige al Home.
+  //     } else {
+  //       // Si el ingreso del usuario es incorrecto muestra un mensaje de error
+  //       // en el label id="statusLogin" según el error que se recibe desde Firebase
+  //       // hay muchas posibilidades de error. Sólo estamos mostrando mensajes personalizados
+  //       // para 2 posibles errores: user-not-found y wrong-password
+  //       switch (accessData.data.code) {
+  //         case 'auth/user-not-found':
+  //           // link para documentación: https://firebase.google.com/docs/auth/admin/errors?hl=es-419
+  //           statusLogin.innerText = 'Lo sentimos, no pudimos encontrar tu cuenta';
+  //           break;
+  //         case 'auth/wrong-password':
+  //           statusLogin.innerText = 'La contraseña es inválida';
+  //           break;
+  //         default:
+  //           statusLogin.innerText = 'Hubo un problema con tu inicio de sesión. Contacta al administrador de la App';
+  //       }
+  //     }
+  //   } catch (error) {
+  //     // Si algo falla en el proceso de login con Google muestra este log por consola y muestra
+  //     // un error en el label id="statusLogin"
+  //     console.warn('Login.js - loginBtn - click - Error: ', error);
+  //     statusLogin.innerText = 'Tuvimos un problema. Intente más tarde';
+  //   }
+
+  //   return null;
+  // });
+  /**
+  * Funcion para llevar a la ruta de registrado ---
+  */
   const crearCuentaBtn = sectionLogin.querySelector('#create-accoun');
   crearCuentaBtn.addEventListener('click', async () => navigateTo('/register'));
   validarRutaLogin(navigateTo, (isLogged) => {});

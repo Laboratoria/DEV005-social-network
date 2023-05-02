@@ -12,7 +12,7 @@
     --var-font-black:#000;
 }
 body{
-    background-color: palegoldenrod;
+    background-color: var(--var-font-white);
     width: 100%;
     height: 100%;
     position: absolute;
@@ -22,20 +22,24 @@ img{
     width: 100%;
     object-fit: contain;
 }
+
 button{
     margin-top: 5px;
-    width: 300px;
-    height: 35px;
+    color: var(--var-font-white);
+    font-weight: bolder;
+    width: 350px;
+    height: 45px;
     background: var(--var-font-white);
-    border: 3px solid var(--var-color-border);
+    border: 3px solid var(--var-color-buton);
     border-radius: 5px;
     padding: 0 1rem;
-    font-size: 12px;
+    font-size:15px;
+    background-color: var(--var-color-buton);
 }
 input{
     margin-bottom:15px;
-    width: 300px;
-    height: 35px;
+    width: 350px;
+    height: 45px;
     background: var(--var-font-white);
     border: 3px solid var(--var-color-border);
     border-radius: 5px;
@@ -45,7 +49,7 @@ input{
 
 .text-right{
     color: var(--var-color-buton);
-    width: 300px;
+    width: 350px;
     font-size: 15px;
 }
 /*Estilos de la pagina login*/
@@ -74,10 +78,16 @@ input{
 
 }
 .text-login{
+    margin-top:10px ;
     color: var(--var-font-black);
 }
-
-
+/* .status-login{
+    display: block;
+    color: #ed0c0c;
+    width: 350px;
+    font-size: 15px;
+    background-color: red;
+} */
 .form-login{
     background-color: fff;
     height: 45%;
@@ -85,36 +95,62 @@ input{
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
+    align-items: center;
 }
 .box-form{
     width: 100%;
-    height: 60%;
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
     align-items: center;
+    margin-top: 30px;
+    
 }
+
+/*-----------boton pot mejorar ---------*/
+.buuton-log{}
+
+
 .box-login-run{
     align-items: center;
     border-right:20px ;
-    width: 100px;
-    background-color: aqua;
+    width: 350px;
     display: flex;
-    justify-content: space-evenly;
-    
+    justify-content: space-around;
+    margin-top: 20px;
 }
-.btn-google{
-    width: 100px;
+.box-login-run figure{
+    display: block;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    margin-inline-start: 0pc;
+    margin-inline-end: 0px;
 }
-.btn-github{
-    width: 100px;
+.btn-google button{
+    width: 100%;
+    height: 50px;
+    border-radius: 100px;
+    padding: none;
+    border:none;
+    margin: none;
+    background-color: var(--var-font-white);
+}
+.btn-github button{
+    width: 100%;
+    height: 50px;
+    border-radius: 100px;
+    padding: none;
+    border:none;
+    margin: none;
+    background-color: var(--var-font-white);
+
 }
 .btn-direct{
     margin-top: 5px;
     width: 60px;
     height: 35px;
     border-radius: 5px;
-    padding: 0 1rem;
+    padding: 0;
     font-size: 12px;
     border:none;
 }
@@ -123,6 +159,28 @@ input{
     padding: 10px;
     height: 10%;
     width: 100%;
-    background-color: purple;
+    background-color: var(--var-font-white);
+    display: flex;
+    justify-content: center;
+}
+.create-account-login button{
+    margin-top: 0px;
+    margin-right: 0px;
+    color: var(--var-color-buton);
+    width: 350px;
+    height: 45px;
+    background: var(--var-font-white);
+    border:  0px;
+    border-radius: 0px;
+    font-family: ;
+}
+.create-account-login button:hover{
+    color: var(--var-font-black);
+}
+
+.color{
+    position: ;
+    align-items: ;
+    rotate: ;
 }
 /*estilos de la pagina register*/

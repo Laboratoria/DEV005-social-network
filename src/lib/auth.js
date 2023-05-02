@@ -8,7 +8,6 @@ import {
   signOut,
   createUserWithEmailAndPassword,
   onAuthStateChanged,
-  signInWithEmailAndPassword,
 } from 'firebase/auth';
 import { auth } from './index.js';
 

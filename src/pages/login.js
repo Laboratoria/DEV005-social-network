@@ -28,7 +28,7 @@ const login = (findRouteAndNavigate) => {
    <div class="loginGmailBtn">
      <button id="loginGmailBtn">
          <img src="./img/google.svg" value="iniciarGoogle"alt="google" class="imgGoogle"/>
-         Iniciar con Google
+         Acceder con Google
      </button>
    </div>
    <div class="volverRegistro">

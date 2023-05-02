@@ -12,7 +12,6 @@ export const Wall = (onNavigate) => {
   body.className = 'wallBody';
   const div = document.createElement('div');
   div.innerHTML = WallTemplate;
-  // const errorMsj = div.querySelector('#errorMsj');
   const divPost = div.querySelector('.posts');
   const iPost = div.querySelector('#iPost');
   const btnPost = div.querySelector('#btn-post');
@@ -20,7 +19,6 @@ export const Wall = (onNavigate) => {
   let idPost = '';
   let savePostTarget = '';
 
-  // const getDocument = () => getDocs(collection(db, 'posts'));
   const getPost = (id) => getDoc(doc(db, 'posts', id));
   const updatePost = (id, newField) => updateDoc(doc(db, 'posts', id), newField);
   const deletePosts = (id) => deleteDoc(doc(db, 'posts', id));
@@ -40,7 +38,6 @@ export const Wall = (onNavigate) => {
     deleteBtn.forEach((btn) => {
       btn.addEventListener('click', ({ target: { dataset } }) => {
         modalContent.style.display = 'flex';
-        console.log(dataset.id);
         const deletePost = content.querySelector('#btn-ok');
         deletePost.addEventListener('click', () => {
           deletePosts(dataset.id);
@@ -59,23 +56,20 @@ export const Wall = (onNavigate) => {
     const btnEdit = content.querySelectorAll('#btn-edit');
     btnEdit.forEach((element) => element.addEventListener('click', async (e) => {
       btnPost.textContent = 'Guardar';
-      console.log(element);
       const docu = await getPost(e.target.dataset.id);
       if (checkUser(docu)) {
-        console.log('El user ES autor del post');
         iPost.focus();
         iPost.value = docu.data().Post;
         idPost = docu.id;
         editStatus = true;
         savePostTarget = e.target.dataset.id;
       } else {
-        console.log('el user No es el autor del post');
         iPost.value = '';
         editStatus = false;
       }
     }));
   };
-  const LikeAndCount = (content) => {
+  const LikeAndDislike = (content) => {
     const btnLike = content.querySelectorAll('#btn-like');
     btnLike.forEach((like) => {
       like.addEventListener('click', async (event) => {
@@ -105,7 +99,6 @@ export const Wall = (onNavigate) => {
   // valida que el usuario inicie sesion
   onAuthStateChanged(auth, async (user) => {
     if (user) {
-      /* const getAllPosts = await getDocument(); */
       realTime((data) => {
         let html = '';
         data.forEach((docu) => {
@@ -141,10 +134,9 @@ export const Wall = (onNavigate) => {
         divPost.innerHTML = html;
         editPost(div);
         deleteModal(div);
-        LikeAndCount(div);
+        LikeAndDislike(div);
       });
     } else {
-      console.log('No se ha iniciado sesion');
       onNavigate('/');
     }
   });
@@ -166,12 +158,10 @@ export const Wall = (onNavigate) => {
 
   // Crea el post en la base de datos
   const btnOut = div.querySelector('#btn-out');
-  // const currentUser = auth.currentUser;
   btnPost.addEventListener('click', () => {
     const contenido = iPost.value.trim();
     if (editStatus) {
       btnPost.textContent = 'Publicar';
-      console.log('post editado');
       div.querySelector(`[data-id='${savePostTarget}']`).focus();
       updatePost(idPost, { Post: iPost.value, Author: auth.currentUser.email });
       editStatus = false;

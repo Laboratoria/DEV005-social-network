@@ -104,4 +104,22 @@ describe('Muro', () => {
     const haveAButton = DOM.querySelector('#btn-out');
     expect(haveAButton).not.toBe(undefined);
   });
+  test('Que el botón editar exista', () => {
+    const DOM = document.createElement('div');
+    DOM.append(WallTemplate);
+    const haveAButton = DOM.querySelector('#btn-edit');
+    expect(haveAButton).not.toBe(undefined);
+  });
+  test('Que el botón eliminar exista', () => {
+    const DOM = document.createElement('div');
+    DOM.append(WallTemplate);
+    const haveAButton = DOM.querySelector('#btn-delete');
+    expect(haveAButton).not.toBe(undefined);
+  });
+  test('Que el botón para dar me gusta exista', () => {
+    const DOM = document.createElement('div');
+    DOM.append(WallTemplate);
+    const haveAButton = DOM.querySelector('#btn-like');
+    expect(haveAButton).not.toBe(undefined);
+  });
 });

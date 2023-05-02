@@ -1,11 +1,11 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
+// escucha y traer los cambios de los datos -> getDocs
 import {
   getFirestore, // conexión
   collection, // crear una tabla con los datos
   addDoc, // añadir documentos
-  getDocs, // escucha y traer los cambios de los datos
   onSnapshot,
   deleteDoc,
   doc,
@@ -38,7 +38,7 @@ export const saveTask = (description) => {
   // donde se van a guardar los datos
 };
 // traer los post guardados en firestore
-export const getTask = () => getDocs(collection(db, 'post'));
+// export const getTask = () => getDocs(collection(db, 'post'));
 
 // onSnapshot -> para que escuche los cambios y se vea en tiempo real
 export const onGetTasks = (callback) => onSnapshot(collection(db, 'post'), callback);

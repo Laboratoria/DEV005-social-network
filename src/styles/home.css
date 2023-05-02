@@ -8,7 +8,7 @@
 
 body{
   background-color: #D4CDC4;
-  font-family: 'Poppins';
+  font-family: 'Poppins', sans-serif;
 }
 
 /* Estilos para celular */
@@ -59,6 +59,10 @@ body{
     height: auto;
     width: 90%;
   }
+
+  .buttonemail{
+    background-color: #F2B872;
+    }
   
   .buttonemail, .buttongoogle,
   .buttontwitter, .buttongithub{
@@ -67,17 +71,13 @@ body{
     margin: 8px 0px 0px 0px;
     font-size: 18px;
     border-style: none;
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
     width: 90%;
   }
 
   .buttonemail:hover, .buttongoogle:hover,
   .buttontwitter:hover, .buttongithub:hover{
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  }
-
-  .buttonemail{
-  background-color: #F2B872;
   }
 
   .iconemail{
@@ -185,10 +185,9 @@ body{
   .loginCorreo {
     margin: 8px 8px 0px 8px;
     border-radius: 10px;
-    padding: 12px;
     font-size: 18px;
     width: 90%;
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
     border-style: none;
     background-image:url(../assets/icon_email.png);
     background-repeat: no-repeat;
@@ -199,10 +198,9 @@ body{
   .loginContra {
     margin: 8px 8px 0px 8px;
     border-radius: 10px;
-    padding: 12px;
     font-size: 18px;
     width: 90%;
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
     border-style: none;
     background-image:url(../assets/icon_password.png);
     background-repeat: no-repeat;
@@ -221,7 +219,7 @@ body{
     width: 90%;
     background: #F2B872;
     align-items: center;
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
     border-style: none;
   }
   .mensajelogin {
@@ -283,10 +281,9 @@ body{
   .emailRegister {
     margin: 8px 8px 0px 8px;
     border-radius: 10px;
-    padding: 12px;
     font-size: 18px;
     width: 90%;
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
     border-style: none;
     background-image:url(../assets/icon_email.png);
     background-repeat: no-repeat;
@@ -297,10 +294,9 @@ body{
   .passwordRegister, .checkPasswordRegister{
     margin: 8px 8px 0px 8px;
     border-radius: 10px;
-    padding: 12px;
     font-size: 18px;
     width: 90%;
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
     border-style: none;
     background-image:url(../assets/icon_password.png);
     background-repeat: no-repeat;
@@ -318,7 +314,7 @@ body{
     width: 90%;
     background: #F2B872;
     align-items: center;
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
     border-style: none;
   }
 }

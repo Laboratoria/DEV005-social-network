@@ -17,7 +17,7 @@
 
 body{
   background-color: #D4CDC4;
-  font-family: 'Poppins';
+  font-family: 'Poppins', sans-serif;
 }
 
 /* Estilos para celular */
@@ -45,12 +45,11 @@ body{
 
   .img_food{
     position: absolute;
-    background-image: url(../assets/match_icon.png);
-    width: 80px;
-    height: 80px;
+    background-image: url(../assets/icon/natural_icon.png);
+    width: 60px;
+    height: 60px;
     background-size: contain;
     left: 0;
-    mix-blend-mode: color-burn;
   }
 
   .create-post{
@@ -73,21 +72,21 @@ body{
     background: none;
     width: 300px;
     height: 50px;
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
     background-color: white;
   }
 
   .pop-up{
     position: absolute;
     top: 0;
-    background-color: white;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     height: 100%;
     width: 100%;
     background-color: rgba(0,0,0, 0.5);
     box-shadow: 0 12px 28px rgb(0, 0, 0, 0.12);
+    z-index: 999;
   }
 
   .post h2{
@@ -151,6 +150,10 @@ body{
     font-weight: 500;
   }
 
+  .btn-menu i{
+    font-size: 20px;
+  }
+
   .detail-post .privacy i:last-child{
     position: relative;
     font-size: 13px;
@@ -169,17 +172,24 @@ body{
     text-align: justify;
   }
 
+  .container-options button{
+    background-color: var(--color-azul);
+    border: none;
+    border-radius: 7px;
+    padding: 3px;
+    margin: 2px;
+    width: 70px;
+    display: flex;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+  }
+
   .form-post textarea:valid ~ button{
     position: relative;
     color: black;
     cursor: pointer;
     background: var(--color-azul);
     font-weight: bold;
-  }
-
-  .pop-up{
-    display: none;
-    z-index: 999;
   }
 
   .cerrar-post{
@@ -233,9 +243,9 @@ body{
     border-radius: 7px;
     padding-left: 10px;
     z-index: -3;
-    height: 100px;
     padding-top: 20px;
     font-size: 14px;
+    max-height: max-content;
   }
 
   .btn-menu{
@@ -250,9 +260,7 @@ body{
     z-index: 4    
   }
 
-  .btn-menu i{
-    font-size: 20px;
-  }
+  
 
   .container-options{
     display: none;
@@ -263,18 +271,6 @@ body{
     margin-left: 250px;
     background-color: white;
     border-radius: 10px;
-  }
-
-  .container-options button{
-    background-color: var(--color-azul);
-    border: none;
-    border-radius: 7px;
-    padding: 3px;
-    margin: 2px;
-    width: 70px;
-    display: flex;
-    justify-content: center;
-    font-family: 'Poppins';
   }
 
   .btn-delete .btn-edit{

@@ -6,7 +6,6 @@ import {
   GithubAuthProvider,
   TwitterAuthProvider,
   signInWithPopup,
-  signOut,
 } from 'firebase/auth';
 import { auth } from './firebaseConfig.js';
 
@@ -32,12 +31,10 @@ export const loginWithGoogle = () => new Promise((resolve, reject) => {
     .then((result) => {
       // This gives you a Google Access Token. You can use it to access the Google API.
       const credential = GoogleAuthProvider.credentialFromResult(result);
-      // const token = credential.accessToken;
-      const user = result.user;
-      console.log(credential, user);
+      console.log(credential);
       console.log('sign in with google');
-      // const token = credential.accessToken;
       // The signed-in user info.
+      const user = result.user;
       resolve({ user });
       // IdP data available using getAdditionalUserInfo(result)
       // ...
@@ -76,6 +73,7 @@ export const loginWithGithub = () => {
     });
 };
 
+// TODO: Función de logueo con Twitter
 export const loginWithTwitter = () => new Promise((resolve, reject) => {
   const provider = new TwitterAuthProvider();
   signInWithPopup(auth, provider)
@@ -93,14 +91,13 @@ export const loginWithTwitter = () => new Promise((resolve, reject) => {
       console.log('emailError : ', error.email);
       console.log('errorMessage : ', error.message);
       const codeError = error.code;
-      if (codeError === 'auth/account-exists-with-different-credential') {
-        console.log(codeError);
-      }
+      console.log(codeError);
       reject(error.code);
     });
 });
 
 // TODO: Cerrar sesión
+/*
 export const signOutSession = () => {
   signOut(auth).then(() => {
     alert('Cerrando sesión');
@@ -109,3 +106,4 @@ export const signOutSession = () => {
     alert(errores);
   });
 };
+*/

@@ -18,7 +18,8 @@ const muro = (navigateTo) => {
   muroDiv.innerHTML += `
   <header>
   <nav class='navbar'>
-  <img class='img_food'>
+  <div class='img_food' ></div>
+  <h2>Food Match</h2>
   <div class='icon_exit'></div>
   </nav>
   </header>

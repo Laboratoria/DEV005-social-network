@@ -3,7 +3,7 @@ import { auth } from './firebaseConfig.js';
 
 // TODO: Función de registro de usuario y contraseña.
 // ? se borro el async
-const registerConfig = (email, password) => new Promise((resolve, reject) => {
+export const registerUser = (email, password) => new Promise((resolve, reject) => {
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
@@ -11,8 +11,7 @@ const registerConfig = (email, password) => new Promise((resolve, reject) => {
     })
     .catch((error) => {
       const errorMessage = error.message;
-      reject(errorMessage);
+      const errorCode = error.code;
+      reject(errorMessage, errorCode);
     });
 });
-
-export default registerConfig;

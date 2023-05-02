@@ -7,18 +7,16 @@ import wall, {
   navigateToLoginAfterLogout,
 }
   from '../src/components/wall.js';
-// import { savePost } from '../src/lib/posting.js';
 
-// import { getOnePost } from '../src/lib/posting';
 describe('likeAPost', () => {
   it('Is a function', () => {
     expect(typeof likeAPost).toBe('function');
   });
   it('Returns a function', () => {
     // data de prueba
-    const postId = -1;
-    const numLikes = [];
-    const heartLike = {};
+    const postId = 1;
+    const numLikes = '';
+    const heartLike = '';
     // ejecutamos el sujeto y obtenemos el retorno
     const returnedFunction = likeAPost(postId, numLikes, heartLike);
     // validamos que el retorno sea satisfactorio
@@ -49,7 +47,7 @@ describe('editAPost', () => {
   });
   it('Returns a function', () => {
     // data de prueba
-    const postId = -1;
+    const postId = 1;
     const btnEdit = 'div';
     // ejecutamos el sujeto y obtenemos el retorno
     const returnedFunction = editAPost(postId, btnEdit);
@@ -63,7 +61,7 @@ describe('createModal', () => {
   });
   it('Returns a function', () => {
     // data de prueba
-    const postId = -1;
+    const postId = 1;
     const btnEdit = 'div';
     const containerEachPost = 'div';
     // ejecutamos el sujeto y obtenemos el retorno

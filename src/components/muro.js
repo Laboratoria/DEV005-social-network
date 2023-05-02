@@ -122,6 +122,8 @@ const muro = (navigateTo) => {
         </div>
         </div>
             <p>${task.description}</p>
+            <i class='bx bx-heart'></i> <span> 1.7K</span>
+            <i class='bx bx-message-square-dots'></i> <span> 1.7K</span>
         </div>
           `;
       });

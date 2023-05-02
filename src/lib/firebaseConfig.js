@@ -11,6 +11,8 @@ import {
   doc,
   getDoc,
   updateDoc,
+  query,
+  orderBy,
 } from 'firebase/firestore';
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -33,7 +35,7 @@ export const auth = getAuth(app);
 const db = getFirestore(app);
 // Guardar publicación en firestore
 export const saveTask = (description) => {
-  addDoc(collection(db, 'post'), { description });
+  addDoc(collection(db, 'post'), { description, date: Date.now() });
   // nombre de la colección "post",
   // donde se van a guardar los datos
 };
@@ -41,7 +43,7 @@ export const saveTask = (description) => {
 // export const getTask = () => getDocs(collection(db, 'post'));
 
 // onSnapshot -> para que escuche los cambios y se vea en tiempo real
-export const onGetTasks = (callback) => onSnapshot(collection(db, 'post'), callback);
+export const onGetTasks = (callback) => onSnapshot(query(collection(db, 'post'), orderBy('date', 'desc')), callback);
 
 export const deleteTask = (id) => deleteDoc(doc(db, 'post', id));
 

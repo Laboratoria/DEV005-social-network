@@ -40,20 +40,3 @@ window.onpopstate = () => {
 };
 
 navigateTo(window.location.pathname || defaultRoute);
-
-/*
-function initializar() {
-  onAuthStateChanged(auth, (user) => {
-    const currentRoute = window.location.pathname;
-    if (user) {
-      navigateTo('/muro');
-    } else if (currentRoute === defaultRoute || currentRoute === '/register') {
-      navigateTo(currentRoute);
-    } else {
-      navigateTo('/');
-    }
-  });
-}
-
-initializar();
-*/

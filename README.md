@@ -5,7 +5,7 @@
 Nuestro proyecto busca crear un espacio seguro y acogedor para que mujeres viajeras compartan sus experiencias, se apoyen mutuamente y se sientan empoderadas para explorar el mundo. Creemos que el intercambio de información y la conexión entre mujeres viajeras pueden ser una fuerza positiva para cambiar la forma en que las mujeres se sienten acerca de viajar y para impulsar el turismo responsable y sostenible en todo el mundo.
 
 **Historias de usuario**
-(./src/img/HU.png)
+![historias-usuarios](./src/img/HU.png)
 
 **Prototipo alta fidelidad**
 [Has Click aqui para ver el prototipo en Figma] (https://www.figma.com/file/Lz5IbAXuENEgHiUkAAcrUc/prototype?node-id=0-1&t=jhdHyot0Y82iCAur-0)

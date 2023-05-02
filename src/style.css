@@ -1,0 +1,58 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+.content {
+    background: linear-gradient(360deg, #4ea8de 1.37%, rgba(104, 213, 228, 0.995555) 48.76%, rgba(128, 204, 234, 0.991472) 99.99%, rgba(78, 168, 222, 0) 100%);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.homeLogo {
+    margin: 0;
+    margin-bottom: 25px;
+}
+.logoOne {
+    width: 290px;
+    height: 110px;
+}
+.homeImage {
+    margin: 0;
+    margin-bottom: 35px;
+}
+.image {
+    width: 370px;
+    height: 400px;
+}
+.buttonsLR {
+    font-size: 25px;
+    font-family: "Nunito", sans-serif;
+}
+.textLR a {
+    color: #000000;
+    text-decoration: none;
+}
+span {
+    margin: 0 20px;
+    color: #000000;
+}
+.imgGoogle {
+    width: 30px;
+    height: 30px;
+}
+.bannerOne {
+    width: 100%;
+    height: 100%;
+}
+.logoTwo {
+    width: 290px;
+    height: 110px;
+}
+.logoThree {
+    width: 290px;
+    height: 110px;
+}

@@ -1,8 +1,9 @@
 import { onSnapshot } from 'firebase/firestore';
 import { signOut } from 'firebase/auth';
 import { auth } from '../lib/firebase.js';
-import { post } from '../lib/auth.js';
-import { ref, editar } from '../lib/post.js';
+import {
+  editPost, ref, deleteDocData, post, like, disLike,
+} from '../lib/post.js';
 
 function home(navigateTo) {
   const postForm = document.createElement('section');
@@ -39,6 +40,7 @@ function home(navigateTo) {
 
   const printPost = (info, doc) => {
     const postContainer = document.createElement('div');
+    postContainer.classList.add('divPost');
 
     const textarea = document.createElement('textarea');
     textarea.classList.add('showPost');
@@ -51,18 +53,54 @@ function home(navigateTo) {
     editButton.classList.add('edit');
     editButton.textContent = 'Editar';
     editButton.addEventListener('click', () => {
-      editButton.textContent = 'Guardar';
-      editar(doc.id, textarea.value, (id, newText) => {
-        const editedTextarea = postForm.querySelector(`[data-id="${id}"]`);
-        editedTextarea.value = newText;
-      });
+      if (editButton.textContent === 'Editar') {
+        editButton.textContent = 'Guardar';
+        textarea.removeAttribute('readonly');
+      } else if (editButton.textContent === 'Guardar') {
+        const editedTextarea = postForm.querySelector(`[data-id="${doc.id}"]`).value;
+        editPost(doc.id, editedTextarea);
+        editButton.textContent = 'Editar';
+        textarea.setAttribute('readonly', true);
+      }
     });
+    // Se visuliza botón editar solo en el usuario logueado
     if (auth.currentUser.email === info.userEmail) {
-      const editContainer = document.createElement('div');
-      editContainer.appendChild(editButton);
-      postContainer.appendChild(editContainer);
+      postContainer.appendChild(editButton);
     }
     postForm.appendChild(postContainer);
+
+    const deleteButton = document.createElement('button');
+    deleteButton.classList.add('delete-btn');
+    deleteButton.textContent = 'Eliminar';
+    deleteButton.addEventListener('click', () => {
+      // eslint-disable-next-line no-restricted-globals, no-alert
+      const confirmDelete = confirm('¿Estás seguro que deseas eliminar este post?');
+      if (confirmDelete) {
+        deleteDocData(doc.id);
+        deleteButton.value = doc.id;
+        deleteButton.parentElement.remove();
+      }
+    });
+    if (auth.currentUser.email === info.userEmail) {
+      postContainer.appendChild(deleteButton);
+    }
+    // Dar like y dislike
+    const likeButton = document.createElement('button');
+    likeButton.classList.add('like-btn');
+    likeButton.textContent = 'Like';
+    // const disLikeButton = document.createElement('button');
+    // disLikeButton.classList.add('disLike-btn');
+    // disLikeButton.textContent = 'DisLike';
+
+    likeButton.addEventListener('click', () => {
+      if (doc.data().likes.includes(auth.currentUser.email)) {
+        disLike(doc.id, auth.currentUser.email);
+      } else {
+        console.log('like', doc.id, auth.currentUser.email);
+        like(doc.id, auth.currentUser.email);
+      }
+    });
+    postContainer.appendChild(likeButton);
 
     return postForm;
   };
@@ -75,8 +113,9 @@ function home(navigateTo) {
       if (postExists) {
         const textarea = document.querySelector('.showPost');
         textarea.removeAttribute('readonly');
-        textarea.setAttribute('contenteditable', true);
+        console.log('actualizando publicacion');
       } else {
+        console.log('agregando nueva');
         const nodoP = printPost(postInfo, doc);
         nodoP.setAttribute('data-id', doc.id);
       }

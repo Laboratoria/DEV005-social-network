@@ -1,61 +1,61 @@
 import {
-  collection, query, doc, updateDoc,
+  collection, query, updateDoc, doc, deleteDoc, addDoc, arrayUnion, arrayRemove,
 } from 'firebase/firestore';
 import { db, auth } from './firebase.js';
 
 export const ref = () => query(collection(db, 'posts'));
 
+//
+// import { collection, query, where, onSnapshot } from "firebase/firestore";
+
+// const q = query(collection(db, "cities"), where("state", "==", "CA"));
+// const unsubscribe = onSnapshot(q, (querySnapshot) => {
+//   const cities = [];
+//   querySnapshot.forEach((doc) => {
+//       cities.push(doc.data().name);
+//   });
+//   console.log("Current cities in CA: ", cities.join(", "));
+// });
+
+// Leer post
+const colPost = collection(db, 'posts');
+
+// guardar post
+export const post = (postText) => {
+  addDoc(colPost, {
+    text: postText,
+    userEmail: auth.currentUser.email,
+    likes: [],
+  });
+};
+
 // Editar post
 
-export function editar(id, postText, onSave) {
-  const textarea = document.querySelector(`[data-id="${id}"]`);
-  textarea.removeAttribute('readonly');
-  textarea.value = postText;
-  console.log(textarea);
-
-  // Asignar ID y atributo personalizado a cada botón de editar
-  const editButtons = document.querySelectorAll('.edit');
-  editButtons.forEach((button) => {
-    const postId = button.dataset.postId;
-    button.addEventListener('click', () => {
-    // Obtener el contenido correspondiente al post
-      const postContent = document.querySelector(`#post-${postId}-content`);
-      // Actualizar el contenido
-      postContent.contentEditable = true;
-      // Mostrar el botón de guardar correspondiente
-      const saveButton = document.querySelector(`#post-${postId}-guardar`);
-      saveButton.style.display = 'block';
-    });
-  });
-
-  // Asignar ID y atributo personalizado a cada botón de guardar
-  const saveButtons = document.querySelectorAll('.edit');
-  saveButtons.forEach((button) => {
-    const postId = button.dataset.postId;
-    button.addEventListener('click', () => {
-      // Obtener el contenido correspondiente al post
-      const postContent = document.querySelector(`#post-${postId}-content`);
-      // Desactivar la edición del contenido
-      postContent.contentEditable = false;
-      // Ocultar el botón de guardar correspondiente
-      button.style.display = 'none';
-    });
-  });
-
-  /* const bEdit = document.querySelector('.edit');
-  bEdit.classList.add('edit');
-  bEdit.textContent = 'Guardar';
-  bEdit.onclick = () => { */
-  const postRef = doc(db, 'posts', id);
-
+export const editPost = (id, text) => {
+  const postRef = doc(db, 'posts', `${id}`);
   updateDoc(postRef, {
+    text,
+  });
+};
 
-    text: textarea.value,
-    userEmail: auth.currentUser.email,
-  })
-    .then(() => {
-      onSave(id, textarea.value);
-      editButtons.textContent = 'Editar';
-      editButtons.onclick = () => editar(id, textarea.value, onSave);
-    });
-}
+// Eliminar post
+
+export const deleteDocData = (id) => {
+  deleteDoc(doc(db, 'posts', `${id}`));
+};
+
+// Dar Like
+export const like = (id, email) => {
+  const postRef = doc(db, 'posts', `${id}`);
+  updateDoc(postRef, {
+    likes: arrayUnion(email),
+  });
+};
+
+// Dislike
+export const disLike = (id, email) => {
+  const postRef = doc(db, 'posts', `${id}`);
+  updateDoc(postRef, {
+    likes: arrayRemove(email),
+  });
+};

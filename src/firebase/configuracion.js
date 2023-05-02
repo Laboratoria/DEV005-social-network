@@ -1,6 +1,6 @@
 // Importando las funciones necesarias de los SDK de Firebase que queremos utilizar en nuestro proyecto.
 import { initializeApp } from "firebase/app";
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 // import { getFirestore } from "firebase/firestore";
 
 // Configurando los datos necesarios de nuestro proyecto de Firebase.
@@ -27,5 +27,13 @@ const signIn = async (email, password) => {
     return user;
 };
 
-// Exportando todas las variables y funciones necesarias para utilizar Firebase Auth y Google Auth en nuestra aplicación web.
-export { app, auth, signIn };
+// Definiendo una función que registra a un usuario en Firebase Auth y le asigna un displayName.
+const registerUser = async (displayName, email, password) => {
+    // Crea el usuario con su email y password
+    const { user } = await createUserWithEmailAndPassword(auth, email, password);
+    // Actualiza el perfil del usuario con el displayName
+    await updateProfile(auth.currentUser, { displayName });
+    // Retorna el objeto del usuario registrado
+    return user;
+};
+export { auth, app, signIn, registerUser };

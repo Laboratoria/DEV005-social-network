@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import { signOut } from 'firebase/auth';
 import { auth } from '../lib/firebase';
-// import { addPostToFirestore, deleteFirestorePost } from '../lib/post';
+import { addPostToFirestore, deleteFirestorePost } from '../lib/post';
 
 function wall() {
   const wallSection = document.createElement('section');
@@ -49,7 +49,7 @@ function wall() {
     newPost.textContent = postText;
     postsContainer.append(newPost);
     console.log(postText);
-    // addPostToFirestore(postText);
+    addPostToFirestore(postText);
     post.value = '';
     btnPost.disabled = true;
 
@@ -66,7 +66,7 @@ function wall() {
 
     // Función botón borrar post
     btnDelete.addEventListener('click', () => {
-      // deleteFirestorePost(postsContainer);
+      deleteFirestorePost(postsContainer);
       console.log('Se borró la publicación');
     });
 

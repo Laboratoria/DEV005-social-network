@@ -1,7 +1,7 @@
 // Importando las funciones necesarias de los SDK de Firebase que queremos utilizar en nuestro proyecto.
 import { initializeApp } from "firebase/app";
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile, GoogleAuthProvider, signInWithPopup  } from "firebase/auth";
 // import { getFirestore } from "firebase/firestore";
-import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 
 // Configurando los datos necesarios de nuestro proyecto de Firebase.
 const firebaseConfig = {
@@ -16,11 +16,31 @@ const firebaseConfig = {
 
 // Inicializando la aplicación de Firebase
 const app = initializeApp(firebaseConfig);
+// Obteniendo la instancia de Firestore para comenzar a utilizar la base de datos en nuestra aplicación web
 // const dataBase = getFirestore();
 
 const provider = new GoogleAuthProvider();
+// Inicializando la autenticación
+const auth = getAuth(app);
 
-const auth = getAuth();
+// Definiendo una función que inicia sesión en Firebase Auth con email y password.
+const signIn = async (email, password) => {
+    // Inicia sesión con email y password
+    const { user } = await signInWithEmailAndPassword(auth, email, password);
+    // Retorna el objeto del usuario que inició sesión
+    return user;
+};
+
+// Definiendo una función que registra a un usuario en Firebase Auth y le asigna un displayName.
+const registerUser = async (displayName, email, password) => {
+    // Crea el usuario con su email y password
+    const { user } = await createUserWithEmailAndPassword(auth, email, password);
+    // Actualiza el perfil del usuario con el displayName
+    await updateProfile(auth.currentUser, { displayName });
+    // Retorna el objeto del usuario registrado
+    return user;
+};
+
 const callingGoogle = () => {
     signInWithPopup(auth, provider)
         .then((result) => {
@@ -43,4 +63,4 @@ const callingGoogle = () => {
         });
 };
 
-export { callingGoogle };
+export { auth, app, signIn, registerUser, callingGoogle };

@@ -1,4 +1,7 @@
+
 import { callingGoogle } from "../firebase/configuracion";
+import { loginLogic } from "../lib/loginLogic";
+
 // Declara una constante llamada "login" que es igual a una función flecha con un parámetro llamado "findRouteAndNavigate"
 const login = (findRouteAndNavigate) => {
     // Crea un elemento HTML <section> y lo guarda en una constante llamada "container"
@@ -15,15 +18,18 @@ const login = (findRouteAndNavigate) => {
    <div>
      <label>Correo: </label>
      <input id="mailUserLogin" type="text" placeholder="example@gmail.com" />
-   </div>
+     <p id='messageErrorMailLogin' class='messageErrorMailLogin'></p>
+     </div>
    <div>
      <label>Contraseña: </label>
-     <input id="passwordUserLogin" type="password" placeholder="***********" />
-   </div>
+     <input id="passwordUserLogin" type="password" placeholder="******" />
+     <p id='messageErrorPasswordLogin' class='messageErrorPasswordLogin'></p>
+  
+     </div>
  </div>
  <div class="botonesInicioSesion">
    <div class="loginBtn">
-     <input id="loginBtn" type="submit" value="Iniciar Sesión" />
+     <input id="loginBtn" class="loginBtn" type="submit" value="Iniciar Sesión" />
    </div>
    <div class="loginGmailBtn">
      <button id="loginGmailBtn">
@@ -43,16 +49,18 @@ const login = (findRouteAndNavigate) => {
 `;
     // Inserta el contenido HTML de "viewLogin" dentro del elemento <section> creado antes
     container.innerHTML = viewLogin;
+    // "loginLogic" se define en otro módulo y se encarga de manejar la lógica del formulario de inicio de sesión.
+    loginLogic(container);
     // Busca el elemento con el ID "registerBtn" dentro del elemento <section> creado antes y lo guarda en una constante llamada "registerBtn"
     const registerBtn = container.querySelector("#registerBtn");
-    // Añade un evento de click al botón de registro para redirigir al usuario a la página de registro
+    // // Añade un evento de click al botón de registro para redirigir al usuario a la página de registro
     registerBtn.addEventListener("click", () => {
         // Ejecuta la función "findRouteAndNavigate" con el parámetro "/register" para redirigir al usuario a la página de registro
         findRouteAndNavigate("/register");
     });
 
     const googleBtn = container.querySelector("#loginGmailBtn");
-    googleBtn.addEventListener("click", (e) => {
+    googleBtn.addEventListener("click", () => {
         callingGoogle();
     });
 

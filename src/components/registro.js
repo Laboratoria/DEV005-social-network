@@ -25,7 +25,7 @@ function registro(navigateTo) {
   mail.addEventListener('blur', () => {
     const email = mail.value;
     if (!email.endsWith('@gmail.com') && !email.endsWith('@hotmail.com')) {
-      alert('Introduzca una dirección de correo electrónico válida');
+      alert('Introduzca una dirección de correo electrónico válidas');
       mail.value = '';
     }
   });
@@ -36,8 +36,10 @@ function registro(navigateTo) {
   const passwordLabel = document.createElement('label');
   const password = document.createElement('input');
   passwordLabel.textContent = 'Contraseña:';
+  passwordLabel.textContent = 'Contraseña:';
   passwordLabel.setAttribute('for', 'password');
   password.id = 'password';
+  password.minLength = 6;
   password.minLength = 6;
   password.maxLength = 10;
   password.type = 'password';
@@ -62,14 +64,13 @@ function registro(navigateTo) {
         const user = userCredential.user;
         user.textContent = '';
         // ...
-        document.getElementById('mail').value = '';
-        document.getElementById('password').value = '';
+        mail.value = '';
+        password.value = '';
       })
       .catch((error) => {
         alert(error);
-
-        document.getElementById('mail').value = '';
-        document.getElementById('password').value = '';
+        mail.value = '';
+        password.value = '';
       });
 
     console.log('si sirvo');
@@ -80,6 +81,8 @@ function registro(navigateTo) {
   section.append(img, form1);
   form1.append(
     title,
+    mailLabel,
+    mail,
     mailLabel,
     mail,
     passwordLabel,

@@ -14,8 +14,6 @@ function home(navigateTo) {
   const title = document.createElement('h1');
   const division = document.createElement('div');
   const forgetPass = document.createElement('button');
-  forgetPass.textContent = 'Olvidé contraseña';
-  forgetPass.setAttribute('class', 'forgetPass-b');
   division.setAttribute('class', 'divhome');
 
   /* ----------------Imagenes -------------------------*/
@@ -39,6 +37,7 @@ function home(navigateTo) {
   mail.addEventListener('blur', () => {
     const email = mail.value;
     if (!email.endsWith('@gmail.com') && !email.endsWith('@hotmail.com')) {
+      // eslint-disable-next-line no-alert
       alert('Introduzca una dirección de correo electrónico válida');
       mail.value = '';
     }
@@ -68,8 +67,10 @@ function home(navigateTo) {
     revision(mail.value, password.value)
       .then((user) => {
         navigateTo('/muro');
+        // eslint-disable-next-line no-console
         console.log(user);
       }).catch((error) => {
+        // eslint-disable-next-line no-console
         console.error('Tienes un error', error);
         mail.value = '';
         password.value = '';
@@ -89,6 +90,7 @@ function home(navigateTo) {
       .then((result) => {
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
+        // eslint-disable-next-line no-console
         console.log(token);
 
         const user = result.user;
@@ -125,10 +127,10 @@ function home(navigateTo) {
     passUser,
     password,
     division,
-    loginGoogle,
     login,
+    loginGoogle,
   );
-  division.append(register, forgetPass);
+  division.appendChild(register);
   return section;
 }
 

@@ -1,4 +1,5 @@
-import { collection, addDoc, doc } from 'firebase/firestore';
+/* eslint-disable no-console */
+import { collection, addDoc, doc, deleteDoc, updateDoc } from 'firebase/firestore';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { auth, db, app } from './firebase.js';
 
@@ -15,16 +16,15 @@ export const addPostToFirestore = async (text, user) => {
     });
     console.log('Document written with ID: ', docRef.id);
   }
-  catch{err => {
+  catch (err) {
     console.log('Error', err);
-  }}
-};
+  }};
 
+//Función para borrar el post
 export const deleteFirestorePost = async () => {
-  const idRef = doc(collection(db, 'posts'));
-  console.log('funciona deleteFirestorePost');
+  console.log('funciona');
   try {
-    const deletePost = await deleteDoc(doc(db, 'posts', idRef.id));
+    const deletePost = await deleteDoc(doc(db, 'posts', '0uQpkETAlEftkN4vKfwK'));
     console.log('se borró el post ' + deletePost);
   } catch{err => {
     console.log('Error', err);

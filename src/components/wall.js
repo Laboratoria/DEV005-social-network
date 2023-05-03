@@ -33,7 +33,9 @@ function wall() {
 
   // Deshabilitar btnPost hasta que haya algo escrito
   post.addEventListener('keyup', () => {
-    if (post.value.length >= 2) {
+    if (post.value !== '') {
+      btnPost.disabled = false;
+    } else if (post.value.length >= 2) {
       btnPost.disabled = false;
     } else {
       btnPost.disabled = true;
@@ -49,18 +51,34 @@ function wall() {
     console.log(postText);
     // addPostToFirestore(postText);
     post.value = '';
+    btnPost.disabled = true;
+
+    const btnsContainer = document.createElement('div');
+    btnsContainer.id = 'btns-cont';
+
+    // Creación botón Editar
+    const bntEdit = document.createElement('button');
+    bntEdit.id = 'btn-edit';
+    bntEdit.textContent = 'Editar';
+
+    // Función para editar post
+    bntEdit.addEventListener('click', () => {
+      // const postId = newPost.id;
+    });
 
     // Creación botón Eliminar
     const btnDelete = document.createElement('button');
     btnDelete.id = 'btn-delete';
     btnDelete.textContent = 'Borrar';
-    newPost.append(btnDelete);
 
     // Función botón borrar post
     btnDelete.addEventListener('click', () => {
-    // deleteFirestorePost(postsContainer);
+      deleteFirestorePost(postsContainer);
       console.log('Se borró la publicación');
     });
+
+    btnsContainer.append(btnDelete);
+    newPost.append(btnsContainer);
   });
 
   btnLogOut.addEventListener('click', () => {
@@ -68,7 +86,6 @@ function wall() {
     console.log('Se cerró sesión correctamente');
   });
 
-  // Orden provisorio que le dejé al append
   navBar.append(nameApp, btnLogOut);
   writeContainer.append(post, btnPost);
   wallSection.append(

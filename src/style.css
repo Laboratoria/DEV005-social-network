@@ -370,6 +370,7 @@ a {
   justify-self: center;
   list-style: none;
   display: grid;
+  overflow-wrap: anywhere;
 }
 
 #btn-like {

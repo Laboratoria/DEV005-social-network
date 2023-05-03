@@ -616,20 +616,127 @@ textarea {
   .signup-container #error-reg5 {
     margin: 0 20px 5px
   }
-
   
   /*------ WALL ------*/
-  #text-posts {
-    height: 100px;
-    width: 200px;
-    background-color: powderblue;
-    resize: none;
+  #wall-section {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
   }
-  
-  #btn-posts:disabled {
-    color: #7e7979;
-    background-color: #f1c7bf;
+  #nav-bar {
+    display: flex;
+    flex-direction: row;
+    height: 10em;
+    margin: 0 0 1em;
+    align-items: center;
   }
+    #name-App {
+      width: auto;
+      position: absolute;
+      left: 3rem;
+      font-family: var(--font-logo);
+      font-size: 4.5em;
+      font-weight: 400;
+      color: #4a4747;
+      text-align: left;
+    }
+    #log-out {
+      height: 6rem;
+      width: 9rem;
+      position: absolute;
+      right: 3rem;
+      padding: .5rem;
+      font-size: 1.7rem;
+      line-height: 2rem;
+    }
+
+  #write-container{
+    display: flex;
+    flex-direction: row;
+    height: 16em;
+    width: 48em;
+    margin: 0 14.4em 1.5em;
+    border: solid 0.15em #d35b46;
+    border-radius: 1.8em;
+    justify-content: center;
+    align-items: center;
+  }
+    #text-posts {
+      height: 8em;
+      width: 33em;
+      margin: 2.7em 0 0;
+      padding: 0.6em 7.6em 0.6em 0.6em;
+      font-family: var(--font-text);
+      resize: none;
+      border: solid 1px #c5c5c5;
+      border-radius: 1.4rem;
+      background-color: #ffffff;
+      position: fixed;
+    }
+      #btn-posts {
+        width: 8.4rem;
+        height: 5rem;
+        margin-top: 3.5rem;
+        margin-left: 33rem;
+        position: absolute;
+        font-size: 1.65rem;
+      }
+        #btn-posts:disabled {
+          color: #7e7979;
+          background-color: #f1c7bf;
+          cursor: auto;
+        }
+      
+    #posts-container {
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      width: 100%;
+      justify-content: center;
+      margin-top: 3em;
+    }
+      .posted {
+        display: flex;
+        flex-direction: column;
+        min-height: 5em;
+        width: 44rem;
+        padding: 0.6em 7em 0.7em 0.6em;
+        font-family: var(--font-text);
+        font-size: 1.5rem;
+        background-color: white;
+        border: solid 1px#d35b46;
+        border-radius: 1.5rem;
+      }
+      #btns-cont{
+        display: flex;
+        height: 5em;
+        width: 5em;
+        flex-direction: column;
+        margin-top: -1.5rem;
+        margin-left: 1.4em;
+        flex-wrap: nowrap;
+        align-items: stretch;
+      }
+        #btn-edit {
+          height: 3.5rem;
+          width: 8rem;
+          font-size: 1.7rem;
+          margin-left: 31.5rem;
+          margin-bottom: .5rem;
+          padding: 0 1rem;
+        }
+        #btn-delete {
+          height: 3.5rem;
+          width: 8rem;
+          font-size: 1.7rem;
+          margin-left: 31.5rem;
+          padding: 0 1rem;
+        }  
+          #btn-posts:disabled {
+            color: #7e7979;
+            background-color: #f1c7bf;
+          }
 
   /*------ ERROR ------*/
   #construction {

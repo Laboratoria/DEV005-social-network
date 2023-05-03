@@ -12,34 +12,40 @@ import { exit } from '../lib/auth.js';
 
 let editStatus = false;
 let id = '';
-// Like en post
+let postForm;
 
-const likePost = (postId) => {
-  const addLikePost = async (/* event */) => {
-    /* event.preventDefault(); */
+// Función que permite eliminar un post
+const deletingPost = (event) => {
+  const postId = event.target.dataset.id;
+  deletePost(postId);
+};
 
-    await getPost(postId) // Trae la publicaciòn por el id
-      .then(async (doc) => {
-        const getLikes = doc.data();
+// Función que permite editar un post
+const editingPost = (event) => {
+  getPost(event.target.dataset.id)
+    .then((commentUser) => {
+      const post = commentUser.data().txtMascotiemos;
+      postForm.txtMascotiemos.value = post;
+      editStatus = true;
+      id = event.target.dataset.id;
+    });
+};
 
-        const counterLikes = getLikes.likes;
-
-        const currentUserEmail = auth.currentUser.email;
-
-        if (counterLikes.includes(currentUserEmail)) {
-          dislike(postId, currentUserEmail);
-          // footprint.classList.remove('liked');
-        } else {
-          like(postId, currentUserEmail);
-          // footprint.classList.add('liked');
-        }
-        // const updatingPost = await getPost(postId);
-        // const updatingLike = updatingPost.data().likes;
-        // numLikes.textContent = updatingLike.length + 1;
-      });
-  };
-  addLikePost();
-  // return addLikePost;
+// Función que permite dar like a un post
+const likePost = (event) => {
+  const postId = event.target.dataset.id;
+  const currentUserEmail = auth.currentUser.email;
+  getPost(postId).then((doc) => {
+    if (doc.exists) {
+      const data = doc.data();
+      const likes = data.likes || [];
+      if (likes.includes(currentUserEmail)) {
+        dislike(postId, currentUserEmail);
+      } else {
+        like(postId, currentUserEmail);
+      }
+    }
+  });
 };
 
 export default function home() {
@@ -70,7 +76,7 @@ export default function home() {
     exit();
   });
 
-  const postForm = section.querySelector('#post-form');
+  postForm = section.querySelector('#post-form');
   const postContainer = section.querySelector('#containerPost');
 
   const readPost = (posts) => {
@@ -87,6 +93,15 @@ export default function home() {
             <button id="btnLike" class="btnLike" data-id="${docs.id}">Me gusta</button>
             <p class="count">${publication.likes.length}</p>
           <button id="btnDelete" class="btnDelete" data-id="${docs.id}">Eliminar</button>
+          <section class="modal">
+           <div class="containerModal">
+            <p class="modalTitle">¿Desea eliminar el post?</p>
+             <div class="containerBtnsModal">
+              <button id="btnCancel" class="btnCancel"> Cancelar </button>
+              <button id="btnConfirm" class="btnConfirm"> Confirmar </button>
+            </div>
+           </div>
+          </section>
           <button id="btnEdit" class="btnEdit" data-id="${docs.id}">Editar</button>
           </section>
         </div>
@@ -105,33 +120,62 @@ export default function home() {
     });
     postContainer.innerHTML = html;
 
-    const btnsDelete = postContainer.querySelectorAll('#btnDelete');
-    btnsDelete.forEach((btn) => {
-      btn.addEventListener('click', ({ target: { dataset } }) => {
-        const postId = dataset.id;
-        deletePost(postId);
+    // Modal confirmación eliminar post
+    // const btnsDelete = postContainer.querySelectorAll('.btnDelete');
+    // const modal = postContainer.querySelector('.modal');
+    // const btnConfirm = postContainer.querySelector('.btnConfirm');
+    // const btnCancel = postContainer.querySelector('.btnCancel');
+    // btnConfirm.addEventListener('click', deletingPost);
+    // btnCancel.addEventListener('click', (e) => {
+    //   e.preventDefault();
+    //   modal.classList.remove('modal--show');
+    // });
+    // btnsDelete.forEach((btnDelete) => {
+    //   btnDelete.addEventListener('click', () => {
+    //     modal.classList.add('modal--show');
+    //   });
+    // });
+
+    const modal = postContainer.querySelector('.modal');
+    const modalDelete = (postId) => {
+      const btnsDelete = postContainer.querySelectorAll('.btnDelete');
+      const btnConfirm = postContainer.querySelector('.btnConfirm');
+      const btnCancel = postContainer.querySelector('.btnCancel');
+
+      btnsDelete.forEach((btnDelete) => {
+        btnDelete.addEventListener('click', () => {
+          modal.classList.add('modal--show');
+        });
       });
-    });
+
+      const eventoClick = btnConfirm.addEventListener('click', () => {
+        deletingPost(postId);
+        modal.classList.remove('modal--show');
+      });
+
+      console.log(eventoClick);
+
+      btnCancel.addEventListener('click', () => {
+        modal.classList.remove('modal--show');
+      });
+    };
+
+    modalDelete(section);
+
+    // Botón para eliminar un post y llamar la función que elimina el post
+
+    // Botón para editar post y llamar la función que edita el post
 
     const btnsEdit = postContainer.querySelectorAll('.btnEdit');
     btnsEdit.forEach((btn) => {
-      btn.addEventListener('click', async (event) => {
-        const commentUser = await getPost(event.target.dataset.id);
-        const post = commentUser.data().txtMascotiemos;
-        postForm.txtMascotiemos.value = post;
-        editStatus = true;
-        id = event.target.dataset.id;
-      });
+      btn.addEventListener('click', editingPost);
     });
 
-    // Boton Like
+    // Boton para dar like a post y llamar la función que permite dar like
 
     const btnsLike = postContainer.querySelectorAll('.btnLike');
     btnsLike.forEach((btn) => {
-      btn.addEventListener('click', async (event) => {
-        const postId = event.target.dataset.id;
-        likePost(postId);
-      });
+      btn.addEventListener('click', likePost);
     });
   };
 

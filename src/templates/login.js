@@ -1,16 +1,15 @@
 import { loginEmail, loginGoogle } from '../lib/auth.js';
 import { dinamicLabels } from '../lib/labels.js';
 
-const loginFirebase = (email, password) => {
+export const loginFirebase = (email, password, errorEmail, errorPassword) => {
   const loginPrevent = (e) => {
     e.preventDefault();
-    loginEmail(email, password);
+    loginEmail(email.value, password.value, errorEmail, errorPassword);
   };
   return loginPrevent;
 };
 
-const googleFirebase = (e) => {
-  e.preventDefault();
+export const googleFirebase = () => {
   loginGoogle();
 };
 
@@ -30,10 +29,12 @@ export function login(navigation) {
             <span>Correo electrónico</span>
             <input type="email" autocomplete="off" name="email" class="email" id="email">
           </label>
+          <span id="errorEmail" class="errorEmail"></span>
           <label>
             <span>Contraseña</span>
             <input type="password" class="password" id="password">
           </label>  
+          <span id="errorPassword" class="errorPassword"></span>
         </form>   
         <button class="btnLogin" id="btnLogin">Iniciar sesión</button>
         <button class="btnGoogle" id="btnGoogle"> <img class="logoGoogle" src="./img/logogoogle.png" alt="Logo Google"></img>Continuar con Google</button>
@@ -42,6 +43,24 @@ export function login(navigation) {
     </main>
   </div>`;
   section.innerHTML = html;
+
+  const email = section.querySelector('#email');
+  const password = section.querySelector('#password');
+  const errorEmail = section.querySelector('#errorEmail');
+  const errorPassword = section.querySelector('#errorPassword');
+
+  // Limpia los inputs luego de los errores
+  email.addEventListener('click', () => {
+    email.value = '';
+    errorEmail.innerHTML = '';
+    email.innerHTML = '';
+  });
+
+  password.addEventListener('click', () => {
+    password.value = '';
+    errorPassword.innerHTML = '';
+    password.innerHTML = '';
+  });
 
   // Labels dinámicos
   dinamicLabels(section);
@@ -56,10 +75,8 @@ export function login(navigation) {
   // Evento del botón Iniciar Sesiòn
 
   const btnLogin = section.querySelector('#btnLogin');
-  const password = section.querySelector('#password');
-  const email = section.querySelector('#email');
 
-  btnLogin.addEventListener('click', loginFirebase(email, password));
+  btnLogin.addEventListener('click', loginFirebase(email, password, errorEmail, errorPassword));
 
   // Google inicio
 

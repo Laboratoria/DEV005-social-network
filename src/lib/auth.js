@@ -8,13 +8,21 @@ import {
 
 import { auth } from './index.js';
 
-export const loginEmail = (email, password) => {
-  signInWithEmailAndPassword(auth, email.value, password.value)
+export const loginEmail = (email, password, errorEmail, errorPassword) => {
+  signInWithEmailAndPassword(auth, email, password)
     .then(() => {
 
     })
-    .catch(() => {
-
+    .catch((error) => {
+      if (error.code === 'auth/wrong-password') {
+        errorPassword.innerHTML = 'Contraseña incorrecta';
+      } else if (error.code === 'auth/invalid-email') {
+        errorEmail.innerHTML = 'Correo inválido';
+      } else if (error.code === 'auth/user-not-found') {
+        errorEmail.innerHTML = 'Usuario no encontrado';
+      } else if (error.code) {
+        errorPassword.innerHTML = 'Algo salió mal';
+      }
     });
 };
 

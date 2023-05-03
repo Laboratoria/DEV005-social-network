@@ -8,10 +8,10 @@ const welcome = (findRouteAndNavigate) => {
     const viewWelcome = `
   <div>
   <figure class="homeLogo">
-      <img src="./img/logo.png" alt="logo SportX" class="logoOne"/>
+      <img src="./img/logo.svg" alt="logo SportX" class="logoOne"/>
   </figure>
   <figure class="homeImage">
-      <img src="./img/deporte.png" alt="logo deporte" class="image"/>
+      <img src="./img/sports.svg" alt="logo deporte" class="image"/>
   </figure>
   <div class="buttonsLR">
    <article class="textLR">

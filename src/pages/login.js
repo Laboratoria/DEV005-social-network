@@ -1,4 +1,7 @@
+
+import { callingGoogle } from "../firebase/configuracion";
 import { loginLogic } from "../lib/loginLogic";
+
 // Declara una constante llamada "login" que es igual a una función flecha con un parámetro llamado "findRouteAndNavigate"
 const login = (findRouteAndNavigate) => {
     // Crea un elemento HTML <section> y lo guarda en una constante llamada "container"
@@ -9,16 +12,16 @@ const login = (findRouteAndNavigate) => {
     const viewLogin = `
 <div class="bannerOne">
   <div class="loginLogo">
-   <img src="./img/logo.png" alt="logo SportX" class="logoTwo"/>
+   <img src="./img/logo.svg" alt="logo SportX" class="logoTwo"/>
   </div>
   <div class="loginForm">
    <div>
-     <label>Correo</label>
+     <label>Correo: </label>
      <input id="mailUserLogin" type="text" placeholder="example@gmail.com" />
      <p id='messageErrorMailLogin' class='messageErrorMailLogin'></p>
      </div>
    <div>
-     <label>Contraseña</label>
+     <label>Contraseña: </label>
      <input id="passwordUserLogin" type="password" placeholder="******" />
      <p id='messageErrorPasswordLogin' class='messageErrorPasswordLogin'></p>
   
@@ -30,8 +33,8 @@ const login = (findRouteAndNavigate) => {
    </div>
    <div class="loginGmailBtn">
      <button id="loginGmailBtn">
-         <img src="./img/google.png" alt="google" class="imgGoogle"/>
-         Iniciar con Google
+         <img src="./img/google.svg" value="iniciarGoogle"alt="google" class="imgGoogle"/>
+         Acceder con Google
      </button>
    </div>
    <div class="volverRegistro">
@@ -54,6 +57,11 @@ const login = (findRouteAndNavigate) => {
     registerBtn.addEventListener("click", () => {
         // Ejecuta la función "findRouteAndNavigate" con el parámetro "/register" para redirigir al usuario a la página de registro
         findRouteAndNavigate("/register");
+    });
+
+    const googleBtn = container.querySelector("#loginGmailBtn");
+    googleBtn.addEventListener("click", () => {
+        callingGoogle();
     });
 
     // Retorna el elemento <section> con el formulario de inicio de sesión y el botón de registro

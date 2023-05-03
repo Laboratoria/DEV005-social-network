@@ -7,6 +7,7 @@ import {
   GoogleAuthProvider,
   GithubAuthProvider,
   signInWithEmailAndPassword,
+  signOut,
 } from 'firebase/auth';
 
 import {
@@ -51,7 +52,6 @@ export const newAccount = (email, password, errorElement) => {
   }
 };
 
-// eslint-disable-next-line max-len
 //  LOGIN CORREO Y CONTRASEÑA
 export const logInWithEmail = (email, password, errorELogin) => new Promise((resolve, reject) => {
   if (email === '' && password === '') {

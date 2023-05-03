@@ -55,17 +55,10 @@ function wall() {
 
     const btnsContainer = document.createElement('div');
     btnsContainer.id = 'btns-cont';
-
     // Creación botón Editar
     const bntEdit = document.createElement('button');
     bntEdit.id = 'btn-edit';
     bntEdit.textContent = 'Editar';
-
-    // Función para editar post
-    bntEdit.addEventListener('click', () => {
-      // const postId = newPost.id;
-    });
-
     // Creación botón Eliminar
     const btnDelete = document.createElement('button');
     btnDelete.id = 'btn-delete';
@@ -73,11 +66,16 @@ function wall() {
 
     // Función botón borrar post
     btnDelete.addEventListener('click', () => {
-      deleteFirestorePost(postsContainer);
+      // deleteFirestorePost(postsContainer);
       console.log('Se borró la publicación');
     });
 
-    btnsContainer.append(btnDelete);
+    // Función para editar post
+    bntEdit.addEventListener('click', () => {
+      const postId = newPost.id;
+    });
+
+    btnsContainer.append(bntEdit, btnDelete);
     newPost.append(btnsContainer);
   });
 
@@ -86,6 +84,7 @@ function wall() {
     console.log('Se cerró sesión correctamente');
   });
 
+  // Orden provisorio que le dejé al append
   navBar.append(nameApp, btnLogOut);
   writeContainer.append(post, btnPost);
   wallSection.append(

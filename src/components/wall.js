@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-console */
 import { signOut } from 'firebase/auth';
 import { auth } from '../lib/firebase';
 import { addPostToFirestore, deleteFirestorePost } from '../lib/post';

@@ -116,9 +116,14 @@ main {
     margin-left: 10px;
 }
 
-.containerPost{
-    display: flex;
+.containerMain {
     width: 300px;
+    flex-wrap: wrap;
+    margin-left: 60px;
+}
+
+.containerPost {
+    display: flex;
     justify-content: center;
     flex-wrap: wrap;
     position: relative;
@@ -135,12 +140,13 @@ main {
 }
 
 .containerButtons{
-    width: 50%;
+    width: 35%;
     display: flex; 
     justify-content:flex-end;
     margin-left: 90px;
     gap: 10%;
 }
+
 .btnDelete:hover, .btnConfirm:hover, .logOut:hover{
     color: red;
 }
@@ -151,21 +157,18 @@ main {
     color: white;
     position: absolute;
     transform: translate(-50%, -50%);
-    top: 50%;
     left: 50%;
     border-radius: 10px;
     padding: 15px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 8px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
     font-size: 13px;
     text-align: center;
-    pointer-events: none;
 }
 .modal{
     opacity: 0;
 }
 .modal--show {
     opacity: 1;
-    pointer-events: unset;
     transition: opacity .3s;
 }
 .containerBtnsModal{

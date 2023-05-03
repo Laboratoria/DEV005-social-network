@@ -17,7 +17,10 @@ let postForm;
 // Función que permite eliminar un post
 const deletingPost = (event) => {
   const postId = event.target.dataset.id;
-  deletePost(postId);
+  getPost(postId)
+  .then(()=>{
+    deletePost(postId);
+  });
 };
 
 // Función que permite editar un post
@@ -87,54 +90,42 @@ export default function home() {
       const currentUser = auth.currentUser;
       if (ownerId === currentUser.uid) {
         html += `
-        <div>
+        <div class="containerMain">
           <p id="textPost" class="textPost">${publication.txtMascotiemos}</p>
           <section class="containerButtons">
-            <button id="btnLike" class="btnLike" data-id="${docs.id}">Me gusta</button>
+            <button id="btnLike" class="btnLike" data-id="${docs.id}">🐾</button>
             <p class="count">${publication.likes.length}</p>
-          <button id="btnDelete" class="btnDelete" data-id="${docs.id}">Eliminar</button>
-          <section class="modal">
-           <div class="containerModal">
-            <p class="modalTitle">¿Desea eliminar el post?</p>
-             <div class="containerBtnsModal">
-              <button id="btnCancel" class="btnCancel"> Cancelar </button>
-              <button id="btnConfirm" class="btnConfirm"> Confirmar </button>
-            </div>
-           </div>
-          </section>
-          <button id="btnEdit" class="btnEdit" data-id="${docs.id}">Editar</button>
+            <button id="btnDelete"  class="btnDelete" data-id="${docs.id}">🗑️</button>
+            <button id="btnEdit" class="btnEdit" data-id="${docs.id}">✍️</button>
           </section>
         </div>
         `;
       } else {
         html += `
-        <div>
+        <div class="containerMain">
           <p id="textPost" class="textPost">${publication.txtMascotiemos}</p>
           <section class="containerButtons">
-            <button id="btnLike" class="btnLike" data-id="${docs.id}">Me gusta</button>
+            <button id="btnLike" class="btnLike" data-id="${docs.id}">🐾</button>
             <p class="count">${publication.likes.length}</p>
           </section>
         </div>
         `;
       }
     });
-    postContainer.innerHTML = html;
 
-    // Modal confirmación eliminar post
-    // const btnsDelete = postContainer.querySelectorAll('.btnDelete');
-    // const modal = postContainer.querySelector('.modal');
-    // const btnConfirm = postContainer.querySelector('.btnConfirm');
-    // const btnCancel = postContainer.querySelector('.btnCancel');
-    // btnConfirm.addEventListener('click', deletingPost);
-    // btnCancel.addEventListener('click', (e) => {
-    //   e.preventDefault();
-    //   modal.classList.remove('modal--show');
-    // });
-    // btnsDelete.forEach((btnDelete) => {
-    //   btnDelete.addEventListener('click', () => {
-    //     modal.classList.add('modal--show');
-    //   });
-    // });
+     html += `
+      <section class="modal">
+        <div class="containerModal">
+          <p class="modalTitle">¿Desea eliminar el post?</p>
+          <div class="containerBtnsModal">
+            <button id="btnCancel" class="btnCancel"> Cancelar </button>
+            <button id="btnConfirm" class="btnConfirm"> Confirmar </button>
+          </div>
+        </div>
+      </section>`;
+
+      postContainer.innerHTML = html;
+
 
     const modal = postContainer.querySelector('.modal');
     const modalDelete = (postId) => {
@@ -148,12 +139,10 @@ export default function home() {
         });
       });
 
-      const eventoClick = btnConfirm.addEventListener('click', () => {
-        deletingPost(postId);
+      btnConfirm.addEventListener('click', () => {
+        deletingPost();
         modal.classList.remove('modal--show');
       });
-
-      console.log(eventoClick);
 
       btnCancel.addEventListener('click', () => {
         modal.classList.remove('modal--show');

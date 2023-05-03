@@ -1,8 +1,9 @@
-import { onSnapshot } from 'firebase/firestore';
+/* eslint-disable no-unused-vars */
 import { signOut } from 'firebase/auth';
+import { onSnapshot } from 'firebase/firestore';
 import { auth } from '../lib/firebase.js';
 import {
-  editPost, ref, deleteDocData, post, like, disLike,
+  editPost, deleteDocData, post, like, disLike, ref,
 } from '../lib/post.js';
 
 function home(navigateTo) {
@@ -46,6 +47,7 @@ function home(navigateTo) {
     textarea.classList.add('showPost');
     textarea.value = info.text;
     textarea.setAttribute('data-id', doc.id);
+    postContainer.setAttribute('data-id', doc.id);
     textarea.setAttribute('readonly', true);
     postContainer.appendChild(textarea);
 
@@ -86,22 +88,12 @@ function home(navigateTo) {
     if (auth.currentUser.email === info.userEmail) {
       buttonsContainer.appendChild(deleteButton);
     }
-    // Dar like y dislike
+    // Creacion de botón de like
     const likeButton = document.createElement('button');
     likeButton.classList.add('like-btn');
-    likeButton.textContent = 'Like';
-    // const disLikeButton = document.createElement('button');
-    // disLikeButton.classList.add('disLike-btn');
-    // disLikeButton.textContent = 'DisLike';
-
-    likeButton.addEventListener('click', () => {
-      if (doc.data().likes.includes(auth.currentUser.email)) {
-        disLike(doc.id, auth.currentUser.email);
-      } else {
-        console.log('like', doc.id, auth.currentUser.email);
-        like(doc.id, auth.currentUser.email);
-      }
-    });
+    const count = document.createElement('p');
+    count.classList.add('count-p');
+    buttonsContainer.appendChild(count);
     buttonsContainer.appendChild(likeButton);
     postContainer.appendChild(buttonsContainer);
     postForm.appendChild(postContainer);
@@ -113,15 +105,27 @@ function home(navigateTo) {
     querySnapshot.forEach((doc) => {
       const postInfo = doc.data();
       // Buscar el post existente por el id del documento
-      const postExists = postForm.querySelector(`[data-id="${doc.id}"]`);
+      const postExists = postForm.querySelector(`textarea[data-id="${doc.id}"]`);
       if (postExists) {
         const textarea = document.querySelector('.showPost');
         textarea.removeAttribute('readonly');
-        console.log('actualizando publicacion');
       } else {
-        console.log('agregando nueva');
         const nodoP = printPost(postInfo, doc);
         nodoP.setAttribute('data-id', doc.id);
+      }
+
+      // like
+      const countLike = postForm.querySelector(`div[data-id="${doc.id}"]`).querySelector('.count-p');
+      const buttonLike = postForm.querySelector(`div[data-id="${doc.id}"]`).querySelector('.like-btn');
+      countLike.textContent = `${postInfo.likes.length}`;
+      if (buttonLike) {
+        buttonLike.addEventListener('click', () => {
+          if (doc.data().likes.includes(auth.currentUser.email)) {
+            disLike(doc.id, auth.currentUser.email);
+          } else {
+            like(doc.id, auth.currentUser.email);
+          }
+        });
       }
     });
   });

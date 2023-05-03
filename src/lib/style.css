@@ -343,17 +343,11 @@
     font-weight: bold;
 }
 
-/* Home*/
+Home*/
 .logoHome {
     position: absolute;
     top: 1%;
 }
-
-.logoHome {
-    position: absolute;
-    top: 1%;
-}
-
 .home {
     display: flex;
     flex-direction: column;
@@ -362,7 +356,6 @@
     background-size: cover;
     height: 100vh;
 }
-
 .formHome {
     width: 92%;
     max-width: 483px;
@@ -375,7 +368,6 @@
     border: none;
     font-size: 19px;
 }
-
 .areaPost {
     display: flex;
     background: white;
@@ -391,7 +383,6 @@
     max-height: 71px;
     box-shadow: 3px 2px 10px rgba(0, 0, 0, 0.25) inset;
 }
-
 .post {
     background: #F39C12;
     width: 35%;
@@ -414,9 +405,9 @@
 }
 div textarea {
     position: relative;
-    left: 6px;
-    height: 16vh;
-    width: 94%;
+    left: -26px;
+    height: 13vh;
+    width: 113%;
     max-width: 364px;
     max-height: 69px;
     border-radius: 13px;
@@ -425,16 +416,15 @@ div textarea {
     padding-left: 3%;
     font-size: 19px;
     resize: none;
-    margin: 15px 0px 1px 0px;
-    }
-
+    margin: 19px 0px 1px 0px;
+}
 .buttonsPost {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 300px;
+    margin: 6px 0px 0px 0px;
 }
-
 .edit {
     left: 70%;
     width: 37%;
@@ -445,6 +435,7 @@ div textarea {
     border: none;
     color: black;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin: 0px 0px 0px 101px;
 }
 .delete-btn {
     left: 17%;
@@ -455,22 +446,19 @@ div textarea {
     font-size: 20px;
     border: none;
     color: black;
-    /* margin: 0px 16px 0px -226px; */
+    margin: 0px -13px 0px -225px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
-    
-} 
+}
 .like-btn {
-    left: 98px;
-    width: 77%;
-    max-width: 65px;
-    height: 29px;
-    border-radius: 10px;
-    font-size: 20px;
-    border: none;
-    color: black;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    
-} 
+        background: url(/lib/img/corazon.png) no-repeat;
+        padding: 21px;
+        margin-left: -20px;
+        background-position: center;
+        cursor: pointer;
+        border: none;
+        position: absolute;
+        margin-top: 4px;
+    }
 
 /*button salir*/
 .goOut {

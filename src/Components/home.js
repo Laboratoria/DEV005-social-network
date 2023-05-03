@@ -91,9 +91,16 @@ function home(navigateTo) {
     // Creacion de botón de like
     const likeButton = document.createElement('button');
     likeButton.classList.add('like-btn');
-    const count = document.createElement('p');
-    count.classList.add('count-p');
-    buttonsContainer.appendChild(count);
+
+    likeButton.addEventListener('click', () => {
+      if (doc.data().likes.includes(auth.currentUser.email)) {
+        disLike(doc.id, auth.currentUser.email);
+      } else {
+        console.log('like', doc.id, auth.currentUser.email);
+        like(doc.id, auth.currentUser.email);
+      }
+    });
+
     buttonsContainer.appendChild(likeButton);
     postContainer.appendChild(buttonsContainer);
     postForm.appendChild(postContainer);
@@ -112,20 +119,6 @@ function home(navigateTo) {
       } else {
         const nodoP = printPost(postInfo, doc);
         nodoP.setAttribute('data-id', doc.id);
-      }
-
-      // like
-      const countLike = postForm.querySelector(`div[data-id="${doc.id}"]`).querySelector('.count-p');
-      const buttonLike = postForm.querySelector(`div[data-id="${doc.id}"]`).querySelector('.like-btn');
-      countLike.textContent = `${postInfo.likes.length}`;
-      if (buttonLike) {
-        buttonLike.addEventListener('click', () => {
-          if (doc.data().likes.includes(auth.currentUser.email)) {
-            disLike(doc.id, auth.currentUser.email);
-          } else {
-            like(doc.id, auth.currentUser.email);
-          }
-        });
       }
     });
   });

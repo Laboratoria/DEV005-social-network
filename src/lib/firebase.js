@@ -3,7 +3,7 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 import {
-  getFirestore, collection, addDoc,
+  getFirestore, collection, addDoc, getDocs, onSnapshot, orderBy, query, deleteDoc, doc,
 } from 'firebase/firestore';
 
 // Your web app's Firebase configuration
@@ -22,3 +22,5 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
+
+export const deletePost = (id) => deleteDoc(doc(db, 'posts', id));

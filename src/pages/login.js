@@ -1,5 +1,3 @@
-
-import { callingGoogle } from "../firebase/configuracion";
 import { loginLogic } from "../lib/loginLogic";
 
 // Declara una constante llamada "login" que es igual a una función flecha con un parámetro llamado "findRouteAndNavigate"
@@ -24,7 +22,6 @@ const login = (findRouteAndNavigate) => {
      <label>Contraseña: </label>
      <input id="passwordUserLogin" type="password" placeholder="******" />
      <p id='messageErrorPasswordLogin' class='messageErrorPasswordLogin'></p>
-  
      </div>
  </div>
  <div class="botonesInicioSesion">
@@ -58,12 +55,6 @@ const login = (findRouteAndNavigate) => {
         // Ejecuta la función "findRouteAndNavigate" con el parámetro "/register" para redirigir al usuario a la página de registro
         findRouteAndNavigate("/register");
     });
-
-    const googleBtn = container.querySelector("#loginGmailBtn");
-    googleBtn.addEventListener("click", () => {
-        callingGoogle();
-    });
-
     // Retorna el elemento <section> con el formulario de inicio de sesión y el botón de registro
     return container;
 };

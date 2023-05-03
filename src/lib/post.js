@@ -1,7 +1,8 @@
 /* eslint-disable no-console */
-import { collection, addDoc, doc, deleteDoc, updateDoc } from 'firebase/firestore';
+import { collection, addDoc, doc, deleteDoc, updateDoc, getDoc } from 'firebase/firestore';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import { auth, db, app } from './firebase.js';
+import { auth, db, app, deletePost } from './firebase.js';
+import { async } from 'regenerator-runtime';
 
 // Add a new document with a generated id.
 export const addPostToFirestore = async (text, user) => {
@@ -31,6 +32,3 @@ export const deleteFirestorePost = async () => {
   }}
 }
 
-export const actPost = onSnapshot(doc(db, 'sn9-kittybook', 'posts'), (doc) => {
-  console.log("Current data: ", doc.data('posts'));
-});

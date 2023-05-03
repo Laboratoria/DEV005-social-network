@@ -36,9 +36,9 @@ window.onpopstate = () => {
   navigateTo(window.location.pathname || defaultRoute);
 };
 
-onAuthStateChanged(auth, (user) => {
-  console.log(user);
-  if (user) {
+onAuthStateChanged(auth, (currentUser) => {
+  console.log(currentUser);
+  if (currentUser) {
     navigateTo('/wall');
     // const user = auth.currentUser;
     // if (user != )

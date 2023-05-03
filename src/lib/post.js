@@ -13,11 +13,23 @@ export const addPostToFirestore = async (texto, user) => {
       user: 'usuario@usuario.com',
     });
     console.log('Document written with ID: ', docRef.id);
-} catch{err => {
+  } catch{err => {
   console.log('Error', err);
 }}
 }
 
-export const actPost = onSnapshot(doc(db, 'sn9-kittybook', 'posts'), (doc) => {
-  console.log("Current data: ", doc.data('posts'));
-});
+//Función Firestore para borrar el post
+
+export const deleteFirestorePost = async () => {
+  const idRef = doc(collection(db, 'posts'));
+  console.log('funciona deleteFirestorePost');
+  try {
+    const deletePost = await deleteDoc(doc(db, 'posts', idRef.id));
+    console.log('se borró el post ' + deletePost);
+  } catch{err => {
+    console.log('Error', err);
+  }}
+}
+//export const actPost = onSnapshot(doc(db, 'sn9-kittybook', 'posts'), (doc) => {
+  //console.log("Current data: ", doc.data('posts'));
+//});

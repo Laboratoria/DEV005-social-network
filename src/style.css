@@ -30,7 +30,6 @@ main {
 
 /* MOBILE FIRST */
 @media only screen and (min-width: 320px) and (max-width: 480px) {
-
   /*------ HOME/LOGIN ------*/
   .container {
     display: flex;
@@ -43,7 +42,6 @@ main {
     background-size: auto 73%;
     background-position: center 110%;
   }
-
   #title-KB {
     margin-top: .5em;
     margin-bottom: -.2em;
@@ -53,11 +51,9 @@ main {
     color: #4a4747;
     text-align: center;
   }
-
   #info-text {
     display: none;
   }
-
   #cont-login {
     display: flex;
     flex-direction: column;
@@ -73,66 +69,57 @@ main {
     border-radius: 18px;
     box-shadow: 4px 4px 4px #6e6e6e42;
   }
-
-  input {
-    height: 10%;
-    width: 80%;
-    border-radius: 8px;
-    border: solid 1px #ffc1c1;
-    font-family: var(--font-text);
-    font-size: 1.5rem;
-    font-weight: 400;
-    text-align: center;
-  }
-
-  #user-email {
-    margin-top: 5px;
-  }
-
-  button {
-    height: 14%;
-    width: 80%;
-    font-family: var(--font-text);
-    font-size: 1.8rem;
-    font-weight: 500;
-    color: #ffffff;
-    background-color: #d35c46;
-    border: 1px solid white;
-    border-radius: 8px;
-  }
-
-  #login {
-    font-size: 1.6rem;
-  }
-
-  .provider {
-    display: flex;
-    flex-direction: row-reverse;
-    padding: 2.5%;
-    font-size: 1.4em;
-    font-weight: 400;
-    line-height: 1.1em;
-    align-items: center;
-    border: solid 1px #ffc1c1;
-    background-color: #ffffff;
-    color: #000000;
-  }
-
-  .provider img {
-    height: 2.7rem;
-    width: 2.7rem;
-    margin: 0 1.5rem;
-    background-size: 90%;
-  }
-
-  #error-login {
-    margin: 0 20px 5px;
-    font-size: 1.3em;
-    font-weight: 100;
-    text-align: center;
-    color: #fbff16;
-  }
-
+    input {
+      height: 10%;
+      width: 80%;
+      border-radius: 8px;
+      border: solid 1px #ffc1c1;
+      font-family: var(--font-text);
+      font-size: 1.5rem;
+      font-weight: 400;
+      text-align: center;
+    }
+      #user-email {
+        margin-top: 1.2rem;
+      }
+    button {
+      height: 14%;
+      width: 80%;
+      font-family: var(--font-text);
+      font-size: 1.8rem;
+      font-weight: 500;
+      color: #ffffff;
+      background-color: #d35c46;
+      border: 1px solid white;
+      border-radius: 8px;
+    }
+      #login {
+        font-size: 1.6rem;
+      }
+    .provider {
+      display: flex;
+      flex-direction: row-reverse;
+      padding: 2.5%;
+      font-size: 1.4em;
+      font-weight: 400;
+      line-height: 1.1em;
+      align-items: center;
+      border: solid 1px #ffc1c1;
+      background-color: #ffffff;
+      color: #000000;
+    }
+      .provider img {
+        height: 82%;
+        width: 15%;
+        margin: 0 0.5rem;
+      }
+    #error-login {
+      margin: 0 20px 5px;
+      font-size: 1.3em;
+      font-weight: 100;
+      text-align: center;
+      color: #fbff16;
+    }
   #to-regist {
     display: grid;
     grid-template-rows: auto 100%;
@@ -144,18 +131,16 @@ main {
     align-content: stretch;
     justify-items: center;
   }
-
-  #h-register {
-    height: 50%;
-    font-size: 1.6rem;
-    margin-top: 0.7rem;
-    font-weight: 600;
-    color: #000000;
-    background-color: #f25042b3;
-    box-shadow: 1px 1px 4px #6e6e6e42;
-    border: none;
-  }
-
+    #h-register {
+      height: 50%;
+      font-size: 1.6rem;
+      margin-top: 0.7rem;
+      font-weight: 600;
+      color: #000000;
+      background-color: #f25042b3;
+      box-shadow: 1px 1px 4px #6e6e6e42;
+      border: none;
+    }
   footer {
     display: flex;
     font-size: 1.2em;
@@ -315,66 +300,61 @@ main {
   }
 }
 
-
-
 /* TABLET */
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
 
-  /*------ HOME/LOGIN ------*/
-  .container {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    width: 100vw;
-    align-items: center;
-    background-image: url('images/74A43094-23A5-403C-B736-5B587E12F994.png');
-    background-repeat: no-repeat;
-    background-size: 70.5%;
-    background-position: right 150%;
-  }
+/*------ HOME/LOGIN ------*/
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  align-items: center;
+  background-image: url('images/74A43094-23A5-403C-B736-5B587E12F994.png');
+  background-repeat: no-repeat;
+  background-size: 70.5%;
+  background-position: right 150%;
+}
+#title-KB {
+  margin-top: .3em;
+  margin-bottom: .1em;
+  font-family: var(--font-logo);
+  font-size: 9.3em;
+  font-weight: 400;
+  color: #4a4747;
+  text-align: center;
+}
 
-  #title-KB {
-    margin-top: .3em;
-    margin-bottom: .1em;
-    font-family: var(--font-logo);
-    font-size: 9.3em;
-    font-weight: 400;
-    color: #4a4747;
+#info-cont {
+  display: flex;
+  height: 18%;
+  width: 50%;
+  margin-bottom: 4px;
+  background-color: #f250424d;
+  padding: 1.4rem;
+  border-radius: 20px;
+  align-items: center;
+}
+  #info-text {      
+    font-family: var(--font-text);
+    font-size: 2.5rem;
     text-align: center;
   }
 
-  #info-cont {
-    display: flex;
-    height: 16%;
-    width: 45%;
-    margin-bottom: 4px;
-    background-color: #f250424d;
-    padding: 1.4rem;
-    border-radius: 20px;
-    align-items: center;
-  }
-
-  #info-text {
-    font-family: var(--font-text);
-    font-size: 2.5em;
-    text-align: center;
-  }
-
-  #cont-login {
-    display: flex;
-    flex-direction: column;
-    height: 35%;
-    width: 50%;
-    margin-top: 1.5em;
-    font-family: var(--font-text);
-    justify-content: space-evenly;
-    align-items: center;
-    background-color: #8c7851;
-    border: none;
-    border-radius: 18px;
-    box-shadow: 4px 4px 4px #6e6e6e42;
-  }
-
+#cont-login {
+  display: flex;
+  flex-direction: column;
+  height: 35%;
+  width: 50%;
+  margin-top: 1.5em;
+  font-family: var(--font-text);
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #8c7851;
+  border: none;
+  border-radius: 18px;
+  box-shadow: 4px 4px 4px #6e6e6e42;
+}
   input {
     height: 10%;
     width: 85%;
@@ -385,11 +365,9 @@ main {
     font-weight: 400;
     text-align: center;
   }
-
-  #user-email {
-    margin-top: 10px;
-  }
-
+    #user-email {
+      margin-top: 10px;
+    }
   button {
     height: 13%;
     width: 85%;
@@ -401,11 +379,9 @@ main {
     border-radius: 12px;
     border: 1px solid white;
   }
-
   #login {
     font-size: 2.35em;
   }
-
   .provider {
     display: flex;
     flex-direction: row-reverse;
@@ -419,25 +395,22 @@ main {
     background-color: #ffffff;
     color: #000000;
   }
-
   .provider img {
     height: 3.2rem;
     width: 3.2rem;
     margin: 0 2rem;
   }
-
-  #to-regist {
-    display: grid;
-    grid-template-rows: auto 100%;
-    height: 10%;
-    width: 40%;
-    margin-top: 1.9rem;
-    font-family: var(--font-text);
-    font-size: 2.1em;
-    align-content: stretch;
-    justify-items: center;
-  }
-
+#to-regist {
+  display: grid;
+  grid-template-rows: auto 100%;
+  height: 10%;
+  width: 40%;
+  margin-top: 1.9rem;
+  font-family: var(--font-text);
+  font-size: 2.1em;
+  align-content: stretch;
+  justify-items: center;
+}
   #h-register {
     height: 50%;
     margin-top: 3%;
@@ -448,7 +421,6 @@ main {
     box-shadow: 1px 1px 4px #6e6e6e42;
     border: none;
   }
-
   #error-login {
     margin: 0 20px 5px;
     font-size: 2em;
@@ -456,20 +428,19 @@ main {
     text-align: center;
     color: #fbff16;
   }
-
-  footer {
-    display: flex;
-    height: 4%;
-    margin-left: 40px;
-    bottom: 0;
-    font-family: var(--font-text);
-    font-size: 16px;
-    font-weight: 900;
-    text-align: left;
-    align-items: center;
-    align-self: self-start;
-    position: fixed;
-  }
+footer {
+  display: flex;
+  height: 3.5%;
+  margin-left: 40px;
+  bottom: 0;
+  font-family: var(--font-text);
+  font-size: 16px;
+  font-weight: 900;
+  text-align: left;
+  align-items: center;
+  align-self: self-start;
+  position: fixed;
+}
 
   /*------ REGISTER ------*/
   .title-reg-kitty{
@@ -496,66 +467,85 @@ main {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    width: 481px;
-    height: 481px;
+    width: 441px;
+    height: 441px;
     border-radius: 15px;
     flex-wrap: nowrap;
+    margin-top: 32px;
   }
   .signup-container input {
     height: 42px;
-    width: 352px;
+    width: 326px;
     border-radius: 12px;
     border: solid 1px #ffc1c1;
     font-family: var(--font-text);
     font-size: 2em;
     font-weight: 400;
   }
-  .signup-container button {
-    height: 13%;
-    width: 85%;
-    font-family: var(--font-text);
-    font-size: 1.15em;
-    font-weight: 500;
+  .signup-container #send-info {
     color: #ffffff;
     background-color: #d35c46;
-    border-radius: 12px;
     border: 1px solid white;
+    font-size: 22px;
   }
-  .signup-container #signup {
-    font-size: 2.35em;
-  }
-  .signup-container #error-reg {
-    margin: 0 20px 5px;
-    font-size: 2em;
-    font-weight: 100;
-    text-align: center;
-    color: #fbff16;
-  }
-  .signup-container #error-reg2 {
-    margin: 0 20px 5px;
-    font-size: 2em;
-    font-weight: 100;
-    text-align: center;
-    color: #fbff16;
-  }
-  .signup-container #error-reg3 {
-    margin: 0 20px 5px;
-    font-size: 2em;
-    font-weight: 100;
-    text-align: center;
-    color: #fbff16;
-  }
-  .signup-container #error-reg4 {
-    margin: 0 20px 5px;
-    font-size: 2em;
-    font-weight: 100;
-    text-align: center;
-    color: #fbff16;
-  }
-  .signup-container #error-reg5 {
-    margin: 0 20px 5px
-}
 
+  .signup-container button {
+    height: 54px;
+    width: 326px;
+    font-family: var(--font-text);
+    border-radius: 12px;
+    font-weight: 600px;
+  }
+
+  .signup-container #google-reg,#github-reg {
+    font-family: var(--font-text);
+    font-size: 19px;
+    font-weight: 500;
+    color: black;
+    background-color: #ffffff;
+    border: 1.46473px solid #FFC1C1;
+    display: flex;
+    flex-direction: row-reverse;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .signup-container #google-reg img, #github-reg img {
+    height: 2.5rem;
+    width: 2.5rem;
+    margin: 0 1rem;
+  }
+
+  .register-background {
+    background-image: url("images/74A43094-23A5-403C-B736-5B587E12F994.png");
+    height: 100vh;
+    width: 100vw;
+    background-size: 76%;
+    background-repeat: no-repeat;
+    background-position-x: 110%;
+    background-position-y: 165%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  #return{
+    margin-top: 43px;
+    width: 260px;
+    height: 55px;
+    background-color: #F48276;
+    box-shadow: 1.56897px 1.56897px 6.27586px rgba(84, 84, 84, 0.29);
+    font-size: 22px;
+  }
+  
+  .error-element{
+    margin-top: 3px;
+    font-family: var(--font-text);
+    font-size: 2em;
+    font-weight: 400;
+    color: #fbff16;
+    text-align: center;
+  }
   /*------ WALL ------*/
   #construction {
     height: 30vh;
@@ -571,16 +561,127 @@ main {
     width: 210px;
   }
     /*------ WALL ------*/
-    #textPosts {
-      height: 100px;
-      width: 200px;
-      background-color: powderblue;
-      resize: none;
+    /*------ WALL ------*/
+  #wall-section {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+  }
+  #nav-bar {
+    display: flex;
+    flex-direction: row;
+    height: 10em;
+    margin: 0 0 1em;
+    align-items: center;
+  }
+    #name-App {
+      width: auto;
+      position: absolute;
+      left: 3rem;
+      font-family: var(--font-logo);
+      font-size: 4.5em;
+      font-weight: 400;
+      color: #4a4747;
+      text-align: left;
     }
+    #log-out {
+      height: 6rem;
+      width: 9rem;
+      position: absolute;
+      right: 3rem;
+      padding: .5rem;
+      font-size: 1.7rem;
+      line-height: 2rem;
+    }
+
+  #write-container{
+    display: flex;
+    flex-direction: row;
+    height: 16em;
+    width: 48em;
+    margin: 0 14.4em 1.5em;
+    border: solid 0.15em #d35b46;
+    border-radius: 1.8em;
+    justify-content: center;
+    align-items: center;
+  }
+    #text-posts {
+      height: 8em;
+      width: 33em;
+      margin: 2.7em 0 0;
+      padding: 0.6em 7.6em 0.6em 0.6em;
+      font-family: var(--font-text);
+      resize: none;
+      border: solid 1px #c5c5c5;
+      border-radius: 1.4rem;
+      background-color: #ffffff;
+      position: fixed;
+    }
+      #btn-posts {
+        width: 8.4rem;
+        height: 5rem;
+        margin-top: 3.5rem;
+        margin-left: 33rem;
+        position: absolute;
+        font-size: 1.65rem;
+      }
+        #btn-posts:disabled {
+          color: #7e7979;
+          background-color: #f1c7bf;
+          cursor: auto;
+        }
+      
+    #posts-container {
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      width: 100%;
+      justify-content: center;
+      margin-top: 3em;
+    }
+      .posted {
+        display: flex;
+        flex-direction: column;
+        min-height: 5em;
+        width: 44rem;
+        padding: 0.6em 7em 0.7em 0.6em;
+        font-family: var(--font-text);
+        font-size: 1.5rem;
+        background-color: white;
+        border: solid 1px#d35b46;
+        border-radius: 1.5rem;
+      }
+      #btns-cont{
+        display: flex;
+        height: 5em;
+        width: 5em;
+        flex-direction: column;
+        margin-top: -1.5rem;
+        margin-left: 1.4em;
+        flex-wrap: nowrap;
+        align-items: stretch;
+      }
+        #btn-edit {
+          height: 3.5rem;
+          width: 8rem;
+          font-size: 1.7rem;
+          margin-left: 31.5rem;
+          margin-bottom: .5rem;
+          padding: 0 1rem;
+        }
+        #btn-delete {
+          height: 3.5rem;
+          width: 8rem;
+          font-size: 1.7rem;
+          margin-left: 31.5rem;
+          padding: 0 1rem;
+        }  
+          #btn-posts:disabled {
+            color: #7e7979;
+            background-color: #f1c7bf;
+          }
 }
-
-
-
 
 /* DESKTOP and LAPTOPS */
 @media only screen and (min-width: 1024px) and (max-width: 1728px) {
@@ -602,7 +703,6 @@ main {
     justify-items: center;
     align-content: center;
   }
-
   #title-KB {
     margin-left: 4rem;
     margin-top: 70px;
@@ -613,7 +713,6 @@ main {
     text-align: center;
     align-self: baseline;
   }
-
   #info-cont {
     display: flex;
     height: 19rem;
@@ -632,7 +731,6 @@ main {
       text-align: center;
       line-height: 3.15rem;
     }
-
   #cont-login {
     display: grid;
     grid-template-rows: repeat(5, 1fr);
@@ -652,59 +750,52 @@ main {
     justify-content: center;
     justify-items: center;
   }
-
-  input {
-    height: 3.2rem;
-    width: 20.75rem;
-    border-radius: 12px;
-    border: solid 1px #ffc1c1;
-    font-family: var(--font-text);
-    font-size: 1.3em;
-    font-weight: 400;
-    text-align: center;
-  }
-
-  #user-email {
-    margin-top: 5px;
-  }
-
+    input {
+      height: 3.2rem;
+      width: 20.75rem;
+      margin: 0;
+      border-radius: 12px;
+      border: solid 1px #ffc1c1;
+      font-family: var(--font-text);
+      font-size: 1.5em;
+      font-weight: 400;
+      text-align: center;
+    }
+    #user-email {
+      bottom: 0;
+    }
   button {
-    height: 14%;
-    width: 80%;
+    height: 4rem;
+    width: 20.75rem;
     font-family: var(--font-text);
-    font-size: 1.2em;
     font-weight: 500;
     color: #ffffff;
     background-color: #d35c46;
     border: 1px solid white;
     border-radius: 12px;
-  }
-
-  #login {
-    font-size: 1.5em;
-  }
-
-  .provider {
-    display: flex;
-    flex-direction: row-reverse;
-    padding: 2.5%;
-    font-size: 1.3em;
-    font-weight: 400;
-    line-height: 13px;
-    align-items: center;
-    border: solid 1px #ffc1c1;
-    background-color: #ffffff;
-    color: #000000;
-  }
-
-  .provider img {
-    height: 25px;
-    width: 25px;
-    margin-right: 2.5%;
-    padding-left: 2.5%;
-    background-size: 90%;
-  }
-
+  }  
+    #login {
+      font-size: 1.8em;
+    }
+    .provider {
+      display: flex;
+      flex-direction: row-reverse;
+      padding: 0.4rem;
+      font-size: 1.5em;
+      font-weight: 400;
+      line-height: 1.7rem;
+      align-items: center;
+      border: solid 1px #ffc1c1;
+      background-color: #ffffff;
+      color: #000000;
+    }
+    .provider img {
+      height: 1.62em;
+      width: 1.62em;
+      margin-right: auto;
+      margin-left: 1.4rem;
+    }
+    
   #to-regist {
     display: flex;
     flex-direction: column;
@@ -725,7 +816,6 @@ main {
       box-shadow: 1px 1px 4px #6e6e6e42;
       border: none;
     }
-
   #error-login {
     margin: 0 20px 5px;
     font-size: 1.35em;
@@ -733,7 +823,6 @@ main {
     text-align: center;
     color: #fbff16;
   }
-
   footer {
     display: flex;
     height: 4.5%;
@@ -754,13 +843,100 @@ main {
 
 
   /*------ WALL ------*/
-  #textPosts {
-    height: 100px;
-    width: 250px;
-    background-color: powderblue;
-    resize: none;
+  #wall-section {
+    display: grid;
+    grid-template-columns: 20rem 3fr;
+    grid-template-rows: 20rem auto;
+    gap: 2.5em;
+    height: 100vh;
+    width: 100%;
   }
-}
+  #nav-bar {
+    display: flex;
+    flex-direction: column;
+    height: 15em;
+    margin-top: 7.5em;
+    align-items: center;
+  }
+    #name-App {
+      width: auto;
+      margin: 0.2em 0.2em 0 0.2em;
+      font-family: var(--font-logo);
+      font-size: 4em;
+      font-weight: 400;
+      color: #4a4747;
+      text-align: left;
+    }
+    #log-out {
+      width: 9em;
+      margin: 0.5em;
+      font-size: 1.8em;
+    }
+
+  #write-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: 13em;
+    width: 42em;
+    position: absolute;
+    margin: 7em 35rem;
+    border: solid .15em #d35b46;
+    border-radius: 1.8em;
+    justify-content: center;
+    position: fixed;
+  }
+    #text-posts {
+      height: 5.9em;
+      width: 30em;
+      margin: 3em 0 0;
+      padding: 0.6em 6.5em 0.6em 0.6em;
+      font-family: var(--font-text);
+      resize: none;
+      border: solid 1px #c5c5c5;
+      border-radius: 1.4rem;
+      background-color: #ffffff;
+      position: fixed;
+    }
+      #btn-posts {
+        font-size: 1.4rem;
+        width: 6em;
+        position: absolute;
+        margin-top: 4.25em;
+        margin-left: 21em;
+      }
+        #btn-posts:disabled {
+          color: #7e7979;
+          background-color: #f1c7bf;
+          cursor: auto;
+        }
+      
+    #posts-container {
+      height: auto;
+      width: 50em;
+      margin: 23.5em 12.5rem 0;
+    }
+      .posted {
+        display: flex;
+        min-height: 5em;
+        width: 42rem;
+        padding: 0.6em 6em 0.7em 0.6em;
+        font-family: var(--font-text);
+        font-size: 1.5rem;
+        border: solid 1px#d35b46;
+        border-radius: 1.5rem;
+      }
+        #btn-delete {
+          height: 3.5rem;
+          width: 8rem;
+          font-size: 1.5rem;
+          margin-top: 1rem;
+          margin-left: 32rem;
+          position: absolute;
+        }
+  }
+
+
 
 /* .container {
     display: grid;

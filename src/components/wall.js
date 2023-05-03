@@ -1,70 +1,96 @@
-/* eslint-disable no-console */
 import { signOut } from 'firebase/auth';
 import { auth } from '../lib/firebase';
-import { addPostToFirestore } from '../lib/post';
+import { addPostToFirestore, deleteFirestorePost } from '../lib/post';
 
-function wall(navigateTo) {
-  const sectionWall = document.createElement('section');
-  sectionWall.id = 'wall-section';
+function wall() {
+  const wallSection = document.createElement('section');
+  wallSection.id = 'wall-section';
   const navBar = document.createElement('nav');
   navBar.id = 'nav-bar';
   const btnLogOut = document.createElement('button');
   btnLogOut.id = 'log-out';
-  btnLogOut.textContent = 'Cerrar Sesión';
-  const welcomeMsg = document.createElement('h2');
-  welcomeMsg.textContent = '¡Bienvenida a KittyBook!';
-  const msg = document.createElement('p');
-  msg.textContent = 'Este sitio está en construcción. Esperamos verte pronto';
+  btnLogOut.textContent = 'Cerrar sesión';
+
+  // Posts
+  const nameApp = document.createElement('h3');
+  nameApp.id = 'name-App';
+  nameApp.textContent = 'KittyBook';
+  const writeContainer = document.createElement('section');
+  writeContainer.id = 'write-container';
   const post = document.createElement('textarea');
-  post.id = 'textPosts';
+  post.id = 'text-posts';
+  post.placeholder = '...';
   const btnPost = document.createElement('button');
   btnPost.id = 'btn-posts';
   btnPost.type = 'submit';
   btnPost.textContent = 'Publicar';
-  // btnPost.disabled = true;
+  btnPost.disabled = true;
+
+  // Visualización de los posts
+  const postsContainer = document.createElement('section');
+  postsContainer.id = 'posts-container';
+
+  // Deshabilitar btnPost hasta que haya algo escrito
+  post.addEventListener('keyup', () => {
+    if (post.value !== '') {
+      btnPost.disabled = false;
+    } else if (post.value.length >= 2) {
+      btnPost.disabled = false;
+    } else {
+      btnPost.disabled = true;
+    }
+  });
 
   btnPost.addEventListener('click', () => {
     const postText = post.value;
-    console.log('algopost');
+    const newPost = document.createElement('div');
+    newPost.className = 'posted';
+    newPost.textContent = postText;
+    postsContainer.append(newPost);
+    console.log(postText);
     addPostToFirestore(postText);
-    /*
-    if (postText === '') {
-      btnPost.setAttribute('disabled', true); // Set disabled attribute
-    } else {
-      btnPost.removeAttribute('disabled'); // Remove disabled attribute
-    }
-    */
-  });
-  // // const msg = document.createElement('p');
-  // msg.textContent = 'Este sitio está en construcción. Esperamos verte pronto';
+    post.value = '';
+    btnPost.disabled = true;
 
-  // const kittyImage = document.createElement('img');
-  // kittyImage.src = '/images/working-cat.png';
-  // kittyImage.alt = 'Working kitty';
-  // kittyImage.width = 350;
-  // kittyImage.height = 270;
+    // Creación botón Eliminar
+    const btnDelete = document.createElement('button');
+    btnDelete.id = 'btn-delete';
+    btnDelete.textContent = 'Borrar';
 
-  const btnReturnH = document.createElement('button');
-  btnReturnH.className = 'return';
-  btnReturnH.textContent = 'Volver a inicio';
-  btnReturnH.addEventListener('click', () => {
-    navigateTo('/');
+    // Creación botón Editar
+    const bntEdit = document.createElement('button');
+    bntEdit.id = 'btn-edit';
+    bntEdit.textContent = 'Editar';
+    // bntEdit.addEventListener('click', () => {
+    // const postId = newPost.id;
+    // });
+
+    // Función botón borrar post
+    btnDelete.addEventListener('click', () => {
+    // deleteFirestorePost(postsContainer);
+      console.log('Se borró la publicación');
+    });
+
+    // Función para editar post
+
+    newPost.append(btnDelete, bntEdit);
   });
 
   btnLogOut.addEventListener('click', () => {
     signOut(auth);
-    console.log('Clickaste cerrar sesión');
+    console.log('Se cerró sesión correctamente');
   });
 
-  navBar.append(btnLogOut);
-  sectionWall.append(
+  // Orden provisorio que le dejé al append
+  navBar.append(nameApp, btnLogOut);
+  writeContainer.append(post, btnPost);
+  wallSection.append(
     navBar,
-    welcomeMsg,
-    post,
-    btnPost,
+    writeContainer,
+    postsContainer,
   );
 
-  return sectionWall;
+  return wallSection;
 }
 
 export default wall;

@@ -39,10 +39,18 @@ function register(navigateTo) {
   const btnRegWithGoogle = document.createElement('button');
   btnRegWithGoogle.classList.add('google-reg-btn');
   btnRegWithGoogle.id = 'google-reg';
+  const signUpGoogleIcon = document.createElement('img');
+  signUpGoogleIcon.id = 'google-icon';
+  signUpGoogleIcon.src = '/images/icon-google.png';
+  signUpGoogleIcon.alt = 'google icon';
 
   const btnRegWithGithub = document.createElement('button');
   btnRegWithGithub.classList.add('github-reg-btn');
   btnRegWithGithub.id = 'github-reg';
+  const signUpGithubIcon = document.createElement('img');
+  signUpGithubIcon.id = 'github-icon';
+  signUpGithubIcon.src = '/images/icon-github.png';
+  signUpGithubIcon.alt = 'github icon';
 
   const errorElement = document.createElement('h3');
   errorElement.classList.add('error-element');
@@ -96,6 +104,8 @@ function register(navigateTo) {
     btnReturnH,
     regTrademark,
   );
+  btnRegWithGoogle.append(signUpGoogleIcon);
+  btnRegWithGithub.append(signUpGithubIcon);
   return sectionReg;
 }
 export default register;

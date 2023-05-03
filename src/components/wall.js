@@ -25,7 +25,7 @@ function wall() {
   btnPost.id = 'btn-posts';
   btnPost.type = 'submit';
   btnPost.textContent = 'Publicar';
-  btnPost.disabled = true;
+  // btnPost.disabled = true;
 
   // Visualización de los posts
   const postsContainer = document.createElement('section');

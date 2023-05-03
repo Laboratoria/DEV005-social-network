@@ -8,12 +8,15 @@ function register(navigateTo) {
   const sectionReg = document.createElement('section');
   sectionReg.id = 'reg-account';
   sectionReg.classList.add('register-background');
-  const divContainer = document.createElement('div');
   const titleRegKitty = document.createElement('h1');
+  titleRegKitty.id = 'title';
   const titleReg = document.createElement('h3');
+  const divContainer = document.createElement('div');
+  titleReg.id = 'register-title';
   const inputEmail = document.createElement('input');
   const regTrademark = document.createElement('footer');
   divContainer.id = 'container';
+  divContainer.classList.add('signup-container');
   regTrademark.id = 'marca';
   inputEmail.id = 'email';
   inputEmail.placeholder = 'Escribe tu correo';
@@ -45,8 +48,10 @@ function register(navigateTo) {
   errorElement.classList.add('error-element');
   errorElement.textContent = '';
 
+  titleRegKitty.classList.add('title-reg-kitty');
   titleRegKitty.textContent = 'KittyBook';
   titleReg.textContent = '¡Regístrate!';
+  titleReg.classList.add('title-registrate');
   btnSend.textContent = 'Registrarme';
   btnRegWithGoogle.textContent = 'Regístrate con Google';
   btnRegWithGithub.textContent = 'Regístrate con GitHub';
@@ -79,7 +84,6 @@ function register(navigateTo) {
     btnSend,
     btnRegWithGoogle,
     btnRegWithGithub,
-    btnReturnH,
     errorElement,
   );
   sectionReg.append(

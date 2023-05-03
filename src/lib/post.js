@@ -30,3 +30,7 @@ export const deleteFirestorePost = async () => {
     console.log('Error', err);
   }}
 }
+
+export const actPost = onSnapshot(doc(db, 'sn9-kittybook', 'posts'), (doc) => {
+  console.log("Current data: ", doc.data('posts'));
+});

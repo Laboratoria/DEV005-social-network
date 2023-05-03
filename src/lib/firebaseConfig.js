@@ -65,18 +65,6 @@ export const editTasks = (id) => getDoc(doc(db, 'post', id));
 
 export const updateTask = (id, newDates) => updateDoc(doc(db, 'post', id), newDates);
 
-export const likePost = (id, like, uid) => updateDoc(doc(db, 'post', id), {
-  likes: like,
-  likesUser: arrayUnion(uid),
-});
-
-export const dislikePost = (id, like, uid) => updateDoc(doc(db, 'post', id), {
-  likes: like,
-  likesUser: arrayRemove(uid),
-});
-
-// likes: arrayUnion(getAuth().currentUser.uid)
-
 export const getDate = () => {
   let today = new Date();
   let dd = today.getDate();
@@ -92,23 +80,18 @@ export const getDate = () => {
   console.log(today);
 };
 
-/* export const likeChange = (id, count) => {
+export const addLike = (id) => {
+  const currentUser = auth.currentUser;
   const docRef = doc(db, 'post', id);
   updateDoc(docRef, {
-    likes: count,
-  });
-}; */
-
-export const addLike = (id, newLike) => {
-  const docRef = doc(database, 'post', id);
-  updateDoc(docRef, {
-    likes: arrayUnion(newLike),
+    likes: arrayUnion(currentUser.uid),
   });
 };
 
-export const removeLike = (id, newLike) => {
-  const docRef = doc(database, 'post', id);
+export const removeLike = (id) => {
+  const currentUser = auth.currentUser;
+  const docRef = doc(db, 'post', id);
   updateDoc(docRef, {
-    likes: arrayRemove(newLike),
+    likes: arrayRemove(currentUser.uid),
   });
 };

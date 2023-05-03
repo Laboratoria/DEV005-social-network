@@ -1,4 +1,4 @@
-import { getAuth, signOut } from 'firebase/auth';
+import { signOut } from 'firebase/auth';
 import {
   child,
   get,
@@ -12,6 +12,9 @@ import {
   updateTask,
   getDate,
   database,
+  addLike,
+  auth,
+  removeLike,
 } from '../lib/firebaseConfig.js';
 
 let editStatus = false;
@@ -69,7 +72,7 @@ const muro = (navigateTo) => {
   // botón salida
   const iconExit = muroDiv.querySelector('.icon_exit');
   iconExit.addEventListener('click', () => {
-    const auth = getAuth();
+    // const auth = getAuth();
     signOut(auth)
       .then(() => {
         navigateTo('/');
@@ -129,8 +132,8 @@ const muro = (navigateTo) => {
         </div>
             <p class='dateFormat'>Hola</p>
             <p>${task.description}</p>
-            <button class='btn-like' data-id='${doc.id}'><i class='bx bx-heart' id='heart'></i></button> 
-            <span class='count-like'> count...</span>
+            <button class='btn-like' data-id='${doc.id}' data-liked='${task.likes.includes(auth.currentUser.uid)}' ><i class='bx bx-heart' id='heart'></i></button> 
+            <span class='count-like'> ${task.likes.length}</span>
             <button class='btn-dislike' ><i class='bx bx-dislike'></i></button>
 
         </div>
@@ -192,9 +195,14 @@ const muro = (navigateTo) => {
     };
 
     btnLike.forEach((btn) => {
-      btn.addEventListener('click', () => {
-        console.log(database);
-      });
+      btn.addEventListener('click', (event) => {
+        console.log(event.target.dataset.id);
+        if (!event.target.dataset.liked) {
+          addLike(event.target.dataset.id);
+        } else {
+          removeLike(event.target.dataset.id);
+        }
+      }, true);
     });
   });
 

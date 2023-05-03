@@ -1,11 +1,15 @@
 /**
  * @jest-environment jsdom
  */
-
+// import * as firebaseAuth from 'firebase/auth';
 import register from '../src/components/register.js';
 import home from '../src/components/home.js';
 import * as registerConfig from '../src/lib/registerConfig.js';
 
+// jest.mock('firebase/auth', () => ({
+//   __esModule: true, //    <----- this __esModule: true is important
+//   ...jest.requireActual('firebase/auth'),
+// }));
 // TODO: Prueba unitaria de la función home
 // ! BUSCAR MATCHERS
 describe('Testeando home.js', () => {
@@ -80,5 +84,15 @@ describe('Testeando register.js', () => {
       console.log('Ingresar al muro');
       done();
     });
+  });
+});
+describe('Testeando botones de navegacion', () => {
+  it('boton "Continuar con email" llame a la funcion navigateTo a la ruta /login', () => {
+    const DOM = document.createElement('div');
+    const navigateTo = jest.fn();
+    DOM.append(home(navigateTo));
+    const registrarAhora = DOM.querySelector('.buttonemail');
+    registrarAhora.click();
+    expect(navigateTo).toHaveBeenCalledWith('/login');
   });
 });

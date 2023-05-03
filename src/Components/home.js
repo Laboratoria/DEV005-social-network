@@ -46,6 +46,7 @@ function home(navigateTo) {
     textarea.classList.add('showPost');
     textarea.value = info.text;
     textarea.setAttribute('data-id', doc.id);
+    postContainer.setAttribute('data-id', doc.id);
     textarea.setAttribute('readonly', true);
     postContainer.appendChild(textarea);
 
@@ -86,13 +87,9 @@ function home(navigateTo) {
     if (auth.currentUser.email === info.userEmail) {
       buttonsContainer.appendChild(deleteButton);
     }
-    // Dar like y dislike
+    // Creacion de botón de like
     const likeButton = document.createElement('button');
     likeButton.classList.add('like-btn');
-    likeButton.textContent = 'Like';
-    // const disLikeButton = document.createElement('button');
-    // disLikeButton.classList.add('disLike-btn');
-    // disLikeButton.textContent = 'DisLike';
 
     likeButton.addEventListener('click', () => {
       if (doc.data().likes.includes(auth.currentUser.email)) {
@@ -102,6 +99,7 @@ function home(navigateTo) {
         like(doc.id, auth.currentUser.email);
       }
     });
+
     buttonsContainer.appendChild(likeButton);
     postContainer.appendChild(buttonsContainer);
     postForm.appendChild(postContainer);
@@ -122,6 +120,18 @@ function home(navigateTo) {
         console.log('agregando nueva');
         const nodoP = printPost(postInfo, doc);
         nodoP.setAttribute('data-id', doc.id);
+      }
+      // like
+      const buttonLike = postForm.querySelector(`div[data-id="${doc.id}"]`).querySelector('.like-btn');
+      buttonLike.innerHTML = `<i class="fas fa-heart"></i> ${postInfo.likes.length}`;
+      if (buttonLike) {
+        buttonLike.addEventListener('click', () => {
+          if (doc.data().likes.includes(auth.currentUser.email)) {
+            disLike(doc.id, auth.currentUser.email);
+          } else {
+            like(doc.id, auth.currentUser.email);
+          }
+        });
       }
     });
   });

@@ -1,55 +1,59 @@
-// Se importan las siguientes funciones y objetos de Firebase:
+// Se importan las siguientes funciones y objetos de Firebase.
+import { GoogleAuthProvider, getAdditionalUserInfo, signInWithPopup } from "firebase/auth";
 import { auth, signIn } from "../firebase/configuracion";
 
-// Se define una función llamada loginLogic que toma un elemento container como argumento:
+// Se define una función llamada loginLogic que toma un elemento container como argumento.
 const loginLogic = (container) => {
     // Se obtienen los elementos HTML necesarios:
     const mailUserLogin = container.querySelector("#mailUserLogin");
     const passwordUserLogin = container.querySelector("#passwordUserLogin");
     const loginBtn = container.querySelector("#loginBtn");
+    const loginGmailBtn = container.querySelector("#loginGmailBtn");
 
-    // Se define una función llamada showError que toma un mensaje y un elemento como argumentos:
+    // Se define una función llamada showError que toma un mensaje y un elemento como argumentos.
     const showError = (message, element) => {
+        // Si hay un mensaje, se muestra en el elemento correspondiente.
         const errorElement = container.querySelector(`#${element}`);
-
-        // Si hay un mensaje, se muestra en el elemento correspondiente:
-        if (message) {
-            return (errorElement.innerHTML = message);
-        }
-        // Si no hay mensaje, se vacía el elemento:
-        errorElement.innerHTML = "";
+        // Si no hay mensaje, se vacía el elemento.
+        errorElement.innerHTML = message;
     };
 
-    // Se define una función llamada validateFields que valida los campos del formulario de inicio de sesión:
+    // Se define una función llamada validateFields que valida los campos del formulario de inicio de sesión.
     const validateFields = () => {
-        // Se define una expresión regular para validar correos electrónicos:
+        // Se define una expresión regular para validar correos electrónicos.
         const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-        // Si no se ingresó ningún correo electrónico, se muestra un mensaje de error y se devuelve un objeto con la propiedad errors establecida en true:
+        // Si no se ingresó ningún correo electrónico, se muestra un mensaje de error y se devuelve un objeto con la propiedad errors establecida en true.
         if (!mailUserLogin.value) {
             showError("Ingresa un correo", "messageErrorMailLogin");
             return { errors: true };
+        } else {
+            showError("", "messageErrorMailLogin");
         }
-        // Si el correo electrónico no cumple con el formato de la expresión regular, se muestra un mensaje de error y se devuelve un objeto con la propiedad errors establecida en true:
+        // Si el correo electrónico no cumple con el formato de la expresión regular, se muestra un mensaje de error y se devuelve un objeto con la propiedad errors establecida en true.
         if (!emailRegex.test(mailUserLogin.value)) {
             showError("Ingresa un correo válido. Por ejemplo: example@gmail.com", "messageErrorMailLogin");
             return { errors: true };
+        } else {
+            showError("", "messageErrorMailLogin");
         }
-        // Si no se ingresó ninguna contraseña, se muestra un mensaje de error y se devuelve un objeto con la propiedad errors establecida en true:
+        // Si no se ingresó ninguna contraseña, se muestra un mensaje de error y se devuelve un objeto con la propiedad errors establecida en true.
         if (!passwordUserLogin.value) {
             showError("Ingresa una contraseña", "messageErrorPasswordLogin");
             return { errors: true };
+        } else {
+            showError("", "messageErrorPasswordLogin");
         }
-        // Si no hay errores en los campos, se eliminan los mensajes de error y se devuelve un objeto con la propiedad errors establecida en false:
-        showError("", "messageErrorMailLogin");
-        showError("", "messageErrorPasswordLogin");
+        // Si no hay errores en los campos, se eliminan los mensajes de error y se devuelve un objeto con la propiedad errors establecida en false.
         return { errors: false };
     };
 
-    // Se agrega un listener al botón de inicio de sesión que llama a la función validateFields y, si no hay errores, inicia sesión con los datos ingresados:
+    // Se agrega un listener al botón de inicio de sesión que llama a validateFields y, si no hay errores, inicia sesión con los datos ingresados.
     loginBtn.addEventListener("click", async () => {
+        console.log("se apreto boton");
         try {
             const { errors } = validateFields();
+            console.log({ errors });
             if (errors) return;
 
             const user = await signIn(mailUserLogin.value, passwordUserLogin.value);
@@ -61,6 +65,18 @@ const loginLogic = (container) => {
         } catch (error) {
             console.log(error);
             showError("El correo o la contraseña es incorrecta", "messageErrorPasswordLogin");
+        }
+    });
+
+    // Se agrega un listener al botón de iniciar con google que llama a GoogleAuthProvider, signInWithPopup, getAdditionalUserInfo, luego verifica si es nuevo usuario depende de eso dirige a registro y sino a la página principal.
+    loginGmailBtn.addEventListener("click", async () => {
+        const provider = new GoogleAuthProvider();
+        const resolve = await signInWithPopup(auth, provider);
+        const credentials = getAdditionalUserInfo(resolve);
+        if (credentials.isNewUser) {
+            window.location.href = "/register";
+        } else {
+            window.location.href = "/";
         }
     });
 };

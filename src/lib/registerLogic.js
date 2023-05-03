@@ -1,38 +1,75 @@
-//logica de registro , dar funcionalidad al boton registro
-import { getAuth, createUserWithEmailAndPassword, registerUser } from "../firebase/configuracion.js";
+// Se importan las siguientes funciones y objetos de Firebase.
+import { registerUser } from "../firebase/configuracion";
 
-//input y botones de pantalla de registro//
-// eslint-disable-next-line spaced-comment
-//selectores del DOM
-//guardando info nombre apellido de input username//
-// const name = document.getElementById("userName").value;
-
-// //guardando info de Usuario de input  "userId"//
-// const userName = document.getElementById("userId").value;
-
-// //guardando info de correo electronico//
-// const email = document.getElementById("userMail").value;
-
-// //guardando info de correo electronico en input//
-// const password = document.getElementById("userpassword").value;
-
-// //creando boton registrarse//
-// const butonRegister = document.getElementById("registerMailBtn");
-// console.log(butonRegister);
-// //eventos de elementos del DOM//
-// butonRegister.addEventListener("click",()=> {
-
-// })
-
-// crear funcion flecha de guardado de datos para enviar registro de usuario//
+// Se define una función llamada registerLogic que toma un elemento container como argumento.
 const registerLogic = (container) => {
-    const userName = container.querySelector("#userName");
-    const userId = container.querySelector("#userId");
-    const userMail = container.querySelector("#userMail");
-    const userPassword = container.querySelector("#userPassword");
-    const butonRegister = document.getElementById("registerMailBtn");
+    // Se obtienen los elementos HTML necesarios:
+    const userNameRegister = container.querySelector("#userNameRegister");
+    const userMailRegister = container.querySelector("#userMailRegister");
+    const userPasswordRegister = container.querySelector("#userPasswordRegister");
+    const registerBtn = container.querySelector("#registerBtn");
 
-    //ingresar funciones boleanas , validacion de email con @
-    //utilizar la funcion de firebase dentro de esta funcion register
+    // Se define una función llamada showError que toma un mensaje y un elemento como argumentos.
+    const showError = (message, element) => {
+        // Si hay un mensaje, se muestra en el elemento correspondiente.
+        const errorElement = container.querySelector(`#${element}`);
+        // Si no hay mensaje, se vacía el elemento.
+        errorElement.innerHTML = message;
+    };
+
+    // Se define una función llamada validateFields que valida los campos del formulario de inicio de sesión.
+    const validateFields = () => {
+        // Se define una expresión regular para validar correos electrónicos.
+        const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+        // Si no se ingresó ningún nombre, se muestra un mensaje de error y se devuelve un objeto con la propiedad errors establecida en true.
+        if (!userNameRegister.value) {
+            showError("Ingresa un nombre de usuario.", "messageErrorUserRegister");
+            return { errors: true };
+        } else {
+            showError("", "messageErrorUserRegister");
+        }
+        // Si no se ingresó ningún correo electrónico, se muestra un mensaje de error y se devuelve un objeto con la propiedad errors establecida en true.
+        if (!userMailRegister.value) {
+            showError("Ingresa una dirección de correo electrónico.", "messageErrorMailRegister");
+            return { errors: true };
+        } else {
+            showError("", "messageErrorMailRegister");
+        }
+        // Si el correo electrónico no cumple con el formato de la expresión regular, se muestra un mensaje de error y se devuelve un objeto con la propiedad errors establecida en true.
+        if (!emailRegex.test(userMailRegister.value)) {
+            showError("Ingresa una dirección de correo electrónico válida. Por ejemplo: example@gmail.com", "messageErrorMailRegister");
+            return { errors: true };
+        } else {
+            showError("", "messageErrorMailRegister");
+        }
+        // Si no se ingresó ningún contraseña, se muestra un mensaje de error y se devuelve un objeto con la propiedad errors establecida en true.
+        if (!userPasswordRegister.value) {
+            showError("Ingresa una contraseña.", "messageErrorPasswordRegister");
+            return { errors: true };
+        } else {
+            showError("", "messageErrorPasswordRegister");
+        }
+        // Si no hay errores en los campos, se eliminan los mensajes de error y se devuelve un objeto con la propiedad errors establecida en false.
+        return { errors: false };
+    };
+    // Se agrega un listener al botón de registrar que llama a validateFields y, si no hay errores, inicia sesión con los datos ingresados.
+    registerBtn.addEventListener("click", async () => {
+        try {
+            const { errors } = validateFields();
+            if (errors) return;
+
+            const user = await registerUser(userNameRegister.value, userMailRegister.value, userPasswordRegister.value);
+            console.log({ user });
+
+            if (user.email) {
+                window.location.href = "/login";
+            }
+        } catch (error) {
+            console.log(error);
+            showError("Ocurrió un error al intentar registrar el usuario. Por favor, intenta nuevamente.", "messageErrorPasswordRegister");
+        }
+    });
 };
-// register().then((container) => console.log(container));
+
+export { registerLogic };

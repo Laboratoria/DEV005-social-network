@@ -29,12 +29,14 @@ const welcome = (findRouteAndNavigate) => {
     const loginBtn = container.querySelector("#loginBtn");
     // Añade un evento 'click' al elemento 'a' y llama la función 'findRouteAndNavigate' con el argumento '/login'
     loginBtn.addEventListener("click", () => {
+        // La función llama a la función "findRouteAndNavigate" con el argumento "/login"
         findRouteAndNavigate("/login");
     });
     // Obtiene el elemento 'a' con el ID 'registerBtn' dentro del elemento 'container'
     const registerBtn = container.querySelector("#registerBtn");
     // Añade un evento 'click' al elemento 'a' y llama la función 'findRouteAndNavigate' con el argumento '/register'
     registerBtn.addEventListener("click", () => {
+        // La función llama a la función "findRouteAndNavigate" con el argumento "/register"
         findRouteAndNavigate("/register");
     });
 

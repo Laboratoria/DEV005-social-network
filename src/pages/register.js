@@ -1,3 +1,5 @@
+import { registerLogic } from "../lib/registerLogic";
+
 // Define una función "register" que toma un argumento "findRouteAndNavigate"
 const register = (findRouteAndNavigate) => {
     // Crea un nuevo elemento <section> y guárdalo en la variable "container"
@@ -11,32 +13,25 @@ const register = (findRouteAndNavigate) => {
     </div>
     <div class="registrationForm">
     <div>
-    <label>Nombre</label>
-    <input id="userName" type="text" placeholder="Nombre  apellido">
-    </div>
-    <div>
     <label>Usuario</label>
-    <input id="userId" type="text" placeholder="Nombre de usuario">
+    <input id="userNameRegister" type="text" placeholder="Nombre">
+    <p id='messageErrorUserRegister' class='messageErrorUserRegister'></p>
     </div>
     <div>
     <label>Correo electrónico</label>
-    <input id="userMail" type="text" placeholder="ejemploa@gmail.com">
+    <input id="userMailRegister" type="text" placeholder="ejemplo@gmail.com">
+    <p id='messageErrorMailRegister' class='messageErrorMailRegister'></p>
     </div>
     <div>
     <label>Contraseña</label>
-    <input id="userPassword " type="password" placeholder="***********">
+    <input id="userPasswordRegister" type="password" placeholder="******">
+    <p id='messageErrorPasswordRegister' class='messageErrorPasswordRegister'></p>
     </div>
     <div>
     </div>
     <div class="botonesRegistro">
-        <div class="registerMailBtn">
-            <input  id='registerMailBtn' type="submit" value="Registrarse">
-        </div>
-        <div class="registerMailGoogleBtn">
-            <button id="registerMailGoogleBtn">
-            <img src="./img/google.svg" alt="google" class="imgGoogle"/>
-                Registrarse con Google
-            </button>
+        <div class="registerBtn">
+            <input  id='registerBtn' type="submit" value="Registrarse">
         </div>
         <div class="volverInicioSesion">
             <span>¿Ya tienes cuenta?</span>
@@ -46,12 +41,14 @@ const register = (findRouteAndNavigate) => {
       `;
     // Rellena el elemento "container" con el código HTML almacenado en "viewRegister"
     container.innerHTML = viewRegister;
+    // "registerLogic" se define en otro módulo y se encarga de manejar la lógica del formulario de registrarse.
+    registerLogic(container);
     // Encuentra el elemento con el ID "register" dentro del elemento "container" y guárdalo en la variable "registerB"
-    const registerBtn = container.querySelector("#registerMailBtn");
+    const loginBtn = container.querySelector("#loginBtn");
     // Agrega un event listener de clic al elemento "loginBtn", que ejecuta una función cuando se hace clic
-    registerBtn.addEventListener("click", () => {
+    loginBtn.addEventListener("click", () => {
         // La función llama a la función "findRouteAndNavigate" con el argumento "/register"
-        findRouteAndNavigate("/register");
+        findRouteAndNavigate("/login");
     });
     // Devuelve el elemento "container"
     return container;

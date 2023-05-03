@@ -43,13 +43,14 @@ export function register(navigation) {
   // Labels dinámicos
   dinamicLabels(section);
 
-  // Limpiar mensajes de error
   const email = section.querySelector('#emailReg');
   const password = section.querySelector('#passwordReg');
   const errorEmail = section.querySelector('#errorEmail');
   const errorPassword = section.querySelector('#errorPassword');
   const btnCrearCuenta = section.querySelector('#btnCrearCuenta');
   const btnVolverInicio = section.querySelector('#linkLogin');
+
+  // Limpiar mensajes de error
 
   email.addEventListener('click', () => {
     email.value = '';

@@ -96,11 +96,13 @@ main {
 
 .txtMascotiemos{
     display: flex;
+    padding: 5px;
     justify-content: center;
-    width: 280px;
+    width: 260px;
     height: 30px;
     border: 1px solid black;
-    border-radius: 5px 5px 5px 0;
+    border-radius: 5px;
+    resize: none;
 }
 .post-form{
     display: flex;
@@ -129,6 +131,7 @@ main {
     position: relative;
     gap: 10px;
     font-size: 13px;
+
 }
 
 .textPost{
@@ -156,6 +159,7 @@ main {
     background-color:#000072;
     color: white;
     position: absolute;
+    bottom: 50%;
     transform: translate(-50%, -50%);
     left: 50%;
     border-radius: 10px;
@@ -165,11 +169,22 @@ main {
     text-align: center;
 }
 .modal{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
     opacity: 0;
 }
 .modal--show {
+    position: absolute;
+    width: 100%;
+    height: 100%;
     opacity: 1;
     transition: opacity .3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#e5e1f9;
 }
 .containerBtnsModal{
     display: flex;
@@ -182,14 +197,6 @@ main {
     border-radius: 5px;
     border: 1px solid #B6B6B6;
 }
-/*.btnDltImg{
-    width: 10px;
-    height: 10px;
-    position: absolute;
-    transform: translate(-50%, -150%);
-    border: 0.1px solid black;
-    border-radius: 1px;
-}*/
 
 /*Ingreso y registro*/
 .contenedorIngreso, .contenedorIngresoRegistro {
@@ -342,8 +349,47 @@ label span.top {
     color: red;
 }
 
-footer{
+.footer{
     display: none;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 3px 0;
+    color: #000;
+    background-color:#e5e1f9;
+    border-top: 1px solid #8181815f;
+}
+
+.content-footer{
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+}
+
+.mayra, .andre, .sandra{
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+}
+
+.logoGitHub{
+    width: 25px;
+}
+
+.link-github{
+    text-decoration: none;
+    color: black;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.spanFooter{
+    padding: 5px;
+    border-bottom: 1px solid transparent;
+}
+
+.spanFooter:hover{
+    border-bottom: 1px solid #8181815f;
 }
 
 @media (max-height:780px) {
@@ -402,22 +448,60 @@ footer{
         height: 400px;  
     }
 
-    .containerForm{
-        width: 600px;
+    .txtMascotiemos{
+        font-size: 18px;
+        width: 700px;
+        height: 60px;
+    }
+    
+    .btnPostImg {
+        border: none;
+        width: 50px;
+        height: 50px;
+        margin-left: 10px;
     }
 
-    footer {
-        display: block;
-        margin-top: 30px;
-        width: 100%;
-        max-height: 30px;
-        font-size: 1.2rem;
-        color: rgb(56, 54, 54);
-        background-color: #bcb4e7;
-        position: fixed;
-        text-align: center;
-        bottom: 0;
+    .containerForm{
+        border-radius: 10px;
+        display: flex;
+        width: 70%;
+        justify-content: center;
+        flex-direction: column;
     }
+
+    .containerPost {
+        width: 700px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        font-size: 18px;
+        margin-right: 70px;
+    }
+
+    .textPost{
+        
+        display: flex;
+        width: 600px;
+        background-color: white;
+        border: 0.1px solid black;
+        border-radius: 5px;
+        padding: 8px;
+    }
+
+    .containerButtons{
+        width: 500px;
+        gap: 10px;
+    }
+
+    .containerButtons button{
+        display: flex; 
+        align-self:flex-end;
+    }
+
+    .footer{
+        display: block;
+    }
+    
 }
 
 @media (min-width:1900px){

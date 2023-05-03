@@ -13,16 +13,6 @@ import { exit } from '../lib/auth.js';
 let editStatus = false;
 let id = '';
 let postForm;
-
-// Función que permite eliminar un post
-const deletingPost = (event) => {
-  const postId = event.target.dataset.id;
-  getPost(postId)
-  .then(()=>{
-    deletePost(postId);
-  });
-};
-
 // Función que permite editar un post
 const editingPost = (event) => {
   getPost(event.target.dataset.id)
@@ -33,7 +23,6 @@ const editingPost = (event) => {
       id = event.target.dataset.id;
     });
 };
-
 // Función que permite dar like a un post
 const likePost = (event) => {
   const postId = event.target.dataset.id;
@@ -50,7 +39,6 @@ const likePost = (event) => {
     }
   });
 };
-
 export default function home() {
   const section = document.createElement('section');
   const htmlBienvenida = `
@@ -60,28 +48,21 @@ export default function home() {
       <h1>Bienvenida a Mascoteando</h1>
       <button name="logOut" id="logOut" class="logOut">Cerrar sesión</button>
     </header>
-    
     <section class="containerForm">
       <form id="post-form" class="post-form">
-        <textarea type="text" name="txtMascotiemos" class="txtMascotiemos" id="txtMascotiemos" rows="3" placeholder="Mascotiemos..."></textarea> 
+        <textarea type="text" name="txtMascotiemos" class="txtMascotiemos" id="txtMascotiemos" rows="3" placeholder="Mascotiemos..."></textarea>
         <button id="btnPost" class="btnPost"><img class="btnPostImg" src="./img/btnPublicar.png" alt="post"></img></button>
       </form>
       <div id ="containerPost" class ="containerPost"></div>
     </section>
-   
-    
   </main>`;
-
   section.innerHTML = htmlBienvenida;
-
   const btnLogOut = section.querySelector('#logOut');
   btnLogOut.addEventListener('click', () => {
     exit();
   });
-
   postForm = section.querySelector('#post-form');
   const postContainer = section.querySelector('#containerPost');
-
   const readPost = (posts) => {
     let html = '';
     posts.forEach((docs) => {
@@ -93,10 +74,10 @@ export default function home() {
         <div class="containerMain">
           <p id="textPost" class="textPost">${publication.txtMascotiemos}</p>
           <section class="containerButtons">
-            <button id="btnLike" class="btnLike" data-id="${docs.id}">🐾</button>
-            <p class="count">${publication.likes.length}</p>
             <button id="btnDelete"  class="btnDelete" data-id="${docs.id}">🗑️</button>
             <button id="btnEdit" class="btnEdit" data-id="${docs.id}">✍️</button>
+            <button id="btnLike" class="btnLike" data-id="${docs.id}">🐾</button>
+            <p class="count">${publication.likes.length || ''}</p>
           </section>
         </div>
         `;
@@ -106,14 +87,13 @@ export default function home() {
           <p id="textPost" class="textPost">${publication.txtMascotiemos}</p>
           <section class="containerButtons">
             <button id="btnLike" class="btnLike" data-id="${docs.id}">🐾</button>
-            <p class="count">${publication.likes.length}</p>
+            <p class="count">${publication.likes.length || ''}</p>
           </section>
         </div>
         `;
       }
     });
-
-     html += `
+    html += `
       <section class="modal">
         <div class="containerModal">
           <p class="modalTitle">¿Desea eliminar el post?</p>
@@ -123,56 +103,42 @@ export default function home() {
           </div>
         </div>
       </section>`;
-
-      postContainer.innerHTML = html;
-
-
+    postContainer.innerHTML = html;
     const modal = postContainer.querySelector('.modal');
-    const modalDelete = (postId) => {
+    const modalDelete = () => {
       const btnsDelete = postContainer.querySelectorAll('.btnDelete');
       const btnConfirm = postContainer.querySelector('.btnConfirm');
       const btnCancel = postContainer.querySelector('.btnCancel');
-
       btnsDelete.forEach((btnDelete) => {
-        btnDelete.addEventListener('click', () => {
+        btnDelete.addEventListener('click', (event) => {
+          const postId = event.target.dataset.id;
           modal.classList.add('modal--show');
+          btnConfirm.addEventListener('click', () => {
+            deletePost(postId);
+            modal.classList.remove('modal--show');
+          });
+          btnCancel.addEventListener('click', () => {
+            modal.classList.remove('modal--show');
+          });
         });
       });
-
-      btnConfirm.addEventListener('click', () => {
-        deletingPost();
-        modal.classList.remove('modal--show');
-      });
-
-      btnCancel.addEventListener('click', () => {
-        modal.classList.remove('modal--show');
-      });
     };
-
     modalDelete(section);
-
     // Botón para eliminar un post y llamar la función que elimina el post
-
     // Botón para editar post y llamar la función que edita el post
-
     const btnsEdit = postContainer.querySelectorAll('.btnEdit');
     btnsEdit.forEach((btn) => {
       btn.addEventListener('click', editingPost);
     });
-
     // Boton para dar like a post y llamar la función que permite dar like
-
     const btnsLike = postContainer.querySelectorAll('.btnLike');
     btnsLike.forEach((btn) => {
       btn.addEventListener('click', likePost);
     });
   };
-
   createSnapshot(readPost);
-
   postForm.addEventListener('submit', (e) => {
     e.preventDefault();
-
     const txtMascotiemos = postForm.txtMascotiemos.value.trim();
     if (!editStatus) {
       savePost(txtMascotiemos);

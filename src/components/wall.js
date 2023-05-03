@@ -26,15 +26,18 @@ function wall() {
   btnPost.id = 'btn-posts';
   btnPost.type = 'submit';
   btnPost.textContent = 'Publicar';
-  btnPost.disabled = true;
-
+  // btnPost.disabled = true;
+  const btnsContainer = document.createElement('div');
+  btnsContainer.id = 'btns-cont';
   // Visualización de los posts
   const postsContainer = document.createElement('section');
   postsContainer.id = 'posts-container';
 
   // Deshabilitar btnPost hasta que haya algo escrito
   post.addEventListener('keyup', () => {
-    if (post.value.length >= 2) {
+    if (post.value !== '') {
+      btnPost.disabled = false;
+    } else if (post.value.length >= 2) {
       btnPost.disabled = false;
     } else {
       btnPost.disabled = true;
@@ -72,8 +75,12 @@ function wall() {
     });
 
     // Función para editar post
+    // bntEdit.addEventListener('click', () => {
+    //   const postId = newPost.id;
+    // });
 
-    newPost.append(btnDelete, bntEdit);
+    btnsContainer.append(bntEdit, btnDelete);
+    newPost.append(btnsContainer);
   });
 
   btnLogOut.addEventListener('click', () => {
@@ -93,4 +100,4 @@ function wall() {
   return wallSection;
 }
 
-export default wall;
+export default { wall };

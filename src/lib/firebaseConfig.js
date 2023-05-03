@@ -17,6 +17,10 @@ import {
   arrayRemove,
 } from 'firebase/firestore';
 
+import {
+  getDatabase,
+} from 'firebase/database';
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -24,6 +28,7 @@ import {
 const firebaseConfig = {
   apiKey: 'AIzaSyACdLyMpGhBbp5ogyQ2z2-GeDWz4orx4Z4',
   authDomain: 'foodmatch-5bf52.firebaseapp.com',
+  databaseURL: 'https://foodmatch-5bf52-default-rtdb.firebaseio.com/',
   projectId: 'foodmatch-5bf52',
   storageBucket: 'foodmatch-5bf52.appspot.com',
   messagingSenderId: '655316254171',
@@ -35,6 +40,9 @@ export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 // Conexión a la base de datos
 const db = getFirestore(app);
+// Conexión a RealTime Database
+export const database = getDatabase(app);
+console.log(database);
 // Guardar publicación en firestore
 export const saveTask = (description) => {
   addDoc(collection(db, 'post'), {
@@ -57,8 +65,9 @@ export const editTasks = (id) => getDoc(doc(db, 'post', id));
 
 export const updateTask = (id, newDates) => updateDoc(doc(db, 'post', id), newDates);
 
-export const likePost = (id) => updateDoc(doc(db, 'post', id), {
-  likes: arrayUnion(getAuth().currentUser.uid),
+export const likePost = (id, like, uid) => updateDoc(doc(db, 'post', id), {
+  likes: like,
+  likesUser: arrayUnion(uid),
 });
 
 export const dislikePost = (id, like, uid) => updateDoc(doc(db, 'post', id), {
@@ -83,22 +92,22 @@ export const getDate = () => {
   console.log(today);
 };
 
-export const likeChange = (id, count) => {
+/* export const likeChange = (id, count) => {
   const docRef = doc(db, 'post', id);
   updateDoc(docRef, {
     likes: count,
   });
-};
+}; */
 
 export const addLike = (id, newLike) => {
-  const docRef = doc(db, 'post', id);
+  const docRef = doc(database, 'post', id);
   updateDoc(docRef, {
     likes: arrayUnion(newLike),
   });
 };
 
 export const removeLike = (id, newLike) => {
-  const docRef = doc(db, 'post', id);
+  const docRef = doc(database, 'post', id);
   updateDoc(docRef, {
     likes: arrayRemove(newLike),
   });

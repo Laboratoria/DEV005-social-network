@@ -1,12 +1,17 @@
 import { getAuth, signOut } from 'firebase/auth';
 import {
+  child,
+  get,
+  ref,
+} from 'firebase/database';
+import {
   saveTask,
   onGetTasks,
   deleteTask,
   editTasks,
   updateTask,
   getDate,
-  likePost,
+  database,
 } from '../lib/firebaseConfig.js';
 
 let editStatus = false;
@@ -99,20 +104,19 @@ const muro = (navigateTo) => {
 
   // contenedor publicaciones (mostrar datos)
   const tasksContainer = muroDiv.querySelector('.tasks-container');
-  window.addEventListener('DOMContentLoaded', async () => {
-    // consulta asíncrona
-    // querySnapshot -> los datos que existen en este momento
-    // ejecutar con promesa o callback
+  // consulta asíncrona
+  // querySnapshot -> los datos que existen en este momento
+  // ejecutar con promesa o callback
 
-    // cuando ocurra un cambio en la base de datos de post
-    // voy a recibir los datos nuevos voy a crear el html  y recorrer los datos
-    // para verlo y luego pintamos el html y luego lo ponemos dentro del task container
-    onGetTasks((querySnapshot) => {
-      let html = '';
-      // por cada documento quiero ver por consola el documento
-      querySnapshot.forEach((doc) => {
-        const task = doc.data();
-        html += `
+  // cuando ocurra un cambio en la base de datos de post
+  // voy a recibir los datos nuevos voy a crear el html  y recorrer los datos
+  // para verlo y luego pintamos el html y luego lo ponemos dentro del task container
+  onGetTasks((querySnapshot) => {
+    let html = '';
+    // por cada documento quiero ver por consola el documento
+    querySnapshot.forEach((doc) => {
+      const task = doc.data();
+      html += `
         <div class='publicaciones'>
 
         <div class='dropdown'>
@@ -126,61 +130,70 @@ const muro = (navigateTo) => {
             <p class='dateFormat'>Hola</p>
             <p>${task.description}</p>
             <button class='btn-like' data-id='${doc.id}'><i class='bx bx-heart' id='heart'></i></button> 
-            <span data-id='${task.likes}'> 1.7K</span>
-            <i class='bx bx-message-square-dots'id='comment' ></i> <span data-id='${doc.id}'> 1.7K</span>
+            <span class='count-like'> count...</span>
+            <button class='btn-dislike' ><i class='bx bx-dislike'></i></button>
+
         </div>
           `;
+    });
+
+    const dateTime = getDate();
+
+    // en el parametro event se puede resumir debido a q todos
+    // los elementos son objetos, esto es de la siguiente manera:
+    // ({target: {dataset}})
+    tasksContainer.innerHTML = html;
+    const dateFormat = tasksContainer.querySelectorAll('.dateFormat');
+    dateFormat.textContent = dateTime;
+    const btnDelete = tasksContainer.querySelectorAll('.btn-delete');
+    btnDelete.forEach((btn) => {
+      btn.addEventListener('click', (event) => {
+        deleteTask(event.target.dataset.id);
       });
+    });
 
-      const dateTime = getDate();
-
-      // en el parametro event se puede resumir debido a q todos
-      // los elementos son objetos, esto es de la siguiente manera:
-      // ({target: {dataset}})
-      tasksContainer.innerHTML = html;
-      const dateFormat = tasksContainer.querySelectorAll('.dateFormat');
-      dateFormat.textContent = dateTime;
-      const btnDelete = tasksContainer.querySelectorAll('.btn-delete');
-      btnDelete.forEach((btn) => {
-        btn.addEventListener('click', (event) => {
-          deleteTask(event.target.dataset.id);
+    const btnEdit = tasksContainer.querySelectorAll('.btn-edit');
+    btnEdit.forEach((btn) => {
+      btn.addEventListener('click', async (event) => {
+        const cerrarPost = muroDiv.querySelector('.cerrar-post');
+        const popUp = muroDiv.querySelector('.pop-up');
+        popUp.style.display = 'block';
+        cerrarPost.addEventListener('click', () => {
+          popUp.style.display = 'none';
         });
-      });
-
-      const btnEdit = tasksContainer.querySelectorAll('.btn-edit');
-      btnEdit.forEach((btn) => {
-        btn.addEventListener('click', async (event) => {
-          const cerrarPost = muroDiv.querySelector('.cerrar-post');
-          const popUp = muroDiv.querySelector('.pop-up');
-          popUp.style.display = 'block';
-          cerrarPost.addEventListener('click', () => {
+        window.addEventListener('click', (e) => {
+          // windoow??
+          if (e.target === popUp) {
             popUp.style.display = 'none';
-          });
-          window.addEventListener('click', (e) => {
-            // windoow??
-            if (e.target === popUp) {
-              popUp.style.display = 'none';
-            }
-          });
-          const docEdit = await editTasks(event.target.dataset.id);
-          console.log(docEdit);
-          const taskEdit = docEdit.data();
-          const formPost = muroDiv.querySelector('.form-post');
-          formPost['textarea-post'].value = taskEdit.description;
-          editStatus = true;
-          id = event.target.dataset.id;
+          }
         });
+        const docEdit = await editTasks(event.target.dataset.id);
+        console.log(docEdit);
+        const taskEdit = docEdit.data();
+        const formPost = muroDiv.querySelector('.form-post');
+        formPost['textarea-post'].value = taskEdit.description;
+        editStatus = true;
+        id = event.target.dataset.id;
       });
+    });
 
-      const btnLike = tasksContainer.querySelectorAll('.btn-like');
-      btnLike.forEach((btn) => {
-        btn.addEventListener('click', (event) => {
-          likePost(event.target.dataset.id);
-          // investigar el usuario actual y obtener el arreglo de likes
-          // checar que solo se pueda dar like una vez
-          // para eso verificar si el USUARIO ACTUAL ya hizo la interacción
-          console.log('dando like');
-        });
+    const btnLike = tasksContainer.querySelectorAll('.btn-like');
+    // const btnDislike = tasksContainer.querySelectorAll('.btn-dislike');
+    const countLike = tasksContainer.querySelectorAll('.count-like');
+    let countVariable;
+
+    window.onload = function () {
+      const dbRef = ref(database);
+      get(child(dbRef, 'Counter')).then((snapshot) => {
+        countVariable = Number(snapshot.value);
+        console.log(countVariable);
+        countLike.innerHTML = countVariable;
+      });
+    };
+
+    btnLike.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        console.log(database);
       });
     });
   });

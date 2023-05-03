@@ -5,6 +5,8 @@ import {
   deleteTask,
   editTasks,
   updateTask,
+  getDate,
+  likePost,
 } from '../lib/firebaseConfig.js';
 
 let editStatus = false;
@@ -121,17 +123,23 @@ const muro = (navigateTo) => {
 
         </div>
         </div>
+            <p class='dateFormat'>Hola</p>
             <p>${task.description}</p>
-            <i class='bx bx-heart'></i> <span> 1.7K</span>
-            <i class='bx bx-message-square-dots'></i> <span> 1.7K</span>
+            <button class='btn-like' data-id='${doc.id}'><i class='bx bx-heart' id='heart'></i></button> 
+            <span data-id='${task.likes}'> 1.7K</span>
+            <i class='bx bx-message-square-dots'id='comment' ></i> <span data-id='${doc.id}'> 1.7K</span>
         </div>
           `;
       });
+
+      const dateTime = getDate();
 
       // en el parametro event se puede resumir debido a q todos
       // los elementos son objetos, esto es de la siguiente manera:
       // ({target: {dataset}})
       tasksContainer.innerHTML = html;
+      const dateFormat = tasksContainer.querySelectorAll('.dateFormat');
+      dateFormat.textContent = dateTime;
       const btnDelete = tasksContainer.querySelectorAll('.btn-delete');
       btnDelete.forEach((btn) => {
         btn.addEventListener('click', (event) => {
@@ -148,7 +156,8 @@ const muro = (navigateTo) => {
           cerrarPost.addEventListener('click', () => {
             popUp.style.display = 'none';
           });
-          window.addEventListener('click', (e) => { // windoow??
+          window.addEventListener('click', (e) => {
+            // windoow??
             if (e.target === popUp) {
               popUp.style.display = 'none';
             }
@@ -160,6 +169,17 @@ const muro = (navigateTo) => {
           formPost['textarea-post'].value = taskEdit.description;
           editStatus = true;
           id = event.target.dataset.id;
+        });
+      });
+
+      const btnLike = tasksContainer.querySelectorAll('.btn-like');
+      btnLike.forEach((btn) => {
+        btn.addEventListener('click', (event) => {
+          likePost(event.target.dataset.id);
+          // investigar el usuario actual y obtener el arreglo de likes
+          // checar que solo se pueda dar like una vez
+          // para eso verificar si el USUARIO ACTUAL ya hizo la interacción
+          console.log('dando like');
         });
       });
     });

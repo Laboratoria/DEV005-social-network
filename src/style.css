@@ -45,7 +45,6 @@ textarea {
     background-size: auto 73%;
     background-position: center 110%;
   }
-
   #title-KB {
     margin-top: .5em;
     margin-bottom: -.2em;
@@ -55,11 +54,9 @@ textarea {
     color: #4a4747;
     text-align: center;
   }
-
   #info-text {
     display: none;
   }
-
   #cont-login {
     display: flex;
     flex-direction: column;
@@ -151,7 +148,6 @@ textarea {
       box-shadow: 1px 1px 4px #6e6e6e42;
       border: none;
     }
-
   footer {
     display: flex;
     font-size: 1.2em;
@@ -389,8 +385,6 @@ textarea {
   }
 }
 
-
-
 /* TABLET */
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
   /*------ HOME/LOGIN ------*/
@@ -558,66 +552,85 @@ textarea {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    width: 481px;
-    height: 481px;
+    width: 441px;
+    height: 441px;
     border-radius: 15px;
     flex-wrap: nowrap;
+    margin-top: 32px;
   }
   .signup-container input {
     height: 42px;
-    width: 352px;
+    width: 326px;
     border-radius: 12px;
     border: solid 1px #ffc1c1;
     font-family: var(--font-text);
     font-size: 2em;
     font-weight: 400;
   }
-  .signup-container button {
-    height: 13%;
-    width: 85%;
-    font-family: var(--font-text);
-    font-size: 1.15em;
-    font-weight: 500;
+  .signup-container #send-info {
     color: #ffffff;
     background-color: #d35c46;
-    border-radius: 12px;
     border: 1px solid white;
+    font-size: 22px;
   }
-  .signup-container #signup {
-    font-size: 2.35em;
+
+  .signup-container button {
+    height: 54px;
+    width: 326px;
+    font-family: var(--font-text);
+    border-radius: 12px;
+    font-weight: 600px;
   }
-  .signup-container #error-reg {
-    margin: 0 20px 5px;
-    font-size: 2em;
-    font-weight: 100;
-    text-align: center;
-    color: #fbff16;
+
+  .signup-container #google-reg,#github-reg {
+    font-family: var(--font-text);
+    font-size: 19px;
+    font-weight: 500;
+    color: black;
+    background-color: #ffffff;
+    border: 1.46473px solid #FFC1C1;
+    display: flex;
+    flex-direction: row-reverse;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
   }
-  .signup-container #error-reg2 {
-    margin: 0 20px 5px;
-    font-size: 2em;
-    font-weight: 100;
-    text-align: center;
-    color: #fbff16;
+
+  .signup-container #google-reg img, #github-reg img {
+    height: 2.5rem;
+    width: 2.5rem;
+    margin: 0 1rem;
   }
-  .signup-container #error-reg3 {
-    margin: 0 20px 5px;
-    font-size: 2em;
-    font-weight: 100;
-    text-align: center;
-    color: #fbff16;
+
+  .register-background {
+    background-image: url("images/74A43094-23A5-403C-B736-5B587E12F994.png");
+    height: 100vh;
+    width: 100vw;
+    background-size: 76%;
+    background-repeat: no-repeat;
+    background-position-x: 110%;
+    background-position-y: 165%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
   }
-  .signup-container #error-reg4 {
-    margin: 0 20px 5px;
-    font-size: 2em;
-    font-weight: 100;
-    text-align: center;
-    color: #fbff16;
-  }
-  .signup-container #error-reg5 {
-    margin: 0 20px 5px
+  #return{
+    margin-top: 43px;
+    width: 260px;
+    height: 55px;
+    background-color: #F48276;
+    box-shadow: 1.56897px 1.56897px 6.27586px rgba(84, 84, 84, 0.29);
+    font-size: 22px;
   }
   
+  .error-element{
+    margin-top: 3px;
+    font-family: var(--font-text);
+    font-size: 2em;
+    font-weight: 400;
+    color: #fbff16;
+    text-align: center;
+  }
   /*------ WALL ------*/
   #wall-section {
     display: flex;
@@ -772,7 +785,6 @@ textarea {
     justify-items: center;
     align-content: center;
   }
-
   #title-KB {
     margin-left: 4rem;
     margin-top: 70px;
@@ -783,7 +795,6 @@ textarea {
     text-align: center;
     align-self: baseline;
   }
-
   #info-cont {
     display: flex;
     height: 19rem;
@@ -802,7 +813,6 @@ textarea {
       text-align: center;
       line-height: 3.15rem;
     }
-
   #cont-login {
     display: grid;
     grid-template-rows: repeat(5, 1fr);
@@ -889,7 +899,6 @@ textarea {
       box-shadow: 1px 1px 4px #6e6e6e42;
       border: none;
     }
-
   #error-login {
     margin: 0 20px 5px;
     font-size: 1.35em;
@@ -897,7 +906,6 @@ textarea {
     text-align: center;
     color: #fbff16;
   }
-
   footer {
     display: flex;
     height: 4.5%;

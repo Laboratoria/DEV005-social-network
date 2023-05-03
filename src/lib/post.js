@@ -21,11 +21,13 @@ export const addPostToFirestore = async (text, user) => {
     console.log('Error', err);
   }};
 
-//Función para borrar el post
+//Función Firestore para borrar el post
+
 export const deleteFirestorePost = async () => {
-  console.log('funciona');
+  const idRef = doc(collection(db, 'posts'));
+  console.log('funciona deleteFirestorePost');
   try {
-    const deletePost = await deleteDoc(doc(db, 'posts', '0uQpkETAlEftkN4vKfwK'));
+    const deletePost = await deleteDoc(doc(db, 'posts', idRef.id));
     console.log('se borró el post ' + deletePost);
   } catch{err => {
     console.log('Error', err);

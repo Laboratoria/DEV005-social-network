@@ -24,7 +24,7 @@ function wall() {
   btnPost.id = 'btn-posts';
   btnPost.type = 'submit';
   btnPost.textContent = 'Publicar';
-  btnPost.disabled = true;
+  // btnPost.disabled = true;
 
   // Visualización de los posts
   const postsContainer = document.createElement('section');
@@ -48,32 +48,34 @@ function wall() {
     newPost.textContent = postText;
     postsContainer.append(newPost);
     console.log(postText);
-    addPostToFirestore(postText);
+    // addPostToFirestore(postText);
     post.value = '';
     btnPost.disabled = true;
 
+    const btnsContainer = document.createElement('div');
+    btnsContainer.id = 'btns-cont';
+    // Creación botón Editar
+    const bntEdit = document.createElement('button');
+    bntEdit.id = 'btn-edit';
+    bntEdit.textContent = 'Editar';
     // Creación botón Eliminar
     const btnDelete = document.createElement('button');
     btnDelete.id = 'btn-delete';
     btnDelete.textContent = 'Borrar';
 
-    // Creación botón Editar
-    const bntEdit = document.createElement('button');
-    bntEdit.id = 'btn-edit';
-    bntEdit.textContent = 'Editar';
-    // bntEdit.addEventListener('click', () => {
-    // const postId = newPost.id;
-    // });
-
     // Función botón borrar post
     btnDelete.addEventListener('click', () => {
-    // deleteFirestorePost(postsContainer);
+      // deleteFirestorePost(postsContainer);
       console.log('Se borró la publicación');
     });
 
     // Función para editar post
+    bntEdit.addEventListener('click', () => {
+      const postId = newPost.id;
+    });
 
-    newPost.append(btnDelete, bntEdit);
+    btnsContainer.append(bntEdit, btnDelete);
+    newPost.append(btnsContainer);
   });
 
   btnLogOut.addEventListener('click', () => {

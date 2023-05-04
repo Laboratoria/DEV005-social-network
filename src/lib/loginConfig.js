@@ -17,8 +17,7 @@ export const loginConfigUser = (email, password) => new Promise((resolve, reject
       resolve({ email: user, password: user.password });
     })
     .catch((error) => {
-      const errorCode = error.code;
-      reject(errorCode);
+      reject(error.code);
     });
 });
 

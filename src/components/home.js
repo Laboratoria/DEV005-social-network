@@ -75,6 +75,21 @@ function home(navigateTo) {
   const registrarAhora = document.createElement('span');
   registrarAhora.className = 'registrarAhora';
   // texto botones
+
+  buttonemail.textContent = 'Continuar con Email';
+  buttonemail.addEventListener('click', () => {
+    navigateTo('/login');
+  });
+  buttongoogle.textContent = 'Continuar con Google';
+  // ! Logueo con google
+  buttongoogle.addEventListener('click', () => {
+    loginWithGoogle();
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        navigateTo('/muro');
+      }
+    });
+  });
   buttontwitter.textContent = 'Continuar con Twitter';
   buttongithub.textContent = 'Continuar con Github';
   registrarAhora.innerHTML = ` ¿No tienes una cuenta?

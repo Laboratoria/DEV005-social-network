@@ -20,7 +20,7 @@ const muro = (navigateTo) => {
   <nav class='navbar'>
   <div class='img_food' ></div>
   <h2>Food Match</h2>
-  <div class='icon_exit'></div>
+  <div class='icon_exit' type='button'></div>
   </nav>
   </header>
   <main>

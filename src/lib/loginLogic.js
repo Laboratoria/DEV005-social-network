@@ -27,23 +27,23 @@ const loginLogic = (container) => {
         if (!mailUserLogin.value) {
             showError("Ingresa un correo", "messageErrorMailLogin");
             return { errors: true };
-        } else {
-            showError("", "messageErrorMailLogin");
         }
+        showError("", "messageErrorMailLogin");
+
         // Si el correo electrónico no cumple con el formato de la expresión regular, se muestra un mensaje de error y se devuelve un objeto con la propiedad errors establecida en true.
         if (!emailRegex.test(mailUserLogin.value)) {
             showError("Ingresa un correo válido. Por ejemplo: example@gmail.com", "messageErrorMailLogin");
             return { errors: true };
-        } else {
-            showError("", "messageErrorMailLogin");
         }
+        showError("", "messageErrorMailLogin");
+
         // Si no se ingresó ninguna contraseña, se muestra un mensaje de error y se devuelve un objeto con la propiedad errors establecida en true.
         if (!passwordUserLogin.value) {
             showError("Ingresa una contraseña", "messageErrorPasswordLogin");
             return { errors: true };
-        } else {
-            showError("", "messageErrorPasswordLogin");
         }
+        showError("", "messageErrorPasswordLogin");
+
         // Si no hay errores en los campos, se eliminan los mensajes de error y se devuelve un objeto con la propiedad errors establecida en false.
         return { errors: false };
     };
@@ -81,4 +81,4 @@ const loginLogic = (container) => {
     });
 };
 
-export { loginLogic };
+export { loginLogic};

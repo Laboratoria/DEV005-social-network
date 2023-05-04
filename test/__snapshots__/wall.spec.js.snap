@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`wall snapshot of wall 1`] = `
+<div>
+  <section
+    class="container-post"
+  >
+    <div
+      class="div-content"
+    >
+      <div
+        class="div-header"
+      >
+        <h1
+          class="post-title"
+        >
+          PLAYVERSE
+        </h1>
+        <i
+          class="fas fa-right-from-bracket"
+          id="logout-icon"
+        />
+      </div>
+    </div>
+    <form
+      class="form-post"
+    >
+      <div
+        class="div-group"
+      >
+        <button
+          class="btn-post"
+          type="submit"
+        >
+          Compartir
+        </button>
+        <textarea
+          id="text-post"
+          placeholder="¿Qué quieres compartir?"
+        />
+      </div>
+    </form>
+    <div
+      class="container-public"
+    />
+  </section>
+</div>
+`;

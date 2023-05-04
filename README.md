@@ -1,4 +1,6 @@
-![Mascoteando](.\src\img\logo.png)
+<p align="center">
+  <img width="300" height="300" src=".\src\img\logo.png">
+</p>
 
 ## Índice
 
@@ -16,38 +18,38 @@ En Mascoteando se pretende reunir una comunidad de amantes a las Mascotas en la 
 ## Prototipos
 
 ### Baja Fidelidad
-![Bajafidelidad](.\src\img\bajaFidelidad.png)
+![Bajafidelidad](./src/img/bajaFidelidad.jpg)
 
 ### Alta Fidelidad
 - Vista Móvil Login
-![VistaMovilLogin](.\src\img\vistaMovilLogin.jpg)
+![VistaMovilLogin](./src/img/vistaMovilLogin.jpg)
 
 - Vista Desktop Login
-![VistaMovilLogin](.\src\img\vistaDesktopLogin.jpg)
+![VistaMovilLogin](./src/img/vistaDesktopLogin.jpg)
 
 - Vista Móvil Register
-![VistaMovilRegister](.\src\img\vistaMovilRegister.jpg)
+![VistaMovilRegister](./src/img/vistaMovilRegister.jpg)
 
 - Vista Desktop Register
-![VistaMovilRegister](.\src\img\vistaDesktopRegister.jpg)
+![VistaMovilRegister](./src/img/vistaDesktopRegister.jpg)
 
 - Vista Móvil Register
-![VistaMovilHome](.\src\img\vistaMovilHome.jpg)
+![VistaMovilHome](./src/img/vistaMovilRegister.jpg)
 
 - Vista Desktop Register
-![VistaMovilHome](.\src\img\vistaDesktopHome.jpg)
+![VistaDesktopHome](./src/img/vistaDesktopHome.jpg)
 
 ## Historias de Usuario
 
 Para las historias de usuarios se utilizó Trello como metodo de organización, cada sprint se planeaba una nueva historia  en base a los requerimientos y desarrollo del Proyecto. 
 
-![HistoriasUsuario](.\src\img\HistoriasUsuario.jpg)
+![HistoriasUsuario](./src/img/HistoriasUsuario.jpg)
 
 ## Test de usabilidad
 
 A lo largo del Proyecto se realizaron test de usabilidad con usuarios amantes de las mascotas, teniendo cómo feedback las siguientes mejoras:
 
-![HistoriasUsuario](.\src\img\mejoras.jpg)
+![HistoriasUsuario](./src/img/mejoras.jpg)
 
 ## Url Proyecto
 | Despliegue | URL |

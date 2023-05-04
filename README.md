@@ -4,10 +4,11 @@
 
 ## Índice
 
-- Introducción
-- Prototipos
-- Historias de Usuario
-- Usabilidad
+* [1. Introducción](#1-introducción)
+* [2. Prototipos](#2-Prototipos)
+* [3. Historias de Usuario](#3-Historias de Usuario)
+* [4. Usabilidad](#4-Usabilidad)
+* [5. Url Proyecto](#5-Url Proyecto)
 
 ## Introducción
 
@@ -18,38 +19,53 @@ En Mascoteando se pretende reunir una comunidad de amantes a las Mascotas en la 
 ## Prototipos
 
 ### Baja Fidelidad
-![Bajafidelidad](./src/img/bajaFidelidad.jpg)
+
+<p align="center">
+  <img src="./src/img/bajaFidelidad.jpg">
+</p>
 
 ### Alta Fidelidad
 - Vista Móvil Login
+
 ![VistaMovilLogin](./src/img/vistaMovilLogin.jpg)
 
 - Vista Desktop Login
+
 ![VistaMovilLogin](./src/img/vistaDesktopLogin.jpg)
 
 - Vista Móvil Register
+
 ![VistaMovilRegister](./src/img/vistaMovilRegister.jpg)
 
 - Vista Desktop Register
+
 ![VistaMovilRegister](./src/img/vistaDesktopRegister.jpg)
 
 - Vista Móvil Register
+
 ![VistaMovilHome](./src/img/vistaMovilRegister.jpg)
 
 - Vista Desktop Register
+
 ![VistaDesktopHome](./src/img/vistaDesktopHome.jpg)
 
 ## Historias de Usuario
 
 Para las historias de usuarios se utilizó Trello como metodo de organización, cada sprint se planeaba una nueva historia  en base a los requerimientos y desarrollo del Proyecto. 
 
-![HistoriasUsuario](./src/img/HistoriasUsuario.jpg)
+<p align="center">
+  <img src="./src/img/HistoriasUsuario.jpg">
+</p>
+
 
 ## Test de usabilidad
 
 A lo largo del Proyecto se realizaron test de usabilidad con usuarios amantes de las mascotas, teniendo cómo feedback las siguientes mejoras:
 
-![HistoriasUsuario](./src/img/mejoras.jpg)
+<p align="center">
+  <img src="./src/img/mejoras.jpg">
+</p>
+
 
 ## Url Proyecto
 | Despliegue | URL |

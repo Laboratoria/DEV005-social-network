@@ -1,0 +1,438 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  background: linear-gradient(180deg, #9a6ed5 1%, #320070 89%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+  display: grid;
+}
+
+.wallBody {
+  background: #edf0f5;
+}
+
+main {
+  justify-content: center;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-image: url(/img/logosinletras.png);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: initial;
+  background-position: unset;
+  opacity: 0.16;
+  z-index: -1;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wall-header {
+  display: grid;
+  grid-area: 1;
+  background: linear-gradient(180deg, #9a6ed5 10%, #320070 90%);
+  box-shadow: 0 3px 4px 0 rgb(0 0 0 / 40%);
+}
+
+h1 {
+  color: white;
+  font-family: "Rancho", cursive;
+  font-size: 55px;
+  padding-left: 4%;
+}
+
+h2 {
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  justify-content: center;
+  font-size: 25px;
+}
+/* LOGIN Y REGISTER*/
+
+#container-login,
+#container-register {
+  display: grid;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.passAndEm {
+  display: grid;
+  background-color: #f7f7f721;
+  border-radius: 44px;
+  margin-bottom: -10%;
+  padding: 5%;
+  width: 18rem;
+}
+
+button {
+  letter-spacing: 2px;
+}
+button:active {
+  position: relative;
+  top: 5px;
+}
+
+#register,
+#login {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+#email,
+#password,
+#user {
+  border-radius: 12px;
+  padding: 3%;
+  width: 100%;
+  background-color: #f1f1f1;
+  border-style: none;
+}
+
+.cEmail,
+.cPassword,
+.cUser {
+  padding: 3%;
+}
+
+#btn-login,
+#btn-register {
+  width: 80%;
+  background-color: #320070;
+  border-radius: 30px;
+  color: white;
+  padding: 3%;
+  margin: 0 auto;
+  margin-top: 15px;
+  font-size: medium;
+  border-style: none;
+  box-shadow: 0 3px 4px 0 rgb(0 0 0 / 42%);
+  font-weight: normal;
+}
+
+p {
+  margin: 0 auto;
+  margin-top: 20%;
+  margin-bottom: 10px;
+}
+
+a {
+  margin: 0 auto;
+  margin-bottom: 5%;
+  color: white;
+}
+
+#linkRegister {
+  border-radius: 30px;
+  padding: 3%;
+  letter-spacing: 2px;
+  font-family: "Montserrat", sans-serif;
+  color: black;
+  background-color: white;
+  font-weight: bold;
+  border-style: none;
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
+  margin: 10px auto;
+  width: 215px;
+  height: 42px;
+}
+
+#errorMsj {
+  padding: 1%;
+  margin: 0%;
+  margin-left: 3%;
+}
+
+.wallErrorMsj {
+  padding: 3%;
+  margin: 0%;
+  color: black;
+}
+
+#linkLogin {
+  background-color: transparent;
+  border-style: none;
+  color: #f1f1f1;
+  text-decoration: underline;
+}
+
+#linkLogin:hover {
+  cursor: pointer;
+  color: rgb(197, 176, 148);
+}
+/* Logo de GOOGLE */
+#google-Logo {
+  width: 40px;
+  padding: 10%;
+  background-color: aliceblue;
+  border-radius: 50%;
+}
+.google-btn {
+  width: 215px;
+  height: 42px;
+  background-color: white;
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
+  border-style: none;
+  border-radius: 30px;
+  letter-spacing: 0.5px;
+  font-family: "Montserrat", sans-serif;
+  color: black;
+  font-weight: bold;
+  text-align: end;
+  padding-right: 12%;
+}
+.google-icon-wrapper {
+  position: absolute;
+  margin-top: 1px;
+  margin-left: 1px;
+  width: 40px;
+  height: 40px;
+  border-radius: 2px;
+}
+.google-icon {
+  position: relative;
+  margin-top: 11px;
+  width: 18px;
+  bottom: 29px;
+  margin-right: 16px;
+  margin-left: 5%;
+}
+
+.google-btn:hover {
+  box-shadow: 0 0 6px #4285f4;
+}
+
+.google-btn :active {
+  background: #1669f2;
+}
+
+/* MURO */
+.cPost {
+  display: grid;
+  grid-area: 2;
+}
+
+.wall-template {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1%;
+  background-size: initial;
+  background-image: url(/img/LogoMorado.png);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: bottom;
+  grid-template-areas:
+    "1"
+    "2"
+    "3"
+    "4";
+}
+
+#wall-tittle {
+  display: grid;
+  grid-area: 1;
+  color: white;
+  font-family: "Rancho", cursive;
+  font-size: 30px;
+  margin-left: 6%;
+}
+
+#iPost {
+  display: grid;
+  resize: none;
+  grid-area: 2;
+  align-content: center;
+  padding: 4%;
+  width: 80%;
+  height: 8rem;
+  border-radius: 20px;
+  border-style: none;
+  background-color: white;
+  color: rgb(0, 0, 0);
+  justify-self: center;
+  box-shadow: 0 3px 4px 0 rgb(0 0 0 / 40%);
+  font-family: "Montserrat", sans-serif;
+}
+
+.btn-class {
+  display: grid;
+  grid-area: 3;
+  background-color: #610cd1;
+  color: white;
+  border: none;
+  font-size: 15px;
+  width: 8rem;
+  height: 2rem;
+  align-items: center;
+  border-radius: 20px;
+}
+
+#btn-post {
+  display: grid;
+  grid-area: 3;
+  background-color: #610cd1;
+  color: white;
+  border: none;
+  font-size: 15px;
+  width: 8rem;
+  height: 2rem;
+  justify-self: end;
+  margin-right: 10%;
+  align-items: center;
+  border-radius: 20px;
+  box-shadow: 0 3px 4px 0 rgb(0 0 0 / 40%);
+}
+
+#btn-edit {
+  display: flex;
+  justify-content: center;
+  width: 4rem;
+  background-color: #610cd1;
+  align-self: center;
+  grid-area: buttom;
+  justify-self: flex-end;
+  margin-right: 5.3rem;
+}
+
+#btn-delete {
+  display: flex;
+  justify-content: center;
+  width: 5rem;
+  background-color: #610cd1;
+  align-self: center;
+  grid-area: buttom;
+  justify-self: end;
+}
+
+#btn-out {
+  display: grid;
+  grid-area: 1;
+  width: fit-content;
+  border-radius: 10px;
+  color: #320070;
+  background-color: white;
+  justify-self: self-end;
+  margin-right: 22%;
+}
+
+.posts {
+  display: grid;
+  color: black;
+  grid-area: 4;
+  gap: 1%;
+}
+
+.post-likes {
+  grid-area: buttom;
+  justify-self: start;
+  align-self: center;
+}
+
+.liPost {
+  display: grid;
+  grid-template-areas:
+    'top'
+    'center'
+    'buttom';
+  gap: 0.5rem;
+}
+
+.author {
+  grid-area: top;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.container-liPost {
+  background-color: white;
+  box-shadow: 0 3px 4px 0 rgb(0 0 0 / 40%);
+  border-radius: 20px;
+  width: 80%;
+  padding: 5%;
+  justify-self: center;
+  list-style: none;
+  display: grid;
+  overflow-wrap: anywhere;
+}
+
+#btn-like {
+  color: #610cd1;
+  font-size: 2rem;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  grid-area: 4;
+  width: 2rem;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  padding: 20px;
+  border: 1px solid #888;
+  display: none;
+  position: fixed;
+  z-index: 1;
+  top: 30%;
+  width: 50%;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  gap: 30%;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  justify-self: center;
+}
+
+#btn-like.liked {
+  color: #ffffff;
+  font-size: 1rem;
+  background-color: #610cd1;
+}
+
+#answer {
+  color: black;
+  display: grid;
+  justify-self: center;
+  margin-top: 0px;
+}
+#btn-cancel{
+  background-color: #fefefe;
+  border: 2px #610cd1;
+  color: #610cd1;
+  margin-top: 5px;
+}
+@media (min-width: 1024px) {
+  header,
+  h1 {
+    padding: 0%;
+    margin-bottom: 1%;
+  }
+  #wall-tittle {
+    padding-left: 4%;
+    margin-bottom: 3%;
+  }
+}
+@media (max-width: 540px) {
+  .container-liPost {
+    width: 18rem;
+  }
+}

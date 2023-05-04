@@ -1,17 +1,11 @@
 import { signOut } from 'firebase/auth';
 import {
-  child,
-  get,
-  ref,
-} from 'firebase/database';
-import {
   saveTask,
   onGetTasks,
   deleteTask,
   editTasks,
   updateTask,
   getDate,
-  database,
   addLike,
   auth,
   removeLike,
@@ -124,17 +118,23 @@ const muro = (navigateTo) => {
 
         <div class='dropdown'>
         <button class='btn-menu'><i class='bx bx-dots-horizontal-rounded'></i></button>
+
         <div class='container-options'>
         <button class='btn-delete' data-id='${doc.id}'>Eliminar</button>
         <button class='btn-edit' data-id='${doc.id}'>Editar</button>
+        </div>
 
         </div>
+
+        <div class='body-description'>
+        <p class='dateFormat'>Hola</p>
+        <p>${task.description}</p>
         </div>
-            <p class='dateFormat'>Hola</p>
-            <p>${task.description}</p>
-            <button class='btn-like' data-id='${doc.id}' data-liked='${task.likes.includes(auth.currentUser.uid)}' ><i class='bx bx-heart' id='heart'></i></button> 
-            <span class='count-like'> ${task.likes.length}</span>
-            <button class='btn-dislike' ><i class='bx bx-dislike'></i></button>
+
+        <div class='reactions'>
+        <button class='btn-like' data-id='${doc.id}' data-liked='${task.likes.includes(auth.currentUser.uid)}'></button> 
+        <span class='count-like'> ${task.likes.length}</span>
+        </div>
 
         </div>
           `;
@@ -171,7 +171,7 @@ const muro = (navigateTo) => {
           }
         });
         const docEdit = await editTasks(event.target.dataset.id);
-        console.log(docEdit);
+        // console.log(docEdit);
         const taskEdit = docEdit.data();
         const formPost = muroDiv.querySelector('.form-post');
         formPost['textarea-post'].value = taskEdit.description;
@@ -181,28 +181,16 @@ const muro = (navigateTo) => {
     });
 
     const btnLike = tasksContainer.querySelectorAll('.btn-like');
-    // const btnDislike = tasksContainer.querySelectorAll('.btn-dislike');
-    const countLike = tasksContainer.querySelectorAll('.count-like');
-    let countVariable;
-
-    window.onload = function () {
-      const dbRef = ref(database);
-      get(child(dbRef, 'Counter')).then((snapshot) => {
-        countVariable = Number(snapshot.value);
-        console.log(countVariable);
-        countLike.innerHTML = countVariable;
-      });
-    };
 
     btnLike.forEach((btn) => {
       btn.addEventListener('click', (event) => {
-        console.log(event.target.dataset.id);
-        if (!event.target.dataset.liked) {
+        // console.log(event.target.dataset);
+        if (event.target.dataset.liked === 'false') {
           addLike(event.target.dataset.id);
         } else {
           removeLike(event.target.dataset.id);
         }
-      }, true);
+      });
     });
   });
 

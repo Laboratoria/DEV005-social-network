@@ -5,10 +5,10 @@
 ## Índice
 
 * [1. Introducción](#1-introducción)
-* [2. Prototipos](#2-Prototipos)
-* [3. Historias de Usuario](#3-Historias de Usuario)
-* [4. Usabilidad](#4-Usabilidad)
-* [5. Url Proyecto](#5-Url Proyecto)
+* [2. Prototipos](#2-prototipos)
+* [3. Historias de Usuario](#3-historias-de-usuario)
+* [4. Usabilidad](#4-usabilidad)
+* [5. Url Proyecto](#5-url-proyecto)
 
 ## Introducción
 
@@ -27,25 +27,17 @@ En Mascoteando se pretende reunir una comunidad de amantes a las Mascotas en la 
 ### Alta Fidelidad
 - Vista Móvil Login
 
-![VistaMovilLogin](./src/img/vistaMovilLogin.jpg)
-
-- Vista Desktop Login
-
-![VistaMovilLogin](./src/img/vistaDesktopLogin.jpg)
-
-- Vista Móvil Register
-
-![VistaMovilRegister](./src/img/vistaMovilRegister.jpg)
+![VistaMovilLogin](./src/img/vistasMovil.jpg)
 
 - Vista Desktop Register
 
 ![VistaMovilRegister](./src/img/vistaDesktopRegister.jpg)
 
-- Vista Móvil Register
+- Vista Desktop Login
 
-![VistaMovilHome](./src/img/vistaMovilRegister.jpg)
+![VistaMovilLogin](./src/img/vistaDesktopLogin.jpg)
 
-- Vista Desktop Register
+- Vista Desktop Home
 
 ![VistaDesktopHome](./src/img/vistaDesktopHome.jpg)
 

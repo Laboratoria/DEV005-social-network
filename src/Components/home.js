@@ -1,9 +1,8 @@
-/* eslint-disable no-unused-vars */
-import { signOut } from 'firebase/auth';
 import { onSnapshot } from 'firebase/firestore';
+import { signOut } from 'firebase/auth';
 import { auth } from '../lib/firebase.js';
 import {
-  editPost, deleteDocData, post, like, disLike, ref,
+  editPost, ref, deleteDocData, post, like, disLike,
 } from '../lib/post.js';
 
 function home(navigateTo) {
@@ -42,11 +41,15 @@ function home(navigateTo) {
   const printPost = (info, doc) => {
     const postContainer = document.createElement('div');
     postContainer.classList.add('divPost');
+    const name = document.createElement('h6');
+    name.classList.add('userName');
+    postContainer.appendChild(name);
+    name.innerHTML = `${info.userEmail}`;
 
     const textarea = document.createElement('textarea');
     textarea.classList.add('showPost');
     textarea.value = info.text;
-    textarea.setAttribute('data-id', doc.id);
+    // textarea.setAttribute('data-id', doc.id);
     postContainer.setAttribute('data-id', doc.id);
     textarea.setAttribute('readonly', true);
     postContainer.appendChild(textarea);
@@ -62,7 +65,7 @@ function home(navigateTo) {
         editButton.textContent = 'Guardar';
         textarea.removeAttribute('readonly');
       } else if (editButton.textContent === 'Guardar') {
-        const editedTextarea = postForm.querySelector(`[data-id="${doc.id}"]`).value;
+        const editedTextarea = postContainer.querySelector('textarea').value;
         editPost(doc.id, editedTextarea);
         editButton.textContent = 'Editar';
         textarea.setAttribute('readonly', true);
@@ -96,7 +99,6 @@ function home(navigateTo) {
       if (doc.data().likes.includes(auth.currentUser.email)) {
         disLike(doc.id, auth.currentUser.email);
       } else {
-        console.log('like', doc.id, auth.currentUser.email);
         like(doc.id, auth.currentUser.email);
       }
     });
@@ -112,13 +114,25 @@ function home(navigateTo) {
     querySnapshot.forEach((doc) => {
       const postInfo = doc.data();
       // Buscar el post existente por el id del documento
-      const postExists = postForm.querySelector(`textarea[data-id="${doc.id}"]`);
+      const postExists = postForm.querySelector(`div[data-id="${doc.id}"]`);
       if (postExists) {
         const textarea = document.querySelector('.showPost');
         textarea.removeAttribute('readonly');
       } else {
         const nodoP = printPost(postInfo, doc);
         nodoP.setAttribute('data-id', doc.id);
+      }
+      // like
+      const buttonLike = postForm.querySelector(`div[data-id="${doc.id}"]`).querySelector('.like-btn');
+      buttonLike.innerHTML = `<i class="fas fa-heart"></i> ${postInfo.likes.length}`;
+      if (buttonLike) {
+        buttonLike.addEventListener('click', () => {
+          if (doc.data().likes.includes(auth.currentUser.email)) {
+            disLike(doc.id, auth.currentUser.email);
+          } else {
+            like(doc.id, auth.currentUser.email);
+          }
+        });
       }
     });
   });

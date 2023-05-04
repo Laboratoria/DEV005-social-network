@@ -1,6 +1,8 @@
 // Importando las funciones necesarias de los SDK de Firebase que queremos utilizar en nuestro proyecto.
 import { initializeApp } from "firebase/app";
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import {
+    getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile, GoogleAuthProvider, signInWithPopup,
+} from "firebase/auth";
 // import { getFirestore } from "firebase/firestore";
 
 // Configurando los datos necesarios de nuestro proyecto de Firebase.
@@ -33,18 +35,16 @@ const provider = new GoogleAuthProvider();
 //     // Retorna el objeto del usuario que inició sesión
 //     return user;
 // };
-const signIn = (email, password) => {
-    return new Promise((resolve, reject) => {
-        signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                const user = userCredential.user;
-                resolve(user);
-            })
-            .catch((error) => {
-                reject(error);
-            });
-    });
-};
+const signIn = (email, password) => new Promise((resolve, reject) => {
+    signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            const user = userCredential.user;
+            resolve(user);
+        })
+        .catch((error) => {
+            reject(error);
+        });
+});
 
 // Definiendo una función que registra a un usuario en Firebase Auth y le asigna un displayName.
 // const registerUser = async (displayName, email, password) => {
@@ -55,25 +55,23 @@ const signIn = (email, password) => {
 //     // Retorna el objeto del usuario registrado
 //     return user;
 // };
-const registerUser = (displayName, email, password) => {
-    return new Promise((resolve, reject) => {
-        createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                const user = userCredential.user;
+const registerUser = (displayName, email, password) => new Promise((resolve, reject) => {
+    createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            const user = userCredential.user;
 
-                updateProfile(auth.currentUser, { displayName })
-                    .then(() => {
-                        resolve(user);
-                    })
-                    .catch((error) => {
-                        reject(error);
-                    });
-            })
-            .catch((error) => {
-                reject(error);
-            });
-    });
-};
+            updateProfile(auth.currentUser, { displayName })
+                .then(() => {
+                    resolve(user);
+                })
+                .catch((error) => {
+                    reject(error);
+                });
+        })
+        .catch((error) => {
+            reject(error);
+        });
+});
 
 // Definiendo una función que inicia sesión en Firebase Auth con Google.
 // const googleSign = async (providers) => {
@@ -82,23 +80,18 @@ const registerUser = (displayName, email, password) => {
 //     // Retorna el objeto del usuario que inició sesión con Google
 //     return user;
 // };
-const googleSign = (providers) => {
-    return new Promise((resolve, reject) => {
-        signInWithPopup(auth, provider)
-            .then((result) => {
-                const credential = GoogleAuthProvider.credentialFromResult(result);
-                const token = credential.accessToken;
-                const user = result.user;
-                resolve(user);
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                const email = error.customData.email;
-                const credential = GoogleAuthProvider.credentialFromError(error);
-                reject(error);
-            });
-    });
-};
+const googleSign = () => new Promise((resolve, reject) => {
+    signInWithPopup(auth, provider)
+        .then((result) => {
+            const user = result.user;
+            resolve(user);
+        })
+        .catch((error) => {
+            const errorMessage = error.message;
+            reject(console.error(errorMessage));
+        });
+});
 
-export { auth, app, provider, signIn, registerUser, googleSign };
+export {
+    auth, app, provider, signIn, registerUser, googleSign,
+};

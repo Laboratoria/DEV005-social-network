@@ -1,10 +1,14 @@
-import { getAuth, signOut } from 'firebase/auth';
+import { signOut } from 'firebase/auth';
 import {
   saveTask,
   onGetTasks,
   deleteTask,
   editTasks,
   updateTask,
+  getDate,
+  addLike,
+  auth,
+  removeLike,
 } from '../lib/firebaseConfig.js';
 
 let editStatus = false;
@@ -61,7 +65,7 @@ const muro = (navigateTo) => {
   // botón salida
   const iconExit = muroDiv.querySelector('.icon_exit');
   iconExit.addEventListener('click', () => {
-    const auth = getAuth();
+    // const auth = getAuth();
     signOut(auth)
       .then(() => {
         navigateTo('/');
@@ -96,70 +100,96 @@ const muro = (navigateTo) => {
 
   // contenedor publicaciones (mostrar datos)
   const tasksContainer = muroDiv.querySelector('.tasks-container');
-  window.addEventListener('DOMContentLoaded', async () => {
-    // consulta asíncrona
-    // querySnapshot -> los datos que existen en este momento
-    // ejecutar con promesa o callback
+  // consulta asíncrona
+  // querySnapshot -> los datos que existen en este momento
+  // ejecutar con promesa o callback
 
-    // cuando ocurra un cambio en la base de datos de post
-    // voy a recibir los datos nuevos voy a crear el html  y recorrer los datos
-    // para verlo y luego pintamos el html y luego lo ponemos dentro del task container
-    onGetTasks((querySnapshot) => {
-      let html = '';
-      // por cada documento quiero ver por consola el documento
-      querySnapshot.forEach((doc) => {
-        const task = doc.data();
-        html += `
+  // cuando ocurra un cambio en la base de datos de post
+  // voy a recibir los datos nuevos voy a crear el html  y recorrer los datos
+  // para verlo y luego pintamos el html y luego lo ponemos dentro del task container
+  onGetTasks((querySnapshot) => {
+    let html = '';
+    // por cada documento quiero ver por consola el documento
+    querySnapshot.forEach((doc) => {
+      const task = doc.data();
+      html += `
         <div class='publicaciones'>
-
+        
         <div class='dropdown'>
         <button class='btn-menu'><i class='bx bx-dots-horizontal-rounded'></i></button>
+        <p>${task.username}</p>
+
         <div class='container-options'>
         <button class='btn-delete' data-id='${doc.id}'>Eliminar</button>
         <button class='btn-edit' data-id='${doc.id}'>Editar</button>
+        </div>
 
         </div>
+
+        <div class='body-description'>
+        <p class='dateFormat'>¡Hola! Aquí te comparto mi receta.</p>
+        <p>${task.description}</p>
         </div>
-            <p>${task.description}</p>
-            <i class='bx bx-heart'></i> <span> 1.7K</span>
-            <i class='bx bx-message-square-dots'></i> <span> 1.7K</span>
+
+        <div class='reactions'>
+        <button class='btn-like' data-id='${doc.id}' data-liked='${task.likes.includes(auth.currentUser.uid)}'></button> 
+        <span class='count-like'> ${task.likes.length}</span>
+        </div>
+
         </div>
           `;
-      });
+    });
 
-      // en el parametro event se puede resumir debido a q todos
-      // los elementos son objetos, esto es de la siguiente manera:
-      // ({target: {dataset}})
-      tasksContainer.innerHTML = html;
-      const btnDelete = tasksContainer.querySelectorAll('.btn-delete');
-      btnDelete.forEach((btn) => {
-        btn.addEventListener('click', (event) => {
-          deleteTask(event.target.dataset.id);
+    const dateTime = getDate();
+
+    // en el parametro event se puede resumir debido a q todos
+    // los elementos son objetos, esto es de la siguiente manera:
+    // ({target: {dataset}})
+    tasksContainer.innerHTML = html;
+    const dateFormat = tasksContainer.querySelectorAll('.dateFormat');
+    dateFormat.textContent = dateTime;
+    const btnDelete = tasksContainer.querySelectorAll('.btn-delete');
+    btnDelete.forEach((btn) => {
+      btn.addEventListener('click', (event) => {
+        deleteTask(event.target.dataset.id);
+      });
+    });
+
+    const btnEdit = tasksContainer.querySelectorAll('.btn-edit');
+    btnEdit.forEach((btn) => {
+      btn.addEventListener('click', async (event) => {
+        const cerrarPost = muroDiv.querySelector('.cerrar-post');
+        const popUp = muroDiv.querySelector('.pop-up');
+        popUp.style.display = 'block';
+        cerrarPost.addEventListener('click', () => {
+          popUp.style.display = 'none';
         });
-      });
-
-      const btnEdit = tasksContainer.querySelectorAll('.btn-edit');
-      btnEdit.forEach((btn) => {
-        btn.addEventListener('click', async (event) => {
-          const cerrarPost = muroDiv.querySelector('.cerrar-post');
-          const popUp = muroDiv.querySelector('.pop-up');
-          popUp.style.display = 'block';
-          cerrarPost.addEventListener('click', () => {
+        window.addEventListener('click', (e) => {
+          // windoow??
+          if (e.target === popUp) {
             popUp.style.display = 'none';
-          });
-          window.addEventListener('click', (e) => { // windoow??
-            if (e.target === popUp) {
-              popUp.style.display = 'none';
-            }
-          });
-          const docEdit = await editTasks(event.target.dataset.id);
-          console.log(docEdit);
-          const taskEdit = docEdit.data();
-          const formPost = muroDiv.querySelector('.form-post');
-          formPost['textarea-post'].value = taskEdit.description;
-          editStatus = true;
-          id = event.target.dataset.id;
+          }
         });
+        const docEdit = await editTasks(event.target.dataset.id);
+        // console.log(docEdit);
+        const taskEdit = docEdit.data();
+        const formPost = muroDiv.querySelector('.form-post');
+        formPost['textarea-post'].value = taskEdit.description;
+        editStatus = true;
+        id = event.target.dataset.id;
+      });
+    });
+
+    const btnLike = tasksContainer.querySelectorAll('.btn-like');
+
+    btnLike.forEach((btn) => {
+      btn.addEventListener('click', (event) => {
+        // console.log(event.target.dataset);
+        if (event.target.dataset.liked === 'false') {
+          addLike(event.target.dataset.id);
+        } else {
+          removeLike(event.target.dataset.id);
+        }
       });
     });
   });

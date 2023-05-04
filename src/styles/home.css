@@ -291,7 +291,7 @@ body{
     padding: 12px 0px 12px 60px;
     
   }
-  .passwordRegister, .checkPasswordRegister{
+  .passwordRegister{
     margin: 8px 8px 0px 8px;
     border-radius: 10px;
     font-size: 18px;
@@ -309,7 +309,7 @@ body{
     border-radius: 10px;
     font-size: 18px;
     flex-direction: column;
-    top: 178px;
+    top: 120px;
     padding: 12px;
     width: 90%;
     background: #F2B872;

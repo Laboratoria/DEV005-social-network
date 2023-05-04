@@ -5,18 +5,21 @@ import {
   getFirestore, // conexion
   collection, // crear una tabla con los datos
   addDoc, // añadir documentos
-  // getDocs, // obtener documentos
   onSnapshot, // escucha y trae los cambios de los datos
   deleteDoc,
   doc,
   getDoc,
   updateDoc,
+  query,
+  orderBy,
+  arrayUnion,
+  arrayRemove,
 } from 'firebase/firestore';
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
+// Configuración del proyecto
 const firebaseConfig = {
   apiKey: 'AIzaSyACdLyMpGhBbp5ogyQ2z2-GeDWz4orx4Z4',
   authDomain: 'foodmatch-5bf52.firebaseapp.com',
@@ -29,18 +32,57 @@ const firebaseConfig = {
 // Initialize Firebase console.log(app)
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
+// Inicializar la base de datos en tiempo real y obtener una referencia al servicio
 // Conexión a la base de datos
 const db = getFirestore(app);
 // Guardar Publicacion en firestore
-export const saveTask = (description) => addDoc(collection(db, 'post'), { description }); // nombre de la coleccion "post", donde se va a guardar los datos
-// traer los post guardados en el firestore
+export const saveTask = (description) => {
+  addDoc(collection(db, 'post'), {
+    description,
+    date: Date.now(),
+    likes: [],
+    username: auth.currentUser.email,
+  });
+  // nombre de la colección "post",
+  // donde se van a guardar los datos
+};
+
+// traer los post guardados en firestore
 // export const getTask = () => getDocs(collection(db, 'post'));
 
 // onSnapshot -> para que escuche los cambios y se vea en tiempo real
-export const onGetTasks = (callback) => onSnapshot(collection(db, 'post'), callback);
-
+export const onGetTasks = (callback) => onSnapshot(query(collection(db, 'post'), orderBy('date', 'desc')), callback);
 export const deleteTask = (id) => deleteDoc(doc(db, 'post', id));
-
 export const editTasks = (id) => getDoc(doc(db, 'post', id));
-
 export const updateTask = (id, newDates) => updateDoc(doc(db, 'post', id), newDates);
+
+export const getDate = () => {
+  let today = new Date();
+  let dd = today.getDate();
+  let mm = today.getMonth() + 1;
+  const yyyy = today.getFullYear();
+  if (dd < 10) {
+    dd = `0${dd}`;
+  }
+  if (mm < 10) {
+    mm = `0${mm}`;
+  }
+  today = `${mm}-${dd}-${yyyy}`;
+  console.log(today);
+};
+
+export const addLike = (id) => {
+  const docRef = doc(db, 'post', id);
+  const currentUser = auth.currentUser;
+  updateDoc(docRef, {
+    likes: arrayUnion(currentUser.uid),
+  });
+};
+
+export const removeLike = (id) => {
+  const currentUser = auth.currentUser;
+  const docRef = doc(db, 'post', id);
+  updateDoc(docRef, {
+    likes: arrayRemove(currentUser.uid),
+  });
+};

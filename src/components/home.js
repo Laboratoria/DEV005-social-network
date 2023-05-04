@@ -28,6 +28,7 @@ function home(navigateTo) {
     loginWithGoogle();
     onAuthStateChanged(auth, (user) => {
       if (user) {
+        console.log(user);
         navigateTo('/muro');
       }
     });

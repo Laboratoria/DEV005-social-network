@@ -8,12 +8,14 @@ describe('register', () => {
   test('esto es una funcion', () => {
     expect(typeof register).toBe('function');
   });
+
   test('Hay un boton', () => {
     const html = document.createElement('div');
     html.appendChild(register(mockNavigation));
     const boton = html.querySelector('#btnCrearCuenta');
     expect(boton).not.toBe(null);
   });
+
   test('Hay un boton con click', () => {
     const html = document.createElement('div');
     html.appendChild(register(mockNavigation));
@@ -21,12 +23,14 @@ describe('register', () => {
     boton.click();
     expect(boton).not.toBe(null);
   });
+
   test('Tiene dos botones', () => {
     const html = document.createElement('div');
     html.appendChild(register());
     const botones = html.querySelector('#btnCrearCuenta, #linkLogin');
     expect(botones).not.toBe(undefined);
   });
+
   test('Verifica el elemento link', () => {
     const html = document.createElement('div');
     html.appendChild(register(mockNavigation));
@@ -34,12 +38,14 @@ describe('register', () => {
     element.click();
     expect(element).toBeDefined();
   });
+
   test('Verificar los elementos HTML', () => {
     const resultado = register(mockNavigation);
     expect(resultado.querySelector('.contenedorIngresoRegistro')).toBeTruthy();
     expect(resultado.querySelector('.contenedorInput')).toBeTruthy();
     expect(resultado.querySelector('.btnCrearCuenta')).toBeTruthy();
   });
+
   test('Debe tener un elemento de entrada de correo electrónico', () => {
     const html = document.createElement('div');
     html.appendChild(register(mockNavigation));
@@ -47,6 +53,7 @@ describe('register', () => {
     expect(email).toBeDefined();
     expect(email).not.toBe(null);
   });
+
   test('Debe tener un elemento de entrada de contraseña', () => {
     const html = document.createElement('div');
     html.appendChild(register(mockNavigation));
@@ -54,6 +61,7 @@ describe('register', () => {
     expect(password).toBeDefined();
     expect(password).not.toBe(null);
   });
+
   test('Span debe cambiar el tipo del input con click', () => {
     const html = document.createElement('div');
     html.appendChild(register(mockNavigation));

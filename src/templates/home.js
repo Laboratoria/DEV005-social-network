@@ -14,7 +14,7 @@ let editStatus = false;
 let id = '';
 let postForm;
 // Función que permite editar un post
-const editingPost = (event) => {
+export const editingPost = (event) => {
   getPost(event.target.dataset.id)
     .then((commentUser) => {
       const post = commentUser.data().txtMascotiemos;
@@ -39,7 +39,7 @@ const likePost = (event) => {
     }
   });
 };
-export default function home() {
+export function home() {
   const section = document.createElement('section');
   const htmlBienvenida = `
   <main>
@@ -50,7 +50,7 @@ export default function home() {
     </header>
     <section class="containerForm">
       <form id="post-form" class="post-form">
-        <textarea type="text" name="txtMascotiemos" class="txtMascotiemos" id="txtMascotiemos" rows="3" placeholder="Mascotiemos..."></textarea>
+        <textarea type="text" name="txtMascotiemos" class="txtMascotiemos" id="txtMascotiemos" rows="3" placeholder="Mascotiemos..." required></textarea>
         <button id="btnPost" class="btnPost"><img class="btnPostImg" src="./img/btnPublicar.png" alt="post"></img></button>
       </form>
       <div id ="containerPost" class ="containerPost"></div>

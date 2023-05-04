@@ -3,7 +3,7 @@ import { auth } from './lib/index.js';
 import { login } from './templates/login.js';
 import { register } from './templates/register.js';
 import error from './templates/error.js';
-import home from './templates/home.js';
+import { home } from './templates/home.js';
 
 const root = document.getElementById('root');
 

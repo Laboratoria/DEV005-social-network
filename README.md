@@ -12,9 +12,9 @@
 
 ## Introducción
 
-Según encuesta realizada por GFK Más de la mitad (56%) de la población mundial tiene al menos una mascota en casa; los perros son la mascota más popular en América Latina, mientras que en Europa hay preferencia por los gatos. Así cómo Tener un pez como mascota es más popular en China que en cualquier otro de los países donde se realizó la encuesta: 17% de quienes respondieron en línea dijeron tener uno.
+Según encuesta realizada por GFK más de la mitad (56%) de la población mundial tiene al menos una mascota en casa; los perros son la mascota más popular en América Latina, mientras que en Europa hay preferencia por los gatos. Así cómo tener un pez como mascota es más popular en China que en cualquier otro de los países donde se realizó la encuesta: 17% de quienes respondieron en línea dijeron tener uno.
 
-En Mascoteando se pretende reunir una comunidad de amantes a las Mascotas en la cual son bienvenidas las personas de cada rincon del mundo y pueden interactuar hablando sobre sus mascotas, salud, diversión, cuidados, tips, entre otros.
+En Mascoteando se pretende reunir una comunidad de amantes a las Mascotas en la cual son bienvenidas las personas de cada rincón del mundo y pueden interactuar hablando sobre sus mascotas, salud, diversión, cuidados, tips, entre otros.
 
 ## Prototipos
 
@@ -27,7 +27,7 @@ En Mascoteando se pretende reunir una comunidad de amantes a las Mascotas en la 
 ### Alta Fidelidad
 - Vista Móvil Login
 
-![VistaMovilLogin](./src/img/vistasMovil.jpg)
+![VistaMovilLogin](./src/img/vistasMovil.png)
 
 - Vista Desktop Register
 
@@ -62,5 +62,5 @@ A lo largo del Proyecto se realizaron test de usabilidad con usuarios amantes de
 ## Url Proyecto
 | Despliegue | URL |
 | ------ | ------ |
-| Vercel | [https://mascoteando-andrenavas.vercel.app/][PlDb] |
+| Vercel | https://mascoteando-andrenavas.vercel.app/ |
 

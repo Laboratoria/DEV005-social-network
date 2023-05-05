@@ -7,11 +7,9 @@
 * [1. Introducción](#1-introducción)
 * [2. Emprende](#2-emprende)
 * [3. Historia de usuarios](#3-historia-de-usuarios)
-* [4. Prototipo en baja fidelidad ](#4-Prototipo-en-baja-fidelidad)
-* [5. Prototipo en alta fidelidad ](#5-Prototipo-en-alta-fidelidad)
-* [6. Hacker edition](#6-hacker-edition)
-* [7. Entrega](#7-entrega)
-* [8. Pistas, tips y lecturas complementarias](#8-pistas-tips-y-lecturas-complementarias)
+* [4. Prototipo en baja fidelidad ](#4-prototipo-en-baja-fidelidad)
+* [5. Prototipo en alta fidelidad ](#5-prototipo-en-alta-fidelidad)
+* [6. Participantes del proyecto](#6-participantes-del-proyecto)
 
 ## 1. Introducción
 

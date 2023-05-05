@@ -70,7 +70,6 @@ describe('home', () => {
       expect(createPost).toHaveBeenCalledTime(1);
     }, 0);
   });
-
   it('Si el usuario deja el campo de post vacio sale una alerta', () => {
     postFn.post.mockResolvedValueOnce({ user: { email: 'prueba@gmail.com' } });
     const section = home(navigateTo);

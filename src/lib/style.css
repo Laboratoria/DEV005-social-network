@@ -1,0 +1,724 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0%;
+    margin: 0%;
+}
+
+/*pantalla de acceso*/
+.init {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url(./img/fondo.png);
+    background-size: cover;
+    height: 100vh;
+}
+
+.logo {
+    position: absolute;
+    max-width: 233px;
+    max-height: 176px;
+    top: 54px;
+    background: none;
+}
+.logIn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    max-width: 380px;
+    height: 46px;
+    font-weight: bold;
+    border: none;
+    font-size: 22px;
+    color: #FFFFFF;
+    background: #F39C12;
+    border-radius: 10px;
+    margin-top: 300px;
+}
+.register {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    max-width: 380px;
+    height: 46px;
+    border: none;
+    font-weight: bold;
+    font-size: 22px;
+    color: #FFFFFF;
+    background: #528FD8;
+    border-radius: 10px;
+    margin-top: 50px;
+}
+.division {
+    position: absolute;
+    margin-top: 500px;
+    width: 80%;
+    max-width: 380px;
+}
+.google {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    max-width: 380px;
+    box-sizing: border-box;
+    height: 48px;
+    font-size: 22px;
+    padding-left: 58px;
+    border: none;
+    background: white url(/lib/img/google-google.png) no-repeat 25px;
+    box-shadow: 0px 11px 27px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    margin-top: 130px;
+}
+
+/*pantalla de ingreso*/
+
+.sectionLogin {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url(./img/fondo.png);
+    background-size: cover;
+    height: 100vh;
+}
+
+.logo2 {
+    position: absolute;
+    top: 3%;
+}
+
+.formInteraction {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 44vh;
+    max-height: 440px;
+    width: 89%;
+    max-width: 469px;
+    border-radius: 19px;
+    background: #D9D9D9;
+    opacity: 0.9;
+    justify-content: space-around;
+}
+
+.initSection {
+    display: flex;
+    margin: -69px 0px 9px -167px;
+    font-size: 26px;
+}
+
+.labelEmail {
+    display: flex;
+    font-size: 20px;
+    background: none;
+    margin: -16px 170px -28px 0px;
+}
+
+.inputEmail {
+    display: flex;
+    background: white;
+    width: 94%;
+    max-width: 321px;
+    height: 45px;
+    border: none;
+    border-radius: 12px;
+    font-size: 21px;
+    padding-left: 5%;
+    justify-content: flex-start;
+}
+
+.labelPassword {
+    display: flex;
+    font-size: 20px;
+    background: none;
+    margin: -14px 234px 39px 0px;
+
+}
+
+.inputPassword {
+    display: flex;
+    background: white;
+    width: 94%;
+    max-width: 321px;
+    height: 45px;
+    border: none;
+    border-radius: 12px;
+    font-size: 28px;
+    padding-left: 5%;
+    margin: -66px 0px 0px 0px;
+    justify-content: flex-start;
+}
+
+.getInt {
+    display: flex;
+    background: #528FD8;
+    width: 100%;
+    max-width: 343px;
+    height: 45px;
+    border-radius: 12px;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 22px;
+    border: none;
+    color: #FFFEFE;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.bottomTextLogin {
+    position: absolute;
+    top: 817px;
+    width: 103%;
+    max-width: 368px;
+    height: 44px;
+    border: none;
+    color: black;
+    font-size: 22px;
+    background: none;
+    font-weight: bold;
+}
+
+.note1 {
+    color: red;
+    width: 85%;
+    max-width: 326px;
+    height: 22px;
+    background: none;
+    font-size: 18px;
+    margin: -27px 0px -38px 4px;
+    border-radius: 8px;
+    padding: 2%;
+}
+
+/*pantalla crear cuenta*/
+.creat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url(./img/fondo.png);
+    background-size: cover;
+    height: 100vh;
+}
+
+.logo1 {
+    position: absolute;
+    top: 3%;
+}
+
+.formCreateAccount {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 44vh;
+    max-height: 440px;
+    width: 89%;
+    max-width: 469px;
+    border-radius: 19px;
+    background: #D9D9D9;
+    opacity: 0.9;
+    justify-content: space-around;
+}
+
+.createAccount {
+    display: flex;
+    margin: -69px 0px 9px -208px;
+    font-size: 26px;
+}
+
+.textButtonCreateAccount {
+    display: flex;
+    font-size: 20px;
+    background: none;
+    margin: -16px 170px -28px 0px;
+}
+
+.card1 {
+    display: flex;
+    background: white;
+    width: 94%;
+    max-width: 321px;
+    height: 45px;
+    border: none;
+    border-radius: 12px;
+    font-size: 21px;
+    padding-left: 5%;
+    justify-content: flex-start;
+}
+
+.textPasswordCreateAccount {
+    display: flex;
+    font-size: 20px;
+    background: none;
+    margin: -14px 183px 39px 0px;
+}
+
+.card2 {
+    display: flex;
+    background: white;
+    width: 94%;
+    max-width: 321px;
+    height: 45px;
+    border: none;
+    border-radius: 12px;
+    font-size: 28px;
+    padding-left: 5%;
+    margin: -66px 0px 0px 0px;
+    justify-content: flex-start;
+}
+
+.textConfirmPassword {
+    display: flex;
+    height: 23px;
+    font-size: 20px;
+    background: none;
+    margin-top: 41px;
+}
+
+.card3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 76%;
+    max-width: 326px;
+    height: 45px;
+    border: none;
+    background: #FFFEFE;
+    border-radius: 12px;
+    font-size: 30px;
+    padding-left: 5%;
+}
+
+.bottomKeep {
+    display: flex;
+    background: #F39C12;
+    width: 100%;
+    max-width: 343px;
+    height: 45px;
+    border-radius: 12px;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 22px;
+    border: none;
+    color: #FFFEFE;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.alerta {
+    color: red;
+    width: 85%;
+    max-width: 326px;
+    height: 22px;
+    background: none;
+    font-size: 18px;
+    margin: -27px 0px -38px 4px;
+    border-radius: 8px;
+    padding: 2%;
+}
+
+.bottomText {
+    position: absolute;
+    top: 817px;
+    width: 103%;
+    max-width: 368px;
+    height: 44px;
+    border: none;
+    color: black;
+    font-size: 22px;
+    background: none;
+    font-weight: bold;
+}
+
+
+/* Home*/
+
+
+.home{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url(./img/fondoHome.png);
+    background-size: cover;
+    height: 100vh;
+
+}
+.logoHome {
+    position: absolute;
+    background: none;
+    top: 1%;
+}
+
+
+.postForm {
+    width: 88%;
+    max-width: 450px;
+    height: 11vh;
+    border-radius: 10px;
+    padding-top: 15px;
+    padding-left: 3%;
+    background-color: white;
+    border: none;
+    font-size: 19px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin: -340px 0% 0% -194px;
+    position: absolute;
+}
+.post{
+    background: #F39C12;
+    width: 100%;
+    max-width: 130px;
+    height: 37px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    border: none;
+    color: #FFFEFE;
+    position: absolute;
+    margin: -205px 0px 0px 62px;
+}
+.goOut{
+    position: absolute;
+    width: 13%;
+    max-width: 375px;
+    box-sizing: border-box;
+    height: 57px;
+    font-size: 19px;
+    border: none;
+    background: white url(/lib/img/salir.png) no-repeat 14px 2px;
+    border-radius: 15px;
+    margin: -848px 0px 4px 358px;
+    padding: 28px 0px 0px 0px;
+}
+
+/*error*/
+u {
+    background: none;
+}
+
+.errorSection {
+    background-image: none;
+    height: 0px
+}
+
+.imgBug {
+    width: 94%;
+    margin: 184px 0px 0px 10px;
+    height: 25vh;
+    background: none;
+}
+
+.text {
+    position: absolute;
+    left: 30px;
+    top: 446px;
+    font-size: 24px;
+    background: none;
+}
+
+.initButton {
+    position: absolute;
+    font-size: 22px;
+    color: blue;
+    background: none;
+    left: 31%;
+    top: 52%;
+}
+
+/*
+@media (min-width: 926px) and (max-width: 1920px) {
+
+    * {
+        background-image: url(./img/fondoDesktops.png);
+        background-repeat: no-repeat;
+        padding: 0%;
+        margin: 0%;
+        background-size: 55%;
+    }
+
+    .logo {
+        position: fixed;
+        width: 28%;
+        height: 35%;
+        left: 96px;
+        top: 23%;
+        background: none;
+    }
+
+    /*pantalla de acceso
+    .logIn {
+        position: absolute;
+        width: 380px;
+        height: 46px;
+        left: 61%;
+        top: 278px;
+        font-weight: bold;
+        border: none;
+        font-size: 22px;
+        color: #FFFFFF;
+        background: #F39C12;
+        border-radius: 10px;
+        justify-content: center;
+    }
+
+    .register {
+        position: absolute;
+        width: 380px;
+        height: 46px;
+        left: 61%;
+        top: 365px;
+        border: none;
+        font-weight: bold;
+        font-size: 22px;
+        color: #FFFFFF;
+        background: #528FD8;
+        border-radius: 10px;
+    }
+
+    .google {
+        box-sizing: border-box;
+        position: absolute;
+        width: 380px;
+        height: 48px;
+        left: 61%;
+        top: 572px;
+        font-size: 22px;
+        padding-left: 58px;
+        border: none;
+        background: #FFFFFF;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
+    }
+
+    .separator1 {
+        position: fixed;
+        width: 153px;
+        left: 61%;
+        top: 67%;
+        border: 1px solid #000000;
+    }
+
+    .separatorText {
+        position: fixed;
+        left: 74%;
+        top: 499px;
+        font-weight: 400;
+        font-size: 24px;
+        color: black;
+        background: none;
+    }
+
+    .separator2 {
+        position: fixed;
+        width: 153px;
+        left: 77%;
+        top: 67%;
+        border: 1px solid #000000;
+    }
+
+    /*pantalla de login
+
+    .initSection {
+        position: absolute;
+        left: 58%;
+        top: 19%;
+        font-size: 26px;
+        background: none;
+    }
+
+    .formInteraction {
+        margin: 14% 58%;
+        width: 32%;
+        height: 402px;
+        border-radius: 15px;
+        background: #D9D9D9;
+        background-image: none;
+        opacity: 0.9;
+    }
+
+    .labelEmail {
+        position: absolute;
+        height: 23px;
+        left: 61%;
+        top: 30%;
+        font-size: 20px;
+        background: none;
+    }
+
+    .inputEmail {
+        position: absolute;
+        width: 315px;
+        height: 45px;
+        left: 61%;
+        top: 35%;
+        background: white;
+        border: none;
+        border-radius: 12px;
+        font-size: 21px;
+        padding-left: 2%;
+    }
+
+    .labelPassword {
+        position: absolute;
+        height: 23px;
+        left: 61%;
+        top: 48%;
+        font-size: 20px;
+        line-height: 23px;
+        background: none;
+    }
+
+    .inputPassword {
+        position: absolute;
+        width: 315px;
+        height: 45px;
+        left: 61%;
+        top: 53%;
+        border: none;
+        background: white;
+        background: #FFFEFE;
+        border-radius: 12px;
+        font-size: 30px;
+        padding-left: 2%;
+    }
+
+    .getInt {
+        position: absolute;
+        width: 341px;
+        height: 45px;
+        left: 61%;
+        top: 66%;
+        font-weight: bold;
+        font-size: 22px;
+        border: none;
+        background: #528FD8;
+        border-radius: 12px;
+        color: #FFFEFE;
+    }
+
+    .bottomText {
+        position: absolute;
+        left: 60%;
+        top: 84%;
+        font-size: 22px;
+        background: none;
+        outline: none;
+        font-weight: bold;
+    } */
+
+    /* pantalla crear cuenta
+
+    /* .formCreateAccount {
+        margin: 14% 58%;
+        width: 32%;
+        height: 402px;
+        border-radius: 15px;
+        background: #D9D9D9;
+        background-image: none;
+        opacity: 0.9;
+    }
+
+    .createAccount {
+        position: absolute;
+        left: 58%;
+        top: 19%;
+        font-size: 26px;
+        background: none;
+    }
+
+    .textButtonCreateAccount {
+        position: absolute;
+        height: 23px;
+        left: 61%;
+        top: 30%;
+        font-size: 20px;
+        background: none;
+    }
+
+    .card1 {
+        position: absolute;
+        width: 315px;
+        height: 45px;
+        left: 61%;
+        top: 35%;
+        background: white;
+        border: none;
+        border-radius: 12px;
+        font-size: 21px;
+        padding-left: 2%;
+    }
+
+    .textPasswordCreateAccount {
+        position: absolute;
+        height: 23px;
+        left: 61%;
+        top: 48%;
+        font-size: 20px;
+        line-height: 23px;
+        background: none;
+    }
+
+    .card2 {
+        position: absolute;
+        width: 315px;
+        height: 45px;
+        left: 61%;
+        top: 53%;
+        border: none;
+        background: white;
+        background: #FFFEFE;
+        border-radius: 12px;
+        font-size: 30px;
+        padding-left: 2%;
+    }
+
+    .bottomKeep {
+        position: absolute;
+        width: 341px;
+        height: 45px;
+        left: 61%;
+        top: 66%;
+        font-weight: bold;
+        font-size: 22px;
+        border: none;
+        background: #F39C12;
+        border-radius: 12px;
+        color: #FFFEFE;
+    } */
+
+    /*pantalla de error
+    u {
+        background: none;
+    }
+
+    .imgBug {
+        width: 33%;
+        margin: 168px 117px;
+        background: none;
+    }
+
+    .text {
+        position: absolute;
+        left: 55%;
+        top: 40%;
+        font-size: 33px;
+        background: none;
+    }
+
+    .initButton {
+        position: absolute;
+        font-size: 24px;
+        color: blue;
+        background: none;
+        left: 81%;
+        top: 46%;
+    }
+}*/

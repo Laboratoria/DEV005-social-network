@@ -46,6 +46,7 @@ export const userRegister = (email, password, errorEmail, errorPassword) => {
     });
 };
 
+// Función cerrar que se exporta a home
 export const exit = () => {
   signOut(auth).then(() => {
 

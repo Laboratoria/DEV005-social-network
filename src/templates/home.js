@@ -13,6 +13,7 @@ import { exit } from '../lib/auth.js';
 let editStatus = false;
 let id = '';
 let postForm;
+
 // Función que permite editar un post
 export const editingPost = (event) => {
   getPost(event.target.dataset.id)
@@ -24,7 +25,7 @@ export const editingPost = (event) => {
     });
 };
 // Función que permite dar like a un post
-const likePost = (event) => {
+export const likePost = (event) => {
   const postId = event.target.dataset.id;
   const currentUserEmail = auth.currentUser.email;
   getPost(postId).then((doc) => {
@@ -39,11 +40,13 @@ const likePost = (event) => {
     }
   });
 };
+
+// Función que carga home
 export function home() {
   const section = document.createElement('section');
-  const htmlBienvenida = `
+  const htmlWelcome = `
   <main>
-    <header class="contenedorLogoHome">
+    <header class="containerLogoHome">
       <img class="imgLogoHome" src="img/logo.png" alt="logo">
       <h1>Bienvenida a Mascoteando</h1>
       <button name="logOut" id="logOut" class="logOut">Cerrar sesión</button>
@@ -56,11 +59,16 @@ export function home() {
       <div id ="containerPost" class ="containerPost"></div>
     </section>
   </main>`;
-  section.innerHTML = htmlBienvenida;
+
+  section.innerHTML = htmlWelcome;
+
+  // Función de cerrar sesión
   const btnLogOut = section.querySelector('#logOut');
   btnLogOut.addEventListener('click', () => {
     exit();
   });
+
+  // Creación de post
   postForm = section.querySelector('#post-form');
   const postContainer = section.querySelector('#containerPost');
   const readPost = (posts) => {
@@ -71,32 +79,32 @@ export function home() {
       const currentUser = auth.currentUser;
       if (ownerId === currentUser.uid) {
         html += `
-        <div class="containerMain">
+        <section class="containerMain">
           <p id="textPost" class="textPost">${publication.txtMascotiemos}</p>
-          <section class="containerButtons">
+          <div class="containerButtons">
             <button id="btnDelete"  class="btnDelete" data-id="${docs.id}">🗑️</button>
             <button id="btnEdit" class="btnEdit" data-id="${docs.id}">✍️</button>
             <button id="btnLike" class="btnLike" data-id="${docs.id}">🐾</button>
-            <p class="count">${publication.likes.length || ''}</p>
-          </section>
-        </div>
+            <span class="count">${publication.likes.length || ''}</span>
+          </div>
+        </section>
         `;
       } else {
         html += `
-        <div class="containerMain">
+        <section class="containerMain">
           <p id="textPost" class="textPost">${publication.txtMascotiemos}</p>
-          <section class="containerButtons">
+          <div class="containerButtons">
             <button id="btnLike" class="btnLike" data-id="${docs.id}">🐾</button>
-            <p class="count">${publication.likes.length || ''}</p>
-          </section>
-        </div>
+            <span class="count">${publication.likes.length || ''}</span>
+          </div>
+        </section>
         `;
       }
     });
     html += `
       <section class="modal">
         <div class="containerModal">
-          <p class="modalTitle">¿Desea eliminar el post?</p>
+          <span class="modalTitle">¿Desea eliminar el post?</span>
           <div class="containerBtnsModal">
             <button id="btnCancel" class="btnCancel"> Cancelar </button>
             <button id="btnConfirm" class="btnConfirm"> Confirmar </button>
@@ -104,6 +112,8 @@ export function home() {
         </div>
       </section>`;
     postContainer.innerHTML = html;
+
+    // Creación de modal de Cancelar y eliminar
     const modal = postContainer.querySelector('.modal');
     const modalDelete = () => {
       const btnsDelete = postContainer.querySelectorAll('.btnDelete');
@@ -124,18 +134,21 @@ export function home() {
       });
     };
     modalDelete(section);
-    // Botón para eliminar un post y llamar la función que elimina el post
+
     // Botón para editar post y llamar la función que edita el post
     const btnsEdit = postContainer.querySelectorAll('.btnEdit');
     btnsEdit.forEach((btn) => {
       btn.addEventListener('click', editingPost);
     });
+
     // Boton para dar like a post y llamar la función que permite dar like
     const btnsLike = postContainer.querySelectorAll('.btnLike');
     btnsLike.forEach((btn) => {
       btn.addEventListener('click', likePost);
     });
   };
+
+  // Función de actualizar en tiempo real (onSnapShot) que se llama desde index.js
   createSnapshot(readPost);
   postForm.addEventListener('submit', (e) => {
     e.preventDefault();

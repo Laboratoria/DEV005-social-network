@@ -16,29 +16,29 @@ describe('login', () => {
     expect(typeof login).toBe('function');
   });
 
-  test('hay un boton', () => {
+  test('hay un button', () => {
     const html = document.createElement('div');
     html.appendChild(login());
-    const boton = html.querySelector('#btnLogin');
-    expect(boton).not.toBe(null);
+    const button = html.querySelector('#btnLogin');
+    expect(button).not.toBe(null);
   });
 
-  test('hay un boton con click', () => {
+  test('hay un botón con clic', () => {
     const html = document.createElement('div');
     html.appendChild(login());
-    const boton = html.querySelector('#btnLogin');
-    boton.click();
-    expect(boton).not.toBe(null);
+    const button = html.querySelector('#btnLogin');
+    button.click();
+    expect(button).not.toBe(null);
   });
 
-  test('have a google button', () => {
+  test('Esto es un botón de Google', () => {
     const html = document.createElement('div');
     html.appendChild(login());
     const button = html.querySelector('#btnGoogle');
     expect(button).not.toBe(undefined);
   });
 
-  test('Verifica el elemento link', () => {
+  test('Verifica el elemento link de enlace', () => {
     const html = document.createElement('div');
     html.appendChild(login(mockNavigation));
     const element = html.querySelector('#linkRegister');
@@ -46,7 +46,7 @@ describe('login', () => {
     expect(element).toBeDefined();
   });
 
-  test('Verifica el click en el input email', () => {
+  test('Verifica el clic en el input email', () => {
     const html = document.createElement('div');
     html.appendChild(login(mockNavigation));
     const email = html.querySelector('#email');
@@ -54,7 +54,7 @@ describe('login', () => {
     expect(email).toBeDefined();
   });
 
-  test('Verifica el click en el input password', () => {
+  test('Verifica el clic en el input password', () => {
     const html = document.createElement('div');
     html.appendChild(login(mockNavigation));
     const password = html.querySelector('#password');
@@ -66,15 +66,15 @@ describe('login', () => {
 // Función de google
 
 describe('googleFirebase', () => {
-  test('this is a function', () => {
+  test('Esto es una función', () => {
     expect(typeof googleFirebase).toBe('function');
   });
 
-  test('is a function', () => {
+  test('Es una función', () => {
     expect(typeof loginGoogle).toBe('function');
   });
 
-  test('deberia llamar a mockNavigation', () => {
+  test('Debe llamar a mockNavigation', () => {
     const html = document.createElement('div');
     html.append(login(mockNavigation));
     const btnGoogle = html.querySelector('#btnGoogle');

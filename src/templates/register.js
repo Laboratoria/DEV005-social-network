@@ -1,6 +1,7 @@
 import { userRegister } from '../lib/auth.js';
 import { dinamicLabels } from '../lib/labels.js';
 
+// Función registro con correo y contraseña que usa función de auth.js de firebase
 const registerFirebase = (email, password, errorEmail, errorPassword) => {
   const registerPrevent = (e) => {
     e.preventDefault();
@@ -9,17 +10,18 @@ const registerFirebase = (email, password, errorEmail, errorPassword) => {
   return registerPrevent;
 };
 
+// Carga función de registro
 export function register(navigation) {
   const section = document.createElement('section');
   const htmlRegister = `
-  <div class='contenedor'>
-    <div class="contenedorLogo">
+  <div class='container'>
+    <div class="containerLogo">
       <img class="imgLogo" src="img/logo.png" alt="logo">
     </div>
     <main>
-    <div class="contenedorIngresoRegistro">
-      <span class="registroTitulo">Registro</span>
-      <form class="contenedorInput">
+    <div class="containerLoginRegister">
+      <span class="registerTitle">Registro</span>
+      <form class="containerInput">
         <label>
           <span>Correo electrónico</span>
           <input type="email" autocomplete="off" name="email" class="email" id="emailReg">
@@ -31,8 +33,8 @@ export function register(navigation) {
         </label>  
           <span id="errorPassword" class="errorPassword"></span>
       </form>   
-        <button class="btnCrearCuenta" id="btnCrearCuenta">Registrar</button>
-        <div id="mensaje-bienvenida" name="mensaje-bienvenida" class="mensaje-bienvenida"> </div>
+        <button class="btnCreateAccount" id="btnCreateAccount">Registrar</button>
+        <div id="welcomeMessage" name="welcomeMessage" class="welcomeMessage"> </div>
         <span class="textRegister">Si ya tienes cuenta  -> <a class="linkRegister" id="linkLogin">Inicia sesión</a></span>   
     </div>
     </main>
@@ -47,8 +49,8 @@ export function register(navigation) {
   const password = section.querySelector('#passwordReg');
   const errorEmail = section.querySelector('#errorEmail');
   const errorPassword = section.querySelector('#errorPassword');
-  const btnCrearCuenta = section.querySelector('#btnCrearCuenta');
-  const btnVolverInicio = section.querySelector('#linkLogin');
+  const btnCreateAccount = section.querySelector('#btnCreateAccount');
+  const btnBackLogin = section.querySelector('#linkLogin');
 
   // Limpiar mensajes de error
 
@@ -65,10 +67,10 @@ export function register(navigation) {
   });
 
   // Crear cuenta para usuarios no registrados
-  btnCrearCuenta.addEventListener('click', registerFirebase(email, password, errorEmail, errorPassword));
+  btnCreateAccount.addEventListener('click', registerFirebase(email, password, errorEmail, errorPassword));
 
   // Volver a inicio de sesión si ya estás registrado
-  btnVolverInicio.addEventListener('click', () => {
+  btnBackLogin.addEventListener('click', () => {
     navigation('/');
   });
 

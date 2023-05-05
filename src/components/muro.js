@@ -1,5 +1,5 @@
 import {
-  submitForm, deleteTask, onGetTasks, getTask,
+  submitForm, deleteTask, onGetTasks, getTask, dateSort,
 } from '../lib/posts';
 
 function muro(navigateTo) {
@@ -135,12 +135,14 @@ function muro(navigateTo) {
   taskList.id = 'task-list';
 
   document.body.append(form, taskList);
+  
 
   onGetTasks((querySnapshot) => {
     taskList.innerHTML = '';
     querySnapshot.forEach((doc) => {
       const task = doc.data();
       task.id = doc.id;
+      const taskDate = dateSort();
       const taskTitle = task.taskTitle;
       const taskDescription = task.taskDescription;
       const taskGender = task.taskGender;
@@ -148,7 +150,9 @@ function muro(navigateTo) {
       taskList.innerHTML += `<div class='container-post'>
                             <div class= 'title-post'>
                               <h2>${taskTitle}</h2>
+                              <span class='date-post'>${taskDate}</span>
                             </div>
+                            
                             <div class='gender-post'>
                               <span>Genero:</span>
                               <span>${taskGender}</span>

@@ -13,11 +13,13 @@ import { db } from './firebaseConfig.js';
 
 const saveTask = async (taskTitle, taskGender, taskAge, taskDescription) => {
   try {
+    dateSort();
     const docRef = await addDoc(collection(db, 'tasks'), {
       taskTitle,
       taskGender,
       taskAge,
       taskDescription,
+      date: Date.now(),
     });
     console.log('Document written with ID: ', docRef.id);
   } catch (e) {
@@ -98,3 +100,18 @@ export const submitForm = async (editStatus, id) => {
   await getTasks();
   taskTitle.focus();
 };
+
+export const dateSort = () => {
+  let today = new Date();
+  let day = today.getDate() + 1;
+  let month = today.getMonth() + 1;
+  let year = today.getFullYear();
+  if (day < 10){
+    day = `0${day}`;
+  }
+  if (month < 10){
+    month = `0${month}`;
+  }
+  today = `${month}-${day}-${year}`;
+  return today;
+}

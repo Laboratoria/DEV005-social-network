@@ -39,6 +39,10 @@ span {
     color: #000000;
 }
 
+/* .bannerOne { */
+    /* background-color: white; */
+/* } */
+
 input#mailUserLogin {
     border-style: none;
     border-bottom: 1px solid #E05D6F;

@@ -45,10 +45,10 @@ function home(navigateTo) {
     name.classList.add('userName');
     postContainer.appendChild(name);
     name.innerHTML = `${info.userEmail}`;
+
     const textarea = document.createElement('textarea');
     textarea.classList.add('showPost');
     textarea.value = info.text;
-    // textarea.setAttribute('data-id', doc.id);
     postContainer.setAttribute('data-id', doc.id);
     textarea.setAttribute('readonly', true);
     postContainer.appendChild(textarea);

@@ -1,6 +1,6 @@
 # Emprende - Social-network
 
-![Emprende](./lib/img/emprende.png)
+![Emprende](./src/lib/img/emprendeText.png)
 
 ## Índice
 
@@ -9,7 +9,8 @@
 * [3. Historia de usuarios](#3-historia-de-usuarios)
 * [4. Prototipo en baja fidelidad ](#4-prototipo-en-baja-fidelidad)
 * [5. Prototipo en alta fidelidad ](#5-prototipo-en-alta-fidelidad)
-* [6. Participantes del proyecto](#6-participantes-del-proyecto)
+* [6. Testeos de usabilidad ](#6-testeos-de-usabilidad)
+* [7. Participantes del proyecto](#7-participantes-del-proyecto)
 
 ## 1. Introducción
 
@@ -18,7 +19,7 @@ En la actualidad, el uso de las redes sociales se ha vuelto cada vez más común
 ## 2. Emprende
 
 "Emprende" es una red social diseñada específicamente para emprendedores y personas con pequeños negocios que buscan compartir información, establecer conexiones y encontrar proveedores en su área.
- A través de esta plataforma, los usuarios tienen la posibilidad de intercambiar ideas, opiniones y reacciones con otros miembros de la comunidad, lo que les permite expandir su red de contactos y obtener información valiosa sobre el mundo del emprendimiento. Con "Emprende", los usuarios pueden conectarse con personas que comparten sus mismos intereses y objetivos, y así avanzar en su camino hacia el éxito empresarial.
+A través de esta plataforma, los usuarios tienen la posibilidad de intercambiar ideas, opiniones y reacciones con otros miembros de la comunidad, lo que les permite expandir su red de contactos y obtener información valiosa sobre el mundo del emprendimiento. Con "Emprende", los usuarios pueden conectarse con personas que comparten sus mismos intereses y objetivos, y así avanzar en su camino hacia el éxito empresarial.
 
 ### Cosas relevantes que quieren ver en la interfaz
 
@@ -37,15 +38,25 @@ En la actualidad, el uso de las redes sociales se ha vuelto cada vez más común
 * HU-4: Yo como usuario quiero eliminar mi publicación para ocultar mis productos que ya no tengo.
 * HU-5: Yo como usuario quiero darle me gusta a las publicaciones para apoyar otros emprendimientos.
 
-## 4. Prototipo en baja fidelidad 
+## 4. Prototipo en baja fidelidad
 
-![Emprende](./lib/img/bajaFidelidad.png)
+![Emprende](./src/lib/img/bajaFidelidad.png)
 
-## 5. Prototipo en alta fidelidad 
+## 5. Prototipo en alta fidelidad
 
-![Emprende](./lib/img/altaFidelidad.png)
+![Emprende](./src/lib/img/altaFidelidad%20.png)
 
-## 6. Participantes del proyecto
+![Emprende](./src/lib/img/fondoHomeReadme.png)
+
+## 6. Testeos de usabilidad
+
+* Se mejoró la profundidad del botón de "Registrarse con Google" para que resalte mejor.
+* Se cambió el color del botón de Google de gris a blanco para que no desentone con nuestra paleta de colores de fondo.
+* Se corrigió el botón de "Salir" para hacerlo más accesible para el usuario. Se añadió el texto "Salir" al icono.
+* Se eliminó la función de "resize" en los textarea para una mejor visualización.
+* Se añadió una imagen de fondo en la pantalla de escritorio para una mejor visualización.
+
+## 7. Participantes del proyecto
 
 * [Yahaira Perez Becerra.](https://github.com/YahairaPerez1994)
 * [Belen Neira Sepulveda](https://github.com/Belenoese)

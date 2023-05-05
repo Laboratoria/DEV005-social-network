@@ -288,20 +288,6 @@
     margin-top: 41px;
 }
 
-.card3 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 76%;
-    max-width: 326px;
-    height: 45px;
-    border: none;
-    background: #FFFEFE;
-    border-radius: 12px;
-    font-size: 30px;
-    padding-left: 5%;
-}
-
 .bottomKeep {
     display: flex;
     background: #F39C12;
@@ -503,8 +489,8 @@ u {
 }
 
 .imgBug {
-    width: 94%;
-    margin: 184px 0px 0px 10px;
+    width: 96%;
+    margin: 80px 0px 0px 6px;
     height: 25vh;
     background: none;
 }
@@ -524,6 +510,7 @@ u {
     background: none;
     left: 31%;
     top: 52%;
+    border: none;
 }
 
 @media (min-width: 926px) and (max-width: 1920px) {
@@ -584,4 +571,20 @@ u {
         height: 20vh;
         width: 14%;
     }
+    .imgBug {
+        width: 30%;
+        margin: 125px 0px 0px 452px;
+        height: 26vh;
+    }
+    u {
+        background: none;
+        margin: 137px;
+    }
+.text {
+    position: absolute;
+    left: 446px;
+    top: 446px;
+    font-size: 24px;
+    background: none;
+}
 }

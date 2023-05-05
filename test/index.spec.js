@@ -1,12 +1,14 @@
 /**
  * @jest-environment jsdom
  */
-// import { navigateTo } from '../src/main.js';
 import { login } from '../src/Components/login.js';
 import { home } from '../src/Components/home.js';
 import * as postFn from '../src/lib/post.js';
 
 jest.mock('firebase/firestore');
+jest.mock('../src/lib/post.js', () => ({
+  signIn: jest.fn(),
+}));
 jest.mock('../src/lib/post.js', () => ({
   post: jest.fn(),
   ref: jest.fn(),
@@ -17,18 +19,6 @@ describe('login', () => {
   test('login: is a function ', () => {
     expect(typeof login).toBe('function');
   });
-  // it('si el usuario se logea con éxito se redirige a home', (done) => {
-  //   postFn.signIn.mockResolvedValueOnce({ user: { email: 'prueba@gmail.com' } });
-  //   const section = home(navigateTo);
-  //   section.querySelector('#email').value = 'prueba@gmail.com';
-  //   section.querySelector('#password').value = '123456';
-  //   section.querySelector('#signin-button').dispatchEvent(new Event('click'));
-  //   setTimeout(() => {
-  //     expect(navigateTo).toHaveBeenCalledWith('/home');
-  //     done();
-  //   }, 0);
-  // });
-
   it('Si el usuario no le da click a getIn, no debe cambiar de ruta', () => {
     login(navigateTo);
     expect(navigateTo).not.toHaveBeenCalledWith();
@@ -46,10 +36,10 @@ describe('home', () => {
     expect(typeof home).toBe('function');
   });
 
-  it('contiene un boton para dar like', () => {
+  it('contiene un boton de salir', () => {
     const DOM = document.createElement('div');
     DOM.append(home());
-    const haveAButton = DOM.querySelector('.like-btn');
+    const haveAButton = DOM.querySelector('.goOut-btn');
     expect(haveAButton).not.toBe(undefined);
   });
 

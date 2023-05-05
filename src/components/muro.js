@@ -21,11 +21,8 @@ const muro = (navigateTo) => {
   muroDiv.innerHTML = '';
   muroDiv.innerHTML += `
   <header>
-  <nav class='navbar'>
-  <div class='img_food' ></div>
-  <h2>Food Match</h2>
-  <div class='icon_exit' type='button'></div>
-  </nav>
+  <a class='logo'><i class='bx bx-leaf'></i><span>Food Match</span></a>
+  <button class='icon_exit'><i class='bx bx-exit' ></i></button>
   </header>
   <main>
   
@@ -68,8 +65,6 @@ const muro = (navigateTo) => {
     signOut(auth)
       .then(() => {
         navigateTo('/');
-      })
-      .catch(() => {
       });
   });
 
@@ -144,7 +139,8 @@ const muro = (navigateTo) => {
     // ({target: {dataset}})
     tasksContainer.innerHTML = html;
     const dateFormat = tasksContainer.querySelectorAll('.dateFormat');
-    dateFormat.textContent = dateTime;
+    dateFormat.innerText = dateTime;
+
     const btnDelete = tasksContainer.querySelectorAll('.btn-delete');
     btnDelete.forEach((btn) => {
       btn.addEventListener('click', (event) => {

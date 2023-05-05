@@ -67,6 +67,19 @@ describe('Testeando register.js', () => {
     const buttonSave = DOM.querySelector('.buttonSaveInformation');
     expect(buttonSave).not.toBe(undefined);
   });
+  it('al dar click al boton Guardar, nos lleva a la ruta "/muro"', (done) => {
+    jest.spyOn(firebaseAuth, 'createUserWithEmailAndPassword').mockResolvedValue({ user: 'test@testing.com' });
+    const DOM = document.createElement('div');
+    const navigateTo = jest.fn();
+    document.body.append(DOM);
+    DOM.append(register(navigateTo));
+    const buttonSave = DOM.querySelector('.buttonSaveInformation');
+    buttonSave.click();
+    setTimeout(() => {
+      expect(navigateTo).toHaveBeenCalledWith('/login');
+      done();
+    });
+  });
   // ? usando spyOn y mockeando la función registerConfig
   it('dar click a "Guardar" y guarde los datos', (done) => {
     // ? el espia esta observando que sucede
@@ -80,10 +93,9 @@ describe('Testeando register.js', () => {
     password.value = '123456';
     const buttonSave = DOM.querySelector('.buttonSaveInformation');
     buttonSave.click();
-    expect(registerConfig.registerUser).toHaveBeenCalledTimes(1);
     expect(registerConfig.registerUser).toHaveBeenLastCalledWith('test@testing.com', '123456');
     setTimeout(() => {
-      console.log('Ingresar al muro');
+      expect(registerConfig.registerUser).toHaveBeenCalledTimes(1);
       done();
     });
   });

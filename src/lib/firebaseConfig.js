@@ -35,7 +35,9 @@ export const auth = getAuth(app);
 // Inicializar la base de datos en tiempo real y obtener una referencia al servicio
 // Conexión a la base de datos
 const db = getFirestore(app);
-// Guardar Publicacion en firestore
+// Conexión a RealTime Database
+export const database = getDatabase(app);
+// Guardar publicación en firestore
 export const saveTask = (description) => {
   addDoc(collection(db, 'post'), {
     description,

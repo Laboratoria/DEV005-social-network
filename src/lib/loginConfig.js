@@ -4,6 +4,7 @@ import {
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   GithubAuthProvider,
+  TwitterAuthProvider,
   signInWithPopup,
 } from 'firebase/auth';
 import { auth } from './firebaseConfig.js';
@@ -32,7 +33,6 @@ export const loginWithGoogle = () => new Promise((resolve, reject) => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       console.log(credential);
       console.log('sign in with google');
-      // const token = credential.accessToken;
       // The signed-in user info.
       const user = result.user;
       resolve({ user });
@@ -41,27 +41,69 @@ export const loginWithGoogle = () => new Promise((resolve, reject) => {
     })
     .catch((error) => {
       const errorCode = error.code;
-      reject(errorCode);
+      const errorMessage = error.message;
+      reject(errorCode, errorMessage);
     });
 });
+
+// TODO: Función de logeo con Github
 export const loginWithGithub = () => {
-  const providerGithub = new GithubAuthProvider();
-  signInWithPopup(auth, providerGithub).then((credentials) => {
-    const userGithub = credentials.user;
-    console.log(userGithub);
-    console.log('sign in with Github');
-  });
+  const provider = new GithubAuthProvider();
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      const credential = GithubAuthProvider.credentialFromResult(result);
+      const githubUser = result.user;
+      console.log(githubUser);
+      console.log(credential);
+      console.log('sign in with Github');
+    })
+    .catch((error) => {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // The email of the user's account used.
+      const email = error.email;
+      // The AuthCredential type that was used.
+      const credentialError = GithubAuthProvider.credentialFromError(error);
+      // ...
+      console.log(errorCode);
+      console.log(errorMessage);
+      console.log(email);
+      console.log(credentialError);
+    });
 };
 
+// TODO: Función de logueo con Twitter
+export const loginWithTwitter = () => new Promise((resolve, reject) => {
+  const provider = new TwitterAuthProvider();
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      const credential = TwitterAuthProvider.credentialFromResult(result);
+      const user = result.user;
+      console.log(credential, user);
+      console.log('Sign in with twitter');
+      resolve({ user });
+    })
+    .catch((error) => {
+      console.log('error lors de lauthentification firebase : ', error);
+      console.log('codeError : ', error.code);
+      // error.email is undefined
+      console.log('emailError : ', error.email);
+      console.log('errorMessage : ', error.message);
+      const codeError = error.code;
+      console.log(codeError);
+      reject(error.code);
+    });
+});
+
+// TODO: Cerrar sesión
 /*
-const userChange = {};
-export const obtenerUsuarioActual = () => {
-  onAuthStateChanged(firebaseAuth, (user) => {
-    if (user) {
-      userChange.email = user.email;
-      userChange.uid = user.uid;
-      userChange.displayName = user.displayName;
-    }
+export const signOutSession = () => {
+  signOut(auth).then(() => {
+    alert('Cerrando sesión');
+  }).catch((error) => {
+    const errores = error.code;
+    alert(errores);
   });
 };
 */

@@ -65,14 +65,11 @@ const muro = (navigateTo) => {
   // botón salida
   const iconExit = muroDiv.querySelector('.icon_exit');
   iconExit.addEventListener('click', () => {
-    // const auth = getAuth();
     signOut(auth)
       .then(() => {
         navigateTo('/');
       })
-      .catch((error) => {
-        // An error happened.
-        console.log(error);
+      .catch(() => {
       });
   });
 

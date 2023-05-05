@@ -5,7 +5,6 @@ import * as firebaseAuth from 'firebase/auth';
 import login from '../src/components/login.js';
 import * as loginConfig from '../src/lib/loginConfig.js';
 // import home from '../src/components/home.js';
-// import home from '../src/components/muro.js';
 
 jest.mock('firebase/auth', () => ({
   __esModule: true, //    <----- this __esModule: true is important
@@ -69,20 +68,11 @@ describe('verificar que sean funciones', () => {
     expect(typeof GoogleAuthProvider).toBe('function');
   });
   it('signInWithPopup es una funcion', () => {
-    const signInWithPopup = jest.fn();
-    expect(typeof signInWithPopup).toBe('function');
+    const TwitterAuthProvider = jest.fn();
+    expect(typeof TwitterAuthProvider).toBe('function');
   });
   it('validar que loginWithGoogle es una funcion', () => {
     const loginWithGoogle = jest.fn();
     expect(typeof loginWithGoogle).toBe('function');
   });
-  // it('validar que el boton de entrar con google', () => {
-  //   const DOM = document.createElement('div');
-  //   document.body.append(DOM);
-  //   const navigateTo = jest.fn();
-  //   DOM.append(home(navigateTo));
-  //   const botonGoogle = DOM.querySelector('.buttongoogle');
-  //   botonGoogle.click();
-  //   expect(navigateTo).toHaveBeenCalledTimes(1);
-  // });
 });

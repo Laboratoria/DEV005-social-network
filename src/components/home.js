@@ -28,7 +28,6 @@ function home(navigateTo) {
     loginWithGoogle();
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        console.log(user);
         navigateTo('/muro');
       }
     });
@@ -40,12 +39,6 @@ function home(navigateTo) {
   buttontwitter.className = 'buttontwitter';
   // ! Logueo con twitter
   buttontwitter.addEventListener('click', () => {
-    loginWithTwitter();
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        navigateTo('/muro');
-      }
-    });
     loginWithTwitter();
     onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -65,8 +58,6 @@ function home(navigateTo) {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         navigateTo('/muro');
-      } else {
-        navigateTo('/');
       }
     });
   });

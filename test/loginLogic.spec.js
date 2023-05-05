@@ -4,10 +4,10 @@
 import { loginLogic } from "../src/lib/loginLogic.js";
 
 describe("loginLogic", () => {
-    test("debería ser una función", () => {
+    test("should be a function", () => {
         expect(typeof loginLogic).toBe("function");
     });
-    test("have inputs and bottons", () => {
-        const domManipulation = container.querySelector()
+    test("after click the user navigates to home", () => {
+        const domManipulation  = container.querySelector("loginBtn")
     });
 });

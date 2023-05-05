@@ -65,6 +65,8 @@ button#loginGmailBtn{
     padding: 8px 8px 8px 8px;
     display: flex;
     align-items: center;
+    justify-content: center;
+    margin: 16px 16px 16px 16px;
 }
 
 img.imgGoogle {
@@ -82,6 +84,9 @@ input#loginBtn {
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
     color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    padding: 16px 16px 16px 16px;
     
 }
 .bannerOne {

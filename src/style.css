@@ -38,11 +38,9 @@ span {
 }
 
  /* Estilo en Login */
+/* div.loginForm { */
 
- section.two {
-    font-family: 'roboto';
- }
-
+/* } */
 
 input#mailUserLogin {
     border-style: none;
@@ -94,6 +92,8 @@ input#loginBtn {
     justify-content: center;
     margin: 54px 16px 16px 16px;
 }
+
+
 
 a#registerBtn {
     color: #4EA8DE;

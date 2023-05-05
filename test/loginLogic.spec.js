@@ -7,7 +7,15 @@ describe("loginLogic", () => {
     test("should be a function", () => {
         expect(typeof loginLogic).toBe("function");
     });
-    test("after click the user navigates to home", () => {
-        const domManipulation  = container.querySelector("loginBtn")
+    test("after click the user navigates to /home", () => {
+        const domManipulation = document.createElement("section");
+        const findAndNavigate = jest.fn();
+        domManipulation.append((loginLogic(findAndNavigate)));
+        const loginBtn = domManipulation.querySelector("#loginBtn");
+        loginBtn.click();
+        expect(findAndNavigate).toBeCalledTimes("/home");
+    });
+    test("login button with promises", () => {
+
     });
 });

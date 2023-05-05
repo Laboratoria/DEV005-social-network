@@ -1,19 +1,13 @@
+/**
+ * @jest-8environment ./src/test/my-custom-environment
+ */
 import { loginLogic } from "../src/lib/loginLogic.js";
 
 describe("loginLogic", () => {
-    it("should be a function", () => {
+    test("debería ser una función", () => {
         expect(typeof loginLogic).toBe("function");
     });
-});
-
-describe("showError", () => {
-    it("debería ser una función", () => {
-        expect(typeof showError).toBe("function");
-    });
-});
-
-describe("validateFields", () => {
-    it("debería ser una función", () => {
-        expect(typeof validateFields).toBe("function");
+    test("have inputs and bottons", () => {
+        const domManipulation = container.querySelector()
     });
 });

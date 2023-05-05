@@ -26,30 +26,30 @@ const registerLogic = (container) => {
         if (!userNameRegister.value) {
             showError("Ingresa un nombre de usuario.", "messageErrorUserRegister");
             return { errors: true };
-        } else {
-            showError("", "messageErrorUserRegister");
         }
+        showError("", "messageErrorUserRegister");
+
         // Si no se ingresó ningún correo electrónico, se muestra un mensaje de error y se devuelve un objeto con la propiedad errors establecida en true.
         if (!userMailRegister.value) {
             showError("Ingresa una dirección de correo electrónico.", "messageErrorMailRegister");
             return { errors: true };
-        } else {
-            showError("", "messageErrorMailRegister");
         }
+        showError("", "messageErrorMailRegister");
+
         // Si el correo electrónico no cumple con el formato de la expresión regular, se muestra un mensaje de error y se devuelve un objeto con la propiedad errors establecida en true.
         if (!emailRegex.test(userMailRegister.value)) {
             showError("Ingresa una dirección de correo electrónico válida. Por ejemplo: example@gmail.com", "messageErrorMailRegister");
             return { errors: true };
-        } else {
-            showError("", "messageErrorMailRegister");
         }
+        showError("", "messageErrorMailRegister");
+
         // Si no se ingresó ningún contraseña, se muestra un mensaje de error y se devuelve un objeto con la propiedad errors establecida en true.
         if (!userPasswordRegister.value) {
             showError("Ingresa una contraseña.", "messageErrorPasswordRegister");
             return { errors: true };
-        } else {
-            showError("", "messageErrorPasswordRegister");
         }
+        showError("", "messageErrorPasswordRegister");
+
         // Si no hay errores en los campos, se eliminan los mensajes de error y se devuelve un objeto con la propiedad errors establecida en false.
         return { errors: false };
     };

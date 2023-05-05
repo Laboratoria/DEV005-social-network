@@ -55,7 +55,7 @@ button#loginGmailBtn{
     width: 281px;
     height: 62px;
     background-color: #FFFFFF;
-    border: #FFFFFF;
+    border: solid 0.1px #a8a8a8;
     border-radius: 4px;
     box-shadow: 2px 2px 1px 0.5px rgba(124, 124, 124, 0.2);
     font-family: 'Roboto', sans-serif;
@@ -66,13 +66,13 @@ button#loginGmailBtn{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 16px 16px 16px 16px;
+    margin: 16px 16px 48px 16px;
 }
 
 img.imgGoogle {
     height: 28px;
     width: 29px;
-    padding: 8px 24px 8px 8px;
+    padding: 8px 8px 8px 8px;
 }
 
 input#loginBtn {
@@ -83,10 +83,11 @@ input#loginBtn {
     background-color: #4EA8DE;
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
+    font-weight: 350;
     color: #FFFFFF;
     display: flex;
     justify-content: center;
-    padding: 16px 16px 16px 16px;
+    margin: 54px 16px 16px 16px;
     
 }
 .bannerOne {

@@ -72,7 +72,7 @@ const updateTask = async (id, updateTask) => {
 
 export const submitForm = async (editStatus, id) => {
   const taskTitle = document.querySelector('.task-input-title');
-  const taskGender = document.querySelector('.select-gender');
+  const taskGender = document.querySelector('input[name="radiobuttons"]:checked');
   const taskAge = document.querySelector('.task-age')
   const taskDescription = document.querySelector('.task-description');
 
@@ -91,8 +91,8 @@ export const submitForm = async (editStatus, id) => {
 
   // Limpiar los campos del formulario
   taskTitle.value = '';
-  taskGender.value = ''; 
-  taskAge.value = '';
+  taskGender.checked = false; 
+  taskAge.value = '0';
   taskDescription.value = '';
 
   await getTasks();

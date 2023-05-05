@@ -8,8 +8,8 @@ function registro(navigateTo) {
   const form1 = document.createElement('div');
   form1.classList.add('register');
 
-  const title = document.createElement('h2');
-  title.classList.add('petregister');
+  const title = document.createElement('h1');
+  title.classList.add('i-r-title');
 
   const img = document.createElement('img');
   img.id = 'imagen';
@@ -47,6 +47,7 @@ function registro(navigateTo) {
 
   /* ----------- Botón regreso ---------------------*/
   const buttonReturn = document.createElement('button');
+  buttonReturn.className = 'return-b';
   buttonReturn.textContent = 'Regresar';
   buttonReturn.addEventListener('click', () => {
     navigateTo('/');

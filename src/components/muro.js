@@ -5,7 +5,8 @@ import {
 function muro(navigateTo) {
   const section = document.createElement('section');
   const title = document.createElement('h1');
-  title.textContent = 'Patitas';
+  title.textContent = '🐾 Patitas.com';
+  title.className= 'title-wall';
   const buttonReturn = document.createElement('button');
   buttonReturn.textContent = 'inicio';
   buttonReturn.addEventListener('click', () => {
@@ -25,57 +26,62 @@ function muro(navigateTo) {
 
   const divFormName = document.createElement('div');
   divFormName.className = 'div-form-name';
-  const titleLabel = document.createElement('label');
-  titleLabel.className = 'title-label-pets'
-  titleLabel.textContent = 'Título';
+
   const titleInput = document.createElement('input');
+  titleInput.placeholder = 'Ingrese un título';
   titleInput.classList.add('task-input-title');
   titleInput.type = 'text';
   titleInput.name = 'title';
-  divFormName.append(titleLabel, titleInput);
+  titleInput.setAttribute("autocomplete", "off");
+  divFormName.append(titleInput);
 
   const divFormGender = document.createElement('div');
-  divFormGender.className = 'div-form-gender'
-  const genderLabel = document.createElement('label');
-  genderLabel.textContent = 'Genero:';
-  const genderSelect = document.createElement('select');
-  const defaultOption = document.createElement('option');
-  defaultOption.value = "";
-  defaultOption.text = "selecciona una opción";
-  defaultOption.disabled = true;
-  defaultOption.selected = true;
-  defaultOption.hidden = true;
-  genderSelect.appendChild(defaultOption);
-  const option1 = document.createElement('option');
-  option1.text = 'Hembra';
-  option1.value = 'Hembra';
-  option1.id = 'female-id'
-  genderSelect.appendChild(option1); 
-  const option2 = document.createElement('option');
-  option2.text = 'Macho';
-  option2.value = 'Macho';
-  option2.id = 'male-id'
-  genderSelect.appendChild(option2);
-  genderSelect.className = 'select-gender';
-  divFormGender.append(genderLabel, genderSelect);
+  divFormGender.className = 'div-form-gender';
+
+  const genderFemale = document.createElement('input');
+  genderFemale.type = 'radio';
+  genderFemale.id = 'female-id';
+  genderFemale.value = 'Hembra';
+  genderFemale.name = 'radiobuttons';
+  const labelFemale = document.createElement('label');
+  labelFemale.setAttribute = ('for', 'female-id');
+  labelFemale.textContent = 'Hembra';
+
+  const genderMale = document.createElement('input');
+  genderMale.type = 'radio';
+  genderMale.id = 'male-id';
+  genderMale.value = 'Macho';
+  genderMale.name = 'radiobuttons';
+  const labelMale = document.createElement('label');
+  labelMale.setAttribute = ('for', 'male-id');
+  labelMale.textContent = 'Macho';
+
+  divFormGender.append(genderFemale, labelFemale, genderMale, labelMale);
 
   const divFormAge = document.createElement('div');
   divFormAge.className = 'div-form-age';
   const ageLabel = document.createElement('label');
-  ageLabel.textContent = 'Edad:';
+  ageLabel.textContent = 'Edad (años):';
+  ageLabel.className = 'age-label-pets';
   const ageInput = document.createElement('input');
+  ageInput.value = '0';
+  ageInput.type= 'number';
   ageInput.classList.add('task-age');
-  ageInput.name = 'age'
+  ageInput.name = 'age';
+  ageInput.setAttribute("autocomplete", "off");
   divFormAge.append(ageLabel, ageInput);
 
-  const divFormDescription = document.createElement('div');
-  divFormDescription.className = 'div-form-description';
-  const descriptionLabel = document.createElement('label');
+/*   const divFormDescription = document.createElement('div');
+  divFormDescription.className = 'div-form-description'; */
+  /* const descriptionLabel = document.createElement('label');
   descriptionLabel.textContent = 'Descripción:';
-  const descriptionInput = document.createElement('textarea');
+  descriptionLabel.className = 'description-label-pets'; */
+  const descriptionInput = document.createElement('input');
+  descriptionInput.placeholder = 'Ingrese la descripción';
   descriptionInput.classList.add('task-description');
   descriptionInput.name = 'description';
-  divFormDescription.append(descriptionLabel, descriptionInput);
+  descriptionInput.setAttribute("autocomplete", "off");
+/*   divFormDescription.append( descriptionLabel, descriptionInput); */
 
   // modal post
   const modal = document.createElement('div');
@@ -107,6 +113,7 @@ function muro(navigateTo) {
   const submitBtn = document.createElement('button');
   submitBtn.id = 'btnSend';
   submitBtn.type = 'submit';
+  submitBtn.className = 'send-b'
   submitBtn.textContent = 'Enviar';
   submitBtn.addEventListener('click', (e) => {
     e.preventDefault();
@@ -121,7 +128,7 @@ function muro(navigateTo) {
   });
 
   // Agrega los elementos al formulario
-  form.append(divFormName, divFormGender, divFormAge, divFormDescription, submitBtn);
+  form.append(divFormName, divFormGender, divFormAge, descriptionInput, submitBtn);
 
   // Crea la sección de tareas
   const taskList = document.createElement('div');
@@ -143,11 +150,11 @@ function muro(navigateTo) {
                               <h2>${taskTitle}</h2>
                             </div>
                             <div class='gender-post'>
-                              <span>Genero: </span>
+                              <span>Genero:</span>
                               <span>${taskGender}</span>
                             </div>
                             <div class='age-post'>
-                              <span>Edad: </span>
+                              <span>Edad:</span>
                               <span>${taskAge}</span>
                             </div>
                             <div class='description-post'
@@ -165,7 +172,7 @@ function muro(navigateTo) {
       const btnsDelete = document.querySelectorAll('.delete-button');
       btnsDelete.forEach((btnDelete) => {
         btnDelete.addEventListener('click', async (e) => {
-          const taskId = e.target.dataset.id;
+          const taskId = btnDelete.dataset.id;
           await deleteTask(taskId);
         });
       });
@@ -173,12 +180,14 @@ function muro(navigateTo) {
       const btnsEdit = document.querySelectorAll('.edit-button');
       btnsEdit.forEach((btnEdit) => {
         btnEdit.addEventListener('click', async (e) => {
-          const taskId = e.target.dataset.id;
+          const taskId = btnEdit.dataset.id;
           const newDoc = await getTask(taskId);
           const newTask = newDoc;
 
           submitBtn.setAttribute('data-editpostid', taskId);
           form.title.value = newTask.taskTitle;
+          form.radiobuttons.value = newTask.taskGender;
+          form.age.value = newTask.taskAge;
           form.description.value = newTask.taskDescription;
           const btnTaskForm = document.querySelector('#btnSend');
           btnTaskForm.innerText = 'Actualizar';

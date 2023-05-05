@@ -21,11 +21,8 @@ const muro = (navigateTo) => {
   muroDiv.innerHTML = '';
   muroDiv.innerHTML += `
   <header>
-  <nav class='navbar'>
-  <div class='img_food' ></div>
-  <h2>Food Match</h2>
-  <div class='icon_exit'></div>
-  </nav>
+  <a class='logo'><i class='bx bx-leaf'></i><span>Food Match</span></a>
+  <button class='icon_exit'><i class='bx bx-exit' ></i></button>
   </header>
 
   <main>
@@ -70,10 +67,6 @@ const muro = (navigateTo) => {
     signOut(auth)
       .then(() => {
         navigateTo('/');
-      })
-      .catch((error) => {
-        // An error happened.
-        console.log(error);
       });
   });
 
@@ -118,6 +111,7 @@ const muro = (navigateTo) => {
 
         <div class='dropdown'>
         <button class='btn-menu'><i class='bx bx-dots-horizontal-rounded'></i></button>
+        <p>${task.username}</p>
 
         <div class='container-options'>
         <button class='btn-delete' data-id='${doc.id}'>Eliminar</button>
@@ -147,7 +141,8 @@ const muro = (navigateTo) => {
     // ({target: {dataset}})
     tasksContainer.innerHTML = html;
     const dateFormat = tasksContainer.querySelectorAll('.dateFormat');
-    dateFormat.textContent = dateTime;
+    dateFormat.innerText = dateTime;
+
     const btnDelete = tasksContainer.querySelectorAll('.btn-delete');
     btnDelete.forEach((btn) => {
       btn.addEventListener('click', (event) => {

@@ -42,13 +42,13 @@ export const auth = getAuth(app);
 const db = getFirestore(app);
 // Conexión a RealTime Database
 export const database = getDatabase(app);
-console.log(database);
 // Guardar publicación en firestore
 export const saveTask = (description) => {
   addDoc(collection(db, 'post'), {
     description,
     date: Date.now(),
     likes: [],
+    username: auth.currentUser.email,
   });
   // nombre de la colección 'post',
   // donde se van a guardar los datos

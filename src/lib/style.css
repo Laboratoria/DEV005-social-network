@@ -532,7 +532,15 @@ u {
         background-size: cover;
         height: 100vh;
     }
-
+    .createAccount, .initSection {
+        margin: -69px 0px 9px -273px;
+    }
+    .formInteraction, .formCreateAccount {
+        height: 46vh;
+    }
+    .textButtonCreateAccount, .labelEmail {
+        margin: 11px 170px -28px 0px;
+    }
     .sectionLogin {
         background-image: url(./img/fondoDesktop.png);
         background-size: cover;

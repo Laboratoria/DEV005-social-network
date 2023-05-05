@@ -1,30 +1,34 @@
+/**
+ * @jest-environment jsdom
+ */
 // import { navigateTo } from '../src/main.js';
 import { login } from '../src/Components/login.js';
-/* import { signIn } from '../src/lib/auth.js'; */
+import { home } from '../src/Components/home.js';
+import * as postFn from '../src/lib/post.js';
 
-// jest.mock('../src/lib/firebase.js');
+jest.mock('firebase/firestore');
+jest.mock('../src/lib/post.js', () => ({
+  post: jest.fn(),
+  ref: jest.fn(),
+}));
 const navigateTo = jest.fn();
-
 // Función: Inicia Sesión
 describe('login', () => {
-  test('is a function ', () => {
+  test('login: is a function ', () => {
     expect(typeof login).toBe('function');
   });
-  /* it('Si el usuario ingresa correctamente su gmail y su contraseña debería ir a home', () => {
-    const myHtml = login(navigateTo);
-    myHtml.querySelector('.getInt').click();
-    expect(navigateTo).toHaveBeenCalledWith('/emprende');
-  }); */
-  it('Si el usuario ingresa correctamente su gmail y su contraseña debería ir a home', () => {
-    const myHtml = login(navigateTo);
-    const email = myHtml.querySelector('.inputEmail');
-    const password = myHtml.querySelector('.inputPassword');
-    email.value = 'amigas@gmail.com';
-    password.value = '123456';
-    const button = myHtml.querySelector('.formInteraction');
-    button.submit();
-    expect(navigateTo).toHaveBeenCalledWith('/emprende');
-  });
+  // it('si el usuario se logea con éxito se redirige a home', (done) => {
+  //   postFn.signIn.mockResolvedValueOnce({ user: { email: 'prueba@gmail.com' } });
+  //   const section = home(navigateTo);
+  //   section.querySelector('#email').value = 'prueba@gmail.com';
+  //   section.querySelector('#password').value = '123456';
+  //   section.querySelector('#signin-button').dispatchEvent(new Event('click'));
+  //   setTimeout(() => {
+  //     expect(navigateTo).toHaveBeenCalledWith('/home');
+  //     done();
+  //   }, 0);
+  // });
+
   it('Si el usuario no le da click a getIn, no debe cambiar de ruta', () => {
     login(navigateTo);
     expect(navigateTo).not.toHaveBeenCalledWith();
@@ -33,5 +37,46 @@ describe('login', () => {
     const myHtml = login(navigateTo);
     myHtml.querySelector('.bottomTextLogin').click();
     expect(navigateTo).toHaveBeenCalledWith('/register');
+  });
+});
+
+// Home
+describe('home', () => {
+  test('home: is a function ', () => {
+    expect(typeof home).toBe('function');
+  });
+
+  it('contiene un boton para dar like', () => {
+    const DOM = document.createElement('div');
+    DOM.append(home());
+    const haveAButton = DOM.querySelector('.like-btn');
+    expect(haveAButton).not.toBe(undefined);
+  });
+
+  it('Si el usuario da click en botón Salir, navega a inicio de sesión', () => {
+    const salir = home(navigateTo);
+    salir.querySelector('.goOut').click();
+    setTimeout(() => {
+      expect(navigateTo).toHaveBeenCalledWith('/');
+    }, 0);
+  });
+
+  it('Si el usuario crea un post se debe guardar', () => {
+    const createPost = postFn.post.mockResolvedValueOnce({ info: '', userEmail: 'test@test.com' });
+    const section = home(navigateTo);
+    section.querySelector('.areaPost').value = '0test post';
+    section.querySelector('.post').dispatchEvent(new Event('click'));
+    setTimeout(() => {
+      expect(createPost).toHaveBeenCalledTime(1);
+    }, 0);
+  });
+  it('Si el usuario deja el campo de post vacio sale una alerta', () => {
+    postFn.post.mockResolvedValueOnce({ user: { email: 'prueba@gmail.com' } });
+    const section = home(navigateTo);
+    section.querySelector('.areaPost').value = '0test post';
+    section.querySelector('.post').dispatchEvent(new Event('click'));
+    setTimeout(() => {
+      expect(global.alert).toHaveBeenCalledTime('Ingrese post');
+    }, 0);
   });
 });

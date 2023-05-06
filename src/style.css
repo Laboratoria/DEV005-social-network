@@ -37,21 +37,25 @@ span {
     color: #000000;
 }
 
- /* Estilo en Login */
-/* div.loginForm { */
+/* Estilo para Login */
 
-/* } */
+div.loginForm { 
+    font-family: 'Roboto', sans-serif;
+    display: grid;
+} 
 
 input#mailUserLogin {
     border-style: none;
     border-bottom: 1px solid #E05D6F;
     color: #333333;
+    font-family: 'Roboto', sans-serif;
 }
 
 input#passwordUserLogin {
     border-style: none;
     border-bottom: 1px solid #E05D6F;
     color: #333333; 
+    font-family: 'Roboto', sans-serif;
 }
 
 button#loginGmailBtn{
@@ -64,7 +68,7 @@ button#loginGmailBtn{
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
     font-weight: 500;
-    color: #828485;
+    color: #6D6D6D;
     padding: 8px 8px 8px 8px;
     display: flex;
     align-items: center;
@@ -93,14 +97,22 @@ input#loginBtn {
     margin: 54px 16px 16px 16px;
 }
 
-
+div.volverRegistro {
+    font-family: 'Roboto', sans-serif;
+    display:grid;
+}
 
 a#registerBtn {
     color: #4EA8DE;
+    font-family: 'Roboto', sans-serif;
 }
 
 div.recoverPassword {
     color: #4EA8DE;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 16px;
 }
 
 .bannerOne {

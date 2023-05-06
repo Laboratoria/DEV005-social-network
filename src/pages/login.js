@@ -13,12 +13,12 @@ const login = (findRouteAndNavigate) => {
    <img src="./img/logo.svg" alt="logo SportX" class="logoTwo"/>
   </div>
   <div class="loginForm">
-   <div>
+   <div class="mail">
      <label>Correo: </label>
      <input id="mailUserLogin" type="text" placeholder="example@gmail.com" />
      <p id='messageErrorMailLogin' class='messageErrorMailLogin'></p>
      </div>
-   <div>
+   <div class="password">
      <label>Contraseña: </label>
      <input id="passwordUserLogin" type="password" placeholder="******" />
      <p id='messageErrorPasswordLogin' class='messageErrorPasswordLogin'></p>

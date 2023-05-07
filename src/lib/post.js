@@ -4,16 +4,20 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { auth, db, app, deletePost } from './firebase.js';
 import { async } from 'regenerator-runtime';
 
+
 // Add a new document with a generated id.
 export const addPostToFirestore = async (text, user) => {
+  const userIn = auth.currentUser;
   console.log('se añade');
   try{
     const docRef = await addDoc(collection(db, 'posts'), {
       text,
-      user: {
-        uid: user.uid, 
-        email: user.email,
-      }
+      user: userIn.email,
+      likes: []
+      // {
+      //   uid: user.uid, 
+      //   email: user.email,
+      // }
     });
     console.log('Document written with ID: ', docRef.id);
   }
@@ -24,13 +28,11 @@ export const addPostToFirestore = async (text, user) => {
 //Función Firestore para borrar el post
 
 export const deleteFirestorePost = async () => {
-  const idRef = doc(collection(db, 'posts'));
   console.log('funciona deleteFirestorePost');
   try {
-    const deletePost = await deleteDoc(doc(db, 'posts', idRef.id));
+    const deletePost = await deleteDoc(doc(db, 'posts', 'BKk0ufipfllQC3NtpKLY'));
     console.log('se borró el post ' + deletePost);
   } catch{err => {
     console.log('Error', err);
   }}
 }
-

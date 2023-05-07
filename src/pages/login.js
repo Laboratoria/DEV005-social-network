@@ -14,12 +14,12 @@ const login = (findRouteAndNavigate) => {
   </div>
   <div class="loginForm">
    <div class="mail">
-     <label>Correo: </label>
+     <p id="mailText">Correo electrónico</p>
      <input id="mailUserLogin" type="text" placeholder="example@gmail.com" />
      <p id='messageErrorMailLogin' class='messageErrorMailLogin'></p>
      </div>
    <div class="password">
-     <label>Contraseña: </label>
+     <p id="passwordText">Contraseña</p>
      <input id="passwordUserLogin" type="password" placeholder="******" />
      <p id='messageErrorPasswordLogin' class='messageErrorPasswordLogin'></p>
      </div>

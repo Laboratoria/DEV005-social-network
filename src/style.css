@@ -35,36 +35,56 @@ body {
 span {
     margin: 0 20px;
     color: #000000;
+    font-size: 16px;
 }
 
-/* Estilo para Login */
+/* ESTILO PARA LOGIN */
 
 div.loginForm { 
     font-family: 'Roboto', sans-serif;
-    display: grid;
+    display: flex;
+    flex-direction: column;
 } 
+
+p#mailText {
+    font-family: 'Roboto', sans-serif;
+    color: #333333; 
+    font-size: 14px;
+    display: flex;
+}
 
 input#mailUserLogin {
     border-style: none;
+    width: 307px;
     border-bottom: 1px solid #E05D6F;
     color: #333333;
     font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+p#passwordText {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #333333; 
+    display: flex;
 }
 
 input#passwordUserLogin {
     border-style: none;
+    width: 307px;
     border-bottom: 1px solid #E05D6F;
     color: #333333; 
     font-family: 'Roboto', sans-serif;
+    font-size: 16px;
 }
 
 button#loginGmailBtn{
     width: 281px;
     height: 62px;
-    background-color: #FFFFFF;
-    border: solid 0.1px #a8a8a8;
+    background-color: #e8e8e8;
+    border: solid 0px;
     border-radius: 4px;
-    box-shadow: 2px 2px 1px 0.5px rgba(124, 124, 124, 0.2);
+    box-shadow: 2px 2px 5px 0.5px rgba(98, 98, 98, 0.2);
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
     font-weight: 500;
@@ -99,17 +119,22 @@ input#loginBtn {
 
 div.volverRegistro {
     font-family: 'Roboto', sans-serif;
-    display:grid;
+    font-size: 16px;
+    display:flex;
+    justify-content: center;
 }
 
 a#registerBtn {
     color: #4EA8DE;
     font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    margin-right: 18px;
 }
 
 div.recoverPassword {
     color: #4EA8DE;
     font-family: 'Roboto', sans-serif;
+    font-size: 16px;
     display: flex;
     justify-content: space-around;
     margin-top: 16px;

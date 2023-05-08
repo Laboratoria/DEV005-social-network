@@ -34,8 +34,8 @@ const register = (navigateTo) => {
     const password = document.getElementsByClassName('passwordregister').value; */
     const email = formularioRegister.querySelector('#emailregister').value;
     const password = formularioRegister.querySelector('#passwordregister').value;
-    const emailRegister = formularioRegister.querySelector('.emailRegister');
-    const passwordregister = formularioRegister.querySelector('.passwordregister');
+    // const emailRegister = formularioRegister.querySelector('.emailRegister');
+    // const passwordregister = formularioRegister.querySelector('.passwordregister');
     const correoMensaje = formularioRegister.querySelector('.correo-mensaje');
     const contraMensaje = formularioRegister.querySelector('.contra-mensaje');
     registerUser(email, password)
@@ -45,21 +45,17 @@ const register = (navigateTo) => {
       })
       .catch((error) => {
         //! CAMBIAR LOS IF A LA FUNCION
-        if (emailRegister.value === '' || passwordregister.value === '') {
+        if (email === '' || password === '') {
           correoMensaje.textContent = 'Ingresar correo';
           correoMensaje.style.color = 'red';
           contraMensaje.textContent = 'Ingresar contraseña';
           contraMensaje.style.color = 'red';
-          emailRegister.focus();
-        }
-        if (error.code === 'auth/email-already-in-user') {
-          console.error('correo en uso');
+        } else if (error.code === 'auth/email-already-in-user') {
+          correoMensaje.textContent = 'Correo en uso';
         } else if (error.code === 'auth/invalid-email') {
-          console.error('correo inválido');
+          correoMensaje.textContent = 'Correo inválido';
         } else if (error.code === 'auth/weak-password') {
-          console.error('contraseña muy corta');
-        } else {
-          console.error('otro problema', error.code, error.message);
+          contraMensaje.textContent = 'Contraseña muy corta';
         }
         return error;
       });

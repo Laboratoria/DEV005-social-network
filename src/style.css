@@ -7,6 +7,7 @@
     ---ColorTerciario: black;
     ---ColorBotones: #5BA0BD;
     /*fondo: #f3fbff
+    letra patitas: #635994
     fondo form post: #b2acd2;*/
 }
 
@@ -33,10 +34,12 @@ section {
 /*-------------------Página principal y registro--------------------------------*/
 .i-r-title {
     text-align: center;
-    color: var(---ColorPrinicipal);
+    color: #635994;
     font-weight: 700;
     font-size: 32px;
     margin-bottom: 10px;
+    font-family: 'Darumadrop One', cursive;
+    cursor:default;
 }
 
 .logo,
@@ -64,14 +67,13 @@ label {
 }
 
 /* Estilos para el botón cuando el cursor está sobre él */
-button:hover,
 #loginGoogle-b:hover,
 #login-b:hover,
 #loginTwitter:hover,
 #loginMicrosoft:hover {
     background-color: rgb(180, 180, 180);
+    
 }
-
 
 .form1, .register {
     display: flex;
@@ -79,9 +81,8 @@ button:hover,
     width: 320px;
     height: 400px;
     background-color: var(---colorFondo);
-    border: var(---ColorTerciario);
-    border-style: solid;
-    border-width: 0.8px;
+    box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.66);
+    border-style: hidden;
     border-radius: 8px;
 }
 
@@ -92,29 +93,89 @@ button:hover,
 .pass-input,
 #mail, #password,
 #regist, .return-b {
-    border-style: solid;
-    border-color: var(---ColorTerciario);
-    border-radius: 7px;
-    border-width: 0.5px;
+    border-style: hidden;
+    border-radius: 8px;
     height: 35px;
     font-size: 13px;
     margin-left: auto;
     margin-right: auto;
 }
 
+/* Estilos para el botón cuando el cursor está sobre él */
+#loginGoogle-b:hover,
+#login-b:hover,
+#loginTwitter:hover,
+#loginMicrosoft:hover {
+    background-color: rgb(180, 180, 180);
+    
+}
+
+#loginGoogle-b,
+#login-b{
+    width: 80%;
+    margin-left: 35px;
+}
+
+
+.div-password-home{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .mail-input,
-.pass-input,
 #mail, #password{
     min-width: 244px;
+    border-style: solid;
+    border-width: 0.8px;
+    padding-left: 10px;
+    user-select: auto;
+}
+
+.mail-input, #mail{
+    margin-left: 35px;
+}
+
+.pass-input{
+    position: absolute;
+    min-width: 244px;
+    margin-right: 1%;
+    padding-left: 10px;
+    border-style: solid;
+    border-width: 0.8px;
+    border-radius: 8px;
+    border-color:  #E3E3E3;
+    user-select: auto;
+}
+
+.div-pass-eye{
+    display: flex;
+    margin-left: 35px;
+    min-width: 244px;
+    margin-bottom: 10px;
+}
+
+
+.showPasswordBtn-b{
+    width: 30px;
+    position: relative;
+    margin: 10px 40px auto auto;
+    font-size: 13px;
+    background: none;
+    border: hidden;
+    cursor: pointer;
 }
 
 #loginGoogle-b,
 #login-b, #regist, .return-b {
-    background-color: var(---ColorBotones);
+    background-color: #b2acd2;
     margin-bottom: 0px;
     margin-top: 15px;
     min-width: 250px;
     padding: 10px;
+    cursor: pointer;
 }
 
 
@@ -126,8 +187,7 @@ button:hover,
     margin-top: 18px;
 }
 
-.register-b,
-.forgetPass-b {
+.register-b {
     background-color: var(---colorFondo);
     border-style: none;
     color: var(---ColorSecundario);
@@ -136,10 +196,8 @@ button:hover,
     padding: 0;
     width: 50%;
     margin-top: -12px;
-}
-
-.register-b {
     text-align: left;
+    cursor: pointer;
 }
 
 .forgetPass-b {
@@ -147,13 +205,37 @@ button:hover,
 }
 
 /*-------------------Página Muro--------------------------------*/
+#task-list{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.div-title-return{
+    display: flex;
+    flex-direction: row;
+    margin: 20px auto 5px auto;
+    width: 100%;
+}
+
 .title-wall{
-    color: #635994;
+    display: flex;
+    width: 85%;
+    color: rgb(99, 89, 148);
     font-family: 'Darumadrop One', cursive;
     font-weight: 700;
-    font-size: 50px;
-    margin-bottom: 10px;
-    margin-left: 6%;
+    font-size: 40px;
+    margin: 0 auto 0 0;
+}
+
+.button-return-home{
+    background: none;
+    border: hidden;
+    width: 15%;
+    text-align: right;
+    cursor: pointer;
+    font-size: 20px;
+    margin: auto auto 10px 6px;
 }
 
 .container {
@@ -161,7 +243,7 @@ button:hover,
     flex-direction: column;
     position: absolute;
     align-items: center;
-    max-width: 960px;
+    max-width: 350px;
     margin: 0 auto;
     padding: 0 15px;
 }
@@ -180,33 +262,41 @@ button:hover,
     max-width: 96.5%;
 }
 
+#male-id, #female-id{
+    width: 15px;
+    height: 15px;
+    margin-right: 3px;
+}
+
 .divFormName, .divFormGender,
-.divFormAge{
+.divFormAge {
     display: flex;
     position: absolute;
     flex-direction: row;
     width: 100%;
 }
 
-.title-label-pets, .gender-label-pets,
-.age-label-pets, .description-label-pets{
+.age-label-pets, .female-id-label,
+.male-id-label {
     font-size: medium;
     font-weight: 400;
-    margin-right: 6px;
-    width: 30vw;
+    margin-right: 10px;
+    width: 100%;
 }
 
-.task-input-title, .task-age,
-.task-description .selectGender{
+.task-input-title, .task-age {
     border-style: hidden;
     border-radius: 7px;
-    height: 35px;
     font-size: 13px;
-    margin-left: auto;
-    margin-right: auto;
-    height: 18px;
-    margin-left: 12px;
-    max-width: 300px;
+    height: 20px;
+}
+
+.task-input-title{
+    display: flex;
+    height: 30px;
+    width: 100%;
+    font-family: 'Quicksand', sans-serif;
+    font-size: medium;
 }
 
 .task-age{
@@ -214,13 +304,17 @@ button:hover,
 }
 
 .task-description{
-    display: flex;
-    margin: 20px 1% 10px 1%;
-    width: auto;
-    height: auto;
-    min-height: 100px;
     border-style: hidden;
+    display: flex;
+    width: 95.2%;
+    min-height: 100px;
     border-radius: 7px;
+    margin-left: 8px;
+    resize: none;
+    overflow: hidden;
+    font-family: 'Quicksand', sans-serif;
+    font-size: medium;
+    text-align: justify;
 }
 
 
@@ -232,17 +326,19 @@ button:hover,
     border-radius: 10px;
     cursor: pointer;
     font-size: 16px;
-    margin: 5px;
     width: auto;
-    margin: 6% 6% 10px auto;
+    margin: 3% 1% 1% auto;
     border-style: hidden;
 }
 
-.div-form-name, .div-form-gender,
-.div-form-age, .div-form-description{
-    margin-top: 10px;
+.div-form-name, .div-form-name,
+.div-form-age{
+    margin: 8px 8px 8px 8px;
 }
 
+.div-form-gender{
+    margin: 8px 8px 8px 0;
+}
 
 .container-post{
     display: flex;
@@ -253,12 +349,22 @@ button:hover,
     overflow: hidden;
     position: relative;
     background-color: var(---colorFondo);
+    width: 100%;
 }
 
 .title-post{
     color: black;
+    flex-direction: column;
     font-weight: 500;
-    font-size: large;
+    font-size: large;}
+
+.date-post{
+    font-size: 10px;
+    margin-bottom: 20px;
+}
+
+.title-post-wall{
+    margin: 20px auto 3px 0;
 }
 
 .title-post, .gender-post, 
@@ -290,8 +396,16 @@ button:hover,
     flex-direction: row;
     position: relative;
     width: 70%;
-    margin: 2% auto 2% auto;
+    margin: 2% auto 20px auto;
 } 
+
+.line{
+    background-color: #b2acd2;
+    width: 90%;
+    height: 1px;
+    margin: 5px auto 5px auto;
+    opacity: 50%;
+}
 
 .delete-button, .edit-button,
 .like-button{
@@ -299,6 +413,7 @@ button:hover,
     background-color: white;
     color: black;
     border-style: none;
+    cursor: pointer;
 }
 
 

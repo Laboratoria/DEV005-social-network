@@ -1,4 +1,5 @@
 import { autenticacion } from '../lib/auth';
+import showPasswordBtn from './home.js';
 
 function registro(navigateTo) {
   const section = document.createElement('section');
@@ -33,17 +34,41 @@ function registro(navigateTo) {
   document.body.appendChild(mail);
 
   /* ----------- Contraseña ---------------------*/
+  const divPassField = document.createElement('div');
+  divPassField.className = 'div-password-home';
+  const divPass = document.createElement('div');
+  divPass.className = 'div-pass-eye'
   const passwordLabel = document.createElement('label');
   const password = document.createElement('input');
   passwordLabel.textContent = 'Contraseña:';
-  passwordLabel.textContent = 'Contraseña:';
   passwordLabel.setAttribute('for', 'password');
-  password.id = 'password';
-  password.minLength = 6;
+  password.id = 'password1';
+  password.className = 'pass-input';
   password.minLength = 6;
   password.maxLength = 10;
   password.type = 'password';
-  password.placeholder = 'Enter a password';
+  password.placeholder = 'Ingrese contraseña';
+  
+  const showPasswordBtn = document.createElement('button');
+  showPasswordBtn.setAttribute('class', 'showPasswordBtn-b');
+  showPasswordBtn.innerHTML = '<i class="fa-solid fa-eye" style="color: #635994;"></i>'
+
+  // Añadimos el botón a la etiqueta de la contraseña
+  divPassField.append(passwordLabel, divPass);
+  divPass.append(password, showPasswordBtn);
+
+  // Añadimos el EventListener al botón
+  showPasswordBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (password.type === 'password') {
+      password.type = 'text';
+      showPasswordBtn.innerHTML = '<i class="fa-solid fa-eye-slash" style="color: #635994;"></i>';
+    } else {
+      password.type = 'password';
+      showPasswordBtn.innerHTML = '<i class="fa-solid fa-eye" style="color: #635994;"></i>';
+    };
+  });
+
 
   /* ----------- Botón regreso ---------------------*/
   const buttonReturn = document.createElement('button');
@@ -87,7 +112,7 @@ function registro(navigateTo) {
     mailLabel,
     mail,
     passwordLabel,
-    password,
+    divPassField,
     register,
     buttonReturn,
   );

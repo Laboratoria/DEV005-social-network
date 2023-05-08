@@ -1,14 +1,21 @@
 import {
-  submitForm, deleteTask, onGetTasks, getTask, dateSort,
+  submitForm, deleteTask, onGetTasks, getTask,
 } from '../lib/posts';
 
 function muro(navigateTo) {
   const section = document.createElement('section');
+  const divTitleAndReturn = document.createElement('div');
+  divTitleAndReturn.className = 'div-title-return';
   const title = document.createElement('h1');
   title.textContent = '🐾 Patitas.com';
   title.className= 'title-wall';
   const buttonReturn = document.createElement('button');
-  buttonReturn.textContent = 'inicio';
+  buttonReturn.className = 'button-return-home';
+  const iconLogOut = document.createElement('i');
+  iconLogOut.className = 'fa-solid fa-right-from-bracket';
+  iconLogOut.style.color= '#635994';
+  divTitleAndReturn.append(title, buttonReturn);
+  buttonReturn.appendChild(iconLogOut);
   buttonReturn.addEventListener('click', () => {
     navigateTo('/');
   });
@@ -45,8 +52,8 @@ function muro(navigateTo) {
   genderFemale.name = 'radiobuttons';
   const labelFemale = document.createElement('label');
   labelFemale.setAttribute = ('for', 'female-id');
+  labelFemale.className ='female-id-label'
   labelFemale.textContent = 'Hembra';
-
   const genderMale = document.createElement('input');
   genderMale.type = 'radio';
   genderMale.id = 'male-id';
@@ -54,6 +61,7 @@ function muro(navigateTo) {
   genderMale.name = 'radiobuttons';
   const labelMale = document.createElement('label');
   labelMale.setAttribute = ('for', 'male-id');
+  labelMale.className = 'male-id-label';
   labelMale.textContent = 'Macho';
 
   divFormGender.append(genderFemale, labelFemale, genderMale, labelMale);
@@ -64,6 +72,8 @@ function muro(navigateTo) {
   ageLabel.textContent = 'Edad (años):';
   ageLabel.className = 'age-label-pets';
   const ageInput = document.createElement('input');
+  ageInput.max='25';
+  ageInput.min ='0'
   ageInput.value = '0';
   ageInput.type= 'number';
   ageInput.classList.add('task-age');
@@ -71,17 +81,19 @@ function muro(navigateTo) {
   ageInput.setAttribute("autocomplete", "off");
   divFormAge.append(ageLabel, ageInput);
 
-/*   const divFormDescription = document.createElement('div');
-  divFormDescription.className = 'div-form-description'; */
-  /* const descriptionLabel = document.createElement('label');
-  descriptionLabel.textContent = 'Descripción:';
-  descriptionLabel.className = 'description-label-pets'; */
-  const descriptionInput = document.createElement('input');
+  const descriptionInput = document.createElement('textarea');
+  descriptionInput.addEventListener("input", function() {
+    autoResize(this);
+  });
   descriptionInput.placeholder = 'Ingrese la descripción';
   descriptionInput.classList.add('task-description');
   descriptionInput.name = 'description';
   descriptionInput.setAttribute("autocomplete", "off");
-/*   divFormDescription.append( descriptionLabel, descriptionInput); */
+
+  function autoResize(textarea) {
+    textarea.style.height = "auto";
+    textarea.style.height = textarea.scrollHeight + "px";
+  }
 
   // modal post
   const modal = document.createElement('div');
@@ -142,17 +154,24 @@ function muro(navigateTo) {
     querySnapshot.forEach((doc) => {
       const task = doc.data();
       task.id = doc.id;
-      const taskDate = dateSort();
+      const taskDate = task.date
+      //para obtener la fecha y hora del servidor de firebase en formato legible
+      const dateObj = taskDate.toDate();
+      const day = dateObj.getDate().toString().padStart(2, '0');
+      const month = (dateObj.getMonth() + 1).toString().padStart(2, '0');
+      const year = dateObj.getFullYear();
+      const hour = dateObj.getHours();
+      const min = dateObj.getMinutes().toString().padStart(2, '0');
+      const formattedDate = `${day}-${month}-${year} | ${hour}:${min}` ;
       const taskTitle = task.taskTitle;
       const taskDescription = task.taskDescription;
       const taskGender = task.taskGender;
       const taskAge = task.taskAge;
       taskList.innerHTML += `<div class='container-post'>
                             <div class= 'title-post'>
-                              <h2>${taskTitle}</h2>
-                              <span class='date-post'>${taskDate}</span>
+                              <h2 class='title-post-wall'>${taskTitle}</h2>
+                              <span class='date-post'>${formattedDate}</span>
                             </div>
-                            
                             <div class='gender-post'>
                               <span>Genero:</span>
                               <span>${taskGender}</span>
@@ -164,6 +183,7 @@ function muro(navigateTo) {
                             <div class='description-post'
                               <p>${taskDescription}</p>
                             </div>
+                            <div class='line'></div>
                             <div class='buttons-post'>
                               <button class='like-button'><i class="fa-regular fa-heart"></i></button>
                               <button class="edit-button" data-id="${task.id}"><i class="fa-regular fa-pen-to-square"></i></button>
@@ -200,7 +220,7 @@ function muro(navigateTo) {
     });
   });
 
-  container.append(title, form, taskList, buttonReturn);
+  container.append(divTitleAndReturn, form, taskList);
   section.appendChild(container);
   return section;
 }

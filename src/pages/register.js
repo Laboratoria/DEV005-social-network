@@ -4,50 +4,52 @@ import { registerLogic } from "../lib/registerLogic";
 const register = (findRouteAndNavigate) => {
     // Crea un nuevo elemento <section> y guárdalo en la variable "container"
     const container = document.createElement("section");
-    // Agrega la clase CSS "three" al elemento "container"
-    container.classList.add("three");
+    // Agrega la clase al elemento
+    container.classList.add("contentLR");
     // Define una cadena de código HTML con marcadores de posición para datos dinámicos y guárdalo en la variable "viewRegister"
     const viewRegister = ` 
+    <article class="three">
+    <figure class="logoLR">
+        <img src="./img/logo.svg" alt="logo SportX"/>
+    </figure>
     <div>
-    <img src="./img/logo.svg" alt="logo SportX" class="logoThree"/>
-    </div>
-    <div class="registrationForm">
-    <div>
-    <label>Usuario</label>
-    <input id="userNameRegister" type="text" placeholder="Nombre">
-    <p id='messageErrorUserRegister' class='messageErrorUserRegister'></p>
-    </div>
-    <div>
-    <label>Correo electrónico</label>
-    <input id="userMailRegister" type="text" placeholder="ejemplo@gmail.com">
-    <p id='messageErrorMailRegister' class='messageErrorMailRegister'></p>
-    </div>
-    <div>
-    <label>Contraseña</label>
-    <input id="userPasswordRegister" type="password" placeholder="******">
-    <p id='messageErrorPasswordRegister' class='messageErrorPasswordRegister'></p>
-    </div>
-    <div>
-    </div>
-    <div class="botonesRegistro">
-        <div class="registerBtn">
-            <input  id='registerBtn' type="submit" value="Registrarse">
+        <div class="fields">
+            <label class="labelText">Nombre:</label>
+            <input id="userNameRegister" class="inputRegister" type="text" placeholder="Nombre" />
+            <p id="messageErrorUserRegister" class="messageErrorUserRegister"></p>
         </div>
-        <div class="volverInicioSesion">
-            <span>¿Ya tienes cuenta?</span>
-            <a id="loginBtn">Iniciar Sesión</a>
+        <div class="fields">
+            <label class="labelText">Correo electrónico:</label>
+            <input id="userMailRegister" class="inputRegister" type="text" placeholder="ejemplo@gmail.com" />
+            <p id="messageErrorMailRegister" class="messageErrorMailRegister"></p>
+        </div>
+        <div class="fields">
+            <label class="labelText">Contraseña:</label>
+            <input id="userPasswordRegister" class="inputRegister" type="password" placeholder="xxxxxx" />
+            <p id="messageErrorPasswordRegister" class="messageErrorPasswordRegister"></p>
+        </div>
+
+        <div class="buttonsRegistration">
+            <div class="registerBtn">
+            <button  id="registerBtn" class="rBtn" type="submit">Registrarse</button>
+            </div>
+            <div class="returnHomeSession">
+                <span class="spanText">¿Ya tienes cuenta?</span>
+                <a id="loginBtn" class="aText">Iniciar Sesión</a>
+            </div>
         </div>
     </div>
+</article>
       `;
     // Rellena el elemento "container" con el código HTML almacenado en "viewRegister"
     container.innerHTML = viewRegister;
     // "registerLogic" se define en otro módulo y se encarga de manejar la lógica del formulario de registrarse.
     registerLogic(container);
-    // Encuentra el elemento con el ID "register" dentro del elemento "container" y guárdalo en la variable "registerB"
+    // Encuentra el elemento con el ID "loginBtn" dentro del elemento "container" y guárdalo en la variable "loginBtn"
     const loginBtn = container.querySelector("#loginBtn");
     // Agrega un event listener de clic al elemento "loginBtn", que ejecuta una función cuando se hace clic
     loginBtn.addEventListener("click", () => {
-        // La función llama a la función "findRouteAndNavigate" con el argumento "/register"
+        // La función llama a la función "findRouteAndNavigate" con el argumento "/login"
         findRouteAndNavigate("/login");
     });
     // Devuelve el elemento "container"

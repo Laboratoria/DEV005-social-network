@@ -2,7 +2,7 @@
 const error = () => {
     // Crea un elemento HTML <section> y lo guarda en una constante llamada "container"
     const container = document.createElement("section");
-    // Añade la clase "error" al elemento <section>
+    // Añade la clase al elemento
     container.classList.add("error");
     // Declara una constante llamada "viewError" que es igual a una cadena de texto con el contenido HTML de un encabezado <h4>
     const viewError = ` 

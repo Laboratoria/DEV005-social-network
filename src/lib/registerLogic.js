@@ -31,14 +31,14 @@ const registerLogic = (container) => {
 
         // Si no se ingresó ningún correo electrónico, se muestra un mensaje de error y se devuelve un objeto con la propiedad errors establecida en true.
         if (!userMailRegister.value) {
-            showError("Ingresa una dirección de correo electrónico.", "messageErrorMailRegister");
+            showError("Ingresa un correo electrónico.", "messageErrorMailRegister");
             return { errors: true };
         }
         showError("", "messageErrorMailRegister");
 
         // Si el correo electrónico no cumple con el formato de la expresión regular, se muestra un mensaje de error y se devuelve un objeto con la propiedad errors establecida en true.
         if (!emailRegex.test(userMailRegister.value)) {
-            showError("Ingresa una dirección de correo electrónico válida. Por ejemplo: example@gmail.com", "messageErrorMailRegister");
+            showError("Ingresa un correo electrónico válido.", "messageErrorMailRegister");
             return { errors: true };
         }
         showError("", "messageErrorMailRegister");

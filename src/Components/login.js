@@ -5,7 +5,7 @@ export function login(navigateTo) {
   const sectionLogin = document.createElement('section');
   sectionLogin.classList.add('sectionLogin');
   sectionLogin.innerHTML = `
-  <img src='./lib/img/logo.png' class= 'logo2'>
+  <img src='https://firebasestorage.googleapis.com/v0/b/social-network-dev-005.appspot.com/o/assets%2FLogo.png?alt=media&token=feddabaf-9c84-4263-a12f-7244c595f987' class= 'logo2'>
     <form class="formInteraction" >
     <h2 class="initSection">Inicio de Sesión</h2>
     <label class="labelEmail">Correo Electronico</label>

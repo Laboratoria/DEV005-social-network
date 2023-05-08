@@ -9,7 +9,7 @@ function home(navigateTo) {
   const postForm = document.createElement('section');
   postForm.classList.add('home');
   postForm.innerHTML = `
-    <img src='./lib/img/logoHome.png' class= 'logoHome'>
+    <img src='https://firebasestorage.googleapis.com/v0/b/social-network-dev-005.appspot.com/o/assets%2FlogoHome.png?alt=media&token=1529222b-ad60-42c3-9b2b-61d5e4aa7fcd' class= 'logoHome'>
     <form class="formHome">
     <textarea class="areaPost" placeholder= "Comparte tu negocio..."></textarea>
     <button class= "post" > Publicar </button>

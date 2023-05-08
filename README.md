@@ -25,7 +25,6 @@ A través de esta plataforma, los usuarios tienen la posibilidad de intercambiar
 
 * Quieren poder iniciar sesión y registrarse
 * Quieren poder entrar con google
-* Quieren poder registrar a sus mascotas
 * Quieren poder crear posts
 * Quieren poder editar y eliminar posts
 * Quieren poder dar like

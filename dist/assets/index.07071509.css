@@ -1,0 +1,590 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+/*pantalla de acceso*/
+.init {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url(/assets/fondo.9df9d0fb.png);
+    background-size: cover;
+    height: 100vh;
+}
+
+.logo {
+    position: absolute;
+    max-width: 233px;
+    max-height: 176px;
+    top: 54px;
+    background: none;
+}
+
+.logIn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    max-width: 380px;
+    height: 46px;
+    font-weight: bold;
+    border: none;
+    font-size: 22px;
+    color: #FFFFFF;
+    background: #F39C12;
+    border-radius: 10px;
+    margin-top: 300px;
+}
+
+.register {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    max-width: 380px;
+    height: 46px;
+    border: none;
+    font-weight: bold;
+    font-size: 22px;
+    color: #FFFFFF;
+    background: #528FD8;
+    border-radius: 10px;
+    margin-top: 50px;
+}
+
+.division {
+    position: absolute;
+    margin-top: 500px;
+    width: 80%;
+    max-width: 380px;
+}
+
+.google {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    max-width: 380px;
+    box-sizing: border-box;
+    height: 48px;
+    font-size: 22px;
+    padding-left: 58px;
+    border: none;
+    background: white url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAANmSURBVHgBtZZLaBRZFIb/c6syMkPiJIZ5OBNIC8mMYV5MZHAQySQDE5qJGXRwIb5wI+JGF24E0XRERVwJLoK6UFEQF+IjMUREbTGKihoQn1GwVNAoxjx8m+pzPNXGmFRVv3x80N23zjn3/veevnXPJWSBRMuqYWgqiP4AqEItRZ1PBkDAY3V3QOR8grGvot2JZxqL0gpNKV8EpqUaNdbv8wRDcJilseK4sxW5CErtj+OQxzvVPTFVxxSC74RJairijuN3mIBYXfn/yJPz6cSyIGKEOq7/XVaZVlDqyv5Tod3aLMSHU+iy+6vfaA+JRcdHAN6Wfgy5oV/tELrFIrDIlAtkktoi/khNaaOmdGtKQVh8FKlWJnIMRmLUciMe5r5cHfnTFrNZxX8eJhYLi01uGrmIeTg3egsOFQM9ef6IRmrpDO3s52pVZLH+STQ+7qxPFfNG8BJuwkvLUyuBk4UWDhe7YF19DmLZQnIFf+ng8RFWb5WtxRdoTddv+MgYuJgWsBbpOzazaz4+AbZK/h6wEhz6CWfSdfwq9iCf4M5mF58jSwSv2rxdGhT0pzgEZvcfC2gyBjnw2RIvvADBqdzK1NUIf4nc+T6n+X0MPMHuEGspPg3PjKbvWoijKlNPSWROexC6QHrKrNdduTjgY9TQL5k3TxjfLO+aKMSn/HY9+jZ4K9zrd3S5o3jG/cpleE+YEjvC7GTZzW+Ptjv6U9LPNpr6SrFRP33snanU+Ki+LYYc+HrFvQYdMayP82Dld+Pe7NIEVu16MpYrb1fxup6yQbHkVBrGNNfGkCUqFkshBi1nq73foSvGmJbaE1rnJoUFa1An3IE53dOOhJ4++U2Tq0f1L1phPZ1cg3CSq/MaQ/WQB8wsY3OHDh+oiQL8ADvvtK72JgvOGsFl9+4LraFSCjJRYvnWLdjB5nkliL/wd35prJc1wyb/jqLm6L8EOYAsSNx9HrDZ/dNhPZ4+Mg48t3tlyfa3zyNOmp76tlY2mKrNR3gP3PxWiP1QBh97mbl+uFhAMBlVd3AfuzRBrywOcsU8gzt6p75uOAEzMOHhqpIWf0jai3Dh/ug8TXEDUfCSFJZSRW8OZlPfgvhapCCt4JDwnmi1sWSKNvWqr+WMUDAo2Ku74poIndLqsbd3YfsxJPdYal4Dm9VLFv1MShYAAAAASUVORK5CYII=) no-repeat 25px;
+    box-shadow: 0px 11px 27px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    margin-top: 130px;
+}
+
+/*pantalla de ingreso*/
+
+.sectionLogin {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url(/assets/fondo.9df9d0fb.png);
+    background-size: cover;
+    height: 100vh;
+}
+
+.logo2 {
+    position: absolute;
+    top: 3%;
+}
+
+.formInteraction {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 44vh;
+    max-height: 440px;
+    width: 89%;
+    max-width: 469px;
+    border-radius: 19px;
+    background: #D9D9D9;
+    opacity: 0.9;
+    justify-content: space-around;
+    margin: 91px 0px 0px 0px;
+}
+
+.initSection {
+    display: flex;
+    margin: -69px 0px 9px -167px;
+    font-size: 26px;
+}
+
+.labelEmail {
+    display: flex;
+    font-size: 20px;
+    background: none;
+    margin: -16px 170px -28px 0px;
+}
+
+.inputEmail {
+    display: flex;
+    background: white;
+    width: 94%;
+    max-width: 321px;
+    height: 45px;
+    border: none;
+    border-radius: 12px;
+    font-size: 21px;
+    padding-left: 5%;
+    justify-content: flex-start;
+}
+
+.labelPassword {
+    display: flex;
+    font-size: 20px;
+    background: none;
+    margin: -14px 234px 39px 0px;
+
+}
+
+.inputPassword {
+    display: flex;
+    background: white;
+    width: 94%;
+    max-width: 321px;
+    height: 45px;
+    border: none;
+    border-radius: 12px;
+    font-size: 28px;
+    padding-left: 5%;
+    margin: -66px 0px 0px 0px;
+    justify-content: flex-start;
+}
+
+.getInt {
+    display: flex;
+    background: #528FD8;
+    width: 100%;
+    max-width: 343px;
+    height: 45px;
+    border-radius: 12px;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 22px;
+    border: none;
+    color: #FFFEFE;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.bottomTextLogin {
+    position: absolute;
+    top: 88%;
+    width: 103%;
+    max-width: 368px;
+    height: 44px;
+    border: none;
+    color: black;
+    font-size: 22px;
+    background: none;
+    font-weight: bold;
+}
+
+.note1 {
+    color: red;
+    width: 85%;
+    max-width: 326px;
+    height: 22px;
+    background: none;
+    font-size: 18px;
+    margin: -27px 0px -38px 4px;
+    border-radius: 8px;
+    padding: 2%;
+}
+
+/*pantalla crear cuenta*/
+.creat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url(/assets/fondo.9df9d0fb.png);
+    background-size: cover;
+    height: 100vh;
+}
+
+.logo1 {
+    position: absolute;
+    top: 3%;
+}
+
+.formCreateAccount {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 44vh;
+    max-height: 440px;
+    width: 89%;
+    max-width: 469px;
+    border-radius: 19px;
+    background: #D9D9D9;
+    opacity: 0.9;
+    justify-content: space-around;
+    margin: 91px 0px 0px 0px;
+}
+
+.createAccount {
+    display: flex;
+    margin: -69px 0px 9px -208px;
+    font-size: 26px;
+}
+
+.textButtonCreateAccount {
+    display: flex;
+    font-size: 20px;
+    background: none;
+    margin: -16px 170px -28px 0px;
+}
+
+.card1 {
+    display: flex;
+    background: white;
+    width: 94%;
+    max-width: 321px;
+    height: 45px;
+    border: none;
+    border-radius: 12px;
+    font-size: 21px;
+    padding-left: 5%;
+    justify-content: flex-start;
+}
+
+.textPasswordCreateAccount {
+    display: flex;
+    font-size: 20px;
+    background: none;
+    margin: -14px 183px 39px 0px;
+}
+
+.card2 {
+    display: flex;
+    background: white;
+    width: 94%;
+    max-width: 321px;
+    height: 45px;
+    border: none;
+    border-radius: 12px;
+    font-size: 28px;
+    padding-left: 5%;
+    margin: -66px 0px 0px 0px;
+    justify-content: flex-start;
+}
+
+.textConfirmPassword {
+    display: flex;
+    height: 23px;
+    font-size: 20px;
+    background: none;
+    margin-top: 41px;
+}
+
+.bottomKeep {
+    display: flex;
+    background: #F39C12;
+    width: 100%;
+    max-width: 343px;
+    height: 45px;
+    border-radius: 12px;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 22px;
+    border: none;
+    color: #FFFEFE;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.alerta {
+    color: red;
+    width: 85%;
+    max-width: 326px;
+    height: 22px;
+    background: none;
+    font-size: 18px;
+    margin: -27px 0px -38px 4px;
+    border-radius: 8px;
+    padding: 2%;
+}
+
+.bottomText {
+    position: absolute;
+    top: 88%;
+    width: 103%;
+    max-width: 368px;
+    height: 44px;
+    border: none;
+    color: black;
+    font-size: 22px;
+    background: none;
+    font-weight: bold;
+}
+
+/* Home*/
+.logoHome {
+    position: absolute;
+    top: 1%;
+}
+
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url(/assets/fondoHome.d287116f.png);
+    background-size: cover;
+    height: 108vh;
+    padding-bottom: 9%;
+}
+
+.formHome {
+    width: 92%;
+    max-width: 483px;
+    height: 23vh;
+    max-height: 153px;
+    border-radius: 10px;
+    padding-top: 0;
+    margin-top: 105px;
+    background: none;
+    border: none;
+    font-size: 19px;
+}
+
+.areaPost {
+    display: flex;
+    background: white;
+    width: 92%;
+    max-width: 473px;
+    height: 11vh;
+    border-radius: 12px;
+    padding-top: 15px;
+    padding-left: 3%;
+    font-size: 19px;
+    margin: 3% 0% 0% 2%;
+    justify-content: center;
+    max-height: 71px;
+    resize: none;
+    box-shadow: 3px 2px 10px rgba(0, 0, 0, 0.25) inset;
+}
+
+.post {
+    background: #F39C12;
+    width: 36%;
+    max-width: 166px;
+    height: 32px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    border: none;
+    color: #FFFEFE;
+    margin-left: 61%;
+    margin-top: 3%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.userName{
+    position: relative;
+    font-size: 13px;
+    left: -76px;
+    top: 16px;
+}
+div textarea {
+    display: flex;
+    background: white;
+    width: 173%;
+    max-width: 445px;
+    height: 11vh;
+    border-radius: 16px;
+    padding-top: 10px;
+    padding-left: 6%;
+    font-size: 19px;
+    margin: 10% 0% 4% -39%;
+    justify-content: center;
+    max-height: 77px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border: none;
+    resize: none;
+    color: #312c2c;
+}
+
+.buttonsPost {
+    display: flex;
+    justify-content: flex-end;
+    width: 145%;
+    
+}
+
+.fa-heart {
+    color: #F39C12;
+}
+
+.like-btn {
+    width: 77%;
+    max-width: 65px;
+    height: 29px;
+    border-radius: 10px;
+    font-size: 20px;
+    border: none;
+    background: none;
+}
+
+
+.edit {
+    width: 37%;
+    max-width: 100px;
+    height: 27px;
+    border-radius: 10px;
+    font-size: 18px;
+    border: none;
+    color: black;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-right: -97px;
+}
+
+.delete-btn {
+    width: 33%;
+    max-width: 119px;
+    margin: 0px 0px 0px 112px;
+    height: 27px;
+    border-radius: 10px;
+    font-size: 18px;
+    border: none;
+    color: black;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
+}
+
+
+/*button salir*/
+.goOut {
+    position: absolute;
+    max-height: 51px;
+    width: 13%;
+    box-sizing: border-box;
+    height: 81vh;
+    font-size: 20px;
+    border: none;
+    background: white url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAEVSURBVHgBxZa9ysIwGIWPnw6fk96BnZ0UvAYXFy/FGxAFb0fwBgQFcXLRycFBF1d1VMSf89IKDklJ0iYeeCgkTU9O+iYtEFgFTXuVNJBNO3I0vXlOXhkZqx5c0hgWyZOMYK8/0ke8SsZakDvcJCEk4RSa2eStz6oVQhl+jB4IZHgjW7JUdZaQv6TY6rpOHwlFHRLZDMhSpSKp0oPK1FfCIamRGQyTZk0oGiBOuv82dS2aCczP2ghx0ia5uC6pS/pKWqe3JfVlaGWWh6HWzMdJI+qSDeK9aKQ83qFSvjb+ivQQyLBMWqSNQIbF5PqPQIbX5PpUdaZVqUxmCHulhtAZnpKBA7jrrGrU/QhHsPyAKrQmF/xab7r2RDdCaonlAAAAAElFTkSuQmCC) no-repeat 14px 2%;
+    border-radius: 15px;
+    margin: 1% -10% 0% 76%;
+    padding: 31px 0px 0px 0px;
+    max-width: 51px;
+}
+
+/*error*/
+u {
+    background: none;
+}
+
+.errorSection {
+    background-image: none;
+    height: 0px
+}
+
+.imgBug {
+    width: 96%;
+    margin: 80px 0px 0px 6px;
+    height: 25vh;
+    background: none;
+}
+
+.text {
+    position: absolute;
+    left: 30px;
+    top: 446px;
+    font-size: 24px;
+    background: none;
+}
+
+.initButton {
+    position: absolute;
+    font-size: 22px;
+    color: blue;
+    background: none;
+    left: 31%;
+    top: 52%;
+    border: none;
+}
+
+@media (min-width: 926px) and (max-width: 1920px) {
+    .init {
+        background-image: url(/assets/fondoDesktop.64fb7a8f.png);
+        background-size: cover;
+        height: 100vh;
+    }
+    .createAccount, .initSection {
+        margin: -69px 0px 9px -273px;
+    }
+    .formInteraction, .formCreateAccount {
+        height: 46vh;
+    }
+    .textButtonCreateAccount, .labelEmail {
+        margin: 11px 170px -28px 0px;
+    }
+    .sectionLogin {
+        background-image: url(/assets/fondoDesktop.64fb7a8f.png);
+        background-size: cover;
+        height: 100vh;
+    }
+
+    .creat {
+        background-image: url(/assets/fondoDesktop.64fb7a8f.png);
+        background-size: cover;
+        height: 100vh;
+    }
+    .formHome {
+        margin-top: 140px;
+    }
+    .logoHome {
+        position: absolute;
+        top: 2%;
+    }
+    .home {
+        background-image: url(/assets/fondoHomeDesktop.5b401cef.png);
+        background-size: cover;
+        
+    }
+    .userName{
+        position: relative;
+        font-size: 13px;
+        left: -118px;
+        top: 7px;
+    }
+    div textarea {
+        width: 208%;
+        margin: 6% 0% 2% -55%;
+    }
+    .buttonsPost {
+        width: 160%;
+    }
+    .logo2,
+    .logo1 {
+        position: absolute;
+        top: 2%;
+        height: 20vh;
+        width: 14%;
+    }
+    .imgBug {
+        width: 30%;
+        margin: 125px 0px 0px 452px;
+        height: 26vh;
+    }
+    u {
+        background: none;
+        margin: 137px;
+    }
+.text {
+    position: absolute;
+    left: 446px;
+    top: 446px;
+    font-size: 24px;
+    background: none;
+}
+}

@@ -4,7 +4,7 @@ export function create(navigateTo) {
   const sectionCreate = document.createElement('div');
   sectionCreate.classList.add('creat');
   sectionCreate.innerHTML = `
-    <img src='./lib/img/logo.png' class="logo1">
+    <img src='https://firebasestorage.googleapis.com/v0/b/social-network-dev-005.appspot.com/o/assets%2FLogo.png?alt=media&token=feddabaf-9c84-4263-a12f-7244c595f987' class="logo1">
     <form class = "formCreateAccount">
     <h2 class = "createAccount">Crear cuenta</h2>
     <label class="textButtonCreateAccount">Correo Electronico</label>

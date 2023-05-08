@@ -54,7 +54,6 @@ export const loginWithGithub = () => new Promise((resolve, reject) => {
       resolve(githubUser, credential);
     }).catch((error) => {
       const errorCode = error.code;
-      console.log(errorCode);
       reject(errorCode);
     });
 });

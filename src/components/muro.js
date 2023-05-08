@@ -14,7 +14,7 @@ import {
 let editStatus = false;
 let id = '';
 
-const muro = (navigateTo) => {
+function muro(navigateTo) {
   const muroDiv = document.createElement('div');
   muroDiv.className = 'muroDiv';
 
@@ -22,7 +22,7 @@ const muro = (navigateTo) => {
   muroDiv.innerHTML += `
   <header>
   <a class='logo'><i class='bx bx-leaf'></i><span>Food Match</span></a>
-  <button class='icon_exit'><i class='bx bx-exit' ></i></button>
+  <button class='icon_exit' type='button'><i class='bx bx-exit' ></i></button>
   </header>
   <main>
   
@@ -200,6 +200,6 @@ const muro = (navigateTo) => {
     }
   });
   return muroDiv;
-};
+}
 
 export default muro;

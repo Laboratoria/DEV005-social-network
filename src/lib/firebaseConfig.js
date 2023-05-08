@@ -29,14 +29,14 @@ const firebaseConfig = {
   appId: '1:655316254171:web:2bb64d10e33715580a7bfe',
 };
 
-// Initialize Firebase console.log(app)
+// Inicializacion Firebase console.log(app)
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 // Inicializar la base de datos en tiempo real y obtener una referencia al servicio
 // Conexión a la base de datos
 const db = getFirestore(app);
 // Conexión a RealTime Database
-export const database = getDatabase(app);
+// ?? export const database = getDatabase(app);
 // Guardar publicación en firestore
 export const saveTask = (description) => {
   addDoc(collection(db, 'post'), {

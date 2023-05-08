@@ -22,9 +22,7 @@ const login = (findRouteAndNavigate) => {
      <p id="passwordText">Contraseña</p>
      <input id="passwordUserLogin" type="password" placeholder="******" />
      <p id='messageErrorPasswordLogin' class='messageErrorPasswordLogin'></p>
-     </div>
- </div>
- <div class="botonesInicioSesion">
+   </div>  
    <div class="loginBtn">
      <input id="loginBtn" class="loginBtn" type="submit" value="Iniciar Sesión" />
    </div>

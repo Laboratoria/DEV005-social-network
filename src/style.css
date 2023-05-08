@@ -13,24 +13,31 @@ body {
 }
 .homeLogo {
     margin: 0;
-    margin-bottom: 25px;
+    margin-bottom:25px;
 }
+/*logo sport*/
 .logoOne {
-    width: 290px;
-    height: 110px;
+    width: 500px;
+    height: 200px;
 }
+/*logo imagen circular*/
 .homeImage {
     margin: 0;
-    margin-bottom: 35px;
+    margin-bottom: 2%;
+
 }
 
 .buttonsLR {
-    font-size: 25px;
+    font-size: 40px;
     font-family: "Nunito", sans-serif;
+  
 }
+/*diseño de texto lr*/
 .textLR a {
-    color: #000000;
+    color:white;
     text-decoration: none;
+    padding:15px;
+    cursor: pointer;
 }
 span {
     margin: 0 20px;

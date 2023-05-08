@@ -5,7 +5,6 @@ body {
     margin: 0;
 }
 .content {
-    background: linear-gradient(360deg, #4ea8de 1.37%, rgba(104, 213, 228, 0.995555) 48.76%, rgba(128, 204, 234, 0.991472) 99.99%, rgba(78, 168, 222, 0) 100%);
     height: 100%;
     display: flex;
     justify-content: center;
@@ -43,59 +42,138 @@ body {
 span {
     margin: 0 20px;
     color: #000000;
+    font-size: 16px;
+}
+
+/* ESTILO PARA LOGIN */
+
+.bannerOne {
+    width: 100%;
+    height: 100%;
+}
+/* Father */
+.logoTwo {
+    width: 264px;
+    height: 86px;
+}
+
+div.loginForm { 
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 32px, 16px, 32px, 16px;
+} 
+
+p#mailText {
+    font-family: 'Roboto', sans-serif;
+    color: #333333; 
+    font-size: 14px;
+    display: flex;
+    align-items: center;
 }
 
 input#mailUserLogin {
     border-style: none;
+    width: 307px;
     border-bottom: 1px solid #E05D6F;
+    color: #333333;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+#messageErrorMailLogin {
+    color: red;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+p#passwordText {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #333333; 
+    display: flex;
+    align-items: center;
 }
 
 input#passwordUserLogin {
     border-style: none;
+    width: 307px;
     border-bottom: 1px solid #E05D6F;
+    color: #333333; 
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+#messageErrorPasswordLogin {
+    color: red;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
 }
 
 button#loginGmailBtn{
-    width: 281px;
+    width: 307px;
     height: 62px;
-    background-color: #FFFFFF;
-    border: #FFFFFF;
+    background-color: #e8e8e8;
+    border: solid 0px;
     border-radius: 4px;
-    box-shadow: 2px 2px 1px 0.5px rgba(124, 124, 124, 0.2);
+    box-shadow: 2px 2px 5px 0.5px rgba(98, 98, 98, 0.2);
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
     font-weight: 500;
-    color: #828485;
+    color: #6D6D6D;
     padding: 8px 8px 8px 8px;
     display: flex;
     align-items: center;
+    justify-content: center;
+    margin: 8px 16px 20px 16px;
 }
 
 img.imgGoogle {
     height: 28px;
     width: 29px;
-    padding: 8px 24px 8px 8px;
+    padding: 8px 8px 8px 8px;
 }
 
 input#loginBtn {
-    width: 281px;
+    width: 307px;
     height: 62px;
     border: none;
     border-radius: 10px;
     background-color: #4EA8DE;
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
+    font-weight: 350;
     color: #FFFFFF;
-    
+    display: flex;
+    justify-content: center;
+    margin: 10px 16px 8px 16px;
 }
-.bannerOne {
-    width: 100%;
-    height: 100%;
+
+div.volverRegistro {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    display:flex;
+    justify-content: center;
 }
-.logoTwo {
-    width: 290px;
-    height: 110px;
+
+a#registerBtn {
+    color: #4EA8DE;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    margin-right: 17px;
 }
+
+div.recoverPassword {
+    color: #4EA8DE;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 16px;
+}
+
+
 .logoThree {
     width: 290px;
     height: 110px;

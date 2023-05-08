@@ -13,18 +13,16 @@ const login = (findRouteAndNavigate) => {
    <img src="./img/logo.svg" alt="logo SportX" class="logoTwo"/>
   </div>
   <div class="loginForm">
-   <div>
-     <label>Correo: </label>
+   <div class="mail">
+     <p id="mailText">Correo electrónico</p>
      <input id="mailUserLogin" type="text" placeholder="example@gmail.com" />
      <p id='messageErrorMailLogin' class='messageErrorMailLogin'></p>
      </div>
-   <div>
-     <label>Contraseña: </label>
+   <div class="password">
+     <p id="passwordText">Contraseña</p>
      <input id="passwordUserLogin" type="password" placeholder="******" />
      <p id='messageErrorPasswordLogin' class='messageErrorPasswordLogin'></p>
-     </div>
- </div>
- <div class="botonesInicioSesion">
+   </div>  
    <div class="loginBtn">
      <input id="loginBtn" class="loginBtn" type="submit" value="Iniciar Sesión" />
    </div>

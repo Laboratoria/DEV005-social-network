@@ -19,6 +19,7 @@ const home = () => {
     </div>
     <article class="fieldPublications">
     <section id="publications" class="publications"></section>
+    <img src="./img/iconDelet"
     </article>
     `;
     // Inserta el contenido HTML de "viewHome" dentro del elemento <section> creado antes

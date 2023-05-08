@@ -32,7 +32,7 @@ const loginLogic = (container) => {
 
         // Si el correo electrónico no cumple con el formato de la expresión regular, se muestra un mensaje de error y se devuelve un objeto con la propiedad errors establecida en true.
         if (!emailRegex.test(mailUserLogin.value)) {
-            showError("Ingresa un correo válido. Por ejemplo: example@gmail.com", "messageErrorMailLogin");
+            showError("Ingresa un correo electrónico válido.", "messageErrorMailLogin");
             return { errors: true };
         }
         showError("", "messageErrorMailLogin");
@@ -50,7 +50,6 @@ const loginLogic = (container) => {
 
     // Se agrega un listener al botón de inicio de sesión que llama a validateFields y, si no hay errores, inicia sesión con los datos ingresados.
     loginBtn.addEventListener("click", async () => {
-        console.log("se apreto boton");
         try {
             const { errors } = validateFields();
             console.log({ errors });
@@ -76,6 +75,7 @@ const loginLogic = (container) => {
         if (credentials.isNewUser) {
             window.location.href = "/register";
         } else {
+            window.localStorage.setItem("auth", true);
             window.location.href = "/";
         }
     });

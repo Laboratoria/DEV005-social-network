@@ -4,43 +4,42 @@ import { loginLogic } from "../lib/loginLogic";
 const login = (findRouteAndNavigate) => {
     // Crea un elemento HTML <section> y lo guarda en una constante llamada "container"
     const container = document.createElement("section");
-    // Añade la clase "two" al elemento <section>
-    container.classList.add("two");
+    // Añade la clase al elemento
+    container.classList.add("contentLR");
     // Declara una constante llamada "viewLogin" que es igual a una cadena de texto con el contenido HTML del formulario de inicio de sesión
     const viewLogin = `
-<div class="bannerOne">
-  <div class="loginLogo">
-   <img src="./img/logo.svg" alt="logo SportX" class="logoTwo"/>
-  </div>
-  <div class="loginForm">
-   <div class="mail">
-     <p id="mailText">Correo electrónico</p>
-     <input id="mailUserLogin" type="text" placeholder="example@gmail.com" />
-     <p id='messageErrorMailLogin' class='messageErrorMailLogin'></p>
-     </div>
-   <div class="password">
-     <p id="passwordText">Contraseña</p>
-     <input id="passwordUserLogin" type="password" placeholder="******" />
-     <p id='messageErrorPasswordLogin' class='messageErrorPasswordLogin'></p>
-   </div>  
-   <div class="loginBtn">
-     <input id="loginBtn" class="loginBtn" type="submit" value="Iniciar Sesión" />
-   </div>
-   <div class="loginGmailBtn">
-     <button id="loginGmailBtn">
-         <img src="./img/google.svg" value="iniciarGoogle"alt="google" class="imgGoogle"/>
-         Acceder con Google
-     </button>
-   </div>
-   <div class="volverRegistro">
-     <span>¿No tienes cuenta?</span>
-     <a id="registerBtn">Regístrate</a>
-   </div>
-   <div class="recoverPassword">
-     <a>Olvidé mi contraseña</a>
-   </div>
- </div>
-<div>
+    <div class="two">
+        <figure class="logoLR">
+            <img src="./img/logo.svg" alt="logo SportX" class="logoL"/>
+        </figure>
+        <article>
+            <div class="fields">
+                <label class="labelText">Correo: </label>
+                <input id="mailUserLogin" class="inputLogin" type="text" placeholder="example@gmail.com" />
+                <p id="messageErrorMailLogin" class="messageErrorMailLogin"></p>
+            </div>
+            <div class="fields">
+                <label class="labelText">Contraseña: </label>
+                <input id="passwordUserLogin" class="inputLogin" type="password" placeholder="xxxxxx" />
+                <p id="messageErrorPasswordLogin" class="messageErrorPasswordLogin"></p>
+            </div>
+        </article>
+        <div class="buttonsStartSession">
+            <div class="loginBtn">
+            <button  id="loginBtn" class="lBtn" type="submit">Iniciar Sesión</button>
+            </div>
+            <div class="loginGmailBtn">
+                <button id="loginGmailBtn" class="lGmailBtn">
+                    <img src="./img/google.svg" value="iniciarGoogle" alt="google" class="imgGoogle" />
+                    Acceder con Google
+                </button>
+            </div>
+            <div class="returnRegistration">
+                <span class="spanText">¿No tienes cuenta?</span>
+                <a id="registerBtn" class="aText">Regístrate</a>
+            </div>
+        </div>
+    </div>
 `;
     // Inserta el contenido HTML de "viewLogin" dentro del elemento <section> creado antes
     container.innerHTML = viewLogin;

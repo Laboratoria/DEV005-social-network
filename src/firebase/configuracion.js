@@ -1,9 +1,11 @@
 // Importando las funciones necesarias de los SDK de Firebase que queremos utilizar en nuestro proyecto.
 import { initializeApp } from "firebase/app";
 import {
-    getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile, GoogleAuthProvider, signInWithPopup,
+    getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile, GoogleAuthProvider, signInWithPopup, signOut,
 } from "firebase/auth";
-// import { getFirestore } from "firebase/firestore";
+import {
+    getFirestore, collection, addDoc, getDocs, onSnapshot,
+} from "firebase/firestore";
 
 // Configurando los datos necesarios de nuestro proyecto de Firebase.
 const firebaseConfig = {
@@ -20,13 +22,17 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 // Obteniendo la instancia de Firestore para comenzar a utilizar la base de datos en nuestra aplicación web
-// const dataBase = getFirestore();
+const db = getFirestore(app);
 
 // Inicializando la autenticación
 const auth = getAuth(app);
 // Creando una instancia del proveedor de autenticación de GoogleAuthProvider() para permitir el inicio de sesión con Google.
 
 const provider = new GoogleAuthProvider();
+
+const postsCollection = collection(db, "posts");
+
+const postDocuments = getDocs(postsCollection);
 
 // Definiendo una función que inicia sesión en Firebase Auth con email y password.
 // const signIn = async (email, password) => {
@@ -92,6 +98,35 @@ const googleSign = () => new Promise((resolve, reject) => {
         });
 });
 
+// const addPost = (publication) => {
+//     addDoc(postsCollection, {
+//         publication,
+//         date: Date.now(),
+//     });
+// };
+const addPost = (comment) => new Promise((resolve, reject) => {
+    addDoc(postsCollection, {
+        comment,
+        date: Date.now(),
+    })
+        .then((docRef) => {
+            resolve(docRef.id);
+        })
+        .catch((error) => {
+            reject(error);
+        });
+});
+
+// const paintPostsRealTime = (postsCallback) => {
+//     onSnapshot(query(postsCollection, orderBy("date", "desc")), postsCallback);
+// };
+const paintPostsRealTime = (postsCallback) => {
+    onSnapshot(collection(db, "posts"), (querySnapshot) => {
+        postsCallback(querySnapshot);
+    });
+};
+const logOut = () => signOut(auth);
+
 export {
-    auth, app, provider, signIn, registerUser, googleSign,
+    auth, app, db, provider, signIn, registerUser, googleSign, postsCollection, postDocuments, addPost, paintPostsRealTime, logOut,
 };

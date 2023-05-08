@@ -75,6 +75,12 @@ input#mailUserLogin {
     font-size: 16px;
 }
 
+#messageErrorMailLogin {
+    color: red;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
 p#passwordText {
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
@@ -88,6 +94,12 @@ input#passwordUserLogin {
     width: 307px;
     border-bottom: 1px solid #E05D6F;
     color: #333333; 
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+#messageErrorPasswordLogin {
+    color: red;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
 }

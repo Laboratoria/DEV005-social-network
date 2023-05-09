@@ -5,7 +5,6 @@ import {
   deleteTask,
   editTasks,
   updateTask,
-  getDate,
   addLike,
   auth,
   removeLike,
@@ -109,7 +108,7 @@ function muro(navigateTo) {
         
         <div class='dropdown'>
         <button class='btn-menu'><i class='bx bx-dots-horizontal-rounded'></i></button>
-        <p>${task.username}</p>
+        <h3>${task.username.split('@')[0]}</h3>
 
         <div class='container-options'>
         <button class='btn-delete' data-id='${doc.id}'>Eliminar</button>
@@ -119,12 +118,13 @@ function muro(navigateTo) {
         </div>
 
         <div class='body-description'>
-        <p class='dateFormat'>¡Hola! Aquí te comparto mi receta.</p>
+        <p class='dateFormat'>${task.date}</p>
         <p>${task.description}</p>
         </div>
 
         <div class='reactions'>
-        <button class='btn-like' data-id='${doc.id}' data-liked='${task.likes.includes(auth.currentUser.uid)}'></button> 
+        <button class='btn-like' data-id='${doc.id}' data-liked='${task.likes.includes(auth.currentUser.uid)}'>
+        </button> 
         <span class='count-like'> ${task.likes.length}</span>
         </div>
 
@@ -132,14 +132,10 @@ function muro(navigateTo) {
           `;
     });
 
-    const dateTime = getDate();
-
     // en el parametro event se puede resumir debido a q todos
     // los elementos son objetos, esto es de la siguiente manera:
     // ({target: {dataset}})
     tasksContainer.innerHTML = html;
-    const dateFormat = tasksContainer.querySelectorAll('.dateFormat');
-    dateFormat.innerText = dateTime;
 
     const btnDelete = tasksContainer.querySelectorAll('.btn-delete');
     btnDelete.forEach((btn) => {
@@ -188,6 +184,8 @@ function muro(navigateTo) {
   });
 
   const formPost = muroDiv.querySelector('.form-post');
+  // const publicarPost = muroDiv.querySelector('.publicar-post');
+  // const popUp = muroDiv.querySelector('.pop-up');
   formPost.addEventListener('submit', (e) => {
     e.preventDefault();
     const description = formPost['textarea-post'].value;

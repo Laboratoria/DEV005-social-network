@@ -8,6 +8,7 @@ import {
   signOut,
   createUserWithEmailAndPassword,
   onAuthStateChanged,
+  signInWithEmailAndPassword,
 } from 'firebase/auth';
 import { auth } from './index.js';
 
@@ -52,6 +53,7 @@ const googleLogout = async () => {
     });
 };
 
+
 /**
  * Function para crear un nuevo usuario.
  * Debe ser instanciada desde el archivo components/Register.js
@@ -61,18 +63,18 @@ const googleLogout = async () => {
  * @param  {string} password del nuevo usuario
  * @return  por el momento no retorna datos porque no está siendo utilizada aún.
 */
-const signInNewAccount = async (email, password) => {
+const signInNewAccount = async (email, password, onFinishRegister) => {
   // función registrarse
-  createUserWithEmailAndPassword(auth, email, password)
+  await createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      // Signed in
+    // Signed in
       const user = userCredential.user;
-      // ...
+      onFinishRegister(true);
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      // ..
+      onFinishRegister(false);
     });
 };
 

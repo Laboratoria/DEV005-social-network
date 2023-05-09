@@ -3,7 +3,6 @@
 import home from './components/home.js';
 import login from './components/login.js';
 import error from './components/error.js';
-import Profile from './components/profile.js';
 
 import register from './components/register.js';
 import welcome from './components/welcome.js';
@@ -13,7 +12,6 @@ const routes = [
   { path: '/', componentes: home },
   { path: '/login', componentes: login },
   { path: '/error', componentes: error },
-  { path: '/profile', componentes: Profile },
   { path: '/register', componentes: register },
   { path: '/welcome', componentes: welcome },
 ];

@@ -5,13 +5,12 @@ export const registerTemplate = `
                 <h2>register</h2>
             </header>
             <main class="box-form-register">
-                <form class="form-register">
-                    <label for="email">Mail</label>
+                    <!--<label for="email" id="label-email">Mail</label>-->
                     <input type='text' id="email" class='email' placeholder='email'>
-                    <label for="password-reconfirmacion">Password</label>
+                    <!-- <label for="password-reconfirmacion" id="label-password">Password</label>-->
+                    <input type='text' id="password" class='password' placeholder='password'>
                     <input type='text' id="password-reconfirmacion" class='password' placeholder='password'>
                     <button class='login-btn' id="loginBtn">register</button>
-                </form>
             </main>
         </div>
     </section>

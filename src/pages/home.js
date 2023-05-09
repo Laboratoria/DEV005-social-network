@@ -11,19 +11,15 @@ const home = () => {
         <button button type="submit" id="signOffBtn">Cerrar Sesión</button>
     </div>
     <figure>
-    <img src="./img/logo.svg" alt="logo SportX" />
+        <img src="./img/logo.svg" alt="logo SportX" />
     </figure>
     <div>
         <input type="text" placeholder="¿En qué estás pensando ahora?" id="commentField" class="commentField" />
-        <button id="publishBtn" class="publishBtn" >Publicar</button>
+        <button id="publishBtn" class="publishBtn">Publicar</button>
     </div>
-    <article class="fieldPublications">
-    <section id="publications" class="publications"></section>
-    <img src="./img/iconDelet" />
-    <button class="editPost" id="editPost">
-    <img class="editImg" src="" alt="editar" />
-    </button>
-    </article>
+    <div class="fieldPublications">
+        <section id="publications" class="publications"></section>
+    </div>
     `;
     // Inserta el contenido HTML de "viewHome" dentro del elemento <section> creado antes
     container.innerHTML = viewHome;
@@ -31,6 +27,5 @@ const home = () => {
     // Retorna el elemento <section> con el mensaje de no disponible
     return container;
 };
-
 // Exporta la función "home" para que pueda ser utilizada en otros módulos
 export { home };

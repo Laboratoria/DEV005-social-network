@@ -4,7 +4,7 @@ import {
     getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile, GoogleAuthProvider, signInWithPopup, signOut,
 } from "firebase/auth";
 import {
-    getFirestore, collection, addDoc, getDocs, onSnapshot,
+    getFirestore, collection, addDoc, getDocs, onSnapshot, updateDoc, doc, deleteDoc,
 } from "firebase/firestore";
 
 // Configurando los datos necesarios de nuestro proyecto de Firebase.
@@ -126,7 +126,18 @@ const paintPostsRealTime = (postsCallback) => {
     });
 };
 const logOut = () => signOut(auth);
+const deletePost = (id) => new Promise((resolve, reject) => {
+    deleteDoc(doc(getFirestore(), "posts", id))
+        .then(() => resolve())
+        .catch((error) => reject(error));
+});
+
+const editPost = (id, newFields) => new Promise((resolve, reject) => {
+    updateDoc(doc(getFirestore(), "posts", id), newFields)
+        .then(() => resolve())
+        .catch((error) => reject(error));
+});
 
 export {
-    auth, app, db, provider, signIn, registerUser, googleSign, postsCollection, postDocuments, addPost, paintPostsRealTime, logOut,
+    auth, app, db, provider, signIn, registerUser, googleSign, postsCollection, postDocuments, addPost, paintPostsRealTime, logOut, deletePost, editPost,
 };

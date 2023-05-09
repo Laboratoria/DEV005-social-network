@@ -56,17 +56,16 @@ describe('Testeando muro.js', () => {
     formPost.click();
     expect(formPost).not.toBe(undefined);
   });
-  /* it('hay un botón delete', () => {
-    const DOM = document.createElement('div');
-    DOM.append(muro());
-    document.body.innerHTML = DOM;
-    // test.each(btnDelete);
-    window.dispatchEvent(new Event('DOMContentLoaded'));
-    const btnDelete = document.querySelector('.btn-delete');
-    // btnDelete.click();
-    // expect(btnDelete).not.toBe(undefined);
-    console.log('-> ', btnDelete.textContent);
-  }); */
+  // it('hay un botón delete', () => {
+  //   const DOM = document.createElement('div');
+  //   DOM.append(muro());
+  //   document.body.innerHTML = DOM;
+  //   // test.each(btnDelete);
+  //   window.dispatchEvent(new Event('DOMContentLoaded'));
+  //   const btnDelete = document.querySelector('.btn-delete');
+  //   expect(btnDelete).not.toBe(undefined);
+  //   console.log('-> ', btnDelete.textContent);
+  // });
   it('hay un botón edit', () => {
     const DOM = document.createElement('div');
     DOM.append(muro());

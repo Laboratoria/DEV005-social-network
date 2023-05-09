@@ -38,6 +38,7 @@ describe('login es una funcion', () => {
     botonMensaje.click();
     expect(navigateTo).toHaveBeenCalledWith('/');
   });
+
   it('al dar click al boton ingresar, nos lleva a la ruta "/muro"', (done) => {
     jest.spyOn(firebaseAuth, 'signInWithEmailAndPassword').mockResolvedValue({ user: 'prueba@prueba.com' });
     const DOM = document.createElement('div');
@@ -81,8 +82,7 @@ describe('loginWithGoogle es una funcion ', () => {
   it('Probar login usando google', () => {
     jest.spyOn(loginConfig, 'loginWithGoogle');
     const GoogleAuthProvider = jest.fn;
-    jest.spyOn(firebaseAuth, 'signInWithPopup')
-      . mockResolvedValue({ user: 'prueba@prueba.com', GoogleAuthProvider });
+    jest.spyOn(firebaseAuth, 'signInWithPopup').mockResolvedValue({ user: 'prueba@prueba.com', GoogleAuthProvider });
     const DOM = document.createElement('div');
     const navigateTo = jest.fn();
     DOM.append(home(navigateTo));
@@ -92,6 +92,7 @@ describe('loginWithGoogle es una funcion ', () => {
   });
 });
 describe('loginWithTwitter es una funcion', () => {
+
   it('loginWithTwitter es una funcion', () => {
     const loginWithTwitter = jest.fn();
     expect(typeof loginWithTwitter).toBe('function');
@@ -105,17 +106,15 @@ describe('loginWithTwitter es una funcion', () => {
   it('Probar login usando twitter', () => {
     jest.spyOn(loginConfig, 'loginWithTwitter');
     const TwitterAuthProvider = jest.fn;
-    jest.spyOn(firebaseAuth, 'signInWithPopup')
-      . mockResolvedValue({ user: 'prueba@prueba.com', TwitterAuthProvider });
+    jest.spyOn(firebaseAuth, 'signInWithPopup').mockResolvedValue({ user: 'prueba@prueba.com', TwitterAuthProvider });
     const DOM = document.createElement('div');
     const navigateTo = jest.fn();
     DOM.append(home(navigateTo));
     const buttonTwitter = DOM.querySelector('.buttontwitter');
     buttonTwitter.click();
     expect(loginConfig.loginWithTwitter).toHaveBeenCalledTimes(1);
-  });
-});
 describe('loginWithGithub es una funcion', () => {
+
   it('loginWithGithub es una funcion', () => {
     const loginWithGithub = jest.fn();
     expect(typeof loginWithGithub).toBe('function');
@@ -129,8 +128,7 @@ describe('loginWithGithub es una funcion', () => {
   it('Probar login usando github', () => {
     jest.spyOn(loginConfig, 'loginWithGithub');
     const GithubAuthProvider = jest.fn;
-    jest.spyOn(firebaseAuth, 'signInWithPopup')
-      . mockResolvedValue({ user: 'prueba@prueba.com', GithubAuthProvider });
+    jest.spyOn(firebaseAuth, 'signInWithPopup').mockResolvedValue({ user: 'prueba@prueba.com', GithubAuthProvider });
     const DOM = document.createElement('div');
     const navigateTo = jest.fn();
     DOM.append(home(navigateTo));

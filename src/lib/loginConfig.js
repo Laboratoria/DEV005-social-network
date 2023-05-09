@@ -14,7 +14,7 @@ export const loginConfig = (email, password) => new Promise((resolve, reject) =>
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
-      resolve({ email: user, password: user.password });
+      resolve({ email: user.email, password: user.password });
     })
     .catch((error) => {
       reject(error.code);
@@ -26,20 +26,13 @@ export const loginWithGoogle = () => new Promise((resolve, reject) => {
   const provider = new GoogleAuthProvider();
   signInWithPopup(auth, provider)
     .then((result) => {
-      // This gives you a Google Access Token. You can use it to access the Google API.
-      const credential = GoogleAuthProvider.credentialFromResult(result);
-      console.log(credential);
-      console.log('sign in with google');
-      // The signed-in user info.
+      const credential = GithubAuthProvider.credentialFromResult(result);
       const user = result.user;
-      resolve({ user });
-      // IdP data available using getAdditionalUserInfo(result)
-      // ...
+      resolve(user, credential);
     })
     .catch((error) => {
       const errorCode = error.code;
-      const errorMessage = error.message;
-      reject(errorCode, errorMessage);
+      reject(errorCode);
     });
 });
 
@@ -59,15 +52,15 @@ export const loginWithGithub = () => new Promise((resolve, reject) => {
 });
 // TODO: Función de logeo con Twitter
 
+
 export const loginWithTwitter = () => new Promise((resolve, reject) => {
   const provider = new TwitterAuthProvider();
   signInWithPopup(auth, provider)
     .then((result) => {
       const credential = TwitterAuthProvider.credentialFromResult(result);
-      console.log(credential);
-      console.log('Sign in with twitter');
       const user = result.user;
-      resolve({ user });
+      resolve({ user, credential });
+
     })
     .catch((error) => {
       const codeError = error.code;

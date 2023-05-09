@@ -4,6 +4,7 @@
 // import * as firebaseAuth from 'firebase/app';
 import muro from '../src/components/muro.js';
 
+
 jest.mock('firebase/auth', () => ({
   __esModule: true, //    <----- this __esModule: true is important
   ...jest.requireActual('firebase/auth'),
@@ -12,6 +13,7 @@ describe('Testeando muro.js', () => {
   it('muro -> debería ser una función', () => {
     expect(typeof muro).toBe('function');
   });
+
   it('hay un boton cerrar sesión', (done) => {
     const DOM = document.createElement('div');
     DOM.append(muro());
@@ -20,6 +22,7 @@ describe('Testeando muro.js', () => {
       expect(salirAhora).not.toBe(null);
       done();
     });
+
   });
   it('que exista el div pop-up', () => {
     const DOM = document.createElement('div');
@@ -66,6 +69,7 @@ describe('Testeando muro.js', () => {
   //   expect(btnDelete).not.toBe(undefined);
   //   console.log('-> ', btnDelete.textContent);
   // });
+
   it('hay un botón edit', () => {
     const DOM = document.createElement('div');
     DOM.append(muro());

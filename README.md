@@ -23,7 +23,7 @@
 
 Bienvenidos a Food Match, una red donde los amantes de la cocina podrán compartir sus recetas. En esta página deberán iniciar sesión y si no tienen una cuenta podrán crear una o ingresar con sus cuentas de Google, Twitter o Github. Dentro del sitio web los usuarios podrán compartir sus recetas favoritas con otros usuarios, además de eliminarlas o editarlas y podrán interactuar dando like a las publicaciones.
 
-La idea del proyecto, surge a partir de una encuesta realizada, dando como resultado, que el ___% de las personas encuestadas evalúan que lo más difícil es considerar que cocinar, pensando en ellos, Food Macth genera un espacio donde por medio de las diferentes publicaciones que comparten los usuarios, les muestra una variedad de opciones el cual podrán escoger según su preferencia. 
+La idea del proyecto, surge a partir de una encuesta realizada a una muestra de 10 personas, dando como resultado, que el 90% de las personas encuestadas evalúan que lo más difícil es considerar que cocinar, pensando en ellos, Food Macth genera un espacio donde por medio de las diferentes publicaciones que comparten los usuarios, les muestra una variedad de opciones el cual podrán escoger según su preferencia. 
 
 ## 2. Prototipos
 

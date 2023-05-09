@@ -10,7 +10,7 @@ import {
 import { auth } from './firebaseConfig';
 
 // TODO: Función del logueo previamente registrado
-export const loginConfigUser = (email, password) => new Promise((resolve, reject) => {
+export const loginConfig = (email, password) => new Promise((resolve, reject) => {
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;

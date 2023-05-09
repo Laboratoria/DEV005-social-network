@@ -176,6 +176,7 @@ function muro(navigateTo) {
         // console.log(event.target.dataset);
         if (event.target.dataset.liked === 'false') {
           addLike(event.target.dataset.id);
+          btnLike.style.backgroundColor = '#ff0000';
         } else {
           removeLike(event.target.dataset.id);
         }

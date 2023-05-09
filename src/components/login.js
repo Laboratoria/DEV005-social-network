@@ -1,4 +1,4 @@
-import { loginConfigUser } from '../lib/loginConfig.js';
+import { loginConfig } from '../lib/loginConfig.js';
 
 const login = (navigateTo) => {
   const formularioLogin = document.createElement('div');
@@ -39,7 +39,7 @@ const login = (navigateTo) => {
     const loginContra = formularioLogin.querySelector('.loginContra');
     const correoMensaje = formularioLogin.querySelector('.correo-mensaje');
     const contraMensaje = formularioLogin.querySelector('.contra-mensaje');
-    loginConfigUser(email, password)
+    loginConfig(email, password)
       .then(() => {
         // console.log(email, password);
         navigateTo('/muro');

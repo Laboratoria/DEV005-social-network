@@ -52,7 +52,7 @@ describe('login es una funcion', () => {
     });
   });
   it('cuando se de click verifica que la funcion sea llamada', (done) => {
-    jest.spyOn(loginConfig, 'loginConfigUser').mockImplementation(() => Promise.resolve({ email: 'user@test.com' }));
+    jest.spyOn(loginConfig, 'loginConfig').mockImplementation(() => Promise.resolve({ email: 'user@test.com' }));
     const DOM = document.createElement('div');
     DOM.append(login());
     const email = DOM.querySelector('#loginCorreo');
@@ -62,7 +62,7 @@ describe('login es una funcion', () => {
     const buttonLoginUser = DOM.querySelector('.buttonReturn');
     buttonLoginUser.click();
     setTimeout(() => {
-      expect(loginConfig.loginConfigUser).toHaveBeenCalledTimes(1);
+      expect(loginConfig.loginConfig).toHaveBeenCalledTimes(1);
       done();
     });
   });

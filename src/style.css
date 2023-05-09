@@ -1,0 +1,509 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+   min-height: 100%;
+   font-size: 62.5%;
+}
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+    font-size:medium;
+    background-image: url(img/background2.jpg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerLogo {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin: 0 auto; */
+    max-width: 500px;
+}
+
+.imgLogo {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    width: 80%;
+}
+
+.containerLogoHome {
+    display: flex;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 100%;
+    height: 120px; 
+}
+
+.containerLogoHome h1 {
+    margin: 30px 30px 0 30px;
+    font-size: 20px;
+    width: 120px ;
+}
+
+.logOut {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 13px;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+    padding: auto;
+    height: 30px;
+    margin-right: 5px;
+    background-color: transparent;
+    border:none
+}
+
+main {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    max-height: 390px;
+    max-width: 500px;
+}
+
+.containerForm {
+    position: absolute;
+    top: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 85%;
+    height: auto;
+    padding: 20px;
+    gap: 50px;
+    margin-top: 20px;
+    background-color: #e5e1f9;
+    opacity: .8;
+}
+
+.txtMascotiemos{
+    display: flex;
+    padding: 5px;
+    justify-content: center;
+    width: 260px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 5px;
+    resize: none;
+}
+
+.post-form{
+    display: flex;
+}
+
+.btnPost{
+    border: none;
+    background-color: transparent;
+}
+
+.btnPostImg {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+}
+
+.containerMain {
+    width: 300px;
+    flex-wrap: wrap;
+    margin-left: 60px;
+}
+
+.containerPost {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    gap: 10px;
+    font-size: 13px;
+}
+
+.textPost{
+    width: 200px;
+    background-color: white;
+    border: 0.1px solid black;
+    border-radius: 5px;
+    padding: 8px;
+}
+
+.containerButtons{
+    width: 35%;
+    display: flex; 
+    justify-content:flex-end;
+    margin-left: 90px;
+    gap: 10%;
+}
+
+.btnDelete:hover, .btnConfirm:hover, .logOut:hover{
+    color: red;
+}
+
+/*Modal*/
+.containerModal{
+    background-color:#000072;
+    color: white;
+    position: absolute;
+    bottom: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 8px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    font-size: 13px;
+    text-align: center;
+}
+
+.modal{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+}
+
+.modal--show {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    transition: opacity .3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#e5e1f9;
+}
+
+.containerBtnsModal{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.containerBtnsModal button{
+    padding: 0 10px;
+    border-radius: 5px;
+    border: 1px solid #B6B6B6;
+}
+
+/*Ingreso y registro*/
+.containerLogin, .containerLoginRegister {
+    border-radius: 20px;
+    margin: o auto;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90%;
+    width: 90%;
+    padding-bottom: 15px;
+}
+
+/*Reposo*/
+.containerInput {
+    margin-bottom: 10px;
+    padding-top: 5px;
+    width: 300px;
+    max-width: 100%;
+   }
+
+span, input {
+    font-size: 1.7rem;
+    padding: 0;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+label {
+    margin-top: 15px;
+    width: 100%;
+    background-color: white;
+    display: block;
+    border: 2px solid silver;
+    padding: 8px 10px;
+    position: relative;
+    box-sizing: border-box;
+    border-radius: 6px;
+    transition: .25s;
+}
+
+label input {  
+    display: block;
+    width: 100%;
+    border: none;
+    background: white;
+    outline: none;
+}
+
+label span {
+    color: silver;
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    transition: .25s;
+}
+
+/* focus */
+label.focus {
+    border-color: black;
+}
+
+label span.focus {
+    color: black;
+}
+
+/* Top */
+label span.top {
+    left: 2px;
+    top: -10px;
+    font-size: 1.4rem;
+    background:white;
+    border-color: black;
+    border-radius: 5px 5px 0 0;
+    padding: 0 5px;
+}
+
+.registerTitle {
+    display: flex;
+    justify-content: center;
+    font-size:3rem;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.btnLogin, .btnGoogle, .btnCreateAccount {
+    margin-top: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    border-style: none;
+    background-color: #000072;
+    color: white;
+    width: 200px;
+    height: 30px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    font-family: 'Ubuntu', sans-serif;
+    padding: 4px;
+    cursor: pointer;
+}
+
+.btnGoogle {
+    margin-bottom: 25px;
+    background-color: #e5e1f9;
+    color: black;
+}
+
+.btnCreateAccount {
+    font-weight: bold;
+    margin-bottom: 10px;
+    background-color: #000072;
+    color: white;
+    border-style: none;
+}
+
+.btnLogin:hover, .btnGoogle:hover, .btnCreateAccount:hover{
+    background-color:grey;
+}
+
+.logoGoogle{
+    width: 20px;
+    margin-right: 160px;
+    position: absolute;
+}
+
+.linkRegister {
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+    color: black;
+}
+
+.linkRegister:hover{
+    color: grey;
+}
+
+/* Mensaje Bienvenida*/
+
+.welcomeMessage {
+    display:none
+} 
+
+.errorEmail, .errorPassword {
+    color: red;
+}
+
+.footer{
+    display: none;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 3px 0;
+    color: #000;
+    background-color:#e5e1f9;
+    border-top: 1px solid #8181815f;
+}
+
+.content-footer{
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+}
+
+.mayra, .andre, .sandra{
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+}
+
+.logoGitHub{
+    width: 25px;
+}
+
+.link-github{
+    text-decoration: none;
+    color: black;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.spanFooter{
+    padding: 5px;
+    border-bottom: 1px solid transparent;
+}
+
+.spanFooter:hover{
+    border-bottom: 1px solid #8181815f;
+}
+
+@media (max-height:780px) {
+
+    .containerLogo{
+        margin-top: -60px;
+    }
+
+    .containerLogin{
+        height: 250px;
+        width: 350px;
+    }
+    
+    .containerLoginRegister{
+        height: 360px;
+        width: 400px;
+    }
+
+    label{
+        height: 40px;
+    }
+}
+
+@media (min-width:1000px) {
+    
+    body{
+        background-image: url(img/background.jpg);
+        background-size: cover;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .container{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .containerLogo{
+        margin-right: 100px;
+    }
+
+    .imgLogo{
+        width: 480px;
+    }
+
+    .containerLogin{
+        width: 400px;
+        height: 300px;
+    }
+
+    .containerLoginRegister{
+        width: 400px;
+        height: 400px;  
+    }
+
+    .txtMascotiemos{
+        font-size: 18px;
+        width: 700px;
+        height: 60px;
+    }
+    
+    .btnPostImg {
+        border: none;
+        width: 50px;
+        height: 50px;
+        margin-left: 10px;
+    }
+
+    .containerForm{
+        border-radius: 10px;
+        display: flex;
+        width: 70%;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .containerPost {
+        width: 700px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        font-size: 18px;
+        margin-right: 70px;
+    }
+
+    .textPost{
+        display: flex;
+        width: 600px;
+        background-color: white;
+        border: 0.1px solid black;
+        border-radius: 5px;
+        padding: 8px;
+    }
+
+    .containerButtons{
+        width: 500px;
+        gap: 10px;
+    }
+
+    .containerButtons button{
+        display: flex; 
+        align-self:flex-end;
+    }
+
+    .footer{
+        display: block;
+    }
+    
+}
+
+@media (min-width:1900px){
+    
+    .imgLogo{
+        width: 500px;
+    }
+}

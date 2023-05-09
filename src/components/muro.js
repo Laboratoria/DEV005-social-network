@@ -1,6 +1,8 @@
 import {
-  submitForm, deleteTask, onGetTasks, getTask,
+  submitForm, deleteTask, onGetTasks, getTask, updateTask, getCurrentUserId,
 } from '../lib/posts';
+
+import home from './home';
 
 function muro(navigateTo) {
   const section = document.createElement('section');
@@ -147,16 +149,16 @@ function muro(navigateTo) {
   taskList.id = 'task-list';
 
   document.body.append(form, taskList);
-  
+
 
   onGetTasks((querySnapshot) => {
     taskList.innerHTML = '';
     querySnapshot.forEach((doc) => {
       const task = doc.data();
       task.id = doc.id;
-      const taskDate = task.date
       //para obtener la fecha y hora del servidor de firebase en formato legible
-      const dateObj = taskDate.toDate();
+      if (task && task.date){
+      const dateObj = task.date.toDate();
       const day = dateObj.getDate().toString().padStart(2, '0');
       const month = (dateObj.getMonth() + 1).toString().padStart(2, '0');
       const year = dateObj.getFullYear();
@@ -167,6 +169,9 @@ function muro(navigateTo) {
       const taskDescription = task.taskDescription;
       const taskGender = task.taskGender;
       const taskAge = task.taskAge;
+      const userId = getCurrentUserId();
+      const isLiked = task.likes.find((id) => id === userId);
+      const likeClass = isLiked ? 'fa-solid' : 'fa-regular';
       taskList.innerHTML += `<div class='container-post'>
                             <div class= 'title-post'>
                               <h2 class='title-post-wall'>${taskTitle}</h2>
@@ -185,13 +190,35 @@ function muro(navigateTo) {
                             </div>
                             <div class='line'></div>
                             <div class='buttons-post'>
-                              <button class='like-button'><i class="fa-regular fa-heart"></i></button>
+                              <button class='like-button' data-id="${task.id}"><i class="${likeClass} fa-heart"></i></button>
+                              <span class='like-count'>${task.likes.length}</span>
                               <button class="edit-button" data-id="${task.id}"><i class="fa-regular fa-pen-to-square"></i></button>
                               <button class="delete-button" data-id="${task.id}"><i class="fa-solid fa-trash"></i></button>
                             </div>
                             </div>`;
 
                             //codigo para que el corazon se pinte al poner me gusta: <i class="fa-solid fa-heart" style="color: #e80005;"></i>
+      };
+
+      const btnLike = document.querySelectorAll('.like-button');
+      btnLike.forEach((btn) => {
+        btn.addEventListener('click', async (e) => {
+          const taskId = btn.dataset.id;
+          const userId = getCurrentUserId();
+          const isLiked = task.likes.find((id) => id === userId);
+
+          if (isLiked) {
+            const index = task.likes.indexOf(userId);
+            task.likes.splice(index, 1);
+            await updateTask(taskId, task);
+          } else {
+            task.likes.push(
+              userId,
+            );
+            await updateTask(taskId, task);
+          }
+        });
+      });
 
       const btnsDelete = document.querySelectorAll('.delete-button');
       btnsDelete.forEach((btnDelete) => {

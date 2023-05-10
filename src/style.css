@@ -51,7 +51,7 @@ textarea {
     font-family: var(--font-logo);
     font-size: 6.2em;
     font-weight: 400;
-    color: #4a4747;
+    color: #4A4747;
     text-align: center;
   }
   #info-text {
@@ -67,7 +67,7 @@ textarea {
     font-family: var(--font-text);
     justify-content: space-evenly;
     align-items: center;
-    background-color: #8c7851;
+    background-color: #8C7851;
     border: none;
     border-radius: 18px;
     box-shadow: 4px 4px 4px #6e6e6e42;
@@ -76,7 +76,7 @@ textarea {
       height: 10%;
       width: 80%;
       border-radius: 8px;
-      border: solid 1px #ffc1c1;
+      border: solid 1px #FFC1C1;
       font-family: var(--font-text);
       font-size: 1.5rem;
       font-weight: 400;
@@ -91,8 +91,8 @@ textarea {
       font-family: var(--font-text);
       font-size: 1.8rem;
       font-weight: 500;
-      color: #ffffff;
-      background-color: #d35c46;
+      color: #FFFFFF;
+      background-color: #D35C46;
       border: 1px solid white;
       border-radius: 8px;
       cursor: pointer;
@@ -100,7 +100,6 @@ textarea {
       #login {
         font-size: 1.6rem;
       }
-
     .provider {
       display: flex;
       flex-direction: row-reverse;
@@ -109,8 +108,8 @@ textarea {
       font-weight: 400;
       line-height: 1.1em;
       align-items: center;
-      border: solid 1px #ffc1c1;
-      background-color: #ffffff;
+      border: solid 1px #FFC1C1;
+      background-color: #FFFFFF;
       color: #000000;
     }
       .provider img {
@@ -118,15 +117,13 @@ textarea {
         width: 15%;
         margin: 0 0.5rem;
       }
-
     #error-login {
       margin: 0 20px 5px;
       font-size: 1.3em;
       font-weight: 100;
       text-align: center;
-      color: #fbff16;
+      color: #FBFF16;
     }
-
   #to-regist {
     display: grid;
     grid-template-rows: auto 100%;
@@ -158,23 +155,20 @@ textarea {
     font-weight: 700;
     justify-content: center;
     align-items: center;
-    color: #4a4747;
+    color: #4A4747;
     position: fixed;
   }
-
   /*------ REGISTER ACCOUNT ------*/
-
   .signup-container input {
     height: 3.1rem;
     width: 18.5rem;
     border-radius: 8px;
-    border: solid 1px #ffc1c1;
+    border: solid 1px #FFC1C1;
     font-family: var(--font-text);
     font-size: 1.3rem;
     font-weight: 400;
     text-align: center;
   }
-
   .register-background{
     display: flex;
     flex-direction: column;
@@ -186,7 +180,6 @@ textarea {
     background-size: auto 73%;
     background-position: center 117%;
   }
-
   #title {
     font-family: 'Satisfy', cursive;
     font-size: 50px;
@@ -194,7 +187,6 @@ textarea {
     font-weight: lighter;
     margin-top: 2.8rem;
   }
-
   #register-title {
     font-family: 'Sora', sans-serif;
     font-size: 15px;
@@ -202,19 +194,17 @@ textarea {
     color: #000000;
     margin-top: 1.8rem;
   }
-
   #send-info {
     height: 10%;
     width: 80%;
     font-family: var(--font-text);
     font-size: 1.5rem;
     font-weight: 500;
-    color: #ffffff;
-    background-color: #d35c46;
+    color: #FFFFFF;
+    background-color: #D35C46;
     border: 1px solid white;
     border-radius: 5px;
   }
-
   #google-reg {
     height: 12%;
     width: 80%;
@@ -222,7 +212,7 @@ textarea {
     font-size: 1.1rem;
     font-weight: 550;
     color: #000000;
-    background-color: #ffffff;
+    background-color: #FFFFFF;
     border: 1px solid #FFC1C1;
     border-radius: 5px;
     background-repeat: no-repeat;
@@ -233,7 +223,6 @@ textarea {
     flex-direction: row-reverse;
     padding: 1.5rem;
   }
-
   #github-reg{
     height: 12%;
     width: 80%;
@@ -241,7 +230,7 @@ textarea {
     font-size: 1.1rem;
     font-weight: 550;
     color: #000000;
-    background-color: #ffffff;
+    background-color: #FFFFFF;
     border: 1px solid #FFC1C1;
     border-radius: 5px;
     background-repeat: no-repeat;
@@ -252,7 +241,6 @@ textarea {
     flex-direction: row-reverse;
     padding: 1.5rem;
   }
-
   #container {
     display: flex;
     flex-direction: column;
@@ -263,25 +251,23 @@ textarea {
     font-family: var(--font-text);
     justify-content: space-evenly;
     align-items: center;
-    background-color: #8c7851;
+    background-color: #8C7851;
     border: none;
     border-radius: 10px;
     box-shadow: 4px 4px 4px #6e6e6e42;
     padding-top: 1rem;
   }
-
   #return {
     height: 3.5rem;
     width: 15rem;
     font-family: var(--font-text);
     font-size: 1.5rem;
     font-weight: 500;
-    color: #ffffff;
-    background-color: #d35c46;
+    color: #FFFFFF;
+    background-color: #D35C46;
     border: 1px solid white;
     border-radius: 5px;
   }
-
   /*------ WALL ------*/
   #wall-section {
     display: flex;
@@ -448,159 +434,6 @@ textarea {
           height: auto;
           width: 60%;
         }
-  /* #wall-section {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-  }
-  #nav-bar {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    padding: 0.25rem;
-  }
-    #name-App {
-      font-family: var(--font-logo);
-      font-size: 2em;
-      margin: 0 1rem;
-      font-weight: 400;
-      color: #4a4747;
-      text-align: left;
-    }  
-    #log-out{
-      height: 30px;
-      width: 60px;
-      font-family: var(--font-text);
-      font-size: 1rem;
-      font-weight: 500;
-      line-height: 1.2rem;
-      color: #ffffff;
-      background-color: #d35c46;
-      border: 1px solid white;
-      border-radius: 6px;
-    }
-
-  #write-container {
-    margin: 10px 0px;
-    width: 220px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  #text-posts {
-    height: 100px;
-    width: 200px;
-    background-color: #eedbd7;
-    resize: none;
-  }
-
-  #btns-cont {
-    display: flex;
-    width: 200px;
-    margin: auto;
-  }
-
-    #posts-container {
-      height: auto;
-      width: 100px;
-      font-size: 1.5rem;
-    }  
-      .posted {
-        font-size: 1.5rem;
-        display: flex;
-        justify-content: right;
-        margin-right: 10px;
-        color: black;        
-        background-color: #d4a59c;
-        border-radius: 13px 13px 0px 0px;
-        border-color: #000000;
-        border-style: solid;
-        border-width: 1px;
-      }
-
-    #send-post {
-      height: 2em;
-      width: 3em;
-      top: 5.2em;
-      right: 1.5em;
-    }
-      #send-post:disabled {
-        color: #7e7979;
-        background-color: #f1c7bf;
-        cursor: auto;
-      }
-    #btns-cont {
-      border-radius: 0 0 3em 3em;
-    }
-    #btn-delete {
-      height: 30px;
-      width: 100px;
-      font-family: var(--font-text);
-      font-size: 1rem;
-      font-weight: bold;
-      color: #000000;
-      background-color: #ffffff;
-      border: 1px solid #000000;
-      border-radius: 0px 0px 13px 0px;
-    }
-
-    #btn-like {
-      height: 30px;
-      width: 100px;
-      font-family: var(--font-text);
-      font-size: 1rem;
-      font-weight: bold;
-      color: #000000;
-      background-color: #ffffff;
-      border: 1px solid #000000;
-      border-radius: 0px 0px 0px 13px;
-    }
-
-    #btn-edit {
-      height: 30px;
-      width: 60px;
-      font-family: var(--font-text);
-      font-size: 1rem;
-      font-weight: 500;
-      color: #ffffff;
-      background-color: transparent;
-      border: 1px solid white;
-      border-radius: 5px;
-    }
-    #btn-like {
-      height: 30px;
-      width: 100px;
-      font-family: var(--font-text);
-      font-size: 1rem;
-      font-weight: bold;
-      color: #000000;
-      background-color: #FFFFFF;
-      border: 1px solid #000000;
-      border-radius: 0px 0px 0px 13px;
-    }
-    #btn-edit {
-      height: 30px;
-      width: 60px;
-      font-family: var(--font-text);
-      font-size: 1rem;
-      font-weight: 500;
-      color: #FFFFFF;
-      background-color: transparent;
-      border: 1px solid white;
-      border-radius: 5px;
-    }
-
-  .error-section {
-    background-size: 60%;
-  }
-
-  .return-home {
-    height: 30%;
-    width: 40%;
-  }
 }
 
 /* TABLET */
@@ -1279,7 +1112,7 @@ textarea {
         padding: 0.6em 6em 0.7em 0.6em;
         font-family: var(--font-text);
         font-size: 1.5rem;
-        border: solid 1px#d35b46;
+        border: solid 1px #d35b46;
         border-radius: 1.5rem;
       }
         #btn-delete {
@@ -1290,5 +1123,34 @@ textarea {
           margin-left: 32rem;
           position: absolute;
         }
-}
+
+    .modal {
+      display: none; 
+      position: fixed; 
+      z-index: 1; 
+      left: 0;
+      top: 0;
+      width: 100%; 
+      height: 100%; 
+      overflow: auto; 
+      background-color: rgb(0,0,0); 
+      background-color: rgba(0,0,0,0.4); 
+    }
+
+    .modal-content {
+      background-color: #fefefe;
+      margin: 15% auto; 
+      padding: 20px;
+      border: 1px solid #888;
+      width: 50%; 
+      font-family: var(--font-text);
+      font-size: medium;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content p {
+      margin-bottom: 8px;
+    }
 }

@@ -46,6 +46,34 @@ function wall() {
     }
   });
 
+  // Creación de modal y todos sus elementos
+  const modal = document.createElement('div');
+  modal.id = 'deletion-modal';
+  modal.className = 'modal';
+
+  const modalContent = document.createElement('div');
+  modalContent.className = 'modal-content';
+
+  const modalText = document.createElement('p');
+  modalText.textContent = 'Esta publicación será eliminada';
+
+  const btnConfirmDelete = document.createElement('button');
+  btnConfirmDelete.id = 'confirm-delete';
+  btnConfirmDelete.textContent = 'Confirmar';
+
+  const btnCancelDelete = document.createElement('button');
+  btnCancelDelete.id = 'cancel-delete';
+  btnCancelDelete.textContent = 'Cancelar';
+
+  // Append elements to the modal
+  modalContent.append(modalText, btnConfirmDelete, btnCancelDelete);
+  modal.append(modalContent);
+
+  // Cerrar el modal si se da click en cancelar
+  btnCancelDelete.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+
   btnSendPost.addEventListener('click', () => {
     const postText = post.value;
     addPostToFirestore(postText);
@@ -102,10 +130,17 @@ function wall() {
       const btnDelete = document.createElement('button');
       btnDelete.id = 'btn-delete';
       btnDelete.textContent = 'Borrar';
+      // Manejo modal eliminar
       btnDelete.addEventListener('click', () => {
+        modal.style.display = 'block';
+      });
+
+      // Confirmar eliminación
+      btnConfirmDelete.onclick = () => {
         deletePostFromFirestore(doc.id);
         newPostCont.remove();
-      });
+        modal.style.display = 'none';
+      };
 
       // Creación botón Editar
       const bntEdit = document.createElement('button');
@@ -144,6 +179,7 @@ function wall() {
     navBar,
     writeContainer,
     postsContainer,
+    modal,
   );
   return wallSection;
 }

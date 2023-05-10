@@ -20,7 +20,7 @@ const firebaseConfig = {
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
+
 // Initialize Cloud Firestore and get a reference to the service
 export const db = getFirestore(app);
-
 export const deletePost = (id) => deleteDoc(doc(db, 'posts', id));

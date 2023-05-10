@@ -1,8 +1,9 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
-import { signOut } from 'firebase/auth';
+import { signOut, updateCurrentUser } from 'firebase/auth';
 // import { doc } from '@firebase/firestore';
+import { arrayUnion } from 'firebase/firestore';
 import { auth, db } from '../lib/firebase';
 import {
   addPostToFirestore, deletePostFromFirestore, likePost, q, onSnapshot, addPostFromFirestore,
@@ -92,11 +93,6 @@ function wall() {
     //   }
     // });
 
-    // // Función botón dar Like
-    // btnLike.addEventListener('click', () => {
-    //   addPostFromFirestore();
-    // });
-
     // Función botón borrar post
     // btnDelete.addEventListener('click', () => {
     //   const docRef = doc(db, 'posts', post.id);
@@ -155,6 +151,19 @@ function wall() {
       const btnLike = document.createElement('button');
       btnLike.id = 'btn-like';
       btnLike.textContent = 'Me gusta';
+      btnLike.addEventListener('click', () => {
+        likePost();
+      });
+
+      // Creación botón Dislike
+      const btnDislike = document.createElement('button');
+      btnDislike.id = 'btn-dislike';
+      btnDislike.textContent = 'No me gusta';
+      btnDislike.addEventListener('click', () => {
+        const userIn = auth.currentUser;
+        likePost(doc.id);
+        console.log(likePost);
+      });
 
       btnsContainer.append(btnLike);
       newPost.append(bntEdit, btnDelete);

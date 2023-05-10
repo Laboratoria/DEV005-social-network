@@ -38,8 +38,6 @@ onAuthStateChanged(auth, (currentUser) => {
   console.log(currentUser);
   if (currentUser) {
     navigateTo('/wall');
-    // const user = auth.currentUser;
-    // if (user != )
   } else {
     navigateTo('/');
   }

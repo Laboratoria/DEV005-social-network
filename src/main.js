@@ -5,6 +5,7 @@ import home from './components/home.js';
 import register from './components/register.js';
 import error from './components/error.js';
 import wall from './components/wall.js';
+
 const routes = [
   { path: '/', component: home },
   { path: '/register', component: register },

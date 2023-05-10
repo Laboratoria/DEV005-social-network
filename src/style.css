@@ -637,138 +637,128 @@ textarea {
     color: #fbff16;
     text-align: center;
   }
+
   /*------ WALL ------*/
   #wall-section {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  align-items: center;
+}
+#nav-bar {
+  display: flex;
+  flex-direction: row;
+  height: 8em;
+  align-items: center;
+}
+  #name-App {
+    width: auto;
+    position: absolute;
+    left: 3rem;
+    font-family: var(--font-logo);
+    font-size: 4.5em;
+    font-weight: 400;
+    color: #4a4747;
+    text-align: left;
+  }
+  #log-out {
+    height: 6rem;
+    width: 9rem;
+    position: absolute;
+    right: 3rem;
+    padding: .5rem;
+    font-size: 1.7rem;
+    line-height: 2rem;
+  }
+
+#write-container{
+  display: flex;
+  flex-direction: row;
+  height: 16em;
+  width: 48em;
+  margin: 0 14.4em;
+  justify-content: center;
+  align-items: center;
+}
+  #text-posts {
+    height: 6.5em;
+    width: 22em;
+    margin: 2em 1em;
+    padding: 0.6em 7.6em 0.6em 0.6em;
+    font-family: var(--font-text);
+    font-size: 2rem;
+    resize: none;
+    border: solid 1px #c5c5c5;
+    border-radius: 1.4rem;
+    background-color: #ffffff;
+    position: absolute;
+  }
+    #send-post {
+      width: 8.4rem;
+      height: 5rem;
+      margin: 5rem 0 0 32rem;
+      position: absolute;
+      font-size: 1.65rem;
+    }
+      #send-post:disabled {
+        color: #7e7979;
+        background-color: #f1c7bf;
+        cursor: auto;
+      }
+    
+  #posts-container {
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    width: 100vw;
+    height: auto;
+    width: 100%;
     align-items: center;
+    margin-top: 3em;
   }
-  #nav-bar {
+  .cont-posted {
+    height: auto;
+    width: auto;
+    margin: 0 0 3.5em;
+  }
+  .posted {
     display: flex;
-    flex-direction: row;
-    height: 8em;
-    align-items: center;
+    flex-direction: column;
+    min-height: 5em;
+    width: 44rem;
+    padding: 0.6em 7em 0.7em 0.6em;
+    font-family: var(--font-text);
+    font-size: 1.8rem;
+    background-color: white;
+    border: solid 1px#d35b46;
+    border-radius: 1.5rem 1.5rem 0 0;
   }
-    #name-App {
-      width: auto;
-      position: absolute;
-      left: 3rem;
-      font-family: var(--font-logo);
-      font-size: 4.5em;
-      font-weight: 400;
-      color: #4a4747;
-      text-align: left;
-    }
-    #log-out {
-      height: 6rem;
-      width: 9rem;
-      position: absolute;
-      right: 3rem;
-      padding: .5rem;
+  #btns-cont {
+    display: flex;
+    flex-direction: column;
+  }
+    #btn-edit {
+      height: 3.5rem;
+      width: 8rem;
       font-size: 1.7rem;
-      line-height: 2rem;
+      margin: -1.5rem 33.6rem 0.6rem;
+      padding: 0 1rem;
     }
-
-  #write-container{
-    display: flex;
-    flex-direction: row;
-    height: 16em;
-    width: 48em;
-    margin: 0 14.4em 1.5em;
-    border: solid 0.15em #d35b46;
-    border-radius: 1.8em;
-    justify-content: center;
-    align-items: center;
-  }
-    #text-posts {
-      height: 8em;
-      width: 33em;
-      margin: 2.7em 0 0;
-      padding: 0.6em 7.6em 0.6em 0.6em;
-      font-family: var(--font-text);
-      resize: none;
-      border: solid 1px #c5c5c5;
-      border-radius: 1.4rem;
-      background-color: #ffffff;
-      position: fixed;
+    #btn-delete {
+      height: 3.5rem;
+      width: 8rem;
+      font-size: 1.7rem;
+      margin: 0 33.6rem 0;
+      padding: 0 1rem;
     }
-      #send-post {
-        width: 8.4rem;
-        height: 5rem;
-        margin-top: 3.5rem;
-        margin-left: 33rem;
-        position: absolute;
-        font-size: 1.65rem;
-      }
-        #send-post:disabled {
-          color: #7e7979;
-          background-color: #f1c7bf;
-          cursor: auto;
-        }
-      
-    #posts-container {
-      display: flex;
-      flex-direction: column;
-      height: auto;
-      width: 100%;
-      align-items: center;
-      margin-top: 3em;
-    }
-    #post-btns {
-      height: auto;
-      width: auto;
-      border-radius: 1.5rem;
-    }
-    .cont-posted{
-      margin-bottom: 25px;
-    }
-      .posted {
-        display: flex;
-        flex-direction: column;
-        min-height: 5em;
-        width: 44rem;
-        padding: 0.6em 7em 0.7em 0.6em;
-        font-family: var(--font-text);
-        font-size: 1.5rem;
-        background-color: white;
-        border: solid 1px#d35b46;
-        border-radius: 1.5rem 1.5rem 0 0;
-      }
-        #btn-edit {
-          height: 3.5rem;
-          width: 8rem;
-          font-size: 1.7rem;
-          margin-left: 33.6rem;
-          margin-bottom: .5rem;
-          padding: 0 1rem;
-          }
-        #btn-delete {
-          height: 3.5rem;
-          width: 8rem;
-          font-size: 1.7rem;
-          margin-left: 33.6rem;
-          margin-bottom: .5rem;
-          padding: 0 1rem;
-        }
-      #btns-cont {
-        display: flex;
-        flex-direction: row;
-        height: 5rem;
-        width: 44rem;
-        align-items: stretch;
-        /* border: solid #000000 1px; */
-        border-radius: 0 0 1.5rem 1.5rem;
-      }
-      #btn-like { 
-        height: auto;
-        width: 100%;        
-        overflow: hidden;
-        font-size: 1.7rem;
-        border: none;
-        border-radius: 0 0 1.5rem 1.5rem;
-      }
+    
+#btn-like { 
+  height: 4rem;
+  width: 100%;        
+  overflow: hidden;
+  font-size: 1.7rem;
+  border: none;
+  border-radius: 0 0 1.5rem 1.5rem;
+}
       .modal {
         display: none; 
         position: fixed; 

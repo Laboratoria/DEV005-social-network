@@ -2,6 +2,10 @@
 /* eslint-disable no-shadow */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-unused-vars */
+/* eslint-disable max-len */
+/* eslint-disable no-shadow */
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
 import {
   collection, addDoc, doc, deleteDoc, updateDoc, arrayUnion, arrayRemove, getDocs, query, onSnapshot, serverTimestamp, orderBy,
@@ -11,6 +15,7 @@ import { async } from 'regenerator-runtime';
 import {
   auth, db, app, deletePost,
 } from './firebase.js';
+
 // Add a new document with a generated id.
 export const addPostToFirestore = async (text, user) => {
   const userIn = auth.currentUser;

@@ -225,7 +225,6 @@ textarea {
     background-color: #ffffff;
     border: 1px solid #FFC1C1;
     border-radius: 5px;
-    background-image: url('./images/icon-google.png');
     background-repeat: no-repeat;
     background-size: contain;
     display: flex;
@@ -245,7 +244,6 @@ textarea {
     background-color: #ffffff;
     border: 1px solid #FFC1C1;
     border-radius: 5px;
-    background-image: url('./images/icon-github.png');
     background-repeat: no-repeat;
     background-size: contain;
     display: flex;
@@ -287,36 +285,37 @@ textarea {
   /*------ WALL ------*/
   #wall-section {
     display: flex;
-    justify-content: center;
+    height: 100vh;
+    width: 100vw;
     flex-direction: column;
-    margin-left: 50px;
   }
-
-  #name-App {
-    font-family: var(--font-logo);
-    font-size: 2em;
-    font-weight: 400;
-    color: #4a4747;
-    text-align: left;
-  }
-
   #nav-bar {
     display: flex;
-    justify-content: space-around;
-
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 0.25rem;
   }
-
-  #log-out{
-    height: 30px;
-    width: 60px;
-    font-family: var(--font-text);
-    font-size: 1rem;
-    font-weight: 500;
-    color: #ffffff;
-    background-color: #d35c46;
-    border: 1px solid white;
-    border-radius: 5px;
-  }
+    #name-App {
+      font-family: var(--font-logo);
+      font-size: 2em;
+      margin: 0 1rem;
+      font-weight: 400;
+      color: #4a4747;
+      text-align: left;
+    }  
+    #log-out{
+      height: 30px;
+      width: 60px;
+      font-family: var(--font-text);
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 1.2rem;
+      color: #ffffff;
+      background-color: #d35c46;
+      border: 1px solid white;
+      border-radius: 6px;
+    }
 
   #write-container {
     display: flex;
@@ -333,36 +332,37 @@ textarea {
   }
 
     #posts-container {
-      height: 100px;
-      width: 200px;
+      height: auto;
+      width: 100px;
       font-size: 1.5rem;
-      background-color: #d4a59c;
-      border-radius: 13px 13px 0px 0px;
-      border-color: #000000;
-      border-style: solid;
-      border-width: 1px;
     }  
       .posted {
         font-size: 1.5rem;
         display: flex;
         justify-content: right;
         margin-right: 10px;
-        color: black;
+        color: black;        
+        background-color: #d4a59c;
+        border-radius: 13px 13px 0px 0px;
+        border-color: #000000;
+        border-style: solid;
+        border-width: 1px;
       }
 
-    #btn-posts {
+    #send-post {
       height: 2em;
       width: 3em;
-      position: absolute;
       top: 5.2em;
       right: 1.5em;
     }
-      #btn-posts:disabled {
+      #send-post:disabled {
         color: #7e7979;
         background-color: #f1c7bf;
         cursor: auto;
       }
-
+    #btns-cont {
+      border-radius: 0 0 3em 3em;
+    }
     #btn-delete {
       height: 30px;
       width: 60px;
@@ -371,6 +371,28 @@ textarea {
       font-weight: 500;
       color: #ffffff;
       background-color: #d35c46;
+      border: 1px solid white;
+      border-radius: 5px;
+    }
+    #btn-like {
+      height: 30px;
+      width: 100px;
+      font-family: var(--font-text);
+      font-size: 1rem;
+      font-weight: bold;
+      color: #000000;
+      background-color: #FFFFFF;
+      border: 1px solid #000000;
+      border-radius: 0px 0px 0px 13px;
+    }
+    #btn-edit {
+      height: 30px;
+      width: 60px;
+      font-family: var(--font-text);
+      font-size: 1rem;
+      font-weight: 500;
+      color: #FFFFFF;
+      background-color: transparent;
       border: 1px solid white;
       border-radius: 5px;
     }
@@ -631,126 +653,171 @@ textarea {
     color: #fbff16;
     text-align: center;
   }
+
   /*------ WALL ------*/
-  #wall-section {
+ #wall-section {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  align-items: center;
+}
+#nav-bar {
+  display: flex;
+  flex-direction: row;
+  height: 8em;
+  align-items: center;
+}
+  #name-App {
+    width: auto;
+    position: absolute;
+    left: 3rem;
+    font-family: var(--font-logo);
+    font-size: 4.5em;
+    font-weight: 400;
+    color: #4a4747;
+    text-align: left;
+  }
+  #log-out {
+    height: 6rem;
+    width: 9rem;
+    position: absolute;
+    right: 3rem;
+    padding: .5rem;
+    font-size: 1.7rem;
+    line-height: 2rem;
+  }
+
+#write-container{
+  display: flex;
+  flex-direction: row;
+  height: 16em;
+  width: 48em;
+  margin: 0 14.4em;
+  justify-content: center;
+  align-items: center;
+}
+  #text-posts {
+    height: 6.5em;
+    width: 22em;
+    margin: 2em 1em;
+    padding: 0.6em 7.6em 0.6em 0.6em;
+    font-family: var(--font-text);
+    font-size: 2rem;
+    resize: none;
+    border: solid 1px #c5c5c5;
+    border-radius: 1.4rem;
+    background-color: #ffffff;
+    position: absolute;
+  }
+    #send-post {
+      width: 8.4rem;
+      height: 5rem;
+      margin: 5rem 0 0 32rem;
+      position: absolute;
+      font-size: 1.65rem;
+    }
+      #send-post:disabled {
+        color: #7e7979;
+        background-color: #f1c7bf;
+        cursor: auto;
+      }
+    
+  #posts-container {
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    width: 100vw;
-  }
-  #nav-bar {
-    display: flex;
-    flex-direction: row;
-    height: 10em;
-    margin: 0 0 1em;
+    height: auto;
+    width: 100%;
     align-items: center;
+    margin-top: 3em;
   }
-    #name-App {
-      width: auto;
-      position: absolute;
-      left: 3rem;
-      font-family: var(--font-logo);
-      font-size: 4.5em;
-      font-weight: 400;
-      color: #4a4747;
-      text-align: left;
-    }
-    #log-out {
-      height: 6rem;
-      width: 9rem;
-      position: absolute;
-      right: 3rem;
-      padding: .5rem;
+  .cont-posted {
+    height: auto;
+    width: auto;
+    margin: 0 0 3.5em;
+  }
+  .posted {
+    display: flex;
+    flex-direction: column;
+    min-height: 5em;
+    width: 44rem;
+    padding: 0.6em 7em 0.7em 0.6em;
+    font-family: var(--font-text);
+    font-size: 1.8rem;
+    background-color: white;
+    border: solid 1px#d35b46;
+    border-radius: 1.5rem 1.5rem 0 0;
+  }
+  #btns-cont {
+    display: flex;
+    flex-direction: column;
+  }
+    #btn-edit {
+      height: 3.5rem;
+      width: 8rem;
       font-size: 1.7rem;
-      line-height: 2rem;
+      margin: -1.5rem 33.6rem 0.6rem;
+      padding: 0 1rem;
     }
-
-  #write-container{
+    #btn-delete {
+      height: 3.5rem;
+      width: 8rem;
+      font-size: 1.7rem;
+      margin: 0 33.6rem 0;
+      padding: 0 1rem;
+    }
+    
+#btn-like { 
+  height: 4rem;
+  width: 100%;        
+  overflow: hidden;
+  font-size: 1.7rem;
+  border: none;
+  border-radius: 0 0 1.5rem 1.5rem;
+}
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+}
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    width: 50%; 
+    height: 20%;
+    font-family: var(--font-text);
+    font-size: medium;
     display: flex;
-    flex-direction: row;
-    height: 16em;
-    width: 48em;
-    margin: 0 14.4em 1.5em;
-    border: solid 0.15em #d35b46;
-    border-radius: 1.8em;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
+    border-radius: 15px;
+    border: #8C7851 solid 2px;
   }
-    #text-posts {
-      height: 8em;
-      width: 33em;
-      margin: 2.7em 0 0;
-      padding: 0.6em 7.6em 0.6em 0.6em;
-      font-family: var(--font-text);
-      resize: none;
-      border: solid 1px #c5c5c5;
-      border-radius: 1.4rem;
-      background-color: #ffffff;
-      position: fixed;
-    }
-      #btn-posts {
-        width: 8.4rem;
-        height: 5rem;
-        margin-top: 3.5rem;
-        margin-left: 33rem;
-        position: absolute;
-        font-size: 1.65rem;
-      }
-        #btn-posts:disabled {
-          color: #7e7979;
-          background-color: #f1c7bf;
-          cursor: auto;
-        }
-      
-    #posts-container {
-      display: flex;
-      flex-direction: column;
-      height: auto;
-      width: 100%;
-      justify-content: center;
-      margin-top: 3em;
-    }
-      .posted {
-        display: flex;
-        flex-direction: column;
-        min-height: 5em;
-        width: 44rem;
-        padding: 0.6em 7em 0.7em 0.6em;
-        font-family: var(--font-text);
-        font-size: 1.5rem;
-        background-color: white;
-        border: solid 1px#d35b46;
-        border-radius: 1.5rem;
-      }
-      #btns-cont{
-        display: flex;
-        height: 5em;
-        width: 5em;
-        flex-direction: column;
-        margin-top: -1.5rem;
-        margin-left: 1.4em;
-        flex-wrap: nowrap;
-        align-items: stretch;
-      }
-        #btn-edit {
-          height: 3.5rem;
-          width: 8rem;
-          font-size: 1.7rem;
-          margin-left: 31.5rem;
-          margin-bottom: .5rem;
-          padding: 0 1rem;
-        }
-        #btn-delete {
-          height: 3.5rem;
-          width: 8rem;
-          font-size: 1.7rem;
-          margin-left: 31.5rem;
-          padding: 0 1rem;
-        }  
-          #btn-posts:disabled {
-            color: #7e7979;
-            background-color: #f1c7bf;
-          }
+  .modal-content p {
+    margin-bottom: 8px;
+  }
+
+  .modal-content button {
+    background-color: #8C7851;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    height: auto;
+    width: 60%;
+  }
 
   /*------ ERROR ------*/
   #construction {
@@ -767,7 +834,6 @@ textarea {
 
 /* DESKTOP and LAPTOPS */
 @media only screen and (min-width: 1024px) and (max-width: 1728px) {
-
   /*------ HOME/LOGIN ------*/
   #container-home {
     display: grid;
@@ -929,31 +995,36 @@ textarea {
   #wall-section {
     display: grid;
     grid-template-columns: 20rem 3fr;
-    grid-template-rows: 20rem auto;
+    grid-template-rows: 8rem auto;
     gap: 2.5em;
     height: 100vh;
-    width: 100%;
+    width: 100vw;
+    justify-items: center;
+    align-items: start;
   }
   #nav-bar {
     display: flex;
-    flex-direction: column;
-    height: 15em;
-    margin-top: 7.5em;
+    height: 8rem;
+    width: 100%;
+    margin-bottom: 1em;
+    flex-direction: row;
     align-items: center;
   }
     #name-App {
       width: auto;
-      margin: 0.2em 0.2em 0 0.2em;
+      margin: 1rem 0 0;
       font-family: var(--font-logo);
-      font-size: 4em;
+      font-size: 5em;
       font-weight: 400;
       color: #4a4747;
       text-align: left;
     }
     #log-out {
-      width: 9em;
-      margin: 0.5em;
-      font-size: 1.8em;
+      height: 3.5em;
+      width: 5em;
+      margin: 0;
+      font-size: 1.5em;
+      line-height: 1.1em;
     }
 
   #write-container{
@@ -962,12 +1033,14 @@ textarea {
     flex-wrap: nowrap;
     height: 13em;
     width: 42em;
-    position: absolute;
-    margin: 7em 35rem;
-    border: solid .15em #d35b46;
+    right: 12rem;
+    top: 8rem;
+    border: solid 0.15em #d35b46;
     border-radius: 1.8em;
     justify-content: center;
-    position: fixed;
+    align-items: flex-start;
+    justify-items: start;
+    position: relative;
   }
     #text-posts {
       height: 5.9em;
@@ -981,14 +1054,14 @@ textarea {
       background-color: #ffffff;
       position: fixed;
     }
-      #btn-posts {
+      #send-post {
         font-size: 1.4rem;
         width: 6em;
         position: absolute;
         margin-top: 4.25em;
         margin-left: 21em;
       }
-        #btn-posts:disabled {
+        #send-post:disabled {
           color: #7e7979;
           background-color: #f1c7bf;
           cursor: auto;
@@ -997,7 +1070,11 @@ textarea {
     #posts-container {
       height: auto;
       width: 50em;
-      margin: 23.5em 12.5rem 0;
+      margin: 14.5em 12.5rem 0;
+    }
+    #posted-cont{
+      height: auto;
+      width: auto;
     }
       .posted {
         display: flex;

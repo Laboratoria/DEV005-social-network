@@ -15,14 +15,14 @@
         "eslint": "eslint --ext .js src/ test/",
         "stylelint": "stylelint --aei src/**/*.css",
         "pretest": "npm run htmlhint && npm run eslint && npm run stylelint",
-        "test": "jest --coverage --watch --env=jsdom",
+        "test": "jest --coverage --watch --env=jsdom ",
         "dev": "vite dev src",
         "start": "npm run dev",
         "build": "vite build",
         "preview": "vite preview"
     },
     "devDependencies": {
-        "@babel/preset-env": "^7.19.4",
+        "@babel/preset-env": "^7.21.5",
         "eslint": "^8.3.0",
         "eslint-config-airbnb-base": "^15.0.0",
         "eslint-plugin-import": "^2.18.2",

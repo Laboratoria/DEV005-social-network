@@ -1,6 +1,12 @@
 import { signOut } from "firebase/auth";
 import {
-    addPost, auth, deletePost, editPost, paintPostsRealTime,
+    addPost,
+    auth,
+    deletePost,
+    editPost,
+    paintPostsRealTime,
+    db,
+    aboutLikes,
 } from "../firebase/configuracion.js";
 // Se define una función llamada homeLogic que toma un elemento container como argumento.
 const homeLogic = (container) => {
@@ -35,17 +41,34 @@ const homeLogic = (container) => {
             deleteBtn.addEventListener("click", () => {
                 deletePost(doc.id);
             });
+
             postElement.appendChild(deleteBtn);
             // Se crea un botón para editar el post y se agrega como hijo del elemento DIV creado en el paso 3.
+
+            const likesBtn = document.createElement("BUTTON");
+            likesBtn.textContent = "Like";
+            likesBtn.addEventListener("click", () => {
+                aboutLikes(doc.id, auth.currentUser.uid)
+                    .then(() => {
+                        console.log("Like agregado correctamente");
+                    })
+                    .catch((error) => {
+                        console.error("Error al agregar el like:", error);
+                    });
+            });
+            postElement.appendChild(likesBtn);
+
             const editBtn = document.createElement("BUTTON");
             editBtn.textContent = "Editar";
             postElement.appendChild(editBtn);
             // Se crea un campo de entrada INPUT para editar el contenido del post, se establece su valor como el texto del comentario del documento actual, y se agrega como hijo del elemento DIV creado en el paso 3.
+
             const editField = document.createElement("INPUT");
             editField.setAttribute("type", "text");
             editField.value = doc.data().comment;
             postElement.appendChild(editField);
             // Se crea un elemento SPAN para mostrar el texto del comentario del documento actual, y se agrega como hijo del elemento DIV creado en el paso 3.
+
             const postText = document.createElement("SPAN");
             postText.textContent = doc.data().comment;
             postElement.appendChild(postText);

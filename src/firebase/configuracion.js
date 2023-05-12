@@ -4,7 +4,7 @@ import {
     getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile, GoogleAuthProvider, signInWithPopup, signOut,
 } from "firebase/auth";
 import {
-    getFirestore, collection, addDoc, getDocs, onSnapshot, updateDoc, doc, deleteDoc,
+    getFirestore, collection, addDoc, getDocs, onSnapshot, updateDoc, doc, deleteDoc, arrayUnion, arrayRemove,
 } from "firebase/firestore";
 
 // Configurando los datos necesarios de nuestro proyecto de Firebase.
@@ -126,6 +126,7 @@ const paintPostsRealTime = (postsCallback) => {
     });
 };
 const logOut = () => signOut(auth);
+
 const deletePost = (id) => new Promise((resolve, reject) => {
     deleteDoc(doc(getFirestore(), "posts", id))
         .then(() => resolve())
@@ -138,6 +139,33 @@ const editPost = (id, newFields) => new Promise((resolve, reject) => {
         .catch((error) => reject(error));
 });
 
+const aboutLikes = (id, userId) => new Promise((resolve, reject) => {
+    updateDoc(doc(getFirestore(), "posts", id), { likes: arrayUnion(userId) })
+        .then(() => resolve())
+        .catch((error) => reject(error));
+});
+
+const aboutDislikes = (id, userId) => new Promise((resolve, reject) => {
+    updateDoc(doc(getFirestore(), "posts", id), { dislikes: arrayRemove(userId) })
+        .then(() => resolve())
+        .catch((error) => reject(error));
+});
+
 export {
-    auth, app, db, provider, signIn, registerUser, googleSign, postsCollection, postDocuments, addPost, paintPostsRealTime, logOut, deletePost, editPost,
+    auth,
+    app,
+    db,
+    provider,
+    signIn,
+    registerUser,
+    googleSign,
+    postsCollection,
+    postDocuments,
+    addPost,
+    paintPostsRealTime,
+    logOut,
+    deletePost,
+    editPost,
+    aboutLikes,
+    aboutDislikes,
 };

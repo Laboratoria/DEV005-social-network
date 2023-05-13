@@ -76,7 +76,9 @@ span {
     font-size: 20px;
     color: #ff0000;
 }
+
 /* ESTILO PARA BOTÓN DE LOGIN */
+
 .loginBtn {
     display: flex;
     justify-content: center;
@@ -95,6 +97,25 @@ span {
     font-size: 20px;
 }
 /* ESTILO PARA BOTON DE GOOGLE */
+
+label.labelMail {
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    color: #333333;
+}
+
+label.labelPassword {
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    color: #333333;
+}
+
+.inputLogin {
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    color: #BBBABA;
+}
+
 .loginGmailBtn {
     display: flex;
     justify-content: center;
@@ -128,7 +149,23 @@ span {
     justify-content: center;
     align-items: center;
 }
+
+span.spanText {
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    color: #333333;
+}
+
+a.aText {
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #4ea8de;
+}
+
+
 /* ESTILO PARA LA VISTA REGISTRARSE */
+
 .three {
     width: 500px;
 }
@@ -204,4 +241,5 @@ span {
     font-size: 25px;
     font-weight: 600;
 }
+
 /* ESTILO PARA LA VISTA HOME */

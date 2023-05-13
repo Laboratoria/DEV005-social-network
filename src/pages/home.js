@@ -9,6 +9,7 @@ const home = () => {
     const viewHome = `
     <div class="signOff">
         <button button type="submit" id="signOffBtn">Cerrar Sesión</button>
+        <img src="./"
     </div>
     <figure>
         <img src="./img/logo.svg" alt="logo SportX" />

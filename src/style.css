@@ -4,9 +4,10 @@ body {
     width: 100%;
     height: 100%;
     margin: 0;
-    background: linear-gradient(360deg, #4ea8de 1.37%, rgba(104, 213, 228, 0.995555) 48.76%, rgba(128, 204, 234, 0.991472) 99.99%, rgba(78, 168, 222, 0) 100%);
 }
+
 /* ESTILO PARA LA VISTA WELCOME */
+
 .content {
     width: 100%;
     height: 100%;
@@ -243,3 +244,20 @@ a.aText {
 }
 
 /* ESTILO PARA LA VISTA HOME */
+
+#signOffBtn {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #333333;
+    background-color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+}
+
+#iconSignOut {
+    width: 20px;
+    height: auto;
+    margin-left: 6px;
+}

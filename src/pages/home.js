@@ -8,14 +8,19 @@ const home = () => {
     // Declara una constante llamada "viewHome" que es igual a una cadena de texto con un mensaje de no disponible
     const viewHome = `
     <div class="signOff">
-        <button button type="submit" id="signOffBtn">Cerrar Sesión</button>
-        <img src="./"
+        <button type="submit" id="signOffBtn">
+        Cerrar Sesión 
+        <img src="../img/iconSignOut.svg" id="iconSignOut"/>
+        </button>
     </div>
+
     <figure>
-        <img src="./img/logo.svg" alt="logo SportX" />
+        <img src="./img/logoHome.svg" alt="logo SportX" />
+        <img src="./img/imgUser.svg" alt="logo SportX" />
     </figure>
     <div>
-        <input type="text" placeholder="¿En qué estás pensando ahora?" id="commentField" class="commentField" />
+        <textarea type="text" placeholder="¿En qué estás pensando ahora?" id="commentField" class="commentField" rows="3" cols="30" style="resize:none;" >
+        </textarea> 
         <button id="publishBtn" class="publishBtn">Publicar</button>
     </div>
     <div class="fieldPublications">

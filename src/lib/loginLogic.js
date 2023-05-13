@@ -59,6 +59,7 @@ const loginLogic = (container) => {
             console.log({ user });
 
             if (user.email) {
+                window.localStorage.setItem("auth", true);
                 window.location.href = "/";
             }
         } catch (error) {

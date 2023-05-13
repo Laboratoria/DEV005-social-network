@@ -129,43 +129,28 @@ const logOut = () => signOut(auth);
 
 const deletePost = (id) => new Promise((resolve, reject) => {
     deleteDoc(doc(getFirestore(), "posts", id))
-        .then(() => resolve())
+        .then((res) => resolve(res))
         .catch((error) => reject(error));
 });
 
 const editPost = (id, newFields) => new Promise((resolve, reject) => {
     updateDoc(doc(getFirestore(), "posts", id), newFields)
-        .then(() => resolve())
+        .then((res) => resolve(res))
         .catch((error) => reject(error));
 });
 
 const aboutLikes = (id, userId) => new Promise((resolve, reject) => {
     updateDoc(doc(getFirestore(), "posts", id), { likes: arrayUnion(userId) })
-        .then(() => resolve())
+        .then((res) => resolve(res))
         .catch((error) => reject(error));
 });
 
 const aboutDislikes = (id, userId) => new Promise((resolve, reject) => {
-    updateDoc(doc(getFirestore(), "posts", id), { dislikes: arrayRemove(userId) })
-        .then(() => resolve())
+    updateDoc(doc(getFirestore(), "posts", id), { likes: arrayRemove(userId) })
+        .then((res) => resolve(res))
         .catch((error) => reject(error));
 });
 
 export {
-    auth,
-    app,
-    db,
-    provider,
-    signIn,
-    registerUser,
-    googleSign,
-    postsCollection,
-    postDocuments,
-    addPost,
-    paintPostsRealTime,
-    logOut,
-    deletePost,
-    editPost,
-    aboutLikes,
-    aboutDislikes,
+    auth, app, db, provider, signIn, registerUser, googleSign, postsCollection, postDocuments, addPost, paintPostsRealTime, logOut, deletePost, editPost, aboutLikes, aboutDislikes,
 };

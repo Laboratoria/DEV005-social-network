@@ -117,6 +117,7 @@ span {
     align-items: center;
     justify-content: center;
     margin: 8px 16px 20px 16px;
+    cursor: pointer;
 }
 .imgGoogle {
     height: 28px;

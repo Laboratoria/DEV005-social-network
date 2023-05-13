@@ -1,13 +1,5 @@
 import { signOut } from "firebase/auth";
-import {
-    addPost,
-    auth,
-    deletePost,
-    editPost,
-    paintPostsRealTime,
-    db,
-    aboutLikes,
-} from "../firebase/configuracion.js";
+import { addPost, auth, deletePost, editPost, paintPostsRealTime, db, aboutLikes, aboutDislikes } from "../firebase/configuracion.js";
 // Se define una función llamada homeLogic que toma un elemento container como argumento.
 const homeLogic = (container) => {
     // Se obtienen los elementos HTML necesarios:
@@ -46,19 +38,33 @@ const homeLogic = (container) => {
             // Se crea un botón para editar el post y se agrega como hijo del elemento DIV creado en el paso 3.
 
             const likesBtn = document.createElement("BUTTON");
-            likesBtn.textContent = "Like";
+            const isLike = doc?.data()?.likes?.some((item) => item === auth?.currentUser?.uid);
+            likesBtn.textContent = !isLike ? "Dar Like" : "Quitar Like";
             likesBtn.addEventListener("click", () => {
-                aboutLikes(doc.id, auth.currentUser.uid)
-                    .then(() => {
-                        console.log("Like agregado correctamente");
-                    })
-                    .catch((error) => {
-                        console.error("Error al agregar el like:", error);
-                    });
+                console.log({ isLike });
+
+                if (!isLike) {
+                    aboutLikes(doc.id, auth.currentUser.uid)
+                        .then((res) => {
+                            console.log("Like agregado correctamente");
+                        })
+                        .catch((error) => {
+                            console.error("Error al agregar el like:", error);
+                        });
+                } else {
+                    aboutDislikes(doc.id, auth.currentUser.uid)
+                        .then((res) => {
+                            console.log("Quitando like");
+                        })
+                        .catch((error) => {
+                            console.error("Error al agregar el like:", error);
+                        });
+                }
             });
             postElement.appendChild(likesBtn);
 
             const editBtn = document.createElement("BUTTON");
+            let IsActualizar = false;
             editBtn.textContent = "Editar";
             postElement.appendChild(editBtn);
             // Se crea un campo de entrada INPUT para editar el contenido del post, se establece su valor como el texto del comentario del documento actual, y se agrega como hijo del elemento DIV creado en el paso 3.
@@ -66,25 +72,39 @@ const homeLogic = (container) => {
             const editField = document.createElement("INPUT");
             editField.setAttribute("type", "text");
             editField.value = doc.data().comment;
-            postElement.appendChild(editField);
+            // postElement.appendChild(editField);
             // Se crea un elemento SPAN para mostrar el texto del comentario del documento actual, y se agrega como hijo del elemento DIV creado en el paso 3.
+
+            const divText = document.createElement("DIV");
+            postElement.appendChild(divText);
 
             const postText = document.createElement("SPAN");
             postText.textContent = doc.data().comment;
-            postElement.appendChild(postText);
+            divText.appendChild(postText);
             /* Se agrega un evento a editar que obtiene el valor actual del campo de entrada,
             llama a la función editPost con el ID del documento y el nuevo valor del comentario como parámetros,
             y luego actualiza el documento. Si todo funciona correctamente, se muestra un mensaje de confirmación en la consola.
             Si hay un error, se muestra un mensaje de error en la consola. */
             editBtn.addEventListener("click", () => {
-                const newComment = editField.value;
-                editPost(doc.id, { comment: newComment })
-                    .then(() => {
-                        console.log("Comentario actualizado correctamente");
-                    })
-                    .catch((error) => {
-                        console.error("Error al actualizar el comentario:", error);
-                    });
+                if (IsActualizar) {
+                    const newComment = editField.value;
+                    editPost(doc.id, { comment: newComment })
+                        .then(() => {
+                            console.log("Comentario actualizado correctamente");
+                        })
+                        .catch((error) => {
+                            console.error("Error al actualizar el comentario:", error);
+                        });
+                    IsActualizar = false;
+                    editBtn.textContent = "Editar";
+                    divText.innerHTML = "";
+                    divText.appendChild(postText);
+                } else {
+                    IsActualizar = true;
+                    editBtn.textContent = "Actualizar";
+                    divText.innerHTML = "";
+                    divText.appendChild(editField);
+                }
             });
             // Finalmente, se agrega el elemento DIV creado en el paso 3 al elemento publications.
             publications.appendChild(postElement);

@@ -37,7 +37,8 @@ const homeLogic = (container) => {
             const postElement = document.createElement("DIV");
             // Se crea un botón para eliminar el post, se le agrega un evento click que llama a la función deletePost con el ID del documento como parámetro, y se agrega este botón como hijo del elemento DIV creado en el paso anterior.
             const deleteBtn = document.createElement("BUTTON");
-            deleteBtn.textContent = "Eliminar";
+            deleteBtn.src = "./img/iconDelete.svg";
+            // deleteBtn.textContent = "Eliminar";
             deleteBtn.addEventListener("click", () => {
                 deletePost(doc.id);
             });

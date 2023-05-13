@@ -46,6 +46,7 @@ const homeLogic = (container) => {
             // Se crea un botón para editar el post y se agrega como hijo del elemento DIV creado en el paso 3.
 
             const likesBtn = document.createElement("BUTTON");
+            likesBtn.classList.add("likeBtn");
             likesBtn.textContent = "Like";
             likesBtn.addEventListener("click", () => {
                 aboutLikes(doc.id, auth.currentUser.uid)
@@ -59,6 +60,7 @@ const homeLogic = (container) => {
             postElement.appendChild(likesBtn);
 
             const editBtn = document.createElement("BUTTON");
+            editBtn.classList.add("editBtn");
             editBtn.textContent = "Editar";
             postElement.appendChild(editBtn);
             // Se crea un campo de entrada INPUT para editar el contenido del post, se establece su valor como el texto del comentario del documento actual, y se agrega como hijo del elemento DIV creado en el paso 3.
@@ -70,6 +72,7 @@ const homeLogic = (container) => {
             // Se crea un elemento SPAN para mostrar el texto del comentario del documento actual, y se agrega como hijo del elemento DIV creado en el paso 3.
 
             const postText = document.createElement("SPAN");
+            postText.classList.add("postText");
             postText.textContent = doc.data().comment;
             postElement.appendChild(postText);
             /* Se agrega un evento a editar que obtiene el valor actual del campo de entrada,

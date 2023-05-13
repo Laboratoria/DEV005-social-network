@@ -36,7 +36,7 @@ const homeLogic = (container) => {
         querySnapshot.forEach((doc) => {
             const postElement = document.createElement("DIV");
             // Se crea un botón para eliminar el post, se le agrega un evento click que llama a la función deletePost con el ID del documento como parámetro, y se agrega este botón como hijo del elemento DIV creado en el paso anterior.
-            const deleteBtn = document.createElement("BUTTON");
+            const deleteBtn = document.createElement("img");
             deleteBtn.src = "./img/iconDelete.svg";
             // deleteBtn.textContent = "Eliminar";
             deleteBtn.addEventListener("click", () => {
@@ -46,9 +46,10 @@ const homeLogic = (container) => {
             postElement.appendChild(deleteBtn);
             // Se crea un botón para editar el post y se agrega como hijo del elemento DIV creado en el paso 3.
 
-            const likesBtn = document.createElement("BUTTON");
+            const likesBtn = document.createElement("img");
             likesBtn.classList.add("likeBtn");
-            likesBtn.textContent = "Like";
+            likesBtn.src = "./img/grayLike.svg";
+            // likesBtn.textContent = "Like";
             likesBtn.addEventListener("click", () => {
                 aboutLikes(doc.id, auth.currentUser.uid)
                     .then(() => {
@@ -60,9 +61,10 @@ const homeLogic = (container) => {
             });
             postElement.appendChild(likesBtn);
 
-            const editBtn = document.createElement("BUTTON");
+            const editBtn = document.createElement("img");
             editBtn.classList.add("editBtn");
-            editBtn.textContent = "Editar";
+            // editBtn.textContent = "Editar";
+            editBtn.src = "./img/iconEdit.svg";
             postElement.appendChild(editBtn);
             // Se crea un campo de entrada INPUT para editar el contenido del post, se establece su valor como el texto del comentario del documento actual, y se agrega como hijo del elemento DIV creado en el paso 3.
 

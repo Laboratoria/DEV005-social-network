@@ -8,6 +8,7 @@
 }
 
 /* Fuentes */
+
 :root {
   --font-logo: 'Satisfy', cursive;
 }
@@ -23,10 +24,9 @@ body {
 
 main {
   display: flex;
-  height: auto;
+  height: 122vh;
   width: 100vw;
-  background-image: url('./images/huellitas-removebg-preview.png');
-  background-repeat: repeat-y;
+  background-image: url('/assets/huellitas-removebg-preview.2137cbe1.png');
 }
 
 textarea {
@@ -34,8 +34,8 @@ textarea {
 }
 
 /* MOBILE FIRST */
-@media only screen and (min-width: 320px) and (max-width: 480px) {
 
+@media only screen and (min-width: 320px) and (max-width: 480px) {
   /*------ HOME/LOGIN ------*/
   .container {
     display: flex;
@@ -43,7 +43,7 @@ textarea {
     height: 100vh;
     width: 100vw;
     align-items: center;
-    background-image: url('images/74A43094-23A5-403C-B736-5B587E12F994.png');
+    background-image: url('/assets/74A43094-23A5-403C-B736-5B587E12F994.f482cc21.png');
     background-repeat: no-repeat;
     background-size: auto 73%;
     background-position: center 110%;
@@ -178,7 +178,7 @@ textarea {
     height: 100vh;
     width: 100vw;
     align-items: center;
-    background-image: url('images/74A43094-23A5-403C-B736-5B587E12F994.png');
+    background-image: url('/assets/74A43094-23A5-403C-B736-5B587E12F994.f482cc21.png');
     background-repeat: no-repeat;
     background-size: auto 73%;
     background-position: center 117%;
@@ -288,14 +288,15 @@ width: 390px;
   #nav-bar {
     display: flex;
     flex-direction: row;
-    height: 10em;
+    height: 8em;
     align-items: center;
   }
 
   #name-App {
     width: auto;
+    position: absolute;
+    right: 2rem;
     margin-top: 4.5rem;
-    margin-left: 21rem;
     font-family: var(--font-logo);
     font-size: 3.8em;
     font-weight: 400;
@@ -321,6 +322,7 @@ width: 390px;
     flex-direction: row;
     height: 16em;
     width: 100%;
+    position: absolute;
     justify-content: center;
     align-items: center;
   }
@@ -343,7 +345,7 @@ width: 390px;
   #send-post {
     width: 7.5rem;
     height: 4.5rem;
-    margin: 4rem 0 0 27rem;
+    margin: 6.3rem 0 0 27rem;
     position: absolute;
     font-size: 1.5rem;
   }
@@ -360,13 +362,13 @@ width: 390px;
     height: 100%;
     width: 100%;
     align-items: center;
-    margin-top: 3em;
+    margin-top: 2em;
   }
 
   .cont-posted {
-    height: 100vh;
-    width: 92vw;
-    margin: 0 0 -58em;
+    height: auto;
+    width: auto;
+    margin: 0 0 3em;
   }
   
   .posted {
@@ -379,17 +381,12 @@ width: 390px;
     background-color: white;
     border: solid 1px#d35b46;
     border-radius: 1.5rem 1.5rem 0 0;
-    padding: 0.5em 3.9em 0.5em 0.5em;
+    padding: 0.5em 4em 0.5em 0.5em;
 }
 #posted-author{
-  margin-left: 0.5em;
   font-size: 2em;
   font-weight: bold;
   font-family: var(--font-text);
-  color: #A94A38;
-  background-color: #f9f4ef;
-  width: fit-content;
-  border-radius: 0.7rem;
 }
 #btns-cont {
   display: flex;
@@ -400,22 +397,25 @@ width: 390px;
   height: 4rem;
   font-size: 1.7rem;
   top: auto;
-  right: 5rem;
-  margin: -10rem 27rem 0.5rem 28.5rem;
-  padding: 0 -0.5rem;
+  right: 7rem;
+  margin: -2rem 27rem 0.5rem;
+  padding: 0 1rem;
 }
 #btn-delete {
   width: 7rem;
   height: 4rem;
   font-size: 1.7rem;
-  margin: 0 27.2rem 1rem 28.5rem;
+  bottom: 15rem;
+  right: -10px;
+  margin: 0 27.2rem 0;
+  padding: 0 1rem;
 }
       
 #btn-like { 
   height: 4rem;
-  width: 36rem;        
+  width: 100%;        
   overflow: hidden;
-  font-size: 2.2rem;
+  font-size: 1.7rem;
   border: none;
   border-radius: 0 0 1.5rem 1.5rem;
 }
@@ -439,7 +439,7 @@ width: 390px;
   width: 85%; 
   height: 22%;
   font-family: var(--font-text);
-  font-size: 20px;
+  font-size: 24px;
   font-weight: bold;
   display: flex;
   flex-direction: column;
@@ -449,23 +449,23 @@ width: 390px;
   border: #8C7851 solid 2px;
 }
 .modal-content p {
-  margin-bottom: 15px;
+  margin-bottom: 8px;
 }
 .modal-content button {
   background-color: #8C7851;
   color: white;
-  padding: 5px;
-  border: 4px solid white;
+  padding: 7px;
+  border: 1px solid white;
   border-radius: 15px;
   cursor: pointer;
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 2.5rem;
   height: 28%;
   width: 50%;
 }
 }
 
 /* TABLET */
+
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
   /*------ HOME/LOGIN ------*/
   .container {
@@ -474,7 +474,7 @@ width: 390px;
     height: 100vh;
     width: 100vw;
     align-items: center;
-    background-image: url('images/74A43094-23A5-403C-B736-5B587E12F994.png');
+    background-image: url('/assets/74A43094-23A5-403C-B736-5B587E12F994.f482cc21.png');
     background-repeat: no-repeat;
     background-size: 70.5%;
     background-position: right 150%;
@@ -683,7 +683,7 @@ width: 390px;
   }
 
   .register-background {
-    background-image: url("images/74A43094-23A5-403C-B736-5B587E12F994.png");
+    background-image: url("/assets/74A43094-23A5-403C-B736-5B587E12F994.f482cc21.png");
     height: 100vh;
     width: 100vw;
     background-size: 76%;
@@ -888,9 +888,8 @@ width: 390px;
   }
 }
 
-
-
 /* DESKTOP and LAPTOPS */
+
 @media only screen and (min-width: 1024px) and (max-width: 1728px) {
   /*------ HOME/LOGIN ------*/
   #container-home {
@@ -901,7 +900,7 @@ width: 390px;
     grid-template-rows: 30% 70%;
     grid-auto-flow: column;
     gap: 20px;
-    background-image: url(/images/74A43094-23A5-403C-B736-5B587E12F994.png);
+    background-image: url(/assets/74A43094-23A5-403C-B736-5B587E12F994.f482cc21.png);
     background-repeat: no-repeat;
     background-size: auto 94%;
     background-position: 13% 7em;

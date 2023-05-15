@@ -21,6 +21,20 @@ function wall() {
   const btnLogOut = document.createElement('button');
   btnLogOut.id = 'log-out';
   btnLogOut.textContent = 'Cerrar sesión';
+  const backToTopBtn = document.createElement('button');
+  backToTopBtn.id = 'back-to-top';
+  const backToTop = document.createElement('img');
+  backToTop.id = 'back-to-top-img';
+  backToTop.src = './images/top-svgrepo-com.svg';
+  backToTop.alt = 'arrow up';
+  // Funcionalidad del botón backToTop
+  backToTopBtn.append(backToTop);
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  });
 
   // Escribir posts
   const writeContainer = document.createElement('section');
@@ -161,7 +175,7 @@ function wall() {
       // Ícono de corazón
       const heartIcon = document.createElement('img');
       heartIcon.id = 'heart-icon';
-      heartIcon.src = '/images/heart-svgrepo-com.svg';
+      heartIcon.src = './images/heart-svgrepo-com.svg';
       heartIcon.alt = 'heart icon';
       likesCounter.append(heartIcon);
       // Creación botón Like
@@ -177,7 +191,6 @@ function wall() {
       });
 
       btnsContainer.append(likesCounter, btnLike);
-      // newPost.append(newPostBtns);
       newPostCont.append(newPostAuthor, newPost, btnsContainer, newPostBtns);
       postsContainer.append(newPostCont);
     });
@@ -191,6 +204,7 @@ function wall() {
     writeContainer,
     postsContainer,
     modal,
+    backToTopBtn,
   );
   return wallSection;
 }

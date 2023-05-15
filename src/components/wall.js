@@ -107,10 +107,10 @@ function wall() {
 
       const btnsContainer = document.createElement('div');
       btnsContainer.id = 'btns-cont';
-
       const arrayLikes = doc.data().likes;
-
-      // Check if the current user is the post creator
+      const newPostBtns = document.createElement('div');
+      newPostBtns.className = 'posted-btns';
+      // Validar que el usuario loggeado sea el autor del post
       if (doc.data().user === currentUserEmail) {
       // Creación botón Eliminar
         const btnDelete = document.createElement('button');
@@ -120,7 +120,6 @@ function wall() {
         btnDelete.addEventListener('click', () => {
           console.log('Deleting post with ID:', doc.id);
           modal.style.display = 'block';
-          // Set the ID of the post to be deleted
           const postIdToDelete = doc.id;
 
           // Confirmar eliminación
@@ -152,9 +151,19 @@ function wall() {
           }
         });
 
-        btnsContainer.append(btnEdit, btnDelete);
+        newPostBtns.append(btnEdit, btnDelete);
       }
 
+      // Creación de contador de likes
+      const likesCounter = document.createElement('div');
+      likesCounter.classList.add('likes-counter');
+      likesCounter.textContent = arrayLikes.length;
+      // Ícono de corazón
+      const heartIcon = document.createElement('img');
+      heartIcon.id = 'heart-icon';
+      heartIcon.src = '/images/heart-svgrepo-com.svg';
+      heartIcon.alt = 'heart icon';
+      likesCounter.append(heartIcon);
       // Creación botón Like
       const btnLike = document.createElement('button');
       btnLike.id = 'btn-like';
@@ -167,8 +176,8 @@ function wall() {
         }
       });
 
-      btnsContainer.append(btnLike);
-      newPost.append(btnsContainer);
+      btnsContainer.append(likesCounter, btnLike);
+      newPost.append(newPostBtns);
       newPostCont.append(newPostAuthor, newPost, btnsContainer);
       postsContainer.append(newPostCont);
     });

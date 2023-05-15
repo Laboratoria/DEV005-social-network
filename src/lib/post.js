@@ -7,8 +7,7 @@ import {
 import {
   auth, db,
 } from './firebase.js';
-
-// Add a new document with a generated id.
+// Add a new post
 export const addPostToFirestore = async (text, user) => {
   const userIn = auth.currentUser;
   console.log('se añade');

@@ -2,10 +2,6 @@
 /* eslint-disable no-shadow */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-unused-vars */
-/* eslint-disable max-len */
-/* eslint-disable no-shadow */
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
 import {
   collection, addDoc, doc, deleteDoc, updateDoc, arrayUnion, arrayRemove, getDocs, query, onSnapshot, serverTimestamp, orderBy,
@@ -15,8 +11,7 @@ import { async } from 'regenerator-runtime';
 import {
   auth, db, app, deletePost,
 } from './firebase.js';
-
-// Add a new document with a generated id.
+// Add a new post
 export const addPostToFirestore = async (text, user) => {
   const userIn = auth.currentUser;
   console.log('se añade');
@@ -45,33 +40,8 @@ export const q = query(collection(db, 'posts'), orderBy('timestamp', 'desc'));
 export const deletePostFromFirestore = (id) => deleteDoc(doc(db, 'posts', id));
 
 // Función Firestore para dar Like
-export const likePost = async (doc) => {
-  console.log('función dar like');
-  const userIn = auth.currentUser;
-  try {
-    const postId = doc;
-    const postRef = collection(doc(db, 'posts', postId));
-    console.log(postId.id);
-    const likeArray = await updateDoc(postRef, {
-      likes: arrayUnion(userIn.email),
-    });
-    console.log(likeArray);
-  } catch (err) {
-    console.log('Error', err);
-  }
-};
+export const likePost = (userEmail, idDoc) => updateDoc(doc(db, 'posts', idDoc), { likes: arrayUnion(userEmail) });
+
 // Función Firestore para quitar Like
-export const dislikePost = async () => {
-  console.log('función quitar like');
-  const userIn = auth.currentUser;
-  try {
-    const postRef = doc(db, 'posts', userIn);
-    const dislikeArray = await updateDoc(postRef, {
-      likes: arrayRemove(userIn.email),
-    });
-    console.log(dislikeArray);
-  } catch (err) {
-    console.log('Error', err);
-  }
-};
+export const dislikePost = (userEmail, idDoc) => updateDoc(doc(db, 'posts', idDoc), { likes: arrayRemove(userEmail) });
 export { onSnapshot, doc, orderBy };

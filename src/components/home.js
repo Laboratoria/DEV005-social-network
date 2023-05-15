@@ -29,7 +29,7 @@ function home(navigateTo) {
   btnLogIn.textContent = 'Iniciar sesión';
   const iconGoogle = document.createElement('img');
   iconGoogle.id = 'icon-google';
-  iconGoogle.src = '/images/icon-google.png';
+  iconGoogle.src = './images/icon-google.png';
   iconGoogle.alt = 'icon-google';
   const googleLogIn = document.createElement('button');
   googleLogIn.type = 'submit';

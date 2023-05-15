@@ -1,8 +1,6 @@
 // Se importan las siguientes funciones y objetos de Firebase.
 import { signOut } from "firebase/auth";
-import {
-    addPost, auth, deletePost, editPost, paintPostsRealTime, aboutLikes, aboutDislikes,
-} from "../firebase/configuracion.js";
+import { addPost, auth, deletePost, editPost, paintPostsRealTime, aboutLikes, aboutDislikes } from "../firebase/configuracion.js";
 
 // Se define una función llamada loginLogic que toma un elemento container como argumento.
 const homeLogic = (container) => {
@@ -52,6 +50,7 @@ const homeLogic = (container) => {
             postElement.appendChild(likesBtn);
             // Contador de likes
             const likesParagraph = document.createElement("SPAN");
+            likesParagraph.classList.add("likesParagraph");
             const countLikes = doc.data().likes.length;
             likesParagraph.textContent = countLikes;
             postElement.appendChild(likesParagraph);
@@ -71,7 +70,7 @@ const homeLogic = (container) => {
             postElement.appendChild(editBtn);
             // Contenedor editField y postText
             const divContentComment = document.createElement("DIV");
-            divContentComment.style.display = "inline-block";
+            divContentComment.classList.add("divContentComment");
             postElement.appendChild(divContentComment);
             // Campo de texto para actualizar comentario
             const editField = document.createElement("INPUT");

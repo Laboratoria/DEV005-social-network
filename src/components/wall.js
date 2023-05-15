@@ -7,7 +7,7 @@ import { signOut, updateCurrentUser } from 'firebase/auth';
 import { arrayUnion } from 'firebase/firestore';
 import { auth, db } from '../lib/firebase';
 import {
-  addPostToFirestore, deletePostFromFirestore, likePost, q, onSnapshot, dislikePost,
+  addPostToFirestore, deletePostFromFirestore, likePost, q, onSnapshot, dislikePost, updatePostFirestore,
 } from '../lib/post';
 
 function wall() {
@@ -99,9 +99,9 @@ function wall() {
       newPostCont.classList = 'cont-posted';
       const newPostAuthor = document.createElement('div');
       newPostAuthor.className = 'posted-author';
-      newPostAuthor.id = 'posted-author';
       newPostAuthor.textContent = doc.data().user.split('@')[0];
-      const newPost = document.createElement('div');
+      const newPost = document.createElement('textarea');
+      newPost.readOnly = true;
       newPost.className = 'posted';
       newPost.textContent = doc.data().text;
 
@@ -132,9 +132,24 @@ function wall() {
         });
 
         // Creación botón Editar
-        const bntEdit = document.createElement('button');
-        bntEdit.id = 'btn-edit';
-        bntEdit.textContent = 'Editar';
+        const btnEdit = document.createElement('button');
+        btnEdit.id = 'btn-edit';
+        btnEdit.textContent = 'Editar';
+
+        btnEdit.addEventListener('click', () => {
+          console.log('Editing post with ID:', doc.id);
+          if (newPost.readOnly) {
+            newPost.readOnly = false;
+            newPost.style.backgroundColor = '#ffc1c1a7';
+            btnEdit.innerHTML = 'Guardar';
+          } else {
+            const newText = newPost.value;
+            updatePostFirestore(doc.id, newText);
+            newPost.readOnly = true;
+            newPost.style.backgroundColor = 'white';
+            btnEdit.innerHTML = 'Editar';
+          }
+        });
 
         newPostBtns.append(bntEdit, btnDelete);
       }

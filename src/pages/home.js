@@ -1,4 +1,4 @@
-import { homeLogic } from "../lib/homeLogic.js";
+import { homeLogic } from "../lib/index.js";
 // Declara una constante llamada "home" que es igual a una función flecha sin parámetros
 const home = () => {
     // Crea un elemento HTML <section> y lo guarda en una constante llamada "container"
@@ -18,7 +18,9 @@ const home = () => {
         <img src="./img/logoHome.svg" alt="logo SportX" />
         <img src="./img/imgUser.svg" alt="logo SportX" />
     </figure>
+    <p id="userName"></p>
     <div>
+    
         <textarea type="text" placeholder="¿En qué estás pensando ahora?" id="commentField" class="commentField" rows="3" cols="30" style="resize:none;" >
         </textarea> 
         <button id="publishBtn" class="publishBtn">Publicar</button>

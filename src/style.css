@@ -53,7 +53,9 @@ body {
 span {
     margin: 0 20px 20px;
 }
+
 /* ESTILO PARA LA VISTA LOGIN */
+
 .two {
     width: 500px;
 }
@@ -97,6 +99,7 @@ span {
     font-family: "Roboto", sans-serif;
     font-size: 20px;
 }
+
 /* ESTILO PARA BOTON DE GOOGLE */
 
 label.labelMail {
@@ -114,7 +117,7 @@ label.labelPassword {
 .inputLogin {
     font-family: "Roboto", sans-serif;
     font-size: 14px;
-    color: #BBBABA;
+    color: #bbbaba;
 }
 
 .loginGmailBtn {
@@ -139,6 +142,7 @@ label.labelPassword {
     align-items: center;
     justify-content: center;
     margin: 8px 16px 20px 16px;
+    cursor: pointer;
 }
 .imgGoogle {
     height: 28px;
@@ -163,7 +167,6 @@ a.aText {
     font-weight: 600;
     color: #4ea8de;
 }
-
 
 /* ESTILO PARA LA VISTA REGISTRARSE */
 
@@ -204,7 +207,9 @@ a.aText {
     font-size: 20px;
     color: #ff0000;
 }
+
 /* ESTILO PARA BOTÓN DE REGISTRARSE */
+
 .registerBtn {
     display: flex;
     justify-content: center;

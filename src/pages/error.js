@@ -6,7 +6,7 @@ const error = () => {
     container.classList.add("five");
     // Declara una constante llamada "viewError" que es igual a una cadena de texto con el contenido HTML de un encabezado <h4>
     const viewError = ` 
-        <h4>No disponible por el momento, soy el error</h4> 
+    <h4>Lo sentimos, no disponible por el momento</h4>
     `;
     // Inserta el contenido HTML de "viewError" dentro del elemento <section> creado antes
     container.innerHTML = viewError;

@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
@@ -6,7 +7,7 @@ import { signOut, updateCurrentUser } from 'firebase/auth';
 import { arrayUnion } from 'firebase/firestore';
 import { auth, db } from '../lib/firebase';
 import {
-  addPostToFirestore, deletePostFromFirestore, likePost, q, onSnapshot, addPostFromFirestore,
+  addPostToFirestore, deletePostFromFirestore, likePost, q, onSnapshot, addPostFromFirestore, updatePostFirestore,
 } from '../lib/post';
 
 function wall() {
@@ -79,30 +80,6 @@ function wall() {
     addPostToFirestore(postText);
     post.value = '';
     btnSendPost.disabled = true;
-
-    // Función btn-edit
-    // bntEdit.addEventListener('click', () => {
-    //   if (newPost.readOnly) {
-    //     newPost.readOnly = false;
-    //     bntEdit.textContent = 'Guardar';
-    //   } else {
-    //     const newText = newPost.value;
-
-    //     newPost.readOnly = true;
-    //     bntEdit.textContent = 'Editar';
-    //   }
-    // });
-
-    // Función botón borrar post
-    // btnDelete.addEventListener('click', () => {
-    //   const docRef = doc(db, 'posts', post.id);
-    //   deletePostFromFirestore(docRef);
-    //   newPostCont.remove();
-    // });
-
-    // btnsContainer.append(btnLike);
-    // newPost.append(bntEdit, btnDelete);
-    // newPostCont.append(newPost, btnsContainer);
   });
 
   btnLogOut.addEventListener('click', () => {
@@ -112,62 +89,85 @@ function wall() {
 
   // Función para traer los posts de Firestore en tiempo real
   onSnapshot(q, (querySnapshot) => {
-    // Clear postsContainer before adding new posts
+  // Clear postsContainer before adding new posts
     postsContainer.innerHTML = '';
+    const currentUserEmail = auth.currentUser.email;
 
     querySnapshot.forEach((doc) => {
       const newPostCont = document.createElement('section');
       console.log('Current posts:', doc.id, doc.data().text, doc.data().user, doc.data().likes);
       newPostCont.classList = 'cont-posted';
-      const newPost = document.createElement('div');
+      const newPostAuthor = document.createElement('div');
+      newPostAuthor.className = 'posted-author';
+      newPostAuthor.textContent = doc.data().user.split('@')[0];
+      const newPost = document.createElement('textarea');
+      newPost.readOnly = true;
       newPost.className = 'posted';
       newPost.textContent = doc.data().text;
 
       const btnsContainer = document.createElement('div');
       btnsContainer.id = 'btns-cont';
 
+      // Check if the current user is the post creator
+      if (doc.data().user === currentUserEmail) {
       // Creación botón Eliminar
-      const btnDelete = document.createElement('button');
-      btnDelete.id = 'btn-delete';
-      btnDelete.textContent = 'Borrar';
-      // Manejo modal eliminar
-      btnDelete.addEventListener('click', () => {
-        modal.style.display = 'block';
-      });
+        const btnDelete = document.createElement('button');
+        btnDelete.id = 'btn-delete';
+        btnDelete.textContent = 'Borrar';
+        // Manejo modal eliminar
+        btnDelete.addEventListener('click', () => {
+          console.log('Deleting post with ID:', doc.id);
+          modal.style.display = 'block';
+          // Set the ID of the post to be deleted
+          const postIdToDelete = doc.id;
 
-      // Confirmar eliminación
-      btnConfirmDelete.onclick = () => {
-        deletePostFromFirestore(doc.id);
-        newPostCont.remove();
-        modal.style.display = 'none';
-      };
+          // Confirmar eliminación
+          btnConfirmDelete.onclick = () => {
+            console.log(postIdToDelete);
+            deletePostFromFirestore(postIdToDelete);
+            newPostCont.remove();
+            modal.style.display = 'none';
+          };
+        });
 
-      // Creación botón Editar
-      const bntEdit = document.createElement('button');
-      bntEdit.id = 'btn-edit';
-      bntEdit.textContent = 'Editar';
+        // Creación botón Editar
+        const btnEdit = document.createElement('button');
+        btnEdit.id = 'btn-edit';
+        btnEdit.textContent = 'Editar';
+
+        btnEdit.addEventListener('click', () => {
+          console.log('Editing post with ID:', doc.id);
+          if (newPost.readOnly) {
+            newPost.readOnly = false;
+            newPost.style.backgroundColor = '#ffc1c1a7';
+            btnEdit.innerHTML = 'Guardar';
+          } else {
+            const newText = newPost.value;
+            updatePostFirestore(doc.id, newText);
+            newPost.readOnly = true;
+            newPost.style.backgroundColor = 'white';
+            btnEdit.innerHTML = 'Editar';
+          }
+        });
+
+        btnsContainer.append(btnEdit, btnDelete);
+      }
 
       // Creación botón Like
       const btnLike = document.createElement('button');
       btnLike.id = 'btn-like';
       btnLike.textContent = 'Me gusta';
       btnLike.addEventListener('click', () => {
-        likePost();
+        const arrayLikes = doc.data().likes;
+        if (arrayLikes.includes(currentUserEmail)) {
+          dislikePost(currentUserEmail, doc.id);
+        } else {
+          likePost(currentUserEmail, doc.id);
+        }
       });
 
-      // Creación botón Dislike
-      const btnDislike = document.createElement('button');
-      btnDislike.id = 'btn-dislike';
-      btnDislike.textContent = 'No me gusta';
-      btnDislike.addEventListener('click', () => {
-        const userIn = auth.currentUser;
-        likePost(doc.id);
-        console.log(likePost);
-      });
-
-      btnsContainer.append(btnLike);
-      newPost.append(bntEdit, btnDelete);
-      newPostCont.append(newPost, btnsContainer);
+      // btnsContainer.append(btnLike);
+      newPostCont.append(newPostAuthor, newPost, btnsContainer, btnLike);
       postsContainer.append(newPostCont);
     });
   });

@@ -39,7 +39,7 @@ function home(navigateTo) {
   googleLogIn.textContent = 'Inicia sesión con Google';
   const iconGoogle = document.createElement('img');
   iconGoogle.id = 'icon-google';
-  iconGoogle.src = '/images/icon-google.png';
+  iconGoogle.src = './images/icon-google.png';
   iconGoogle.alt = 'icon-google';
 
   // Creación botón Iniciar sesión con GitHub
@@ -48,7 +48,7 @@ function home(navigateTo) {
   ghLogIn.className = 'provider';
   const iconGH = document.createElement('img');
   iconGH.id = 'icon-gh';
-  iconGH.src = '/images/icon-github.png';
+  iconGH.src = './images/icon-github.png';
   iconGH.alt = 'icon-GitHub';
   ghLogIn.textContent = 'Inicia sesión con GitHub';
 

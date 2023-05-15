@@ -26,21 +26,17 @@ const db = getFirestore(app);
 
 // Inicializando la autenticación
 const auth = getAuth(app);
-// Creando una instancia del proveedor de autenticación de GoogleAuthProvider() para permitir el inicio de sesión con Google.
 
+// Creando una instancia del proveedor de autenticación de GoogleAuthProvider() para permitir el inicio de sesión con Google.
 const provider = new GoogleAuthProvider();
 
+// Creando una referencia a la colección de posts en Firestore.
 const postsCollection = collection(db, "posts");
 
+// Obteniendo los documentos de la colección de posts.
 const postDocuments = getDocs(postsCollection);
 
 // Definiendo una función que inicia sesión en Firebase Auth con email y password.
-// const signIn = async (email, password) => {
-//     // Inicia sesión con email y password
-//     const { user } = await signInWithEmailAndPassword(auth, email, password);
-//     // Retorna el objeto del usuario que inició sesión
-//     return user;
-// };
 const signIn = (email, password) => new Promise((resolve, reject) => {
     signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
@@ -53,14 +49,6 @@ const signIn = (email, password) => new Promise((resolve, reject) => {
 });
 
 // Definiendo una función que registra a un usuario en Firebase Auth y le asigna un displayName.
-// const registerUser = async (displayName, email, password) => {
-//     // Crea el usuario con su email y password
-//     const { user } = await createUserWithEmailAndPassword(auth, email, password);
-//     // Actualiza el perfil del usuario con el displayName
-//     await updateProfile(auth.currentUser, { displayName });
-//     // Retorna el objeto del usuario registrado
-//     return user;
-// };
 const registerUser = (displayName, email, password) => new Promise((resolve, reject) => {
     createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
@@ -80,12 +68,6 @@ const registerUser = (displayName, email, password) => new Promise((resolve, rej
 });
 
 // Definiendo una función que inicia sesión en Firebase Auth con Google.
-// const googleSign = async (providers) => {
-//     // Inicia sesión con Google utilizando un popup
-//     const { user } = await signInWithPopup(auth, provider);
-//     // Retorna el objeto del usuario que inició sesión con Google
-//     return user;
-// };
 const googleSign = () => new Promise((resolve, reject) => {
     signInWithPopup(auth, provider)
         .then((result) => {
@@ -98,16 +80,12 @@ const googleSign = () => new Promise((resolve, reject) => {
         });
 });
 
-// const addPost = (publication) => {
-//     addDoc(postsCollection, {
-//         publication,
-//         date: Date.now(),
-//     });
-// };
+// Definiendo una función que añade un nuevo post a la colección de posts en Firestore.
 const addPost = (comment) => new Promise((resolve, reject) => {
     addDoc(postsCollection, {
         comment,
         date: Date.now(),
+        likes: [],
     })
         .then((docRef) => {
             resolve(docRef.id);
@@ -117,40 +95,43 @@ const addPost = (comment) => new Promise((resolve, reject) => {
         });
 });
 
-// const paintPostsRealTime = (postsCallback) => {
-//     onSnapshot(query(postsCollection, orderBy("date", "desc")), postsCallback);
-// };
+// Definiendo una función que actualiza en tiempo real los posts en la página.
 const paintPostsRealTime = (postsCallback) => {
     onSnapshot(collection(db, "posts"), (querySnapshot) => {
         postsCallback(querySnapshot);
     });
 };
+
+// Definiendo una función que cierra la sesión de usuario actual en Firebase Auth.
 const logOut = () => signOut(auth);
 
+// Definiendo una función que elimina un post de la colección de posts en Firestore.
 const deletePost = (id) => new Promise((resolve, reject) => {
     deleteDoc(doc(getFirestore(), "posts", id))
         .then((res) => resolve(res))
         .catch((error) => reject(error));
 });
 
+// Definiendo una función que actualiza un post de la colección de posts en Firestore.
 const editPost = (id, newFields) => new Promise((resolve, reject) => {
     updateDoc(doc(getFirestore(), "posts", id), newFields)
         .then((res) => resolve(res))
         .catch((error) => reject(error));
 });
 
+// Definiendo una función que agrega el id de usuario que dio like a la propiedad likes de un post en Firestore.
 const aboutLikes = (id, userId) => new Promise((resolve, reject) => {
     updateDoc(doc(getFirestore(), "posts", id), { likes: arrayUnion(userId) })
         .then((res) => resolve(res))
         .catch((error) => reject(error));
 });
 
+// Definiendo una función para obtener información sobre los dislikes de un post dado su id y el id del usuario
 const aboutDislikes = (id, userId) => new Promise((resolve, reject) => {
     updateDoc(doc(getFirestore(), "posts", id), { likes: arrayRemove(userId) })
         .then((res) => resolve(res))
         .catch((error) => reject(error));
 });
-
 export {
     auth, app, db, provider, signIn, registerUser, googleSign, postsCollection, postDocuments, addPost, paintPostsRealTime, logOut, deletePost, editPost, aboutLikes, aboutDislikes,
 };

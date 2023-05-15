@@ -14,12 +14,12 @@ const login = (findRouteAndNavigate) => {
         </figure>
         <article>
             <div class="fields">
-                <label class="labelText">Correo: </label>
+                <label class="labelMail"> Correo Electrónico </label>
                 <input id="mailUserLogin" class="inputLogin" type="text" placeholder="example@gmail.com" />
                 <p id="messageErrorMailLogin" class="messageErrorMailLogin"></p>
             </div>
             <div class="fields">
-                <label class="labelText">Contraseña: </label>
+                <label class="labelPassword">Contraseña </label>
                 <input id="passwordUserLogin" class="inputLogin" type="password" placeholder="xxxxxx" />
                 <p id="messageErrorPasswordLogin" class="messageErrorPasswordLogin"></p>
             </div>

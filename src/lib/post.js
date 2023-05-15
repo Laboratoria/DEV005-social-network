@@ -4,7 +4,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
 import {
-  collection, addDoc, doc, deleteDoc, updateDoc, arrayUnion, arrayRemove, getDocs, query, onSnapshot, serverTimestamp, orderBy,
+  collection, addDoc, doc, deleteDoc, updateDoc, arrayUnion, arrayRemove, query, onSnapshot, serverTimestamp, orderBy,
 } from 'firebase/firestore';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { async } from 'regenerator-runtime';
@@ -27,13 +27,7 @@ export const addPostToFirestore = async (text, user) => {
     console.log('Error', err);
   }
 };
-// Función para traer los post desde Firestore
-export const addPostFromFirestore = async () => {
-  const querySnapshot = await getDocs(collection(db, 'posts'));
-  querySnapshot.forEach((doc) => {
-    console.log(doc.id, ' => ', doc.data());
-  });
-};
+
 export const q = query(collection(db, 'posts'), orderBy('timestamp', 'desc'));
 
 // Función para eliminar un post de Firestore
@@ -44,4 +38,5 @@ export const likePost = (userEmail, idDoc) => updateDoc(doc(db, 'posts', idDoc),
 
 // Función Firestore para quitar Like
 export const dislikePost = (userEmail, idDoc) => updateDoc(doc(db, 'posts', idDoc), { likes: arrayRemove(userEmail) });
+
 export { onSnapshot, doc, orderBy };

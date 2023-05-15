@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
@@ -6,8 +7,7 @@ import { signOut, updateCurrentUser } from 'firebase/auth';
 import { arrayUnion } from 'firebase/firestore';
 import { auth, db } from '../lib/firebase';
 import {
-  addPostToFirestore, deletePostFromFirestore, likePost, q, onSnapshot,
-  addPostFromFirestore, dislikePost,
+  addPostToFirestore, deletePostFromFirestore, likePost, q, onSnapshot, dislikePost,
 } from '../lib/post';
 
 function wall() {
@@ -99,6 +99,7 @@ function wall() {
       newPostCont.classList = 'cont-posted';
       const newPostAuthor = document.createElement('div');
       newPostAuthor.className = 'posted-author';
+      newPostAuthor.id = 'posted-author';
       newPostAuthor.textContent = doc.data().user.split('@')[0];
       const newPost = document.createElement('div');
       newPost.className = 'posted';

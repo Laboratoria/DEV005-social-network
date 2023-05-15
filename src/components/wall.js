@@ -7,7 +7,7 @@ import { signOut, updateCurrentUser } from 'firebase/auth';
 import { arrayUnion } from 'firebase/firestore';
 import { auth, db } from '../lib/firebase';
 import {
-  addPostToFirestore, deletePostFromFirestore, likePost, q, onSnapshot, addPostFromFirestore, updatePostFirestore,
+  addPostToFirestore, deletePostFromFirestore, likePost, q, onSnapshot, dislikePost, updatePostFirestore,
 } from '../lib/post';
 
 function wall() {
@@ -108,6 +108,8 @@ function wall() {
       const btnsContainer = document.createElement('div');
       btnsContainer.id = 'btns-cont';
 
+      const arrayLikes = doc.data().likes;
+
       // Check if the current user is the post creator
       if (doc.data().user === currentUserEmail) {
       // Creación botón Eliminar
@@ -158,7 +160,6 @@ function wall() {
       btnLike.id = 'btn-like';
       btnLike.textContent = 'Me gusta';
       btnLike.addEventListener('click', () => {
-        const arrayLikes = doc.data().likes;
         if (arrayLikes.includes(currentUserEmail)) {
           dislikePost(currentUserEmail, doc.id);
         } else {
@@ -166,8 +167,9 @@ function wall() {
         }
       });
 
-      // btnsContainer.append(btnLike);
-      newPostCont.append(newPostAuthor, newPost, btnsContainer, btnLike);
+      btnsContainer.append(btnLike);
+      newPost.append(btnsContainer);
+      newPostCont.append(newPostAuthor, newPost, btnsContainer);
       postsContainer.append(newPostCont);
     });
   });

@@ -1,9 +1,8 @@
-/* eslint-disable no-shadow */
 /* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
 /* eslint-disable no-console */
 import {
-  collection, addDoc, doc, deleteDoc, updateDoc, arrayUnion, arrayRemove, getDocs, query, onSnapshot, serverTimestamp, orderBy,
+  collection, addDoc, doc, deleteDoc, updateDoc, arrayUnion, arrayRemove, query, onSnapshot, serverTimestamp, orderBy,
 } from 'firebase/firestore';
 import {
   auth, db,
@@ -24,14 +23,6 @@ export const addPostToFirestore = async (text, user) => {
   } catch (err) {
     console.log('Error', err);
   }
-};
-
-// Función para traer los post desde Firestore
-export const addPostFromFirestore = async () => {
-  const querySnapshot = await getDocs(collection(db, 'posts'));
-  querySnapshot.forEach((doc) => {
-    console.log(doc.id, ' => ', doc.data());
-  });
 };
 
 export const q = query(collection(db, 'posts'), orderBy('timestamp', 'desc'));

@@ -19,6 +19,7 @@ const homeLogic = (container) => {
     signOffBtn.addEventListener("click", () => {
         signOut(auth);
         window.localStorage.removeItem("auth");
+        window.localStorage.removeItem("user");
         window.location.href = "welcome";
     });
 

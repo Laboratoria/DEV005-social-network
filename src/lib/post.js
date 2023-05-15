@@ -1,15 +1,11 @@
-/* eslint-disable max-len */
-/* eslint-disable no-shadow */
-/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-unused-vars */
+/* eslint-disable max-len */
 /* eslint-disable no-console */
 import {
   collection, addDoc, doc, deleteDoc, updateDoc, arrayUnion, arrayRemove, query, onSnapshot, serverTimestamp, orderBy,
 } from 'firebase/firestore';
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import { async } from 'regenerator-runtime';
 import {
-  auth, db, app, deletePost,
+  auth, db,
 } from './firebase.js';
 
 // Add a new document with a generated id.
@@ -41,3 +37,10 @@ export const likePost = (userEmail, idDoc) => updateDoc(doc(db, 'posts', idDoc),
 export const dislikePost = (userEmail, idDoc) => updateDoc(doc(db, 'posts', idDoc), { likes: arrayRemove(userEmail) });
 
 export { onSnapshot, doc, orderBy };
+
+export function updatePostFirestore(idDoc, newText) {
+  const docRef = doc(db, 'posts', idDoc);
+  updateDoc(docRef, { text: newText })
+    .then(() => console.log('Post updated successfully'))
+    .catch((error) => console.error('Error updating post:', error));
+}

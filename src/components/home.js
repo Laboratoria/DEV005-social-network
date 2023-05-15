@@ -2,6 +2,7 @@
 /* eslint-disable no-console */
 import { accessWithGithub, logInWithEmail, accessWithGoogle } from '../lib/auth';
 
+// Creación sección Iniciar sesión
 function home(navigateTo) {
   const sectionHome = document.createElement('section');
   sectionHome.id = 'container-home';
@@ -23,37 +24,48 @@ function home(navigateTo) {
   password.type = 'password';
   password.id = 'user-pass';
   password.placeholder = 'Contraseña';
+
+  // Creación botón Iniciar sesión
   const btnLogIn = document.createElement('button');
   btnLogIn.type = 'submit';
   btnLogIn.id = 'login';
   btnLogIn.textContent = 'Iniciar sesión';
-  const iconGoogle = document.createElement('img');
-  iconGoogle.id = 'icon-google';
-  iconGoogle.src = './images/icon-google.png';
-  iconGoogle.alt = 'icon-google';
+
+  // Creación botón Inicio de sesión con Google
   const googleLogIn = document.createElement('button');
   googleLogIn.type = 'submit';
   googleLogIn.id = 'google-login';
   googleLogIn.className = 'provider';
   googleLogIn.textContent = 'Inicia sesión con Google';
+  const iconGoogle = document.createElement('img');
+  iconGoogle.id = 'icon-google';
+  iconGoogle.src = './images/icon-google.png';
+  iconGoogle.alt = 'icon-google';
+
+  // Creación botón Iniciar sesión con GitHub
   const ghLogIn = document.createElement('button');
   ghLogIn.id = 'gh-login';
   ghLogIn.className = 'provider';
   const iconGH = document.createElement('img');
   iconGH.id = 'icon-gh';
-  iconGH.src = '/images/icon-github.png';
+  iconGH.src = './images/icon-github.png';
   iconGH.alt = 'icon-GitHub';
   ghLogIn.textContent = 'Inicia sesión con GitHub';
+
+  // Creación sección Registrarme
   const regist = document.createElement('section');
   regist.id = 'to-regist';
   regist.textContent = '¿No tienes cuenta?';
   const btnRegister = document.createElement('button');
   btnRegister.id = 'h-register';
   btnRegister.textContent = 'Registrarme';
+
+  // Texto de error al iniciar sesión
   const errorELogin = document.createElement('h3');
   errorELogin.id = 'error-login';
   errorELogin.classList.add('error-element');
   errorELogin.textContent = '';
+
   // Sección para tablets y dekstop
   const infoCont = document.createElement('section');
   infoCont.id = 'info-cont';

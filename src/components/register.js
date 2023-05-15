@@ -4,6 +4,7 @@
 
 import { newAccount, accessWithGoogle, accessWithGithub } from '../lib/auth';
 
+// Creación sección registro
 function register(navigateTo) {
   const sectionReg = document.createElement('section');
   sectionReg.id = 'reg-account';
@@ -20,22 +21,15 @@ function register(navigateTo) {
   regTrademark.id = 'marca';
   inputEmail.id = 'email';
   inputEmail.placeholder = 'Escribe tu correo';
-  // const inputName = document.createElement('input');
-  // inputName.id = 'full-name';
-  // inputName.placeholder = 'Nombre completo';
-  // const inputUser = document.createElement('input');
-  // inputUser.id = 'nombre-usuario';
-  // inputUser.placeholder = 'Tu usuario';
   const inputPass = document.createElement('input');
   inputPass.id = 'contraseña';
   inputPass.placeholder = 'Escribe tu contraseña';
   inputPass.type = 'password';
-  // const inputConfirmPass = document.createElement('input');
-  // inputConfirmPass.id = 'confirmar-contra';
-  // inputConfirmPass.placeholder = 'Confirma tu contraseña';
   const btnSend = document.createElement('button');
   btnSend.id = 'send-info';
   btnSend.type = 'submit';
+
+  // Creación botón Registrar con Google
   const btnRegWithGoogle = document.createElement('button');
   btnRegWithGoogle.classList.add('google-reg-btn');
   btnRegWithGoogle.id = 'google-reg';
@@ -44,6 +38,7 @@ function register(navigateTo) {
   signUpGoogleIcon.src = '/images/icon-google.png';
   signUpGoogleIcon.alt = 'google icon';
 
+  // Creación botón Registrar con GitHub
   const btnRegWithGithub = document.createElement('button');
   btnRegWithGithub.classList.add('github-reg-btn');
   btnRegWithGithub.id = 'github-reg';
@@ -52,10 +47,12 @@ function register(navigateTo) {
   signUpGithubIcon.src = '/images/icon-github.png';
   signUpGithubIcon.alt = 'github icon';
 
+  // Texto de error al registrar
   const errorElement = document.createElement('h3');
   errorElement.classList.add('error-element');
   errorElement.textContent = '';
 
+  // Título registro de KittyBook
   titleRegKitty.classList.add('title-reg-kitty');
   titleRegKitty.textContent = 'KittyBook';
   titleReg.textContent = '¡Regístrate!';
@@ -73,6 +70,7 @@ function register(navigateTo) {
   infoTxt.textContent = `¿Tienes un gatito? ¡En KittyBook puedes presumirlo!
   Publica ideas e imágenes para compartir información gatuna.`;
 
+  // Creación botón Volver al Inicio
   const btnReturnH = document.createElement('button');
   btnReturnH.id = 'return';
   btnReturnH.textContent = 'Volver al Inicio';
@@ -107,9 +105,6 @@ function register(navigateTo) {
     infoCont,
     titleReg,
     divContainer,
-    // inputName,
-    // inputUser,
-    // inputConfirmPass,
     btnReturnH,
     regTrademark,
   );

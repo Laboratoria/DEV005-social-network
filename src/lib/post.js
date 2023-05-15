@@ -7,7 +7,8 @@ import {
 import {
   auth, db,
 } from './firebase.js';
-// Add a new post
+
+// Función para añadir un post a Firestore
 export const addPostToFirestore = async (text, user) => {
   const userIn = auth.currentUser;
   console.log('se añade');
@@ -37,6 +38,7 @@ export const dislikePost = (userEmail, idDoc) => updateDoc(doc(db, 'posts', idDo
 
 export { onSnapshot, doc, orderBy };
 
+// Función para editar un post de Firestore
 export function updatePostFirestore(idDoc, newText) {
   const docRef = doc(db, 'posts', idDoc);
   updateDoc(docRef, { text: newText })

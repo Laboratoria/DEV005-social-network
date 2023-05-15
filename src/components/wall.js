@@ -3,7 +3,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
 import { signOut, updateCurrentUser } from 'firebase/auth';
-// import { doc } from '@firebase/firestore';
 import { arrayUnion } from 'firebase/firestore';
 import { auth, db } from '../lib/firebase';
 import {
@@ -21,20 +20,6 @@ function wall() {
   const btnLogOut = document.createElement('button');
   btnLogOut.id = 'log-out';
   btnLogOut.textContent = 'Cerrar sesión';
-  const backToTopBtn = document.createElement('button');
-  backToTopBtn.id = 'back-to-top';
-  const backToTop = document.createElement('img');
-  backToTop.id = 'back-to-top-img';
-  backToTop.src = './images/top-svgrepo-com.svg';
-  backToTop.alt = 'arrow up';
-  // Funcionalidad del botón backToTop
-  backToTopBtn.append(backToTop);
-  backToTopBtn.addEventListener('click', () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  });
 
   // Escribir posts
   const writeContainer = document.createElement('section');
@@ -59,6 +44,22 @@ function wall() {
     } else {
       btnSendPost.disabled = true;
     }
+  });
+
+  // Creación botón Back to Top
+  const backToTopBtn = document.createElement('button');
+  backToTopBtn.id = 'back-to-top';
+  const backToTop = document.createElement('img');
+  backToTop.id = 'back-to-top-img';
+  backToTop.src = './images/top-svgrepo-com.svg';
+  backToTop.alt = 'arrow up';
+  // Funcionalidad del botón backToTop
+  backToTopBtn.append(backToTop);
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
   });
 
   // Creación de modal y todos sus elementos
@@ -103,7 +104,7 @@ function wall() {
 
   // Función para traer los posts de Firestore en tiempo real
   onSnapshot(q, (querySnapshot) => {
-  // Clear postsContainer before adding new posts
+    // Clear postsContainer before adding new posts
     postsContainer.innerHTML = '';
     const currentUserEmail = auth.currentUser.email;
 
@@ -124,12 +125,14 @@ function wall() {
       const arrayLikes = doc.data().likes;
       const newPostBtns = document.createElement('div');
       newPostBtns.className = 'posted-btns';
+
       // Validar que el usuario loggeado sea el autor del post
       if (doc.data().user === currentUserEmail) {
-      // Creación botón Eliminar
+        // Creación botón Eliminar
         const btnDelete = document.createElement('button');
         btnDelete.id = 'btn-delete';
         btnDelete.textContent = 'Borrar';
+
         // Manejo modal eliminar
         btnDelete.addEventListener('click', () => {
           console.log('Deleting post with ID:', doc.id);
@@ -172,9 +175,11 @@ function wall() {
       const likesCounter = document.createElement('div');
       likesCounter.classList.add('likes-counter');
       likesCounter.textContent = arrayLikes.length;
+
       // Ícono de corazón
       const heartIcon = document.createElement('img');
       heartIcon.id = 'heart-icon';
+      heartIcon.src = './images/heart-svgrepo-com.svg';
       heartIcon.src = './images/heart-svgrepo-com.svg';
       heartIcon.alt = 'heart icon';
       likesCounter.append(heartIcon);

@@ -85,6 +85,5 @@ const loginLogic = (container) => {
         }
     });
 };
-// displayName email uid
 
 export { loginLogic };

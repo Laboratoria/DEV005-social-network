@@ -102,6 +102,7 @@ function home(navigateTo) {
     ghLogIn,
     errorELogin,
   );
+
   infoCont.append(infoTxt);
   googleLogIn.append(iconGoogle);
   ghLogIn.append(iconGH);

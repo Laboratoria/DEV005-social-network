@@ -65,6 +65,14 @@ function register(navigateTo) {
   btnRegWithGithub.textContent = 'Regístrate con GitHub';
   regTrademark.textContent = 'KittyBook, 2023';
 
+  // Sección para tablets y dekstop
+  const infoCont = document.createElement('section');
+  infoCont.id = 'info-cont';
+  const infoTxt = document.createElement('p');
+  infoTxt.id = 'info-text';
+  infoTxt.textContent = `¿Tienes un gatito? ¡En KittyBook puedes presumirlo!
+  Publica ideas e imágenes para compartir información gatuna.`;
+
   const btnReturnH = document.createElement('button');
   btnReturnH.id = 'return';
   btnReturnH.textContent = 'Volver al Inicio';
@@ -96,6 +104,7 @@ function register(navigateTo) {
   );
   sectionReg.append(
     titleRegKitty,
+    infoCont,
     titleReg,
     divContainer,
     // inputName,
@@ -104,6 +113,8 @@ function register(navigateTo) {
     btnReturnH,
     regTrademark,
   );
+
+  infoCont.append(infoTxt);
   btnRegWithGoogle.append(signUpGoogleIcon);
   btnRegWithGithub.append(signUpGithubIcon);
   return sectionReg;

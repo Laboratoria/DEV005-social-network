@@ -177,8 +177,8 @@ function wall() {
       });
 
       btnsContainer.append(likesCounter, btnLike);
-      newPost.append(newPostBtns);
-      newPostCont.append(newPostAuthor, newPost, btnsContainer);
+      // newPost.append(newPostBtns);
+      newPostCont.append(newPostAuthor, newPost, btnsContainer, newPostBtns);
       postsContainer.append(newPostCont);
     });
   });

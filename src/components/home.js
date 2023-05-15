@@ -4,6 +4,7 @@ import {
 } from '../lib/auth';
 
 function home(navigateTo) {
+
   const section = document.createElement('section');
   // Elementos
   const img = document.createElement('img');
@@ -19,7 +20,7 @@ function home(navigateTo) {
   img.setAttribute('class', 'logo');  
   /* ----------------Registrarse-------------------------*/
   const register = document.createElement('button');
-  register.textContent = 'Registrarse';
+  register.textContent = 'Registrate ahora';
   register.setAttribute('class', 'register-b');
   register.addEventListener('click', () => {
     navigateTo('/registro');
@@ -133,4 +134,6 @@ function home(navigateTo) {
   );
   division.append(register);
   return section;
-}export default home;
+};
+
+export default home;

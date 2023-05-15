@@ -59,6 +59,9 @@ const loginLogic = (container) => {
             console.log({ user });
 
             if (user.email) {
+                const { displayName, email, uid } = user;
+                window.localStorage.setItem("auth", true);
+                window.localStorage.setItem("user", JSON.stringify({ displayName, email, uid }));
                 window.location.href = "/";
             }
         } catch (error) {
@@ -71,14 +74,17 @@ const loginLogic = (container) => {
     loginGmailBtn.addEventListener("click", async () => {
         const provider = new GoogleAuthProvider();
         const resolve = await signInWithPopup(auth, provider);
+        const { displayName, email, uid } = resolve.user;
         const credentials = getAdditionalUserInfo(resolve);
         if (credentials.isNewUser) {
             window.location.href = "/register";
         } else {
             window.localStorage.setItem("auth", true);
+            window.localStorage.setItem("user", JSON.stringify({ displayName, email, uid }));
             window.location.href = "/";
         }
     });
 };
+// displayName email uid
 
 export { loginLogic };

@@ -21,6 +21,7 @@ const homeLogic = (container) => {
     signOffBtn.addEventListener("click", () => {
         signOut(auth);
         window.localStorage.removeItem("auth");
+        window.localStorage.removeItem("user");
         window.location.href = "welcome";
     });
 
@@ -52,6 +53,7 @@ const homeLogic = (container) => {
             postElement.appendChild(likesBtn);
             // Contador de likes
             const likesParagraph = document.createElement("SPAN");
+            likesParagraph.classList.add("likesParagraph");
             const countLikes = doc.data().likes.length;
             likesParagraph.textContent = countLikes;
             postElement.appendChild(likesParagraph);
@@ -71,7 +73,7 @@ const homeLogic = (container) => {
             postElement.appendChild(editBtn);
             // Contenedor editField y postText
             const divContentComment = document.createElement("DIV");
-            divContentComment.style.display = "inline-block";
+            divContentComment.classList.add("divContentComment");
             postElement.appendChild(divContentComment);
             // Campo de texto para actualizar comentario
             const editField = document.createElement("INPUT");

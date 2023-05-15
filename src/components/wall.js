@@ -151,7 +151,7 @@ function wall() {
           }
         });
 
-        newPostBtns.append(bntEdit, btnDelete);
+        newPostBtns.append(btnEdit, btnDelete);
       }
 
       // Creación de contador de likes

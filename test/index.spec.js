@@ -1,69 +1,46 @@
-// import { signOut } from "firebase/auth";
-// import { addPost } from "../src/firebase/configuracion.js";
-// import { homeLogic } from "../src/lib/index.js";
+/**
+ * @jest-environment jsdom
+ */
+import "firebase/firestore";
+import "firebase/auth";
+import { auth } from "../src/firebase/configuration.js";
+import { homeLogic } from "../src/lib/index.js";
 
-// // Mockear los elementos necesarios para la prueba
-// const containerMock = document.createElement("div");
-// containerMock.innerHTML = `
-//     <input id="commentField" type="text">
-//     <button id="publishBtn"></button>
-//     <div id="publications"></div>
-//     <button id="signOffBtn"></button>
-//     <span id="userName"></span>
-// `;
-// // Mockear localStorage
-// const localStorageMock = {
-//     getItem: jest.fn(),
-//     removeItem: jest.fn(),
-// };
-// global.window = {
-//     localStorage: localStorageMock,
-//     location: {
-//         href: "",
-//     },
-// };
+describe("homeLogic", () => {
+    test("Debe verificar el contenedor y los elementos HTML necesarios", () => {
+        const container = document.createElement("DIV");
+        container.innerHTML = `
+        <textarea id="commentField"></textarea>
+        <button id="publishBtn"></button>
+        <div id="publications"></div>
+        <button id="signOffBtn"></button>
+        <span id="userName"></span>
+      `;
 
-// // Mockear las funciones de Firebase que se utilizan en la función homeLogic
-// jest.mock("firebase/auth", () => ({
-//     signOut: jest.fn(),
-// }));
-// jest.mock("../firebase/configuracion.js", () => ({
-//     addPost: jest.fn(),
-//     deletePost: jest.fn(),
-//     editPost: jest.fn(),
-//     paintPostsRealTime: jest.fn(),
-//     aboutLikes: jest.fn(),
-//     aboutDislikes: jest.fn(),
-// }));
+        const user = { displayName: "John Doe" };
+        window.localStorage.setItem("user", JSON.stringify(user));
 
-// describe("homeLogic", () => {
-//     beforeEach(() => {
-//         // Limpiar el mock y reiniciar los mocks antes de cada prueba
-//         jest.clearAllMocks();
-//     });
+        const signOutMock = jest.fn();
+        const signOutSpy = jest.spyOn(auth, "signOut").mockImplementation(signOutMock);
 
-//     test("signOffBtn click event should call signOut and removeItem from localStorage", () => {
-//         homeLogic(containerMock);
+        delete window.location;
+        window.location = { href: "" };
 
-//         const signOffBtn = containerMock.querySelector("#signOffBtn");
-//         signOffBtn.click();
+        homeLogic(container);
 
-//         expect(signOut).toHaveBeenCalledTimes(1);
-//         expect(localStorageMock.removeItem).toHaveBeenCalledWith("auth");
-//     });
+        expect(container.querySelector("#commentField")).toBeTruthy();
+        expect(container.querySelector("#publishBtn")).toBeTruthy();
+        expect(container.querySelector("#publications")).toBeTruthy();
+        expect(container.querySelector("#signOffBtn")).toBeTruthy();
+        expect(container.querySelector("#userName")).toBeTruthy();
+        expect(container.querySelector("#userName").textContent).toBe(user.displayName);
 
-//     test("publishBtn click event should call addPost with the comment value and clear the commentField", () => {
-//         homeLogic(containerMock);
+        container.querySelector("#signOffBtn").click();
+        expect(signOutMock).toHaveBeenCalled();
 
-//         const commentField = containerMock.querySelector("#commentField");
-//         const publishBtn = containerMock.querySelector("#publishBtn");
+        expect(window.location.href).toBe("welcome");
 
-//         commentField.value = "Test comment";
-//         publishBtn.click();
-
-//         expect(addPost).toHaveBeenCalledWith("Test comment");
-//         expect(commentField.value).toBe("");
-//     });
-
-//     // Agregar más pruebas unitarias según sea necesario
-// });
+        signOutSpy.mockRestore();
+        window.location = undefined;
+    });
+});

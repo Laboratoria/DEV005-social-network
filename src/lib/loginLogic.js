@@ -1,6 +1,6 @@
 // Se importan las siguientes funciones y objetos de Firebase.
-/* import { GoogleAuthProvider, getAdditionalUserInfo, signInWithPopup } from "firebase/auth";
-import { auth, signIn } from "../firebase/configuracion";
+import { GoogleAuthProvider, getAdditionalUserInfo, signInWithPopup } from "firebase/auth";
+import { auth, signIn } from "../firebase/configuration";
 
 // Se define una función llamada loginLogic que toma un elemento container como argumento.
 const loginLogic = (container) => {

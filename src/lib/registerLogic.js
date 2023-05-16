@@ -1,5 +1,5 @@
 // Se importan las siguientes funciones y objetos de Firebase.
-import { registerUser } from "../firebase/configuracion";
+import { registerUser } from "../firebase/configuration";
 
 // Se define una función llamada registerLogic que toma un elemento container como argumento.
 const registerLogic = (container) => {

@@ -2,7 +2,7 @@
 import { signOut } from "firebase/auth";
 import {
     addPost, auth, deletePost, editPost, paintPostsRealTime, aboutLikes, aboutDislikes,
-} from "../firebase/configuracion.js";
+} from "../firebase/configuration.js";
 
 // Se define una función llamada loginLogic que toma un elemento container como argumento.
 const homeLogic = (container) => {

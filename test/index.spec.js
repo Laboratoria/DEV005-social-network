@@ -1,4 +1,3 @@
-// // Importar las dependencias necesarias para las pruebas
 // import { signOut } from "firebase/auth";
 // import { addPost } from "../src/firebase/configuracion.js";
 // import { homeLogic } from "../src/lib/index.js";

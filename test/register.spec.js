@@ -11,7 +11,7 @@ describe("register", () => {
         const content = document.createElement("main");
         content.id = "content";
         document.body.append(content);
-        jest.spyOn("register").mockImplementation(() => Promise.resolve({ displayName: "carol", email: "carolrobleseduc@gmail.com", password: "123456" }));
+        jest.spyOn(register).mockImplementation(() => Promise.resolve({ displayName: "carol", email: "carolrobleseduc@gmail.com", password: "123456" }));
         content.append(register());
         const name = content.querySelector("#userNameRegister");
         name.value = "usernameregister";

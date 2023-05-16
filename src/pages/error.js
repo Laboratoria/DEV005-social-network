@@ -3,10 +3,17 @@ const error = () => {
     // Crea un elemento HTML <section> y lo guarda en una constante llamada "container"
     const container = document.createElement("section");
     // Añade la clase al elemento
-    container.classList.add("five");
+    container.classList.add("contentLR");
     // Declara una constante llamada "viewError" que es igual a una cadena de texto con el contenido HTML de un encabezado <h4>
-    const viewError = ` 
-    <h4>Lo sentimos, no disponible por el momento.</h4>
+    const viewError = `
+    <div class="five">
+    <article class="contentError">
+        <h4 class="errorText">Lo sentimos, existe un error. Vuelva a intentarlo.</h4>
+        <figure class="figError">
+        <img src="./img/errorOutline.svg" alt="error" class="imgError" />
+        </figure> 
+    </article>
+    </div>
     `;
     // Inserta el contenido HTML de "viewError" dentro del elemento <section> creado antes
     container.innerHTML = viewError;

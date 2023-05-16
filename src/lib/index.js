@@ -9,7 +9,7 @@ import {
     paintPostsRealTime,
     aboutLikes,
     aboutDislikes,
-} from "../firebase/configuracion.js";
+} from "../firebase/configuration.js";
 
 // Se define una función llamada loginLogic que toma un elemento container como argumento.
 const homeLogic = (container) => {
@@ -28,6 +28,7 @@ const homeLogic = (container) => {
     signOffBtn.addEventListener("click", () => {
         signOut(auth);
         window.localStorage.removeItem("auth");
+        window.localStorage.removeItem("user");
         window.location.href = "welcome";
     });
 

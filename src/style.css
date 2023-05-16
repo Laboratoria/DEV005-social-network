@@ -1,397 +1,404 @@
 /* ESTILO PARA EL HTML */
 html,
 body {
-    width: 100%;
-    height: 100%;
-    margin: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
 }
 
 /* ESTILO PARA LA VISTA WELCOME */
 
 .content {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 .contentW {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(360deg, #4ea8de 1.37%, rgba(104, 213, 228, 0.995555) 48.76%, rgba(128, 204, 234, 0.991472) 99.99%, rgba(78, 168, 222, 0) 100%);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    360deg,
+    #4ea8de 1.37%,
+    rgba(104, 213, 228, 0.995555) 48.76%,
+    rgba(128, 204, 234, 0.991472) 99.99%,
+    rgba(78, 168, 222, 0) 100%
+  );
 }
 .contentLR {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #ffffff;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
 }
 .logoLR {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
 }
 .one {
-    width: 500px;
+  width: 500px;
 }
 .homeImage {
-    margin: 16px 0 40px 80px;
+  margin: 16px 0 40px 80px;
 }
 .buttonsLR {
-    font-size: 30px;
-    font-family: "Nunito", sans-serif;
+  font-size: 30px;
+  font-family: "Nunito", sans-serif;
 }
 .textLR {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 span {
-    margin: 0 20px 20px;
+  margin: 0 20px 20px;
 }
 
 /* ESTILO PARA LA VISTA LOGIN */
 
 .two {
-    width: 500px;
+  width: 500px;
 }
 .inputLogin {
-    border-style: none;
-    border-bottom: 2px solid #e05d6f;
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-    font-size: 25px;
-    background: none;
-    outline: none;
+  border-style: none;
+  border-bottom: 2px solid #e05d6f;
+  background: none;
+  outline: none;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  color: #bbbaba;
 }
 .messageErrorMailLogin {
-    font-family: "Roboto", sans-serif;
-    font-weight: 600;
-    font-size: 20px;
-    color: #ff0000;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: #ff0000;
 }
 .messageErrorPasswordLogin {
-    font-family: "Roboto", sans-serif;
-    font-weight: 600;
-    font-size: 20px;
-    color: #ff0000;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: #ff0000;
 }
 
 /* ESTILO PARA BOTÓN DE LOGIN */
 
 .loginBtn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
 }
 .lBtn {
-    width: 307px;
-    height: 62px;
-    background: #4ea8de;
-    border: 0;
-    border-radius: 10px;
-    cursor: pointer;
-    color: #ffffff;
-    font-family: "Roboto", sans-serif;
-    font-size: 20px;
+  width: 307px;
+  height: 62px;
+  background: #4ea8de;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
 }
 
 /* ESTILO PARA BOTON DE GOOGLE */
 
 label.labelMail {
-    font-family: "Roboto", sans-serif;
-    font-size: 16px;
-    color: #333333;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  color: #333333;
 }
 
 label.labelPassword {
-    font-family: "Roboto", sans-serif;
-    font-size: 16px;
-    color: #333333;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  color: #333333;
 }
-
 
 .loginGmailBtn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 8px 16px 20px 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 8px 16px 20px 16px;
 }
 .lGmailBtn {
-    width: 307px;
-    height: 62px;
-    background-color: #e8e8e8;
-    border: solid 0px;
-    border-radius: 10px;
-    box-shadow: 2px 2px 5px 0.5px rgba(98, 98, 98, 0.2);
-    font-family: "Roboto", sans-serif;
-    font-size: 18px;
-    font-weight: 500;
-    color: #6d6d6d;
-    padding: 8px 8px 8px 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 8px 16px 20px 16px;
-    cursor: pointer;
+  width: 307px;
+  height: 62px;
+  background-color: #e8e8e8;
+  border: solid 0px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px 0.5px rgba(98, 98, 98, 0.2);
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #6d6d6d;
+  padding: 8px 8px 8px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 8px 16px 20px 16px;
+  cursor: pointer;
 }
 .imgGoogle {
-    height: 28px;
-    width: 29px;
-    padding: 8px 20px 8px 8px;
+  height: 28px;
+  width: 29px;
+  padding: 8px 20px 8px 8px;
 }
 .returnRegistration {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 span.spanText {
-    font-family: "Roboto", sans-serif;
-    font-size: 16px;
-    color: #333333;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  color: #333333;
 }
 
 a.aText {
-    font-family: "Roboto", sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    color: #4ea8de;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #4ea8de;
 }
 
 /* ESTILO PARA LA VISTA REGISTRARSE */
 
 .three {
-    width: 500px;
+  width: 500px;
 }
 .fields {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 .labelText {
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-    font-size: 25px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 25px;
 }
 .inputRegister {
-    border-style: none;
-    border-bottom: 2px solid #e05d6f;
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-    font-size: 25px;
-    background: none;
-    outline: none;
+  border-style: none;
+  border-bottom: 2px solid #e05d6f;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 25px;
+  background: none;
+  outline: none;
 }
 .messageErrorUserRegister {
-    font-family: "Roboto", sans-serif;
-    font-weight: 600;
-    font-size: 20px;
-    color: #ff0000;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: #ff0000;
 }
 .messageErrorMailRegister {
-    font-family: "Roboto", sans-serif;
-    font-weight: 600;
-    font-size: 20px;
-    color: #ff0000;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: #ff0000;
 }
 .messageErrorPasswordRegister {
-    font-family: "Roboto", sans-serif;
-    font-weight: 600;
-    font-size: 20px;
-    color: #ff0000;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: #ff0000;
 }
 
 /* ESTILO PARA BOTÓN DE REGISTRARSE */
 
 .registerBtn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
 }
 .rBtn {
-    width: 307px;
-    height: 62px;
-    background: #4ea8de;
-    border: 0;
-    border-radius: 10px;
-    cursor: pointer;
-    color: #ffffff;
-    font-family: "Roboto", sans-serif;
-    font-size: 20px;
-    margin-bottom: 30px;
+  width: 307px;
+  height: 62px;
+  background: #4ea8de;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  margin-bottom: 30px;
 }
 .returnHomeSession {
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-    font-size: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .spanText {
-    margin: 0 20px;
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-    font-size: 25px;
+  margin: 0 20px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 25px;
 }
 .aText {
-    color: #4ea8de;
-    cursor: pointer;
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-    font-size: 25px;
-    font-weight: 600;
+  color: #4ea8de;
+  cursor: pointer;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 25px;
+  font-weight: 600;
 }
 
 /* ESTILO PARA LA VISTA HOME */
 
+/* Sección Padre */
 section.four {
-    display: grid;
-    grid-template-columns: repeat(40, 40px);
-    grid-template-rows: repeat(18, 60px);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(20, 80px);
+}
+
+.four > div,
+.four .signOff,
+.four .userNameHome,
+.four .myPublication,
+.four .fieldPublications {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #333333;
+  padding: 10px;
+}
+
+/* Sección hijo */
+
+/* botón para salir */
+
+.signOff {
+  width: 130px;
+  height: 70px;
+  display: grid;
+  grid-column-end: 3;
+  justify-self: end;
 }
 
 #signOffBtn {
-    font-family: "Roboto", sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-    color: #333333;
-    background-color: white;
-    border: none;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
+  background-color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: flex-end;
 }
 
 #iconSignOut {
-    width: 20px;
-    height: auto;
-    margin-left: 6px;
-    cursor: pointer;
+  width: 20px;
+  height: auto;
+  margin-left: 6px;
+  cursor: pointer;
 }
 
-.signOff {
-    display: grid;
-    grid-column: 18/22;
-}
+/* logotipo de sportx */
 
 figure.logoHome {
-    display: grid;
-    grid-column: 9/14;
-    grid-row: 2/3;
-   }
-
-#homeLogo {
-    width: 120px;
-    height: auto;
+  width: 130px;
+  height: auto;
+  display: grid;
+  grid-column-start: 2;
+  align-items: center;
 }
 
-.userNameHome {
-    display: grid;
-    grid-column: 8/10;
-    grid-row: 3/4;
+#homeLogo {
+  width: 130px;
+  height: auto;
+  display: flex;
+}
+
+/* nombre del usuario */
+
+div.userNameHome {
+  width: 150px;
+  height: 24px;
+  grid-column: 2;
+  grid-row-end: 4;
+  display: flex;
 }
 
 p#userName {
-    font-family: 'roboto';
-    font-weight: 600;
-    font-size: 12px;
-    color: #333333;
-    display: flex;
-    justify-content: center;
-    margin: 0 0 0 0;
-    align-items: flex-end;
+  display: flex;
 }
 
 .myPublication {
-    display: grid;
-    grid-column: 8/15;
-    grid-row: 4/7;
+  display: grid;
+  grid-column: 2/3;
 }
 
 .commentField {
-    font-family: "Roboto", sans-serif;
-    font-weight: 600;
-    font-size: 14px;
-    color: #333333;
-    border: solid 2px  #4ea8de;
-    border-radius: 8px;
-    width: 250px;
-    height: auto;
-    display: flex;
+  font-weight: 600;
+  font-family: "roboto";
+  border: solid 2px #4ea8de;
+  border-radius: 8px;
+  width: 341px;
+  height: 110px;
+  display: flex;
 }
 
 .publishBtn {
-    width: 80px;
-    height: 28px;
-    background: #4ea8de;
-    border: 0;
-    border-radius: 10px;
-    cursor: pointer;
-    color: #ffffff;
-    font-family: "Roboto", sans-serif;
-    font-size: 14px;
-    margin-top: 8px;
-}
-
-.fieldPublications {
-    font-family: "Roboto", sans-serif;
-    font-weight: 600;
-    font-size: 14px;
-    color: #333333;
-    border: solid 2px  #4ea8de;
-    width: 250px;
-    height: auto;
-    border-radius: 8px;
-    grid-column: 8/15;
+  width: 80px;
+  height: 28px;
+  background: #4ea8de;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: "Roboto", sans-serif;
+  margin-top: 8px;
 }
 
 .publicationContainer {
-    display: grid;
-    grid-template-columns: repeat(6, 40px);
-    grid-template-rows: repeat(5, 10px);
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(20, 6px);
 }
 
-span.postText { 
-    font-family: "Roboto", sans-serif;
-    font-weight: 500;
-    font-size: 14px;
-    color: #333333;
-    display: flex;
-
-}
-
-.divContentComment { 
-    grid-column: 2/6;
-}
-
-.deleteBtn {
-    width: 10px;
-    height: auto;
-    grid-column: 7;
-    cursor: pointer;
+.fieldPublications {
+  display: grid;
+  grid-column: 2/3;
+  grid-row: 6;
 }
 
 .likeBtn {
-    width: 15px;
-    height: auto;
-    cursor: pointer;
-    margin-left: 6px;
-    margin-bottom: 6px;
-    grid-row: 5/6;
+  width: 15px;
+  height: auto;
+  cursor: pointer;
+  margin-left: 6px;
+  margin-bottom: 6px;
+  grid-row: 18;
 }
 
 .likesParagraph {
-    font-family: "Roboto", sans-serif;
-    font-weight: 600;
-    font-size: 12px;
-    color: #A3A6B1;
-    grid-row: 5/6;
+  color: #a3a6b1;
+  font-size: 9px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  grid-row: 17;
 }
 
 .editBtn {
-    width: 10px;
-    height: auto;
-    grid-column: 7;
-    cursor: pointer;
+  width: 10px;
+  height: auto;
+  cursor: pointer;
+  grid-column-end: 9;
+}
+
+.deleteBtn {
+  width: 10px;
+  height: auto;
+  grid-column-end: 8;
+  cursor: pointer;
+}
+
+.divContentComment {
+  grid-column-start: 2/7;
+  grid-row-start: 5;
 }

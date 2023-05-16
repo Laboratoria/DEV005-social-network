@@ -22,13 +22,13 @@ body {
   background-color: #f9f4ef;
 }
 
-main {
+/* main {
   display: flex;
   height: auto;
   width: 100vw;
   background-image: url('./images/huellitas-claras.png');
   background-repeat: repeat-y;
-}
+} */
 
 textarea {
   resize: none;
@@ -788,195 +788,226 @@ textarea {
   }
 
   /*------ WALL ------*/
-#wall-section {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  width: 100vw;
-  align-items: center;
-}
-#nav-bar {
-  display: flex;
-  margin-top: 1.4rem;
-  flex-direction: row;
-  height: 8em;
-  align-items: flex-start;
-}
-  #name-App {
-    width: auto;
-    left: 3rem;
-    font-family: var(--font-logo);
-    font-size: 4.5em;
-    font-weight: 400;
-    color: #4a4747;
-    text-align: left;
-    position: absolute;
-  }
-  #log-out {
-    height: 6rem;
-    width: 9rem;
-    position: absolute;
-    right: 3rem;
-    padding: .5rem;
-    font-size: 1.7rem;
-    line-height: 2rem;
-  }
-
-#write-container{
-  display: flex;
-  flex-direction: row;
-  height: 16em;
-  width: 48em;
-  margin: 8em auto 0;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-}
-  #text-posts {
-    height: 6.5em;
-    width: 22em;
-    margin: 2em 1em;
-    padding: 0.6em 7.6em 0.6em 0.6em;
-    font-family: var(--font-text);
-    font-size: 2rem;
-    resize: none;
-    border: solid 1px #c5c5c5;
-    border-radius: 1.4rem;
-    background-color: #ffffff;
-    position: absolute;
-  }
-    #send-post {
-      width: 8.4rem;
-      height: 5rem;
-      margin: 5rem 0 0 32rem;
-      position: absolute;
-      font-size: 1.65rem;
-    }
-      #send-post:disabled {
-        color: #7e7979;
-        background-color: #f1c7bf;
-        cursor: auto;
-      }
-    
-  #posts-container {
+  #wall-section {
     display: flex;
     flex-direction: column;
-    height: auto;
-    width: 100%;
+    height: 100vh;
+    width: 100vw;
     align-items: center;
-    top: 28em;
-    position: absolute;
+    background-image: url("./images/huellitas-claras.png");
+    background-repeat: repeat;
   }
-  .cont-posted {
-    height: auto;
-    width: 44rem;
-    margin: 0 0 3.5em;
-    height: auto;
-  }
-  .posted {
+  #nav-bar {
     display: flex;
-    flex-direction: column;
-    min-height: 6em;
-    width: 44rem;
-    padding: 0.6em 6em 0.7em 0.6em;
-    font-family: var(--font-text);
-    font-size: 1.8rem;
-    background-color: white;
-    border: solid 1px #d35b46;
-    border-radius: 1.5rem 1.5rem 0 0;
+    margin-top: 1.4rem;
+    flex-direction: row;
+    height: 8em;
+    align-items: flex-start;
   }
-  .posted-btns{
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    justify-content: flex-start;
-    align-items: flex-end;
-    margin-right: 1em;
-    position: sticky;
-  }
-    #btn-edit {
-      height: 4rem;
-      width: 9rem;
-      font-size: 1.75rem;
-      margin: .8rem 0 .4rem;
-      
+    #name-App {
+      width: auto;
+      left: 3rem;
+      font-family: var(--font-logo);
+      font-size: 4.5em;
+      font-weight: 400;
+      color: #4a4747;
+      text-align: left;
+      position: absolute;
     }
-    #btn-delete {
-      height: 4rem;
+    #log-out {
+      height: 6rem;
       width: 9rem;
-      font-size: 1.75rem;
-      margin: .4rem 0 0;
-      padding: 0 1rem;
+      right: 3rem;
+      padding: .5rem;
+      background-color: #A94A38;
+      font-size: 1.7rem;
+      line-height: 2rem;
+      position: absolute;
     }
 
-#btns-cont {
-  display: flex;
-  flex-direction: row;
-  margin-top: -.1rem;
-  height: 4em;
-  width: auto;
-}
-#btn-like { 
-  height: 4rem;
-  width: 75%;
-  font-size: 1.8rem;
-  border: none;
-  border-radius: 0 0 1.5rem 1.5rem;
-}
-  .likes-counter {
+  #write-container{
+    display: flex;
+    flex-direction: row;
+    height: 16em;
+    width: 48em;
+    margin: 8em auto 0;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+  }
+    #text-posts {
+      height: 6.5em;
+      width: 22em;
+      margin: 2em 1em;
+      padding: 0.6em 7.6em 0.6em 0.6em;
+      font-family: var(--font-text);
+      font-size: 2rem;
+      resize: none;
+      border: solid 1px #c5c5c5;
+      border-radius: 1.4rem;
+      background-color: #ffffff;
+      position: absolute;
+    }
+      #send-post {
+        width: 8.4rem;
+        height: 5rem;
+        margin: 5rem 0 0 32rem;
+        position: absolute;
+        font-size: 1.65rem;
+      }
+        #send-post:disabled {
+          color: #7e7979;
+          background-color: #f1c7bf;
+          cursor: auto;
+        }
+      
+    #posts-container {
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      width: 100%;
+      align-items: center;
+      top: 25em;
+      position: absolute;
+    }
+    .posted-author{
+      font-family: var(--font-text);
+      color: #A94A38;
+      background-color: #f9f4ef;
+      font-size: 1.6rem;
+      width: fit-content;
+      padding: 2px;
+      position: relative;
+      }
+
+    .cont-posted {
+      height: auto;
+      width: 44rem;
+      margin: 3em 0 3.5em;
+      height: auto;
+    }
+    .posted {
+      display: flex;
+      flex-direction: column;
+      min-height: 6.2em;
+      width: 44rem;
+      padding: 0.6em 6em 0.7em 0.6em;
+      font-family: var(--font-text);
+      font-size: 1.8rem;
+      background-color: white;
+      border: solid 1px #d35b46;
+      border-radius: 1.5rem 1.5rem 0 0;
+    }
+    .posted-btns{
+      display: flex;
+      flex-direction: column;
+      height: 10.5rem;
+      align-items: flex-end;
+      margin-right: 1em;
+      margin-top: -14.6rem;
+      position: relative;
+    }
+      #btn-edit {
+        height: 4rem;
+        width: 9rem;
+        font-size: 1.75rem;
+        margin: .8rem 0 .4rem;
+      }
+      #btn-delete {
+        height: 4rem;
+        width: 9rem;
+        font-size: 1.75rem;
+        margin: .4rem 0 0;
+        padding: 0 1rem;
+      }
+
+  #btns-cont {
+    display: flex;
+    flex-direction: row;
+    margin-top: -.1rem;
+    height: 4em;
+    width: auto;
+  }
+  #btn-like { 
     height: 4rem;
-    width: 25%;
+    width: 75%;
     font-size: 1.8rem;
-    font-weight: 500;
-    color: #ffffff;
-    background-color: #d35c46;
     border: none;
     border-radius: 0 0 1.5rem 1.5rem;
   }
+    .likes-counter {
+      display: flex;
+      flex-direction: row-reverse;
+      height: 4rem;
+      width: 25%;
+      font-family: var(--font-text);
+      font-size: 1.8rem;
+      font-weight: 500;
+      color: #ffffff;
+      background-color: #d35c46;
+      border: none;
+      border-radius: 0 0 1.5rem 1.5rem;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+    }
 
-.modal {
-  display: none; 
-  position: fixed; 
-  z-index: 1; 
-  left: 0;
-  top: 0;
-  width: 100%; 
-  height: 100%; 
-  overflow: auto; 
-  background-color: rgb(0,0,0); 
-  background-color: rgba(0,0,0,0.4); 
-}
-
-  .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; 
-    padding: 20px;
-    width: 50%; 
-    height: 20%;
-    font-family: var(--font-text);
-    font-size: medium;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    border-radius: 15px;
-    border: #8C7851 solid 2px;
-  }
-  .modal-content p {
-    margin-bottom: 8px;
+  .modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
   }
 
-  .modal-content button {
-    background-color: #8C7851;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 15px;
-    cursor: pointer;
-    font-size: 1.5rem;
-    height: auto;
-    width: 60%;
-  }
+    .modal-content {
+      background-color: #fefefe;
+      margin: 15% auto; 
+      padding: 20px;
+      width: 50%; 
+      height: 20%;
+      font-family: var(--font-text);
+      font-size: medium;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      border-radius: 15px;
+      border: #8C7851 solid 2px;
+    }
+    .modal-content p {
+      margin-bottom: 8px;
+    }
+
+    .modal-content button {
+      background-color: #8C7851;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+      font-size: 1.5rem;
+      height: auto;
+      width: 60%;
+    }
+
+    #back-to-top{
+    position: fixed;
+      bottom: 20px;
+      right: 20px;
+      border-radius: 100%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
 
   /*------ ERROR ------*/
   #construction {
@@ -1518,7 +1549,7 @@ textarea {
     margin-top: 38px;
   }
   .posted-author{
-    font-family: var(--font-text);
+  font-family: var(--font-text);
   color: #A94A38;
   background-color: #f9f4ef;
   font-size: 1.5rem;

@@ -22,13 +22,11 @@ body {
   background-color: #f9f4ef;
 }
 
-/* main {
+main {
   display: flex;
   height: auto;
-  width: 100vw;
-  background-image: url('./images/huellitas-claras.png');
-  background-repeat: repeat-y;
-} */
+  width: 100%;
+}
 
 textarea {
   resize: none;
@@ -36,15 +34,6 @@ textarea {
 
 /* MOBILE FIRST */
 @media only screen and (min-width: 320px) and (max-width: 480px) {
-  
-  main {
-    display: flex;
-    height: auto;
-    width: 100%;
-    background-image: url('./images/huellitas-claras.png');
-    background-repeat: repeat-y;
-  }
-
   /*------ HOME/LOGIN ------*/
   .container {
     display: flex;
@@ -791,12 +780,14 @@ textarea {
   #wall-section {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 100%;
     width: 100vw;
     align-items: center;
-    background-image: url("./images/huellitas-claras.png");
+    background-image: url('./images/huellitas-claras.png');
     background-repeat: repeat;
+    position: absolute;
   }
+
   #nav-bar {
     display: flex;
     margin-top: 1.4rem;
@@ -1217,7 +1208,7 @@ textarea {
     text-align: center;
     align-self: baseline;
   }
-  #info-cont {
+  #info-cont-reg {
     display: flex;
     height: 19rem;
     width: 37rem;
@@ -1229,7 +1220,7 @@ textarea {
     align-items: center;
     position: relative;
   }
-    #info-text {
+    #info-text-reg {
       font-family: var(--font-text);
       font-size: 2.45em;
       text-align: center;
@@ -1241,7 +1232,7 @@ textarea {
     font-size: 2.8em;
     font-weight: bold;
     color: #000000;
-    margin-top: 11rem;
+    margin-top: 6rem;
   }
 
   .signup-container {
@@ -1323,6 +1314,7 @@ textarea {
   }
 
   #return {
+    display: flex;
     font-size: 1.85rem;
     font-weight: 600;
     color: #000000;
@@ -1330,8 +1322,11 @@ textarea {
     box-shadow: 1px 1px 4px #6e6e6e42;
     border: none;
     position: absolute;
-    right: 10.6em;
-    bottom: 8em;
+    margin: 23em 0 0;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    justify-self: auto;
   }
 
   footer {
@@ -1496,16 +1491,6 @@ textarea {
       margin-bottom: 8px;
     }
 
-    main {
-      display: flex;
-      width: 100%;
-      height: 100%;
-      position: relative;
-      background-image: url('./images/huellitas-removebg-preview.png');
-      background-repeat: repeat-y;
-      background-size: 40%;
-      background-position: right;
-    } 
     .likes-counter{
       display: flex;
       flex-direction: row-reverse;

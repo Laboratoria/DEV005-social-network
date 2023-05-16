@@ -16,6 +16,7 @@ function register(navigateTo) {
   titleReg.id = 'register-title';
   const inputEmail = document.createElement('input');
   const regTrademark = document.createElement('footer');
+  regTrademark.id = 'footer-reg';
   divContainer.id = 'container';
   divContainer.classList.add('signup-container');
   regTrademark.id = 'marca';
@@ -63,11 +64,11 @@ function register(navigateTo) {
   regTrademark.textContent = 'KittyBook, 2023';
 
   // Sección para tablets y dekstop
-  const infoCont = document.createElement('section');
-  infoCont.id = 'info-cont';
-  const infoTxt = document.createElement('p');
-  infoTxt.id = 'info-text';
-  infoTxt.textContent = `¿Tienes un gatito? ¡En KittyBook puedes presumirlo!
+  const infoContReg = document.createElement('section');
+  infoContReg.id = 'info-cont-reg';
+  const infoTxtReg = document.createElement('p');
+  infoTxtReg.id = 'info-text-reg';
+  infoTxtReg.textContent = `¿Tienes un gatito? ¡En KittyBook puedes presumirlo!
   Publica ideas e imágenes para compartir información gatuna.`;
 
   // Creación botón Volver al Inicio
@@ -102,14 +103,14 @@ function register(navigateTo) {
   );
   sectionReg.append(
     titleRegKitty,
-    infoCont,
+    infoContReg,
     titleReg,
     divContainer,
     btnReturnH,
     regTrademark,
   );
 
-  infoCont.append(infoTxt);
+  infoContReg.append(infoTxtReg);
   btnRegWithGoogle.append(signUpGoogleIcon);
   btnRegWithGithub.append(signUpGithubIcon);
   return sectionReg;

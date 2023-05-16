@@ -3,18 +3,12 @@
  */
 import { loginLogic } from "../src/lib/loginLogic.js";
 import { login } from "../src/pages/login.js";
-// import { auth, signIn, signIn } from "../src/firebase/configuracion.js";
+// import { auth } from "../src/firebase/configuracion.js";
 
 describe("loginLogic", () => {
     test("should be a function", () => {
         expect(typeof loginLogic).toBe("function");
     });
-
-    // test("inputs with users data", () => {
-    // const DOM = document.createElement("container");
-    // const mailUser = DOM.querySelector("mailUserLogin");
-    // expect(mailUser).toBeTruthy();
-    // });
 
     describe("after click the user navigates to /home", () => {
         test("should be a function", () => {
@@ -34,9 +28,20 @@ describe("loginLogic", () => {
         });
     });
 
-/* describe("sign in with email", () => {
-        test("click to validate count or not", () => {
-            jest.spyOn(auth, "signIn").mockImplementation(() => Promise.resolve({ email: "test@test.com", password: "123" }));
+    describe("validateFields", () => {
+        test("should be a function with posibilities to show error", () => {
+            const mailUserLogin = { value: "" };
+            const passwordUserLogin = { value: "123" };
+            const result = validateFields(mailUserLogin, passwordUserLogin);
+            expect(result.error).toBe(true);
+        });
+    });
+
+    /* describe("sign in with email", () => {
+        test("click to validate validate fields", () => {
+            jest
+                .spyOn(auth, "signIn")
+                .mockImplementation(() => Promise.resolve({ email: "test@test.com", password: "123" }));
             const findRouteAndNavigate = jest.fn();
             const DOM = login(findRouteAndNavigate);
             const mailUser = DOM.querySelector("#mailUserLogin");
@@ -45,10 +50,7 @@ describe("loginLogic", () => {
             passwordUserLogin.value = "123";
             const button = DOM.querySelector("#loginBtn");
             button.click();
-            expect(signIn).tohaveBeenCalled(1);
-            // const validateFieldsMock = jest.fn();
-            // login.append(validateFieldsMock);
-            // jest.spyOn(auth, "validateFieldsMock");
-        });
-    });
+            expect(auth.signIn).tohaveBeenCalled();
+
+        }); */
 });

@@ -1,6 +1,15 @@
 // Se importan las siguientes funciones y objetos de Firebase.
 import { signOut } from "firebase/auth";
-import { addPost, auth, deletePost, editPost, paintPostsRealTime, aboutLikes, aboutDislikes } from "../firebase/configuracion.js";
+
+import {
+    addPost,
+    auth,
+    deletePost,
+    editPost,
+    paintPostsRealTime,
+    aboutLikes,
+    aboutDislikes,
+} from "../firebase/configuracion.js";
 
 // Se define una función llamada loginLogic que toma un elemento container como argumento.
 const homeLogic = (container) => {
@@ -35,6 +44,7 @@ const homeLogic = (container) => {
         querySnapshot.forEach((doc) => {
             // Contenedor para cada publicación
             const postElement = document.createElement("DIV");
+            postElement.classList.add("publicationContainer");
             // Boton de like
             const likesBtn = document.createElement("IMG");
             const isLike = doc.data().likes.some((item) => item === auth.currentUser.uid);

@@ -114,11 +114,6 @@ label.labelPassword {
     color: #333333;
 }
 
-.inputLogin {
-    font-family: "Roboto", sans-serif;
-    font-size: 14px;
-    color: #bbbaba;
-}
 
 .loginGmailBtn {
     display: flex;
@@ -250,6 +245,12 @@ a.aText {
 
 /* ESTILO PARA LA VISTA HOME */
 
+section.four {
+    display: grid;
+    grid-template-columns: repeat(40, 40px);
+    grid-template-rows: repeat(18, 60px);
+}
+
 #signOffBtn {
     font-family: "Roboto", sans-serif;
     font-weight: 400;
@@ -269,43 +270,128 @@ a.aText {
     cursor: pointer;
 }
 
+.signOff {
+    display: grid;
+    grid-column: 18/22;
+}
+
+figure.logoHome {
+    display: grid;
+    grid-column: 9/14;
+    grid-row: 2/3;
+   }
+
+#homeLogo {
+    width: 120px;
+    height: auto;
+}
+
+.userNameHome {
+    display: grid;
+    grid-column: 8/10;
+    grid-row: 3/4;
+}
+
+p#userName {
+    font-family: 'roboto';
+    font-weight: 600;
+    font-size: 12px;
+    color: #333333;
+    display: flex;
+    justify-content: center;
+    margin: 0 0 0 0;
+    align-items: flex-end;
+}
+
+.myPublication {
+    display: grid;
+    grid-column: 8/15;
+    grid-row: 4/7;
+}
+
 .commentField {
     font-family: "Roboto", sans-serif;
     font-weight: 600;
     font-size: 14px;
     color: #333333;
-    border: solid #4ea8de;
+    border: solid 2px  #4ea8de;
+    border-radius: 8px;
+    width: 250px;
+    height: auto;
+    display: flex;
 }
 
 .publishBtn {
-    width: 68px;
-    height: auto;
+    width: 80px;
+    height: 28px;
     background: #4ea8de;
     border: 0;
     border-radius: 10px;
     cursor: pointer;
     color: #ffffff;
     font-family: "Roboto", sans-serif;
-    font-size: 10px;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+.fieldPublications {
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: #333333;
+    border: solid 2px  #4ea8de;
+    width: 250px;
+    height: auto;
+    border-radius: 8px;
+    grid-column: 8/15;
+}
+
+.publicationContainer {
+    display: grid;
+    grid-template-columns: repeat(6, 40px);
+    grid-template-rows: repeat(5, 10px);
+}
+
+span.postText { 
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #333333;
+    display: flex;
+
+}
+
+.divContentComment { 
+    grid-column: 2/6;
 }
 
 .deleteBtn {
-    width: 20px;
+    width: 10px;
     height: auto;
+    grid-column: 7;
     cursor: pointer;
 }
 
 .likeBtn {
-    width: 20px;
+    width: 15px;
     height: auto;
     cursor: pointer;
+    margin-left: 6px;
+    margin-bottom: 6px;
+    grid-row: 5/6;
+}
+
+.likesParagraph {
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    color: #A3A6B1;
+    grid-row: 5/6;
 }
 
 .editBtn {
-    width: 20px;
+    width: 10px;
     height: auto;
+    grid-column: 7;
     cursor: pointer;
-}
-.divContentComment {
-    display: inline-block;
 }

@@ -13,11 +13,13 @@ const home = () => {
         <img src="../img/iconSignOut.svg" id="iconSignOut"/>
         </button>
     </div>
-    <figure>
-        <img src="./img/logoHome.svg" alt="logo SportX" />
+    <figure class="logoHome">
+        <img id="homeLogo" src="./img/logoHome.svg" alt="logo SportX" />
     </figure>
+    <div class="userNameHome">
     <p id="userName"></p>
-    <div>
+    </div>
+    <div class="myPublication">
         <textarea type="text" placeholder="¿En qué estás pensando ahora?" id="commentField" class="commentField" rows="3" cols="30" style="resize:none;" >
         </textarea> 
         <button id="publishBtn" class="publishBtn">Publicar</button>

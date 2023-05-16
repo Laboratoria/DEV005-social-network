@@ -8,8 +8,8 @@ import {
   getDoc,
   updateDoc,
   serverTimestamp,
-/*   arrayUnion,
-  arrayRemove, */
+  arrayUnion,
+  arrayRemove,
 } from 'firebase/firestore';
 
 import { auth, db } from './firebaseConfig.js';
@@ -100,7 +100,7 @@ export const updateTask = async (id, updateTask) => {
   }
 };
 
-/* // Like
+// Like
 export const updateLike = (idDoc, idUser) => {
   const taskRef = firestoreDoc(db, 'tasks', idDoc);
   updateDoc(taskRef, { likes: arrayUnion(idUser) });
@@ -109,7 +109,7 @@ export const updateLike = (idDoc, idUser) => {
 export const updateDislike = (idDoc, idUser) => {
   const taskRef = firestoreDoc(db, 'tasks', idDoc);
   updateDoc(taskRef, { likes: arrayRemove(idUser) });
-}; */
+};
 
 
 //postear

@@ -1,5 +1,5 @@
 import {
-  submitForm, deleteTask, onGetTasks, getTask, getCurrentUserId, getEmail, updateTask,
+  submitForm, deleteTask, onGetTasks, getTask, getCurrentUserId, getEmail, updateLike, updateDislike,
 } from '../lib/posts';
 
 import { getAuth, signOut } from 'firebase/auth';
@@ -188,7 +188,7 @@ function muro(navigateTo) {
       const taskAge = task.taskAge;
       const userId = getCurrentUserId();
       const owner = task.owner;
-      const isLiked = task.likes.find((id) => id === userId);
+      const isLiked = task.likes.includes(userId);
       const likeClass = isLiked ? 'fa-solid red-heart' : 'fa-regular black-heart';
       taskList.innerHTML += `<div class='container-post'>
                             <div class= 'title-post'>
@@ -226,19 +226,15 @@ function muro(navigateTo) {
       btnLike.forEach((btn) => {
         btn.addEventListener('click', async (e) => {
           const taskId = btn.dataset.id;
+          const taskData = await getTask(taskId);
           const userId = getCurrentUserId();
-          const newPost = await getTask(taskId);
-          const isLiked = newPost.likes.find((id) => id === userId);
 
-          if (isLiked) {
-            const index = newPost.likes.indexOf(userId);
-            newPost.likes.splice(index, 1);
-            await updateTask(taskId, newPost);
+          console.log(taskData);
+
+          if (taskData.likes.includes(userId)) {
+            updateDislike(taskId, userId);
           } else {
-            newPost.likes.push(
-              userId,
-            );
-            await updateTask(taskId, newPost);
+            updateLike(taskId, userId);
           }
         });
       });

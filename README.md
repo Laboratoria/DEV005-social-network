@@ -30,19 +30,19 @@
 >Como usuario aficionado a los deportes  quiero ver el número de likes que recibo para saber lo influyente que soy. 
 
 ## Prototipo de baja fidelidad
-![vistabienvenida](<a href="https://ibb.co/VgZWz8P"><img src="https://i.ibb.co/sKGvNrM/Vista-Bienvenida.png" alt="Vista-Bienvenida"></a>)
-![vistaregistro](<a href="https://ibb.co/VW78VdW"><img src="https://i.ibb.co/vx781bx/Vista-de-Registrarse.png" alt="Vista-de-Registrarse"></a>)
-![iniciarsesión](<a href="https://ibb.co/sWRsJ8P"><img src="https://i.ibb.co/GHpC3zJ/Vista-de-Iniciar-Sesion.png" alt="Vista-de-Iniciar-Sesion"></a>)
-![vistaerror](<a href="https://ibb.co/kHC2WSy"><img src="https://i.ibb.co/tmrpWJh/Vista-de-Error.png" alt="Vista-de-Error"></a>)
-![vistaHome](<a href="https://ibb.co/pKZHprg"><img src="https://i.ibb.co/jwGCFZd/Vista-de-Home.png" alt="Vista-de-Home" ></a>)
+![](<a href="https://ibb.co/VgZWz8P"><img src="https://i.ibb.co/sKGvNrM/Vista-Bienvenida.png" alt="Vista-Bienvenida"></a>)
+![](<a href="https://ibb.co/VW78VdW"><img src="https://i.ibb.co/vx781bx/Vista-de-Registrarse.png" alt="Vista-de-Registrarse"></a>)
+![](<a href="https://ibb.co/sWRsJ8P"><img src="https://i.ibb.co/GHpC3zJ/Vista-de-Iniciar-Sesion.png" alt="Vista-de-Iniciar-Sesion"></a>)
+![](<a href="https://ibb.co/kHC2WSy"><img src="https://i.ibb.co/tmrpWJh/Vista-de-Error.png" alt="Vista-de-Error"></a>)
+![](<a href="https://ibb.co/pKZHprg"><img src="https://i.ibb.co/jwGCFZd/Vista-de-Home.png" alt="Vista-de-Home" ></a>)
 
 ## Prototipo de Alta fidelidad
-![vistabienvenida](<a href="https://ibb.co/cJ6G3mX"><img src="https://i.ibb.co/tBq7KdP/Vista-Bienvenida.png" alt="Vista-Bienvenida" whith=50%></a>)
-![vistaregistro](<a href="https://ibb.co/ZmsKPPC"><img src="https://i.ibb.co/PQp4nn8/Vista-de-Registrarse.png" alt="Vista-de-Registrarse"></a>)
-![iniciarsesión](<a href="https://ibb.co/9r1ytdd"><img src="https://i.ibb.co/5RSsFJJ/Vista-de-Iniciar-Sesion.png" alt="Vista-de-Iniciar-Sesion"></a>)
-![Vistaerror](<a href="https://ibb.co/cb4BQPL"><img src="https://i.ibb.co/JxD1HNQ/Vista-de-Error.png" alt="Vista-de-Error"></a><br /><a target='_blank' href='https://es.imgbb.com/'></a><br />)
-![vist](<a href="https://ibb.co/qpjdLJ8"><img src="https://i.ibb.co/njmbqPy/Vista-de-Home.png" alt="Vista-de-Home"></a>)
-![Palet](<a href="https://imgbb.com/"><img src="https://i.ibb.co/PzqJC4d/Paleta-de-Colores.png" alt="Paleta-de-Colores"></a>)
+![](<a href="https://ibb.co/cJ6G3mX"><img src="https://i.ibb.co/tBq7KdP/Vista-Bienvenida.png" alt="Vista-Bienvenida" whith=50%></a>)
+![](<a href="https://ibb.co/ZmsKPPC"><img src="https://i.ibb.co/PQp4nn8/Vista-de-Registrarse.png" alt="Vista-de-Registrarse"></a>)
+![](<a href="https://ibb.co/9r1ytdd"><img src="https://i.ibb.co/5RSsFJJ/Vista-de-Iniciar-Sesion.png" alt="Vista-de-Iniciar-Sesion"></a>)
+![](<a href="https://ibb.co/cb4BQPL"><img src="https://i.ibb.co/JxD1HNQ/Vista-de-Error.png" alt="Vista-de-Error"></a><br /><a target='_blank' href='https://es.imgbb.com/'></a><br />)
+![](<a href="https://ibb.co/qpjdLJ8"><img src="https://i.ibb.co/njmbqPy/Vista-de-Home.png" alt="Vista-de-Home"></a>)
+![](<a href="https://imgbb.com/"><img src="https://i.ibb.co/PzqJC4d/Paleta-de-Colores.png" alt="Paleta-de-Colores"></a>)
 
 ## Organización Trello: https://trello.com/b/1Hg85Gsz/social-network
 

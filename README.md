@@ -42,6 +42,7 @@
 ![vista iniciar sesión](https://ibb.co/9r1ytdd)
 ![vista de error](https://ibb.co/cb4BQPL)
 ![vista de Home](https://ibb.co/qpjdLJ8)
+![Paleta de colores](<a href="https://imgbb.com/"><img src="https://i.ibb.co/PzqJC4d/Paleta-de-Colores.png" alt="Paleta-de-Colores"></a>)
 
 ## Organización Trello: https://trello.com/b/1Hg85Gsz/social-network
 

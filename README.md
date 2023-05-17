@@ -37,11 +37,11 @@
 ![vista de Home](https://ibb.co/pKZHprg)
 
 ## Prototipo de Alta fidelidad
-![vista de bienvenida](https://ibb.co/cJ6G3mX)
-![vista de registro](https://ibb.co/ZmsKPPC)
-![vista iniciar sesión](https://ibb.co/9r1ytdd)
-![vista de error](https://ibb.co/cb4BQPL)
-![vista de Home](https://ibb.co/qpjdLJ8)
+![vista de bienvenida](<a href="https://ibb.co/cJ6G3mX"><img src="https://i.ibb.co/tBq7KdP/Vista-Bienvenida.png" alt="Vista-Bienvenida" whith=50%></a>)
+![vista de registro](<a href="https://ibb.co/ZmsKPPC"><img src="https://i.ibb.co/PQp4nn8/Vista-de-Registrarse.png" alt="Vista-de-Registrarse"></a>)
+![vista iniciar sesión](<a href="https://ibb.co/9r1ytdd"><img src="https://i.ibb.co/5RSsFJJ/Vista-de-Iniciar-Sesion.png" alt="Vista-de-Iniciar-Sesion"></a>)
+![vista de error](<a href="https://ibb.co/cb4BQPL"><img src="https://i.ibb.co/JxD1HNQ/Vista-de-Error.png" alt="Vista-de-Error"></a><br /><a target='_blank' href='https://es.imgbb.com/'>servidores gratuitos para subir paginas web</a><br />)
+![vista de Home](<a href="https://ibb.co/qpjdLJ8"><img src="https://i.ibb.co/njmbqPy/Vista-de-Home.png" alt="Vista-de-Home"></a>)
 ![Paleta de colores](<a href="https://imgbb.com/"><img src="https://i.ibb.co/PzqJC4d/Paleta-de-Colores.png" alt="Paleta-de-Colores"></a>)
 
 ## Organización Trello: https://trello.com/b/1Hg85Gsz/social-network

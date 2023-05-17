@@ -1,8 +1,7 @@
 // Se importan las siguientes funciones y objetos de Firebase.
 import { signOut } from "firebase/auth";
-import {
-    addPost, auth, deletePost, editPost, paintPostsRealTime, aboutLikes, aboutDislikes,
-} from "../firebase/configuration.js";
+
+import { addPost, auth, deletePost, editPost, paintPostsRealTime, aboutLikes, aboutDislikes } from "../firebase/configuration.js";
 
 // Se define una función llamada loginLogic que toma un elemento container como argumento.
 const homeLogic = (container) => {
@@ -29,7 +28,7 @@ const homeLogic = (container) => {
     publishBtn.addEventListener("click", () => {
         const comment = commentField.value;
         commentField.value = "";
-        addPost(comment);
+        addPost(comment, auth.currentUser.displayName);
     });
 
     // Mostrar publiciones
@@ -37,7 +36,20 @@ const homeLogic = (container) => {
         publications.innerHTML = "";
         querySnapshot.forEach((doc) => {
             // Contenedor para cada publicación
-            const postElement = document.createElement("DIV");
+            const postElement = document.createElement("ARTICLE");
+            // Contenedor del nombre y botones de editar y eliminar
+            const divContentFirst = document.createElement("DIV");
+            divContentFirst.classList.add("divContentFirst");
+            // Contenedor de like y contador de likes
+            const divContentLast = document.createElement("DIV");
+            divContentLast.classList.add("divContentLast");
+            // Contenedor de botones de editar y eliminar
+            const iconActions = document.createElement("DIV");
+            iconActions.classList.add("iconActions");
+
+            postElement.appendChild(divContentFirst);
+
+            postElement.classList.add("publicationContainer");
             // Boton de like
             const likesBtn = document.createElement("IMG");
             const isLike = doc.data().likes.some((item) => item === auth.currentUser.uid);
@@ -50,13 +62,13 @@ const homeLogic = (container) => {
                     await aboutLikes(doc.id, auth.currentUser.uid);
                 }
             });
-            postElement.appendChild(likesBtn);
+            divContentLast.appendChild(likesBtn);
             // Contador de likes
             const likesParagraph = document.createElement("SPAN");
             likesParagraph.classList.add("likesParagraph");
             const countLikes = doc.data().likes.length;
             likesParagraph.textContent = countLikes;
-            postElement.appendChild(likesParagraph);
+            divContentLast.appendChild(likesParagraph);
             // Boton eliminar
             const deleteBtn = document.createElement("IMG");
             deleteBtn.classList.add("deleteBtn");
@@ -64,23 +76,35 @@ const homeLogic = (container) => {
             deleteBtn.addEventListener("click", () => {
                 deletePost(doc.id);
             });
-            postElement.appendChild(deleteBtn);
             // Boton editar
             const editBtn = document.createElement("IMG");
             let IsActualizar = false;
             editBtn.classList.add("editBtn");
             editBtn.src = "./img/iconEdit.svg";
-            postElement.appendChild(editBtn);
+            // Nombre de usuario en las publicaciones realizadas
+            const nameUserPublication = document.createElement("P");
+            nameUserPublication.classList.add("nameUserPublication");
+            nameUserPublication.textContent = doc.data().user;
+
+            divContentFirst.appendChild(nameUserPublication);
+
+            iconActions.appendChild(editBtn);
+            iconActions.appendChild(deleteBtn);
+            // Validacion para que solo el usuario que hizo la publicación pueda editar y eliminar
+            if (auth.currentUser.displayName === doc.data().user) {
+                divContentFirst.appendChild(iconActions);
+            }
             // Contenedor editField y postText
             const divContentComment = document.createElement("DIV");
             divContentComment.classList.add("divContentComment");
             postElement.appendChild(divContentComment);
             // Campo de texto para actualizar comentario
             const editField = document.createElement("INPUT");
+            editField.classList.add("editField");
             editField.setAttribute("type", "text");
             editField.value = doc.data().comment;
             // Comentario
-            const postText = document.createElement("SPAN");
+            const postText = document.createElement("P");
             postText.classList.add("postText");
             postText.textContent = doc.data().comment;
             divContentComment.appendChild(postText);
@@ -99,6 +123,7 @@ const homeLogic = (container) => {
                     divContentComment.appendChild(editField);
                 }
             });
+            postElement.appendChild(divContentLast);
             publications.appendChild(postElement);
         });
     });

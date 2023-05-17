@@ -4,7 +4,7 @@ import {
     getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile, GoogleAuthProvider, signInWithPopup, signOut,
 } from "firebase/auth";
 import {
-    getFirestore, collection, addDoc, getDocs, onSnapshot, updateDoc, doc, deleteDoc, arrayUnion, arrayRemove,
+    getFirestore, collection, addDoc, getDocs, onSnapshot, updateDoc, doc, deleteDoc, arrayUnion, arrayRemove, query, orderBy,
 } from "firebase/firestore";
 
 // Configurando los datos necesarios de nuestro proyecto de Firebase.
@@ -81,11 +81,12 @@ const googleSign = () => new Promise((resolve, reject) => {
 });
 
 // Definiendo una función que añade un nuevo post a la colección de posts en Firestore.
-const addPost = (comment) => new Promise((resolve, reject) => {
+const addPost = (comment, user) => new Promise((resolve, reject) => {
     addDoc(postsCollection, {
         comment,
         date: Date.now(),
         likes: [],
+        user,
     })
         .then((docRef) => {
             resolve(docRef.id);
@@ -97,11 +98,10 @@ const addPost = (comment) => new Promise((resolve, reject) => {
 
 // Definiendo una función que actualiza en tiempo real los posts en la página.
 const paintPostsRealTime = (postsCallback) => {
-    onSnapshot(collection(db, "posts"), (querySnapshot) => {
+    onSnapshot(query(collection(db, "posts"), orderBy("date", "desc")), (querySnapshot) => {
         postsCallback(querySnapshot);
     });
 };
-
 // Definiendo una función que cierra la sesión de usuario actual en Firebase Auth.
 const logOut = () => signOut(auth);
 

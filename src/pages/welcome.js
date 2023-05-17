@@ -16,7 +16,7 @@ const welcome = (findRouteAndNavigate) => {
     <div class="buttonsLR">
         <article class="textLR">
             <a class="registerBtn" id="registerBtn">Regístrate</a>
-            <span>|</span>
+            <span class="line">|</span>
             <a class="loginBtn" id="loginBtn">Inicia sesión</a>
         </article>
     </div>

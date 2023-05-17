@@ -1,4 +1,7 @@
 /* ESTILO PARA EL HTML */
+* {
+    box-sizing: border-box;
+}
 html,
 body {
     width: 100%;
@@ -50,7 +53,7 @@ body {
     align-items: center;
     cursor: pointer;
 }
-span {
+.line {
     margin: 0 20px 20px;
 }
 
@@ -59,14 +62,16 @@ span {
 .two {
     width: 500px;
 }
-.inputLogin {
+.inputLR {
     border-style: none;
     border-bottom: 2px solid #e05d6f;
     background: none;
     outline: none;
     font-family: "Roboto", sans-serif;
     font-size: 14px;
-    color: #bbbaba;
+    color: #000000;
+    padding: 0px 0px 3px;
+    margin-top: 5px;
 }
 .messageErrorMailLogin {
     font-family: "Roboto", sans-serif;
@@ -103,13 +108,7 @@ span {
 
 /* ESTILO PARA BOTON DE GOOGLE */
 
-label.labelMail {
-    font-family: "Roboto", sans-serif;
-    font-size: 16px;
-    color: #333333;
-}
-
-label.labelPassword {
+.labelLR {
     font-family: "Roboto", sans-serif;
     font-size: 16px;
     color: #333333;
@@ -123,7 +122,7 @@ label.labelPassword {
 .lGmailBtn {
     width: 307px;
     height: 62px;
-    background-color: #e8e8e8;
+    background: #e8e8e8;
     border: solid 0px;
     border-radius: 10px;
     box-shadow: 2px 2px 5px 0.5px rgba(98, 98, 98, 0.2);
@@ -139,8 +138,6 @@ label.labelPassword {
     cursor: pointer;
 }
 .imgGoogle {
-    height: 28px;
-    width: 29px;
     padding: 8px 20px 8px 8px;
 }
 .returnRegistration {
@@ -148,13 +145,11 @@ label.labelPassword {
     justify-content: center;
     align-items: center;
 }
-
 span.spanText {
     font-family: "Roboto", sans-serif;
     font-size: 16px;
     color: #333333;
 }
-
 a.aText {
     font-family: "Roboto", sans-serif;
     font-size: 16px;
@@ -171,18 +166,7 @@ a.aText {
     display: flex;
     flex-direction: column;
 }
-.labelText {
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-    font-size: 25px;
-}
-.inputRegister {
-    border-style: none;
-    border-bottom: 2px solid #e05d6f;
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-    font-size: 25px;
-    background: none;
-    outline: none;
-}
+
 .messageErrorUserRegister {
     font-family: "Roboto", sans-serif;
     font-weight: 600;
@@ -244,62 +228,189 @@ a.aText {
 
 /* ESTILO PARA LA VISTA HOME */
 
+.four {
+    width: 500px;
+    height: 100%;
+}
+.partOne {
+    margin: 80px 10px 0px 20px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+}
+#homeLogo {
+    width: 130px;
+    height: auto;
+    margin-right: 133px;
+}
 #signOffBtn {
-    font-family: "Roboto", sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-    color: #333333;
-    background-color: white;
+    font-size: 15px;
+    background: none;
     border: none;
     display: flex;
     align-items: center;
     cursor: pointer;
 }
-
 #iconSignOut {
     width: 20px;
     height: auto;
     margin-left: 6px;
     cursor: pointer;
 }
-
-.commentField {
+.userNameHome {
+    width: 90px;
+    height: 90px;
+    border-radius: 100%;
+    background: #4ea8de;
     font-family: "Roboto", sans-serif;
-    font-weight: 600;
-    font-size: 14px;
-    color: #333333;
-    border: solid #4ea8de;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: 900;
+    color: white;
+    margin: 30px 0px;
+    align-self: flex-end;
 }
-
+.ContainerHome {
+    display: flex;
+    flex-direction: column;
+}
+.postText {
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+}
+.userName {
+    width: 90px;
+    height: 90px;
+    border-radius: 100%;
+    background: #505a6054;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-right: 10px;
+}
+/* PUBLICACIONES IMPRESAS */
+.myPublication {
+    position: relative;
+    width: 100%;
+}
+.divContentComment {
+    border-radius: 8px;
+    width: 100%;
+}
+.commentField {
+    font-family: "roboto";
+    border: solid 2px #4ea8de;
+    border-radius: 8px;
+    width: 500px;
+    height: 110px;
+    padding: 10px;
+}
 .publishBtn {
-    width: 68px;
-    height: auto;
+    position: absolute;
+    bottom: 14px;
+    right: 10px;
+    z-index: 99;
+    width: 80px;
+    height: 28px;
     background: #4ea8de;
     border: 0;
     border-radius: 10px;
     cursor: pointer;
     color: #ffffff;
     font-family: "Roboto", sans-serif;
-    font-size: 10px;
+    margin: 8px 0 0 268px;
 }
-
-.deleteBtn {
-    width: 20px;
-    height: auto;
-    cursor: pointer;
+.publicationContainer {
+    display: flex;
+    width: 100%;
+    border: 1px solid #4ea8de;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    margin-top: 10px;
 }
-
+.publications {
+    width: 100%;
+}
+.fieldPublications {
+    width: 100%;
+}
 .likeBtn {
     width: 20px;
     height: auto;
     cursor: pointer;
 }
-
+.likesParagraph {
+    color: #a3a6b1;
+    font-family: Arial, Helvetica, sans-serif;
+}
 .editBtn {
-    width: 20px;
     height: auto;
     cursor: pointer;
 }
-.divContentComment {
-    display: inline-block;
+.deleteBtn {
+    cursor: pointer;
+}
+.editField {
+    width: 100%;
+    height: auto;
+    padding: 5px;
+}
+.divContentFirst {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+.iconActions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.nameUserPublication {
+    font-weight: 600;
+    color: #000000;
+    font-family: "Roboto", sans-serif;
+}
+.divContentLast {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+/* ESTILO PARA LA VISTA ERROR */
+
+.five {
+    width: 500px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contentError {
+    width: 400px;
+    height: 250px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+.errorText {
+    width: 300px;
+    height: 50px;
+    font-size: 20px;
+    font-family: "Roboto", sans-serif;
+    text-align: center;
+}
+.figError {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.imgError {
+    width: 80px;
+    height: 80px;
 }

@@ -15,7 +15,7 @@ const login = (findRouteAndNavigate) => {
         <article>
             <div class="fields">
                 <label class="labelLR"> Correo Electrónico </label>
-                <input id="mailUserLogin" class="inputLR" type="text" placeholder="example@gmail.com" />
+                <input id="mailUserLogin" class="inputLR" type="text" placeholder="ejemplo@gmail.com" />
                 <p id="messageErrorMailLogin" class="messageErrorMailLogin"></p>
             </div>
             <div class="fields">

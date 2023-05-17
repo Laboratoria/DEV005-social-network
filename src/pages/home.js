@@ -7,17 +7,24 @@ const home = () => {
     container.classList.add("four");
     // Declara una constante llamada "viewHome" que es igual a una cadena de texto con un mensaje de no disponible
     const viewHome = `
-    <div class="signOff">
+    <div class="partOne">
+      <div class="signOff">
         <button type="submit" id="signOffBtn">
         Cerrar Sesión 
         <img src="../img/iconSignOut.svg" id="iconSignOut"/>
         </button>
+      </div>
+        <div class="logoHome"> 
+        <img id="homeLogo" src="./img/logoHome.svg" alt="logo SportX" />
+        </div>
+        
     </div>
-    <figure>
-        <img src="./img/logoHome.svg" alt="logo SportX" />
-    </figure>
+
+        <div class="userNameHome">
+    <div class="userNameHome">
     <p id="userName"></p>
-    <div>
+    </div>
+    <div class="myPublication">
         <textarea type="text" placeholder="¿En qué estás pensando ahora?" id="commentField" class="commentField" rows="3" cols="30" style="resize:none;" >
         </textarea> 
         <button id="publishBtn" class="publishBtn">Publicar</button>

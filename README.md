@@ -43,9 +43,11 @@
 <a href="https://ibb.co/cb4BQPL"><img src="https://i.ibb.co/JxD1HNQ/Vista-de-Error.png" alt="Vista-de-Error"></a><br /><a target='_blank' href='https://es.imgbb.com/'></a><br />
 <a href="https://ibb.co/qpjdLJ8"><img src="https://i.ibb.co/njmbqPy/Vista-de-Home.png" alt="Vista-de-Home"></a>
 <a href="https://imgbb.com/"><img src="https://i.ibb.co/PzqJC4d/Paleta-de-Colores.png" alt="Paleta-de-Colores"></a>
+<a href="https://ibb.co/PWxg99B"><img src="https://i.ibb.co/gWyJPPs/App-Design-Mockup-3.png" alt="App-Design-Mockup-3"></a>
+<a href="https://ibb.co/jLMfHdJ"><img src="https://i.ibb.co/NLjC7XT/App-Design-Mockup-5.png" alt="App-Design-Mockup-5"></a>
+
 
 ## Organización Trello: https://trello.com/b/1Hg85Gsz/social-network
-
 
 ## Integrantes del equipo: 
 * Jhoana Zamora 

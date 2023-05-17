@@ -14,18 +14,18 @@ const register = (findRouteAndNavigate) => {
     </figure>
     <div>
         <div class="fields">
-            <label class="labelText">Nombre:</label>
-            <input id="userNameRegister" class="inputRegister" type="text" placeholder="Nombre" />
+            <label class="labelLR">Nombre:</label>
+            <input id="userNameRegister" class="inputLR" type="text" placeholder="Nombre" />
             <p id="messageErrorUserRegister" class="messageErrorUserRegister"></p>
         </div>
         <div class="fields">
-            <label class="labelText">Correo electrónico:</label>
-            <input id="userMailRegister" class="inputRegister" type="text" placeholder="ejemplo@gmail.com" />
+            <label class="labelLR">Correo electrónico:</label>
+            <input id="userMailRegister" class="inputLR" type="text" placeholder="ejemplo@gmail.com" />
             <p id="messageErrorMailRegister" class="messageErrorMailRegister"></p>
         </div>
         <div class="fields">
-            <label class="labelText">Contraseña:</label>
-            <input id="userPasswordRegister" class="inputRegister" type="password" placeholder="xxxxxx" />
+            <label class="labelLR">Contraseña:</label>
+            <input id="userPasswordRegister" class="inputLR" type="password" placeholder="xxxxxx" />
             <p id="messageErrorPasswordRegister" class="messageErrorPasswordRegister"></p>
         </div>
 

@@ -251,13 +251,6 @@ a.aText {
 
 /* ESTILO PARA LA VISTA HOME */
 
-/* Sección Padre */
-section.four {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(20, 80px);
-}
-
 .four > div,
 .four .signOff,
 .four .userNameHome,
@@ -270,16 +263,13 @@ section.four {
   padding: 10px;
 }
 
-/* Sección hijo */
-
-/* botón para salir */
-
-.signOff {
+.partOne {
   width: 130px;
   height: 70px;
-  display: grid;
-  grid-column-end: 3;
-  justify-self: end;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 #signOffBtn {
@@ -298,20 +288,10 @@ section.four {
   cursor: pointer;
 }
 
-/* logotipo de sportx */
-
-figure.logoHome {
-  width: 130px;
-  height: auto;
-  display: grid;
-  grid-column-start: 2;
-  align-items: center;
-}
-
 #homeLogo {
   width: 130px;
   height: auto;
-  display: flex;
+  margin-right: 133px;
 }
 
 /* nombre del usuario */
@@ -319,14 +299,15 @@ figure.logoHome {
 div.userNameHome {
   width: 150px;
   height: 24px;
-  grid-column: 2;
-  grid-row-end: 4;
   display: flex;
+  flex-direction: column;
 }
 
 p#userName {
   display: flex;
 }
+
+/* PUBLICACIONES IMPRESAS */
 
 .myPublication {
   display: grid;
@@ -357,48 +338,49 @@ p#userName {
 
 .publicationContainer {
   display: grid;
+  width: 341px;
+  height: 110px;
   grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(20, 6px);
+  grid-template-rows: repeat(10, 30px); 
 }
 
 .fieldPublications {
   display: grid;
-  grid-column: 2/3;
-  grid-row: 6;
 }
 
 .likeBtn {
-  width: 15px;
+  width: 20px;
   height: auto;
   cursor: pointer;
   margin-left: 6px;
   margin-bottom: 6px;
-  grid-row: 18;
+  grid-row: 4;
 }
 
 .likesParagraph {
   color: #a3a6b1;
-  font-size: 9px;
+  font-size: 14px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 400;
-  grid-row: 17;
+  grid-row: 4;
+  grid-column: 2;
 }
 
 .editBtn {
-  width: 10px;
+  width: 20px;
   height: auto;
   cursor: pointer;
-  grid-column-end: 9;
+  grid-column-start: 9;
 }
 
 .deleteBtn {
-  width: 10px;
+  width: 20px;
   height: auto;
-  grid-column-end: 8;
   cursor: pointer;
+  display: grid;
+  grid-column-start: 8;
 }
 
 .divContentComment {
-  grid-column-start: 2/7;
-  grid-row-start: 5;
+grid-column: 2;
 }

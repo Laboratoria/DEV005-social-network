@@ -60,12 +60,14 @@ const registerLogic = (container) => {
             if (errors) return;
 
             const user = await registerUser(userNameRegister.value, userMailRegister.value, userPasswordRegister.value);
+            // eslint-disable-next-line no-console
             console.log({ user });
 
             if (user.email) {
                 window.location.href = "/login";
             }
         } catch (error) {
+            // eslint-disable-next-line no-console
             console.log(error);
             showError("Ocurrió un error al intentar registrar el usuario. Por favor, intenta nuevamente.", "messageErrorPasswordRegister");
         }

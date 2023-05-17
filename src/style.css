@@ -416,3 +416,24 @@ a.aText {
     width: 80px;
     height: 80px;
 }
+
+@media (max-width:700px) {
+
+    .rBtn {
+        width: 50%;
+
+    }
+
+    .three {
+        width: 80%;
+    }
+
+    .two {
+        width: 80%;
+    }
+
+    .four {
+        width: 80%;
+    }
+
+}

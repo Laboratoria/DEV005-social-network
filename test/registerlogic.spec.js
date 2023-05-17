@@ -1,3 +1,7 @@
+/**
+ * @jest-8environment ./src/test/my-custom-environment
+ */
+
 import { registerLogic } from "../src/lib/registerLogic";
 
 test("example", () => {

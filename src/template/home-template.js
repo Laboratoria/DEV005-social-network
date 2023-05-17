@@ -32,30 +32,7 @@ export const homeTemplate = `
 </div>
 
 
-<div  class="box-flex">
-
-    <div id="task-container" class="task-container">
-        <div class="box-profile-post">
-            <div class="overlay"></div>
-            <div class="title-posts">
-                <div class="image-profile-usuary"><img src="https://i.pinimg.com/564x/d2/9e/52/d29e52c8cfec7320b1fe09c8421c4156.jpg"></div>
-                <span class="name-usuary">Nombre de prueba</span>
-            </div>
-            <div class="text-select">
-                    <ion-icon name="ellipsis-horizontal-outline"></ion-icon>
-                    <select id="edit" name="edit" class="select-edit">
-                        <option value="delete">Delete</option>
-                        <option value="edit">Edit</option>
-                    </select> 
-                
-            </div>
-        </div>
-        <div class="box-result">
-            <div class="result-title"></div>
-            <div class="result-comment"></div>
-        </div>
-    </div>
-    
+<div  class="box-flex" id="box-flex">    
 </div>
 
 `;

@@ -10,12 +10,13 @@ function validarRutaHome(navigateTo, onSessionActive) {
 }
 
 function validarRutaLogin(navigateTo, onSessionActive) {
-  validateSession((isLogged) => {
-    onSessionActive(isLogged);
-    if (isLogged) {
-      navigateTo('/');
+  const callback = (isLogged) => {
+      onSessionActive(isLogged);
+      if (isLogged) {
+        navigateTo('/');
+      }
     }
-  });
+  validateSession(callback);
 }
 
 export { validarRutaHome, validarRutaLogin };

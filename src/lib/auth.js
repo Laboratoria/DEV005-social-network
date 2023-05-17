@@ -53,7 +53,6 @@ const googleLogout = async () => {
     });
 };
 
-
 /**
  * Function para crear un nuevo usuario.
  * Debe ser instanciada desde el archivo components/Register.js
@@ -116,10 +115,18 @@ const validateSession = (onSessionActive) => {
   });
 };
 
+/**
+ * Metodo que devuelve el usuario logeado.
+ * Ref: https://firebase.google.com/docs/auth/web/manage-users?hl=es-419#web-version-9_1
+ * @returns currentuser
+ */
+const getUserLogged = () => auth.currentUser;
+
 export {
   googleLogin,
   googleLogout,
   signInNewAccount,
   validateSession,
   loginWithUserEmail,
+  getUserLogged,
 };

@@ -1,18 +1,18 @@
 import { welcomeTemplate } from '../template/welcome-template';
 import { validarRutaLogin } from '../utilitaries/ruteo';
+import { googleLogout } from '../lib/auth';
 
 function welcome(navigateTo) {
   const sectionWelcome = document.createElement('section');
   sectionWelcome.className = 'section-welcome';
   sectionWelcome.innerHTML = welcomeTemplate;
 
-  /**
-  * Funcion para llevar a la ruta de registrado ---
-  */
-
   // ventana para dirigir y logearse con tu correo y contraseña ya recibido
   const directionOpenLogin = sectionWelcome.querySelector('#btn-login-welcom');
-  directionOpenLogin.addEventListener('click', async () => navigateTo('/login'));
+  directionOpenLogin.addEventListener('click', async () => {
+    googleLogout();
+    navigateTo('/login');
+  });
   // sectionWelcome.append()
   return sectionWelcome;
 }

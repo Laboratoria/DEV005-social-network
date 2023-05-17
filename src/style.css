@@ -3,9 +3,13 @@
     padding: 0px;
     box-sizing: border-box;
 }
-/*estilos generales*/
+/**
+ * Estilos generales
+ *
+ * -------------------------------------------------------------------
+ */
 :root{
-    --var-color-box: #3a746d ;
+    --var-color-box: #44867e ;
     --var-color-buton: #275a54 ;
     --var-color-border: #5c998d ;
     --var-font-white: #fff;
@@ -17,20 +21,22 @@ body{
     width: 100%;
     height: 100%;
     position: absolute;
-    background-color: white;
+    background-color: ;
 }
 img{
     height: 100%;
     width: 100%;
     object-fit: contain;
+    display: ;
 }
 
-button{
+
+ button{
     margin-top: 5px;
     color: var(--var-font-white);
     font-weight: bolder;
     width: 350px;
-    height: 45px;
+    height: 40px;
     background: var(--var-font-white);
     border: 3px solid var(--var-color-buton);
     border-radius: 5px;
@@ -41,89 +47,129 @@ button{
 input{
     margin-bottom:15px;
     width: 350px;
-    height: 45px;
+    height: 40px;
     background: var(--var-font-white);
     border: 3px solid var(--var-color-border);
     border-radius: 5px;
     padding: 0 1rem;
     font-size: 12px;
-}
+}  
 
-.text-right{
-    color: var(--var-color-buton);
-    width: 350px;
-    font-size: 15px;
+
+/**
+ * Ruta login
+ *
+ * -------------------------------------------------------------------
+ */
+ /*-------------------fits mobile----------------*/
+.section-reguistro{
+    background-color: var(--var-letras-claras);
+    width: 100vw;
+    position: absolute;
+    height: 100vh;
+    display: flex;
+    flex-flow: row wrap;
 }
-/*Estilos de la pagina login*/
-.section-reguistro {
-  background-color: white;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-}
-.title-login{
+/*-------titulo -------*/
+ .title-login{
     background-color: var(--var-color-box);
-    height:45%;
+    width: 50%;
+    height: 100%;
     display: flex;
-    flex-flow: column wrap;
-    align-items: flex-start;
-    padding: 40px;
-    justify-content: center;
-}
-.img-login{
-    width: 120px;
-    margin-bottom: 0px;
-
-}
-.title-login-one{
-    color: var(--var-font-white);
-    text-shadow: 1px 1px 3px var(--var-font-black);
-
-
-}
-.text-login{
-    margin-top:10px ;
-    color: var(--var-letras-claras);
-    text-shadow: 1px 1px 1px var(--var-font-black);
-
-}
-/* .status-login{
-    display: block;
-    color: #ed0c0c;
-    width: 350px;
-    font-size: 15px;
-    background-color: red;
-} */
-.form-login{
-    background-color: fff;
-    height: 45%;
-    background-color: var(--var-font-white);
-    display: flex;
-    flex-flow: column wrap;
     justify-content: center;
     align-items: center;
+    flex-flow: column;
+} 
+ .img-login{
+    margin: 5px;
+    width: 150px;
+    height: 150px;
+    animation: spin 0.5s linear infinite;
+    animation-delay: 20s;
+}
+@keyframes rotate-animation {
+    0%, 100% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(180deg);
+    }
+  }
+.title-login-one{
+    font-size: 40px;
+    color: var(--var-font-white);
+    text-shadow: 1px 1px 3px var(--var-font-black);
+}
+.text-login{
+    margin-top:10px;
+    font-size: 20px;
+    color: var(--var-letras-claras);
+    text-shadow: 1px 1px 1px var(--var-font-black);
+} 
+
+
+
+
+
+/*cuerpo de estilos*/
+.form-login{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--var-font-white);
+} 
+/*Caja  del formulario*/
+.status-login{
+    position: relative;
+    display: block;
+    color: #ed0c0c;
+    z-index: 100;
+    width: 350px;
+    height: 5px;
+    text-shadow: 0.2px 0.2px 0.5px var(--var-font-black);
+    font-size: 15px;
+    background-color: none;
 }
 .box-form{
     width: 100%;
+    height: 55%;
     display: flex;
     flex-flow: column wrap;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
-    margin-top: 30px;
-    
+    padding-bottom: 20px;
 }
-
-/*-----------boton pot mejorar ---------*/
-.buuton-log{}
-
-
+.buuton-log{
+    margin-top: 20px;
+    color: var(--var-font-white);
+    font-weight: bolder;
+    width: 350px;
+    height: 40px;
+    background: var(--var-color-box);
+    border: 3px solid var(--var-color-box);
+    border-radius: 25px;
+    padding: 0 1rem;
+    font-size:15px;
+}
+.buuton-log:active{
+    background: var(--var-color-buton);
+    border: 3px solid var(--var-color-buton);
+}
 .box-login-run{
-    align-items: center;
-    border-right:20px ;
+    align-items: start;
+    width: 60%;
+    display: flex;
+    height: 15%;
+    justify-content: space-around;
+
+
+}
+.text-right{
     width: 350px;
     display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
 }
 .box-login-run figure{
     display: block;
@@ -133,8 +179,9 @@ input{
     margin-inline-end: 0px;
 }
 .btn-google button{
+    margin-top: 15px;
     width: 100%;
-    height: 50px;
+    height: 55px;
     border-radius: 100px;
     padding: none;
     border:none;
@@ -142,8 +189,9 @@ input{
     background-color: var(--var-font-white);
 }
 .btn-github button{
+    margin-top: 15px;
     width: 100%;
-    height: 50px;
+    height: 55px;
     border-radius: 100px;
     padding: none;
     border:none;
@@ -152,7 +200,6 @@ input{
 
 }
 .btn-direct{
-    margin-top: 5px;
     width: 60px;
     height: 35px;
     border-radius: 5px;
@@ -160,32 +207,244 @@ input{
     font-size: 12px;
     border:none;
 }
-
+/*boton crear cuenta*/
 .create-account-login{
-    padding: 10px;
-    height: 10%;
-    width: 100%;
-    background-color: var(--var-font-white);
     display: flex;
+    width: 100%;
+    height: 30%;
     justify-content: center;
+    align-items: start;
 }
 .create-account-login button{
+    background-color: var(--var-font-white);
     cursor: pointer;
     margin-top: 0px;
     margin-right: 0px;
+    padding: 0px 20px;
     color: var(--var-color-buton);
-    width: 350px;
-    height: 45px;
-    background: var(--var-font-white);
+    font-size: 15px;
     border:  0px;
     border-radius: 0px;
-}
-.create-account-login button:hover{
-    color: var(--var-font-black);
-}
-/*estilos de la pagina register*/
+ }
 
-/*Estilos para la ventana d welcome */
+/*-------------------landscape---------------*/
+@media screen and (max-width:958px) and (orientation:portrait) {
+    .text-right{
+        color: var(--var-color-buton);
+        width: 350px;
+        font-size: 15px;
+    }
+    
+    .section-reguistro {
+      height: 100%;
+      width: 100vw;
+      position: absolute;
+    }
+    /*Caja  del titulo*/
+    .title-login{
+        background-color: var(--var-color-box);
+        height:45%;
+        display: flex;
+        flex-flow: column;
+        align-items: flex-start;
+        padding: 40px;
+        justify-content: center;
+        width: 100%;
+    }
+    .img-login{
+        width: 120px;
+        margin-bottom: 5px;
+    }
+    .title-login-one{
+        color: var(--var-font-white);
+        text-shadow: 1px 1px 3px var(--var-font-black);
+        font-size: 18px;
+    }
+    
+    .text-login{
+        margin-top:5px ;
+        color: var(--var-letras-claras);
+        text-shadow: 1px 1px 1px var(--var-font-black);
+        font-size: 15px;
+    }
+
+    /*Caja  del formulario*/
+    .status-login{
+        position: relative;
+        display: block;
+        color: #ed0c0c;
+        z-index: 100;
+        width: 350px;
+        height: 5px;
+        text-shadow: 0.2px 0.2px 0.5px var(--var-font-black);
+        font-size: 15px;
+        background-color: none;
+    } 
+    .form-login{
+        background-color: fff;
+        width: 100%;
+        height: 55%;
+        display: flex;
+        flex-flow: column wrap;
+    
+    }
+    .box-form{
+        width: 100%;
+        height: 65%;
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: end;
+        align-items: center;
+    }
+    .buuton-log{
+        margin-top: 20px;
+        color: var(--var-font-white);
+        font-weight: bolder;
+        width: 350px;
+        height: 35px;
+        background: var(--var-color-box);
+        border: 3px solid var(--var-color-box);
+        border-radius: 25px;
+        padding: 0 1rem;
+        font-size:15px;
+    }
+    .buuton-log:active{
+        background: var(--var-color-buton);
+        border: 3px solid var(--var-color-buton);
+    }
+    .box-login-run{
+        align-items: start;
+        width: 100%;
+        display: flex;
+        background-color: var(--var-font-white);
+        height: 20%;
+        justify-content: space-around;
+    }
+    .box-login-run figure{
+        display: block;
+        margin-block-start: 0px;
+        margin-block-end: 0px;
+        margin-inline-start: 0pc;
+        margin-inline-end: 0px;
+    }
+    .btn-google button{
+        margin-top: 10px;
+        width: 100%;
+        height: 55px;
+        border-radius: 100px;
+        padding: none;
+        border:none;
+        margin: none;
+        background-color: var(--var-font-white);
+    }
+    .btn-github button{
+        margin-top: 10px;
+        width: 100%;
+        height: 55px;
+        border-radius: 100px;
+        padding: none;
+        border:none;
+        margin: none;
+        background-color: var(--var-font-white);
+    
+    }
+    .btn-direct{
+        width: 60px;
+        height: 35px;
+        border-radius: 5px;
+        padding: 0;
+        font-size: 12px;
+        border:none;
+    }
+    /*boton crear cuenta*/
+    .create-account-login{
+        background-color: var(--var-font-white);
+        display: flex;
+        width: 100%;
+        height: 10%;
+        justify-content: center;
+        align-items: start;
+        background-color: var(--var-font-white);
+    }
+    .create-account-login button{
+        cursor: pointer;
+        margin-top: 0px;
+        margin-right: 0px;
+        padding: 0px 20px;
+        color: var(--var-color-buton);
+        height: 20px;
+        width: 100%;
+        background-color: var(--var-font-white);
+        border:  0px;
+        border-radius: 0px;
+        font-size: 13px;
+    }
+}
+
+/*estilos de la pagina register*/
+.registerContainer{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    background-color: paleturquoise;
+}
+.box-register{
+    background-color: palevioletred;
+    position: absolute;
+
+}
+.title-register{
+    position: absolute;
+    background-color: #ed0c0c;
+    text-align: center;
+    font-size: 30px;
+}
+.box-form{
+    width: px;
+    
+}
+.fomRegister{
+    display: flex;
+    flex-flow: column wrap;
+    background-color: burlywood;
+}
+.box-failed{
+    display: none;
+}
+/* button{
+    margin-top: 5px;
+    color: var(--var-font-white);
+    font-weight: bolder;
+    width: 350px;
+    height: 40px;
+    background: var(--var-font-white);
+    border: 3px solid var(--var-color-buton);
+    border-radius: 5px;
+    padding: 0 1rem;
+    font-size:15px;
+    background-color: var(--var-color-buton);
+}
+input{
+    margin-bottom:15px;
+    width: 350px;
+    height: 40px;
+    background: var(--var-font-white);
+    border: 3px solid var(--var-color-border);
+    border-radius: 5px;
+    padding: 0 1rem;
+    font-size: 12px;
+}   */
+
+
+
+/**
+ * Ruta welcome
+ *
+ * -------------------------------------------------------------------
+ */
 .section-welcome{
     background-color: var(--var-color-border);
     position: relative;
@@ -211,6 +470,7 @@ input{
     cursor: pointer;
 }
 .title-welcome{
+    position: ;
     font-size: 2em;
     margin: 20px;
     text-align: center;
@@ -219,7 +479,14 @@ input{
     box-sizing: border-box;
 }
 
-/*--------- estilos para la ventana home ---------- */
+
+
+/**
+ * Ruta home Principal
+ *
+ * -------------------------------------------------------------------
+ */
+ 
 .section-home{
     position: absolute;
     width: 100%;
@@ -228,14 +495,13 @@ input{
     flex-flow: column wrap;
     align-items:center ;
 }
-/*cabeza*/
 
 .header-home{
-    position: fixed;
+    position: absolute;
     background-color: var(--var-color-box);
     width: 100%;
-    z-index: 1000;
-    height: 10vh;
+    z-index: 10000;
+    height: 9vh;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
@@ -256,6 +522,11 @@ input{
 }
 .title-logo-home a img{
     width: 50px;
+}
+.title-logo-home a img:hover{
+    font-size: 40px;
+    transition: 1s;
+    transform: rotate(90deg);
 }
 .header-home button{
     width: 50px;
@@ -278,12 +549,11 @@ input{
     transform: rotate(90deg);
     text-shadow: 1px 1px 1px var(--var-font-black);
 }
-/*boton de posteo*/
 .btn-post-major{
     height: 40px;
     width: 80vw;
-    position: relative;
-    top: 90px;
+    position: absolute;
+    top: 50px;
     background: none;
     border: 3px solid var(--var-color-border);
     border-radius: 20px;
@@ -296,10 +566,9 @@ input{
     width: 80%;
     height: 10vh;
 }
-.btn-post-major:hover{
+.btn-post-major:active{
     background: #5c998d6f;
 } 
-/*elements js*/
 .event{
     pointer-events: auto;
 
@@ -313,7 +582,7 @@ input{
 
 
 }
-/*caja de postear*/
+
 .backgraund-opacity{
     position: absolute;
     z-index: 10000;
@@ -427,17 +696,18 @@ input{
     margin: 25px;
 }
 
-/*caja donde postean*/
+/*posts*/
+
 .box-flex{
     z-index: -10;
-    top: 180px;
+    top: 130px;
     position: absolute;
     visibility: visible;
     width: 100vw;
     right: 0px;
 }
 .task-container{
-    margin-bottom: 25px;
+    margin-bottom: 0px;
     position: relative;
     width: 100%;
     display: flex;
@@ -445,7 +715,6 @@ input{
     border-top: 2px solid var(--var-color-box);
 
 }
-/*---------falta hacer funcionar------------*/
 .overlay{
     position: absolute;
     z-index: 1000;
@@ -466,17 +735,16 @@ input{
 
 
 .box-profile-post{
+    padding: 5px 0px 5px 0px;
     width: 100%;
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-evenly;
-    background-color: #fff;
+    justify-content: start;
 }
 .title-posts{
-    width: 50%;
+    width: 66%;
     display: flex;
     flex-flow: row wrap;
-    font-size: 15;
 }
 .name-usuary{
     text-align: center;
@@ -484,43 +752,104 @@ input{
     justify-content: center;
     align-items: center;
     font-weight: bolder;
-    padding:5px 0px 0px 5px ;
+    font-size: 14px;
+    padding:0px 0px 0px 5px ;
 
-}
-
-.text-select{
-    width: 40%;
-    font-size: 10px;
-    display: flex;
-    flex-flow: row-reverse;
-    justify-content: end;
-    align-items: center;
-    pointer-events: auto;
-
-}
-.text-select ion-icon{
-    color: var(--var-color-buton);
-    position: absolute;
-    z-index: 50;
-    pointer-events: none;
-    background-color: var(--var-font-white);    
-    width: 50px;
-    height: 50px;
-}
-.select-edit{
-    width: 50px;
-    height: 40px;
 }
 .image-profile-usuary{
+    padding-left: 5px;
     width: 50px;
     height: 50px;
-    border-radius:100px;    
+    border-radius:100px; 
+    overflow: hidden;   
 }
 .image-profile-usuary img{
     height: 100%;
     width: 100%;
     object-fit: contain;
+}
+
+.text-select{
+    width: 33%;
+    font-size: 10px;
+    display: flex;
+    flex-flow: row-reverse;
+    justify-content: end;
+    pointer-events: auto;
+
+}
+.text-select ion-icon{
+    color: var(--var-font-white);
+    position: absolute;
+    z-index: 50;
+    pointer-events: none;
+    background-color: var(--var-color-border); 
+    border-radius: 8px;   
+    width: 40px;
+    height: 34px;
+    margin-top: 5px;
+    margin-left: 6px;
+}
+
+.select-edit{
+    width: 50px;
+    height: 40px;
+}
+
+
+.box-button-selct{
+    border: 20px;
+    margin-top: 6px;
+    position: absolute;
+    width: 30px;
+    height:30px;
+    right: 18px;
     border-radius:100px;
+    overflow: hidden;
+}
+.box-button-selct:hover{
+    position: absolute;
+    border-radius:0px;
+    width: 100px;
+    height:94px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: end;
+    align-items: end;
+}
+.btn-edit{
+    margin-top: 5px;
+    color: var(--var-font-white);
+    font-weight: bolder;
+    width: 90%;
+    height: 25px;
+    background: var(--var-font-white);
+    border: 3px solid var(--var-color-border);
+    border-radius: 5px;
+    padding: 0 1rem;
+    font-size:13px;
+    background-color: var(--var-color-border);
+}
+.btn-edit:active{
+    border: 3px solid var(--var-color-buton);
+    background-color: var(--var-color-buton);
+}
+.btn-delete{
+    margin-top: 5px;
+    color: var(--var-font-white);
+    font-weight: bolder;
+    width: 90%;
+    height: 25px;
+    background: var(--var-font-white);
+    border: 3px solid var(--var-color-border);
+    border-radius: 5px;
+    padding: 0 1rem;
+    font-size:13px;
+    background-color: var(--var-color-border);
+}
+.btn-delete:active{
+    border: 3px solid var(--var-color-buton);
+    background-color: var(--var-color-buton);
 }
 
 .box-result{
@@ -528,10 +857,10 @@ input{
     margin-top: 5px;
     display: flex;
     flex-flow: column wrap;
-    justify-content: center;
     align-items: center;
 }
 .box-result div{
     width: 90%;
+    text-align: start;
     margin: 5px 10px; 
 } 

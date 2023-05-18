@@ -28,13 +28,14 @@
 
 ## 4. Prototipado
 
-```sh Prototipo de baja fidelidad
-
+```sh
+ - Prototipo de baja fidelidad
 ```
 
 ![prototipoBajaFidelidad](PBF.png)
 
-```sh Prototipo de alta fidelidad
+```sh
+- Prototipo de alta fidelidad
 
 ```
 
@@ -42,13 +43,15 @@
 
 ## 5. Vistas
 
-```sh Version desktop
+```sh
+- Version desktop
 
 ```
 
 ![versionDesktop](VD.png)
 
-```sh Version mobile
+```sh
+- Version mobile
 
 ```
 

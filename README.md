@@ -46,10 +46,10 @@
 
 ```
 
-![versionDesktop ](VD.png.png)
+![versionDesktop ](VD.png)
 
 ```sh Version mobile
 
 ```
 
-![versionDesktop ](VM.png.png)
+![versionDesktop ](VM.png)

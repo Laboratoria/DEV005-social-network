@@ -20,7 +20,7 @@ const home = () => {
                 <img id="homeLogo" src="./img/logoHome.svg" alt="logo SportX" />
             </div>
         </div>
-        <div class="ContainerHome">
+        <div class="containerHome">
         <div class="userNameHome">
             <p id="userName"></p>
         </div>

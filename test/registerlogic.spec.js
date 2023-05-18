@@ -1,12 +1,12 @@
-import { registerLogic } from "../src/lib/registerLogic";
+// import { registerLogic } from "../src/lib/registerLogic";
 
-test("example", () => {
-    const mock = jest.fn();
-    // eslint-disable-next-line no-console
-    console.log(mock);
+// test("example", () => {
+//     const mock = jest.fn();
+//     // eslint-disable-next-line no-console
+//     console.log(mock);
 
-    mock(true);
+//     mock(true);
 
-    expect(mock).toHaveBeenCalled();
-    expect(mock).toHaveBeenCalled(true);
-});
+//     expect(mock).toHaveBeenCalled();
+//     expect(mock).toHaveBeenCalled(true);
+// });

@@ -6,6 +6,7 @@
 -   [2. Herramientas usadas en el proyecto](#2-Herramientas-usadas-en-el-proyecto)
 -   [3. Historias de usuario](#3-historias-de-usuario)
 -   [4. Prototipado](#4-prototipado)
+-   [5. Vistas](#5-vistas)
 
 ## 1. Resumen del proyecto
 
@@ -27,10 +28,28 @@
 
 ## 4. Prototipado
 
--   Prototipo de baja fidelidad
+```sh Prototipo de baja fidelidad
+
+```
 
 ![prototipoBajaFidelidad](PBF.png)
 
--   Prototipo de alta fidelidad
+```sh Prototipo de alta fidelidad
+
+```
 
 ![prototipoAltaFidelidad](PAF.png)
+
+## 5. Vistas
+
+```sh Version desktop
+
+```
+
+![versionDesktop ](VD.png.png)
+
+```sh Version mobile
+
+```
+
+![versionDesktop ](VM.png.png)

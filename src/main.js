@@ -16,8 +16,8 @@ const routes = [
     { path: "/error", page: error },
 ];
 
-// Estableciendo la ruta por defecto a "/"
-const defaultRoute = "/";
+// Estableciendo la ruta por defecto a "/welcome"
+const defaultRoute = "/welcome";
 // Definiendo una función para encontrar la ruta correcta basada en la ruta de respuesta y navegando hacia ella
 const findRouteAndNavigate = (response) => {
     // Encontrar la ruta con la ruta correspondiente
@@ -43,4 +43,8 @@ window.onpopstate = () => {
 };
 
 // Navegar a la ruta actual (o la ruta predeterminada si no se especifica ninguna ruta)
-findRouteAndNavigate(window.location.pathname || defaultRoute);
+if (window.localStorage.getItem("auth")) {
+    findRouteAndNavigate(window.location.pathname || defaultRoute);
+} else {
+    findRouteAndNavigate(defaultRoute);
+}

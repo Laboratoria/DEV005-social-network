@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 # Red Social
 
 ## Índice

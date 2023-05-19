@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 # Red Social
 
 ## Índice
@@ -55,4 +57,9 @@
 
 ```
 
+<<<<<<< HEAD
+![versionMobile](VMR.png)
+>>>>>>> d84a69af10a15b350b72ea194c94ba6f6255a55f
+=======
 ![versionMobile](VERSIONM.png)
+>>>>>>> d05dd67f1489c6ce5b1268a41ba086a89c91f7a5

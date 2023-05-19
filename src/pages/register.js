@@ -10,7 +10,7 @@ const register = (findRouteAndNavigate) => {
     const viewRegister = ` 
     <article class="three">
     <figure class="logoLR">
-        <img src="./img/logo.svg" alt="logo SportX"/>
+        <img src="./img/logo.svg" alt="logo SportX" class="logoR"/>
     </figure>
     <div>
         <div class="fields">

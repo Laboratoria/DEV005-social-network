@@ -273,7 +273,7 @@ a.aText {
     margin: 30px 0px;
     align-self: flex-end;
 }
-.ContainerHome {
+.containerHome {
     display: flex;
     flex-direction: column;
 }
@@ -292,7 +292,9 @@ a.aText {
     text-align: center;
     margin-right: 10px;
 }
+
 /* PUBLICACIONES IMPRESAS */
+
 .myPublication {
     position: relative;
     width: 100%;
@@ -332,6 +334,7 @@ a.aText {
     gap: 10px;
     padding: 10px;
     margin-top: 10px;
+    margin-bottom: 15px;
 }
 .publications {
     width: 100%;
@@ -415,23 +418,52 @@ a.aText {
     height: 80px;
 }
 
-@media (max-width:700px) {
-
-    .rBtn {
-        width: 50%;
-
+@media screen and (max-width: 620px) {
+    .logo {
+        width: 168px;
     }
-
-    .three {
-        width: 80%;
+    .logoL {
+        width: 230px;
     }
-
-    .two {
-        width: 80%;
+    .logoR {
+        width: 248px;
     }
-
-    .four {
-        width: 80%;
+    .homeImage {
+        margin: 16px 0 40px 15px;
     }
-
+    .line {
+        margin: 0 14px 20px;
+    }
+    .fields {
+        margin: 0 20px;
+    }
+    .commentField {
+        width: 330px;
+    }
+    .containerHome {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 330px;
+        margin: 0 20px 0 20px;
+    }
+    #homeLogo {
+        width: 90px;
+        height: auto;
+        margin-right: 10px;
+    }
+    #signOffBtn {
+        font-size: 15px;
+    }
+    .publicationContainer {
+        margin-bottom: 15px;
+    }
+    .partOne {
+        width: 330px;
+        margin: 80px 10px 0px 20px;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: space-between;
+    }
 }

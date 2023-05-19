@@ -1,4 +1,4 @@
-// import { registerLogic } from "../src/lib/registerLogic.js";//
+import { registerLogic } from "../src/lib/registerLogic.js";//
 import { register } from "../src/pages/register.js";
 
 describe("register", () => {
@@ -11,6 +11,7 @@ describe("register", () => {
         const content = document.createElement("main");
         content.id = "content";
         document.body.append("content");
+        // eslint-disable-next-line no-undef
         jest.spyOn(register).mockImplementation(() => Promise.resolve({ displayName: "carol", email: "carolrobleseduc@gmail.com", password: "123456" }));
         content.append(register());
         const name = content.querySelector("#userNameRegister");

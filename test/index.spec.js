@@ -1,46 +1,34 @@
-// /**
-//  * @jest-environment jsdom
-//  */
-// import "firebase/firestore";
-// import "firebase/auth";
-// import { auth } from "../src/firebase/configuration.js";
-// import { homeLogic } from "../src/lib/index.js";
+import { home } from "../src/pages/home.js";
 
-// describe("homeLogic", () => {
-//     test("Debe verificar el contenedor y los elementos HTML necesarios", () => {
-//         const container = document.createElement("DIV");
-//         container.innerHTML = `
-//         <textarea id="commentField"></textarea>
-//         <button id="publishBtn"></button>
-//         <div id="publications"></div>
-//         <button id="signOffBtn"></button>
-//         <span id="userName"></span>
-//       `;
+describe("home", () => {
+    // Simular un usuario en el localStorage antes de ejecutar las pruebas
+    beforeAll(() => {
+        const user = { displayName: "John Doe" };
+        window.localStorage.setItem("user", JSON.stringify(user));
+    });
 
-//         const user = { displayName: "John Doe" };
-//         window.localStorage.setItem("user", JSON.stringify(user));
+    // Limpiar el localStorage después de ejecutar las pruebas
+    afterAll(() => {
+        window.localStorage.removeItem("user");
+    });
 
-//         const signOutMock = jest.fn();
-//         const signOutSpy = jest.spyOn(auth, "signOut").mockImplementation(signOutMock);
+    test("Debe representar el componente de inicio", () => {
+        const container = home();
 
-//         delete window.location;
-//         window.location = { href: "" };
+        expect(container.classList.contains("contentLR")).toBe(true);
 
-//         homeLogic(container);
+        const signOffBtn = container.querySelector("#signOffBtn");
+        const userName = container.querySelector("#userName");
+        const commentField = container.querySelector("#commentField");
+        const publishBtn = container.querySelector("#publishBtn");
+        const publications = container.querySelector("#publications");
+        const user = JSON.parse(window.localStorage.getItem("user"));
+        userName.textContent = user && user.displayName ? user.displayName : "";
 
-//         expect(container.querySelector("#commentField")).toBeTruthy();
-//         expect(container.querySelector("#publishBtn")).toBeTruthy();
-//         expect(container.querySelector("#publications")).toBeTruthy();
-//         expect(container.querySelector("#signOffBtn")).toBeTruthy();
-//         expect(container.querySelector("#userName")).toBeTruthy();
-//         expect(container.querySelector("#userName").textContent).toBe(user.displayName);
-
-//         container.querySelector("#signOffBtn").click();
-//         expect(signOutMock).toHaveBeenCalled();
-
-//         expect(window.location.href).toBe("welcome");
-
-//         signOutSpy.mockRestore();
-//         window.location = undefined;
-//     });
-// });
+        expect(signOffBtn).toBeTruthy();
+        expect(userName).toBeTruthy();
+        expect(commentField).toBeTruthy();
+        expect(publishBtn).toBeTruthy();
+        expect(publications).toBeTruthy();
+    });
+});

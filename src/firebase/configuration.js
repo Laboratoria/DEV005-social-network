@@ -76,6 +76,7 @@ const googleSign = () => new Promise((resolve, reject) => {
         })
         .catch((error) => {
             const errorMessage = error.message;
+            // eslint-disable-next-line no-console
             reject(console.error(errorMessage));
         });
 });

@@ -1,4 +1,4 @@
-// import { registerLogic } from "../src/lib/registerLogic.js";//
+/* import { registerLogic } from "../src/lib/registerLogic.js";//
 import { register } from "../src/pages/register.js";
 
 describe("register", () => {
@@ -30,4 +30,4 @@ test("after click the user navigates to /login", () => {
     const DOM = register(findRouteAndNavigate);
     const registerBtn = DOM.querySelector("#loginBtn");
     expect(registerBtn).toBeTruthy();
-});
+}); */

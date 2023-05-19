@@ -1,8 +1,15 @@
 // Importando las funciones necesarias de los SDK de Firebase que queremos utilizar en nuestro proyecto.
 import { initializeApp } from "firebase/app";
 import {
-    getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile, GoogleAuthProvider, signInWithPopup, signOut,
+    getAuth,
+    signInWithEmailAndPassword,
+    createUserWithEmailAndPassword,
+    updateProfile,
+    GoogleAuthProvider,
+    signInWithPopup,
+    signOut,
 } from "firebase/auth";
+
 import {
     getFirestore, collection, addDoc, getDocs, onSnapshot, updateDoc, doc, deleteDoc, arrayUnion, arrayRemove, query, orderBy,
 } from "firebase/firestore";

@@ -304,7 +304,7 @@ a.aText {
     width: 100%;
 }
 .commentField {
-    font-family: "roboto";
+    font-family: "Roboto", sans-serif;
     border: solid 2px #4ea8de;
     border-radius: 8px;
     width: 500px;

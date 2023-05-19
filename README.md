@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 # Red Social
 
 ## Índice
@@ -6,6 +8,7 @@
 -   [2. Herramientas usadas en el proyecto](#2-Herramientas-usadas-en-el-proyecto)
 -   [3. Historias de usuario](#3-historias-de-usuario)
 -   [4. Prototipado](#4-prototipado)
+-   [5. Vistas](#5-vistas)
 
 ## 1. Resumen del proyecto
 
@@ -27,10 +30,36 @@
 
 ## 4. Prototipado
 
--   Prototipo de baja fidelidad
+```sh
+ - Prototipo de baja fidelidad
+```
 
 ![prototipoBajaFidelidad](PBF.png)
 
--   Prototipo de alta fidelidad
+```sh
+- Prototipo de alta fidelidad
+
+```
 
 ![prototipoAltaFidelidad](PAF.png)
+
+## 5. Vistas
+
+```sh
+- Version desktop
+
+```
+
+![versionDesktop](VERSIOND.png)
+
+```sh
+- Version mobile
+
+```
+
+<<<<<<< HEAD
+![versionMobile](VMR.png)
+>>>>>>> d84a69af10a15b350b72ea194c94ba6f6255a55f
+=======
+![versionMobile](VERSIONM.png)
+>>>>>>> d05dd67f1489c6ce5b1268a41ba086a89c91f7a5

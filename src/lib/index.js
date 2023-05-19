@@ -1,5 +1,4 @@
 // Se importan las siguientes funciones y objetos de Firebase.
-import { signOut } from "firebase/auth";
 
 import {
     addPost, auth, deletePost, editPost, paintPostsRealTime, aboutLikes, aboutDislikes,
@@ -20,6 +19,7 @@ const homeLogic = (container) => {
 
     // Boton de salida
     signOffBtn.addEventListener("click", () => {
+        // eslint-disable-next-line no-undef
         signOut(auth);
         window.localStorage.removeItem("auth");
         window.localStorage.removeItem("user");

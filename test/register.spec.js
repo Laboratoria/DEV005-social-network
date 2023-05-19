@@ -1,15 +1,12 @@
 import { register } from "../src/pages/register.js";
 
 describe("register", () => {
-    test("should be a function", () => {
-        expect(typeof register).toBe("function");
-    });
-    test("data is collected before the click ", () => {
+    test("Los datos se recopilan antes del click", () => {
         const content = document.createElement("main");
         content.id = "content";
-        document.body.append("content");
-        // eslint-disable-next-line no-undef
-        jest.spyOn(register).mockImplementation(() => Promise.resolve({ displayName: "carol", email: "carolrobleseduc@gmail.com", password: "123456" }));
+        document.body.append(content);
+
+        // No es necesario espiar la función register en este caso
         content.append(register());
         const name = content.querySelector("#userNameRegister");
         name.value = "usernameregister";
@@ -21,11 +18,11 @@ describe("register", () => {
         expect(email).toBeTruthy();
         expect(password).toBeTruthy();
     });
-});
 
-test("after click the user navigates to /login", () => {
-    const findRouteAndNavigate = jest.fn();
-    const DOM = register(findRouteAndNavigate);
-    const registerBtn = DOM.querySelector("#loginBtn");
-    expect(registerBtn).toBeTruthy();
+    test("Después de hacer clic, el usuario navega a /login", () => {
+        const findRouteAndNavigate = jest.fn();
+        const DOM = register(findRouteAndNavigate);
+        const registerBtn = DOM.querySelector("#loginBtn");
+        expect(registerBtn).toBeTruthy();
+    });
 });

@@ -1,12 +1,9 @@
-import { registerLogic } from "../src/lib/registerLogic.js";//
 import { register } from "../src/pages/register.js";
 
 describe("register", () => {
     test("should be a function", () => {
         expect(typeof register).toBe("function");
     });
-// eslint-disable-next-line jest/no-identical-title
-}); describe("register", () => {
     test("data is collected before the click ", () => {
         const content = document.createElement("main");
         content.id = "content";

@@ -1,3 +1,6 @@
+import logo from "../img/logo.svg";
+import google from "../img/google.svg";
+
 import { loginLogic } from "../lib/loginLogic";
 
 // Declara una constante llamada "login" que es igual a una función flecha con un parámetro llamado "findRouteAndNavigate"
@@ -30,7 +33,7 @@ const login = (findRouteAndNavigate) => {
             </div>
             <div class="loginGmailBtn">
                 <button id="loginGmailBtn" class="lGmailBtn">
-                    <img src="./img/google.svg" value="iniciarGoogle" alt="google" class="imgGoogle" />
+                    <img src="../img/google.svg" value="iniciarGoogle" alt="google" class="imgGoogle" />
                     Acceder con Google
                 </button>
             </div>
@@ -58,3 +61,4 @@ const login = (findRouteAndNavigate) => {
 
 // Exporta la función "login" para que pueda ser utilizada en otros módulos
 export { login };
+export { logo, google };

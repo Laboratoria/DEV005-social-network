@@ -1,3 +1,5 @@
+import errorOutline from "../img/errorOutline.svg";
+
 // Declara una constante llamada "error" que es igual a una función flecha sin parámetros
 const error = () => {
     // Crea un elemento HTML <section> y lo guarda en una constante llamada "container"
@@ -24,3 +26,4 @@ const error = () => {
 
 // Exporta la función "error" para que pueda ser utilizada en otros módulos
 export { error };
+export { errorOutline };

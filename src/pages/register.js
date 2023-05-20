@@ -1,4 +1,5 @@
-import { registerLogic } from "../lib/registerLogic";
+import { registerLogic } from "../lib/registerLogic.js";
+import logo from "../img/logo.svg";
 
 // Define una función "register" que toma un argumento "findRouteAndNavigate"
 const register = (findRouteAndNavigate) => {
@@ -58,3 +59,4 @@ const register = (findRouteAndNavigate) => {
 
 // Exporta la función "register" para que se pueda importar y utilizar en otros archivos
 export { register };
+export { logo };

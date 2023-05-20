@@ -1,5 +1,9 @@
 import { register } from "../src/pages/register.js";
 
+jest.mock("../src/pages/img.js", () => ({
+    logo: "",
+}));
+
 describe("register", () => {
     test("Los datos se recopilan antes del click", () => {
         const content = document.createElement("main");

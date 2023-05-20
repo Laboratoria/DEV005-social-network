@@ -1,4 +1,7 @@
+// import { signOut } from "firebase/auth";
 import { homeLogic } from "../lib/index.js";
+import iconSignOut from "../img/iconSignOut.svg";
+import logoHome from "../img/logoHome.svg";
 // Declara una constante llamada "home" que es igual a una función flecha sin parámetros
 const home = () => {
     // Crea un elemento HTML <section> y lo guarda en una constante llamada "container"
@@ -17,7 +20,7 @@ const home = () => {
                 </button>
             </div>
             <div class="logoHome">
-                <img id="homeLogo" src="./img/logoHome.svg" alt="logo SportX" />
+            <img id="homeLogo" src="../img/logoHome.svg" alt="logo SportX" />
             </div>
         </div>
         <div class="containerHome">
@@ -43,3 +46,4 @@ const home = () => {
 };
 // Exporta la función "home" para que pueda ser utilizada en otros módulos
 export { home };
+export { iconSignOut, logoHome };

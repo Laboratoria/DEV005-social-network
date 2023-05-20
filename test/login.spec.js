@@ -1,5 +1,10 @@
 import { login } from "../src/pages/login.js";
 
+jest.mock("../src/pages/img.js", () => ({
+    logo: "",
+    google: "",
+}));
+
 describe("login", () => {
     test("Debe representar el componente de inicio de sesión", () => {
         // Llama a la función login para obtener el contenedor

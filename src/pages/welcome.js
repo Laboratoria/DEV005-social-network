@@ -1,3 +1,6 @@
+import sports from "../img/sports.svg";
+import logo from "../img/logo.svg";
+
 // Define una función llamada 'welcome' que recibe un argumento llamado 'findRouteAndNavigate'
 const welcome = (findRouteAndNavigate) => {
     // Crea un elemento 'section' en el DOM y lo guarda en la variable 'container'
@@ -45,3 +48,4 @@ const welcome = (findRouteAndNavigate) => {
 
 // Exporta la función 'welcome' para que pueda ser utilizada en otros módulos
 export { welcome };
+export { sports, logo };

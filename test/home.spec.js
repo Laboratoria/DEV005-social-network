@@ -1,5 +1,16 @@
 import { home } from "../src/pages/home.js";
 
+jest.mock("../src/pages/img.js", () => ({
+    logo: "",
+    iconSignOut: "",
+    logoHome: "",
+    iconEdit: "",
+    iconDelete: "",
+    grayLike: "",
+    redLike: "",
+    checkEdit: "",
+}));
+
 describe("home", () => {
     // Simular un usuario en el localStorage antes de ejecutar las pruebas
     beforeAll(() => {

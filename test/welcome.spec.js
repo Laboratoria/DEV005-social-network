@@ -1,5 +1,10 @@
 import { welcome } from "../src/pages/welcome.js";
 
+jest.mock("../src/pages/img.js", () => ({
+    sports: "",
+    logo: "",
+}));
+
 describe("welcome", () => {
     test("Debe representar el componente de bienvenida", () => {
         // Llama a la función welcome para obtener el contenedor

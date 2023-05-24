@@ -10,6 +10,7 @@ import {
   serverTimestamp,
   arrayRemove,
   arrayUnion,
+  getFirestore,
 
 } from 'firebase/firestore';
 import { db } from './index.js';
@@ -59,20 +60,32 @@ export const giveLike = (id, email, onFinish) => {
     const like = post.like || [];
     console.log(`likedBy : ${like}`);
     let newCount;
+    let giveLikeMode;
 
     if (like.includes(email)) {
       await updateDoc(postRef, {
         like: arrayRemove(email),
       });
       newCount = like.length - 1;
+      giveLikeMode = 'REMOVE_LIKE';
     } else {
       await updateDoc(postRef, {
         like: arrayUnion(email),
       });
       newCount = like.length + 1;
+      giveLikeMode = 'ADD_LIKE';
     }
     console.log('contador de likes:', newCount);
-    onFinish(newCount);
+
+    onFinish(newCount, giveLikeMode);
   };
   foo();
 };
+// Likes
+// export const updateLike = (id, uid) => updateDoc(doc(getFirestore(), 'task', id), {
+//   likes: arrayUnion(uid),
+// });
+
+// export const removeLike = (id, uid) => updateDoc(doc(getFirestore(), 'task', id), {
+//   likes: arrayRemove(uid),
+// });

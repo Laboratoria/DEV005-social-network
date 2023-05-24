@@ -8,20 +8,18 @@ function reguistro(navigateTo) {
 
   const form = document.createElement('form');
   form.className = 'fomRegister';
-  // const labelEmail = registerContainer.querySelector('#label-email');
   const email = registerContainer.querySelector('#email');
-  // const labelPassword = registerContainer.querySelector('#label-password');
+
   const password = registerContainer.querySelector('#password');
   const confirPassword = registerContainer.querySelector('#password-reconfirmacion');
   const loginCorreoBtn = registerContainer.querySelector('#loginBtn');
-
   form.append(email, password, confirPassword, loginCorreoBtn);
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const onFinishRegister = (isSuccess) => {
-      if (isSuccess) {
-        navigateTo('/welcome'); //funciona pero no me lleva a la ruta que quiero al reguistrar
+      if (isSuccess === true) {
+        navigateTo('/welcome');
       }
     };
     signInNewAccount(email.value, password.value, onFinishRegister);

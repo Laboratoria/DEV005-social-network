@@ -35,7 +35,6 @@ button{
     font-weight: bolder;
     width: 350px;
     height: 40px;
-    background: var(--var-font-white);
     border: 3px solid var(--var-color-buton);
     border-radius: 5px;
     padding: 0 1rem;
@@ -179,23 +178,21 @@ input{
     margin-inline-end: 0px;
 }
 .btn-google button{
-    margin-top: 15px;
+    margin: 15px 0px 0px 0px;
     width: 100%;
     height: 55px;
     border-radius: 100px;
     padding: none;
     border:none;
-    margin: none;
     background-color: var(--var-font-white);
 }
 .btn-github button{
-    margin-top: 15px;
     width: 100%;
     height: 55px;
     border-radius: 100px;
     padding: none;
     border:none;
-    margin: none;
+    margin: 15px 0px 0px 0px;
     background-color: var(--var-font-white);
 
 }
@@ -328,23 +325,21 @@ input{
         margin-inline-end: 0px;
     }
     .btn-google button{
-        margin-top: 10px;
         width: 100%;
         height: 55px;
         border-radius: 100px;
         padding: none;
         border:none;
-        margin: none;
+        margin:10px 0px 0px 0px;
         background-color: var(--var-font-white);
     }
     .btn-github button{
-        margin-top: 10px;
         width: 100%;
         height: 55px;
         border-radius: 100px;
         padding: none;
         border:none;
-        margin: none;
+        margin: 10px 0px 0px 0px;
         background-color: var(--var-font-white);
     
     }
@@ -358,7 +353,6 @@ input{
     }
     /*boton crear cuenta*/
     .create-account-login{
-        background-color: var(--var-font-white);
         display: flex;
         width: 100%;
         height: 10%;
@@ -433,7 +427,6 @@ input{
 }
 
 .fomRegister{
-    padding-top: 15px;
     width: 100%;
     height: 60%;
     padding-top: 20px;
@@ -483,7 +476,6 @@ input{
     font-weight: bolder;
     width: 350px;
     height: 40px;
-    background: var(--var-color-box);
     border: 3px solid var(--var-color-buton);
     border-radius: 25px;
     padding: 0 1rem;
@@ -523,7 +515,6 @@ input{
     cursor: pointer;
 }
 .title-welcome{
-    position: ;
     justify-content: space-between;
     font-size: 2em;
     margin: 20px;
@@ -587,12 +578,13 @@ input{
     margin: 0px;
     box-shadow: none;
 }
+
 .header-home button ion-icon {
     color: var(--var-font-white);
     font-size: 65px;
     text-shadow: 1px 1px 1px var(--var-font-black);
 }
-.header-home button ion-icon:hover{
+.exitBtn ion-icon:hover{
     color: var(--var-font-white);
     font-size: 55px;
     transition: 1s;
@@ -684,30 +676,37 @@ input{
     color: var(--var-letras-claras);
     text-shadow: 1px 1px 1px var(--var-font-black);
 }
-.box-header-post button{
+.btn-close-post{
     width: 15%;
     height: 100%;
-    margin-top: 0px;
-    margin: 0px;
+    margin: 0px 0px 0px 0px;
     color: var(--var-font-white);
     border: none;
     border-radius: 0px;
     display: flex;
+    font-size: 3em;
     align-items: center;
     justify-content: center;
     padding: 0 0rem;
     box-shadow: none;
     background-color: var(--var-color-box);
 }
-.box-header-post button:hover{
+.btn-close-post:active{
     background-color: var(--var-color-buton);
 }
-.box-header-post button ion-icon{
+.exitBtn {
     color: var(--var-font-white);
-    padding: 0px;
-    font-weight: bolder;
-    font-size: 50px;
+    font-size: 46px;
+    text-shadow: 1px 1px 1px var(--var-font-black);
 }
+.exitBtn:hover{
+    color: var(--var-font-white);
+    font-size: 40px;
+    transition: 1s;
+    transform: rotate(90deg);
+    text-shadow: 1px 1px 1px var(--var-font-black);
+}
+
 
 
 .box-post{
@@ -748,7 +747,6 @@ input{
     border-radius: 5px;
 }
 .task-form button{
-    margin-bottom:15px;
     width: 100px;
     height: 45px;
     background: var(--var-color-buton);
@@ -757,7 +755,7 @@ input{
     color: var(--var-font-white);
     padding: 0 1rem;
     font-size: 12px;
-    margin: 25px;
+    margin: 25px 25px 15px 25px;
 }
 
 /*post posteados*/
@@ -772,7 +770,6 @@ input{
     top: 26.8%;
     position: absolute;
     visibility: visible;
-    width: 100vw;
     right: 0px;
     width: 100%;
     display: flex;
@@ -805,7 +802,7 @@ input{
 }
 .title-posts{
     width: 59%;
-    margin-left: 15px ;
+    margin: px 0px 0px 15px;
     display: flex;
     flex-flow: row wrap;
 }
@@ -827,7 +824,7 @@ input{
     margin-left: 3px;
     margin-right:3px;
 }
-.image-profile-usuary img{
+.image-profile-post{
     height: 100%;
     width: 100%;
     margin-right: 10px;
@@ -843,13 +840,12 @@ input{
     justify-content: center;
     pointer-events: auto;
 }
-.text-select ion-icon{
+.select-icon{
     color: var(--var-color-buton);
     position: absolute;
     z-index: 50;
     pointer-events: none;
     background-color: #ffffff; 
-    
     border-radius: 8px;   
     width: 50px;
     height: 50px;
@@ -864,7 +860,7 @@ input{
 
 .box-button-selct{
     border: 20px;
-    margin-top:18px;
+    margin: 18px 0px 0px 0px;
     position: absolute;
     width: 30px;
     height:30px;
@@ -885,13 +881,12 @@ input{
     align-items: end;
 }
 .btn-edit{
-    margin-top: 15px;
+    margin: 15px 0px 0px 0px;
     color: var(--var-font-white);
 
     font-weight: bolder;
     width: 90%;
     height: 25px;
-    background: var(--var-font-white);
     border: 3px solid var(--var-color-border);
     border-radius: 5px;
     padding: 0 1rem;
@@ -910,7 +905,6 @@ input{
     font-weight: bolder;
     width: 90%;
     height: 25px;
-    background: var(--var-font-white);
     border: 3px solid var(--var-color-border);
     border-radius: 5px;
     padding: 0 1rem;
@@ -924,7 +918,7 @@ input{
 
 .box-result{
     width: 100%;
-    margin-top: 5px;
+    margin: 5px 0px 0px 0px;
     display: flex;
     flex-flow: column wrap;
     align-items: center;
@@ -950,9 +944,7 @@ input{
 
 /* Animación Like */
 .btn-like {
-    background: url(./img/animacion-like-twitter.png);
     background-position: left;
-    background-repeat: no-repeat;
     height: 50px;
     width: 50px;
     cursor: pointer;
@@ -960,48 +952,15 @@ input{
     left: -10px;
     background-size: 1450px;
     transition: transform 0.2s;
-    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
   }
   
   .btn-like.clicked {
     transform: scale(1.2);
   }
-  /* 
-  
-  @-webkit-keyframes heartBlast {
-    0% {
-      background-position: left;
-    }
-    100% {
-      background-position: right;
-    }
-  }
-  
-  @keyframes heartBlast {
-    0% {
-      background-position: left;
-    }
-    100% {
-      background-position: right;
-    }
-  }
-  */
-  .heartAnimation {
-   -webkit-animation-name: heartBlast;
-    animation-name: heartBlast; 
-    -webkit-animation-duration: 0.8s;
-    animation-duration: 0.8s;
-    -webkit-animation-iteration-count: 1;
-    animation-iteration-count: 1;
-    -webkit-animation-timing-function: steps(28);
-    animation-timing-function: steps(28);
-    background-position: right;
-  }
-  /*
-  .hidden {
-    display: none;
-  } */
-
 
 
 
@@ -1065,17 +1024,17 @@ input{
         height: 50px;
         padding: 0px;
         border:0px;
-        margin: 0px;
         box-shadow: none;
-        margin: 0px 13px;
+        margin-top: -5px;
+        margin-right: 20px;
         background-color: var(--var-color-box);
     }
-    .header-home button ion-icon {
+    .exitBtn {
         color: var(--var-font-white);
-        font-size: 46px;
+        font-size: 30px;
         text-shadow: 1px 1px 1px var(--var-font-black);
     }
-    .header-home button ion-icon:hover{
+    .exitBtn:hover{
         color: var(--var-font-white);
         font-size: 40px;
         transition: 1s;
@@ -1090,18 +1049,15 @@ input{
             justify-content: space-evenly;
             flex-flow: row wrap;
             align-items: center;
-            background-color: red;
     }
     .btn-post-major{
             width: 90%;
-            margin-top: 0px;
             background: var(--var-font-white);
             border: 3px solid var(--var-color-border);
             border-radius: 25px;
             color: var(--var-font-black);
             font-size: 12px;
             box-shadow: none;
-            margin-left: none;
             height: 50px;
     }
     .btn-post-major:active{
@@ -1140,7 +1096,6 @@ input{
         height: 100vh;
     }
     .post-usuary{
-        margin-top: -40%;
         box-shadow: 4px 4px 7px var(--var-font-black);
         outline: 100vh solid  #cacacaab;
         width: 80%;
@@ -1159,6 +1114,7 @@ input{
     .box-header-post h3{
         width: 50%;
         height: 100%;
+        margin: 0px;
         text-align: center;
         display: flex;
         align-items: center;
@@ -1166,30 +1122,31 @@ input{
         color: var(--var-letras-claras);
         text-shadow: 1px 1px 1px var(--var-font-black);
     }
-    .box-header-post button{
+    .btn-close-post{
         width: 15%;
         height: 100%;
-        margin-top: 0px;
-        margin: 0px;
+        margin: 0px 0px 0px 0px;
         color: var(--var-font-white);
         border: none;
         border-radius: 0px;
         display: flex;
+        font-size: 3em;
         align-items: center;
         justify-content: center;
         padding: 0 0rem;
         box-shadow: none;
         background-color: var(--var-color-box);
     }
-    .box-header-post button:hover{
+    .btn-close-post:active{
         background-color: var(--var-color-buton);
     }
-    .box-header-post button ion-icon{
+
+    /* .box-header-post button ion-icon{
         color: var(--var-font-white);
         padding: 0px;
         font-weight: bolder;
         font-size: 50px;
-    }
+    } */
     
     
     .box-post{
@@ -1229,8 +1186,7 @@ input{
         border: 3px solid var(--var-color-border);
         border-radius: 5px;
     }
-    .task-form button{
-        margin-bottom:15px;
+    .task-save{
         width: 100px;
         height: 45px;
         background: var(--var-color-buton);
@@ -1239,7 +1195,7 @@ input{
         color: var(--var-font-white);
         padding: 0 1rem;
         font-size: 12px;
-        margin: 25px;
+        margin: 25px 25px 15px 25px;
     }
     
     /*post posteados*/
@@ -1276,7 +1232,7 @@ input{
     }
     .title-posts{
         width: 68%;
-        margin-left: 5px ;
+        margin: 0px 0px 0px 5px;
         display: flex;
         flex-flow: row wrap;
     }
@@ -1295,39 +1251,18 @@ input{
         width: 50px;
         height: 50px;
         border-radius:100px; 
+        margin: 0px 3px 0px 3px;
         margin-left: 3px;
         margin-right:3px;
     }
-    .image-profile-usuary img{
+    .image-profile-post{
         height: 100%;
         width: 100%;
-        margin-right: 10px;
+        margin: 0px 10px 0px 0px;
         object-fit: cover;
     }
     
-    .text-select{
-        width: 30%;
-        font-size: 0px;
-        display: flex;
-        margin-right: 1px ;
-        flex-flow: row-reverse;
-        justify-content: center;
-        pointer-events: auto;
-    }
-    .text-select ion-icon{
-        color: var(--var-font-white);
-        /* position: absolute; */
-        z-index: 50;
-        pointer-events: none;
-        background-color: var(--var-color-border); 
-        border-radius: 8px;   
-        width: 45px;
-        height: 40px;
-        margin-left: 2%;
-        margin-top: 1%;
-    }
-    
-    
+ 
     .text-select{
         width: 30%;
         font-size: 10px;
@@ -1336,9 +1271,10 @@ input{
         justify-content: center;
         pointer-events: auto;
     }
-    .text-select ion-icon{
-        color: var(--var-color-buton);
+    .select-icon{
         position: absolute;
+        right: 17px;
+        color: var(--var-color-buton);
         z-index: 50;
         pointer-events: none;
         background-color: var(--var-font-white); 
@@ -1355,7 +1291,7 @@ input{
     
     .box-button-selct{
         border: 20px;
-        margin-top: 6px;
+        margin: 6px 0px 0px 0px;
         position: absolute;
         width: 30px;
         height:30px;
@@ -1379,7 +1315,6 @@ input{
         font-weight: bolder;
         width: 90%;
         height: 25px;
-        background: var(--var-font-white);
         border: 3px solid var(--var-color-border);
         border-radius: 5px;
         padding: 0 1rem;
@@ -1392,13 +1327,12 @@ input{
         background-color: var(--var-color-buton);
     }
     .btn-delete{
+        margin: 5px 0px 0px 0px;
         box-shadow: none;
-        margin-top: 5px;
         color: var(--var-font-white);
         font-weight: bolder;
         width: 90%;
         height: 25px;
-        background: var(--var-font-white);
         border: 3px solid var(--var-color-border);
         border-radius: 5px;
         padding: 0 1rem;
@@ -1416,10 +1350,12 @@ input{
     }
     .box-result{
         width: 100%;
-        margin-top: 5px;
+        margin: 5px 0px 0px 0px;
         display: flex;
         flex-flow: column wrap;
         align-items: center;
+        height: 100%;
+
     }
     .box-result div{
         width: 90%;
@@ -1429,24 +1365,23 @@ input{
     .box-likes{
         width: 100%;
         display: flex;
-        flex-flow: row wrap;
+        height: 50px;
+        flex-flow: column wrap;
         justify-content: right;
-        align-items: center;
+        align-items: end;
         padding: 10px;
     }
-    /*boton de likes*/
-    .box-likes button{
-        margin-top: 0px;
-        color: var(--var-font-white);
-        font-weight: bolder;
+    .btn-like{
+        background-position: left;
+        height: 50px;
         width: 50px;
-        height: 30px;
-        text-align: center;
-        padding: 0px;
-        border: none;
-        border-radius: 5px;
-        font-size:15px;
-    }
+        cursor: pointer;
+        left: 0px;
+        margin: -5px 0px 50px 0px;
+        background-size: 0px;
+        transition: transform 0s;
+        font-size: 40px;    }
+    /*boton de likes*/
     .number-like{
         text-align: center;
         font-size: 19px;

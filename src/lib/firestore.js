@@ -10,7 +10,6 @@ import {
   serverTimestamp,
   arrayRemove,
   arrayUnion,
-  getFirestore,
 
 } from 'firebase/firestore';
 import { db } from './index.js';

@@ -1,5 +1,4 @@
 import { welcomeTemplate } from '../template/welcome-template';
-import { validarRutaLogin } from '../utilitaries/ruteo';
 import { googleLogout } from '../lib/auth';
 
 function welcome(navigateTo) {

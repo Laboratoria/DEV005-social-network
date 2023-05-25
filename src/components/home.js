@@ -1,4 +1,3 @@
-import { async } from 'regenerator-runtime';
 import { googleLogout, getUserLogged } from '../lib/auth';
 import { validarRutaHome } from '../utilitaries/ruteo';
 import { homeTemplate } from '../template/home-template';
@@ -15,7 +14,7 @@ function home(navigateTo) {
 
   // boton de cerrar sesicion
   const gogleBtn = sectionHome.querySelector('#exitBtn');
-  gogleBtn.addEventListener('click', async () => {
+  gogleBtn.addEventListener('click', () => {
     googleLogout();
   });
 
@@ -73,14 +72,14 @@ function home(navigateTo) {
                   <div class="overlay"></div>
                    <div class="box-profile-post">
                       <div class="title-posts">
-                          <div class="image-profile-usuary"><img src="../img/Laboratoria projects 6 6.png"></div>
+                          <div class="image-profile-usuary"><img class="image-profile-post" src="../img/Laboratoria projects 6 6.png"></div>
                           <span class="name-usuary" id="email">${tasks.user.email}</span>
                       </div>
                       <div id="botones" class="text-select">
-                              <ion-icon name="ellipsis-horizontal-outline"></ion-icon>
+                              <ion-icon class="select-icon" name="ellipsis-horizontal-outline"></ion-icon>
                               <div class="box-button-selct">
                                 <button data-id="" id="btn-edit" class="btn-edit">edit</button>
-                                <button data-id="" class="btn-delete" id="btn-delete">delete</button>
+                                <button data-id="${doc.id}" class="btn-delete" id="btn-delete">delete</button>
                               </div>
   
                       </div>
@@ -90,8 +89,10 @@ function home(navigateTo) {
                       <div class="result-comment" id="description">${tasks.description}</div>
                   </div>
                   <div class="box-likes">
-                  <div class="btn-like" id="btn-like"></div>
-                  <p class="number-like" id="number-like" style="background-color:${tasks.like.length === 0 ? 'red' : 'blue'}"></p>
+                  <div class="btn-like" id="btn-like">
+                  <ion-icon name="heart-outline"></ion-icon>
+                  </div>
+                  <p class="number-like" id="number-like" style="color:${tasks.like.length === 0 ? '#ffffff00' : '#000'}"></p>
                   </div>
               </div>
           `;
@@ -120,7 +121,7 @@ function home(navigateTo) {
           cardEmail.textContent = `${task.user.email}`;
           cardTitle.textContent = `${task.title}`;
           cardDescription.textContent = `${task.description}`;
-          cardLikes.textContent = `likes: ${task.like.length}`;
+          cardLikes.textContent = `${task.like.length}`;
 
           // funcion de likes
           cardBtnLike.addEventListener('click', (e) => {
@@ -173,11 +174,11 @@ function home(navigateTo) {
   // lee el lhtml de posteat
   btnTaskForm.addEventListener('click', (e) => {
     e.preventDefault();
+    console.log('click edit: ');
     if (title.value.trim() === '' && description.value.trim() === '') {
       BoxEmpty.textContent = 'the field title and description is empty';
       BoxEmpty.style.color = 'red';
       BoxEmpty.style.display = 'block';
-      e.stopPropagation();
       console.log('llego hasta aqui');
       return;
     }
@@ -185,7 +186,6 @@ function home(navigateTo) {
       BoxEmpty.textContent = 'the field title is empty';
       BoxEmpty.style.color = 'red';
       BoxEmpty.style.display = 'block';
-      e.stopPropagation();
       console.log('llego hasta aqui');
       return;
     }
@@ -193,7 +193,6 @@ function home(navigateTo) {
       BoxEmpty.textContent = 'the field description is empty';
       BoxEmpty.style.color = 'red';
       BoxEmpty.style.display = 'block';
-      e.stopPropagation();
       console.log('llego hasta aqui');
       return;
     }
@@ -214,9 +213,7 @@ function home(navigateTo) {
   });
 
   // rutas de validacion
-  validarRutaHome(navigateTo, (isLogged) => {
-    if (isLogged) {}
-  });
+  validarRutaHome(navigateTo, () => {});
   return sectionHome;
 }
 

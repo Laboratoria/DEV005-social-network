@@ -65,14 +65,10 @@ const googleLogout = async () => {
 const signInNewAccount = async (email, password, onFinishRegister) => {
   // función registrarse
   await createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-    // Signed in
-      const user = userCredential.user;
+    .then(() => {
       onFinishRegister(true);
     })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
+    .catch(() => {
       onFinishRegister(false);
     });
 };

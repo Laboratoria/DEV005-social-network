@@ -11,11 +11,11 @@ function validarRutaHome(navigateTo, onSessionActive) {
 
 function validarRutaLogin(navigateTo, onSessionActive) {
   const callback = (isLogged) => {
-      onSessionActive(isLogged);
-      if (isLogged) {
-        navigateTo('/');
-      }
+    onSessionActive(isLogged);
+    if (isLogged) {
+      navigateTo('/');
     }
+  };
   validateSession(callback);
 }
 

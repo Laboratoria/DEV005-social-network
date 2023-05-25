@@ -21,7 +21,7 @@ const root = document.getElementById('root');
 
 function navigateTo(hash) {
   const route = routes.find((routeFound) => routeFound.path === hash);
-  console.log("heko " + route.path);
+  console.log(`heko ${route.path}`);
 
   if (route && route.componentes) {
     window.history.pushState(

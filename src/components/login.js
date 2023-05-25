@@ -88,17 +88,11 @@ function login(navigateTo) {
   });
 
   /**
-   *Funcion de la animacion del librito
-   */
-  // Obtener referencia al elemento del icono
-  const icon = document.getElementsByClassName('.img-login');
-
-  /**
   * Funcion para llevar a la ruta de registrado ---
   */
   const crearCuentaBtn = sectionLogin.querySelector('#create-accoun');
   crearCuentaBtn.addEventListener('click', async () => navigateTo('/register'));
-  validarRutaLogin(navigateTo, (isLogged) => {});
+  validarRutaLogin(navigateTo, () => {});
 
   return sectionLogin;
 }
